@@ -442,39 +442,39 @@ External integrations (Amavisd, iRedAPD) connect to their own databases via dedi
 
 ### Database Connections
 
-| Connection            | Database    | Purpose                                            |
-|-----------------------|-------------|----------------------------------------------------|
-| `MysqlConnection`     | `vmail`     | Mail domains, users, admins, aliases, BCC, relay   |
-| `PgsqlConnection`     | `vmail`     | Same as MySQL (PostgreSQL variant)                 |
+| Connection            | Database    | Purpose                                                        |
+|-----------------------|-------------|----------------------------------------------------------------|
+| `MysqlConnection`     | `vmail`     | Mail domains, users, admins, aliases, BCC, relay               |
+| `PgsqlConnection`     | `vmail`     | Same as MySQL (PostgreSQL variant)                             |
 | `IredadminConnection` | `iredadmin` | Activity logging, domain ownership, newsletter, panel settings |
-| `AmavisdConnection`   | `amavisd`   | Quarantine, mail log, spam policy, white/blacklist |
-| `IredapdConnection`   | `iredapd`   | Throttle, greylisting, rDNS, SenderScore           |
+| `AmavisdConnection`   | `amavisd`   | Quarantine, mail log, spam policy, white/blacklist             |
+| `IredapdConnection`   | `iredapd`   | Throttle, greylisting, rDNS, SenderScore                       |
 
 ### Repository Interfaces (22)
 
-| Interface                            | Purpose                           |
-|--------------------------------------|-----------------------------------|
-| `AuthRepositoryInterface`            | Authentication + RBAC             |
-| `DomainRepositoryInterface`          | Domain CRUD                       |
-| `UserRepositoryInterface`            | User CRUD + rename                |
-| `AdminRepositoryInterface`           | Admin CRUD + resource limits      |
-| `ForwardingRepositoryInterface`      | Email forwarding                  |
-| `QuotaRepositoryInterface`           | Used quota queries                |
-| `DashboardRepositoryInterface`       | Dashboard statistics              |
-| `DomainAliasRepositoryInterface`     | Domain alias CRUD                 |
-| `DeletedMailboxRepositoryInterface`  | Deferred mailbox deletion         |
-| `AliasRepositoryInterface`           | Mail alias + catch-all + per-user |
-| `BccRepositoryInterface`             | Domain/user BCC settings          |
-| `RelayRepositoryInterface`           | Sender-dependent relay            |
-| `MailingListRepositoryInterface`     | Mailing list CRUD + owners        |
-| `SpamPolicyRepositoryInterface`      | Spam thresholds per account       |
-| `WhiteBlacklistRepositoryInterface`  | Inbound/outbound white/blacklist  |
-| `LastLoginRepositoryInterface`       | Dovecot last login tracking       |
-| `SearchRepositoryInterface`          | Global search                     |
-| `DomainOwnershipRepositoryInterface` | DNS domain verification           |
-| `AmavisdRepositoryInterface`         | Quarantine and mail log           |
-| `IredapdRepositoryInterface`         | Throttle, greylist, rDNS, SS      |
-| `ApiKeyRepositoryInterface`          | DB-backed API key management      |
+| Interface                            | Purpose                              |
+|--------------------------------------|--------------------------------------|
+| `AuthRepositoryInterface`            | Authentication + RBAC                |
+| `DomainRepositoryInterface`          | Domain CRUD                          |
+| `UserRepositoryInterface`            | User CRUD + rename                   |
+| `AdminRepositoryInterface`           | Admin CRUD + resource limits         |
+| `ForwardingRepositoryInterface`      | Email forwarding                     |
+| `QuotaRepositoryInterface`           | Used quota queries                   |
+| `DashboardRepositoryInterface`       | Dashboard statistics                 |
+| `DomainAliasRepositoryInterface`     | Domain alias CRUD                    |
+| `DeletedMailboxRepositoryInterface`  | Deferred mailbox deletion            |
+| `AliasRepositoryInterface`           | Mail alias + catch-all + per-user    |
+| `BccRepositoryInterface`             | Domain/user BCC settings             |
+| `RelayRepositoryInterface`           | Sender-dependent relay               |
+| `MailingListRepositoryInterface`     | Mailing list CRUD + owners           |
+| `SpamPolicyRepositoryInterface`      | Spam thresholds per account          |
+| `WhiteBlacklistRepositoryInterface`  | Inbound/outbound white/blacklist     |
+| `LastLoginRepositoryInterface`       | Dovecot last login tracking          |
+| `SearchRepositoryInterface`          | Global search                        |
+| `DomainOwnershipRepositoryInterface` | DNS domain verification              |
+| `AmavisdRepositoryInterface`         | Quarantine and mail log              |
+| `IredapdRepositoryInterface`         | Throttle, greylist, rDNS, SS         |
+| `ApiKeyRepositoryInterface`          | DB-backed API key management         |
 | `PanelSettingsRepositoryInterface`   | DB-backed panel settings (key-value) |
 
 ### Field Mapping (LDAP vs MySQL/PostgreSQL)

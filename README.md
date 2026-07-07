@@ -610,4 +610,4 @@ vendor/bin/phpunit
 
 ## License
 
-This project is released into the public domain under the Unlicense.
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.

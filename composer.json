@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "Lightweight PHP admin panel for managing iRedMail users and domains via LDAP or MySQL",
     "type": "project",
-    "license": "Unlicense",
+    "license": "MIT",
     "require": {
         "php": ">=8.1",
         "vlucas/phpdotenv": "^5.6"

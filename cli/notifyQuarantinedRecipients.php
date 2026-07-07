@@ -122,7 +122,7 @@ foreach ($users as $userEmail) {
     $subject = "Quarantine notification: " . count($messages) . " message(s)";
     $headers = "From: postmaster@" . explode('@', $userEmail, 2)[1] . "\r\n";
     $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
-    $headers .= "X-Mailer: MailPanel Quarantine Notifier\r\n";
+    $headers .= "X-Mailer: iRedPanel Quarantine Notifier\r\n";
 
     $msgCount = count($messages);
     if (@mail($userEmail, $subject, $body, $headers)) {

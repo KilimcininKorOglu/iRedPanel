@@ -28,7 +28,7 @@ class NewsletterController
                 $error = 'Please enter a valid email address.';
             } else {
                 $token = bin2hex(random_bytes(16));
-                $expireHours = (int) (Settings::getInstance()->env('MAILPANEL_NEWSLETTER_EXPIRE_HOURS', '24') ?? 24);
+                $expireHours = (int) (Settings::getInstance()->env('IREDPANEL_NEWSLETTER_EXPIRE_HOURS', '24') ?? 24);
                 $expired = time() + ($expireHours * 3600);
 
                 self::saveConfirmation($mlid, $ml->address, $email, 'subscribe', $token, $expired);
@@ -62,7 +62,7 @@ class NewsletterController
                 $error = 'Please enter a valid email address.';
             } else {
                 $token = bin2hex(random_bytes(16));
-                $expireHours = (int) (Settings::getInstance()->env('MAILPANEL_NEWSLETTER_EXPIRE_HOURS', '24') ?? 24);
+                $expireHours = (int) (Settings::getInstance()->env('IREDPANEL_NEWSLETTER_EXPIRE_HOURS', '24') ?? 24);
                 $expired = time() + ($expireHours * 3600);
 
                 self::saveConfirmation($mlid, $ml->address, $email, 'unsubscribe', $token, $expired);

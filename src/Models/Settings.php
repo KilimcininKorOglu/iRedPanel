@@ -151,84 +151,84 @@ class Settings
     private function __construct()
     {
         // Backend selection
-        $this->backend = strtolower($this->env('MAILPANEL_BACKEND', 'ldap'));
+        $this->backend = strtolower($this->env('IREDPANEL_BACKEND', 'ldap'));
         if (!in_array($this->backend, ['ldap', 'mysql', 'pgsql'], true)) {
             throw new \RuntimeException("Unsupported backend: {$this->backend}. Must be 'ldap', 'mysql', or 'pgsql'");
         }
 
         // General settings
-        $this->secretKey = $this->envRequired('MAILPANEL_SECRET_KEY');
-        $this->passwordMinLength = $this->envInt('MAILPANEL_PASSWORD_MIN_LENGTH', 8);
-        $this->passwordIncludesSpecialChars = $this->envBool('MAILPANEL_PASSWORD_INCLUDES_SPECIAL_CHARS', true);
-        $this->passwordIncludesNumbers = $this->envBool('MAILPANEL_PASSWORD_INCLUDES_NUMBERS', true);
-        $this->passwordIncludesLowercase = $this->envBool('MAILPANEL_PASSWORD_INCLUDES_LOWERCASE', true);
-        $this->passwordIncludesUppercase = $this->envBool('MAILPANEL_PASSWORD_INCLUDES_UPPERCASE', true);
-        $this->passwordHashesUsePrefixedScheme = $this->envBool('MAILPANEL_PASSWORD_HASHES_USE_PREFIXED_SCHEME', true);
+        $this->secretKey = $this->envRequired('IREDPANEL_SECRET_KEY');
+        $this->passwordMinLength = $this->envInt('IREDPANEL_PASSWORD_MIN_LENGTH', 8);
+        $this->passwordIncludesSpecialChars = $this->envBool('IREDPANEL_PASSWORD_INCLUDES_SPECIAL_CHARS', true);
+        $this->passwordIncludesNumbers = $this->envBool('IREDPANEL_PASSWORD_INCLUDES_NUMBERS', true);
+        $this->passwordIncludesLowercase = $this->envBool('IREDPANEL_PASSWORD_INCLUDES_LOWERCASE', true);
+        $this->passwordIncludesUppercase = $this->envBool('IREDPANEL_PASSWORD_INCLUDES_UPPERCASE', true);
+        $this->passwordHashesUsePrefixedScheme = $this->envBool('IREDPANEL_PASSWORD_HASHES_USE_PREFIXED_SCHEME', true);
 
-        $scheme = strtoupper($this->env('MAILPANEL_PASSWORD_DEFAULT_SCHEME', 'SSHA512'));
+        $scheme = strtoupper($this->env('IREDPANEL_PASSWORD_DEFAULT_SCHEME', 'SSHA512'));
         if (!in_array($scheme, self::ALLOWED_SCHEMES, true)) {
             throw new \RuntimeException("Unsupported password scheme: $scheme");
         }
         $this->passwordDefaultScheme = $scheme;
-        $this->paginationPerPage = $this->envInt('MAILPANEL_PAGINATION_PER_PAGE', 50);
-        $this->requireOldPasswordOnChange = $this->envBool('MAILPANEL_REQUIRE_OLD_PASSWORD_ON_CHANGE', false);
-        $this->sessionTimeout = $this->envInt('MAILPANEL_SESSION_TIMEOUT', 1800);
-        $this->allowedIpRanges = $this->env('MAILPANEL_ALLOWED_IP_RANGES', '');
-        $this->sessionValidateIp = $this->envBool('MAILPANEL_SESSION_VALIDATE_IP', false);
-        $this->checkUpdates = $this->envBool('MAILPANEL_CHECK_UPDATES', true);
-        $this->geoIpDbPath = $this->env('MAILPANEL_GEOIP_DB_PATH', '');
-        $this->apiEnabled = $this->envBool('MAILPANEL_API_ENABLED', false);
-        $this->apiKey = $this->env('MAILPANEL_API_KEY', '');
-        $this->apiAllowedIps = $this->env('MAILPANEL_API_ALLOWED_IPS', '');
-        $this->requireDomainOwnershipVerification = $this->envBool('MAILPANEL_REQUIRE_DOMAIN_OWNERSHIP_VERIFICATION', false);
+        $this->paginationPerPage = $this->envInt('IREDPANEL_PAGINATION_PER_PAGE', 50);
+        $this->requireOldPasswordOnChange = $this->envBool('IREDPANEL_REQUIRE_OLD_PASSWORD_ON_CHANGE', false);
+        $this->sessionTimeout = $this->envInt('IREDPANEL_SESSION_TIMEOUT', 1800);
+        $this->allowedIpRanges = $this->env('IREDPANEL_ALLOWED_IP_RANGES', '');
+        $this->sessionValidateIp = $this->envBool('IREDPANEL_SESSION_VALIDATE_IP', false);
+        $this->checkUpdates = $this->envBool('IREDPANEL_CHECK_UPDATES', true);
+        $this->geoIpDbPath = $this->env('IREDPANEL_GEOIP_DB_PATH', '');
+        $this->apiEnabled = $this->envBool('IREDPANEL_API_ENABLED', false);
+        $this->apiKey = $this->env('IREDPANEL_API_KEY', '');
+        $this->apiAllowedIps = $this->env('IREDPANEL_API_ALLOWED_IPS', '');
+        $this->requireDomainOwnershipVerification = $this->envBool('IREDPANEL_REQUIRE_DOMAIN_OWNERSHIP_VERIFICATION', false);
 
         // Branding
-        $this->brandName = $this->env('MAILPANEL_BRAND_NAME', 'MailPanel');
-        $this->brandLogoUrl = $this->env('MAILPANEL_BRAND_LOGO_URL', '/static/logo-iredmail.png');
-        $this->brandFooterText = $this->env('MAILPANEL_BRAND_FOOTER_TEXT', '');
-        $this->brandPrimaryColor = $this->env('MAILPANEL_BRAND_PRIMARY_COLOR', '');
+        $this->brandName = $this->env('IREDPANEL_BRAND_NAME', 'iRedPanel');
+        $this->brandLogoUrl = $this->env('IREDPANEL_BRAND_LOGO_URL', '/static/logo-iredmail.png');
+        $this->brandFooterText = $this->env('IREDPANEL_BRAND_FOOTER_TEXT', '');
+        $this->brandPrimaryColor = $this->env('IREDPANEL_BRAND_PRIMARY_COLOR', '');
 
         // Integration DB default port based on backend
         $defaultDbPort = $this->backend === 'pgsql' ? 5432 : 3306;
 
         // iRedAdmin database (optional, for activity logging)
-        $this->activityLoggingEnabled = $this->envBool('MAILPANEL_ACTIVITY_LOGGING_ENABLED', true);
-        $this->iredadminDbHost = $this->env('MAILPANEL_IREDADMIN_DB_HOST', '');
-        $this->iredadminDbPort = $this->envInt('MAILPANEL_IREDADMIN_DB_PORT', $defaultDbPort);
-        $this->iredadminDbName = $this->env('MAILPANEL_IREDADMIN_DB_NAME', 'iredadmin');
-        $this->iredadminDbUser = $this->env('MAILPANEL_IREDADMIN_DB_USER', '');
-        $this->iredadminDbPassword = $this->env('MAILPANEL_IREDADMIN_DB_PASSWORD', '');
+        $this->activityLoggingEnabled = $this->envBool('IREDPANEL_ACTIVITY_LOGGING_ENABLED', true);
+        $this->iredadminDbHost = $this->env('IREDPANEL_IREDADMIN_DB_HOST', '');
+        $this->iredadminDbPort = $this->envInt('IREDPANEL_IREDADMIN_DB_PORT', $defaultDbPort);
+        $this->iredadminDbName = $this->env('IREDPANEL_IREDADMIN_DB_NAME', 'iredadmin');
+        $this->iredadminDbUser = $this->env('IREDPANEL_IREDADMIN_DB_USER', '');
+        $this->iredadminDbPassword = $this->env('IREDPANEL_IREDADMIN_DB_PASSWORD', '');
 
         // Amavisd integration
-        $this->amavisdEnabled = $this->envBool('MAILPANEL_AMAVISD_ENABLED', false);
-        $this->amavisdRemoveQuarantinedInDays = $this->envInt('MAILPANEL_AMAVISD_REMOVE_QUARANTINED_IN_DAYS', 7);
-        $this->amavisdRemoveMaillogInDays = $this->envInt('MAILPANEL_AMAVISD_REMOVE_MAILLOG_IN_DAYS', 7);
-        $this->amavisdDbHost = $this->env('MAILPANEL_AMAVISD_DB_HOST', '');
-        $this->amavisdDbPort = $this->envInt('MAILPANEL_AMAVISD_DB_PORT', $defaultDbPort);
-        $this->amavisdDbName = $this->env('MAILPANEL_AMAVISD_DB_NAME', 'amavisd');
-        $this->amavisdDbUser = $this->env('MAILPANEL_AMAVISD_DB_USER', '');
-        $this->amavisdDbPassword = $this->env('MAILPANEL_AMAVISD_DB_PASSWORD', '');
+        $this->amavisdEnabled = $this->envBool('IREDPANEL_AMAVISD_ENABLED', false);
+        $this->amavisdRemoveQuarantinedInDays = $this->envInt('IREDPANEL_AMAVISD_REMOVE_QUARANTINED_IN_DAYS', 7);
+        $this->amavisdRemoveMaillogInDays = $this->envInt('IREDPANEL_AMAVISD_REMOVE_MAILLOG_IN_DAYS', 7);
+        $this->amavisdDbHost = $this->env('IREDPANEL_AMAVISD_DB_HOST', '');
+        $this->amavisdDbPort = $this->envInt('IREDPANEL_AMAVISD_DB_PORT', $defaultDbPort);
+        $this->amavisdDbName = $this->env('IREDPANEL_AMAVISD_DB_NAME', 'amavisd');
+        $this->amavisdDbUser = $this->env('IREDPANEL_AMAVISD_DB_USER', '');
+        $this->amavisdDbPassword = $this->env('IREDPANEL_AMAVISD_DB_PASSWORD', '');
 
         // Fail2ban integration
-        $this->fail2banEnabled = $this->envBool('MAILPANEL_FAIL2BAN_ENABLED', false);
-        $this->fail2banSocket = $this->env('MAILPANEL_FAIL2BAN_SOCKET', '');
-        $this->fail2banJails = $this->env('MAILPANEL_FAIL2BAN_JAILS', 'dovecot,postfix,postfix-sasl');
+        $this->fail2banEnabled = $this->envBool('IREDPANEL_FAIL2BAN_ENABLED', false);
+        $this->fail2banSocket = $this->env('IREDPANEL_FAIL2BAN_SOCKET', '');
+        $this->fail2banJails = $this->env('IREDPANEL_FAIL2BAN_JAILS', 'dovecot,postfix,postfix-sasl');
 
         // iRedAPD integration
-        $this->iredapdEnabled = $this->envBool('MAILPANEL_IREDAPD_ENABLED', false);
-        $this->iredapdDbHost = $this->env('MAILPANEL_IREDAPD_DB_HOST', '');
-        $this->iredapdDbPort = $this->envInt('MAILPANEL_IREDAPD_DB_PORT', $defaultDbPort);
-        $this->iredapdDbName = $this->env('MAILPANEL_IREDAPD_DB_NAME', 'iredapd');
-        $this->iredapdDbUser = $this->env('MAILPANEL_IREDAPD_DB_USER', '');
-        $this->iredapdDbPassword = $this->env('MAILPANEL_IREDAPD_DB_PASSWORD', '');
+        $this->iredapdEnabled = $this->envBool('IREDPANEL_IREDAPD_ENABLED', false);
+        $this->iredapdDbHost = $this->env('IREDPANEL_IREDAPD_DB_HOST', '');
+        $this->iredapdDbPort = $this->envInt('IREDPANEL_IREDAPD_DB_PORT', $defaultDbPort);
+        $this->iredapdDbName = $this->env('IREDPANEL_IREDAPD_DB_NAME', 'iredapd');
+        $this->iredapdDbUser = $this->env('IREDPANEL_IREDAPD_DB_USER', '');
+        $this->iredapdDbPassword = $this->env('IREDPANEL_IREDAPD_DB_PASSWORD', '');
 
         // Conditional backend settings
         if ($this->backend === 'ldap') {
-            $this->ldapUri = $this->envRequired('MAILPANEL_LDAP_URI');
-            $this->ldapRootDn = $this->envRequired('MAILPANEL_LDAP_ROOT_DN');
-            $this->ldapUser = $this->envRequired('MAILPANEL_LDAP_USER');
-            $this->ldapPassword = $this->envRequired('MAILPANEL_LDAP_PASSWORD');
-            $this->ldapTlsVerify = $this->envBool('MAILPANEL_LDAP_TLS_VERIFY', false);
+            $this->ldapUri = $this->envRequired('IREDPANEL_LDAP_URI');
+            $this->ldapRootDn = $this->envRequired('IREDPANEL_LDAP_ROOT_DN');
+            $this->ldapUser = $this->envRequired('IREDPANEL_LDAP_USER');
+            $this->ldapPassword = $this->envRequired('IREDPANEL_LDAP_PASSWORD');
+            $this->ldapTlsVerify = $this->envBool('IREDPANEL_LDAP_TLS_VERIFY', false);
 
             if (!str_starts_with($this->ldapUri, 'ldap://') && !str_starts_with($this->ldapUri, 'ldaps://')) {
                 throw new \RuntimeException("LDAP URI must start with ldap:// or ldaps://");
@@ -247,13 +247,13 @@ class Settings
             $this->vmailPath = '/var/vmail';
             $this->storageNode = 'vmail1';
         } elseif ($this->backend === 'pgsql') {
-            $this->pgsqlHost = $this->envRequired('MAILPANEL_PGSQL_HOST');
-            $this->pgsqlPort = $this->envInt('MAILPANEL_PGSQL_PORT', 5432);
-            $this->pgsqlDatabase = $this->envRequired('MAILPANEL_PGSQL_DATABASE');
-            $this->pgsqlUser = $this->envRequired('MAILPANEL_PGSQL_USER');
-            $this->pgsqlPassword = $this->envRequired('MAILPANEL_PGSQL_PASSWORD');
-            $this->vmailPath = $this->env('MAILPANEL_VMAIL_PATH', '/var/vmail');
-            $this->storageNode = $this->env('MAILPANEL_STORAGE_NODE', 'vmail1');
+            $this->pgsqlHost = $this->envRequired('IREDPANEL_PGSQL_HOST');
+            $this->pgsqlPort = $this->envInt('IREDPANEL_PGSQL_PORT', 5432);
+            $this->pgsqlDatabase = $this->envRequired('IREDPANEL_PGSQL_DATABASE');
+            $this->pgsqlUser = $this->envRequired('IREDPANEL_PGSQL_USER');
+            $this->pgsqlPassword = $this->envRequired('IREDPANEL_PGSQL_PASSWORD');
+            $this->vmailPath = $this->env('IREDPANEL_VMAIL_PATH', '/var/vmail');
+            $this->storageNode = $this->env('IREDPANEL_STORAGE_NODE', 'vmail1');
 
             $this->mysqlHost = '';
             $this->mysqlPort = 3306;
@@ -266,13 +266,13 @@ class Settings
             $this->ldapPassword = '';
             $this->ldapTlsVerify = false;
         } else {
-            $this->mysqlHost = $this->envRequired('MAILPANEL_MYSQL_HOST');
-            $this->mysqlPort = $this->envInt('MAILPANEL_MYSQL_PORT', 3306);
-            $this->mysqlDatabase = $this->envRequired('MAILPANEL_MYSQL_DATABASE');
-            $this->mysqlUser = $this->envRequired('MAILPANEL_MYSQL_USER');
-            $this->mysqlPassword = $this->envRequired('MAILPANEL_MYSQL_PASSWORD');
-            $this->vmailPath = $this->env('MAILPANEL_VMAIL_PATH', '/var/vmail');
-            $this->storageNode = $this->env('MAILPANEL_STORAGE_NODE', 'vmail1');
+            $this->mysqlHost = $this->envRequired('IREDPANEL_MYSQL_HOST');
+            $this->mysqlPort = $this->envInt('IREDPANEL_MYSQL_PORT', 3306);
+            $this->mysqlDatabase = $this->envRequired('IREDPANEL_MYSQL_DATABASE');
+            $this->mysqlUser = $this->envRequired('IREDPANEL_MYSQL_USER');
+            $this->mysqlPassword = $this->envRequired('IREDPANEL_MYSQL_PASSWORD');
+            $this->vmailPath = $this->env('IREDPANEL_VMAIL_PATH', '/var/vmail');
+            $this->storageNode = $this->env('IREDPANEL_STORAGE_NODE', 'vmail1');
 
             $this->pgsqlHost = '';
             $this->pgsqlPort = 5432;

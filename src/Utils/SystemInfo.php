@@ -62,7 +62,7 @@ class SystemInfo
         return PHP_VERSION;
     }
 
-    public static function getMailPanelVersion(): string
+    public static function getIredPanelVersion(): string
     {
         return defined('APP_VERSION') ? APP_VERSION : 'dev';
     }

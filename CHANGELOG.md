@@ -45,7 +45,7 @@ All notable changes to this project will be documented in this file.
 - Domain CRUD with create, edit, delete, and pagination
 - Admin account management with standalone and mailbox-based admin support
 - User deletion with deferred mailbox retention
-- Pagination across all list views (configurable via MAILPANEL_PAGINATION_PER_PAGE)
+- Pagination across all list views (configurable via IREDPANEL_PAGINATION_PER_PAGE)
 - Mail service toggles (SMTP, POP3, IMAP, ManageSieve, SOGo + secured variants)
 - Email forwarding management with keep-copy toggle
 - Used quota display on user list and detail views
@@ -69,12 +69,12 @@ All notable changes to this project will be documented in this file.
 - Random password generator with policy compliance (server + client-side)
 - Status filter tabs (All/Active/Disabled) on domain and user lists
 - Log entry deletion (individual and bulk)
-- Session IP change detection (MAILPANEL_SESSION_VALIDATE_IP)
+- Session IP change detection (IREDPANEL_SESSION_VALIDATE_IP)
 - Failed login attempt tracking with activity logging
 - Bulk domain operations (enable/disable/delete)
 - Bulk admin operations (enable/disable/delete)
 - Dashboard system information (hostname, uptime, load, software versions)
-- GitHub version check with 24-hour cache (MAILPANEL_CHECK_UPDATES)
+- GitHub version check with 24-hour cache (IREDPANEL_CHECK_UPDATES)
 - Domain alias management with full CRUD (alias_domain table / LDAP domainAliasName)
 - CLI: dumpDisclaimer (Postfix integration), dumpQuarantinedMails, invalidateSessions
 
@@ -132,7 +132,7 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 - MySQL/MariaDB backend support via Repository pattern
-- Backend selection via `MAILPANEL_BACKEND` environment variable (`ldap` or `mysql`)
+- Backend selection via `IREDPANEL_BACKEND` environment variable (`ldap` or `mysql`)
 - Repository interfaces for auth, domain, and user operations
 - `RepositoryFactory` for backend-driven dependency resolution
 - MySQL repository implementations (auth, domain, user CRUD)
@@ -142,7 +142,7 @@ All notable changes to this project will be documented in this file.
 - Full user creation support for MySQL backend
 
 ### Changed
-- Environment variable prefix renamed from `IREDADMIN_LIGHT_` to `MAILPANEL_`
+- Environment variable prefix renamed from `IREDADMIN_LIGHT_` to `IREDPANEL_`
 - Controllers fully decoupled from LDAP — now use repository interfaces
 - `User::$mailQuota` standardized to always store megabytes (LDAP converts bytes at repo boundary)
 - Only active backend's settings are validated at startup

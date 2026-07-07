@@ -8,11 +8,11 @@ use App\Models\Settings;
 
 class VersionChecker
 {
-    private const API_URL = 'https://api.github.com/repos/KilimcininKorOglu/MailPanel/releases/latest';
+    private const API_URL = 'https://api.github.com/repos/KilimcininKorOglu/iRedPanel/releases/latest';
     private const CACHE_TTL = 86400; // 24 hours
 
     /**
-     * Checks if a newer version of MailPanel is available on GitHub.
+     * Checks if a newer version of iRedPanel is available on GitHub.
      * Returns the new version string or null if up-to-date/unavailable.
      */
     public static function checkForUpdate(): ?string
@@ -22,7 +22,7 @@ class VersionChecker
             return null;
         }
 
-        $cacheFile = sys_get_temp_dir() . '/mailpanel_version_check.json';
+        $cacheFile = sys_get_temp_dir() . '/iredpanel_version_check.json';
         $cached = self::readCache($cacheFile);
         if ($cached !== false) {
             return $cached;
@@ -48,7 +48,7 @@ class VersionChecker
         $context = stream_context_create([
             'http' => [
                 'method' => 'GET',
-                'header' => "User-Agent: MailPanel\r\nAccept: application/vnd.github.v3+json\r\n",
+                'header' => "User-Agent: iRedPanel\r\nAccept: application/vnd.github.v3+json\r\n",
                 'timeout' => 5,
             ],
         ]);

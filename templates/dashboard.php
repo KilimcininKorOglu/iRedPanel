@@ -4,8 +4,8 @@
 
   <?php if (!empty($newVersion)): ?>
   <div class="card" style="border-left: 4px solid var(--color-primary, #1a73e8); margin-bottom: 1rem;">
-    <p>A new version of MailPanel is available: <strong>v<?= $e($newVersion) ?></strong>.
-    <a href="https://github.com/KilimcininKorOglu/MailPanel/releases/latest" target="_blank">View release</a></p>
+    <p>A new version of iRedPanel is available: <strong>v<?= $e($newVersion) ?></strong>.
+    <a href="https://github.com/KilimcininKorOglu/iRedPanel/releases/latest" target="_blank">View release</a></p>
   </div>
   <?php endif; ?>
 
@@ -100,7 +100,7 @@
         <p>
           iRedMail: <strong><?= $e($systemInfo['iredmailVersion']) ?></strong><br />
           PHP: <?= $e($systemInfo['phpVersion']) ?><br />
-          MailPanel: v<?= $e($systemInfo['mailpanelVersion']) ?>
+          iRedPanel: v<?= $e($systemInfo['iredpanelVersion']) ?>
         </p>
       </div>
     </div>

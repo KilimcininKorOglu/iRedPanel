@@ -32,7 +32,7 @@ class DashboardController
                 'loadAverage' => SystemInfo::getLoadAverage(),
                 'iredmailVersion' => SystemInfo::getIredMailVersion(),
                 'phpVersion' => SystemInfo::getPhpVersion(),
-                'mailpanelVersion' => SystemInfo::getMailPanelVersion(),
+                'iredpanelVersion' => SystemInfo::getIredPanelVersion(),
             ];
             $newVersion = VersionChecker::checkForUpdate();
         }

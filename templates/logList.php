@@ -3,7 +3,7 @@
   <h1>Activity Log</h1>
 
   <?php if (!($loggingEnabled ?? false)): ?>
-  <p class="text-error">Activity logging is not configured. Set MAILPANEL_IREDADMIN_DB_* environment variables to enable.</p>
+  <p class="text-error">Activity logging is not configured. Set IREDPANEL_IREDADMIN_DB_* environment variables to enable.</p>
   <?php else: ?>
 
   <form method="get" style="margin-bottom: 1rem;">

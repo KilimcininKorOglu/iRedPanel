@@ -27,7 +27,7 @@ if (!is_dir($outputDir)) {
 
 $conn = AmavisdConnection::getInstance();
 if (!$conn->isAvailable()) {
-    echo "Error: Amavisd database not available. Check MAILPANEL_AMAVISD_* settings.\n";
+    echo "Error: Amavisd database not available. Check IREDPANEL_AMAVISD_* settings.\n";
     exit(1);
 }
 

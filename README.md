@@ -1,11 +1,11 @@
-# MailPanel
+# iRedPanel
 
 A full-featured PHP web application for managing [iRedMail](https://www.iredmail.org/) mail servers. Supports OpenLDAP, MySQL/MariaDB, and PostgreSQL backends with optional Amavisd, Fail2ban, and iRedAPD integrations. Includes a REST API, mail alias and mailing list management, spam policy control, and role-based admin access.
 
 Built with vanilla PHP 8.1+ -- no framework, no ORM, no template engine dependency. Uses `vlucas/phpdotenv` for environment configuration and the Chota CSS framework for UI.
 
 ```
-kilimcininkoroglu/mailpanel v1.0.0
+kilimcininkoroglu/iredpanel v1.0.0
 ```
 
 ### Supported Backends
@@ -16,7 +16,7 @@ kilimcininkoroglu/mailpanel v1.0.0
 | MySQL/MariaDB    | Yes       |
 | PostgreSQL       | Yes       |
 
-Select the backend via `MAILPANEL_BACKEND` environment variable (`ldap`, `mysql`, or `pgsql`).
+Select the backend via `IREDPANEL_BACKEND` environment variable (`ldap`, `mysql`, or `pgsql`).
 
 ## Requirements
 
@@ -30,8 +30,8 @@ Select the backend via `MAILPANEL_BACKEND` environment variable (`ldap`, `mysql`
 ## Installation
 
 ```bash
-git clone https://github.com/KilimcininKorOglu/MailPanel.git
-cd MailPanel
+git clone https://github.com/KilimcininKorOglu/iRedPanel.git
+cd iRedPanel
 php composer.phar install
 cp .env.example .env
 ```
@@ -40,12 +40,12 @@ Edit `.env` with your backend choice and connection details, then start the appl
 
 ## Configuration
 
-All settings use the `MAILPANEL_` prefix and are loaded from `.env` or `.env.prod` via [vlucas/phpdotenv](https://github.com/vlucas/phpdotenv).
+All settings use the `IREDPANEL_` prefix and are loaded from `.env` or `.env.prod` via [vlucas/phpdotenv](https://github.com/vlucas/phpdotenv).
 
 ### Backend Selection
 
 ```env
-MAILPANEL_BACKEND=ldap    # or "mysql" or "pgsql"
+IREDPANEL_BACKEND=ldap    # or "mysql" or "pgsql"
 ```
 
 ### General Settings
@@ -114,7 +114,7 @@ These settings serve as initial defaults. Once the iRedAdmin database is configu
 
 | Variable              | Default                     | Description                |
 |-----------------------|-----------------------------|----------------------------|
-| `BRAND_NAME`          | `MailPanel`                 | Panel name in UI and title |
+| `BRAND_NAME`          | `iRedPanel`                 | Panel name in UI and title |
 | `BRAND_LOGO_URL`      | `/static/logo-iredmail.png` | Logo URL in navigation     |
 | `BRAND_FOOTER_TEXT`   | -                           | Custom footer text         |
 | `BRAND_PRIMARY_COLOR` | -                           | CSS primary color override |
@@ -208,8 +208,8 @@ Point the document root to the `public/` directory. The included `.htaccess` han
 
 ```apache
 <VirtualHost *:80>
-    DocumentRoot /path/to/mailpanel/public
-    <Directory /path/to/mailpanel/public>
+    DocumentRoot /path/to/iredpanel/public
+    <Directory /path/to/iredpanel/public>
         AllowOverride All
         Require all granted
     </Directory>
@@ -221,7 +221,7 @@ Point the document root to the `public/` directory. The included `.htaccess` han
 ```nginx
 server {
     listen 80;
-    root /path/to/mailpanel/public;
+    root /path/to/iredpanel/public;
     index index.php;
 
     location / {
@@ -430,7 +430,7 @@ Session cookies are configured with `httponly=true`, `samesite=Lax`, and `secure
 
 ## Architecture
 
-The application uses a **Repository pattern** to abstract data access. Controllers interact with repository interfaces, and the `RepositoryFactory` returns the correct implementation based on `MAILPANEL_BACKEND`.
+The application uses a **Repository pattern** to abstract data access. Controllers interact with repository interfaces, and the `RepositoryFactory` returns the correct implementation based on `IREDPANEL_BACKEND`.
 
 ```
 Controller → RepositoryInterface → LdapRepository  (when BACKEND=ldap)

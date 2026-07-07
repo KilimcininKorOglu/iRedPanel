@@ -58,7 +58,7 @@ use App\Repositories\Pgsql\PgsqlQuotaRepository;
 use App\Repositories\Pgsql\PgsqlUserRepository;
 
 /**
- * Returns the correct repository implementation based on MAILPANEL_BACKEND setting.
+ * Returns the correct repository implementation based on IREDPANEL_BACKEND setting.
  */
 class RepositoryFactory
 {

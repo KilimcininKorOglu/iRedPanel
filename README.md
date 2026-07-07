@@ -4,9 +4,12 @@ A full-featured PHP web application for managing [iRedMail](https://www.iredmail
 
 Built with vanilla PHP 8.1+ -- no framework, no ORM, no template engine dependency. Uses `vlucas/phpdotenv` for environment configuration and the Chota CSS framework for UI.
 
-```
-kilimcininkoroglu/iredpanel v1.0.0
-```
+| Project    | Value                                                |
+|------------|------------------------------------------------------|
+| Package    | `kilimcininkoroglu/iredpanel`                        |
+| Version    | `1.0.0`                                              |
+| Repository | `https://github.com/KilimcininKorOglu/iRedPanel.git` |
+| License    | MIT                                                  |
 
 ### Supported Backends
 

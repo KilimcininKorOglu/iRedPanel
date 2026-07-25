@@ -1,4 +1,4 @@
-<?php $pageTitle = 'User'; ?>
+<?php $pageTitle = $t('user.view_title'); ?>
 <div class="container">
   <div class="row">
     <div class="col">
@@ -7,7 +7,7 @@
       <div class="row breadcrumbs">
         <div class="col">
           <a href="/domains"><?= $e($domain) ?></a> /
-          <a href="/<?= $e($domain) ?>/users">Users</a> /
+          <a href="/<?= $e($domain) ?>/users"><?= $te('domain.users') ?></a> /
           <span class="text-light"><?= $e($user->uid) ?></span>
         </div>
       </div>
@@ -17,31 +17,31 @@
             <a
               <?php if ($editMode === 'general'): ?>class="active"<?php endif; ?>
               href="/<?= $e($domain) ?>/users/<?= $e($user->uid) ?>/general"
-            >General information</a>
+            ><?= $te('user.tab_general') ?></a>
             <a
               <?php if ($editMode === 'password'): ?>class="active"<?php endif; ?>
               href="/<?= $e($domain) ?>/users/<?= $e($user->uid) ?>/password"
-            >Password</a>
+            ><?= $te('common.password') ?></a>
             <a
               <?php if ($editMode === 'services'): ?>class="active"<?php endif; ?>
               href="/<?= $e($domain) ?>/users/<?= $e($user->uid) ?>/services"
-            >Services</a>
+            ><?= $te('user.tab_services') ?></a>
             <a
               <?php if ($editMode === 'forwarding'): ?>class="active"<?php endif; ?>
               href="/<?= $e($domain) ?>/users/<?= $e($user->uid) ?>/forwarding"
-            >Forwarding</a>
+            ><?= $te('user.tab_forwarding') ?></a>
             <a
               <?php if ($editMode === 'aliases'): ?>class="active"<?php endif; ?>
               href="/<?= $e($domain) ?>/users/<?= $e($user->uid) ?>/aliases"
-            >Aliases</a>
+            ><?= $te('user.tab_aliases') ?></a>
             <a
               <?php if ($editMode === 'bcc'): ?>class="active"<?php endif; ?>
               href="/<?= $e($domain) ?>/users/<?= $e($user->uid) ?>/bcc"
-            >BCC</a>
+            ><?= $te('domain.tab_bcc') ?></a>
             <a
               <?php if ($editMode === 'relay'): ?>class="active"<?php endif; ?>
               href="/<?= $e($domain) ?>/users/<?= $e($user->uid) ?>/relay"
-            >Relay</a>
+            ><?= $te('domain.tab_relay') ?></a>
           </nav>
         </div>
       </div>
@@ -58,18 +58,18 @@
 
           <?php if ($editMode === 'general' && !empty($session['isGlobalAdmin'])): ?>
           <details style="margin-bottom:1rem;">
-            <summary>Rename email address</summary>
-            <form method="post" action="/<?= $e($domain) ?>/users/<?= $e($user->uid) ?>/rename" style="margin-top:0.5rem;" data-confirm="Rename user email?">
+            <summary><?= $te('user.rename_email') ?></summary>
+            <form method="post" action="/<?= $e($domain) ?>/users/<?= $e($user->uid) ?>/rename" style="margin-top:0.5rem;" data-confirm="<?= $te('user.rename_confirm') ?>">
               <?= $csrfField ?>
               <div class="row">
                 <div class="col-6">
-                  <input type="text" name="newUid" placeholder="new-username" required />
+                  <input type="text" name="newUid" placeholder="<?= $te('user.new_username') ?>" required />
                 </div>
                 <div class="col-3">
                   <span>@<?= $e($domain) ?></span>
                 </div>
                 <div class="col-3">
-                  <button type="submit" class="button outline">Rename</button>
+                  <button type="submit" class="button outline"><?= $te('user.rename') ?></button>
                 </div>
               </div>
             </form>
@@ -87,11 +87,11 @@
                 <p>
                   <label for="accountStatus">
                     <input id="accountStatus" name="accountStatus"
-                    type="checkbox" <?php if ($user->accountStatus): ?>checked<?php endif; ?>> Record active
+                    type="checkbox" <?php if ($user->accountStatus): ?>checked<?php endif; ?>> <?= $te('user.record_active') ?>
                   </label>
                 </p>
                 <p>
-                  <label for="mailQuota">Quota, MB</label>
+                  <label for="mailQuota"><?= $te('user.quota_mb_label') ?></label>
                   <input
                     id="mailQuota"
                     name="mailQuota"
@@ -102,7 +102,7 @@
                 </p>
 
                 <p>
-                  <label for="cn">Full name</label>
+                  <label for="cn"><?= $te('user.full_name') ?></label>
                   <input id="cn" name="cn" type="text" value="<?= $e($user->cn) ?>" />
                 </p>
               </div>
@@ -110,7 +110,7 @@
             <div class="row">
               <div class="col">
                 <p>
-                  <label for="givenName">First name</label>
+                  <label for="givenName"><?= $te('user.first_name') ?></label>
                   <input
                     id="givenName"
                     name="givenName"
@@ -121,7 +121,7 @@
               </div>
               <div class="col">
                 <p>
-                  <label for="sn">Last name</label>
+                  <label for="sn"><?= $te('user.last_name') ?></label>
                   <input id="sn" name="sn" type="text" value="<?= $e($user->sn) ?>" />
                 </p>
               </div>
@@ -129,7 +129,7 @@
             <div class="row">
               <div class="col">
                 <p>
-                  <label for="employeeNumber">Employee number</label>
+                  <label for="employeeNumber"><?= $te('user.employee_number') ?></label>
                   <input
                     id="employeeNumber"
                     name="employeeNumber"
@@ -138,7 +138,7 @@
                   />
                 </p>
                 <p>
-                  <label for="title">Position</label>
+                  <label for="title"><?= $te('user.position') ?></label>
                   <input
                     id="title"
                     name="title"
@@ -147,7 +147,7 @@
                   />
                 </p>
                 <p>
-                  <label for="mobile">Mobile phone</label>
+                  <label for="mobile"><?= $te('user.mobile_phone') ?></label>
                   <input
                     id="mobile"
                     name="mobile"
@@ -156,7 +156,7 @@
                   />
                 </p>
                 <p>
-                  <label for="telephoneNumber">Work phone</label>
+                  <label for="telephoneNumber"><?= $te('user.work_phone') ?></label>
                   <input
                     id="telephoneNumber"
                     name="telephoneNumber"
@@ -167,12 +167,12 @@
                 <p>
                   <label for="domainGlobalAdmin">
                     <input id="domainGlobalAdmin" name="domainGlobalAdmin"
-                    type="checkbox" <?php if ($user->domainGlobalAdmin): ?>checked<?php endif; ?>> Global administrator
+                    type="checkbox" <?php if ($user->domainGlobalAdmin): ?>checked<?php endif; ?>> <?= $te('admin.global_administrator') ?>
                   </label>
                 </p>
                 <p>
                   <button type="submit" class="button primary">
-                    Save
+                    <?= $te('common.save') ?>
                   </button>
                 </p>
               </div>
@@ -181,7 +181,7 @@
             <?php elseif ($editMode === 'password'): ?>
             <?php if (!empty($requireOldPassword)): ?>
             <p>
-              <label for="old_password">Current password</label>
+              <label for="old_password"><?= $te('user.current_password') ?></label>
               <input name="old_password" type="password" id="old_password" required
                 <?php if (!empty($validationErrors['old_password'])): ?>class="error"<?php endif; ?>
               />
@@ -191,7 +191,7 @@
             </p>
             <?php endif; ?>
             <p>
-              <label for="password">Password</label>
+              <label for="password"><?= $te('common.password') ?></label>
               <input name="password" type="password" id="password" required autocomplete="new-password"
                 <?php if (!empty($validationErrors['password'])): ?>class="error"<?php endif; ?>
               />
@@ -200,7 +200,7 @@
               <?php endif; ?>
             </p>
             <p>
-              <label for="password_repeat">Password (repeat)</label>
+              <label for="password_repeat"><?= $te('user.password_repeat') ?></label>
               <input name="password_repeat" type="password" id="password_repeat" required
                 <?php if (!empty($validationErrors['password_repeat'])): ?>class="error"<?php endif; ?>
               />
@@ -209,16 +209,16 @@
               <?php endif; ?>
             </p>
             <p>
-              <button type="button" class="button outline" onclick="generatePassword()">Generate password</button>
+              <button type="button" class="button outline" onclick="generatePassword()"><?= $te('user.generate_password') ?></button>
             </p>
             <p>
               <button type="submit" class="button primary">
-                Save
+                <?= $te('common.save') ?>
               </button>
             </p>
 
             <?php elseif ($editMode === 'services'): ?>
-            <h3>Mail services</h3>
+            <h3><?= $te('user.mail_services') ?></h3>
             <p>
               <label><input type="checkbox" name="enableSmtp" <?php if ($user->enableSmtp): ?>checked<?php endif; ?> /> SMTP</label>
             </p>
@@ -247,30 +247,30 @@
               <label><input type="checkbox" name="enableSogo" <?php if ($user->enableSogo): ?>checked<?php endif; ?> /> SOGo Webmail</label>
             </p>
             <p>
-              <button type="submit" class="button primary">Save services</button>
+              <button type="submit" class="button primary"><?= $te('user.save_services') ?></button>
             </p>
 
             <?php elseif ($editMode === 'forwarding'): ?>
-            <h3>Email forwarding</h3>
+            <h3><?= $te('user.email_forwarding') ?></h3>
             <p>
-              <label for="forwardingAddresses">Forwarding addresses (one per line)</label>
+              <label for="forwardingAddresses"><?= $te('user.forwarding_addresses') ?></label>
               <textarea id="forwardingAddresses" name="forwardingAddresses" rows="5" placeholder="user@example.com"><?= $e(implode("\n", $forwardings ?? [])) ?></textarea>
             </p>
             <p>
               <label>
                 <input type="checkbox" name="keepCopy" <?php if ($keepCopy ?? true): ?>checked<?php endif; ?> />
-                Keep a local copy of forwarded messages
+                <?= $te('user.keep_copy') ?>
               </label>
             </p>
             <p>
-              <button type="submit" class="button primary">Save forwarding</button>
+              <button type="submit" class="button primary"><?= $te('user.save_forwarding') ?></button>
             </p>
             <?php endif; ?>
           </form>
 
           <?php if ($editMode === 'aliases'): ?>
-          <h3>Per-user Alias Addresses</h3>
-          <p class="text-light">Additional email addresses that deliver to this mailbox.</p>
+          <h3><?= $te('user.per_user_aliases') ?></h3>
+          <p class="text-light"><?= $te('user.aliases_desc') ?></p>
 
           <form method="post">
             <?= $csrfField ?>
@@ -280,7 +280,7 @@
                 <input type="email" name="newAlias" placeholder="alias@example.com" required />
               </div>
               <div class="col-4">
-                <button type="submit" class="button primary outline">Add Alias</button>
+                <button type="submit" class="button primary outline"><?= $te('user.add_alias') ?></button>
               </div>
             </div>
           </form>
@@ -289,8 +289,8 @@
           <table class="striped" style="margin-top:1rem;">
             <thead>
               <tr>
-                <th>Alias Address</th>
-                <th>Actions</th>
+                <th><?= $te('user.alias_address') ?></th>
+                <th><?= $te('common.actions') ?></th>
               </tr>
             </thead>
             <tbody>
@@ -302,7 +302,7 @@
                     <?= $csrfField ?>
                     <input type="hidden" name="action" value="remove" />
                     <input type="hidden" name="aliasAddress" value="<?= $e($aliasAddr) ?>" />
-                    <button type="submit" class="button error outline" data-confirm="Remove <?= $e($aliasAddr) ?>?">Remove</button>
+                    <button type="submit" class="button error outline" data-confirm="<?= $e($t('user.alias_remove_confirm', ['alias' => $aliasAddr])) ?>"><?= $te('wblist.remove') ?></button>
                   </form>
                 </td>
               </tr>
@@ -310,46 +310,46 @@
             </tbody>
           </table>
           <?php else: ?>
-          <p class="text-light" style="margin-top:1rem;">No alias addresses configured for this user.</p>
+          <p class="text-light" style="margin-top:1rem;"><?= $te('user.no_aliases') ?></p>
           <?php endif; ?>
           <?php endif; ?>
 
           <?php if ($editMode === 'bcc'): ?>
           <form method="post">
             <?= $csrfField ?>
-            <h3>BCC Settings</h3>
-            <p class="text-light">BCC copies of sent or received emails to the specified addresses.</p>
+            <h3><?= $te('domain.bcc_settings') ?></h3>
+            <p class="text-light"><?= $te('user.bcc_desc') ?></p>
 
-            <label for="senderBcc">Sender BCC (outbound mail copy)</label>
+            <label for="senderBcc"><?= $te('domain.sender_bcc') ?></label>
             <input id="senderBcc" type="email" name="senderBcc"
               value="<?= $e($userSenderBcc ?? '') ?>"
-              placeholder="Leave empty to disable sender BCC"
+              placeholder="<?= $te('domain.sender_bcc_placeholder') ?>"
             />
 
-            <label for="recipientBcc">Recipient BCC (inbound mail copy)</label>
+            <label for="recipientBcc"><?= $te('domain.recipient_bcc') ?></label>
             <input id="recipientBcc" type="email" name="recipientBcc"
               value="<?= $e($userRecipientBcc ?? '') ?>"
-              placeholder="Leave empty to disable recipient BCC"
+              placeholder="<?= $te('domain.recipient_bcc_placeholder') ?>"
             />
 
-            <p><button type="submit" class="button primary">Save BCC settings</button></p>
+            <p><button type="submit" class="button primary"><?= $te('domain.save_bcc') ?></button></p>
           </form>
           <?php endif; ?>
 
           <?php if ($editMode === 'relay'): ?>
           <form method="post">
             <?= $csrfField ?>
-            <h3>Sender-Dependent Relay</h3>
-            <p class="text-light">Route outbound mail from this user through a specific relay server.</p>
+            <h3><?= $te('domain.relay_legend') ?></h3>
+            <p class="text-light"><?= $te('user.relay_desc') ?></p>
 
-            <label for="relayhost">Relay Host</label>
+            <label for="relayhost"><?= $te('domain.relay_host') ?></label>
             <input id="relayhost" type="text" name="relayhost"
               value="<?= $e($userRelayhost ?? '') ?>"
               placeholder="[smtp.relay.com]:587"
             />
-            <p class="text-light">Format: <code>[hostname]:port</code> — square brackets prevent MX lookup.</p>
+            <p class="text-light"><?= $t('domain.relay_format') ?></p>
 
-            <p><button type="submit" class="button primary">Save relay settings</button></p>
+            <p><button type="submit" class="button primary"><?= $te('domain.save_relay') ?></button></p>
           </form>
           <?php endif; ?>
         </div>

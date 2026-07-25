@@ -91,6 +91,7 @@ class Settings
     public int $paginationPerPage;
     public bool $checkUpdates;
     public bool $requireDomainOwnershipVerification;
+    public string $defaultLanguage;
 
     // Integration toggles & behavior
     public bool $amavisdEnabled;
@@ -181,6 +182,11 @@ class Settings
         $this->apiKey = $this->env('IREDPANEL_API_KEY', '');
         $this->apiAllowedIps = $this->env('IREDPANEL_API_ALLOWED_IPS', '');
         $this->requireDomainOwnershipVerification = $this->envBool('IREDPANEL_REQUIRE_DOMAIN_OWNERSHIP_VERIFICATION', false);
+
+        $defaultLanguage = $this->env('IREDPANEL_DEFAULT_LANGUAGE', \App\I18n\Translator::FALLBACK_LOCALE);
+        $this->defaultLanguage = \App\I18n\Translator::isSupported($defaultLanguage)
+            ? $defaultLanguage
+            : \App\I18n\Translator::FALLBACK_LOCALE;
 
         // Branding
         $this->brandName = $this->env('IREDPANEL_BRAND_NAME', 'iRedPanel');

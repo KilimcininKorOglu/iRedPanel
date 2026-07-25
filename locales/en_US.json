@@ -1,0 +1,32 @@
+{
+  "language": {
+    "name": "English",
+    "switch": "Language"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "domains": "Domains",
+    "search": "Search",
+    "aliases": "Mail Aliases",
+    "mailing_lists": "Mailing Lists",
+    "domain_aliases": "Domain Aliases",
+    "admins": "Admins",
+    "logs": "Logs",
+    "quarantine": "Quarantine",
+    "spam_policy": "Spam Policy",
+    "wblist": "W/B List",
+    "fail2ban": "Fail2ban",
+    "iredapd": "iRedAPD",
+    "deleted_mailboxes": "Deleted Mailboxes",
+    "panel_settings": "Panel Settings",
+    "system": "System",
+    "logout": "Logout"
+  },
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "create": "Create",
+    "edit": "Edit"
+  }
+}

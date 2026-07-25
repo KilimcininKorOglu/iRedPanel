@@ -1,0 +1,32 @@
+{
+  "language": {
+    "name": "Türkçe",
+    "switch": "Dil"
+  },
+  "nav": {
+    "dashboard": "Panel",
+    "domains": "Alan Adları",
+    "search": "Ara",
+    "aliases": "Posta Takma Adları",
+    "mailing_lists": "Posta Listeleri",
+    "domain_aliases": "Alan Adı Takma Adları",
+    "admins": "Yöneticiler",
+    "logs": "Kayıtlar",
+    "quarantine": "Karantina",
+    "spam_policy": "Spam Politikası",
+    "wblist": "Beyaz/Kara Liste",
+    "fail2ban": "Fail2ban",
+    "iredapd": "iRedAPD",
+    "deleted_mailboxes": "Silinen Posta Kutuları",
+    "panel_settings": "Panel Ayarları",
+    "system": "Sistem",
+    "logout": "Çıkış"
+  },
+  "common": {
+    "save": "Kaydet",
+    "cancel": "İptal",
+    "delete": "Sil",
+    "create": "Oluştur",
+    "edit": "Düzenle"
+  }
+}

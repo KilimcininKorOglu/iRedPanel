@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controllers;
 
 use App\CsrfProtection;
+use App\I18n\Translator;
 use App\Middleware;
 use App\Models\Settings;
 use App\Repositories\RepositoryFactory;
@@ -33,7 +34,7 @@ class IredapdController
 
                 $repo->setThrottleSettings($account, $kind, $period, $maxMsgs, $maxQuota, $msgSize);
                 ActivityLogger::logUpdate('', $account, "Throttle settings updated for {$account}");
-                $success = 'Throttle settings updated!';
+                $success = Translator::translate('throttle.msg_updated');
             } catch (\Exception $e) {
                 $error = $e->getMessage();
             }
@@ -68,13 +69,13 @@ class IredapdController
                     $repo->setGreylistEnabled($account, $enabled);
                     $status = $enabled ? 'enabled' : 'disabled';
                     ActivityLogger::logUpdate('', $account, "Greylisting {$status} for {$account}");
-                    $success = "Greylisting {$status}!";
+                    $success = Translator::translate($enabled ? 'greylist.msg_enabled' : 'greylist.msg_disabled');
                 } elseif ($action === 'whitelist') {
                     $sendersRaw = $_POST['whitelistedSenders'] ?? '';
                     $senders = array_filter(array_map('trim', explode("\n", $sendersRaw)));
                     $repo->setWhitelistedSenders($account, $senders);
                     ActivityLogger::logUpdate('', $account, "Greylist whitelist updated for {$account}");
-                    $success = 'Whitelist updated!';
+                    $success = Translator::translate('greylist.msg_whitelist_updated');
                 }
             } catch (\Exception $e) {
                 $error = $e->getMessage();
@@ -133,7 +134,7 @@ class IredapdController
                 $blacklists = array_filter(array_map('trim', explode("\n", $_POST['blacklists'] ?? '')));
                 $repo->setWblistRdns($whitelists, $blacklists);
                 ActivityLogger::log('update', '', '', 'Updated rDNS white/blacklist');
-                $success = 'rDNS white/blacklist updated!';
+                $success = Translator::translate('wblist.msg_rdns_updated');
             } catch (\Exception $e) {
                 $error = $e->getMessage();
             }
@@ -164,7 +165,7 @@ class IredapdController
                 $ips = array_filter(array_map('trim', explode("\n", $_POST['ips'] ?? '')));
                 $repo->setSenderScoreWhitelist($ips);
                 ActivityLogger::log('update', '', '', 'Updated SenderScore whitelist');
-                $success = 'SenderScore whitelist updated!';
+                $success = Translator::translate('wblist.msg_senderscore_updated');
             } catch (\Exception $e) {
                 $error = $e->getMessage();
             }

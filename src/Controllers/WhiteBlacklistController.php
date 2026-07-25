@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controllers;
 
 use App\CsrfProtection;
+use App\I18n\Translator;
 use App\Middleware;
 use App\Models\Settings;
 use App\Repositories\RepositoryFactory;
@@ -48,7 +49,7 @@ class WhiteBlacklistController
                         $repo->addInboundEntry($account, $sender, $wb);
                     }
                     ActivityLogger::logUpdate('', $account, "Added {$wb} entry for {$sender} ({$direction})");
-                    $success = 'Entry added!';
+                    $success = Translator::translate('wblist.msg_entry_added');
                 } elseif ($action === 'remove') {
                     $sender = $_POST['sender'] ?? '';
 
@@ -58,7 +59,7 @@ class WhiteBlacklistController
                         $repo->removeInboundEntry($account, $sender);
                     }
                     ActivityLogger::logDelete('', $account, "Removed entry for {$sender} ({$direction})");
-                    $success = 'Entry removed!';
+                    $success = Translator::translate('wblist.msg_entry_removed');
                 }
             } catch (\Exception $e) {
                 $error = $e->getMessage();

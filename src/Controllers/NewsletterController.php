@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controllers;
 
+use App\I18n\Translator;
 use App\Models\Settings;
 use App\Repositories\RepositoryFactory;
 use App\TemplateEngine;
@@ -25,14 +26,14 @@ class NewsletterController
             $email = trim($_POST['email'] ?? '');
 
             if ($email === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                $error = 'Please enter a valid email address.';
+                $error = Translator::translate('newsletter.msg_invalid_email');
             } else {
                 $token = bin2hex(random_bytes(16));
                 $expireHours = (int) (Settings::getInstance()->env('IREDPANEL_NEWSLETTER_EXPIRE_HOURS', '24') ?? 24);
                 $expired = time() + ($expireHours * 3600);
 
                 self::saveConfirmation($mlid, $ml->address, $email, 'subscribe', $token, $expired);
-                $success = 'A confirmation email has been sent. Please check your inbox.';
+                $success = Translator::translate('newsletter.msg_confirmation_sent');
             }
         }
 
@@ -59,14 +60,14 @@ class NewsletterController
             $email = trim($_POST['email'] ?? '');
 
             if ($email === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                $error = 'Please enter a valid email address.';
+                $error = Translator::translate('newsletter.msg_invalid_email');
             } else {
                 $token = bin2hex(random_bytes(16));
                 $expireHours = (int) (Settings::getInstance()->env('IREDPANEL_NEWSLETTER_EXPIRE_HOURS', '24') ?? 24);
                 $expired = time() + ($expireHours * 3600);
 
                 self::saveConfirmation($mlid, $ml->address, $email, 'unsubscribe', $token, $expired);
-                $success = 'A confirmation email has been sent. Please check your inbox.';
+                $success = Translator::translate('newsletter.msg_confirmation_sent');
             }
         }
 

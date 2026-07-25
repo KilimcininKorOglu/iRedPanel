@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controllers;
 
 use App\CsrfProtection;
+use App\I18n\Translator;
 use App\Middleware;
 use App\Models\Settings;
 use App\Repositories\RepositoryFactory;
@@ -145,7 +146,7 @@ class AliasController
                     ActivityLogger::logUpdate('alias', $alias->domain, "Updated moderators for alias {$address}");
                 }
 
-                $success = 'Alias updated successfully!';
+                $success = Translator::translate('alias.msg_updated');
                 $alias = $repo->getAlias($address);
                 $members = $repo->getAliasMembers($address);
                 $moderators = $repo->getModerators($address);

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controllers;
 
 use App\CsrfProtection;
+use App\I18n\Translator;
 use App\Middleware;
 use App\Models\Settings;
 use App\Repositories\RepositoryFactory;
@@ -121,13 +122,13 @@ class MailingListController
 
                     $repo->updateMailingList($address, $name, $accessPolicy, $maxMsgSize, $maxMembers, $active);
                     ActivityLogger::logUpdate('mailinglist', $ml->domain, "Updated mailing list: {$address}");
-                    $success = 'Mailing list updated!';
+                    $success = Translator::translate('mlist.msg_updated');
                 } elseif ($action === 'updateOwners') {
                     $ownersRaw = trim($_POST['owners'] ?? '');
                     $newOwners = array_filter(array_map('trim', explode("\n", $ownersRaw)));
                     $repo->setOwners($address, $newOwners);
                     ActivityLogger::logUpdate('mailinglist', $ml->domain, "Updated owners for: {$address}");
-                    $success = 'Owners updated!';
+                    $success = Translator::translate('mlist.msg_owners_updated');
                 }
 
                 $ml = $repo->getMailingList($address);

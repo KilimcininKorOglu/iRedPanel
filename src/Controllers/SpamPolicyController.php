@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controllers;
 
 use App\CsrfProtection;
+use App\I18n\Translator;
 use App\Middleware;
 use App\Models\Settings;
 use App\Models\SpamPolicy;
@@ -42,12 +43,12 @@ class SpamPolicyController
                 if ($action === 'delete') {
                     $repo->deletePolicy($account);
                     ActivityLogger::log('delete', '', '', "Deleted spam policy for {$account}");
-                    $success = 'Spam policy deleted!';
+                    $success = Translator::translate('spampolicy.msg_deleted');
                 } else {
                     $policy = SpamPolicy::fromFormData($_POST);
                     $repo->createOrUpdatePolicy($account, $policy);
                     ActivityLogger::logUpdate('', $account, "Spam policy updated for {$account}");
-                    $success = 'Spam policy updated!';
+                    $success = Translator::translate('spampolicy.msg_updated');
                 }
             } catch (\Exception $e) {
                 $error = $e->getMessage();

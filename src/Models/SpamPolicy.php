@@ -50,12 +50,12 @@ class SpamPolicy
             spamKillLevel: ($post['spamKillLevel'] ?? '') !== '' ? (float) $post['spamKillLevel'] : null,
             spamSubjectTag: trim($post['spamSubjectTag'] ?? ''),
             spamSubjectTag2: trim($post['spamSubjectTag2'] ?? ''),
-            bypassVirusChecks: isset($post['bypassVirusChecks']),
-            bypassSpamChecks: isset($post['bypassSpamChecks']),
-            virusLover: isset($post['virusLover']),
-            spamLover: isset($post['spamLover']),
-            bannedFilesLover: isset($post['bannedFilesLover']),
-            badHeaderLover: isset($post['badHeaderLover']),
+            bypassVirusChecks: (bool) ($post['bypassVirusChecks'] ?? false),
+            bypassSpamChecks: (bool) ($post['bypassSpamChecks'] ?? false),
+            virusLover: (bool) ($post['virusLover'] ?? false),
+            spamLover: (bool) ($post['spamLover'] ?? false),
+            bannedFilesLover: (bool) ($post['bannedFilesLover'] ?? false),
+            badHeaderLover: (bool) ($post['badHeaderLover'] ?? false),
         );
     }
 

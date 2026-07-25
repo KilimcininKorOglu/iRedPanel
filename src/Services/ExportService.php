@@ -35,9 +35,9 @@ class ExportService
 
             foreach ($users as $user) {
                 fputcsv($out, [
-                    $user->uid,
-                    $user->uid . '@' . $domain,
-                    $user->name,
+                    self::neutralizeCsvValue($user->uid),
+                    self::neutralizeCsvValue($user->uid . '@' . $domain),
+                    self::neutralizeCsvValue($user->name),
                     $user->mailQuota,
                     $user->active ? 'Yes' : 'No',
                 ]);
@@ -82,10 +82,22 @@ class ExportService
             foreach ($domains as $d) {
                 $domainName = $d['domain'] ?? $d['name'] ?? '';
                 $users = $userRepo->getUsers($domainName);
-                fputcsv($out, [$domainName, count($users)]);
+                fputcsv($out, [self::neutralizeCsvValue($domainName), count($users)]);
             }
             fclose($out);
         }
+    }
+
+    /**
+     * Prefixes a leading formula-trigger character with a single quote so that
+     * spreadsheet applications treat the cell as text instead of a formula.
+     */
+    private static function neutralizeCsvValue(string $value): string
+    {
+        if ($value !== '' && in_array($value[0], ['=', '+', '-', '@', "\t", "\r"], true)) {
+            return "'" . $value;
+        }
+        return $value;
     }
 
     private static function sendCsvHeaders(string $filename): void

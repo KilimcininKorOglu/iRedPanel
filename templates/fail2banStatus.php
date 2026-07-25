@@ -1,6 +1,6 @@
-<?php $pageTitle = 'Fail2ban'; ?>
+<?php $pageTitle = $t('fail2ban.title'); ?>
 <div class="container">
-  <h1>Fail2ban Status</h1>
+  <h1><?= $te('fail2ban.status_title') ?></h1>
 
   <?php foreach ($jails as $jail): ?>
   <div class="card" style="margin-bottom: 1rem;">
@@ -11,8 +11,8 @@
     <table class="striped">
       <thead>
         <tr>
-          <th>Banned IP</th>
-          <th>Action</th>
+          <th><?= $te('fail2ban.banned_ip') ?></th>
+          <th><?= $te('common.actions') ?></th>
         </tr>
       </thead>
       <tbody>
@@ -20,11 +20,11 @@
         <tr>
           <td><?= $e($ip) ?></td>
           <td>
-            <form method="post" action="/fail2ban/unban" style="display:inline" data-confirm="Unban <?= $e($ip) ?>?">
+            <form method="post" action="/fail2ban/unban" style="display:inline" data-confirm="<?= $te('fail2ban.unban_confirm', ['ip' => $ip]) ?>">
               <?= $csrfField ?>
               <input type="hidden" name="jail" value="<?= $e($jail) ?>" />
               <input type="hidden" name="ip" value="<?= $e($ip) ?>" />
-              <button type="submit" class="button outline">Unban</button>
+              <button type="submit" class="button outline"><?= $te('fail2ban.unban') ?></button>
             </form>
           </td>
         </tr>
@@ -32,13 +32,13 @@
       </tbody>
     </table>
     <?php else: ?>
-    <p class="text-light">No banned IPs in this jail.</p>
+    <p class="text-light"><?= $te('fail2ban.no_banned') ?></p>
     <?php endif; ?>
   </div>
   <?php endforeach; ?>
 
   <div class="card">
-    <header><h3>Ban an IP</h3></header>
+    <header><h3><?= $te('fail2ban.ban_heading') ?></h3></header>
     <form method="post" action="/fail2ban/ban">
       <?= $csrfField ?>
       <div class="row">
@@ -50,10 +50,10 @@
           </select>
         </div>
         <div class="col-4">
-          <input type="text" name="ip" placeholder="IP address" required pattern="[0-9a-fA-F.:]*" />
+          <input type="text" name="ip" placeholder="<?= $te('fail2ban.ip_placeholder') ?>" required pattern="[0-9a-fA-F.:]*" />
         </div>
         <div class="col-4">
-          <button type="submit" class="button error outline">Ban IP</button>
+          <button type="submit" class="button error outline"><?= $te('fail2ban.ban_ip') ?></button>
         </div>
       </div>
     </form>

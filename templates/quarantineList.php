@@ -1,18 +1,18 @@
-<?php $pageTitle = 'Quarantine'; ?>
+<?php $pageTitle = $t('quarantine.title'); ?>
 <div class="container">
-  <h1>Quarantined Messages</h1>
+  <h1><?= $te('quarantine.heading') ?></h1>
 
   <form method="get" style="margin-bottom: 1rem;">
     <div class="row">
       <div class="col-6">
-        <input type="text" name="domain" placeholder="Filter by domain" value="<?= $e($filterDomain ?? '') ?>" />
+        <input type="text" name="domain" placeholder="<?= $te('quarantine.filter_placeholder') ?>" value="<?= $e($filterDomain ?? '') ?>" />
       </div>
       <div class="col-6">
-        <button type="submit" class="button outline">Filter</button>
-        <a href="/amavisd/quarantine" class="button outline">Clear</a>
-        <form method="post" action="/amavisd/cleanup" style="display:inline" data-confirm="Clean up old quarantined messages and mail logs?">
+        <button type="submit" class="button outline"><?= $te('quarantine.filter') ?></button>
+        <a href="/amavisd/quarantine" class="button outline"><?= $te('quarantine.clear') ?></a>
+        <form method="post" action="/amavisd/cleanup" style="display:inline" data-confirm="<?= $te('quarantine.cleanup_confirm') ?>">
           <?= $csrfField ?>
-          <button type="submit" class="button error outline">Cleanup old records</button>
+          <button type="submit" class="button error outline"><?= $te('quarantine.cleanup') ?></button>
         </form>
       </div>
     </div>
@@ -21,12 +21,12 @@
   <table class="striped">
     <thead>
       <tr>
-        <th>Date</th>
-        <th>From</th>
-        <th>To</th>
-        <th>Subject</th>
-        <th>Spam level</th>
-        <th>Actions</th>
+        <th><?= $te('quarantine.date') ?></th>
+        <th><?= $te('quarantine.from') ?></th>
+        <th><?= $te('quarantine.to') ?></th>
+        <th><?= $te('quarantine.subject') ?></th>
+        <th><?= $te('quarantine.spam_level') ?></th>
+        <th><?= $te('common.actions') ?></th>
       </tr>
     </thead>
     <tbody>
@@ -38,19 +38,19 @@
         <td><?= $e($msg['subject'] ?? '') ?></td>
         <td><?= $e($msg['spam_level'] ?? '') ?></td>
         <td>
-          <form method="post" action="/amavisd/quarantine/<?= $e($msg['mail_id'] ?? '') ?>/release" style="display:inline" data-confirm="Release this message to the recipient?">
+          <form method="post" action="/amavisd/quarantine/<?= $e($msg['mail_id'] ?? '') ?>/release" style="display:inline" data-confirm="<?= $te('quarantine.release_confirm') ?>">
             <?= $csrfField ?>
-            <button type="submit" class="button primary outline">Release</button>
+            <button type="submit" class="button primary outline"><?= $te('quarantine.release') ?></button>
           </form>
-          <form method="post" action="/amavisd/quarantine/<?= $e($msg['mail_id'] ?? '') ?>/delete" style="display:inline" data-confirm="Delete this quarantined message?">
+          <form method="post" action="/amavisd/quarantine/<?= $e($msg['mail_id'] ?? '') ?>/delete" style="display:inline" data-confirm="<?= $te('quarantine.delete_confirm') ?>">
             <?= $csrfField ?>
-            <button type="submit" class="button error outline">Delete</button>
+            <button type="submit" class="button error outline"><?= $te('common.delete') ?></button>
           </form>
         </td>
       </tr>
       <?php endforeach; ?>
       <?php if (empty($messages)): ?>
-      <tr><td colspan="6" class="text-light">No quarantined messages.</td></tr>
+      <tr><td colspan="6" class="text-light"><?= $te('quarantine.empty') ?></td></tr>
       <?php endif; ?>
     </tbody>
   </table>

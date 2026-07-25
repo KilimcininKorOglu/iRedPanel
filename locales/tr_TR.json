@@ -160,6 +160,40 @@
     "inbound": "Gelen",
     "save": "Sınırlamayı kaydet"
   },
+  "user": {
+    "list_title": "Kullanıcılar",
+    "create": "Kullanıcı oluştur",
+    "identifier": "Tanımlayıcı",
+    "quota_mb": "Kota (MB)",
+    "used": "Kullanılan",
+    "delete_confirm": ":uid kullanıcısı silinsin mi?",
+    "bulk_delete_confirm": "Seçili kullanıcılar silinsin mi?"
+  },
+  "mlist": {
+    "list_title": "Posta Listeleri",
+    "create": "Posta listesi oluştur",
+    "policy": "Politika",
+    "delete_confirm": ":address posta listesi silinsin mi?",
+    "empty": "Posta listesi bulunamadı."
+  },
+  "quarantine": {
+    "title": "Karantina",
+    "heading": "Karantinaya Alınan İletiler",
+    "filter_placeholder": "Alan adına göre filtrele",
+    "filter": "Filtrele",
+    "clear": "Temizle",
+    "cleanup": "Eski kayıtları temizle",
+    "cleanup_confirm": "Eski karantina iletileri ve posta günlükleri temizlensin mi?",
+    "date": "Tarih",
+    "from": "Gönderen",
+    "to": "Alıcı",
+    "subject": "Konu",
+    "spam_level": "Spam düzeyi",
+    "release": "Serbest bırak",
+    "release_confirm": "Bu ileti alıcıya serbest bırakılsın mı?",
+    "delete_confirm": "Bu karantina iletisi silinsin mi?",
+    "empty": "Karantinaya alınan ileti yok."
+  },
   "domain": {
     "list_title": "Alan Adları",
     "create": "Alan adı oluştur",

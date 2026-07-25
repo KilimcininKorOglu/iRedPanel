@@ -160,6 +160,40 @@
     "inbound": "Inbound",
     "save": "Save throttle"
   },
+  "user": {
+    "list_title": "Users",
+    "create": "Create user",
+    "identifier": "Identifier",
+    "quota_mb": "Quota (MB)",
+    "used": "Used",
+    "delete_confirm": "Delete user :uid?",
+    "bulk_delete_confirm": "Delete selected users?"
+  },
+  "mlist": {
+    "list_title": "Mailing Lists",
+    "create": "Create mailing list",
+    "policy": "Policy",
+    "delete_confirm": "Delete mailing list :address?",
+    "empty": "No mailing lists found."
+  },
+  "quarantine": {
+    "title": "Quarantine",
+    "heading": "Quarantined Messages",
+    "filter_placeholder": "Filter by domain",
+    "filter": "Filter",
+    "clear": "Clear",
+    "cleanup": "Cleanup old records",
+    "cleanup_confirm": "Clean up old quarantined messages and mail logs?",
+    "date": "Date",
+    "from": "From",
+    "to": "To",
+    "subject": "Subject",
+    "spam_level": "Spam level",
+    "release": "Release",
+    "release_confirm": "Release this message to the recipient?",
+    "delete_confirm": "Delete this quarantined message?",
+    "empty": "No quarantined messages."
+  },
   "domain": {
     "list_title": "Domains",
     "create": "Create domain",

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controllers;
 
 use App\CsrfProtection;
+use App\I18n\Translator;
 use App\Middleware;
 use App\Models\Admin;
 use App\Models\UserPassword;
@@ -106,7 +107,7 @@ class AdminController
 
                 // Validate email
                 if (empty($admin->username) || !filter_var($admin->username, FILTER_VALIDATE_EMAIL)) {
-                    $validationErrors['username'] = 'A valid email address is required';
+                    $validationErrors['username'] = Translator::translate('admin.msg_email_required');
                 }
 
                 // Validate password
@@ -117,7 +118,7 @@ class AdminController
 
                     // Check for duplicate
                     if ($repo->getAdmin($admin->username) !== null) {
-                        $validationErrors['username'] = "Admin '{$admin->username}' already exists";
+                        $validationErrors['username'] = Translator::translate('admin.msg_exists', ['username' => $admin->username]);
                     } else {
                         $passwordHash = PasswordUtils::generatePasswordHash($password);
                         $repo->createAdmin($admin, $passwordHash);
@@ -173,7 +174,7 @@ class AdminController
                     if ($existingAdmin !== null && $existingAdmin->isGlobalAdmin) {
                         $wouldLoseGlobalAdmin = !$admin->isGlobalAdmin || !$admin->active;
                         if ($wouldLoseGlobalAdmin && $adminRepo->countGlobalAdmins() <= 1) {
-                            $error = 'Cannot remove global admin role or disable the last global admin';
+                            $error = Translator::translate('admin.msg_cannot_remove_last_global');
                             $admin = $existingAdmin;
                         }
                     }
@@ -181,7 +182,7 @@ class AdminController
                     if ($error === null) {
                         $adminRepo->updateAdmin($admin);
                         ActivityLogger::logUpdate('', $adminEmail, "Admin updated: {$adminEmail}");
-                        $success = 'Admin updated successfully!';
+                        $success = Translator::translate('admin.msg_updated');
                     }
                 } elseif ($editMode === 'password') {
                     $password = $_POST['password'] ?? '';
@@ -192,7 +193,7 @@ class AdminController
                         $passwordHash = PasswordUtils::generatePasswordHash($password);
                         $adminRepo->updateAdminPassword($adminEmail, $passwordHash);
                         ActivityLogger::logUpdate('', $adminEmail, "Admin password changed: {$adminEmail}");
-                        $success = 'Password updated successfully!';
+                        $success = Translator::translate('common.msg_password_updated');
                     }
                 } elseif ($editMode === 'domains') {
                     $action = $_POST['action'] ?? '';
@@ -201,11 +202,11 @@ class AdminController
                     if ($action === 'assign' && !empty($domain)) {
                         $adminRepo->assignDomainToAdmin($adminEmail, $domain);
                         ActivityLogger::logUpdate($domain, $adminEmail, "Domain assigned to admin: {$domain}");
-                        $success = "Domain '{$domain}' assigned!";
+                        $success = Translator::translate('admin.msg_domain_assigned', ['domain' => $domain]);
                     } elseif ($action === 'revoke' && !empty($domain)) {
                         $adminRepo->revokeDomainFromAdmin($adminEmail, $domain);
                         ActivityLogger::logUpdate($domain, $adminEmail, "Domain revoked from admin: {$domain}");
-                        $success = "Domain '{$domain}' revoked!";
+                        $success = Translator::translate('admin.msg_domain_revoked', ['domain' => $domain]);
                     }
                 } elseif ($editMode === 'limits') {
                     CsrfProtection::validateToken();
@@ -219,7 +220,7 @@ class AdminController
                         $admin->createNewDomains = isset($_POST['createNewDomains']);
                         $adminRepo->updateAdminSettings($adminEmail, $admin->toSettingsJson());
                         ActivityLogger::logUpdate('', $adminEmail, "Admin resource limits updated");
-                        $success = 'Resource limits updated!';
+                        $success = Translator::translate('admin.msg_limits_updated');
                     }
                 }
             } catch (\Exception $e) {

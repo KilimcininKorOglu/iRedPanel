@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controllers;
 
 use App\CsrfProtection;
+use App\I18n\Translator;
 use App\Middleware;
 use App\Models\DomainAlias;
 use App\Models\Settings;
@@ -52,23 +53,23 @@ class DomainAliasController
                 $alias = DomainAlias::fromFormData($_POST);
 
                 if (empty($alias->aliasDomain)) {
-                    $validationErrors['aliasDomain'] = 'Alias domain name is required';
+                    $validationErrors['aliasDomain'] = Translator::translate('domainalias.msg_alias_required');
                 } elseif (!preg_match('/^[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*\.[a-z]{2,}$/', $alias->aliasDomain)) {
-                    $validationErrors['aliasDomain'] = 'Invalid domain name format';
+                    $validationErrors['aliasDomain'] = Translator::translate('common.msg_invalid_domain_format');
                 }
 
                 if (empty($alias->targetDomain)) {
-                    $validationErrors['targetDomain'] = 'Target domain is required';
+                    $validationErrors['targetDomain'] = Translator::translate('domainalias.msg_target_required');
                 }
 
                 if ($alias->aliasDomain === $alias->targetDomain) {
-                    $validationErrors['aliasDomain'] = 'Alias domain cannot be the same as target domain';
+                    $validationErrors['aliasDomain'] = Translator::translate('domainalias.msg_same_as_target');
                 }
 
                 if (empty($validationErrors)) {
                     $repo = RepositoryFactory::getDomainAliasRepository();
                     if ($repo->getAlias($alias->aliasDomain) !== null) {
-                        $validationErrors['aliasDomain'] = "Alias '{$alias->aliasDomain}' already exists";
+                        $validationErrors['aliasDomain'] = Translator::translate('domainalias.msg_exists', ['alias' => $alias->aliasDomain]);
                     } else {
                         $repo->createAlias($alias);
                         ActivityLogger::logCreate($alias->targetDomain, '', "Domain alias created: {$alias->aliasDomain} -> {$alias->targetDomain}");

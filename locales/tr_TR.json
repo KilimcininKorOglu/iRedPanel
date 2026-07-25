@@ -182,7 +182,25 @@
     "display_name_placeholder": "örn. Proje Tartışması",
     "max_msg_size": "Maks. ileti boyutu (bayt, 0 = sınırsız)",
     "max_members": "Maks. üye (0 = sınırsız)",
-    "create_button": "Posta Listesi Oluştur"
+    "create_button": "Posta Listesi Oluştur",
+    "view_title": "Posta Listesi: :address",
+    "list_settings": "Liste Ayarları",
+    "policy_public_short": "Herkese açık",
+    "transport": "Taşıma",
+    "save_settings": "Ayarları Kaydet",
+    "list_owners": "Liste Sahipleri",
+    "owners_hint": "Sahip e-posta adresleri (her satıra bir tane)",
+    "owners_desc": "Sahipler liste ayarlarını yönetebilir ve iletileri denetleyebilir.",
+    "save_owners": "Sahipleri Kaydet",
+    "delete_button": "Posta Listesini Sil",
+    "back": "Posta listelerine dön"
+  },
+  "search": {
+    "title": "Ara",
+    "placeholder": "Alan adları, kullanıcılar, takma adlar, posta listelerini ara...",
+    "all_types": "Tüm türler",
+    "type_aliases": "Takma Adlar",
+    "results_for": "\":query\" için :count sonuç bulundu"
   },
   "quarantine": {
     "title": "Karantina",

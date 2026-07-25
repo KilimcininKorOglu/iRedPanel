@@ -1,26 +1,26 @@
-<?php $pageTitle = 'Search'; ?>
+<?php $pageTitle = $t('search.title'); ?>
 <div class="container">
   <div class="row">
     <div class="col">
-      <h1>Search</h1>
+      <h1><?= $te('search.title') ?></h1>
 
       <form method="get" action="/search">
         <div class="row">
           <div class="col-6">
-            <input type="text" name="q" value="<?= $e($query) ?>" placeholder="Search domains, users, aliases, mailing lists..." autofocus />
+            <input type="text" name="q" value="<?= $e($query) ?>" placeholder="<?= $te('search.placeholder') ?>" autofocus />
           </div>
           <div class="col-3">
             <select name="accountType[]" multiple>
-              <option value="">All types</option>
-              <option value="domain" <?= in_array('domain', $accountTypes) ? 'selected' : '' ?>>Domains</option>
-              <option value="user" <?= in_array('user', $accountTypes) ? 'selected' : '' ?>>Users</option>
-              <option value="alias" <?= in_array('alias', $accountTypes) ? 'selected' : '' ?>>Aliases</option>
-              <option value="ml" <?= in_array('ml', $accountTypes) ? 'selected' : '' ?>>Mailing Lists</option>
-              <option value="admin" <?= in_array('admin', $accountTypes) ? 'selected' : '' ?>>Admins</option>
+              <option value=""><?= $te('search.all_types') ?></option>
+              <option value="domain" <?= in_array('domain', $accountTypes) ? 'selected' : '' ?>><?= $te('domain.list_title') ?></option>
+              <option value="user" <?= in_array('user', $accountTypes) ? 'selected' : '' ?>><?= $te('user.list_title') ?></option>
+              <option value="alias" <?= in_array('alias', $accountTypes) ? 'selected' : '' ?>><?= $te('search.type_aliases') ?></option>
+              <option value="ml" <?= in_array('ml', $accountTypes) ? 'selected' : '' ?>><?= $te('mlist.list_title') ?></option>
+              <option value="admin" <?= in_array('admin', $accountTypes) ? 'selected' : '' ?>><?= $te('admin.list_title') ?></option>
             </select>
           </div>
           <div class="col-3">
-            <button type="submit" class="button primary">Search</button>
+            <button type="submit" class="button primary"><?= $te('search.title') ?></button>
           </div>
         </div>
       </form>
@@ -32,12 +32,12 @@
           + count($results['aliases'] ?? []) + count($results['mailingLists'] ?? [])
           + count($results['admins'] ?? []);
       ?>
-      <p class="text-light"><?= $totalResults ?> result(s) found for "<?= $e($query) ?>"</p>
+      <p class="text-light"><?= $te('search.results_for', ['count' => $totalResults, 'query' => $query]) ?></p>
 
       <?php if (!empty($results['domains'])): ?>
-      <h3>Domains (<?= count($results['domains']) ?>)</h3>
+      <h3><?= $te('domain.list_title') ?> (<?= count($results['domains']) ?>)</h3>
       <table class="striped">
-        <thead><tr><th>Domain</th><th>Description</th><th>Status</th></tr></thead>
+        <thead><tr><th><?= $te('common.domain') ?></th><th><?= $te('common.description') ?></th><th><?= $te('common.status') ?></th></tr></thead>
         <tbody>
           <?php foreach ($results['domains'] as $d): ?>
           <tr>
@@ -51,9 +51,9 @@
       <?php endif; ?>
 
       <?php if (!empty($results['users'])): ?>
-      <h3>Users (<?= count($results['users']) ?>)</h3>
+      <h3><?= $te('user.list_title') ?> (<?= count($results['users']) ?>)</h3>
       <table class="striped">
-        <thead><tr><th>Email</th><th>Name</th><th>Domain</th><th>Status</th></tr></thead>
+        <thead><tr><th><?= $te('common.email') ?></th><th><?= $te('common.name') ?></th><th><?= $te('common.domain') ?></th><th><?= $te('common.status') ?></th></tr></thead>
         <tbody>
           <?php foreach ($results['users'] as $u): ?>
           <?php $uid = str_contains($u['username'], '@') ? explode('@', $u['username'])[0] : $u['username']; ?>
@@ -69,9 +69,9 @@
       <?php endif; ?>
 
       <?php if (!empty($results['aliases'])): ?>
-      <h3>Aliases (<?= count($results['aliases']) ?>)</h3>
+      <h3><?= $te('search.type_aliases') ?> (<?= count($results['aliases']) ?>)</h3>
       <table class="striped">
-        <thead><tr><th>Address</th><th>Name</th><th>Domain</th><th>Status</th></tr></thead>
+        <thead><tr><th><?= $te('common.address') ?></th><th><?= $te('common.name') ?></th><th><?= $te('common.domain') ?></th><th><?= $te('common.status') ?></th></tr></thead>
         <tbody>
           <?php foreach ($results['aliases'] as $a): ?>
           <tr>
@@ -86,9 +86,9 @@
       <?php endif; ?>
 
       <?php if (!empty($results['mailingLists'])): ?>
-      <h3>Mailing Lists (<?= count($results['mailingLists']) ?>)</h3>
+      <h3><?= $te('mlist.list_title') ?> (<?= count($results['mailingLists']) ?>)</h3>
       <table class="striped">
-        <thead><tr><th>Address</th><th>Name</th><th>Domain</th><th>Status</th></tr></thead>
+        <thead><tr><th><?= $te('common.address') ?></th><th><?= $te('common.name') ?></th><th><?= $te('common.domain') ?></th><th><?= $te('common.status') ?></th></tr></thead>
         <tbody>
           <?php foreach ($results['mailingLists'] as $ml): ?>
           <tr>
@@ -103,9 +103,9 @@
       <?php endif; ?>
 
       <?php if (!empty($results['admins'])): ?>
-      <h3>Admins (<?= count($results['admins']) ?>)</h3>
+      <h3><?= $te('admin.list_title') ?> (<?= count($results['admins']) ?>)</h3>
       <table class="striped">
-        <thead><tr><th>Email</th><th>Name</th><th>Status</th></tr></thead>
+        <thead><tr><th><?= $te('common.email') ?></th><th><?= $te('common.name') ?></th><th><?= $te('common.status') ?></th></tr></thead>
         <tbody>
           <?php foreach ($results['admins'] as $adm): ?>
           <tr>
@@ -119,7 +119,7 @@
       <?php endif; ?>
 
       <?php if ($totalResults === 0): ?>
-      <p class="text-light">No results found.</p>
+      <p class="text-light"><?= $te('common.no_results') ?></p>
       <?php endif; ?>
 
       <?php endif; ?>

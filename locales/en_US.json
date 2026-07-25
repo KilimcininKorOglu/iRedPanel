@@ -182,7 +182,25 @@
     "display_name_placeholder": "e.g. Project Discussion",
     "max_msg_size": "Max message size (bytes, 0 = unlimited)",
     "max_members": "Max members (0 = unlimited)",
-    "create_button": "Create Mailing List"
+    "create_button": "Create Mailing List",
+    "view_title": "Mailing List: :address",
+    "list_settings": "List Settings",
+    "policy_public_short": "Public",
+    "transport": "Transport",
+    "save_settings": "Save Settings",
+    "list_owners": "List Owners",
+    "owners_hint": "Owner email addresses (one per line)",
+    "owners_desc": "Owners can manage list settings and moderate messages.",
+    "save_owners": "Save Owners",
+    "delete_button": "Delete Mailing List",
+    "back": "Back to mailing lists"
+  },
+  "search": {
+    "title": "Search",
+    "placeholder": "Search domains, users, aliases, mailing lists...",
+    "all_types": "All types",
+    "type_aliases": "Aliases",
+    "results_for": ":count result(s) found for \":query\""
   },
   "quarantine": {
     "title": "Quarantine",

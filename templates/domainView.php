@@ -6,7 +6,7 @@
 
       <div class="row breadcrumbs">
         <div class="col">
-          <a href="/domains">Domains</a> /
+          <a href="/domains"><?= $te('domain.list_title') ?></a> /
           <span class="text-light"><?= $e($domain->domainName) ?></span>
         </div>
       </div>
@@ -21,20 +21,20 @@
 
       <nav class="tabs">
         <a <?php if (($editMode ?? 'general') === 'general'): ?>class="active"<?php endif; ?>
-           href="/domains/<?= $e($domain->domainName) ?>/edit">General</a>
+           href="/domains/<?= $e($domain->domainName) ?>/edit"><?= $te('admin.tab_general') ?></a>
         <a <?php if (($editMode ?? '') === 'settings'): ?>class="active"<?php endif; ?>
-           href="/domains/<?= $e($domain->domainName) ?>/settings">Settings</a>
+           href="/domains/<?= $e($domain->domainName) ?>/settings"><?= $te('common.settings') ?></a>
         <a <?php if (($editMode ?? '') === 'catchall'): ?>class="active"<?php endif; ?>
-           href="/domains/<?= $e($domain->domainName) ?>/catchall">Catch-all</a>
+           href="/domains/<?= $e($domain->domainName) ?>/catchall"><?= $te('domain.tab_catchall') ?></a>
         <a <?php if (($editMode ?? '') === 'bcc'): ?>class="active"<?php endif; ?>
-           href="/domains/<?= $e($domain->domainName) ?>/bcc">BCC</a>
+           href="/domains/<?= $e($domain->domainName) ?>/bcc"><?= $te('domain.tab_bcc') ?></a>
         <a <?php if (($editMode ?? '') === 'relay'): ?>class="active"<?php endif; ?>
-           href="/domains/<?= $e($domain->domainName) ?>/relay">Relay</a>
+           href="/domains/<?= $e($domain->domainName) ?>/relay"><?= $te('domain.tab_relay') ?></a>
       </nav>
 
       <p class="text-light">
-        Users: <?= $e($domain->currentUserCount) ?> |
-        Created: <?= $e($domain->created ?? 'N/A') ?>
+        <?= $te('domain.users') ?>: <?= $e($domain->currentUserCount) ?> |
+        <?= $te('admin.created') ?>: <?= $e($domain->created ?? $t('common.na')) ?>
       </p>
 
       <?php if (($editMode ?? 'general') === 'general'): ?>
@@ -42,7 +42,7 @@
         <?= $csrfField ?>
 
         <p>
-          <label for="description">Description</label>
+          <label for="description"><?= $te('common.description') ?></label>
           <input id="description" type="text" name="description"
             value="<?= $e($domain->description) ?>"
           />
@@ -51,7 +51,7 @@
         <div class="row">
           <div class="col-6">
             <p>
-              <label for="maxQuota">Max domain quota (MB, 0 = unlimited)</label>
+              <label for="maxQuota"><?= $te('domain.max_quota') ?></label>
               <input id="maxQuota" type="number" name="maxQuota" min="0"
                 value="<?= $e($domain->maxQuota) ?>"
               />
@@ -59,7 +59,7 @@
           </div>
           <div class="col-6">
             <p>
-              <label for="quota">Domain quota (MB, 0 = unlimited)</label>
+              <label for="quota"><?= $te('domain.domain_quota') ?></label>
               <input id="quota" type="number" name="quota" min="0"
                 value="<?= $e($domain->quota) ?>"
               />
@@ -70,7 +70,7 @@
         <div class="row">
           <div class="col-6">
             <p>
-              <label for="mailboxes">Max mailboxes (0 = unlimited)</label>
+              <label for="mailboxes"><?= $te('domain.max_mailboxes') ?></label>
               <input id="mailboxes" type="number" name="mailboxes" min="0"
                 value="<?= $e($domain->mailboxes) ?>"
               />
@@ -78,7 +78,7 @@
           </div>
           <div class="col-6">
             <p>
-              <label for="aliases">Max aliases (0 = unlimited)</label>
+              <label for="aliases"><?= $te('domain.max_aliases') ?></label>
               <input id="aliases" type="number" name="aliases" min="0"
                 value="<?= $e($domain->aliases) ?>"
               />
@@ -87,7 +87,7 @@
         </div>
 
         <p>
-          <label for="transport">Transport</label>
+          <label for="transport"><?= $te('domain.transport') ?></label>
           <select id="transport" name="transport">
             <option value="dovecot" <?php if ($domain->transport === 'dovecot'): ?>selected<?php endif; ?>>dovecot</option>
             <option value="lmtp" <?php if ($domain->transport === 'lmtp'): ?>selected<?php endif; ?>>lmtp</option>
@@ -97,12 +97,12 @@
         <p>
           <label>
             <input type="checkbox" name="active" <?php if ($domain->active): ?>checked<?php endif; ?> />
-            Active
+            <?= $te('common.active') ?>
           </label>
         </p>
 
-        <button type="submit" class="button primary">Save changes</button>
-        <a href="/domains" class="button outline">Back to domains</a>
+        <button type="submit" class="button primary"><?= $te('common.save_changes') ?></button>
+        <a href="/domains" class="button outline"><?= $te('domain.back') ?></a>
       </form>
 
       <?php elseif (($editMode ?? '') === 'settings'): ?>
@@ -110,7 +110,7 @@
         <?= $csrfField ?>
 
         <p>
-          <label for="defaultUserQuota">Default user quota (MB, 0 = use global)</label>
+          <label for="defaultUserQuota"><?= $te('domain.default_user_quota') ?></label>
           <input id="defaultUserQuota" type="number" name="defaultUserQuota" min="0"
             value="<?= $e($domainSettings->defaultUserQuota ?? 0) ?>"
           />
@@ -119,7 +119,7 @@
         <div class="row">
           <div class="col-6">
             <p>
-              <label for="minPasswordLength">Min password length (0 = use global)</label>
+              <label for="minPasswordLength"><?= $te('domain.min_password_length') ?></label>
               <input id="minPasswordLength" type="number" name="minPasswordLength" min="0"
                 value="<?= $e($domainSettings->minPasswordLength ?? 0) ?>"
               />
@@ -127,7 +127,7 @@
           </div>
           <div class="col-6">
             <p>
-              <label for="maxPasswordLength">Max password length (0 = unlimited)</label>
+              <label for="maxPasswordLength"><?= $te('domain.max_password_length') ?></label>
               <input id="maxPasswordLength" type="number" name="maxPasswordLength" min="0"
                 value="<?= $e($domainSettings->maxPasswordLength ?? 0) ?>"
               />
@@ -136,11 +136,11 @@
         </div>
 
         <p>
-          <label for="disclaimer">Disclaimer text</label>
+          <label for="disclaimer"><?= $te('domain.disclaimer_text') ?></label>
           <textarea id="disclaimer" name="disclaimer" rows="5"><?= $e($domainSettings->disclaimer ?? '') ?></textarea>
         </p>
 
-        <button type="submit" class="button primary">Save settings</button>
+        <button type="submit" class="button primary"><?= $te('mlist.save_settings') ?></button>
       </form>
 
       <?php elseif (($editMode ?? '') === 'catchall'): ?>
@@ -148,18 +148,18 @@
         <?= $csrfField ?>
 
         <fieldset>
-          <legend>Catch-all Address</legend>
-          <p class="text-light">A catch-all address receives all emails sent to non-existent addresses under this domain.</p>
+          <legend><?= $te('domain.catchall_address') ?></legend>
+          <p class="text-light"><?= $te('domain.catchall_desc') ?></p>
 
-          <label for="catchallTarget">Forward to email address</label>
+          <label for="catchallTarget"><?= $te('domain.forward_to') ?></label>
           <input id="catchallTarget" type="email" name="catchallTarget"
             value="<?= $e($catchallTarget ?? '') ?>"
-            placeholder="Leave empty to disable catch-all"
+            placeholder="<?= $te('domain.catchall_placeholder') ?>"
           />
-          <p class="text-light">Leave empty and save to remove the catch-all address.</p>
+          <p class="text-light"><?= $te('domain.catchall_remove_hint') ?></p>
         </fieldset>
 
-        <button type="submit" class="button primary">Save catch-all</button>
+        <button type="submit" class="button primary"><?= $te('domain.save_catchall') ?></button>
       </form>
 
       <?php elseif (($editMode ?? '') === 'bcc'): ?>
@@ -167,23 +167,23 @@
         <?= $csrfField ?>
 
         <fieldset>
-          <legend>BCC Settings</legend>
-          <p class="text-light">BCC copies of all sent or received emails to the specified addresses.</p>
+          <legend><?= $te('domain.bcc_settings') ?></legend>
+          <p class="text-light"><?= $te('domain.bcc_desc') ?></p>
 
-          <label for="senderBcc">Sender BCC (outbound mail copy)</label>
+          <label for="senderBcc"><?= $te('domain.sender_bcc') ?></label>
           <input id="senderBcc" type="email" name="senderBcc"
             value="<?= $e($senderBcc ?? '') ?>"
-            placeholder="Leave empty to disable sender BCC"
+            placeholder="<?= $te('domain.sender_bcc_placeholder') ?>"
           />
 
-          <label for="recipientBcc">Recipient BCC (inbound mail copy)</label>
+          <label for="recipientBcc"><?= $te('domain.recipient_bcc') ?></label>
           <input id="recipientBcc" type="email" name="recipientBcc"
             value="<?= $e($recipientBcc ?? '') ?>"
-            placeholder="Leave empty to disable recipient BCC"
+            placeholder="<?= $te('domain.recipient_bcc_placeholder') ?>"
           />
         </fieldset>
 
-        <button type="submit" class="button primary">Save BCC settings</button>
+        <button type="submit" class="button primary"><?= $te('domain.save_bcc') ?></button>
       </form>
 
       <?php elseif (($editMode ?? '') === 'relay'): ?>
@@ -191,18 +191,18 @@
         <?= $csrfField ?>
 
         <fieldset>
-          <legend>Sender-Dependent Relay</legend>
-          <p class="text-light">Route outbound mail from this domain through a specific relay server.</p>
+          <legend><?= $te('domain.relay_legend') ?></legend>
+          <p class="text-light"><?= $te('domain.relay_desc') ?></p>
 
-          <label for="relayhost">Relay Host</label>
+          <label for="relayhost"><?= $te('domain.relay_host') ?></label>
           <input id="relayhost" type="text" name="relayhost"
             value="<?= $e($domainRelayhost ?? '') ?>"
             placeholder="[smtp.relay.com]:587"
           />
-          <p class="text-light">Format: <code>[hostname]:port</code> — square brackets prevent MX lookup.</p>
+          <p class="text-light"><?= $t('domain.relay_format') ?></p>
         </fieldset>
 
-        <button type="submit" class="button primary">Save relay settings</button>
+        <button type="submit" class="button primary"><?= $te('domain.save_relay') ?></button>
       </form>
       <?php endif; ?>
     </div>

@@ -85,6 +85,48 @@ class MysqlAuthRepository implements AuthRepositoryInterface
         return $domains;
     }
 
+    public function getLanguage(string $email): string
+    {
+        $pdo = MysqlConnection::getInstance()->getPdo();
+
+        $stmt = $pdo->prepare('SELECT language FROM admin WHERE username = :username');
+        $stmt->execute(['username' => $email]);
+        $row = $stmt->fetch();
+        if ($row !== false && !empty($row['language'])) {
+            return (string) $row['language'];
+        }
+
+        // Mailbox-based admin fallback.
+        $stmt = $pdo->prepare('SELECT language FROM mailbox WHERE username = :username');
+        $stmt->execute(['username' => $email]);
+        $row = $stmt->fetch();
+        if ($row !== false && !empty($row['language'])) {
+            return (string) $row['language'];
+        }
+
+        return '';
+    }
+
+    public function setLanguage(string $email, string $locale): void
+    {
+        $pdo = MysqlConnection::getInstance()->getPdo();
+
+        $stmt = $pdo->prepare('UPDATE admin SET language = :language WHERE username = :username');
+        $stmt->execute(['language' => $locale, 'username' => $email]);
+        if ($stmt->rowCount() > 0) {
+            return;
+        }
+
+        // Fall back to the mailbox-based admin record.
+        $stmt = $pdo->prepare('UPDATE mailbox SET language = :language WHERE username = :username');
+        $stmt->execute(['language' => $locale, 'username' => $email]);
+    }
+
+    public function supportsLanguagePersistence(): bool
+    {
+        return true;
+    }
+
     private static function verifyPassword(string $password, string $storedHash): bool
     {
         return PasswordVerifier::verify($password, $storedHash);

@@ -64,4 +64,35 @@ class LdapAuthRepository implements AuthRepositoryInterface
         sort($domains);
         return $domains;
     }
+
+    public function getLanguage(string $email): string
+    {
+        $conn = LdapConnection::getInstance()->getConn();
+        $dn = LdapUtils::getEmailDn($email);
+
+        $result = @ldap_read($conn, $dn, '(objectClass=*)', ['preferredLanguage']);
+        if ($result === false) {
+            return '';
+        }
+
+        $entries = ldap_get_entries($conn, $result);
+        if (($entries['count'] ?? 0) === 0) {
+            return '';
+        }
+
+        return $entries[0]['preferredlanguage'][0] ?? '';
+    }
+
+    public function setLanguage(string $email, string $locale): void
+    {
+        $conn = LdapConnection::getInstance()->getConn();
+        $dn = LdapUtils::getEmailDn($email);
+
+        @ldap_modify_batch($conn, $dn, [LdapUtils::modReplace('preferredLanguage', $locale)]);
+    }
+
+    public function supportsLanguagePersistence(): bool
+    {
+        return true;
+    }
 }

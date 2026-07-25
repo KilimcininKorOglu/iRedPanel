@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace App\Controllers;
 
 use App\CsrfProtection;
+use App\I18n\LocaleResolver;
+use App\I18n\Translator;
 use App\Repositories\RepositoryFactory;
 use App\Services\ActivityLogger;
 use App\TemplateEngine;
@@ -39,6 +41,17 @@ class AuthController
                 $authRepo = RepositoryFactory::getAuthRepository();
                 $_SESSION['isGlobalAdmin'] = $authRepo->isGlobalAdmin($email);
                 $_SESSION['managedDomains'] = $authRepo->getManagedDomains($email);
+
+                // Apply the admin's stored language preference, if any and supported.
+                try {
+                    $storedLang = $authRepo->getLanguage($email);
+                    if ($storedLang !== '' && Translator::isSupported($storedLang)) {
+                        $_SESSION['lang'] = $storedLang;
+                        LocaleResolver::persistCookie($storedLang);
+                    }
+                } catch (\Exception $e) {
+                    error_log("Could not load language preference for {$email}: {$e->getMessage()}");
+                }
 
                 ActivityLogger::logLogin($email);
                 header("Location: $next");

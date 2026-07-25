@@ -23,4 +23,21 @@ interface AuthRepositoryInterface
      * @return string[]
      */
     public function getManagedDomains(string $email): array;
+
+    /**
+     * Returns the admin's stored preferred locale (e.g. 'en_US'), or an empty
+     * string when none is set. The caller falls back to the resolver default.
+     */
+    public function getLanguage(string $email): string;
+
+    /**
+     * Persists the admin's preferred locale. No-op backends that cannot store
+     * a preference should report false from supportsLanguagePersistence().
+     */
+    public function setLanguage(string $email, string $locale): void;
+
+    /**
+     * Whether this backend can persist a per-admin language preference.
+     */
+    public function supportsLanguagePersistence(): bool;
 }

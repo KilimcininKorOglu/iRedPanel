@@ -113,6 +113,16 @@ class ApiMiddleware
         }
 
         $data = json_decode($raw, true);
-        return is_array($data) ? $data : [];
+        if (json_last_error() !== JSON_ERROR_NONE) {
+            ApiResponse::error('Malformed JSON body: ' . json_last_error_msg(), 400);
+            exit;
+        }
+        // Reject scalars, null, and root-level JSON arrays; require a JSON object.
+        if (!is_array($data) || ($data !== [] && array_is_list($data))) {
+            ApiResponse::error('Request body must be a JSON object', 400);
+            exit;
+        }
+
+        return $data;
     }
 }

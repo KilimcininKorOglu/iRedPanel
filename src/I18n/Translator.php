@@ -16,6 +16,7 @@ class Translator
         'en_US' => 'English',
         'tr_TR' => 'Türkçe',
         'de_DE' => 'Deutsch',
+        'es_ES' => 'Español',
     ];
 
     /** Base/fallback locale — must contain every key. */

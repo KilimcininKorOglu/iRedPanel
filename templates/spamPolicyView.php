@@ -1,8 +1,8 @@
-<?php $pageTitle = 'Spam Policy: ' . ($account ?? ''); ?>
+<?php $pageTitle = $t('spampolicy.view_title', ['account' => $account ?? '']); ?>
 <div class="container">
   <div class="row">
     <div class="col-8">
-      <h1>Spam Policy</h1>
+      <h1><?= $te('spampolicy.title') ?></h1>
 
       <?php if (!empty($success)): ?>
       <div class="card bg-success text-white"><?= $e($success) ?></div>
@@ -12,17 +12,17 @@
       <?php endif; ?>
 
       <p>
-        <strong>Account:</strong> <?= $e($account) ?>
-        <?php if ($account === '@.'): ?>(Global default)<?php endif; ?>
+        <strong><?= $te('spampolicy.account') ?>:</strong> <?= $e($account) ?>
+        <?php if ($account === '@.'): ?>(<?= $te('spampolicy.global_default') ?>)<?php endif; ?>
       </p>
 
       <form method="get" action="/amavisd/spam-policy" style="margin-bottom:1rem;">
         <div class="row">
           <div class="col-8">
-            <input type="text" name="account" value="<?= $e($account !== '@.' ? $account : '') ?>" placeholder="@. (global), @domain.com, or user@domain.com" />
+            <input type="text" name="account" value="<?= $e($account !== '@.' ? $account : '') ?>" placeholder="<?= $te('spampolicy.account_placeholder') ?>" />
           </div>
           <div class="col-4">
-            <button type="submit" class="button outline">Load Policy</button>
+            <button type="submit" class="button outline"><?= $te('spampolicy.load_policy') ?></button>
           </div>
         </div>
       </form>
@@ -32,37 +32,37 @@
         <input type="hidden" name="action" value="save" />
 
         <fieldset>
-          <legend>Spam Thresholds</legend>
+          <legend><?= $te('spampolicy.thresholds') ?></legend>
 
           <div class="row">
             <div class="col-4">
-              <label for="spamTagLevel">Tag Level</label>
+              <label for="spamTagLevel"><?= $te('spampolicy.tag_level') ?></label>
               <input id="spamTagLevel" type="number" step="0.1" name="spamTagLevel"
                 value="<?= $e($policy->spamTagLevel ?? '') ?>" placeholder="e.g. 2.0" />
-              <p class="text-light">Add spam header</p>
+              <p class="text-light"><?= $te('spampolicy.tag_level_hint') ?></p>
             </div>
             <div class="col-4">
-              <label for="spamTag2Level">Tag2 Level</label>
+              <label for="spamTag2Level"><?= $te('spampolicy.tag2_level') ?></label>
               <input id="spamTag2Level" type="number" step="0.1" name="spamTag2Level"
                 value="<?= $e($policy->spamTag2Level ?? '') ?>" placeholder="e.g. 6.2" />
-              <p class="text-light">Mark as spam</p>
+              <p class="text-light"><?= $te('spampolicy.tag2_level_hint') ?></p>
             </div>
             <div class="col-4">
-              <label for="spamKillLevel">Kill Level</label>
+              <label for="spamKillLevel"><?= $te('spampolicy.kill_level') ?></label>
               <input id="spamKillLevel" type="number" step="0.1" name="spamKillLevel"
                 value="<?= $e($policy->spamKillLevel ?? '') ?>" placeholder="e.g. 6.9" />
-              <p class="text-light">Quarantine/reject</p>
+              <p class="text-light"><?= $te('spampolicy.kill_level_hint') ?></p>
             </div>
           </div>
 
           <div class="row">
             <div class="col-6">
-              <label for="spamSubjectTag">Subject Tag</label>
+              <label for="spamSubjectTag"><?= $te('spampolicy.subject_tag') ?></label>
               <input id="spamSubjectTag" type="text" name="spamSubjectTag"
                 value="<?= $e($policy->spamSubjectTag ?? '') ?>" placeholder="e.g. [SPAM?]" />
             </div>
             <div class="col-6">
-              <label for="spamSubjectTag2">Subject Tag2</label>
+              <label for="spamSubjectTag2"><?= $te('spampolicy.subject_tag2') ?></label>
               <input id="spamSubjectTag2" type="text" name="spamSubjectTag2"
                 value="<?= $e($policy->spamSubjectTag2 ?? '') ?>" placeholder="e.g. [SPAM]" />
             </div>
@@ -70,35 +70,35 @@
         </fieldset>
 
         <fieldset>
-          <legend>Bypass & Delivery Options</legend>
+          <legend><?= $te('spampolicy.bypass_delivery') ?></legend>
 
-          <label><input type="checkbox" name="bypassVirusChecks" <?= ($policy->bypassVirusChecks ?? false) ? 'checked' : '' ?> /> Bypass virus checks</label>
-          <label><input type="checkbox" name="bypassSpamChecks" <?= ($policy->bypassSpamChecks ?? false) ? 'checked' : '' ?> /> Bypass spam checks</label>
-          <label><input type="checkbox" name="virusLover" <?= ($policy->virusLover ?? false) ? 'checked' : '' ?> /> Deliver virus messages</label>
-          <label><input type="checkbox" name="spamLover" <?= ($policy->spamLover ?? false) ? 'checked' : '' ?> /> Deliver spam messages</label>
-          <label><input type="checkbox" name="bannedFilesLover" <?= ($policy->bannedFilesLover ?? false) ? 'checked' : '' ?> /> Deliver banned file messages</label>
-          <label><input type="checkbox" name="badHeaderLover" <?= ($policy->badHeaderLover ?? false) ? 'checked' : '' ?> /> Deliver bad header messages</label>
+          <label><input type="checkbox" name="bypassVirusChecks" <?= ($policy->bypassVirusChecks ?? false) ? 'checked' : '' ?> /> <?= $te('spampolicy.bypass_virus') ?></label>
+          <label><input type="checkbox" name="bypassSpamChecks" <?= ($policy->bypassSpamChecks ?? false) ? 'checked' : '' ?> /> <?= $te('spampolicy.bypass_spam') ?></label>
+          <label><input type="checkbox" name="virusLover" <?= ($policy->virusLover ?? false) ? 'checked' : '' ?> /> <?= $te('spampolicy.deliver_virus') ?></label>
+          <label><input type="checkbox" name="spamLover" <?= ($policy->spamLover ?? false) ? 'checked' : '' ?> /> <?= $te('spampolicy.deliver_spam') ?></label>
+          <label><input type="checkbox" name="bannedFilesLover" <?= ($policy->bannedFilesLover ?? false) ? 'checked' : '' ?> /> <?= $te('spampolicy.deliver_banned') ?></label>
+          <label><input type="checkbox" name="badHeaderLover" <?= ($policy->badHeaderLover ?? false) ? 'checked' : '' ?> /> <?= $te('spampolicy.deliver_bad_header') ?></label>
         </fieldset>
 
-        <button type="submit" class="button primary">Save Policy</button>
+        <button type="submit" class="button primary"><?= $te('spampolicy.save_policy') ?></button>
 
         <?php if ($policy !== null): ?>
         <button type="submit" name="action" value="delete" class="button error outline"
-          data-confirm="Delete this spam policy?">Delete Policy</button>
+          data-confirm="<?= $te('spampolicy.delete_confirm') ?>"><?= $te('spampolicy.delete_policy') ?></button>
         <?php endif; ?>
       </form>
 
       <?php if (!empty($policies)): ?>
       <hr />
-      <h3>All Configured Policies</h3>
+      <h3><?= $te('spampolicy.all_policies') ?></h3>
       <table class="striped">
         <thead>
           <tr>
-            <th>Account</th>
-            <th>Tag</th>
-            <th>Tag2</th>
-            <th>Kill</th>
-            <th>Actions</th>
+            <th><?= $te('spampolicy.account') ?></th>
+            <th><?= $te('spampolicy.col_tag') ?></th>
+            <th><?= $te('spampolicy.col_tag2') ?></th>
+            <th><?= $te('spampolicy.col_kill') ?></th>
+            <th><?= $te('common.actions') ?></th>
           </tr>
         </thead>
         <tbody>
@@ -108,14 +108,14 @@
             <td><?= $e($entry['policy']->spamTagLevel ?? '-') ?></td>
             <td><?= $e($entry['policy']->spamTag2Level ?? '-') ?></td>
             <td><?= $e($entry['policy']->spamKillLevel ?? '-') ?></td>
-            <td><a href="/amavisd/spam-policy/<?= $e($entry['account']) ?>">Edit</a></td>
+            <td><a href="/amavisd/spam-policy/<?= $e($entry['account']) ?>"><?= $te('common.edit') ?></a></td>
           </tr>
           <?php endforeach; ?>
         </tbody>
       </table>
       <?php endif; ?>
 
-      <p><a href="/amavisd/quarantine">&larr; Back to quarantine</a></p>
+      <p><a href="/amavisd/quarantine">&larr; <?= $te('spampolicy.back') ?></a></p>
     </div>
   </div>
 </div>

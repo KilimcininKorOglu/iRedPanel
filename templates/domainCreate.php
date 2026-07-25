@@ -1,13 +1,13 @@
-<?php $pageTitle = 'Create domain'; ?>
+<?php $pageTitle = $t('domain.create'); ?>
 <div class="container">
   <div class="row">
     <div class="col-8">
-      <h1>Create domain</h1>
+      <h1><?= $te('domain.create') ?></h1>
 
       <div class="row breadcrumbs">
         <div class="col">
-          <a href="/domains">Domains</a> /
-          <span class="text-light">Create</span>
+          <a href="/domains"><?= $te('domain.list_title') ?></a> /
+          <span class="text-light"><?= $te('common.create') ?></span>
         </div>
       </div>
 
@@ -19,7 +19,7 @@
         <?= $csrfField ?>
 
         <p>
-          <label for="domainName">Domain name</label>
+          <label for="domainName"><?= $te('domain.domain_name') ?></label>
           <input id="domainName" type="text" name="domainName" required placeholder="example.com"
             <?php if (!empty($validationErrors['domainName'])): ?>class="error"<?php endif; ?>
             value="<?= $e($domain?->domainName ?? '') ?>"
@@ -30,7 +30,7 @@
         </p>
 
         <p>
-          <label for="description">Description</label>
+          <label for="description"><?= $te('common.description') ?></label>
           <input id="description" type="text" name="description"
             value="<?= $e($domain?->description ?? '') ?>"
           />
@@ -39,7 +39,7 @@
         <div class="row">
           <div class="col-6">
             <p>
-              <label for="maxQuota">Max domain quota (MB, 0 = unlimited)</label>
+              <label for="maxQuota"><?= $te('domain.max_quota') ?></label>
               <input id="maxQuota" type="number" name="maxQuota" min="0"
                 value="<?= $e($domain?->maxQuota ?? 0) ?>"
               />
@@ -47,7 +47,7 @@
           </div>
           <div class="col-6">
             <p>
-              <label for="mailboxes">Max mailboxes (0 = unlimited)</label>
+              <label for="mailboxes"><?= $te('domain.max_mailboxes') ?></label>
               <input id="mailboxes" type="number" name="mailboxes" min="0"
                 value="<?= $e($domain?->mailboxes ?? 0) ?>"
               />
@@ -58,12 +58,12 @@
         <p>
           <label>
             <input type="checkbox" name="active" <?php if ($domain === null || $domain->active): ?>checked<?php endif; ?> />
-            Active
+            <?= $te('common.active') ?>
           </label>
         </p>
 
-        <button type="submit" class="button primary">Create domain</button>
-        <a href="/domains" class="button outline">Cancel</a>
+        <button type="submit" class="button primary"><?= $te('domain.create') ?></button>
+        <a href="/domains" class="button outline"><?= $te('common.cancel') ?></a>
       </form>
     </div>
   </div>

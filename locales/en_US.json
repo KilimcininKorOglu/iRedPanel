@@ -174,7 +174,12 @@
     "create": "Create mailing list",
     "policy": "Policy",
     "delete_confirm": "Delete mailing list :address?",
-    "empty": "No mailing lists found."
+    "empty": "No mailing lists found.",
+    "create_title": "Create Mailing List",
+    "display_name_placeholder": "e.g. Project Discussion",
+    "max_msg_size": "Max message size (bytes, 0 = unlimited)",
+    "max_members": "Max members (0 = unlimited)",
+    "create_button": "Create Mailing List"
   },
   "quarantine": {
     "title": "Quarantine",
@@ -198,7 +203,10 @@
     "list_title": "Domains",
     "create": "Create domain",
     "users": "Users",
-    "bulk_delete_confirm": "Delete selected domains and all their users?"
+    "bulk_delete_confirm": "Delete selected domains and all their users?",
+    "domain_name": "Domain name",
+    "max_quota": "Max domain quota (MB, 0 = unlimited)",
+    "max_mailboxes": "Max mailboxes (0 = unlimited)"
   },
   "admin": {
     "list_title": "Admins",
@@ -213,7 +221,19 @@
     "create": "Create mail alias",
     "access_policy": "Access Policy",
     "delete_confirm": "Delete alias :address?",
-    "empty": "No mail aliases found."
+    "empty": "No mail aliases found.",
+    "create_title": "Create Mail Alias",
+    "alias_address": "Alias Address",
+    "local_part": "Local Part",
+    "display_name": "Display Name",
+    "display_name_placeholder": "e.g. Sales Team",
+    "policy_public": "Public (anyone can send)",
+    "policy_domain": "Domain (only same domain)",
+    "policy_members": "Members Only",
+    "policy_moderators": "Moderators Only",
+    "members": "Members",
+    "members_hint": "Member email addresses (one per line)",
+    "create_button": "Create Alias"
   },
   "domainalias": {
     "list_title": "Domain Aliases",
@@ -221,7 +241,9 @@
     "alias_domain": "Alias Domain",
     "target_domain": "Target Domain",
     "delete_confirm": "Delete alias :domain?",
-    "empty": "No domain aliases found."
+    "empty": "No domain aliases found.",
+    "alias_domain_name": "Alias domain name",
+    "select_target": "-- Select target domain --"
   },
   "domainownership": {
     "title": "Domain Ownership Verification",

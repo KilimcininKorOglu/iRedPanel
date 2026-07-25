@@ -174,7 +174,12 @@
     "create": "Posta listesi oluştur",
     "policy": "Politika",
     "delete_confirm": ":address posta listesi silinsin mi?",
-    "empty": "Posta listesi bulunamadı."
+    "empty": "Posta listesi bulunamadı.",
+    "create_title": "Posta Listesi Oluştur",
+    "display_name_placeholder": "örn. Proje Tartışması",
+    "max_msg_size": "Maks. ileti boyutu (bayt, 0 = sınırsız)",
+    "max_members": "Maks. üye (0 = sınırsız)",
+    "create_button": "Posta Listesi Oluştur"
   },
   "quarantine": {
     "title": "Karantina",
@@ -198,7 +203,10 @@
     "list_title": "Alan Adları",
     "create": "Alan adı oluştur",
     "users": "Kullanıcılar",
-    "bulk_delete_confirm": "Seçili alan adları ve tüm kullanıcıları silinsin mi?"
+    "bulk_delete_confirm": "Seçili alan adları ve tüm kullanıcıları silinsin mi?",
+    "domain_name": "Alan adı",
+    "max_quota": "Maks. alan kotası (MB, 0 = sınırsız)",
+    "max_mailboxes": "Maks. posta kutusu (0 = sınırsız)"
   },
   "admin": {
     "list_title": "Yöneticiler",
@@ -213,7 +221,19 @@
     "create": "Posta takma adı oluştur",
     "access_policy": "Erişim Politikası",
     "delete_confirm": ":address takma adı silinsin mi?",
-    "empty": "Posta takma adı bulunamadı."
+    "empty": "Posta takma adı bulunamadı.",
+    "create_title": "Posta Takma Adı Oluştur",
+    "alias_address": "Takma Ad Adresi",
+    "local_part": "Yerel Bölüm",
+    "display_name": "Görünen Ad",
+    "display_name_placeholder": "örn. Satış Ekibi",
+    "policy_public": "Herkese açık (herkes gönderebilir)",
+    "policy_domain": "Alan (yalnızca aynı alan)",
+    "policy_members": "Yalnızca Üyeler",
+    "policy_moderators": "Yalnızca Moderatörler",
+    "members": "Üyeler",
+    "members_hint": "Üye e-posta adresleri (her satıra bir tane)",
+    "create_button": "Takma Ad Oluştur"
   },
   "domainalias": {
     "list_title": "Alan Adı Takma Adları",
@@ -221,7 +241,9 @@
     "alias_domain": "Takma Ad Alanı",
     "target_domain": "Hedef Alan",
     "delete_confirm": ":domain takma adı silinsin mi?",
-    "empty": "Alan adı takma adı bulunamadı."
+    "empty": "Alan adı takma adı bulunamadı.",
+    "alias_domain_name": "Takma ad alanı adı",
+    "select_target": "-- Hedef alan seçin --"
   },
   "domainownership": {
     "title": "Alan Adı Sahipliği Doğrulaması",

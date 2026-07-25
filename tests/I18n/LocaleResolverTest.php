@@ -47,7 +47,7 @@ class LocaleResolverTest extends TestCase
 
     public function testInvalidCookieIgnored(): void
     {
-        $_COOKIE[LocaleResolver::COOKIE_NAME] = 'de_DE';
+        $_COOKIE[LocaleResolver::COOKIE_NAME] = 'xx_XX';
         $this->assertSame('en_US', LocaleResolver::resolve());
     }
 

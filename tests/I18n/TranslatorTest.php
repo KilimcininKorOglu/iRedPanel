@@ -79,7 +79,7 @@ class TranslatorTest extends TestCase
         $this->assertTrue(Translator::isSupported('en_US'));
         $this->assertTrue(Translator::isSupported('tr_TR'));
         $this->assertFalse(Translator::isSupported('../../etc/passwd'));
-        $this->assertFalse(Translator::isSupported('de_DE'));
+        $this->assertFalse(Translator::isSupported('xx_XX'));
     }
 
     public function testAvailableLocales(): void

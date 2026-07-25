@@ -15,6 +15,7 @@ class Translator
     public const AVAILABLE = [
         'en_US' => 'English',
         'tr_TR' => 'Türkçe',
+        'de_DE' => 'Deutsch',
     ];
 
     /** Base/fallback locale — must contain every key. */

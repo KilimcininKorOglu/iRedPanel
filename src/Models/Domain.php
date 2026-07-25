@@ -27,7 +27,7 @@ class Domain
         return new self(
             domainName: strtolower(trim($post['domainName'] ?? '')),
             description: trim($post['description'] ?? ''),
-            active: isset($post['active']),
+            active: (bool) ($post['active'] ?? false),
             maxQuota: max(0, (int) ($post['maxQuota'] ?? 0)),
             quota: max(0, (int) ($post['quota'] ?? 0)),
             mailboxes: max(0, (int) ($post['mailboxes'] ?? 0)),

@@ -1,6 +1,6 @@
 # iRedPanel
 
-A full-featured PHP web application for managing [iRedMail](https://www.iredmail.org/) mail servers. Supports OpenLDAP, MySQL/MariaDB, and PostgreSQL backends with optional Amavisd, Fail2ban, and iRedAPD integrations. Includes a REST API, mail alias and mailing list management, spam policy control, and role-based admin access.
+A full-featured PHP web application for managing [iRedMail](https://www.iredmail.org/) mail servers. Supports OpenLDAP, MySQL/MariaDB, and PostgreSQL backends with optional Amavisd, Fail2ban, and iRedAPD integrations. Includes a REST API, mail alias and mailing list management, spam policy control, multi-language UI, and role-based admin access.
 
 Built with vanilla PHP 8.1+ -- no framework, no ORM, no template engine dependency. Uses `vlucas/phpdotenv` for environment configuration and the Chota CSS framework for UI.
 
@@ -104,6 +104,7 @@ These settings serve as initial defaults. Once the iRedAdmin database is configu
 | `PASSWORD_HASHES_USE_PREFIXED_SCHEME`   | `true`    | Use `{SCHEME}` prefix in password hashes     |
 | `PASSWORD_DEFAULT_SCHEME`               | `SSHA512` | Default password hashing scheme              |
 | `REQUIRE_OLD_PASSWORD_ON_CHANGE`        | `false`   | Require current password for password change |
+| `DEFAULT_LANGUAGE`                      | `en_US`   | Default UI language (`en_US` or `tr_TR`)     |
 | `PAGINATION_PER_PAGE`                   | `50`      | Items per page on list views                 |
 | `SESSION_TIMEOUT`                       | `1800`    | Session timeout in seconds                   |
 | `ALLOWED_IP_RANGES`                     | -         | Comma-separated CIDR ranges for panel access |
@@ -366,7 +367,7 @@ curl -X POST -H "X-API-Key: your-key" -H "Content-Type: application/json" \
 ```
 
 ### Panel Settings
-- 29 behavioral settings editable via web UI at `/panel-settings` (global admin only)
+- 30 behavioral settings editable via web UI at `/panel-settings` (global admin only)
 - Categories: Branding, Password Policy, Session & Security, Display, Integrations, REST API
 - Stored in `panel_settings` table in iredadmin database (key-value)
 - Priority: database value > `.env` value > hardcoded default
@@ -408,9 +409,11 @@ php cli/invalidateSessions.php                               # Invalidate all se
 php cli/notifyQuarantinedRecipients.php [--force-all]        # Cron: quarantine notifications
 ```
 
-### Limitations
-
-- **i18n**: English only
+### Internationalization
+- Multi-language UI with English (`en_US`) and Turkish (`tr_TR`) translations
+- Locale resolution order: session preference, `iredpanel_lang` cookie, then `DEFAULT_LANGUAGE`
+- Per-admin language preference persisted where the backend supports it
+- Language switcher in the UI; translations stored as JSON under `locales/`
 
 ## Authentication
 
@@ -445,13 +448,14 @@ External integrations (Amavisd, iRedAPD) connect to their own databases via dedi
 
 ### Database Connections
 
-| Connection            | Database    | Purpose                                                        |
-|-----------------------|-------------|----------------------------------------------------------------|
-| `MysqlConnection`     | `vmail`     | Mail domains, users, admins, aliases, BCC, relay               |
-| `PgsqlConnection`     | `vmail`     | Same as MySQL (PostgreSQL variant)                             |
-| `IredadminConnection` | `iredadmin` | Activity logging, domain ownership, newsletter, panel settings |
-| `AmavisdConnection`   | `amavisd`   | Quarantine, mail log, spam policy, white/blacklist             |
-| `IredapdConnection`   | `iredapd`   | Throttle, greylisting, rDNS, SenderScore                       |
+| Connection                                         | Database    | Purpose                                                        |
+|----------------------------------------------------|-------------|----------------------------------------------------------------|
+| `MysqlConnection` / `PgsqlConnection`              | `vmail`     | Mail domains, users, admins, aliases, BCC, relay               |
+| `IredadminConnection` / `IredadminPgsqlConnection` | `iredadmin` | Activity logging, domain ownership, newsletter, panel settings |
+| `AmavisdConnection` / `AmavisdPgsqlConnection`     | `amavisd`   | Quarantine, mail log, spam policy, white/blacklist             |
+| `IredapdConnection` / `IredapdPgsqlConnection`     | `iredapd`   | Throttle, greylisting, rDNS, SenderScore                       |
+
+Each integration selects the MySQL or PostgreSQL connection variant based on `IREDPANEL_BACKEND`. All connection classes are singletons.
 
 ### Repository Interfaces (22)
 
@@ -516,7 +520,7 @@ cli/
   invalidateSessions.php               Invalidate all active sessions
   notifyQuarantinedRecipients.php      Cron: quarantine email notifications
 public/
-  index.php                            Front controller (109 routes)
+  index.php                            Front controller (110 routes)
   .htaccess                            Apache URL rewrite rules
   static/                              Chota CSS framework, custom styles, logo
 src/
@@ -526,6 +530,9 @@ src/
   CsrfProtection.php                  CSRF token generation and validation
   TemplateEngine.php                   Layout inheritance, branding, feature flags
   TemplateFilters.php                  localize() and asMegabytes() helpers
+  I18n/
+    Translator.php                     JSON locale loader + placeholder substitution
+    LocaleResolver.php                 Locale resolution (session/cookie/default)
   Exceptions/
     BackendConnectionException.php     Shared base for backend connection errors
   Models/
@@ -596,20 +603,24 @@ src/
     PasswordVerifier.php               Password verification utility
     SystemInfo.php                     Hostname, uptime, load, version info
 templates/                             42 native PHP templates
+locales/
+  en_US.json                           English UI translations
+  tr_TR.json                           Turkish UI translations
 tests/
   bootstrap.php                        Test environment setup
   Utils/PasswordUtilsTest.php          Password hashing scheme tests
   Models/                              Model factory method tests
+  I18n/                                Translator + locale resolution tests
 ```
 
 ## Testing
 
 ```bash
 php composer.phar install
-vendor/bin/phpunit
+vendor/bin/phpunit --do-not-cache-result
 ```
 
-44 tests covering password hashing schemes, password validation rules, and model factory methods. PHPUnit 13 is used as the test framework.
+58 tests covering password hashing schemes, password validation rules, translation/locale resolution, and model factory methods. PHPUnit 13 is used as the test framework.
 
 ## License
 

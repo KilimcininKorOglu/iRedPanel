@@ -10,16 +10,26 @@ class ApiResponse
 {
     public static function success(array $data, int $status = 200): void
     {
+        $json = json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_INVALID_UTF8_SUBSTITUTE);
+        if ($json === false) {
+            self::error('Response serialization failed', 500);
+            return;
+        }
         http_response_code($status);
         header('Content-Type: application/json; charset=UTF-8');
-        echo json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+        echo $json;
     }
 
     public static function error(string $message, int $status = 400): void
     {
+        $json = json_encode(['error' => $message], JSON_PRETTY_PRINT | JSON_INVALID_UTF8_SUBSTITUTE);
+        if ($json === false) {
+            $json = '{"error":"Response serialization failed"}';
+            $status = 500;
+        }
         http_response_code($status);
         header('Content-Type: application/json; charset=UTF-8');
-        echo json_encode(['error' => $message], JSON_PRETTY_PRINT);
+        echo $json;
     }
 
     public static function paginated(PaginatedResult $result, ?callable $transform = null): void

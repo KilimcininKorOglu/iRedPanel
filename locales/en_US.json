@@ -167,7 +167,10 @@
     "quota_mb": "Quota (MB)",
     "used": "Used",
     "delete_confirm": "Delete user :uid?",
-    "bulk_delete_confirm": "Delete selected users?"
+    "bulk_delete_confirm": "Delete selected users?",
+    "password_repeat": "Password (repeat)",
+    "generate_password": "Generate password",
+    "quota_mb_label": "Quota, MB"
   },
   "mlist": {
     "list_title": "Mailing Lists",
@@ -214,7 +217,11 @@
     "global_admin": "Global admin",
     "type_mailbox": "Mailbox",
     "type_standalone": "Standalone",
-    "bulk_delete_confirm": "Delete selected admins?"
+    "bulk_delete_confirm": "Delete selected admins?",
+    "email_address": "Email address",
+    "display_name": "Display name",
+    "repeat_password": "Repeat password",
+    "global_administrator": "Global administrator"
   },
   "alias": {
     "list_title": "Mail Aliases",

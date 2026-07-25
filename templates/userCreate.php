@@ -1,14 +1,14 @@
-<?php $pageTitle = 'User'; ?>
+<?php $pageTitle = $t('user.create'); ?>
 <div class="container">
   <div class="row">
     <div class="col">
-      <h1>Create user</h1>
+      <h1><?= $te('user.create') ?></h1>
 
       <div class="row breadcrumbs">
         <div class="col">
           <a href="/domains"><?= $e($domain) ?></a> /
-          <a href="/<?= $e($domain) ?>/users">Users</a> /
-          <span class="text-light">Create user</span>
+          <a href="/<?= $e($domain) ?>/users"><?= $te('user.list_title') ?></a> /
+          <span class="text-light"><?= $te('user.create') ?></span>
         </div>
       </div>
 
@@ -25,7 +25,7 @@
           <form method="post" autocomplete="off">
             <?= $csrfField ?>
             <p>
-              <label for="uid">Identifier</label>
+              <label for="uid"><?= $te('user.identifier') ?></label>
               <input id="uid" type="text" name="uid" required
                 <?php if (!empty($validationErrors['uid'])): ?>class="error"<?php endif; ?>
                 value="<?= $e($user?->uid ?? '') ?>"
@@ -36,7 +36,7 @@
             </p>
 
             <p>
-              <label for="password">Password</label>
+              <label for="password"><?= $te('common.password') ?></label>
               <input name="password" type="password" id="password" required autocomplete="new-password"
                 <?php if (!empty($validationErrors['password'])): ?>class="error"<?php endif; ?>
               />
@@ -45,7 +45,7 @@
               <?php endif; ?>
             </p>
             <p>
-              <label for="password_repeat">Password (repeat)</label>
+              <label for="password_repeat"><?= $te('user.password_repeat') ?></label>
               <input name="password_repeat" type="password" id="password_repeat" required
                 <?php if (!empty($validationErrors['password_repeat'])): ?>class="error"<?php endif; ?>
               />
@@ -54,11 +54,11 @@
               <?php endif; ?>
             </p>
             <p>
-              <button type="button" class="button outline" onclick="generatePassword()">Generate password</button>
+              <button type="button" class="button outline" onclick="generatePassword()"><?= $te('user.generate_password') ?></button>
             </p>
 
             <p>
-              <label for="mailQuota">Quota, MB</label>
+              <label for="mailQuota"><?= $te('user.quota_mb_label') ?></label>
               <input
                 id="mailQuota"
                 name="mailQuota"
@@ -69,7 +69,7 @@
             </p>
             <p>
               <button type="submit" class="button primary">
-                Save
+                <?= $te('common.save') ?>
               </button>
             </p>
           </form>

@@ -167,7 +167,10 @@
     "quota_mb": "Kota (MB)",
     "used": "Kullanılan",
     "delete_confirm": ":uid kullanıcısı silinsin mi?",
-    "bulk_delete_confirm": "Seçili kullanıcılar silinsin mi?"
+    "bulk_delete_confirm": "Seçili kullanıcılar silinsin mi?",
+    "password_repeat": "Parola (tekrar)",
+    "generate_password": "Parola oluştur",
+    "quota_mb_label": "Kota, MB"
   },
   "mlist": {
     "list_title": "Posta Listeleri",
@@ -214,7 +217,11 @@
     "global_admin": "Genel yönetici",
     "type_mailbox": "Posta Kutusu",
     "type_standalone": "Bağımsız",
-    "bulk_delete_confirm": "Seçili yöneticiler silinsin mi?"
+    "bulk_delete_confirm": "Seçili yöneticiler silinsin mi?",
+    "email_address": "E-posta adresi",
+    "display_name": "Görünen ad",
+    "repeat_password": "Parolayı tekrarla",
+    "global_administrator": "Genel yönetici"
   },
   "alias": {
     "list_title": "Posta Takma Adları",

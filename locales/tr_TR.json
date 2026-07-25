@@ -56,7 +56,17 @@
     "password": "Parola",
     "username": "Kullanıcı Adı",
     "loading": "Yükleniyor...",
-    "no_results": "Sonuç bulunamadı."
+    "no_results": "Sonuç bulunamadı.",
+    "all_domains": "Tüm alan adları",
+    "address": "Adres",
+    "enable": "Etkinleştir",
+    "disable": "Devre dışı bırak",
+    "apply": "Uygula",
+    "bulk_action": "-- Toplu işlem --",
+    "enable_selected": "Seçilenleri etkinleştir",
+    "disable_selected": "Seçilenleri devre dışı bırak",
+    "delete_selected": "Seçilenleri sil",
+    "apply_bulk_confirm": "Toplu işlem uygulansın mı?"
   },
   "auth": {
     "title": "Kimlik Doğrulama",
@@ -149,6 +159,35 @@
     "outbound": "Giden",
     "inbound": "Gelen",
     "save": "Sınırlamayı kaydet"
+  },
+  "domain": {
+    "list_title": "Alan Adları",
+    "create": "Alan adı oluştur",
+    "users": "Kullanıcılar",
+    "bulk_delete_confirm": "Seçili alan adları ve tüm kullanıcıları silinsin mi?"
+  },
+  "admin": {
+    "list_title": "Yöneticiler",
+    "create": "Yönetici oluştur",
+    "global_admin": "Genel yönetici",
+    "type_mailbox": "Posta Kutusu",
+    "type_standalone": "Bağımsız",
+    "bulk_delete_confirm": "Seçili yöneticiler silinsin mi?"
+  },
+  "alias": {
+    "list_title": "Posta Takma Adları",
+    "create": "Posta takma adı oluştur",
+    "access_policy": "Erişim Politikası",
+    "delete_confirm": ":address takma adı silinsin mi?",
+    "empty": "Posta takma adı bulunamadı."
+  },
+  "domainalias": {
+    "list_title": "Alan Adı Takma Adları",
+    "create": "Alan adı takma adı oluştur",
+    "alias_domain": "Takma Ad Alanı",
+    "target_domain": "Hedef Alan",
+    "delete_confirm": ":domain takma adı silinsin mi?",
+    "empty": "Alan adı takma adı bulunamadı."
   },
   "domainownership": {
     "title": "Alan Adı Sahipliği Doğrulaması",

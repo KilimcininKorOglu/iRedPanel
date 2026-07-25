@@ -56,7 +56,17 @@
     "password": "Password",
     "username": "Username",
     "loading": "Loading...",
-    "no_results": "No results found."
+    "no_results": "No results found.",
+    "all_domains": "All domains",
+    "address": "Address",
+    "enable": "Enable",
+    "disable": "Disable",
+    "apply": "Apply",
+    "bulk_action": "-- Bulk action --",
+    "enable_selected": "Enable selected",
+    "disable_selected": "Disable selected",
+    "delete_selected": "Delete selected",
+    "apply_bulk_confirm": "Apply bulk action?"
   },
   "auth": {
     "title": "Authentication",
@@ -149,6 +159,35 @@
     "outbound": "Outbound",
     "inbound": "Inbound",
     "save": "Save throttle"
+  },
+  "domain": {
+    "list_title": "Domains",
+    "create": "Create domain",
+    "users": "Users",
+    "bulk_delete_confirm": "Delete selected domains and all their users?"
+  },
+  "admin": {
+    "list_title": "Admins",
+    "create": "Create admin",
+    "global_admin": "Global admin",
+    "type_mailbox": "Mailbox",
+    "type_standalone": "Standalone",
+    "bulk_delete_confirm": "Delete selected admins?"
+  },
+  "alias": {
+    "list_title": "Mail Aliases",
+    "create": "Create mail alias",
+    "access_policy": "Access Policy",
+    "delete_confirm": "Delete alias :address?",
+    "empty": "No mail aliases found."
+  },
+  "domainalias": {
+    "list_title": "Domain Aliases",
+    "create": "Create domain alias",
+    "alias_domain": "Alias Domain",
+    "target_domain": "Target Domain",
+    "delete_confirm": "Delete alias :domain?",
+    "empty": "No domain aliases found."
   },
   "domainownership": {
     "title": "Domain Ownership Verification",

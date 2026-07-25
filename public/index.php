@@ -64,6 +64,11 @@ $router->addRoute('POST', '/logout', function () {
     AuthController::logout();
 });
 
+// Language switch (available to everyone, including the login page)
+$router->addRoute('POST', '/language', function () {
+    AuthController::changeLanguage();
+});
+
 // Search
 $router->addRoute('GET', '/search', function () use ($tpl) {
     SearchController::search($tpl);

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<?= $e(str_replace('_', '-', $currentLocale)) ?>">
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -17,35 +17,45 @@
       <div class="nav-left">
         <a class="brand" href="/"><img src="<?= $e($brand['logoUrl'] ?? '/static/logo-iredmail.png') ?>" alt="logo" /> <?= $e($brand['name'] ?? 'iRedPanel') ?></a>
         <?php if (!empty($session['email'])): ?>
-        <a href="/dashboard">Dashboard</a>
-        <a href="/domains">Domains</a>
-        <a href="/search">Search</a>
+        <a href="/dashboard"><?= $te('nav.dashboard') ?></a>
+        <a href="/domains"><?= $te('nav.domains') ?></a>
+        <a href="/search"><?= $te('nav.search') ?></a>
         <?php if (!empty($session['isGlobalAdmin'])): ?>
-        <a href="/aliases">Mail Aliases</a>
-        <a href="/mailing-lists">Mailing Lists</a>
-        <a href="/domain-aliases">Domain Aliases</a>
-        <a href="/admins">Admins</a>
-        <a href="/logs">Logs</a>
+        <a href="/aliases"><?= $te('nav.aliases') ?></a>
+        <a href="/mailing-lists"><?= $te('nav.mailing_lists') ?></a>
+        <a href="/domain-aliases"><?= $te('nav.domain_aliases') ?></a>
+        <a href="/admins"><?= $te('nav.admins') ?></a>
+        <a href="/logs"><?= $te('nav.logs') ?></a>
         <?php if (!empty($features['amavisd'])): ?>
-        <a href="/amavisd/quarantine">Quarantine</a>
-        <a href="/amavisd/spam-policy">Spam Policy</a>
-        <a href="/amavisd/wblist">W/B List</a>
+        <a href="/amavisd/quarantine"><?= $te('nav.quarantine') ?></a>
+        <a href="/amavisd/spam-policy"><?= $te('nav.spam_policy') ?></a>
+        <a href="/amavisd/wblist"><?= $te('nav.wblist') ?></a>
         <?php endif; ?>
         <?php if (!empty($features['fail2ban'])): ?>
-        <a href="/fail2ban">Fail2ban</a>
+        <a href="/fail2ban"><?= $te('nav.fail2ban') ?></a>
         <?php endif; ?>
         <?php if (!empty($features['iredapd'])): ?>
-        <a href="/iredapd/throttle/@.">iRedAPD</a>
+        <a href="/iredapd/throttle/@."><?= $te('nav.iredapd') ?></a>
         <?php endif; ?>
-        <a href="/deleted-mailboxes">Deleted Mailboxes</a>
-        <a href="/panel-settings">Panel Settings</a>
-        <a href="/system-settings">System</a>
+        <a href="/deleted-mailboxes"><?= $te('nav.deleted_mailboxes') ?></a>
+        <a href="/panel-settings"><?= $te('nav.panel_settings') ?></a>
+        <a href="/system-settings"><?= $te('nav.system') ?></a>
         <?php endif; ?>
         <?php endif; ?>
       </div>
       <div class="nav-right">
+        <?php if (count($availableLocales) > 1): ?>
+        <form method="post" action="/language" style="display:inline;margin:0" title="<?= $te('language.switch') ?>">
+          <?= $csrfField ?>
+          <select name="locale" onchange="this.form.submit()" class="button outline" style="margin:0">
+            <?php foreach ($availableLocales as $code => $name): ?>
+            <option value="<?= $e($code) ?>"<?= $code === $currentLocale ? ' selected' : '' ?>><?= $e($name) ?></option>
+            <?php endforeach; ?>
+          </select>
+        </form>
+        <?php endif; ?>
         <?php if (!empty($session['email'])): ?>
-        <form method="post" action="/logout" style="display:inline;margin:0"><?= $csrfField ?><button type="submit" class="button outline">Logout <?= $e($session['email']) ?></button></form>
+        <form method="post" action="/logout" style="display:inline;margin:0"><?= $csrfField ?><button type="submit" class="button outline"><?= $te('nav.logout') ?> <?= $e($session['email']) ?></button></form>
         <?php endif; ?>
       </div>
     </nav>

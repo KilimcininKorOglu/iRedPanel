@@ -94,6 +94,52 @@ class AuthController
     }
 
     /**
+     * Language switch handler. Validates the requested locale against the
+     * whitelist, stores it in session + cookie, persists it to the backend
+     * when logged in, and redirects back to a safe internal page.
+     */
+    public static function changeLanguage(): void
+    {
+        CsrfProtection::validateToken();
+
+        $locale = $_POST['locale'] ?? '';
+        if (Translator::isSupported($locale)) {
+            $_SESSION['lang'] = $locale;
+            LocaleResolver::persistCookie($locale);
+
+            $email = $_SESSION['email'] ?? '';
+            if ($email !== '') {
+                try {
+                    $authRepo = RepositoryFactory::getAuthRepository();
+                    if ($authRepo->supportsLanguagePersistence()) {
+                        $authRepo->setLanguage($email, $locale);
+                    }
+                } catch (\Exception $e) {
+                    error_log("Could not persist language for {$email}: {$e->getMessage()}");
+                }
+            }
+        }
+
+        header('Location: ' . self::safeRedirectTarget());
+        exit;
+    }
+
+    /**
+     * Returns a safe same-origin redirect target from the Referer header,
+     * defaulting to '/'. Rejects absolute/scheme-relative URLs.
+     */
+    private static function safeRedirectTarget(): string
+    {
+        $referer = $_SERVER['HTTP_REFERER'] ?? '';
+        $path = parse_url($referer, PHP_URL_PATH);
+        if (is_string($path) && str_starts_with($path, '/') && !str_starts_with($path, '//')) {
+            $query = parse_url($referer, PHP_URL_QUERY);
+            return $query ? "{$path}?{$query}" : $path;
+        }
+        return '/';
+    }
+
+    /**
      * Logout request handler.
      */
     public static function logout(): void

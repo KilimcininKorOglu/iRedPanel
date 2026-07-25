@@ -29,6 +29,16 @@ class TemplateEngine
         };
         $localize = [TemplateFilters::class, 'localize'];
         $asMegabytes = [TemplateFilters::class, 'asMegabytes'];
+
+        // Translation helpers: $t() returns raw text, $te() returns HTML-escaped text.
+        $t = function (string $key, array $params = []): string {
+            return \App\I18n\Translator::translate($key, $params);
+        };
+        $te = function (string $key, array $params = []) use ($e): string {
+            return $e(\App\I18n\Translator::translate($key, $params));
+        };
+        $currentLocale = \App\I18n\Translator::currentLocale();
+        $availableLocales = \App\I18n\Translator::availableLocales();
         $csrfToken = CsrfProtection::generateToken();
         $csrfField = '<input type="hidden" name="_csrf_token" value="' . htmlspecialchars($csrfToken, ENT_QUOTES, 'UTF-8') . '" />';
 

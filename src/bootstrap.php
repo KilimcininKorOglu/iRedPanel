@@ -6,6 +6,8 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 define('APP_VERSION', \Composer\InstalledVersions::getRootPackage()['pretty_version'] ?? 'dev');
 
+use App\I18n\LocaleResolver;
+use App\I18n\Translator;
 use App\Models\Settings;
 use Dotenv\Dotenv;
 
@@ -40,3 +42,6 @@ try {
     echo "Configuration error. Check server logs.";
     exit(1);
 }
+
+// Initialise translations for the resolved locale (session > cookie > default).
+Translator::init(LocaleResolver::resolve());

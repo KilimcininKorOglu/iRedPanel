@@ -80,7 +80,8 @@ class User
     {
         return new self(
             uid: trim($post['uid'] ?? ''),
-            accountStatus: isset($post['accountStatus']),
+            // Use (bool) cast with null coalescing so JSON false is respected, not just key presence.
+            accountStatus: (bool) ($post['accountStatus'] ?? false),
             mailQuota: max(0, (int) ($post['mailQuota'] ?? 100)),
             cn: trim($post['cn'] ?? ''),
             givenName: trim($post['givenName'] ?? ''),
@@ -89,16 +90,16 @@ class User
             title: trim($post['title'] ?? ''),
             mobile: trim($post['mobile'] ?? ''),
             telephoneNumber: trim($post['telephoneNumber'] ?? ''),
-            domainGlobalAdmin: isset($post['domainGlobalAdmin']),
-            enableSmtp: isset($post['enableSmtp']),
-            enableSmtpSecured: isset($post['enableSmtpSecured']),
-            enablePop3: isset($post['enablePop3']),
-            enablePop3Secured: isset($post['enablePop3Secured']),
-            enableImap: isset($post['enableImap']),
-            enableImapSecured: isset($post['enableImapSecured']),
-            enableManagesieve: isset($post['enableManagesieve']),
-            enableManagesieveSecured: isset($post['enableManagesieveSecured']),
-            enableSogo: isset($post['enableSogo']),
+            domainGlobalAdmin: (bool) ($post['domainGlobalAdmin'] ?? false),
+            enableSmtp: (bool) ($post['enableSmtp'] ?? false),
+            enableSmtpSecured: (bool) ($post['enableSmtpSecured'] ?? false),
+            enablePop3: (bool) ($post['enablePop3'] ?? false),
+            enablePop3Secured: (bool) ($post['enablePop3Secured'] ?? false),
+            enableImap: (bool) ($post['enableImap'] ?? false),
+            enableImapSecured: (bool) ($post['enableImapSecured'] ?? false),
+            enableManagesieve: (bool) ($post['enableManagesieve'] ?? false),
+            enableManagesieveSecured: (bool) ($post['enableManagesieveSecured'] ?? false),
+            enableSogo: (bool) ($post['enableSogo'] ?? false),
         );
     }
 

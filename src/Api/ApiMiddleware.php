@@ -105,14 +105,32 @@ class ApiMiddleware
         }
     }
 
+    /** Maximum accepted API request body size in bytes. */
+    private const MAX_BODY_BYTES = 2 * 1024 * 1024;
+
+    /** Maximum accepted JSON nesting depth. */
+    private const MAX_JSON_DEPTH = 64;
+
     public static function getJsonBody(): array
     {
-        $raw = file_get_contents('php://input');
+        // Reject oversized bodies early via the declared Content-Length.
+        $declaredLength = (int) ($_SERVER['CONTENT_LENGTH'] ?? 0);
+        if ($declaredLength > self::MAX_BODY_BYTES) {
+            ApiResponse::error('Request body too large', 413);
+            exit;
+        }
+
+        // Read at most MAX_BODY_BYTES + 1 so an under-declared length cannot bypass the cap.
+        $raw = file_get_contents('php://input', false, null, 0, self::MAX_BODY_BYTES + 1);
         if ($raw === '' || $raw === false) {
             return [];
         }
+        if (strlen($raw) > self::MAX_BODY_BYTES) {
+            ApiResponse::error('Request body too large', 413);
+            exit;
+        }
 
-        $data = json_decode($raw, true);
+        $data = json_decode($raw, true, self::MAX_JSON_DEPTH);
         if (json_last_error() !== JSON_ERROR_NONE) {
             ApiResponse::error('Malformed JSON body: ' . json_last_error_msg(), 400);
             exit;

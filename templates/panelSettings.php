@@ -58,6 +58,12 @@ unset($_SESSION['flash_success']);
                     <option value="<?= $e($scheme) ?>" <?= $currentValue === $scheme ? 'selected' : '' ?>><?= $e($scheme) ?></option>
                     <?php endforeach; ?>
                   </select>
+                <?php elseif ($key === 'defaultLanguage'): ?>
+                  <select name="<?= $e($key) ?>" id="field-<?= $e($key) ?>">
+                    <?php foreach ($availableLocales as $code => $name): ?>
+                    <option value="<?= $e($code) ?>" <?= $currentValue === $code ? 'selected' : '' ?>><?= $e($name) ?> (<?= $e($code) ?>)</option>
+                    <?php endforeach; ?>
+                  </select>
                 <?php elseif ($type === 'int'): ?>
                   <input type="number" name="<?= $e($key) ?>" id="field-<?= $e($key) ?>"
                          value="<?= $e((string) $currentValue) ?>" min="0" class="col-4">

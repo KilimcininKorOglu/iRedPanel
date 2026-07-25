@@ -136,6 +136,7 @@ class Settings
         'paginationPerPage' => 'int',
         'checkUpdates' => 'bool',
         'requireDomainOwnershipVerification' => 'bool',
+        'defaultLanguage' => 'string',
         'amavisdEnabled' => 'bool',
         'amavisdRemoveQuarantinedInDays' => 'int',
         'amavisdRemoveMaillogInDays' => 'int',

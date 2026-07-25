@@ -31,7 +31,7 @@ class PanelSettingsController
             'sessionTimeout', 'sessionValidateIp', 'allowedIpRanges',
         ],
         'display' => [
-            'paginationPerPage', 'checkUpdates', 'requireDomainOwnershipVerification',
+            'defaultLanguage', 'paginationPerPage', 'checkUpdates', 'requireDomainOwnershipVerification',
         ],
         'integrations' => [
             'amavisdEnabled', 'amavisdRemoveQuarantinedInDays', 'amavisdRemoveMaillogInDays',
@@ -62,6 +62,7 @@ class PanelSettingsController
         'sessionTimeout' => 'Session Timeout (seconds)',
         'sessionValidateIp' => 'Invalidate Session on IP Change',
         'allowedIpRanges' => 'Allowed IP Ranges (CIDR)',
+        'defaultLanguage' => 'Default Language',
         'paginationPerPage' => 'Items Per Page',
         'checkUpdates' => 'Check for Updates on Dashboard',
         'requireDomainOwnershipVerification' => 'Require Domain Ownership Verification',
@@ -110,6 +111,7 @@ class PanelSettingsController
             'dbSettings' => $dbSettings,
             'activeTab' => $activeTab,
             'allowedSchemes' => Settings::ALLOWED_SCHEMES,
+            'availableLocales' => \App\I18n\Translator::availableLocales(),
         ]);
     }
 
@@ -157,6 +159,9 @@ class PanelSettingsController
                     if (!in_array($value, Settings::ALLOWED_SCHEMES, true)) {
                         continue;
                     }
+                }
+                if ($key === 'defaultLanguage' && !\App\I18n\Translator::isSupported($value)) {
+                    continue;
                 }
                 if ($key === 'fail2banJails') {
                     $jails = array_filter(array_map('trim', explode(',', $value)));

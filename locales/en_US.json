@@ -23,6 +23,10 @@
     "logout": "Logout"
   },
   "common": {
+    "msg_password_updated": "Password updated successfully!",
+    "msg_bcc_updated": "BCC settings updated successfully!",
+    "msg_relay_updated": "Relay settings updated successfully!",
+    "msg_invalid_domain_format": "Invalid domain name format",
     "save": "Save",
     "cancel": "Cancel",
     "delete": "Delete",
@@ -89,6 +93,8 @@
     "not_found_body": "The page you requested does not exist"
   },
   "newsletter": {
+    "msg_invalid_email": "Please enter a valid email address.",
+    "msg_confirmation_sent": "A confirmation email has been sent. Please check your inbox.",
     "confirm_action": "Confirm Action",
     "confirmed": "Confirmed",
     "subscribe_to": "Subscribe to",
@@ -105,6 +111,10 @@
     "total": ":count total"
   },
   "wblist": {
+    "msg_entry_added": "Entry added!",
+    "msg_entry_removed": "Entry removed!",
+    "msg_rdns_updated": "rDNS white/blacklist updated!",
+    "msg_senderscore_updated": "SenderScore whitelist updated!",
     "rdns_title": "rDNS White/Blacklist",
     "rdns_intro": "Manage reverse DNS based white/blacklist for iRedAPD.",
     "rdns_whitelist_legend": "Whitelisted rDNS Domains",
@@ -133,6 +143,8 @@
     "back": "Back to quarantine"
   },
   "spampolicy": {
+    "msg_deleted": "Spam policy deleted!",
+    "msg_updated": "Spam policy updated!",
     "view_title": "Spam Policy: :account",
     "title": "Spam Policy",
     "account": "Account",
@@ -197,6 +209,7 @@
     "ban_ip": "Ban IP"
   },
   "throttle": {
+    "msg_updated": "Throttle settings updated!",
     "view_title": "Throttle",
     "settings_title": "Throttle Settings",
     "current_settings": "Current settings",
@@ -213,6 +226,17 @@
     "save": "Save throttle"
   },
   "user": {
+    "msg_quota_exceeds_max": "User quota (:quota MB) exceeds domain maximum (:max MB)",
+    "msg_total_quota_exceeded": "Total domain quota would be exceeded",
+    "msg_total_quota_exceeded_detail": "Total domain quota would be exceeded (:used + :quota > :max MB)",
+    "msg_info_updated": "Information updated successfully!",
+    "msg_current_password_incorrect": "Current password is incorrect",
+    "msg_services_updated": "Mail services updated successfully!",
+    "msg_forwarding_updated": "Forwarding settings updated successfully!",
+    "msg_aliases_updated": "Alias addresses updated successfully!",
+    "msg_exists": "User with identifier :uid already exists",
+    "msg_creation_limit": "User creation limit reached (:limit)",
+    "msg_mailbox_limit": "Domain mailbox limit reached (:current/:max)",
     "list_title": "Users",
     "create": "Create user",
     "identifier": "Identifier",
@@ -259,6 +283,8 @@
     "relay_desc": "Route outbound mail from this user through a specific relay server."
   },
   "mlist": {
+    "msg_updated": "Mailing list updated!",
+    "msg_owners_updated": "Owners updated!",
     "list_title": "Mailing Lists",
     "create": "Create mailing list",
     "policy": "Policy",
@@ -336,6 +362,13 @@
     "empty": "No quarantined messages."
   },
   "domain": {
+    "msg_name_required": "Domain name is required",
+    "msg_exists": "Domain ':domain' already exists",
+    "msg_ownership_required": "Domain ownership must be verified before creation",
+    "msg_creation_limit": "Domain creation limit reached (:limit)",
+    "msg_updated": "Domain updated successfully!",
+    "msg_settings_updated": "Domain settings updated successfully!",
+    "msg_catchall_updated": "Catch-all address updated successfully!",
     "list_title": "Domains",
     "create": "Create domain",
     "users": "Users",
@@ -374,6 +407,13 @@
     "save_relay": "Save relay settings"
   },
   "admin": {
+    "msg_email_required": "A valid email address is required",
+    "msg_exists": "Admin ':username' already exists",
+    "msg_cannot_remove_last_global": "Cannot remove global admin role or disable the last global admin",
+    "msg_updated": "Admin updated successfully!",
+    "msg_domain_assigned": "Domain ':domain' assigned!",
+    "msg_domain_revoked": "Domain ':domain' revoked!",
+    "msg_limits_updated": "Resource limits updated!",
     "list_title": "Admins",
     "create": "Create admin",
     "global_admin": "Global admin",
@@ -403,6 +443,7 @@
     "save_limits": "Save Limits"
   },
   "alias": {
+    "msg_updated": "Alias updated successfully!",
     "list_title": "Mail Aliases",
     "create": "Create mail alias",
     "access_policy": "Access Policy",
@@ -437,6 +478,10 @@
     "back": "Back to aliases"
   },
   "domainalias": {
+    "msg_alias_required": "Alias domain name is required",
+    "msg_target_required": "Target domain is required",
+    "msg_same_as_target": "Alias domain cannot be the same as target domain",
+    "msg_exists": "Alias ':alias' already exists",
     "list_title": "Domain Aliases",
     "create": "Create domain alias",
     "alias_domain": "Alias Domain",
@@ -504,6 +549,9 @@
     "back_to_settings": "Back to system settings"
   },
   "greylist": {
+    "msg_enabled": "Greylisting enabled!",
+    "msg_disabled": "Greylisting disabled!",
+    "msg_whitelist_updated": "Whitelist updated!",
     "tracking_title": "Greylisting Tracking",
     "tracking_intro": "Messages that have passed greylisting verification.",
     "sender": "Sender",

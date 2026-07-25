@@ -23,6 +23,10 @@
     "logout": "Çıkış"
   },
   "common": {
+    "msg_password_updated": "Parola başarıyla güncellendi!",
+    "msg_bcc_updated": "BCC ayarları başarıyla güncellendi!",
+    "msg_relay_updated": "Aktarma ayarları başarıyla güncellendi!",
+    "msg_invalid_domain_format": "Geçersiz alan adı biçimi",
     "save": "Kaydet",
     "cancel": "İptal",
     "delete": "Sil",
@@ -89,6 +93,8 @@
     "not_found_body": "İstediğiniz sayfa mevcut değil"
   },
   "newsletter": {
+    "msg_invalid_email": "Lütfen geçerli bir e-posta adresi girin.",
+    "msg_confirmation_sent": "Bir onay e-postası gönderildi. Lütfen gelen kutunuzu kontrol edin.",
     "confirm_action": "İşlemi Onayla",
     "confirmed": "Onaylandı",
     "subscribe_to": "Şuna abone ol:",
@@ -105,6 +111,10 @@
     "total": "toplam :count"
   },
   "wblist": {
+    "msg_entry_added": "Girdi eklendi!",
+    "msg_entry_removed": "Girdi kaldırıldı!",
+    "msg_rdns_updated": "rDNS beyaz/kara listesi güncellendi!",
+    "msg_senderscore_updated": "SenderScore beyaz listesi güncellendi!",
     "rdns_title": "rDNS Beyaz/Kara Liste",
     "rdns_intro": "iRedAPD için ters DNS tabanlı beyaz/kara listeyi yönetin.",
     "rdns_whitelist_legend": "Beyaz Listedeki rDNS Alan Adları",
@@ -133,6 +143,8 @@
     "back": "Karantinaya dön"
   },
   "spampolicy": {
+    "msg_deleted": "Spam politikası silindi!",
+    "msg_updated": "Spam politikası güncellendi!",
     "view_title": "Spam Politikası: :account",
     "title": "Spam Politikası",
     "account": "Hesap",
@@ -197,6 +209,7 @@
     "ban_ip": "IP'yi Yasakla"
   },
   "throttle": {
+    "msg_updated": "Sınırlama ayarları güncellendi!",
     "view_title": "Sınırlama",
     "settings_title": "Sınırlama Ayarları",
     "current_settings": "Mevcut ayarlar",
@@ -213,6 +226,17 @@
     "save": "Sınırlamayı kaydet"
   },
   "user": {
+    "msg_quota_exceeds_max": "Kullanıcı kotası (:quota MB) alan adı maksimumunu (:max MB) aşıyor",
+    "msg_total_quota_exceeded": "Toplam alan adı kotası aşılır",
+    "msg_total_quota_exceeded_detail": "Toplam alan adı kotası aşılır (:used + :quota > :max MB)",
+    "msg_info_updated": "Bilgiler başarıyla güncellendi!",
+    "msg_current_password_incorrect": "Mevcut parola yanlış",
+    "msg_services_updated": "Posta hizmetleri başarıyla güncellendi!",
+    "msg_forwarding_updated": "Yönlendirme ayarları başarıyla güncellendi!",
+    "msg_aliases_updated": "Takma adresler başarıyla güncellendi!",
+    "msg_exists": ":uid tanımlayıcılı kullanıcı zaten var",
+    "msg_creation_limit": "Kullanıcı oluşturma sınırına ulaşıldı (:limit)",
+    "msg_mailbox_limit": "Alan adı posta kutusu sınırına ulaşıldı (:current/:max)",
     "list_title": "Kullanıcılar",
     "create": "Kullanıcı oluştur",
     "identifier": "Tanımlayıcı",
@@ -259,6 +283,8 @@
     "relay_desc": "Bu kullanıcıdan giden postayı belirli bir aktarma sunucusu üzerinden yönlendirin."
   },
   "mlist": {
+    "msg_updated": "Posta listesi güncellendi!",
+    "msg_owners_updated": "Sahipler güncellendi!",
     "list_title": "Posta Listeleri",
     "create": "Posta listesi oluştur",
     "policy": "Politika",
@@ -336,6 +362,13 @@
     "empty": "Karantinaya alınan ileti yok."
   },
   "domain": {
+    "msg_name_required": "Alan adı gerekli",
+    "msg_exists": "':domain' alan adı zaten var",
+    "msg_ownership_required": "Oluşturmadan önce alan adı sahipliği doğrulanmalı",
+    "msg_creation_limit": "Alan adı oluşturma sınırına ulaşıldı (:limit)",
+    "msg_updated": "Alan adı başarıyla güncellendi!",
+    "msg_settings_updated": "Alan adı ayarları başarıyla güncellendi!",
+    "msg_catchall_updated": "Yakala-tümü adresi başarıyla güncellendi!",
     "list_title": "Alan Adları",
     "create": "Alan adı oluştur",
     "users": "Kullanıcılar",
@@ -374,6 +407,13 @@
     "save_relay": "Aktarma Ayarlarını Kaydet"
   },
   "admin": {
+    "msg_email_required": "Geçerli bir e-posta adresi gerekli",
+    "msg_exists": "':username' yöneticisi zaten var",
+    "msg_cannot_remove_last_global": "Genel yönetici rolü kaldırılamaz veya son genel yönetici devre dışı bırakılamaz",
+    "msg_updated": "Yönetici başarıyla güncellendi!",
+    "msg_domain_assigned": "':domain' alan adı atandı!",
+    "msg_domain_revoked": "':domain' alan adı geri alındı!",
+    "msg_limits_updated": "Kaynak sınırları güncellendi!",
     "list_title": "Yöneticiler",
     "create": "Yönetici oluştur",
     "global_admin": "Genel yönetici",
@@ -403,6 +443,7 @@
     "save_limits": "Sınırları Kaydet"
   },
   "alias": {
+    "msg_updated": "Takma ad başarıyla güncellendi!",
     "list_title": "Posta Takma Adları",
     "create": "Posta takma adı oluştur",
     "access_policy": "Erişim Politikası",
@@ -437,6 +478,10 @@
     "back": "Takma adlara dön"
   },
   "domainalias": {
+    "msg_alias_required": "Takma alan adı gerekli",
+    "msg_target_required": "Hedef alan adı gerekli",
+    "msg_same_as_target": "Takma alan adı hedef alan adıyla aynı olamaz",
+    "msg_exists": "':alias' takma adı zaten var",
     "list_title": "Alan Adı Takma Adları",
     "create": "Alan adı takma adı oluştur",
     "alias_domain": "Takma Ad Alanı",
@@ -504,6 +549,9 @@
     "back_to_settings": "Sistem ayarlarına dön"
   },
   "greylist": {
+    "msg_enabled": "Gri liste etkinleştirildi!",
+    "msg_disabled": "Gri liste devre dışı bırakıldı!",
+    "msg_whitelist_updated": "Beyaz liste güncellendi!",
     "tracking_title": "Gri Liste Takibi",
     "tracking_intro": "Gri liste doğrulamasını geçen iletiler.",
     "sender": "Gönderen",

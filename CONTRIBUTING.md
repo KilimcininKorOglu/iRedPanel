@@ -25,3 +25,14 @@ type(scope): subject line
 
 Do not invent new types such as `ui:`. UI-only changes use `feat` or `fix`
 with an optional scope, for example `feat(layout): add version footer`.
+
+## Commit Size and Reviewability
+
+Keep each commit small enough to review and to bisect.
+
+- Aim for under 500 changed lines per commit, excluding generated files.
+- Split a large feature or an initial import into logical, self-contained
+  commits so each change set stands on its own.
+- One bug fix is one commit. Do not combine unrelated fixes.
+
+Small commits keep `git bisect` useful and make code review meaningful.

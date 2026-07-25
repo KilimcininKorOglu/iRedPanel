@@ -102,6 +102,53 @@
     "senderscore_legend": "Beyaz Listedeki IP Adresleri",
     "senderscore_hint": "Her satıra bir IP adresi (IPv4 veya IPv6). Bu IP'ler SenderScore denetimlerini kalıcı olarak atlar."
   },
+  "maillog": {
+    "title": "Posta Günlüğü",
+    "filter_placeholder": "E-postaya göre filtrele",
+    "filter": "Filtrele",
+    "clear": "Temizle",
+    "date": "Tarih",
+    "from": "Gönderen",
+    "to": "Alıcı",
+    "subject": "Konu",
+    "spam_level": "Spam düzeyi",
+    "empty": "Posta günlüğü kaydı yok."
+  },
+  "deletedmbx": {
+    "title": "Silinen Posta Kutuları",
+    "maildir": "Posta Dizini",
+    "deleted_by": "Silen",
+    "scheduled_deletion": "Planlanan silme",
+    "not_scheduled": "Planlanmadı",
+    "cancel_confirm": "Silme iptal edilsin mi? Posta kutusu dizini korunacak.",
+    "reschedule": "Yeniden Planla",
+    "empty": "Bekleyen posta kutusu silme işlemi yok."
+  },
+  "log": {
+    "title": "Etkinlik Günlüğü",
+    "not_configured": "Etkinlik günlüğü yapılandırılmamış. Etkinleştirmek için IREDPANEL_IREDADMIN_DB_* ortam değişkenlerini ayarlayın.",
+    "event": "Olay",
+    "all_events": "Tüm olaylar",
+    "filter": "Filtrele",
+    "clear": "Temizle",
+    "timestamp": "Zaman Damgası",
+    "admin": "Yönetici",
+    "ip": "IP",
+    "user": "Kullanıcı",
+    "message": "İleti",
+    "empty": "Günlük kaydı bulunamadı.",
+    "delete_selected": "Seçilenleri sil",
+    "delete_selected_confirm": "Seçili günlük kayıtları silinsin mi?",
+    "delete_all": "Tümünü sil",
+    "delete_all_confirm": "TÜM günlük kayıtları silinsin mi? Bu işlem geri alınamaz."
+  },
+  "lastlogin": {
+    "title": "Son Giriş Takibi",
+    "all_domains": "Tüm alan adları",
+    "never": "Hiçbir zaman",
+    "empty": "Giriş verisi yok. Dovecot last_login eklentisi etkin olmayabilir.",
+    "back_to_settings": "Sistem ayarlarına dön"
+  },
   "greylist": {
     "tracking_title": "Gri Liste Takibi",
     "tracking_intro": "Gri liste doğrulamasını geçen iletiler.",

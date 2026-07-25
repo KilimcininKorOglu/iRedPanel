@@ -102,6 +102,53 @@
     "senderscore_legend": "Whitelisted IP Addresses",
     "senderscore_hint": "One IP address per line (IPv4 or IPv6). These IPs will permanently bypass SenderScore checks."
   },
+  "maillog": {
+    "title": "Mail Log",
+    "filter_placeholder": "Filter by email",
+    "filter": "Filter",
+    "clear": "Clear",
+    "date": "Date",
+    "from": "From",
+    "to": "To",
+    "subject": "Subject",
+    "spam_level": "Spam level",
+    "empty": "No mail log entries."
+  },
+  "deletedmbx": {
+    "title": "Deleted Mailboxes",
+    "maildir": "Maildir",
+    "deleted_by": "Deleted by",
+    "scheduled_deletion": "Scheduled deletion",
+    "not_scheduled": "Not scheduled",
+    "cancel_confirm": "Cancel deletion? The mailbox directory will be preserved.",
+    "reschedule": "Reschedule",
+    "empty": "No pending mailbox deletions."
+  },
+  "log": {
+    "title": "Activity Log",
+    "not_configured": "Activity logging is not configured. Set IREDPANEL_IREDADMIN_DB_* environment variables to enable.",
+    "event": "Event",
+    "all_events": "All events",
+    "filter": "Filter",
+    "clear": "Clear",
+    "timestamp": "Timestamp",
+    "admin": "Admin",
+    "ip": "IP",
+    "user": "User",
+    "message": "Message",
+    "empty": "No log entries found.",
+    "delete_selected": "Delete selected",
+    "delete_selected_confirm": "Delete selected log entries?",
+    "delete_all": "Delete all",
+    "delete_all_confirm": "Delete ALL log entries? This cannot be undone."
+  },
+  "lastlogin": {
+    "title": "Last Login Tracking",
+    "all_domains": "All domains",
+    "never": "Never",
+    "empty": "No login data available. Dovecot last_login plugin may not be enabled.",
+    "back_to_settings": "Back to system settings"
+  },
   "greylist": {
     "tracking_title": "Greylisting Tracking",
     "tracking_intro": "Messages that have passed greylisting verification.",

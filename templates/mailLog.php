@@ -1,15 +1,15 @@
-<?php $pageTitle = 'Mail Log'; ?>
+<?php $pageTitle = $t('maillog.title'); ?>
 <div class="container">
-  <h1>Mail Log</h1>
+  <h1><?= $te('maillog.title') ?></h1>
 
   <form method="get" style="margin-bottom: 1rem;">
     <div class="row">
       <div class="col-6">
-        <input type="text" name="email" placeholder="Filter by email" value="<?= $e($filterEmail ?? '') ?>" />
+        <input type="text" name="email" placeholder="<?= $te('maillog.filter_placeholder') ?>" value="<?= $e($filterEmail ?? '') ?>" />
       </div>
       <div class="col-6">
-        <button type="submit" class="button outline">Filter</button>
-        <a href="/amavisd/maillog" class="button outline">Clear</a>
+        <button type="submit" class="button outline"><?= $te('maillog.filter') ?></button>
+        <a href="/amavisd/maillog" class="button outline"><?= $te('maillog.clear') ?></a>
       </div>
     </div>
   </form>
@@ -17,12 +17,12 @@
   <table class="striped">
     <thead>
       <tr>
-        <th>Date</th>
-        <th>From</th>
-        <th>To</th>
-        <th>Subject</th>
-        <th>Spam level</th>
-        <th>Type</th>
+        <th><?= $te('maillog.date') ?></th>
+        <th><?= $te('maillog.from') ?></th>
+        <th><?= $te('maillog.to') ?></th>
+        <th><?= $te('maillog.subject') ?></th>
+        <th><?= $te('maillog.spam_level') ?></th>
+        <th><?= $te('common.type') ?></th>
       </tr>
     </thead>
     <tbody>
@@ -37,7 +37,7 @@
       </tr>
       <?php endforeach; ?>
       <?php if (empty($entries)): ?>
-      <tr><td colspan="6" class="text-light">No mail log entries.</td></tr>
+      <tr><td colspan="6" class="text-light"><?= $te('maillog.empty') ?></td></tr>
       <?php endif; ?>
     </tbody>
   </table>

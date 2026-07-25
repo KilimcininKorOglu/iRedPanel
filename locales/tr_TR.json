@@ -89,5 +89,34 @@
     "previous": "Önceki",
     "next": "Sonraki",
     "total": "toplam :count"
+  },
+  "wblist": {
+    "rdns_title": "rDNS Beyaz/Kara Liste",
+    "rdns_intro": "iRedAPD için ters DNS tabanlı beyaz/kara listeyi yönetin.",
+    "rdns_whitelist_legend": "Beyaz Listedeki rDNS Alan Adları",
+    "rdns_whitelist_hint": "Her satıra bir alan adı. rDNS'i eşleşen sunuculardan gelen e-postalar gri listeyi atlar.",
+    "rdns_blacklist_legend": "Kara Listedeki rDNS Alan Adları",
+    "rdns_blacklist_hint": "Her satıra bir alan adı. rDNS'i eşleşen sunuculardan gelen e-postalar reddedilir.",
+    "senderscore_title": "SenderScore Beyaz Listesi",
+    "senderscore_intro": "SenderScore denetimlerini atlamak için IP adreslerini kalıcı olarak beyaz listeye alın.",
+    "senderscore_legend": "Beyaz Listedeki IP Adresleri",
+    "senderscore_hint": "Her satıra bir IP adresi (IPv4 veya IPv6). Bu IP'ler SenderScore denetimlerini kalıcı olarak atlar."
+  },
+  "greylist": {
+    "tracking_title": "Gri Liste Takibi",
+    "tracking_intro": "Gri liste doğrulamasını geçen iletiler.",
+    "sender": "Gönderen",
+    "recipient": "Alıcı",
+    "client_ip": "İstemci IP",
+    "init_time": "Başlangıç Zamanı",
+    "blocked_count": "Engellenme Sayısı",
+    "no_tracking": "Gri liste takip verisi bulunamadı.",
+    "view_title": "Gri Liste",
+    "settings_title": "Gri Liste Ayarları",
+    "status_heading": "Gri liste durumu",
+    "enabled_for": ":account için gri liste etkin",
+    "whitelist_heading": "Beyaz listedeki göndericiler",
+    "senders_label": "Göndericiler (her satıra bir tane, örn. @example.com veya user@example.com)",
+    "save_whitelist": "Beyaz listeyi kaydet"
   }
 }

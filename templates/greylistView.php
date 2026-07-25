@@ -1,6 +1,6 @@
-<?php $pageTitle = 'Greylisting: ' . $e($account); ?>
+<?php $pageTitle = $t('greylist.view_title') . ': ' . $e($account); ?>
 <div class="container">
-  <h1>Greylisting Settings</h1>
+  <h1><?= $te('greylist.settings_title') ?></h1>
 
   <div class="row breadcrumbs">
     <div class="col">
@@ -16,31 +16,31 @@
   <p class="text-success"><?= $e($success) ?></p>
   <?php endif; ?>
 
-  <h3>Greylisting status</h3>
+  <h3><?= $te('greylist.status_heading') ?></h3>
   <form method="post">
     <?= $csrfField ?>
     <input type="hidden" name="action" value="toggle" />
     <p>
       <label>
         <input type="checkbox" name="enabled" <?php if ($greylistEnabled): ?>checked<?php endif; ?> />
-        Greylisting enabled for <?= $e($account) ?>
+        <?= $te('greylist.enabled_for', ['account' => $account]) ?>
       </label>
     </p>
     <p>
-      <button type="submit" class="button primary">Save</button>
+      <button type="submit" class="button primary"><?= $te('common.save') ?></button>
     </p>
   </form>
 
-  <h3>Whitelisted senders</h3>
+  <h3><?= $te('greylist.whitelist_heading') ?></h3>
   <form method="post">
     <?= $csrfField ?>
     <input type="hidden" name="action" value="whitelist" />
     <p>
-      <label for="whitelistedSenders">Senders (one per line, e.g., @example.com or user@example.com)</label>
+      <label for="whitelistedSenders"><?= $te('greylist.senders_label') ?></label>
       <textarea id="whitelistedSenders" name="whitelistedSenders" rows="6"><?= $e(implode("\n", $whitelistedSenders ?? [])) ?></textarea>
     </p>
     <p>
-      <button type="submit" class="button primary">Save whitelist</button>
+      <button type="submit" class="button primary"><?= $te('greylist.save_whitelist') ?></button>
     </p>
   </form>
 </div>

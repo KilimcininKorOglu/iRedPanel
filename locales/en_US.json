@@ -89,5 +89,34 @@
     "previous": "Previous",
     "next": "Next",
     "total": ":count total"
+  },
+  "wblist": {
+    "rdns_title": "rDNS White/Blacklist",
+    "rdns_intro": "Manage reverse DNS based white/blacklist for iRedAPD.",
+    "rdns_whitelist_legend": "Whitelisted rDNS Domains",
+    "rdns_whitelist_hint": "One domain per line. Emails from servers with matching rDNS will bypass greylisting.",
+    "rdns_blacklist_legend": "Blacklisted rDNS Domains",
+    "rdns_blacklist_hint": "One domain per line. Emails from servers with matching rDNS will be rejected.",
+    "senderscore_title": "SenderScore Whitelist",
+    "senderscore_intro": "Permanently whitelist IP addresses to bypass SenderScore checks.",
+    "senderscore_legend": "Whitelisted IP Addresses",
+    "senderscore_hint": "One IP address per line (IPv4 or IPv6). These IPs will permanently bypass SenderScore checks."
+  },
+  "greylist": {
+    "tracking_title": "Greylisting Tracking",
+    "tracking_intro": "Messages that have passed greylisting verification.",
+    "sender": "Sender",
+    "recipient": "Recipient",
+    "client_ip": "Client IP",
+    "init_time": "Init Time",
+    "blocked_count": "Blocked Count",
+    "no_tracking": "No greylisting tracking data found.",
+    "view_title": "Greylisting",
+    "settings_title": "Greylisting Settings",
+    "status_heading": "Greylisting status",
+    "enabled_for": "Greylisting enabled for :account",
+    "whitelist_heading": "Whitelisted senders",
+    "senders_label": "Senders (one per line, e.g., @example.com or user@example.com)",
+    "save_whitelist": "Save whitelist"
   }
 }

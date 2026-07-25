@@ -1,18 +1,18 @@
-<?php $pageTitle = 'Greylisting Tracking'; ?>
+<?php $pageTitle = $t('greylist.tracking_title'); ?>
 <div class="container">
   <div class="row">
     <div class="col">
-      <h1>Greylisting Tracking</h1>
-      <p class="text-light">Messages that have passed greylisting verification.</p>
+      <h1><?= $te('greylist.tracking_title') ?></h1>
+      <p class="text-light"><?= $te('greylist.tracking_intro') ?></p>
 
       <table class="striped">
         <thead>
           <tr>
-            <th>Sender</th>
-            <th>Recipient</th>
-            <th>Client IP</th>
-            <th>Init Time</th>
-            <th>Blocked Count</th>
+            <th><?= $te('greylist.sender') ?></th>
+            <th><?= $te('greylist.recipient') ?></th>
+            <th><?= $te('greylist.client_ip') ?></th>
+            <th><?= $te('greylist.init_time') ?></th>
+            <th><?= $te('greylist.blocked_count') ?></th>
           </tr>
         </thead>
         <tbody>
@@ -26,7 +26,7 @@
           </tr>
           <?php endforeach; ?>
           <?php if (empty($entries)): ?>
-          <tr><td colspan="5" class="text-light">No greylisting tracking data found.</td></tr>
+          <tr><td colspan="5" class="text-light"><?= $te('greylist.no_tracking') ?></td></tr>
           <?php endif; ?>
         </tbody>
       </table>

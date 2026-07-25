@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controllers;
 
 use App\CsrfProtection;
+use App\I18n\Translator;
 use App\Middleware;
 use App\Models\Domain;
 use App\Models\DomainSettings;
@@ -57,9 +58,9 @@ class DomainController
                 $domain = Domain::fromFormData($_POST);
 
                 if (empty($domain->domainName)) {
-                    $validationErrors['domainName'] = 'Domain name is required';
+                    $validationErrors['domainName'] = Translator::translate('domain.msg_name_required');
                 } elseif (!preg_match('/^[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*\.[a-z]{2,}$/', $domain->domainName)) {
-                    $validationErrors['domainName'] = 'Invalid domain name format';
+                    $validationErrors['domainName'] = Translator::translate('common.msg_invalid_domain_format');
                 }
 
                 if (empty($validationErrors)) {
@@ -67,11 +68,11 @@ class DomainController
 
                     // Check for duplicate
                     if ($repo->getDomain($domain->domainName) !== null) {
-                        $validationErrors['domainName'] = "Domain '{$domain->domainName}' already exists";
+                        $validationErrors['domainName'] = Translator::translate('domain.msg_exists', ['domain' => $domain->domainName]);
                     } elseif (Settings::getInstance()->requireDomainOwnershipVerification) {
                         $ownershipRepo = RepositoryFactory::getDomainOwnershipRepository();
                         if (!$ownershipRepo->isVerified($domain->domainName)) {
-                            $validationErrors['domainName'] = 'Domain ownership must be verified before creation';
+                            $validationErrors['domainName'] = Translator::translate('domain.msg_ownership_required');
                         }
                     }
 
@@ -88,7 +89,7 @@ class DomainController
                             if ($admin !== null && $admin->createMaxDomains >= 0) {
                                 $counts = $adminRepo->getAdminResourceCounts($adminEmail);
                                 if ($counts['domains'] >= $admin->createMaxDomains) {
-                                    $validationErrors['domainName'] = "Domain creation limit reached ({$admin->createMaxDomains})";
+                                    $validationErrors['domainName'] = Translator::translate('domain.msg_creation_limit', ['limit' => $admin->createMaxDomains]);
                                 }
                             }
 
@@ -158,7 +159,7 @@ class DomainController
                     );
                     $repo->updateDomain($domain);
                     ActivityLogger::logUpdate($domainName, '', "Domain updated: {$domainName}");
-                    $success = 'Domain updated successfully!';
+                    $success = Translator::translate('domain.msg_updated');
                 } elseif ($editMode === 'settings') {
                     $domainSettings = DomainSettings::fromFormData($_POST);
                     $currentDomain = $repo->getDomain($domainName);
@@ -166,7 +167,7 @@ class DomainController
                         $currentDomain->settings = $domainSettings->toSettingsString();
                         $repo->updateDomain($currentDomain);
                         ActivityLogger::logUpdate($domainName, '', "Domain settings updated: {$domainName}");
-                        $success = 'Domain settings updated successfully!';
+                        $success = Translator::translate('domain.msg_settings_updated');
                     }
                 } elseif ($editMode === 'catchall') {
                     CsrfProtection::validateToken();
@@ -174,7 +175,7 @@ class DomainController
                     $aliasRepo = RepositoryFactory::getAliasRepository();
                     $aliasRepo->setCatchall($domainName, $catchallTarget !== '' ? $catchallTarget : null);
                     ActivityLogger::logUpdate($domainName, '', "Catch-all updated: {$domainName}");
-                    $success = 'Catch-all address updated successfully!';
+                    $success = Translator::translate('domain.msg_catchall_updated');
                 } elseif ($editMode === 'bcc') {
                     CsrfProtection::validateToken();
                     $bccRepo = RepositoryFactory::getBccRepository();
@@ -183,14 +184,14 @@ class DomainController
                     $bccRepo->setDomainSenderBcc($domainName, $senderBcc !== '' ? $senderBcc : null);
                     $bccRepo->setDomainRecipientBcc($domainName, $recipientBcc !== '' ? $recipientBcc : null);
                     ActivityLogger::logUpdate($domainName, '', "BCC settings updated: {$domainName}");
-                    $success = 'BCC settings updated successfully!';
+                    $success = Translator::translate('common.msg_bcc_updated');
                 } elseif ($editMode === 'relay') {
                     CsrfProtection::validateToken();
                     $relayRepo = RepositoryFactory::getRelayRepository();
                     $relayhost = trim($_POST['relayhost'] ?? '');
                     $relayRepo->setRelayhost('@' . $domainName, $relayhost !== '' ? $relayhost : null);
                     ActivityLogger::logUpdate($domainName, '', "Relay settings updated: {$domainName}");
-                    $success = 'Relay settings updated successfully!';
+                    $success = Translator::translate('common.msg_relay_updated');
                 }
             } catch (\Exception $e) {
                 $error = $e->getMessage();

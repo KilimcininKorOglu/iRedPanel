@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controllers;
 
 use App\CsrfProtection;
+use App\I18n\Translator;
 use App\Middleware;
 use App\Models\Settings;
 use App\Models\User;
@@ -88,11 +89,11 @@ class UserController
                     $domainObj = RepositoryFactory::getDomainRepository()->getDomain($domain);
                     if ($domainObj !== null) {
                         if ($domainObj->maxQuota > 0 && $user->mailQuota > $domainObj->maxQuota) {
-                            $error = "User quota ({$user->mailQuota} MB) exceeds domain maximum ({$domainObj->maxQuota} MB)";
+                            $error = Translator::translate('user.msg_quota_exceeds_max', ['quota' => $user->mailQuota, 'max' => $domainObj->maxQuota]);
                         } elseif ($domainObj->quota > 0 && $existingUser !== null) {
                             $quotaDiff = $user->mailQuota - $existingUser->mailQuota;
                             if ($quotaDiff > 0 && ($domainObj->currentQuotaUsed + $quotaDiff) > $domainObj->quota) {
-                                $error = "Total domain quota would be exceeded";
+                                $error = Translator::translate('user.msg_total_quota_exceeded');
                             }
                         }
                     }
@@ -100,7 +101,7 @@ class UserController
                     if ($error === null) {
                         $userRepo->updateUser($domain, $user);
                         ActivityLogger::logUpdate($domain, $userUid, "User profile updated");
-                        $success = 'Information updated successfully!';
+                        $success = Translator::translate('user.msg_info_updated');
                     }
                 } elseif ($editMode === 'password') {
                     // Old password verification if enabled
@@ -108,7 +109,7 @@ class UserController
                     if ($settings->requireOldPasswordOnChange) {
                         $oldPassword = $_POST['old_password'] ?? '';
                         if (!$userRepo->verifyUserPassword($domain, $userUid, $oldPassword)) {
-                            $validationErrors['old_password'] = 'Current password is incorrect';
+                            $validationErrors['old_password'] = Translator::translate('user.msg_current_password_incorrect');
                         }
                     }
 
@@ -121,7 +122,7 @@ class UserController
                             $passwordHash = PasswordUtils::generatePasswordHash($password);
                             $userRepo->updateUserPassword($domain, $userUid, $passwordHash);
                             ActivityLogger::logUpdate($domain, $userUid, "Password changed");
-                            $success = 'Password updated successfully!';
+                            $success = Translator::translate('common.msg_password_updated');
                         }
                     }
                 } elseif ($editMode === 'services') {
@@ -138,7 +139,7 @@ class UserController
                         $currentUser->enableSogo = isset($_POST['enableSogo']);
                         $userRepo->updateUser($domain, $currentUser);
                         ActivityLogger::logUpdate($domain, $userUid, "Mail services updated");
-                        $success = 'Mail services updated successfully!';
+                        $success = Translator::translate('user.msg_services_updated');
                     }
                 } elseif ($editMode === 'forwarding') {
                     $email = "{$userUid}@{$domain}";
@@ -150,7 +151,7 @@ class UserController
                     $forwardingRepo->setForwardings($email, $domain, $addresses);
                     $forwardingRepo->setKeepCopy($email, $domain, $keepCopy);
                     ActivityLogger::logUpdate($domain, $userUid, "Forwarding settings updated");
-                    $success = 'Forwarding settings updated successfully!';
+                    $success = Translator::translate('user.msg_forwarding_updated');
                 } elseif ($editMode === 'aliases') {
                     CsrfProtection::validateToken();
                     $email = "{$userUid}@{$domain}";
@@ -170,7 +171,7 @@ class UserController
                             ActivityLogger::logUpdate($domain, $userUid, "Removed alias: {$aliasToRemove}");
                         }
                     }
-                    $success = 'Alias addresses updated successfully!';
+                    $success = Translator::translate('user.msg_aliases_updated');
                 } elseif ($editMode === 'bcc') {
                     CsrfProtection::validateToken();
                     $email = "{$userUid}@{$domain}";
@@ -180,7 +181,7 @@ class UserController
                     $bccRepo->setUserSenderBcc($email, $senderBcc !== '' ? $senderBcc : null);
                     $bccRepo->setUserRecipientBcc($email, $recipientBcc !== '' ? $recipientBcc : null);
                     ActivityLogger::logUpdate($domain, $userUid, "BCC settings updated");
-                    $success = 'BCC settings updated successfully!';
+                    $success = Translator::translate('common.msg_bcc_updated');
                 } elseif ($editMode === 'relay') {
                     CsrfProtection::validateToken();
                     $email = "{$userUid}@{$domain}";
@@ -188,7 +189,7 @@ class UserController
                     $relayhost = trim($_POST['relayhost'] ?? '');
                     $relayRepo->setRelayhost($email, $relayhost !== '' ? $relayhost : null);
                     ActivityLogger::logUpdate($domain, $userUid, "Relay settings updated");
-                    $success = 'Relay settings updated successfully!';
+                    $success = Translator::translate('common.msg_relay_updated');
                 }
             } catch (\Exception $e) {
                 $error = $e->getMessage();
@@ -354,7 +355,7 @@ class UserController
             $user = $userRepo->getUser($domain, $userUid);
 
             if ($user !== null) {
-                $validationErrors['uid'] = "User with identifier {$userUid} already exists";
+                $validationErrors['uid'] = Translator::translate('user.msg_exists', ['uid' => $userUid]);
             } else {
                 try {
                     $user = User::fromFormData($_POST);
@@ -370,7 +371,7 @@ class UserController
                         if ($admin !== null && $admin->createMaxUsers >= 0) {
                             $counts = $adminRepo->getAdminResourceCounts($adminEmail);
                             if ($counts['users'] >= $admin->createMaxUsers) {
-                                $error = "User creation limit reached ({$admin->createMaxUsers})";
+                                $error = Translator::translate('user.msg_creation_limit', ['limit' => $admin->createMaxUsers]);
                                 $tpl->render('userCreate.php', [
                                     'domain' => $domain,
                                     'validationErrors' => $validationErrors,
@@ -385,11 +386,11 @@ class UserController
                         $domainObj = RepositoryFactory::getDomainRepository()->getDomain($domain);
                         if ($domainObj !== null) {
                             if ($domainObj->mailboxes > 0 && $domainObj->currentUserCount >= $domainObj->mailboxes) {
-                                $error = "Domain mailbox limit reached ({$domainObj->currentUserCount}/{$domainObj->mailboxes})";
+                                $error = Translator::translate('user.msg_mailbox_limit', ['current' => $domainObj->currentUserCount, 'max' => $domainObj->mailboxes]);
                             } elseif ($domainObj->maxQuota > 0 && $user->mailQuota > $domainObj->maxQuota) {
-                                $error = "User quota ({$user->mailQuota} MB) exceeds domain maximum ({$domainObj->maxQuota} MB)";
+                                $error = Translator::translate('user.msg_quota_exceeds_max', ['quota' => $user->mailQuota, 'max' => $domainObj->maxQuota]);
                             } elseif ($domainObj->quota > 0 && ($domainObj->currentQuotaUsed + $user->mailQuota) > $domainObj->quota) {
-                                $error = "Total domain quota would be exceeded ({$domainObj->currentQuotaUsed} + {$user->mailQuota} > {$domainObj->quota} MB)";
+                                $error = Translator::translate('user.msg_total_quota_exceeded_detail', ['used' => $domainObj->currentQuotaUsed, 'quota' => $user->mailQuota, 'max' => $domainObj->quota]);
                             }
 
                             if ($error !== null) {

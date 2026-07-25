@@ -2,6 +2,55 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.1] - 2026-07-25
+
+### Added
+- Database-backed panel settings with a web UI (`/panel-settings`)
+
+### Changed
+- Renamed the project to iRedPanel and switched the environment prefix to `IREDPANEL_`
+- Relicensed the project under MIT
+- Renamed the `api_keys` table to `panel_api_keys`
+- Removed an ineffective catch-all filter from the MySQL `getUsers` query
+- Added a `source` element to `phpunit.xml.dist` for coverage support
+
+### Fixed
+- Corrected `asMegabytes` to treat input as megabytes instead of bytes
+- Added `{PLAIN-MD5}` prefix when prefixed scheme mode is enabled
+- Validated `passwordDefaultScheme` in DB override and panel settings save
+- Used exact domain matching instead of a LIKE suffix pattern
+- Rejected `createUser` when the domain does not exist in the domain table
+- Included all non-aggregate columns in MySQL admin and PostgreSQL domain `GROUP BY`
+- Used backend-aware IredAdmin connection and default port for integration databases
+- Routed `DeletedMailboxController` through `RepositoryFactory`
+- Used CIDR-aware IP matching in the API middleware allowlist
+- Validated email format in `getEmailDn` before splitting
+- Checked `rowCount` after user update and threw on zero affected rows
+- Added activity logging for admin create and edit operations
+- Moved the rename form outside the outer user edit form
+
+### Security
+- Implemented REST API RBAC with database-backed API keys and enforced RBAC on the password verification endpoint
+- Enforced password policy validation and prevented privilege escalation via the user creation API
+- Prevented privilege escalation via the `domainGlobalAdmin` field
+- Enforced `globalAdminRequired` on domain list and view/edit endpoints
+- Restricted alias, mailing list, and activity log listings to global admins
+- Restricted domain ownership verification to global admins and enforced it on domain creation
+- Added transactional locking on user and domain creation to prevent TOCTOU on admin limits
+- Enforced admin resource limits, domain quota, and mailbox count limits on creation and update
+- Enforced domain alias count limit on alias and mailing list creation
+- Checked domain authorization before database fetch in alias and mailing list views
+- Prevented admin self-deletion, last global admin lockout, and bulk operations from wiping all global admins
+- Rejected negative quota, limit, and domain API update values
+- Required POST with CSRF token for logout and newsletter confirm, and added CSRF validation to iRedAPD POST handlers
+- Blocked backslash-based open redirect in the login `next` parameter
+- Escaped default branch output in the localize template filter
+- Removed the confirmation token from the newsletter HTTP response
+- Validated maildir path against the vmail base before deletion
+- Validated the Fail2ban jail name against a configured allowlist and added IP validation on unban
+- Hid global statistics from domain admins on the dashboard
+- Replaced inline JS confirm dialogs with `data-confirm` attributes
+
 ## [1.0.0] - 2026-03-25
 
 ### Added

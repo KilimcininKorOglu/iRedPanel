@@ -8,7 +8,7 @@
 
     <?php if ($paginatedResult->hasPreviousPage()): ?>
       <?php $queryParams['page'] = $paginatedResult->currentPage - 1; ?>
-      <a href="<?= $e($baseUrl . '?' . http_build_query($queryParams)) ?>" class="button outline">&laquo; Previous</a>
+      <a href="<?= $e($baseUrl . '?' . http_build_query($queryParams)) ?>" class="button outline">&laquo; <?= $te('pagination.previous') ?></a>
     <?php endif; ?>
 
     <?php for ($i = 1; $i <= $paginatedResult->totalPages(); $i++): ?>
@@ -22,11 +22,11 @@
 
     <?php if ($paginatedResult->hasNextPage()): ?>
       <?php $queryParams['page'] = $paginatedResult->currentPage + 1; ?>
-      <a href="<?= $e($baseUrl . '?' . http_build_query($queryParams)) ?>" class="button outline">Next &raquo;</a>
+      <a href="<?= $e($baseUrl . '?' . http_build_query($queryParams)) ?>" class="button outline"><?= $te('pagination.next') ?> &raquo;</a>
     <?php endif; ?>
 
     <span class="text-light" style="margin-left: 1rem;">
-      (<?= $e($paginatedResult->totalCount) ?> total)
+      <?= $te('pagination.total', ['count' => (int) $paginatedResult->totalCount]) ?>
     </span>
   </div>
 </nav>

@@ -67,5 +67,27 @@
     "sign_in": "Giriş Yap",
     "failed_attempts": "Başarısız giriş denemesi: :count",
     "invalid_credentials": "Geçersiz kimlik bilgileri!"
+  },
+  "misc": {
+    "error": "Hata",
+    "not_found": "Bulunamadı",
+    "not_found_title": "Hata 404. Sayfa bulunamadı",
+    "not_found_body": "İstediğiniz sayfa mevcut değil"
+  },
+  "newsletter": {
+    "confirm_action": "İşlemi Onayla",
+    "confirmed": "Onaylandı",
+    "subscribe_to": "Şuna abone ol:",
+    "unsubscribe_from": "Şundan aboneliği iptal et:",
+    "subscribe_hint": "Bu posta listesine abone olmak için e-postanızı girin.",
+    "unsubscribe_hint": "Bu posta listesinden aboneliği iptal etmek için e-postanızı girin.",
+    "email_address": "E-posta Adresi",
+    "subscribe": "Abone Ol",
+    "unsubscribe": "Aboneliği İptal Et"
+  },
+  "pagination": {
+    "previous": "Önceki",
+    "next": "Sonraki",
+    "total": "toplam :count"
   }
 }

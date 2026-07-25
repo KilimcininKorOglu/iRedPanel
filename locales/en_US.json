@@ -67,5 +67,27 @@
     "sign_in": "Sign in",
     "failed_attempts": "Failed login attempts: :count",
     "invalid_credentials": "Invalid credentials!"
+  },
+  "misc": {
+    "error": "Error",
+    "not_found": "Not Found",
+    "not_found_title": "Error 404. Page not found",
+    "not_found_body": "The page you requested does not exist"
+  },
+  "newsletter": {
+    "confirm_action": "Confirm Action",
+    "confirmed": "Confirmed",
+    "subscribe_to": "Subscribe to",
+    "unsubscribe_from": "Unsubscribe from",
+    "subscribe_hint": "Enter your email to subscribe to this mailing list.",
+    "unsubscribe_hint": "Enter your email to unsubscribe from this mailing list.",
+    "email_address": "Email Address",
+    "subscribe": "Subscribe",
+    "unsubscribe": "Unsubscribe"
+  },
+  "pagination": {
+    "previous": "Previous",
+    "next": "Next",
+    "total": ":count total"
   }
 }

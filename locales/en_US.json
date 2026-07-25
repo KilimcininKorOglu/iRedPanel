@@ -28,5 +28,15 @@
     "delete": "Delete",
     "create": "Create",
     "edit": "Edit"
+  },
+  "auth": {
+    "title": "Authentication",
+    "email": "Email",
+    "email_placeholder": "Enter admin email",
+    "password": "Password",
+    "password_placeholder": "Enter admin password",
+    "sign_in": "Sign in",
+    "failed_attempts": "Failed login attempts: :count",
+    "invalid_credentials": "Invalid credentials!"
   }
 }

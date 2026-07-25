@@ -28,5 +28,15 @@
     "delete": "Sil",
     "create": "Oluştur",
     "edit": "Düzenle"
+  },
+  "auth": {
+    "title": "Kimlik Doğrulama",
+    "email": "E-posta",
+    "email_placeholder": "Yönetici e-postasını girin",
+    "password": "Parola",
+    "password_placeholder": "Yönetici parolasını girin",
+    "sign_in": "Giriş Yap",
+    "failed_attempts": "Başarısız giriş denemesi: :count",
+    "invalid_credentials": "Geçersiz kimlik bilgileri!"
   }
 }

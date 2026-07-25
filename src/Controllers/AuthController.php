@@ -67,7 +67,7 @@ class AuthController
             error_log("WARNING: Failed login attempt for '{$email}' from IP {$clientIp} (attempt #{$_SESSION['failedLoginAttempts']})");
             ActivityLogger::log('login', '', $email ?? '', "Login failed from {$clientIp}", 'error');
 
-            $error = 'Invalid credentials!';
+            $error = Translator::translate('auth.invalid_credentials');
         }
 
         $tpl->render('loginPage.php', [

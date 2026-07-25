@@ -1,12 +1,12 @@
 <?php
-$pageTitle = 'Panel Settings';
+$pageTitle = $t('panelset.title');
 $flashSuccess = $_SESSION['flash_success'] ?? '';
 unset($_SESSION['flash_success']);
 ?>
 <div class="container">
   <div class="row">
     <div class="col-10">
-      <h1>Panel Settings</h1>
+      <h1><?= $te('panelset.title') ?></h1>
 
       <?php if ($flashSuccess !== ''): ?>
       <p class="text-success"><?= $e($flashSuccess) ?></p>
@@ -30,9 +30,9 @@ unset($_SESSION['flash_success']);
         <table class="striped">
           <thead>
             <tr>
-              <th style="width:40%">Setting</th>
-              <th>Value</th>
-              <th style="width:15%">Source</th>
+              <th style="width:40%"><?= $te('sysset.setting') ?></th>
+              <th><?= $te('sysset.value') ?></th>
+              <th style="width:15%"><?= $te('panelset.source') ?></th>
             </tr>
           </thead>
           <tbody>
@@ -41,7 +41,7 @@ unset($_SESSION['flash_success']);
               $label = $labels[$key] ?? $key;
               $currentValue = $settings->$key;
               $isFromDb = isset($dbSettings[$key]);
-              $source = $isFromDb ? 'Database' : '.env';
+              $source = $isFromDb ? $t('panelset.source_database') : '.env';
             ?>
             <tr>
               <td><label for="field-<?= $e($key) ?>"><?= $e($label) ?></label></td>
@@ -50,7 +50,7 @@ unset($_SESSION['flash_success']);
                   <label>
                     <input type="checkbox" name="<?= $e($key) ?>" id="field-<?= $e($key) ?>"
                            value="1" <?= $currentValue ? 'checked' : '' ?>>
-                    Enabled
+                    <?= $te('common.enabled') ?>
                   </label>
                 <?php elseif ($key === 'passwordDefaultScheme'): ?>
                   <select name="<?= $e($key) ?>" id="field-<?= $e($key) ?>">
@@ -82,14 +82,13 @@ unset($_SESSION['flash_success']);
 
         <div class="row" style="margin-top:1rem">
           <div class="col">
-            <button type="submit" class="button primary">Save <?= $e($categoryTitles[$activeTab] ?? '') ?></button>
+            <button type="submit" class="button primary"><?= $te('panelset.save_category', ['category' => $categoryTitles[$activeTab] ?? '']) ?></button>
           </div>
         </div>
       </form>
 
       <p class="text-light" style="margin-top:2rem">
-        Settings stored in the database override <code>.env</code> values.
-        To revert a setting, delete its row from the <code>panel_settings</code> table.
+        <?= $t('panelset.footer_note') ?>
       </p>
     </div>
   </div>

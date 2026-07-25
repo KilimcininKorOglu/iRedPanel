@@ -202,6 +202,35 @@
     "type_aliases": "Aliases",
     "results_for": ":count result(s) found for \":query\""
   },
+  "sysset": {
+    "title": "System Settings",
+    "intro": "These settings are configured via environment variables and cannot be changed from this panel.",
+    "setting": "Setting",
+    "value": "Value",
+    "backend": "Backend",
+    "password_scheme": "Password Scheme",
+    "password_min_length": "Password Min Length",
+    "pagination_per_page": "Pagination Per Page",
+    "session_timeout": "Session Timeout",
+    "seconds": ":count seconds",
+    "allowed_ip_ranges": "Allowed IP Ranges",
+    "session_ip_validation": "Session IP Validation",
+    "update_check": "Update Check",
+    "amavisd_integration": "Amavisd Integration",
+    "fail2ban_integration": "Fail2ban Integration",
+    "iredapd_integration": "iRedAPD Integration",
+    "quick_links": "Quick Links",
+    "last_login_tracking": "Last Login Tracking",
+    "export_csv": "Export Admin Statistics (CSV)",
+    "export_json": "Export Admin Statistics (JSON)"
+  },
+  "panelset": {
+    "title": "Panel Settings",
+    "source": "Source",
+    "source_database": "Database",
+    "save_category": "Save :category",
+    "footer_note": "Settings stored in the database override <code>.env</code> values. To revert a setting, delete its row from the <code>panel_settings</code> table."
+  },
   "quarantine": {
     "title": "Quarantine",
     "heading": "Quarantined Messages",

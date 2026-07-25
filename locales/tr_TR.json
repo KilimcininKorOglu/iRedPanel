@@ -202,6 +202,35 @@
     "type_aliases": "Takma Adlar",
     "results_for": "\":query\" için :count sonuç bulundu"
   },
+  "sysset": {
+    "title": "Sistem Ayarları",
+    "intro": "Bu ayarlar ortam değişkenleri aracılığıyla yapılandırılır ve bu panelden değiştirilemez.",
+    "setting": "Ayar",
+    "value": "Değer",
+    "backend": "Arka Uç",
+    "password_scheme": "Parola Şeması",
+    "password_min_length": "Min. Parola Uzunluğu",
+    "pagination_per_page": "Sayfa Başına Kayıt",
+    "session_timeout": "Oturum Zaman Aşımı",
+    "seconds": ":count saniye",
+    "allowed_ip_ranges": "İzin Verilen IP Aralıkları",
+    "session_ip_validation": "Oturum IP Doğrulaması",
+    "update_check": "Güncelleme Denetimi",
+    "amavisd_integration": "Amavisd Entegrasyonu",
+    "fail2ban_integration": "Fail2ban Entegrasyonu",
+    "iredapd_integration": "iRedAPD Entegrasyonu",
+    "quick_links": "Hızlı Bağlantılar",
+    "last_login_tracking": "Son Giriş Takibi",
+    "export_csv": "Yönetici İstatistiklerini Dışa Aktar (CSV)",
+    "export_json": "Yönetici İstatistiklerini Dışa Aktar (JSON)"
+  },
+  "panelset": {
+    "title": "Panel Ayarları",
+    "source": "Kaynak",
+    "source_database": "Veritabanı",
+    "save_category": ":category Kaydet",
+    "footer_note": "Veritabanında saklanan ayarlar <code>.env</code> değerlerini geçersiz kılar. Bir ayarı geri almak için <code>panel_settings</code> tablosundaki satırını silin."
+  },
   "quarantine": {
     "title": "Karantina",
     "heading": "Karantinaya Alınan İletiler",

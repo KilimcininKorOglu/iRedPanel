@@ -47,6 +47,7 @@ class Translator
         'et_EE' => 'Eesti',
         'sl_SI' => 'Slovenščina',
         'ca_ES' => 'Català',
+        'az_AZ' => 'Azərbaycan',
     ];
 
     /** Base/fallback locale — must contain every key. */

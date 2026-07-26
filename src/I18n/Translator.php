@@ -21,6 +21,7 @@ class Translator
         'it_IT' => 'Italiano',
         'pt_PT' => 'Português',
         'nl_NL' => 'Nederlands',
+        'ru_RU' => 'Русский',
     ];
 
     /** Base/fallback locale — must contain every key. */

@@ -36,6 +36,7 @@ class Translator
         'id_ID' => 'Bahasa Indonesia',
         'th_TH' => 'ไทย',
         'da_DK' => 'Dansk',
+        'fi_FI' => 'Suomi',
     ];
 
     /** Base/fallback locale — must contain every key. */

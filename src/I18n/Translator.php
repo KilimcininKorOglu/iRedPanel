@@ -43,6 +43,7 @@ class Translator
         'bg_BG' => 'Български',
         'pt_BR' => 'Português brasileiro',
         'hr_HR' => 'Hrvatski',
+        'sr_RS' => 'Српски',
     ];
 
     /** Base/fallback locale — must contain every key. */

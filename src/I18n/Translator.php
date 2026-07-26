@@ -48,6 +48,7 @@ class Translator
         'sl_SI' => 'Slovenščina',
         'ca_ES' => 'Català',
         'az_AZ' => 'Azərbaycan',
+        'is_IS' => 'Íslenska',
     ];
 
     /** Base/fallback locale — must contain every key. */

@@ -1,6 +1,6 @@
 # iRedPanel
 
-A full-featured PHP web application for managing [iRedMail](https://www.iredmail.org/) mail servers. Supports OpenLDAP, MySQL/MariaDB, and PostgreSQL backends with optional Amavisd, Fail2ban, and iRedAPD integrations. Includes a REST API, mail alias and mailing list management, spam policy control, multi-language UI, and role-based admin access.
+A full-featured PHP web application for managing [iRedMail](https://www.iredmail.org/) mail servers. Supports OpenLDAP, MySQL/MariaDB, and PostgreSQL backends with optional Amavisd, Fail2ban, and iRedAPD integrations. Includes a REST API, mail alias and mailing list management, spam policy control, a 40-language UI, and role-based admin access.
 
 Built with vanilla PHP 8.1+ -- no framework, no ORM, no template engine dependency. Uses `vlucas/phpdotenv` for environment configuration and the Chota CSS framework for UI.
 
@@ -104,7 +104,7 @@ These settings serve as initial defaults. Once the iRedAdmin database is configu
 | `PASSWORD_HASHES_USE_PREFIXED_SCHEME`   | `true`    | Use `{SCHEME}` prefix in password hashes     |
 | `PASSWORD_DEFAULT_SCHEME`               | `SSHA512` | Default password hashing scheme              |
 | `REQUIRE_OLD_PASSWORD_ON_CHANGE`        | `false`   | Require current password for password change |
-| `DEFAULT_LANGUAGE`                      | `en_US`   | Default UI language (`en_US` or `tr_TR`)     |
+| `DEFAULT_LANGUAGE`                      | `en_US`   | Default UI locale code (40 languages, e.g. `en_US`, `tr_TR`, `de_DE`) |
 | `PAGINATION_PER_PAGE`                   | `50`      | Items per page on list views                 |
 | `SESSION_TIMEOUT`                       | `1800`    | Session timeout in seconds                   |
 | `ALLOWED_IP_RANGES`                     | -         | Comma-separated CIDR ranges for panel access |
@@ -410,10 +410,11 @@ php cli/notifyQuarantinedRecipients.php [--force-all]        # Cron: quarantine 
 ```
 
 ### Internationalization
-- Multi-language UI with English (`en_US`) and Turkish (`tr_TR`) translations
+- 40-language UI; `en_US` is the canonical base and every locale is kept at full key parity with it
 - Locale resolution order: session preference, `iredpanel_lang` cookie, then `DEFAULT_LANGUAGE`
-- Per-admin language preference persisted where the backend supports it
-- Language switcher in the UI; translations stored as JSON under `locales/`
+- Per-admin language preference persisted where the backend supports it (SQL `language` column, LDAP `preferredLanguage` attribute)
+- Language switcher in the UI; translations stored as flat-namespaced JSON under `locales/<code>.json`
+- Available locales are defined in `Translator::AVAILABLE` (code → native name); adding a language requires both the JSON file and an entry in that constant
 
 ## Authentication
 
@@ -531,7 +532,7 @@ src/
   TemplateEngine.php                   Layout inheritance, branding, feature flags
   TemplateFilters.php                  localize() and asMegabytes() helpers
   I18n/
-    Translator.php                     JSON locale loader + placeholder substitution
+    Translator.php                     JSON locale loader, placeholder substitution, AVAILABLE locale registry
     LocaleResolver.php                 Locale resolution (session/cookie/default)
   Exceptions/
     BackendConnectionException.php     Shared base for backend connection errors
@@ -603,9 +604,7 @@ src/
     PasswordVerifier.php               Password verification utility
     SystemInfo.php                     Hostname, uptime, load, version info
 templates/                             42 native PHP templates
-locales/
-  en_US.json                           English UI translations
-  tr_TR.json                           Turkish UI translations
+locales/                               40 locale files (en_US.json is the canonical base)
 tests/
   bootstrap.php                        Test environment setup
   Utils/PasswordUtilsTest.php          Password hashing scheme tests

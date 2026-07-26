@@ -35,6 +35,7 @@ class Translator
         'vi_VN' => 'Tiếng Việt',
         'id_ID' => 'Bahasa Indonesia',
         'th_TH' => 'ไทย',
+        'da_DK' => 'Dansk',
     ];
 
     /** Base/fallback locale — must contain every key. */

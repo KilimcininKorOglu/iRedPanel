@@ -41,6 +41,7 @@ class Translator
         'hu_HU' => 'Magyar',
         'sk_SK' => 'Slovenčina',
         'bg_BG' => 'Български',
+        'pt_BR' => 'Português brasileiro',
     ];
 
     /** Base/fallback locale — must contain every key. */

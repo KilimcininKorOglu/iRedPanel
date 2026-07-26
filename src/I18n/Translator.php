@@ -39,6 +39,7 @@ class Translator
         'fi_FI' => 'Suomi',
         'nb_NO' => 'Norsk bokmål',
         'hu_HU' => 'Magyar',
+        'sk_SK' => 'Slovenčina',
     ];
 
     /** Base/fallback locale — must contain every key. */

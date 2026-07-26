@@ -34,6 +34,7 @@ class Translator
         'zh_TW' => '繁體中文',
         'vi_VN' => 'Tiếng Việt',
         'id_ID' => 'Bahasa Indonesia',
+        'th_TH' => 'ไทย',
     ];
 
     /** Base/fallback locale — must contain every key. */

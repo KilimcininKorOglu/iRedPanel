@@ -23,6 +23,7 @@ class Translator
         'nl_NL' => 'Nederlands',
         'ru_RU' => 'Русский',
         'zh_CN' => '简体中文',
+        'ja_JP' => '日本語',
     ];
 
     /** Base/fallback locale — must contain every key. */

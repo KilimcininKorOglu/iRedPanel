@@ -49,6 +49,7 @@ class Translator
         'ca_ES' => 'Català',
         'az_AZ' => 'Azərbaycan',
         'is_IS' => 'Íslenska',
+        'nn_NO' => 'Norsk nynorsk',
     ];
 
     /** Base/fallback locale — must contain every key. */

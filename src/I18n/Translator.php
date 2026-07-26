@@ -44,6 +44,7 @@ class Translator
         'pt_BR' => 'Português brasileiro',
         'hr_HR' => 'Hrvatski',
         'sr_RS' => 'Српски',
+        'et_EE' => 'Eesti',
     ];
 
     /** Base/fallback locale — must contain every key. */

@@ -7,7 +7,7 @@ Built with vanilla PHP 8.1+ -- no framework, no ORM, no template engine dependen
 | Project    | Value                                                |
 |------------|------------------------------------------------------|
 | Package    | `kilimcininkoroglu/iredpanel`                        |
-| Version    | `1.0.1`                                              |
+| Version    | `1.0.2`                                              |
 | Repository | `https://github.com/KilimcininKorOglu/iRedPanel.git` |
 | License    | MIT                                                  |
 

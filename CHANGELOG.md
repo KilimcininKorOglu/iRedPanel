@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.2] - 2026-07-26
+
+### Added
+- Multi-language UI: JSON-backed i18n core (`Translator`, `LocaleResolver`) initialized in bootstrap with template helpers (`$t()`, `$te()`)
+- Language switcher UI with a `POST /language` route and per-admin language preference persisted across LDAP, MySQL, and PostgreSQL backends
+- Default UI language exposed as a database-overridable panel setting
+- 40-language locale coverage; all views, forms, and controller messages translated and kept at full key parity with `en_US`
+- GitHub Actions CI workflow running PHPUnit and a PHP syntax check across PHP 8.1-8.4
+
+### Changed
+- Documentation updated for internationalization and the 40-language UI
+- Documented Conventional Commits and commit-size guidelines in CONTRIBUTING
+
+### Fixed
+- Parse boolean fields (user, domain, spam policy) from JSON API request bodies
+- Handle `json_encode` failures in API responses
+
+### Security
+- Reject malformed API JSON bodies with 400 and cap request body size before decoding
+- Prefix risky CSV cells to prevent spreadsheet formula injection in exports
+
 ## [1.0.1] - 2026-07-25
 
 ### Added

@@ -28,6 +28,7 @@ class Translator
         'uk_UA' => 'Українська',
         'cs_CZ' => 'Čeština',
         'sv_SE' => 'Svenska',
+        'el_GR' => 'Ελληνικά',
     ];
 
     /** Base/fallback locale — must contain every key. */

@@ -33,6 +33,7 @@ class Translator
         'ko_KR' => '한국어',
         'zh_TW' => '繁體中文',
         'vi_VN' => 'Tiếng Việt',
+        'id_ID' => 'Bahasa Indonesia',
     ];
 
     /** Base/fallback locale — must contain every key. */

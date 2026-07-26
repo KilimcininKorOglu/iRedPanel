@@ -31,6 +31,7 @@ class Translator
         'el_GR' => 'Ελληνικά',
         'ro_RO' => 'Română',
         'ko_KR' => '한국어',
+        'zh_TW' => '繁體中文',
     ];
 
     /** Base/fallback locale — must contain every key. */

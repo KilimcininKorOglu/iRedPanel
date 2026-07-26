@@ -52,6 +52,7 @@ class Translator
         'nn_NO' => 'Norsk nynorsk',
         'bs_BA' => 'Bosanski',
         'gl_ES' => 'Galego',
+        'eu_ES' => 'Euskara',
     ];
 
     /** Base/fallback locale — must contain every key. */

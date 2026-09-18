@@ -1,5 +1,6 @@
 <?php $pageTitle = $t('throttle.view_title') . ': ' . $account; ?>
 <div class="container">
+  <?php $iredapdTab = 'throttle'; include __DIR__ . '/iredapdNav.php'; ?>
   <h1><?= $te('throttle.settings_title') ?></h1>
 
   <div class="row breadcrumbs">

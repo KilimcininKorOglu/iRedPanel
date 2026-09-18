@@ -1,5 +1,6 @@
 <?php $pageTitle = $t('wblist.senderscore_title'); ?>
 <div class="container">
+  <?php $iredapdTab = 'senderscore'; include __DIR__ . '/iredapdNav.php'; ?>
   <div class="row">
     <div class="col-8">
       <h1><?= $te('wblist.senderscore_title') ?></h1>

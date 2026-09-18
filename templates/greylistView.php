@@ -1,5 +1,6 @@
 <?php $pageTitle = $t('greylist.view_title') . ': ' . $account; ?>
 <div class="container">
+  <?php $iredapdTab = 'greylist'; include __DIR__ . '/iredapdNav.php'; ?>
   <h1><?= $te('greylist.settings_title') ?></h1>
 
   <div class="row breadcrumbs">

@@ -1,5 +1,6 @@
 <?php $pageTitle = $t('greylist.tracking_title'); ?>
 <div class="container">
+  <?php $iredapdTab = 'tracking'; include __DIR__ . '/iredapdNav.php'; ?>
   <div class="row">
     <div class="col">
       <h1><?= $te('greylist.tracking_title') ?></h1>

@@ -42,6 +42,10 @@
               <?php if ($editMode === 'relay'): ?>class="active"<?php endif; ?>
               href="/<?= $e($domain) ?>/users/<?= $e($user->uid) ?>/relay"
             ><?= $te('domain.tab_relay') ?></a>
+            <?php if (!empty($features['iredapd']) && !empty($session['isGlobalAdmin'])): ?>
+            <a href="/iredapd/throttle/<?= $e($user->uid . '@' . $domain) ?>"><?= $te('throttle.view_title') ?></a>
+            <a href="/iredapd/greylist/<?= $e($user->uid . '@' . $domain) ?>"><?= $te('greylist.view_title') ?></a>
+            <?php endif; ?>
           </nav>
         </div>
       </div>

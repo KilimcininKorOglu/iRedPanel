@@ -30,6 +30,10 @@
            href="/domains/<?= $e($domain->domainName) ?>/bcc"><?= $te('domain.tab_bcc') ?></a>
         <a <?php if (($editMode ?? '') === 'relay'): ?>class="active"<?php endif; ?>
            href="/domains/<?= $e($domain->domainName) ?>/relay"><?= $te('domain.tab_relay') ?></a>
+        <?php if (!empty($features['iredapd']) && !empty($session['isGlobalAdmin'])): ?>
+        <a href="/iredapd/throttle/@<?= $e($domain->domainName) ?>"><?= $te('throttle.view_title') ?></a>
+        <a href="/iredapd/greylist/@<?= $e($domain->domainName) ?>"><?= $te('greylist.view_title') ?></a>
+        <?php endif; ?>
       </nav>
 
       <p class="text-light">

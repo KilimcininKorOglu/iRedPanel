@@ -1,5 +1,6 @@
 <?php $pageTitle = $t('wblist.rdns_title'); ?>
 <div class="container">
+  <?php $iredapdTab = 'rdns'; include __DIR__ . '/iredapdNav.php'; ?>
   <div class="row">
     <div class="col-8">
       <h1><?= $te('wblist.rdns_title') ?></h1>

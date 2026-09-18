@@ -153,7 +153,8 @@
     "no_outbound": "Geen uitgaande vermeldingen.",
     "back": "Terug naar quarantaine",
     "msg_invalid_rdns": "Ongeldige rDNS-naam: :name",
-    "msg_rdns_in_both": ":name staat zowel op de whitelist als op de blacklist."
+    "msg_rdns_in_both": ":name staat zowel op de whitelist als op de blacklist.",
+    "msg_invalid_ip": "Ongeldig IP-adres: :ip"
   },
   "spampolicy": {
     "msg_deleted": "Spambeleid verwijderd!",

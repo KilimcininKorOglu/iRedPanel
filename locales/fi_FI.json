@@ -153,7 +153,8 @@
     "no_outbound": "Ei lähteviä merkintöjä.",
     "back": "Takaisin karanteeniin",
     "msg_invalid_rdns": "Virheellinen rDNS-nimi: :name",
-    "msg_rdns_in_both": ":name on sekä sallittujen että estettyjen listalla."
+    "msg_rdns_in_both": ":name on sekä sallittujen että estettyjen listalla.",
+    "msg_invalid_ip": "Virheellinen IP-osoite: :ip"
   },
   "spampolicy": {
     "msg_deleted": "Roskapostikäytäntö poistettu!",

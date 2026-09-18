@@ -153,7 +153,8 @@
     "no_outbound": "Ingen utgående oppføringer.",
     "back": "Tilbake til karantene",
     "msg_invalid_rdns": "Ugyldig rDNS-navn: :name",
-    "msg_rdns_in_both": ":name står både på hvitelisten og på svartelisten."
+    "msg_rdns_in_both": ":name står både på hvitelisten og på svartelisten.",
+    "msg_invalid_ip": "Ugyldig IP-adresse: :ip"
   },
   "spampolicy": {
     "msg_deleted": "Spampolicy slettet!",

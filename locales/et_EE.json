@@ -153,7 +153,8 @@
     "no_outbound": "Väljaminevaid kirjeid pole.",
     "back": "Tagasi karantiini",
     "msg_invalid_rdns": "Vigane rDNS nimi: :name",
-    "msg_rdns_in_both": ":name on nii lubatud kui ka keelatud nimekirjas."
+    "msg_rdns_in_both": ":name on nii lubatud kui ka keelatud nimekirjas.",
+    "msg_invalid_ip": "Vigane IP-aadress: :ip"
   },
   "spampolicy": {
     "msg_deleted": "Rämpsposti poliitika kustutatud!",

@@ -153,7 +153,8 @@
     "no_outbound": "Žádné odchozí záznamy.",
     "back": "Zpět na karanténu",
     "msg_invalid_rdns": "Neplatný název rDNS: :name",
-    "msg_rdns_in_both": ":name je na bílé i na černé listině."
+    "msg_rdns_in_both": ":name je na bílé i na černé listině.",
+    "msg_invalid_ip": "Neplatná IP adresa: :ip"
   },
   "spampolicy": {
     "msg_deleted": "Zásady spamu smazány!",

@@ -32,6 +32,21 @@ class IredapdListTest extends TestCase
         ];
     }
 
+    public function testIpAddressesUseTheFormThatPostfixSends(): void
+    {
+        // iRedAPD looks up the client address exactly as Postfix reports it.
+        $ips = IredapdList::ipAddresses(['203.0.113.5', '2001:DB8:0:0::1', '2001:db8::1', ' 203.0.113.5 ']);
+
+        $this->assertSame(['203.0.113.5', '2001:db8::1'], $ips);
+    }
+
+    public function testIpAddressesRejectsAnInvalidLineInsteadOfDroppingIt(): void
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage('203.0.113.256');
+        IredapdList::ipAddresses(['203.0.113.5', '203.0.113.256']);
+    }
+
     #[\PHPUnit\Framework\Attributes\DataProvider('invalidRdnsNames')]
     public function testRdnsNamesRejectsAnEntryIredapdCannotMatch(string $name): void
     {

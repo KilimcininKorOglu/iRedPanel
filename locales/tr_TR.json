@@ -153,7 +153,8 @@
     "no_outbound": "Giden kayıt yok.",
     "back": "Karantinaya dön",
     "msg_invalid_rdns": "Geçersiz rDNS adı: :name",
-    "msg_rdns_in_both": ":name hem whitelist hem blacklist içinde."
+    "msg_rdns_in_both": ":name hem whitelist hem blacklist içinde.",
+    "msg_invalid_ip": "Geçersiz IP adresi: :ip"
   },
   "spampolicy": {
     "msg_deleted": "Spam politikası silindi!",

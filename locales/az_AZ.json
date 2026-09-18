@@ -153,7 +153,8 @@
     "no_outbound": "Gedən qeyd yoxdur.",
     "back": "Karantinə qayıt",
     "msg_invalid_rdns": "Yanlış rDNS adı: :name",
-    "msg_rdns_in_both": ":name həm ağ, həm də qara siyahıdadır."
+    "msg_rdns_in_both": ":name həm ağ, həm də qara siyahıdadır.",
+    "msg_invalid_ip": "Yanlış IP ünvanı: :ip"
   },
   "spampolicy": {
     "msg_deleted": "Spam siyasəti silindi!",

@@ -153,7 +153,8 @@
     "no_outbound": "Aucune entrée sortante.",
     "back": "Retour à la quarantaine",
     "msg_invalid_rdns": "Nom rDNS invalide : :name",
-    "msg_rdns_in_both": ":name figure à la fois dans la liste blanche et dans la liste noire."
+    "msg_rdns_in_both": ":name figure à la fois dans la liste blanche et dans la liste noire.",
+    "msg_invalid_ip": "Adresse IP invalide : :ip"
   },
   "spampolicy": {
     "msg_deleted": "Politique antispam supprimée !",

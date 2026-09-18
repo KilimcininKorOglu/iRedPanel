@@ -153,7 +153,8 @@
     "no_outbound": "Inga utgående poster.",
     "back": "Tillbaka till karantän",
     "msg_invalid_rdns": "Ogiltigt rDNS-namn: :name",
-    "msg_rdns_in_both": ":name finns både i vitlistan och i svartlistan."
+    "msg_rdns_in_both": ":name finns både i vitlistan och i svartlistan.",
+    "msg_invalid_ip": "Ogiltig IP-adress: :ip"
   },
   "spampolicy": {
     "msg_deleted": "Skräppostpolicy borttagen!",

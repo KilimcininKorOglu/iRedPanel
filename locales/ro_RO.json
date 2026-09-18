@@ -153,7 +153,8 @@
     "no_outbound": "Nicio intrare de ieșire.",
     "back": "Înapoi la carantină",
     "msg_invalid_rdns": "Nume rDNS invalid: :name",
-    "msg_rdns_in_both": ":name este atât în lista albă, cât și în lista neagră."
+    "msg_rdns_in_both": ":name este atât în lista albă, cât și în lista neagră.",
+    "msg_invalid_ip": "Adresă IP invalidă: :ip"
   },
   "spampolicy": {
     "msg_deleted": "Politica spam a fost ștearsă!",

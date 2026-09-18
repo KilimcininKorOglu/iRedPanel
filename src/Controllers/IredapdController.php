@@ -186,10 +186,11 @@ class IredapdController
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             CsrfProtection::validateToken();
             try {
-                $ips = array_filter(array_map('trim', explode("\n", $_POST['ips'] ?? '')));
-                $repo->setSenderScoreWhitelist($ips);
+                $repo->setSenderScoreWhitelist(IredapdList::ipAddresses(explode("\n", $_POST['ips'] ?? '')));
                 ActivityLogger::log('update', '', '', 'Updated SenderScore whitelist');
                 $success = Translator::translate('wblist.msg_senderscore_updated');
+            } catch (\InvalidArgumentException $e) {
+                $error = Translator::translate('wblist.msg_invalid_ip', ['ip' => $e->getMessage()]);
             } catch (\Exception $e) {
                 $error = BaseController::errorMessage($e);
             }

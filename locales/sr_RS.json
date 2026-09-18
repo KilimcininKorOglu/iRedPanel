@@ -153,7 +153,8 @@
     "no_outbound": "Нема одлазних уноса.",
     "back": "Назад на карантин",
     "msg_invalid_rdns": "Неисправан rDNS назив: :name",
-    "msg_rdns_in_both": ":name је и на белој и на црној листи."
+    "msg_rdns_in_both": ":name је и на белој и на црној листи.",
+    "msg_invalid_ip": "Неисправна IP адреса: :ip"
   },
   "spampolicy": {
     "msg_deleted": "Правила за нежељену пошту обрисана!",

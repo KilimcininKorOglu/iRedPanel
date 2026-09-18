@@ -153,7 +153,8 @@
     "no_outbound": "Nincsenek kimenő bejegyzések.",
     "back": "Vissza a karanténba",
     "msg_invalid_rdns": "Érvénytelen rDNS név: :name",
-    "msg_rdns_in_both": ":name a fehérlistán és a feketelistán is szerepel."
+    "msg_rdns_in_both": ":name a fehérlistán és a feketelistán is szerepel.",
+    "msg_invalid_ip": "Érvénytelen IP-cím: :ip"
   },
   "spampolicy": {
     "msg_deleted": "Spamszabályzat törölve!",

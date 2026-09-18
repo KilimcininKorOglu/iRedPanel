@@ -153,7 +153,8 @@
     "no_outbound": "Sem entradas de saída.",
     "back": "Voltar à quarentena",
     "msg_invalid_rdns": "Nome rDNS inválido: :name",
-    "msg_rdns_in_both": ":name está na lista branca e na lista negra."
+    "msg_rdns_in_both": ":name está na lista branca e na lista negra.",
+    "msg_invalid_ip": "Endereço IP inválido: :ip"
   },
   "spampolicy": {
     "msg_deleted": "Política antispam eliminada!",

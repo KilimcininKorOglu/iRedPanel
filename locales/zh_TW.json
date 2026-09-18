@@ -153,7 +153,8 @@
     "no_outbound": "沒有傳出項目。",
     "back": "返回隔離區",
     "msg_invalid_rdns": "無效的 rDNS 名稱：:name",
-    "msg_rdns_in_both": ":name 同時位於白名單與黑名單中。"
+    "msg_rdns_in_both": ":name 同時位於白名單與黑名單中。",
+    "msg_invalid_ip": "無效的 IP 位址：:ip"
   },
   "spampolicy": {
     "msg_deleted": "垃圾郵件政策已刪除！",

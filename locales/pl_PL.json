@@ -153,7 +153,8 @@
     "no_outbound": "Brak wpisów wychodzących.",
     "back": "Powrót do kwarantanny",
     "msg_invalid_rdns": "Nieprawidłowa nazwa rDNS: :name",
-    "msg_rdns_in_both": ":name jest zarówno na białej, jak i na czarnej liście."
+    "msg_rdns_in_both": ":name jest zarówno na białej, jak i na czarnej liście.",
+    "msg_invalid_ip": "Nieprawidłowy adres IP: :ip"
   },
   "spampolicy": {
     "msg_deleted": "Polityka spamu usunięta!",

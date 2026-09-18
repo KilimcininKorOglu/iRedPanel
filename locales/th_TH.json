@@ -153,7 +153,8 @@
     "no_outbound": "ไม่มีรายการขาออก",
     "back": "กลับไปที่การกักกัน",
     "msg_invalid_rdns": "ชื่อ rDNS ไม่ถูกต้อง: :name",
-    "msg_rdns_in_both": ":name อยู่ทั้งในรายการอนุญาตและรายการปิดกั้น"
+    "msg_rdns_in_both": ":name อยู่ทั้งในรายการอนุญาตและรายการปิดกั้น",
+    "msg_invalid_ip": "ที่อยู่ IP ไม่ถูกต้อง: :ip"
   },
   "spampolicy": {
     "msg_deleted": "ลบนโยบายสแปมแล้ว!",

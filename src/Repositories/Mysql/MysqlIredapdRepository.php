@@ -274,14 +274,13 @@ class MysqlIredapdRepository implements IredapdRepositoryInterface
         $this->replaceAll(function (\PDO $pdo) use ($ips): void {
             $pdo->exec("DELETE FROM senderscore_cache WHERE time = 4102444799");
 
+            // iRedAPD may already cache the IP with its looked-up score.
             $stmt = $pdo->prepare(
-                "INSERT INTO senderscore_cache (client_address, score, time) VALUES (:ip, 100, 4102444799)"
+                "INSERT INTO senderscore_cache (client_address, score, time) VALUES (:ip, 100, 4102444799)
+                 ON DUPLICATE KEY UPDATE score = 100, time = 4102444799"
             );
             foreach ($ips as $ip) {
-                $ip = trim($ip);
-                if ($ip !== '' && filter_var($ip, FILTER_VALIDATE_IP)) {
-                    $stmt->execute(['ip' => $ip]);
-                }
+                $stmt->execute(['ip' => $ip]);
             }
         });
     }

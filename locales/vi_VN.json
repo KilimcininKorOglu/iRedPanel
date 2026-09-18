@@ -153,7 +153,8 @@
     "no_outbound": "Không có mục đi.",
     "back": "Quay lại cách ly",
     "msg_invalid_rdns": "Tên rDNS không hợp lệ: :name",
-    "msg_rdns_in_both": ":name nằm trong cả danh sách trắng và danh sách đen."
+    "msg_rdns_in_both": ":name nằm trong cả danh sách trắng và danh sách đen.",
+    "msg_invalid_ip": "Địa chỉ IP không hợp lệ: :ip"
   },
   "spampolicy": {
     "msg_deleted": "Chính sách thư rác đã được xóa!",

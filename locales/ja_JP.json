@@ -153,7 +153,8 @@
     "no_outbound": "送信エントリはありません。",
     "back": "隔離に戻る",
     "msg_invalid_rdns": "無効な rDNS 名: :name",
-    "msg_rdns_in_both": ":name はホワイトリストとブラックリストの両方にあります。"
+    "msg_rdns_in_both": ":name はホワイトリストとブラックリストの両方にあります。",
+    "msg_invalid_ip": "無効な IP アドレス: :ip"
   },
   "spampolicy": {
     "msg_deleted": "スパムポリシーを削除しました！",

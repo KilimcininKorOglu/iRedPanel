@@ -153,7 +153,8 @@
     "no_outbound": "Нет исходящих записей.",
     "back": "Назад к карантину",
     "msg_invalid_rdns": "Недопустимое имя rDNS: :name",
-    "msg_rdns_in_both": ":name находится и в белом, и в чёрном списке."
+    "msg_rdns_in_both": ":name находится и в белом, и в чёрном списке.",
+    "msg_invalid_ip": "Недопустимый IP-адрес: :ip"
   },
   "spampolicy": {
     "msg_deleted": "Политика спама удалена!",

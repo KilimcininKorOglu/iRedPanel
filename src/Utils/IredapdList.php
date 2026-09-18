@@ -25,6 +25,19 @@ class IredapdList
 
     /**
      * @param string[] $lines
+     * @return string[]
+     * @throws \InvalidArgumentException with the invalid entry as message
+     */
+    public static function ipAddresses(array $lines): array
+    {
+        $ips = self::normalize($lines, static fn (string $ip): bool => filter_var($ip, FILTER_VALIDATE_IP) !== false);
+        // Postfix sends the compressed IPv6 form, and iRedAPD matches it exactly.
+        $canonical = array_map(static fn (string $ip): string => (string) inet_ntop((string) inet_pton($ip)), $ips);
+        return array_values(array_unique($canonical));
+    }
+
+    /**
+     * @param string[] $lines
      * @param callable(string): bool $isValid
      * @return string[]
      */

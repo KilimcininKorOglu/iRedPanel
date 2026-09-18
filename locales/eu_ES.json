@@ -153,7 +153,8 @@
     "no_outbound": "Irteerako sarrerarik ez.",
     "back": "Itzuli berrogeialdira",
     "msg_invalid_rdns": "rDNS izen baliogabea: :name",
-    "msg_rdns_in_both": ":name zerrenda zurian eta zerrenda beltzean dago."
+    "msg_rdns_in_both": ":name zerrenda zurian eta zerrenda beltzean dago.",
+    "msg_invalid_ip": "IP helbide baliogabea: :ip"
   },
   "spampolicy": {
     "msg_deleted": "Spam politika ezabatu da!",

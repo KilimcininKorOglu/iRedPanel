@@ -153,7 +153,8 @@
     "no_outbound": "Ni vnosov odhodne pošte.",
     "back": "Nazaj na karanteno",
     "msg_invalid_rdns": "Neveljavno ime rDNS: :name",
-    "msg_rdns_in_both": ":name je na beli in na črni listi."
+    "msg_rdns_in_both": ":name je na beli in na črni listi.",
+    "msg_invalid_ip": "Neveljaven naslov IP: :ip"
   },
   "spampolicy": {
     "msg_deleted": "Pravilnik o neželeni pošti izbrisan!",

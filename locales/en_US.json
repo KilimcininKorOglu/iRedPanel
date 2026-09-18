@@ -153,7 +153,8 @@
     "no_outbound": "No outbound entries.",
     "back": "Back to quarantine",
     "msg_invalid_rdns": "Invalid rDNS name: :name",
-    "msg_rdns_in_both": ":name is in both the whitelist and the blacklist."
+    "msg_rdns_in_both": ":name is in both the whitelist and the blacklist.",
+    "msg_invalid_ip": "Invalid IP address: :ip"
   },
   "spampolicy": {
     "msg_deleted": "Spam policy deleted!",

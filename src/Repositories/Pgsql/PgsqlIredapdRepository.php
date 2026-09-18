@@ -149,28 +149,21 @@ class PgsqlIredapdRepository implements IredapdRepositoryInterface
 
     public function setWhitelistedSenders(string $account, array $senders): void
     {
-        $conn = IredapdPgsqlConnection::getInstance();
-        if (!$conn->isAvailable()) {
-            throw new \RuntimeException('iRedAPD database not available');
-        }
+        $this->replaceAll(function (\PDO $pdo) use ($account, $senders): void {
+            $pdo->prepare("DELETE FROM greylisting_whitelists WHERE account = :account")
+                ->execute(['account' => $account]);
 
-        $pdo = $conn->getPdo();
-
-        // Remove existing whitelist entries
-        $stmt = $pdo->prepare("DELETE FROM greylisting_whitelists WHERE account = :account");
-        $stmt->execute(['account' => $account]);
-
-        // Insert new entries
-        $stmt = $pdo->prepare(
-            "INSERT INTO greylisting_whitelists (account, sender, comment)
-             VALUES (:account, :sender, '')"
-        );
-        foreach ($senders as $sender) {
-            $sender = trim($sender);
-            if ($sender !== '') {
-                $stmt->execute(['account' => $account, 'sender' => $sender]);
+            $stmt = $pdo->prepare(
+                "INSERT INTO greylisting_whitelists (account, sender, comment)
+                 VALUES (:account, :sender, '')"
+            );
+            foreach ($senders as $sender) {
+                $sender = trim($sender);
+                if ($sender !== '') {
+                    $stmt->execute(['account' => $account, 'sender' => $sender]);
+                }
             }
-        }
+        });
     }
 
     public function getGreylistTrackingPaginated(int $page, int $perPage): \App\Models\PaginatedResult
@@ -239,27 +232,19 @@ class PgsqlIredapdRepository implements IredapdRepositoryInterface
 
     public function setWblistRdns(array $whitelists, array $blacklists): void
     {
-        $conn = IredapdPgsqlConnection::getInstance();
-        if (!$conn->isAvailable()) {
-            return;
-        }
+        $this->replaceAll(function (\PDO $pdo) use ($whitelists, $blacklists): void {
+            $pdo->exec("DELETE FROM wblist_rdns");
 
-        $pdo = $conn->getPdo();
-        $pdo->exec("DELETE FROM wblist_rdns");
-
-        $stmt = $pdo->prepare("INSERT INTO wblist_rdns (rdns, wb) VALUES (:rdns, :wb)");
-        foreach ($whitelists as $rdns) {
-            $rdns = trim($rdns);
-            if ($rdns !== '') {
-                $stmt->execute(['rdns' => strtolower($rdns), 'wb' => 'W']);
+            $stmt = $pdo->prepare("INSERT INTO wblist_rdns (rdns, wb) VALUES (:rdns, :wb)");
+            foreach (['W' => $whitelists, 'B' => $blacklists] as $wb => $names) {
+                foreach ($names as $rdns) {
+                    $rdns = trim($rdns);
+                    if ($rdns !== '') {
+                        $stmt->execute(['rdns' => strtolower($rdns), 'wb' => $wb]);
+                    }
+                }
             }
-        }
-        foreach ($blacklists as $rdns) {
-            $rdns = trim($rdns);
-            if ($rdns !== '') {
-                $stmt->execute(['rdns' => strtolower($rdns), 'wb' => 'B']);
-            }
-        }
+        });
     }
 
     public function getSenderScoreWhitelist(): array
@@ -286,22 +271,42 @@ class PgsqlIredapdRepository implements IredapdRepositoryInterface
 
     public function setSenderScoreWhitelist(array $ips): void
     {
+        $this->replaceAll(function (\PDO $pdo) use ($ips): void {
+            $pdo->exec("DELETE FROM senderscore_cache WHERE time = 4102444799");
+
+            $stmt = $pdo->prepare(
+                "INSERT INTO senderscore_cache (client_address, score, time) VALUES (:ip, 100, 4102444799)"
+            );
+            foreach ($ips as $ip) {
+                $ip = trim($ip);
+                if ($ip !== '' && filter_var($ip, FILTER_VALIDATE_IP)) {
+                    $stmt->execute(['ip' => $ip]);
+                }
+            }
+        });
+    }
+
+    /**
+     * Runs a delete-then-insert list update in one transaction, so a failed
+     * insert leaves the stored list unchanged.
+     *
+     * @param callable(\PDO): void $work
+     */
+    private function replaceAll(callable $work): void
+    {
         $conn = IredapdPgsqlConnection::getInstance();
         if (!$conn->isAvailable()) {
-            return;
+            throw new \RuntimeException('iRedAPD database not available');
         }
 
         $pdo = $conn->getPdo();
-        $pdo->exec("DELETE FROM senderscore_cache WHERE time = 4102444799");
-
-        $stmt = $pdo->prepare(
-            "INSERT INTO senderscore_cache (client_address, score, time) VALUES (:ip, 100, 4102444799)"
-        );
-        foreach ($ips as $ip) {
-            $ip = trim($ip);
-            if ($ip !== '' && filter_var($ip, FILTER_VALIDATE_IP)) {
-                $stmt->execute(['ip' => $ip]);
-            }
+        $pdo->beginTransaction();
+        try {
+            $work($pdo);
+            $pdo->commit();
+        } catch (\Exception $e) {
+            $pdo->rollBack();
+            throw $e;
         }
     }
 }

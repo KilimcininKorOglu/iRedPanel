@@ -70,9 +70,10 @@ class UserController
         }
 
         $userRepo = RepositoryFactory::getUserRepository();
-        $error = null;
+        $error = $_SESSION['flash_error'] ?? null;
         $validationErrors = [];
-        $success = null;
+        $success = $_SESSION['flash_success'] ?? null;
+        unset($_SESSION['flash_error'], $_SESSION['flash_success']);
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             try {
@@ -260,27 +261,36 @@ class UserController
     }
 
     /**
-     * Handles bulk operations on selected users (POST only).
+     * Renames a mailbox to another free address in the same domain (POST only).
+     * The result is shown on the General tab through a session flash message.
      */
     public static function renameUser(TemplateEngine $tpl, string $domain, string $userUid): void
     {
         Middleware::globalAdminRequired();
         CsrfProtection::validateToken();
 
-        $newUid = trim($_POST['newUid'] ?? '');
+        $newUid = strtolower(trim($_POST['newUid'] ?? ''));
         if ($newUid === '' || $newUid === $userUid) {
             header("Location: /{$domain}/users/{$userUid}/general");
             exit;
         }
 
+        $newEmail = "{$newUid}@{$domain}";
         try {
-            $userRepo = RepositoryFactory::getUserRepository();
-            $userRepo->renameUser($domain, $userUid, $newUid);
-            ActivityLogger::logUpdate($domain, $newUid, "Renamed user from {$userUid}@{$domain} to {$newUid}@{$domain}");
+            if (filter_var($newEmail, FILTER_VALIDATE_EMAIL) === false) {
+                throw new \RuntimeException(Translator::translate('common.msg_invalid_email', ['address' => $newEmail]));
+            }
+            if (RepositoryFactory::getAliasRepository()->isAddressInUse($newEmail)) {
+                throw new \RuntimeException(Translator::translate('common.msg_address_in_use', ['address' => $newEmail]));
+            }
+
+            RepositoryFactory::getUserRepository()->renameUser($domain, $userUid, $newUid);
+            ActivityLogger::logUpdate($domain, $newUid, "Renamed user from {$userUid}@{$domain} to {$newEmail}");
+            $_SESSION['flash_success'] = Translator::translate('user.msg_renamed', ['address' => $newEmail]);
             header("Location: /{$domain}/users/{$newUid}/general");
             exit;
         } catch (\Exception $e) {
-            error_log("User rename failed: " . $e->getMessage());
+            $_SESSION['flash_error'] = BaseController::errorMessage($e);
             header("Location: /{$domain}/users/{$userUid}/general");
             exit;
         }

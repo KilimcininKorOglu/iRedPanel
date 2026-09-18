@@ -348,24 +348,27 @@ class MysqlUserRepository implements UserRepositoryInterface
             $pdo->prepare("UPDATE mailbox SET username = :new WHERE username = :old AND domain = :domain")
                 ->execute(['new' => $newEmail, 'old' => $oldEmail, 'domain' => $domain]);
 
+            // Every column that stores the mailbox address. All tables are part of the iRedMail vmail schema.
             $tables = [
                 ['forwardings', 'address'],
                 ['forwardings', 'forwarding'],
-                ['moderators', 'address'],
                 ['moderators', 'moderator'],
+                ['maillist_owners', 'owner'],
                 ['sender_bcc_user', 'username'],
+                ['sender_bcc_user', 'bcc_address'],
                 ['recipient_bcc_user', 'username'],
+                ['recipient_bcc_user', 'bcc_address'],
+                ['sender_bcc_domain', 'bcc_address'],
+                ['recipient_bcc_domain', 'bcc_address'],
                 ['sender_relayhost', 'account'],
                 ['domain_admins', 'username'],
+                ['used_quota', 'username'],
+                ['last_login', 'username'],
             ];
 
             foreach ($tables as [$table, $column]) {
-                try {
-                    $pdo->prepare("UPDATE {$table} SET {$column} = :new WHERE {$column} = :old")
-                        ->execute(['new' => $newEmail, 'old' => $oldEmail]);
-                } catch (\PDOException $e) {
-                    // Table may not exist — skip
-                }
+                $pdo->prepare("UPDATE {$table} SET {$column} = :new WHERE {$column} = :old")
+                    ->execute(['new' => $newEmail, 'old' => $oldEmail]);
             }
 
             $pdo->commit();

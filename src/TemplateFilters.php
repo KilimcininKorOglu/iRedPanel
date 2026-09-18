@@ -11,7 +11,8 @@ class TemplateFilters
      */
     public static function localize(string|bool $data): string
     {
-        $data = strtolower((string) $data);
+        // (string) true is "1" and (string) false is "", which match no arm.
+        $data = is_bool($data) ? ($data ? 'true' : 'false') : strtolower($data);
         return match ($data) {
             'yes', 'active', 'true' => '✅',
             'no', 'disabled', 'false' => '❌',

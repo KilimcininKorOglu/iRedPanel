@@ -411,7 +411,9 @@
     "release_confirm": "Bu ileti alıcıya serbest bırakılsın mı?",
     "delete_confirm": "Bu karantina iletisi silinsin mi?",
     "empty": "Karantinaya alınan ileti yok.",
-    "msg_released": ":id mesajı alıcılarına gönderildi."
+    "msg_released": ":id mesajı alıcılarına gönderildi.",
+    "msg_deleted": "Karantinadaki :id mesajı silindi.",
+    "msg_cleanup_done": "Temizlik :quarantine karantina mesajını ve :log mail log kaydını sildi."
   },
   "domain": {
     "msg_name_required": "Alan adı gerekli",

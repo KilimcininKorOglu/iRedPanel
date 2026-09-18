@@ -411,7 +411,9 @@
     "release_confirm": "Felszabadítja ezt az üzenetet a címzettnek?",
     "delete_confirm": "Törli ezt a karanténüzenetet?",
     "empty": "Nincsenek karanténba helyezett üzenetek.",
-    "msg_released": "A(z) :id üzenet kiadva a címzetteknek."
+    "msg_released": "A(z) :id üzenet kiadva a címzetteknek.",
+    "msg_deleted": "A(z) :id karanténba helyezett üzenet törölve.",
+    "msg_cleanup_done": "A tisztítás :quarantine karanténüzenetet és :log mail log bejegyzést távolított el."
   },
   "domain": {
     "msg_name_required": "A domainnév megadása kötelező",

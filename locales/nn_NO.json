@@ -411,7 +411,9 @@
     "release_confirm": "Sleppe denne meldinga ut til mottakaren?",
     "delete_confirm": "Slette denne karantenemeldinga?",
     "empty": "Ingen meldingar i karantene.",
-    "msg_released": "Meldinga :id vart frigjeven til mottakarane."
+    "msg_released": "Meldinga :id vart frigjeven til mottakarane.",
+    "msg_deleted": "Karantenemeldinga :id vart sletta.",
+    "msg_cleanup_done": "Oppryddinga fjerna :quarantine karantenemeldingar og :log mail log-oppføringar."
   },
   "domain": {
     "msg_name_required": "Domenenamn er påkravd",

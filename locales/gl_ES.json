@@ -411,7 +411,9 @@
     "release_confirm": "Liberar esta mensaxe ao destinatario?",
     "delete_confirm": "Eliminar esta mensaxe en corentena?",
     "empty": "Non hai mensaxes en corentena.",
-    "msg_released": "A mensaxe :id liberouse aos seus destinatarios."
+    "msg_released": "A mensaxe :id liberouse aos seus destinatarios.",
+    "msg_deleted": "Eliminouse a mensaxe en corentena :id.",
+    "msg_cleanup_done": "A limpeza eliminou :quarantine mensaxes en corentena e :log rexistros do mail log."
   },
   "domain": {
     "msg_name_required": "O nome do dominio é obrigatorio",

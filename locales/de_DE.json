@@ -411,7 +411,9 @@
     "release_confirm": "Diese Nachricht an den Empfänger freigeben?",
     "delete_confirm": "Diese Quarantäne-Nachricht löschen?",
     "empty": "Keine Nachrichten in Quarantäne.",
-    "msg_released": "Die Nachricht :id wurde an ihre Empfänger freigegeben."
+    "msg_released": "Die Nachricht :id wurde an ihre Empfänger freigegeben.",
+    "msg_deleted": "Die Quarantäne-Nachricht :id wurde gelöscht.",
+    "msg_cleanup_done": "Die Bereinigung hat :quarantine Quarantäne-Nachrichten und :log Mail-Log-Einträge entfernt."
   },
   "domain": {
     "msg_name_required": "Domainname ist erforderlich",

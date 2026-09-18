@@ -411,7 +411,9 @@
     "release_confirm": "Bu mesajı alıcıya buraxmaq?",
     "delete_confirm": "Bu karantin mesajını silmək?",
     "empty": "Karantində mesaj yoxdur.",
-    "msg_released": ":id mesajı alıcılarına buraxıldı."
+    "msg_released": ":id mesajı alıcılarına buraxıldı.",
+    "msg_deleted": "Karantindəki :id mesajı silindi.",
+    "msg_cleanup_done": "Təmizləmə :quarantine karantin mesajını və :log mail log qeydini sildi."
   },
   "domain": {
     "msg_name_required": "Domen adı tələb olunur",

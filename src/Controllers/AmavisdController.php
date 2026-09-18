@@ -64,8 +64,10 @@ class AmavisdController
             $repo = RepositoryFactory::getAmavisdRepository();
             $repo->deleteQuarantinedMessage($mailId);
             ActivityLogger::log('delete', '', '', "Deleted quarantined message: {$mailId}");
+            BaseController::flashSuccess(Translator::translate('quarantine.msg_deleted', ['id' => $mailId]));
         } catch (\Exception $e) {
             error_log("Amavisd delete failed: " . $e->getMessage());
+            BaseController::flashItemError($mailId, $e);
         }
 
         header("Location: /amavisd/quarantine");
@@ -104,6 +106,10 @@ class AmavisdController
         $logDeleted = $repo->cleanupMailLog($settings->amavisdRemoveMaillogInDays);
 
         ActivityLogger::log('delete', '', '', "Amavisd cleanup: {$quarantineDeleted} quarantine + {$logDeleted} log records");
+        BaseController::flashSuccess(Translator::translate('quarantine.msg_cleanup_done', [
+            'quarantine' => $quarantineDeleted,
+            'log' => $logDeleted,
+        ]));
 
         header("Location: /amavisd/quarantine");
         exit;

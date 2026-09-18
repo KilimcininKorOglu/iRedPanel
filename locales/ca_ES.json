@@ -411,7 +411,9 @@
     "release_confirm": "Alliberar aquest missatge al destinatari?",
     "delete_confirm": "Eliminar aquest missatge en quarantena?",
     "empty": "No hi ha missatges en quarantena.",
-    "msg_released": "El missatge :id s'ha alliberat als seus destinataris."
+    "msg_released": "El missatge :id s'ha alliberat als seus destinataris.",
+    "msg_deleted": "S'ha suprimit el missatge en quarantena :id.",
+    "msg_cleanup_done": "La neteja ha eliminat :quarantine missatges en quarantena i :log registres del mail log."
   },
   "domain": {
     "msg_name_required": "El nom del domini és obligatori",

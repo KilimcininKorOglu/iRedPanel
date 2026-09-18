@@ -411,7 +411,9 @@
     "release_confirm": "Eliberați acest mesaj către destinatar?",
     "delete_confirm": "Ștergeți acest mesaj din carantină?",
     "empty": "Niciun mesaj în carantină.",
-    "msg_released": "Mesajul :id a fost eliberat către destinatari."
+    "msg_released": "Mesajul :id a fost eliberat către destinatari.",
+    "msg_deleted": "Mesajul din carantină :id a fost șters.",
+    "msg_cleanup_done": "Curățarea a eliminat :quarantine mesaje din carantină și :log înregistrări din mail log."
   },
   "domain": {
     "msg_name_required": "Numele domeniului este obligatoriu",

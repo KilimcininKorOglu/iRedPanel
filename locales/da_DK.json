@@ -411,7 +411,9 @@
     "release_confirm": "Frigiv denne besked til modtageren?",
     "delete_confirm": "Slet denne karantæneramte besked?",
     "empty": "Ingen karantæneramte beskeder.",
-    "msg_released": "Meddelelsen :id blev frigivet til modtagerne."
+    "msg_released": "Meddelelsen :id blev frigivet til modtagerne.",
+    "msg_deleted": "Karantænemeddelelsen :id blev slettet.",
+    "msg_cleanup_done": "Oprydningen fjernede :quarantine karantænemeddelelser og :log mail log-poster."
   },
   "domain": {
     "msg_name_required": "Domænenavn er påkrævet",

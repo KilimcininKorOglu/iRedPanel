@@ -411,7 +411,9 @@
     "release_confirm": "このメッセージを受信者にリリースしますか？",
     "delete_confirm": "この隔離メッセージを削除しますか？",
     "empty": "隔離されたメッセージはありません。",
-    "msg_released": "メッセージ :id を受信者に解放しました。"
+    "msg_released": "メッセージ :id を受信者に解放しました。",
+    "msg_deleted": "隔離メッセージ :id を削除しました。",
+    "msg_cleanup_done": "クリーンアップで隔離メッセージ :quarantine 件と mail log レコード :log 件を削除しました。"
   },
   "domain": {
     "msg_name_required": "ドメイン名は必須です",

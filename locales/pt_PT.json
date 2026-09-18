@@ -411,7 +411,9 @@
     "release_confirm": "Libertar esta mensagem para o destinatário?",
     "delete_confirm": "Eliminar esta mensagem em quarentena?",
     "empty": "Nenhuma mensagem em quarentena.",
-    "msg_released": "A mensagem :id foi libertada para os destinatários."
+    "msg_released": "A mensagem :id foi libertada para os destinatários.",
+    "msg_deleted": "A mensagem em quarentena :id foi eliminada.",
+    "msg_cleanup_done": "A limpeza removeu :quarantine mensagens em quarentena e :log registos do mail log."
   },
   "domain": {
     "msg_name_required": "O nome de domínio é obrigatório",

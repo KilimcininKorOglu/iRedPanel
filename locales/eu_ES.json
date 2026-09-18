@@ -411,7 +411,9 @@
     "release_confirm": "Mezu hau hartzaileari askatu?",
     "delete_confirm": "Berrogeialdiko mezu hau ezabatu?",
     "empty": "Ez dago mezurik berrogeialdian.",
-    "msg_released": ":id mezua hartzaileei askatu zaie."
+    "msg_released": ":id mezua hartzaileei askatu zaie.",
+    "msg_deleted": "Berrogeialdiko :id mezua ezabatu da.",
+    "msg_cleanup_done": "Garbiketak berrogeialdiko :quarantine mezu eta mail log-eko :log erregistro kendu ditu."
   },
   "domain": {
     "msg_name_required": "Domeinuaren izena beharrezkoa da",

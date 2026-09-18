@@ -411,7 +411,9 @@
     "release_confirm": "要將此訊息釋放給收件者嗎？",
     "delete_confirm": "要從隔離區刪除此訊息嗎？",
     "empty": "隔離區中沒有訊息。",
-    "msg_released": "郵件 :id 已放行給收件人。"
+    "msg_released": "郵件 :id 已放行給收件人。",
+    "msg_deleted": "已刪除隔離郵件 :id。",
+    "msg_cleanup_done": "清理刪除了 :quarantine 封隔離郵件和 :log 筆 mail log 記錄。"
   },
   "domain": {
     "msg_name_required": "網域名稱為必填",

@@ -111,6 +111,9 @@ class MysqlAmavisdRepository implements AmavisdRepositoryInterface
 
         $stmt = $pdo->prepare("DELETE FROM quarantine WHERE mail_id = :mailId");
         $stmt->execute(['mailId' => $mailId]);
+        if ($stmt->rowCount() === 0) {
+            throw new \RuntimeException("Quarantined message not found: {$mailId}");
+        }
     }
 
     public function getMailLog(int $page, int $perPage, ?string $email = null): PaginatedResult

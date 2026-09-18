@@ -411,7 +411,9 @@
     "release_confirm": "Uvoľniť túto správu príjemcovi?",
     "delete_confirm": "Odstrániť túto správu z karantény?",
     "empty": "Žiadne správy v karanténe.",
-    "msg_released": "Správa :id bola uvoľnená príjemcom."
+    "msg_released": "Správa :id bola uvoľnená príjemcom.",
+    "msg_deleted": "Správa v karanténe :id bola odstránená.",
+    "msg_cleanup_done": "Čistenie odstránilo :quarantine správ v karanténe a :log záznamov mail logu."
   },
   "domain": {
     "msg_name_required": "Názov domény je povinný",

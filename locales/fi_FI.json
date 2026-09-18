@@ -411,7 +411,9 @@
     "release_confirm": "Vapautetaanko tämä viesti vastaanottajalle?",
     "delete_confirm": "Poistetaanko tämä karanteeniviesti?",
     "empty": "Ei karanteeniviestejä.",
-    "msg_released": "Viesti :id vapautettiin vastaanottajille."
+    "msg_released": "Viesti :id vapautettiin vastaanottajille.",
+    "msg_deleted": "Karanteeniviesti :id poistettiin.",
+    "msg_cleanup_done": "Siivous poisti :quarantine karanteeniviestiä ja :log mail log -merkintää."
   },
   "domain": {
     "msg_name_required": "Verkkotunnuksen nimi vaaditaan",

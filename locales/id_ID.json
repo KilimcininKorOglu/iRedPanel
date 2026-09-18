@@ -411,7 +411,9 @@
     "release_confirm": "Lepaskan pesan ini ke penerima?",
     "delete_confirm": "Hapus pesan ini dari karantina?",
     "empty": "Tidak ada pesan dalam karantina.",
-    "msg_released": "Pesan :id telah dilepaskan ke penerimanya."
+    "msg_released": "Pesan :id telah dilepaskan ke penerimanya.",
+    "msg_deleted": "Pesan karantina :id telah dihapus.",
+    "msg_cleanup_done": "Pembersihan menghapus :quarantine pesan karantina dan :log catatan mail log."
   },
   "domain": {
     "msg_name_required": "Nama domain wajib diisi",

@@ -411,7 +411,9 @@
     "release_confirm": "Zwolnić tę wiadomość do odbiorcy?",
     "delete_confirm": "Usunąć tę wiadomość z kwarantanny?",
     "empty": "Brak wiadomości w kwarantannie.",
-    "msg_released": "Wiadomość :id została zwolniona do odbiorców."
+    "msg_released": "Wiadomość :id została zwolniona do odbiorców.",
+    "msg_deleted": "Wiadomość z kwarantanny :id została usunięta.",
+    "msg_cleanup_done": "Czyszczenie usunęło :quarantine wiadomości z kwarantanny i :log wpisów mail logu."
   },
   "domain": {
     "msg_name_required": "Nazwa domeny jest wymagana",

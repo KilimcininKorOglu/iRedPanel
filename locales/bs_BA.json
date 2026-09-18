@@ -411,7 +411,9 @@
     "release_confirm": "Osloboditi ovu poruku primaocu?",
     "delete_confirm": "Obrisati ovu poruku iz karantina?",
     "empty": "Nema poruka u karantinu.",
-    "msg_released": "Poruka :id je puštena primaocima."
+    "msg_released": "Poruka :id je puštena primaocima.",
+    "msg_deleted": "Poruka u karanteni :id je obrisana.",
+    "msg_cleanup_done": "Čišćenje je uklonilo :quarantine poruka iz karantene i :log zapisa mail loga."
   },
   "domain": {
     "msg_name_required": "Naziv domene je obavezan",

@@ -411,7 +411,9 @@
     "release_confirm": "Giải phóng tin nhắn này cho người nhận?",
     "delete_confirm": "Xóa tin nhắn này khỏi cách ly?",
     "empty": "Không có tin nhắn trong cách ly.",
-    "msg_released": "Đã giải phóng thư :id tới người nhận."
+    "msg_released": "Đã giải phóng thư :id tới người nhận.",
+    "msg_deleted": "Đã xóa thư bị cách ly :id.",
+    "msg_cleanup_done": "Dọn dẹp đã xóa :quarantine thư bị cách ly và :log bản ghi mail log."
   },
   "domain": {
     "msg_name_required": "Tên miền là bắt buộc",

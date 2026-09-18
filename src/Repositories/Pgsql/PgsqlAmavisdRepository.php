@@ -112,8 +112,11 @@ class PgsqlAmavisdRepository implements AmavisdRepositoryInterface
 
         $pdo = $conn->getPdo();
 
-        $stmt = $pdo->prepare("DELETE FROM quarantine WHERE mail_id = :mailId");
+        $stmt = $pdo->prepare("DELETE FROM quarantine WHERE mail_id = convert_to(:mailId, 'UTF8')");
         $stmt->execute(['mailId' => $mailId]);
+        if ($stmt->rowCount() === 0) {
+            throw new \RuntimeException("Quarantined message not found: {$mailId}");
+        }
     }
 
     public function getMailLog(int $page, int $perPage, ?string $email = null): PaginatedResult

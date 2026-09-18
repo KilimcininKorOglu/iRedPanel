@@ -566,7 +566,10 @@
     "verify_dns": "Overiť DNS",
     "force_verify": "Vynútiť overenie",
     "txt_hint": "Pridajte záznam TXT do DNS domény s vyššie zobrazeným overovacím kódom.",
-    "none": "Žiadne čakajúce overenia domén."
+    "none": "Žiadne čakajúce overenia domén.",
+    "msg_verified": "Doména :domain bola overená.",
+    "msg_txt_missing": "Pre :domain sa nenašiel DNS TXT záznam s overovacím kódom.",
+    "msg_force_verified": "Doména :domain bola označená ako overená bez kontroly DNS."
   },
   "maillog": {
     "title": "Poštový záznam",

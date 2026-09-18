@@ -566,7 +566,10 @@
     "verify_dns": "Xác minh DNS",
     "force_verify": "Buộc xác minh",
     "txt_hint": "Thêm một bản ghi TXT vào DNS của tên miền với mã xác minh hiển thị ở trên.",
-    "none": "Không có xác minh tên miền nào đang chờ."
+    "none": "Không có xác minh tên miền nào đang chờ.",
+    "msg_verified": "Đã xác minh tên miền :domain.",
+    "msg_txt_missing": "Không tìm thấy bản ghi DNS TXT chứa mã xác minh cho :domain.",
+    "msg_force_verified": "Tên miền :domain đã được đánh dấu là đã xác minh mà không kiểm tra DNS."
   },
   "maillog": {
     "title": "Nhật ký email",

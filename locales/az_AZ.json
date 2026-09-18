@@ -566,7 +566,10 @@
     "verify_dns": "DNS təsdiqlə",
     "force_verify": "Təsdiqi məcbur et",
     "txt_hint": "Domeninizin DNS-inə yuxarıda göstərilən təsdiq kodu ilə TXT qeydi əlavə edin.",
-    "none": "Gözləyən domen təsdiqi yoxdur."
+    "none": "Gözləyən domen təsdiqi yoxdur.",
+    "msg_verified": ":domain domeni təsdiqləndi.",
+    "msg_txt_missing": ":domain üçün təsdiq kodu olan DNS TXT qeydi tapılmadı.",
+    "msg_force_verified": ":domain domeni DNS yoxlaması olmadan təsdiqlənmiş kimi qeyd edildi."
   },
   "maillog": {
     "title": "Poçt jurnalı",

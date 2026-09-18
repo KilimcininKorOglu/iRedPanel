@@ -566,7 +566,10 @@
     "verify_dns": "DNS'i Doğrula",
     "force_verify": "Zorla Doğrula",
     "txt_hint": "Yukarıda gösterilen doğrulama koduyla alan adınızın DNS'ine bir TXT kaydı ekleyin.",
-    "none": "Bekleyen alan adı doğrulaması yok."
+    "none": "Bekleyen alan adı doğrulaması yok.",
+    "msg_verified": ":domain domain'i doğrulandı.",
+    "msg_txt_missing": ":domain için doğrulama kodunu içeren bir DNS TXT kaydı bulunamadı.",
+    "msg_force_verified": ":domain domain'i DNS kontrolü yapılmadan doğrulanmış olarak işaretlendi."
   },
   "maillog": {
     "title": "Posta Günlüğü",

@@ -566,7 +566,10 @@
     "verify_dns": "DNS überprüfen",
     "force_verify": "Bestätigung erzwingen",
     "txt_hint": "Fügen Sie im DNS Ihrer Domain einen TXT-Eintrag mit dem oben angezeigten Bestätigungscode hinzu.",
-    "none": "Keine ausstehenden Domain-Überprüfungen."
+    "none": "Keine ausstehenden Domain-Überprüfungen.",
+    "msg_verified": "Domain :domain bestätigt.",
+    "msg_txt_missing": "Für :domain wurde kein DNS-TXT-Eintrag mit dem Bestätigungscode gefunden.",
+    "msg_force_verified": "Domain :domain ohne DNS-Prüfung als bestätigt markiert."
   },
   "maillog": {
     "title": "Mail-Protokoll",

@@ -566,7 +566,10 @@
     "verify_dns": "Verificer DNS",
     "force_verify": "Tving verifikation",
     "txt_hint": "Tilføj en TXT-post til dit domænes DNS med verifikationskoden vist ovenfor.",
-    "none": "Ingen afventende domæneverifikationer."
+    "none": "Ingen afventende domæneverifikationer.",
+    "msg_verified": "Domænet :domain er bekræftet.",
+    "msg_txt_missing": "Der blev ikke fundet en DNS TXT-post med bekræftelseskoden for :domain.",
+    "msg_force_verified": "Domænet :domain er markeret som bekræftet uden DNS-kontrol."
   },
   "maillog": {
     "title": "Maillog",

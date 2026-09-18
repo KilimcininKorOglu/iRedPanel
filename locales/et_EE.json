@@ -566,7 +566,10 @@
     "verify_dns": "Kontrolli DNS-i",
     "force_verify": "Sunni kontroll",
     "txt_hint": "Lisage domeeni DNS-i TXT-kirje ülal kuvatud kontrollkoodiga.",
-    "none": "Kontrolli ootavaid domeene pole."
+    "none": "Kontrolli ootavaid domeene pole.",
+    "msg_verified": "Domeen :domain on kinnitatud.",
+    "msg_txt_missing": "Domeenile :domain ei leitud kinnituskoodiga DNS TXT kirjet.",
+    "msg_force_verified": "Domeen :domain märgiti kinnitatuks ilma DNS kontrollita."
   },
   "maillog": {
     "title": "E-posti logi",

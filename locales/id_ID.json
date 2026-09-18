@@ -566,7 +566,10 @@
     "verify_dns": "Verifikasi DNS",
     "force_verify": "Paksa verifikasi",
     "txt_hint": "Tambahkan rekaman TXT ke DNS domain Anda dengan kode verifikasi yang ditampilkan di atas.",
-    "none": "Tidak ada verifikasi domain yang menunggu."
+    "none": "Tidak ada verifikasi domain yang menunggu.",
+    "msg_verified": "Domain :domain terverifikasi.",
+    "msg_txt_missing": "Record DNS TXT dengan kode verifikasi tidak ditemukan untuk :domain.",
+    "msg_force_verified": "Domain :domain ditandai terverifikasi tanpa pemeriksaan DNS."
   },
   "maillog": {
     "title": "Log Email",

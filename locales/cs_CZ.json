@@ -566,7 +566,10 @@
     "verify_dns": "Ověřit DNS",
     "force_verify": "Vynutit ověření",
     "txt_hint": "Přidejte záznam TXT do DNS své domény s ověřovacím kódem uvedeným výše.",
-    "none": "Žádná čekající ověření domén."
+    "none": "Žádná čekající ověření domén.",
+    "msg_verified": "Doména :domain byla ověřena.",
+    "msg_txt_missing": "Pro :domain nebyl nalezen DNS TXT záznam s ověřovacím kódem.",
+    "msg_force_verified": "Doména :domain byla označena jako ověřená bez kontroly DNS."
   },
   "maillog": {
     "title": "Poštovní protokol",

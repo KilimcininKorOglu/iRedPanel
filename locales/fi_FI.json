@@ -566,7 +566,10 @@
     "verify_dns": "Vahvista DNS",
     "force_verify": "Pakota vahvistus",
     "txt_hint": "Lisää TXT-tietue verkkotunnuksesi DNS:ään yllä näkyvällä vahvistuskoodilla.",
-    "none": "Ei odottavia verkkotunnusvahvistuksia."
+    "none": "Ei odottavia verkkotunnusvahvistuksia.",
+    "msg_verified": "Domain :domain vahvistettu.",
+    "msg_txt_missing": "Domainille :domain ei löytynyt vahvistuskoodin sisältävää DNS TXT -tietuetta.",
+    "msg_force_verified": "Domain :domain merkitty vahvistetuksi ilman DNS-tarkistusta."
   },
   "maillog": {
     "title": "Sähköpostiloki",

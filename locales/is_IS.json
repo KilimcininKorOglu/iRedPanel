@@ -566,7 +566,10 @@
     "verify_dns": "Staðfesta DNS",
     "force_verify": "Þvinga staðfestingu",
     "txt_hint": "Bættu TXT-færslu við DNS lénsins þíns með staðfestingarkóðanum sem sýndur er að ofan.",
-    "none": "Engar staðfestingar léna í bið."
+    "none": "Engar staðfestingar léna í bið.",
+    "msg_verified": "Lénið :domain er staðfest.",
+    "msg_txt_missing": "Engin DNS TXT-færsla með staðfestingarkóðanum fannst fyrir :domain.",
+    "msg_force_verified": "Lénið :domain var merkt staðfest án DNS-athugunar."
   },
   "maillog": {
     "title": "Póstannáll",

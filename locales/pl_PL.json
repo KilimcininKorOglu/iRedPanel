@@ -566,7 +566,10 @@
     "verify_dns": "Zweryfikuj DNS",
     "force_verify": "Wymuś weryfikację",
     "txt_hint": "Dodaj rekord TXT do DNS swojej domeny z kodem weryfikacyjnym pokazanym powyżej.",
-    "none": "Brak oczekujących weryfikacji domen."
+    "none": "Brak oczekujących weryfikacji domen.",
+    "msg_verified": "Domena :domain została zweryfikowana.",
+    "msg_txt_missing": "Nie znaleziono rekordu DNS TXT z kodem weryfikacyjnym dla :domain.",
+    "msg_force_verified": "Domena :domain została oznaczona jako zweryfikowana bez sprawdzenia DNS."
   },
   "maillog": {
     "title": "Dziennik poczty",

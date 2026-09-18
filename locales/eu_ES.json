@@ -566,7 +566,10 @@
     "verify_dns": "Egiaztatu DNS",
     "force_verify": "Behartu egiaztapena",
     "txt_hint": "Gehitu TXT erregistro bat zure domeinuaren DNSari goian erakutsitako egiaztapen kodearekin.",
-    "none": "Ez dago domeinu-egiaztapen zainik."
+    "none": "Ez dago domeinu-egiaztapen zainik.",
+    "msg_verified": ":domain domeinua egiaztatu da.",
+    "msg_txt_missing": "Ez da aurkitu egiaztapen kodea duen DNS TXT erregistrorik :domain domeinurako.",
+    "msg_force_verified": ":domain domeinua egiaztatutzat markatu da DNS egiaztapenik gabe."
   },
   "maillog": {
     "title": "Posta-erregistroa",

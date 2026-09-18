@@ -217,13 +217,13 @@ $router->addRoute(['GET', 'POST'], '/verify/domain-ownership', function () use (
             $code = $repo->getVerifyCode($domain);
             if ($code !== null && $repo->verifyDnsTxt($domain, $code)) {
                 $repo->markVerified($domain);
-                $success = "Domain '{$domain}' verified successfully!";
+                $success = \App\I18n\Translator::translate('domainownership.msg_verified', ['domain' => $domain]);
             } else {
-                $error = "DNS TXT record not found for domain '{$domain}'.";
+                $error = \App\I18n\Translator::translate('domainownership.msg_txt_missing', ['domain' => $domain]);
             }
         } elseif ($action === 'force_verify' && $domain !== '' && !empty($_SESSION['isGlobalAdmin'])) {
             $repo->markVerified($domain);
-            $success = "Domain '{$domain}' force-verified!";
+            $success = \App\I18n\Translator::translate('domainownership.msg_force_verified', ['domain' => $domain]);
         }
     }
 

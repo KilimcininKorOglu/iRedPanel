@@ -566,7 +566,10 @@
     "verify_dns": "DNS ellenőrzése",
     "force_verify": "Ellenőrzés kényszerítése",
     "txt_hint": "Adjon hozzá egy TXT-rekordot a domain DNS-éhez a fent látható ellenőrző kóddal.",
-    "none": "Nincsenek függőben lévő domain-ellenőrzések."
+    "none": "Nincsenek függőben lévő domain-ellenőrzések.",
+    "msg_verified": "A(z) :domain domain igazolva.",
+    "msg_txt_missing": "A(z) :domain domainhez nem található DNS TXT rekord az igazolókóddal.",
+    "msg_force_verified": "A(z) :domain domain DNS-ellenőrzés nélkül igazoltként megjelölve."
   },
   "maillog": {
     "title": "Levelezési napló",

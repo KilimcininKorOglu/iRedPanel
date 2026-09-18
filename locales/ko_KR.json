@@ -566,7 +566,10 @@
     "verify_dns": "DNS 확인",
     "force_verify": "강제 확인",
     "txt_hint": "위에 표시된 확인 코드로 도메인의 DNS에 TXT 레코드를 추가하세요.",
-    "none": "대기 중인 도메인 확인이 없습니다."
+    "none": "대기 중인 도메인 확인이 없습니다.",
+    "msg_verified": "도메인 :domain을(를) 확인했습니다.",
+    "msg_txt_missing": ":domain에서 확인 코드가 포함된 DNS TXT 레코드를 찾을 수 없습니다.",
+    "msg_force_verified": "도메인 :domain을(를) DNS 확인 없이 확인됨으로 표시했습니다."
   },
   "maillog": {
     "title": "메일 로그",

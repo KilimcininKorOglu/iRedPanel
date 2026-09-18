@@ -566,7 +566,10 @@
     "verify_dns": "Verificar DNS",
     "force_verify": "Forçar verificação",
     "txt_hint": "Adicione um registro TXT ao DNS do domínio com o código de verificação mostrado acima.",
-    "none": "Nenhuma verificação de domínio pendente."
+    "none": "Nenhuma verificação de domínio pendente.",
+    "msg_verified": "Domínio :domain verificado.",
+    "msg_txt_missing": "Nenhum registro DNS TXT com o código de verificação foi encontrado para :domain.",
+    "msg_force_verified": "Domínio :domain marcado como verificado sem verificação DNS."
   },
   "maillog": {
     "title": "Registro de e-mail",

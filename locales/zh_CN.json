@@ -566,7 +566,10 @@
     "verify_dns": "验证 DNS",
     "force_verify": "强制验证",
     "txt_hint": "在您域名的 DNS 中添加一条包含上面所示验证码的 TXT 记录。",
-    "none": "没有待验证的域名。"
+    "none": "没有待验证的域名。",
+    "msg_verified": "域名 :domain 已验证。",
+    "msg_txt_missing": "未找到 :domain 包含验证码的 DNS TXT 记录。",
+    "msg_force_verified": "已在未检查 DNS 的情况下将域名 :domain 标记为已验证。"
   },
   "maillog": {
     "title": "邮件日志",

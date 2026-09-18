@@ -566,7 +566,10 @@
     "verify_dns": "DNS を検証",
     "force_verify": "強制検証",
     "txt_hint": "上記の検証コードを含む TXT レコードをドメインの DNS に追加してください。",
-    "none": "検証待ちのドメインはありません。"
+    "none": "検証待ちのドメインはありません。",
+    "msg_verified": "ドメイン :domain を確認しました。",
+    "msg_txt_missing": ":domain に確認コードを含む DNS TXT レコードが見つかりません。",
+    "msg_force_verified": "ドメイン :domain を DNS 確認なしで確認済みにしました。"
   },
   "maillog": {
     "title": "メールログ",

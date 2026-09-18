@@ -566,7 +566,10 @@
     "verify_dns": "Provjeri DNS",
     "force_verify": "Prisili provjeru",
     "txt_hint": "Dodajte TXT zapis u DNS domene s kodom za provjeru prikazanim iznad.",
-    "none": "Nema domena koje čekaju provjeru."
+    "none": "Nema domena koje čekaju provjeru.",
+    "msg_verified": "Domena :domain je provjerena.",
+    "msg_txt_missing": "Za :domain nije pronađen DNS TXT zapis s kodom za provjeru.",
+    "msg_force_verified": "Domena :domain označena je kao provjerena bez DNS provjere."
   },
   "maillog": {
     "title": "Zapis e-pošte",

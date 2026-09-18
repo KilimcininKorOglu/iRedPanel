@@ -566,7 +566,10 @@
     "verify_dns": "Verificar DNS",
     "force_verify": "Forçar verificació",
     "txt_hint": "Afegiu un registre TXT al DNS del vostre domini amb el codi de verificació mostrat més amunt.",
-    "none": "No hi ha verificacions de domini pendents."
+    "none": "No hi ha verificacions de domini pendents.",
+    "msg_verified": "Domini :domain verificat.",
+    "msg_txt_missing": "No s'ha trobat cap registre DNS TXT amb el codi de verificació per a :domain.",
+    "msg_force_verified": "Domini :domain marcat com a verificat sense comprovació DNS."
   },
   "maillog": {
     "title": "Registre de correu",

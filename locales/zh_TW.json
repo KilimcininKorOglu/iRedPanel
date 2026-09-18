@@ -566,7 +566,10 @@
     "verify_dns": "驗證 DNS",
     "force_verify": "強制驗證",
     "txt_hint": "在您網域的 DNS 中新增一筆 TXT 記錄，內容為上方顯示的驗證碼。",
-    "none": "沒有待處理的網域驗證。"
+    "none": "沒有待處理的網域驗證。",
+    "msg_verified": "網域 :domain 已驗證。",
+    "msg_txt_missing": "找不到 :domain 含驗證碼的 DNS TXT 記錄。",
+    "msg_force_verified": "已在未檢查 DNS 的情況下將網域 :domain 標記為已驗證。"
   },
   "maillog": {
     "title": "郵件日誌",

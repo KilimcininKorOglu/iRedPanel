@@ -566,7 +566,10 @@
     "verify_dns": "Verifică DNS",
     "force_verify": "Forțează verificarea",
     "txt_hint": "Adăugați o înregistrare TXT în DNS-ul domeniului dvs. cu codul de verificare afișat mai sus.",
-    "none": "Nicio verificare de domeniu în așteptare."
+    "none": "Nicio verificare de domeniu în așteptare.",
+    "msg_verified": "Domeniul :domain a fost verificat.",
+    "msg_txt_missing": "Nu s-a găsit nicio înregistrare DNS TXT cu codul de verificare pentru :domain.",
+    "msg_force_verified": "Domeniul :domain a fost marcat ca verificat fără verificare DNS."
   },
   "maillog": {
     "title": "Jurnal email",

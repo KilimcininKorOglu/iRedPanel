@@ -566,7 +566,10 @@
     "verify_dns": "DNS verifiëren",
     "force_verify": "Verificatie forceren",
     "txt_hint": "Voeg een TXT-record toe aan de DNS van uw domein met de hierboven getoonde verificatiecode.",
-    "none": "Geen domeinverificatie in afwachting."
+    "none": "Geen domeinverificatie in afwachting.",
+    "msg_verified": "Domein :domain geverifieerd.",
+    "msg_txt_missing": "Voor :domain is geen DNS TXT-record met de verificatiecode gevonden.",
+    "msg_force_verified": "Domein :domain zonder DNS-controle als geverifieerd gemarkeerd."
   },
   "maillog": {
     "title": "Maillogboek",

@@ -566,7 +566,10 @@
     "verify_dns": "Verifiera DNS",
     "force_verify": "Tvinga verifiering",
     "txt_hint": "Lägg till en TXT-post i din domäns DNS med verifieringskoden som visas ovan.",
-    "none": "Inga väntande domänverifieringar."
+    "none": "Inga väntande domänverifieringar.",
+    "msg_verified": "Domänen :domain är verifierad.",
+    "msg_txt_missing": "Ingen DNS TXT-post med verifieringskoden hittades för :domain.",
+    "msg_force_verified": "Domänen :domain markerades som verifierad utan DNS-kontroll."
   },
   "maillog": {
     "title": "Postlogg",

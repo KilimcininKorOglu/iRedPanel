@@ -566,7 +566,10 @@
     "verify_dns": "Stadfest DNS",
     "force_verify": "Tving stadfesting",
     "txt_hint": "Legg til ein TXT-post i DNS-en til domenet ditt med stadfestingskoden vist ovanfor.",
-    "none": "Ingen domenestadfestingar ventar."
+    "none": "Ingen domenestadfestingar ventar.",
+    "msg_verified": "Domenet :domain er stadfesta.",
+    "msg_txt_missing": "Fann ingen DNS TXT-post med stadfestingskoden for :domain.",
+    "msg_force_verified": "Domenet :domain er merkt som stadfesta utan DNS-kontroll."
   },
   "maillog": {
     "title": "E-postlogg",

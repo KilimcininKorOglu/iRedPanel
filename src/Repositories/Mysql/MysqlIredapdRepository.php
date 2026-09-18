@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Repositories\Mysql;
 
 use App\Repositories\IredapdRepositoryInterface;
+use App\Utils\IredapdAccount;
 
 class MysqlIredapdRepository implements IredapdRepositoryInterface
 {
@@ -46,19 +47,21 @@ class MysqlIredapdRepository implements IredapdRepositoryInterface
 
         if ($existing) {
             $stmt = $pdo->prepare(
-                "UPDATE throttle SET period = :period, max_msgs = :maxMsgs, max_quota = :maxQuota, msg_size = :msgSize
+                "UPDATE throttle SET priority = :priority, period = :period, max_msgs = :maxMsgs,
+                 max_quota = :maxQuota, msg_size = :msgSize
                  WHERE account = :account AND kind = :kind"
             );
         } else {
             $stmt = $pdo->prepare(
                 "INSERT INTO throttle (account, kind, priority, period, max_msgs, max_quota, msg_size)
-                 VALUES (:account, :kind, 10, :period, :maxMsgs, :maxQuota, :msgSize)"
+                 VALUES (:account, :kind, :priority, :period, :maxMsgs, :maxQuota, :msgSize)"
             );
         }
 
         $stmt->execute([
             'account' => $account,
             'kind' => $kind,
+            'priority' => IredapdAccount::priority($account),
             'period' => $period,
             'maxMsgs' => $maxMsgs,
             'maxQuota' => $maxQuota,
@@ -93,6 +96,9 @@ class MysqlIredapdRepository implements IredapdRepositoryInterface
         }
 
         $pdo = $conn->getPdo();
+        // iRedAPD takes the matching row with the highest priority, so the
+        // account row must outrank the global '@.' row (priority 0).
+        $priority = IredapdAccount::priority($account);
 
         $stmt = $pdo->prepare(
             "SELECT id FROM greylisting WHERE account = :account AND sender = '@.' LIMIT 1"
@@ -102,15 +108,15 @@ class MysqlIredapdRepository implements IredapdRepositoryInterface
 
         if ($existing) {
             $stmt = $pdo->prepare(
-                "UPDATE greylisting SET active = :active WHERE account = :account AND sender = '@.'"
+                "UPDATE greylisting SET active = :active, priority = :priority WHERE account = :account AND sender = '@.'"
             );
-            $stmt->execute(['active' => $enabled ? 1 : 0, 'account' => $account]);
+            $stmt->execute(['active' => $enabled ? 1 : 0, 'priority' => $priority, 'account' => $account]);
         } else {
             $stmt = $pdo->prepare(
-                "INSERT INTO greylisting (account, sender, active, comment)
-                 VALUES (:account, '@.', :active, '')"
+                "INSERT INTO greylisting (account, priority, sender, sender_priority, active, comment)
+                 VALUES (:account, :priority, '@.', 0, :active, '')"
             );
-            $stmt->execute(['account' => $account, 'active' => $enabled ? 1 : 0]);
+            $stmt->execute(['account' => $account, 'priority' => $priority, 'active' => $enabled ? 1 : 0]);
         }
     }
 

@@ -11,6 +11,31 @@
   min-width: 300px;
 }
 
+/* A global admin sees up to 19 links, so the nav must wrap instead of
+   widening the page. */
+.nav {
+  flex-wrap: wrap;
+}
+
+.nav-left {
+  flex: 1 1 auto;
+  flex-wrap: wrap;
+}
+
+.nav-right {
+  flex: 0 0 auto;
+  align-items: center;
+}
+
+.nav-left a {
+  padding: 0.75rem 1rem;
+  white-space: nowrap;
+}
+
+.nav-right select {
+  width: auto;
+}
+
 .breadcrumbs {
   margin-bottom: 1rem;
 }

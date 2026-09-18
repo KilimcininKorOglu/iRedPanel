@@ -4,30 +4,23 @@ declare(strict_types=1);
 
 namespace App\Repositories\Pgsql;
 
+use App\Exceptions\BackendConnectionException;
 use App\Repositories\DomainOwnershipRepositoryInterface;
 
 class PgsqlDomainOwnershipRepository implements DomainOwnershipRepositoryInterface
 {
     public function getPendingDomains(): array
     {
-        $pdo = IredadminPgsqlConnection::getInstance()->getPdo();
-
-        try {
-            $stmt = $pdo->query(
-                "SELECT admin, domain, verify_code, verified, expire
-                 FROM domain_ownership ORDER BY domain"
-            );
-            return $stmt->fetchAll(\PDO::FETCH_ASSOC);
-        } catch (\PDOException $e) {
-            return [];
-        }
+        $stmt = $this->pdo()->query(
+            "SELECT admin, domain, verify_code, verified, expire
+             FROM domain_ownership ORDER BY domain"
+        );
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 
     public function addPendingDomain(string $admin, string $domain, string $verifyCode, int $expireTimestamp): bool
     {
-        $pdo = IredadminPgsqlConnection::getInstance()->getPdo();
-
-        $stmt = $pdo->prepare(
+        $stmt = $this->pdo()->prepare(
             "INSERT INTO domain_ownership (admin, domain, verify_code, verified, expire)
              VALUES (:admin, :domain, :code, 0, :expire)"
         );
@@ -41,45 +34,29 @@ class PgsqlDomainOwnershipRepository implements DomainOwnershipRepositoryInterfa
 
     public function getVerifyCode(string $domain): ?string
     {
-        $pdo = IredadminPgsqlConnection::getInstance()->getPdo();
-
-        try {
-            $stmt = $pdo->prepare("SELECT verify_code FROM domain_ownership WHERE domain = :domain LIMIT 1");
-            $stmt->execute(['domain' => $domain]);
-            $row = $stmt->fetch();
-            return $row !== false ? $row['verify_code'] : null;
-        } catch (\PDOException $e) {
-            return null;
-        }
+        $stmt = $this->pdo()->prepare("SELECT verify_code FROM domain_ownership WHERE domain = :domain LIMIT 1");
+        $stmt->execute(['domain' => $domain]);
+        $row = $stmt->fetch();
+        return $row !== false ? $row['verify_code'] : null;
     }
 
     public function markVerified(string $domain): bool
     {
-        $pdo = IredadminPgsqlConnection::getInstance()->getPdo();
-
-        $stmt = $pdo->prepare("UPDATE domain_ownership SET verified = 1 WHERE domain = :domain");
+        $stmt = $this->pdo()->prepare("UPDATE domain_ownership SET verified = 1 WHERE domain = :domain");
         return $stmt->execute(['domain' => $domain]);
     }
 
     public function isVerified(string $domain): bool
     {
-        $pdo = IredadminPgsqlConnection::getInstance()->getPdo();
-
-        try {
-            $stmt = $pdo->prepare("SELECT verified FROM domain_ownership WHERE domain = :domain LIMIT 1");
-            $stmt->execute(['domain' => $domain]);
-            $row = $stmt->fetch();
-            return $row !== false && (bool) $row['verified'];
-        } catch (\PDOException $e) {
-            return true;
-        }
+        $stmt = $this->pdo()->prepare("SELECT verified FROM domain_ownership WHERE domain = :domain LIMIT 1");
+        $stmt->execute(['domain' => $domain]);
+        $row = $stmt->fetch();
+        return $row !== false && (bool) $row['verified'];
     }
 
     public function deletePendingDomain(string $domain): bool
     {
-        $pdo = IredadminPgsqlConnection::getInstance()->getPdo();
-
-        $stmt = $pdo->prepare("DELETE FROM domain_ownership WHERE domain = :domain");
+        $stmt = $this->pdo()->prepare("DELETE FROM domain_ownership WHERE domain = :domain");
         return $stmt->execute(['domain' => $domain]);
     }
 
@@ -98,5 +75,18 @@ class PgsqlDomainOwnershipRepository implements DomainOwnershipRepositoryInterfa
         }
 
         return false;
+    }
+
+    /**
+     * @throws BackendConnectionException when the iredadmin database is not
+     *                                    reachable, so a failed check never counts as verified
+     */
+    private function pdo(): \PDO
+    {
+        $pdo = IredadminPgsqlConnection::getInstance()->getPdo();
+        if ($pdo === null) {
+            throw new BackendConnectionException('iRedAdmin database not available');
+        }
+        return $pdo;
     }
 }

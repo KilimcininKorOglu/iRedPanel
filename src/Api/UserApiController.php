@@ -62,7 +62,8 @@ class UserApiController
             unset($data['domainGlobalAdmin']);
         }
 
-        $user = User::fromFormData($data);
+        // A new mailbox starts active unless the request sets accountStatus.
+        $user = User::fromFormData($data + ['accountStatus' => true]);
         $password = $data['password'] ?? '';
 
         if ($user->uid === '' || $password === '') {

@@ -358,7 +358,8 @@ class UserController
                 $validationErrors['uid'] = Translator::translate('user.msg_exists', ['uid' => $userUid]);
             } else {
                 try {
-                    $user = User::fromFormData($_POST);
+                    // The create form has no status field; a new mailbox starts active.
+                    $user = User::fromFormData($_POST + ['accountStatus' => true]);
                     $password = $_POST['password'] ?? '';
                     $passwordRepeat = $_POST['password_repeat'] ?? '';
                     $validationErrors = UserPassword::validate($password, $passwordRepeat);

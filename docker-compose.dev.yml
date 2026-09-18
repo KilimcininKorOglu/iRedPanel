@@ -1,0 +1,21 @@
+name: iredpanel-dev
+
+services:
+  app:
+    build:
+      context: .
+      target: dev
+    image: iredpanel:dev
+    container_name: iredpanel-dev
+    restart: unless-stopped
+    # The repository, including .env and vendor/, is mounted live.
+    volumes:
+      - .:/var/www/html
+    ports:
+      - "127.0.0.1:8521:80"
+    networks:
+      - iredpanel
+
+networks:
+  iredpanel:
+    external: true

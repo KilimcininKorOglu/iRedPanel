@@ -206,6 +206,24 @@ php -S localhost:8080 -t public/
 
 Open `http://localhost:8080` in your browser. You will be redirected to the dashboard.
 
+### Docker
+
+The `Dockerfile` builds a PHP 8.4 + Apache image with the `ldap`, `pdo_mysql`, and `pdo_pgsql` extensions, so one image serves every backend. It has two targets:
+
+| Target | Compose file | Host port | Code |
+| --- | --- | --- | --- |
+| `dev` | `docker-compose.dev.yml` | `127.0.0.1:8521` | Repository bind-mounted; reads `.env` and the host `vendor/` |
+| `prod` | `docker-compose.prod.yml` | `127.0.0.1:8522` | Copied into the image with production Composer dependencies; reads `.env.prod` |
+
+```bash
+php composer.phar install   # dev only: vendor/ comes from the host
+make dev-up                 # or: make prod-up
+```
+
+Both compose files join the external `iredpanel` network, which `make network` creates. The `docker-iredmail-*` development stacks join the same network, so the panel reaches a backend by container name and container port, for example `IREDPANEL_MYSQL_HOST=iredmail-mariadb` with port `3306`.
+
+The panel serves plain HTTP. Put a TLS-terminating reverse proxy in front of the production container before you publish it beyond loopback.
+
 ### Apache
 
 Point the document root to the `public/` directory. The included `.htaccess` handles URL rewriting.

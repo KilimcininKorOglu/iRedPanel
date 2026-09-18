@@ -1,0 +1,27 @@
+name: iredpanel
+
+services:
+  app:
+    build:
+      context: .
+      target: prod
+    image: iredpanel:prod
+    container_name: iredpanel
+    restart: unless-stopped
+    env_file:
+      - .env.prod
+    # The panel serves plain HTTP. Put a TLS-terminating reverse proxy in front
+    # of it before you publish this port beyond loopback.
+    ports:
+      - "127.0.0.1:8522:80"
+    networks:
+      - iredpanel
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "-o", "/dev/null", "http://127.0.0.1/login"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+networks:
+  iredpanel:
+    external: true

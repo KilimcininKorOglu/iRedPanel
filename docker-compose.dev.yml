@@ -11,6 +11,8 @@ services:
     # The repository, including .env and vendor/, is mounted live.
     # IREDPANEL_ENV_FILE mounts another env file over .env inside the
     # container, for example .env.docker-pgsql for the Docker backend stacks.
+    # A single-file mount follows the inode: after a tool replaces the file
+    # instead of editing it in place, recreate the container (make dev-up).
     volumes:
       - .:/var/www/html
       - ./${IREDPANEL_ENV_FILE:-.env}:/var/www/html/.env:ro

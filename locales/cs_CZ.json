@@ -325,7 +325,14 @@
     "owners_desc": "Vlastníci mohou spravovat nastavení konference a moderovat zprávy.",
     "save_owners": "Uložit vlastníky",
     "delete_button": "Smazat poštovní konferenci",
-    "back": "Zpět na poštovní konference"
+    "back": "Zpět na poštovní konference",
+    "subscribers": "Odběratelé",
+    "no_subscribers": "Tento seznam nemá žádné odběratele.",
+    "add_subscribers": "Přidat odběratele",
+    "subscribers_hint": "E-mailové adresy odběratelů (jedna na řádek)",
+    "remove_subscriber_confirm": "Odebrat :address z tohoto seznamu?",
+    "msg_subscribers_added": "Přidáno odběratelů: :count.",
+    "msg_subscriber_removed": ":address byl odebrán ze seznamu."
   },
   "search": {
     "title": "Hledat",

@@ -124,7 +124,6 @@ class MailingListController
             return;
         }
 
-        $owners = $repo->getOwners($address);
         $success = null;
         $error = null;
 
@@ -132,38 +131,93 @@ class MailingListController
             CsrfProtection::validateToken();
 
             try {
-                $action = $_POST['action'] ?? 'updateSettings';
-
-                if ($action === 'updateSettings') {
-                    $name = trim($_POST['name'] ?? '');
-                    $accessPolicy = trim($_POST['accessPolicy'] ?? 'public');
-                    $maxMsgSize = (int) ($_POST['maxMsgSize'] ?? 0);
-                    $active = isset($_POST['active']);
-
-                    MailingListService::update($address, $name, $accessPolicy, $maxMsgSize, $active);
-                    ActivityLogger::logUpdate($ml->domain, '', "Updated mailing list: {$address}");
-                    $success = Translator::translate('mlist.msg_updated');
-                } elseif ($action === 'updateOwners') {
-                    $ownersRaw = trim($_POST['owners'] ?? '');
-                    $newOwners = array_filter(array_map('trim', explode("\n", $ownersRaw)));
-                    MailingListService::setOwners($address, $newOwners);
-                    ActivityLogger::logUpdate($ml->domain, '', "Updated owners for: {$address}");
-                    $success = Translator::translate('mlist.msg_owners_updated');
-                }
-
-                $ml = $repo->getMailingList($address);
-                $owners = $repo->getOwners($address);
+                $success = self::applyViewAction($_POST['action'] ?? 'updateSettings', $address, $ml->domain);
+                $ml = $repo->getMailingList($address) ?? $ml;
+            } catch (\InvalidArgumentException $e) {
+                $error = Translator::translate('common.msg_invalid_email', ['address' => $e->getMessage()]);
             } catch (\Exception $e) {
                 $error = BaseController::errorMessage($e);
             }
         }
 
+        [$subscribers, $subscribersError] = self::loadSubscribers($address);
+
         $tpl->render('mailingListView.php', [
             'ml' => $ml,
-            'owners' => $owners,
+            'owners' => $repo->getOwners($address),
+            'subscribers' => $subscribers,
+            'subscribersError' => $subscribersError,
+            // Keep the typed addresses when adding them failed.
+            'subscribersDraft' => $error !== null ? (string) ($_POST['subscribers'] ?? '') : '',
             'success' => $success,
             'error' => $error,
         ]);
+    }
+
+    /**
+     * Runs one POST action of the list view.
+     *
+     * @return string the success message
+     */
+    private static function applyViewAction(string $action, string $address, string $domain): string
+    {
+        switch ($action) {
+            case 'updateSettings':
+                MailingListService::update(
+                    $address,
+                    trim($_POST['name'] ?? ''),
+                    trim($_POST['accessPolicy'] ?? 'public'),
+                    (int) ($_POST['maxMsgSize'] ?? 0),
+                    isset($_POST['active']),
+                );
+                ActivityLogger::logUpdate($domain, '', "Updated mailing list: {$address}");
+                return Translator::translate('mlist.msg_updated');
+            case 'updateOwners':
+                $owners = array_filter(array_map('trim', explode("\n", (string) ($_POST['owners'] ?? ''))));
+                MailingListService::setOwners($address, $owners);
+                ActivityLogger::logUpdate($domain, '', "Updated owners for: {$address}");
+                return Translator::translate('mlist.msg_owners_updated');
+            case 'addSubscribers':
+                $subscribers = self::postedAddresses('subscribers');
+                MailingListService::addSubscribers($address, $subscribers);
+                ActivityLogger::logUpdate($domain, '', "Added " . count($subscribers) . " subscriber(s) to: {$address}");
+                return Translator::translate('mlist.msg_subscribers_added', ['count' => count($subscribers)]);
+            case 'removeSubscriber':
+                $subscriber = self::postedAddresses('subscriber');
+                MailingListService::removeSubscribers($address, $subscriber);
+                ActivityLogger::logUpdate($domain, '', "Removed subscriber " . implode(',', $subscriber) . " from: {$address}");
+                return Translator::translate('mlist.msg_subscriber_removed', ['address' => implode(', ', $subscriber)]);
+            default:
+                throw new \UnexpectedValueException("Unknown action: {$action}");
+        }
+    }
+
+    /**
+     * @return string[] at least one valid address from the POST field
+     */
+    private static function postedAddresses(string $field): array
+    {
+        $addresses = MailingListService::parseAddresses((string) ($_POST[$field] ?? ''));
+        if ($addresses === []) {
+            throw new \RuntimeException(Translator::translate('newsletter.msg_invalid_email'));
+        }
+
+        return $addresses;
+    }
+
+    /**
+     * Returns the subscribers, or the error that prevented loading them, so
+     * the settings stay usable while mlmmjadmin is down.
+     *
+     * @return array{0: string[], 1: ?string}
+     */
+    private static function loadSubscribers(string $address): array
+    {
+        try {
+            return [MailingListService::subscribers($address), null];
+        } catch (\Exception $e) {
+            return [[], BaseController::errorMessage($e)];
+        }
     }
 
     public static function delete(TemplateEngine $tpl, string $address): void

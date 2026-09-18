@@ -325,7 +325,14 @@
     "owners_desc": "Vlastníci môžu spravovať nastavenia zoznamu a moderovať správy.",
     "save_owners": "Uložiť vlastníkov",
     "delete_button": "Odstrániť distribučný zoznam",
-    "back": "Späť na distribučné zoznamy"
+    "back": "Späť na distribučné zoznamy",
+    "subscribers": "Odberatelia",
+    "no_subscribers": "Tento zoznam nemá žiadnych odberateľov.",
+    "add_subscribers": "Pridať odberateľov",
+    "subscribers_hint": "E-mailové adresy odberateľov (jedna na riadok)",
+    "remove_subscriber_confirm": "Odstrániť :address z tohto zoznamu?",
+    "msg_subscribers_added": "Pridaní odberatelia: :count.",
+    "msg_subscriber_removed": ":address bol odstránený zo zoznamu."
   },
   "search": {
     "title": "Hľadať",

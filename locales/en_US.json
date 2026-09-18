@@ -325,7 +325,14 @@
     "owners_desc": "Owners can manage list settings and moderate messages.",
     "save_owners": "Save Owners",
     "delete_button": "Delete Mailing List",
-    "back": "Back to mailing lists"
+    "back": "Back to mailing lists",
+    "subscribers": "Subscribers",
+    "no_subscribers": "This list has no subscribers.",
+    "add_subscribers": "Add Subscribers",
+    "subscribers_hint": "Subscriber email addresses (one per line)",
+    "remove_subscriber_confirm": "Remove :address from this list?",
+    "msg_subscribers_added": "Added :count subscriber(s).",
+    "msg_subscriber_removed": "Removed :address from the list."
   },
   "search": {
     "title": "Search",

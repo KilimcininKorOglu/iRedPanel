@@ -325,7 +325,14 @@
     "owners_desc": "Omistajat voivat hallita listan asetuksia ja moderoida viestejä.",
     "save_owners": "Tallenna omistajat",
     "delete_button": "Poista postituslista",
-    "back": "Takaisin postituslistoihin"
+    "back": "Takaisin postituslistoihin",
+    "subscribers": "Tilaajat",
+    "no_subscribers": "Tällä listalla ei ole tilaajia.",
+    "add_subscribers": "Lisää tilaajia",
+    "subscribers_hint": "Tilaajien sähköpostiosoitteet (yksi riviä kohden)",
+    "remove_subscriber_confirm": "Poistetaanko :address tältä listalta?",
+    "msg_subscribers_added": "Tilaajia lisätty: :count.",
+    "msg_subscriber_removed": ":address poistettiin listalta."
   },
   "search": {
     "title": "Haku",

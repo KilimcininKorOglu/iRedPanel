@@ -325,7 +325,14 @@
     "owners_desc": "I proprietari possono gestire le impostazioni della lista e moderare i messaggi.",
     "save_owners": "Salva proprietari",
     "delete_button": "Elimina lista di distribuzione",
-    "back": "Torna alle liste di distribuzione"
+    "back": "Torna alle liste di distribuzione",
+    "subscribers": "Iscritti",
+    "no_subscribers": "Questa lista non ha iscritti.",
+    "add_subscribers": "Aggiungi iscritti",
+    "subscribers_hint": "Indirizzi e-mail degli iscritti (uno per riga)",
+    "remove_subscriber_confirm": "Rimuovere :address da questa lista?",
+    "msg_subscribers_added": ":count iscritto/i aggiunto/i.",
+    "msg_subscriber_removed": ":address è stato rimosso dalla lista."
   },
   "search": {
     "title": "Cerca",

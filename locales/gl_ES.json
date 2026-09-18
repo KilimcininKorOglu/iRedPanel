@@ -325,7 +325,14 @@
     "owners_desc": "Os propietarios poden xestionar a configuración da lista e moderar mensaxes.",
     "save_owners": "Gardar propietarios",
     "delete_button": "Eliminar lista de correo",
-    "back": "Volver ás listas de correo"
+    "back": "Volver ás listas de correo",
+    "subscribers": "Subscritores",
+    "no_subscribers": "Esta lista non ten subscritores.",
+    "add_subscribers": "Engadir subscritores",
+    "subscribers_hint": "Enderezos de correo dos subscritores (un por liña)",
+    "remove_subscriber_confirm": "Quitar :address desta lista?",
+    "msg_subscribers_added": "Engadíronse :count subscritor(es).",
+    "msg_subscriber_removed": "Quitouse :address da lista."
   },
   "search": {
     "title": "Buscar",

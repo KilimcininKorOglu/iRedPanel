@@ -325,7 +325,14 @@
     "owners_desc": "Власници могу управљати подешавањима листе и модерирати поруке.",
     "save_owners": "Сачувај власнике",
     "delete_button": "Обриши мејлинг листу",
-    "back": "Назад на мејлинг листе"
+    "back": "Назад на мејлинг листе",
+    "subscribers": "Претплатници",
+    "no_subscribers": "Ова листа нема претплатника.",
+    "add_subscribers": "Додај претплатнике",
+    "subscribers_hint": "Адресе е-поште претплатника (једна по реду)",
+    "remove_subscriber_confirm": "Уклонити :address са ове листе?",
+    "msg_subscribers_added": "Додато претплатника: :count.",
+    "msg_subscriber_removed": ":address је уклоњен са листе."
   },
   "search": {
     "title": "Претрага",

@@ -325,7 +325,14 @@
     "owners_desc": "擁有者可以管理清單設定並審核訊息。",
     "save_owners": "儲存擁有者",
     "delete_button": "刪除郵件清單",
-    "back": "返回郵件清單"
+    "back": "返回郵件清單",
+    "subscribers": "訂閱者",
+    "no_subscribers": "此清單沒有訂閱者。",
+    "add_subscribers": "新增訂閱者",
+    "subscribers_hint": "訂閱者電子郵件位址（每行一個）",
+    "remove_subscriber_confirm": "要從此清單移除 :address 嗎？",
+    "msg_subscribers_added": "已新增 :count 位訂閱者。",
+    "msg_subscriber_removed": "已從清單移除 :address。"
   },
   "search": {
     "title": "搜尋",

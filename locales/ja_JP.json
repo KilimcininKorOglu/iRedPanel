@@ -325,7 +325,14 @@
     "owners_desc": "所有者はリスト設定を管理し、メッセージをモデレートできます。",
     "save_owners": "所有者を保存",
     "delete_button": "メーリングリストを削除",
-    "back": "メーリングリストに戻る"
+    "back": "メーリングリストに戻る",
+    "subscribers": "購読者",
+    "no_subscribers": "このリストには購読者がいません。",
+    "add_subscribers": "購読者を追加",
+    "subscribers_hint": "購読者のメールアドレス（1 行に 1 つ）",
+    "remove_subscriber_confirm": ":address をこのリストから削除しますか?",
+    "msg_subscribers_added": "購読者を :count 件追加しました。",
+    "msg_subscriber_removed": ":address をリストから削除しました。"
   },
   "search": {
     "title": "検索",

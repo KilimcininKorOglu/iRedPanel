@@ -325,7 +325,14 @@
     "owners_desc": "Pemilik dapat mengelola pengaturan milis dan memoderasi pesan.",
     "save_owners": "Simpan pemilik",
     "delete_button": "Hapus milis",
-    "back": "Kembali ke milis"
+    "back": "Kembali ke milis",
+    "subscribers": "Pelanggan",
+    "no_subscribers": "Daftar ini tidak memiliki pelanggan.",
+    "add_subscribers": "Tambah Pelanggan",
+    "subscribers_hint": "Alamat email pelanggan (satu per baris)",
+    "remove_subscriber_confirm": "Hapus :address dari daftar ini?",
+    "msg_subscribers_added": ":count pelanggan ditambahkan.",
+    "msg_subscriber_removed": ":address dihapus dari daftar."
   },
   "search": {
     "title": "Cari",

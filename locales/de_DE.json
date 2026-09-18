@@ -325,7 +325,14 @@
     "owners_desc": "Eigentümer können Listeneinstellungen verwalten und Nachrichten moderieren.",
     "save_owners": "Eigentümer speichern",
     "delete_button": "Mailingliste löschen",
-    "back": "Zurück zu den Mailinglisten"
+    "back": "Zurück zu den Mailinglisten",
+    "subscribers": "Abonnenten",
+    "no_subscribers": "Diese Liste hat keine Abonnenten.",
+    "add_subscribers": "Abonnenten hinzufügen",
+    "subscribers_hint": "E-Mail-Adressen der Abonnenten (eine pro Zeile)",
+    "remove_subscriber_confirm": ":address aus dieser Liste entfernen?",
+    "msg_subscribers_added": ":count Abonnent(en) hinzugefügt.",
+    "msg_subscriber_removed": ":address wurde aus der Liste entfernt."
   },
   "search": {
     "title": "Suche",

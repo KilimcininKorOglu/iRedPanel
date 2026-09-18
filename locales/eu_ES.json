@@ -325,7 +325,14 @@
     "owners_desc": "Jabeek zerrendaren ezarpenak kudeatu eta mezuak moderatu ditzakete.",
     "save_owners": "Gorde jabeak",
     "delete_button": "Ezabatu posta-zerrenda",
-    "back": "Itzuli posta-zerrendetara"
+    "back": "Itzuli posta-zerrendetara",
+    "subscribers": "Harpidedunak",
+    "no_subscribers": "Zerrenda honek ez du harpidedunik.",
+    "add_subscribers": "Gehitu harpidedunak",
+    "subscribers_hint": "Harpidedunen posta-helbideak (bat lerroko)",
+    "remove_subscriber_confirm": "Kendu :address zerrenda honetatik?",
+    "msg_subscribers_added": ":count harpidedun gehitu dira.",
+    "msg_subscriber_removed": ":address zerrendatik kendu da."
   },
   "search": {
     "title": "Bilatu",

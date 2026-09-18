@@ -63,6 +63,53 @@ class MailingListService
     }
 
     /**
+     * @return string[]
+     */
+    public static function subscribers(string $address): array
+    {
+        return MlmmjadminClient::fromSettings()->subscribers($address);
+    }
+
+    /**
+     * @param string[] $subscribers
+     */
+    public static function addSubscribers(string $address, array $subscribers): void
+    {
+        MlmmjadminClient::fromSettings()->addSubscribers($address, $subscribers);
+    }
+
+    /**
+     * @param string[] $subscribers
+     */
+    public static function removeSubscribers(string $address, array $subscribers): void
+    {
+        MlmmjadminClient::fromSettings()->removeSubscribers($address, $subscribers);
+    }
+
+    /**
+     * Splits one address per line, lowercased and without duplicates.
+     *
+     * @return string[]
+     * @throws \InvalidArgumentException carrying the first invalid address
+     */
+    public static function parseAddresses(string $raw): array
+    {
+        $addresses = [];
+        foreach (preg_split('/[\r\n,]+/', $raw) ?: [] as $line) {
+            $address = strtolower(trim($line));
+            if ($address === '') {
+                continue;
+            }
+            if (filter_var($address, FILTER_VALIDATE_EMAIL) === false) {
+                throw new \InvalidArgumentException($address);
+            }
+            $addresses[$address] = true;
+        }
+
+        return array_keys($addresses);
+    }
+
+    /**
      * mlmmj needs at least one owner; iRedMail uses postmaster of the domain.
      *
      * @param string[] $owners

@@ -466,6 +466,15 @@ $router->addRoute('PUT', '/api/v1/mailing-lists/{address}', function (string $ad
 $router->addRoute('DELETE', '/api/v1/mailing-lists/{address}', function (string $address) use ($apiAuth) {
     $apiAuth(); MailingListApiController::delete($address);
 });
+$router->addRoute('GET', '/api/v1/mailing-lists/{address}/subscribers', function (string $address) use ($apiAuth) {
+    $apiAuth(); MailingListApiController::subscribers($address);
+});
+$router->addRoute('POST', '/api/v1/mailing-lists/{address}/subscribers', function (string $address) use ($apiAuth) {
+    $apiAuth(); MailingListApiController::changeSubscribers($address, true);
+});
+$router->addRoute('DELETE', '/api/v1/mailing-lists/{address}/subscribers', function (string $address) use ($apiAuth) {
+    $apiAuth(); MailingListApiController::changeSubscribers($address, false);
+});
 
 // Admins API
 $router->addRoute('GET', '/api/v1/admins', function () use ($apiAuth) {

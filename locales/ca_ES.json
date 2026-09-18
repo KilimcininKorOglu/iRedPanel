@@ -325,7 +325,14 @@
     "owners_desc": "Els propietaris poden gestionar la configuració de la llista i moderar els missatges.",
     "save_owners": "Desar propietaris",
     "delete_button": "Eliminar llista de correu",
-    "back": "Tornar a les llistes de correu"
+    "back": "Tornar a les llistes de correu",
+    "subscribers": "Subscriptors",
+    "no_subscribers": "Aquesta llista no té subscriptors.",
+    "add_subscribers": "Afegeix subscriptors",
+    "subscribers_hint": "Adreces de correu dels subscriptors (una per línia)",
+    "remove_subscriber_confirm": "Voleu treure :address d'aquesta llista?",
+    "msg_subscribers_added": "S'han afegit :count subscriptor(s).",
+    "msg_subscriber_removed": "S'ha tret :address de la llista."
   },
   "search": {
     "title": "Cerca",

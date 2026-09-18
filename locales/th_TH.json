@@ -325,7 +325,14 @@
     "owners_desc": "เจ้าของสามารถจัดการการตั้งค่ารายการและตรวจสอบข้อความได้",
     "save_owners": "บันทึกเจ้าของ",
     "delete_button": "ลบรายชื่อเมล",
-    "back": "กลับไปที่รายชื่อเมล"
+    "back": "กลับไปที่รายชื่อเมล",
+    "subscribers": "ผู้สมัครรับ",
+    "no_subscribers": "รายการนี้ไม่มีผู้สมัครรับ",
+    "add_subscribers": "เพิ่มผู้สมัครรับ",
+    "subscribers_hint": "ที่อยู่อีเมลผู้สมัครรับ (หนึ่งรายการต่อบรรทัด)",
+    "remove_subscriber_confirm": "ลบ :address ออกจากรายการนี้หรือไม่?",
+    "msg_subscribers_added": "เพิ่มผู้สมัครรับแล้ว :count ราย",
+    "msg_subscriber_removed": "ลบ :address ออกจากรายการแล้ว"
   },
   "search": {
     "title": "ค้นหา",

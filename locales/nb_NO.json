@@ -325,7 +325,14 @@
     "owners_desc": "Eiere kan administrere listeinnstillinger og moderere meldinger.",
     "save_owners": "Lagre eiere",
     "delete_button": "Slett e-postliste",
-    "back": "Tilbake til e-postlister"
+    "back": "Tilbake til e-postlister",
+    "subscribers": "Abonnenter",
+    "no_subscribers": "Denne listen har ingen abonnenter.",
+    "add_subscribers": "Legg til abonnenter",
+    "subscribers_hint": "Abonnenters e-postadresser (én per linje)",
+    "remove_subscriber_confirm": "Fjerne :address fra denne listen?",
+    "msg_subscribers_added": ":count abonnent(er) lagt til.",
+    "msg_subscriber_removed": ":address er fjernet fra listen."
   },
   "search": {
     "title": "Søk",

@@ -125,4 +125,47 @@ class MailingListApiController
         MailingListService::delete($address);
         ApiResponse::deleted();
     }
+
+    public static function subscribers(string $address): void
+    {
+        ApiMiddleware::requireGlobalKey();
+        if (RepositoryFactory::getMailingListRepository()->getMailingList($address) === null) {
+            ApiResponse::error('Mailing list not found', 404);
+            return;
+        }
+
+        ApiResponse::success(['subscribers' => MailingListService::subscribers($address)]);
+    }
+
+    /**
+     * Adds (POST) or removes (DELETE) the subscribers in `{"subscribers": [...]}`.
+     */
+    public static function changeSubscribers(string $address, bool $add): void
+    {
+        ApiMiddleware::requireGlobalKey();
+        ApiMiddleware::requireWriteAccess();
+        if (RepositoryFactory::getMailingListRepository()->getMailingList($address) === null) {
+            ApiResponse::error('Mailing list not found', 404);
+            return;
+        }
+
+        $input = ApiMiddleware::getJsonBody()['subscribers'] ?? null;
+        if (!is_array($input) || $input === [] || array_filter($input, 'is_string') !== $input) {
+            ApiResponse::error('subscribers must be a non-empty array of email addresses');
+            return;
+        }
+        try {
+            $subscribers = MailingListService::parseAddresses(implode("\n", $input));
+        } catch (\InvalidArgumentException $e) {
+            ApiResponse::error('Invalid subscriber: ' . $e->getMessage());
+            return;
+        }
+
+        if ($add) {
+            MailingListService::addSubscribers($address, $subscribers);
+        } else {
+            MailingListService::removeSubscribers($address, $subscribers);
+        }
+        ApiResponse::success(['subscribers' => MailingListService::subscribers($address)]);
+    }
 }

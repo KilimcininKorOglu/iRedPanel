@@ -311,8 +311,9 @@ server {
 - Paginated alias list with domain filter
 
 ### Mailing List Management (mlmmj)
-- Mailing list CRUD with automatic mlmmj transport configuration
+- Mailing list CRUD with automatic mlmmj transport configuration; the mlmmj list itself is managed through the mlmmjadmin API
 - List owner management
+- Subscriber management: list, add and remove subscribers (web UI and `GET/POST/DELETE /api/v1/mailing-lists/{address}/subscribers`)
 - Access policy, max message size, and max members settings
 - Bulk operations: enable, disable, delete
 

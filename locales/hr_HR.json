@@ -325,7 +325,14 @@
     "owners_desc": "Vlasnici mogu upravljati postavkama liste i moderirati poruke.",
     "save_owners": "Spremi vlasnike",
     "delete_button": "Izbriši mailing listu",
-    "back": "Natrag na mailing liste"
+    "back": "Natrag na mailing liste",
+    "subscribers": "Pretplatnici",
+    "no_subscribers": "Ovaj popis nema pretplatnika.",
+    "add_subscribers": "Dodaj pretplatnike",
+    "subscribers_hint": "Adrese e-pošte pretplatnika (jedna po retku)",
+    "remove_subscriber_confirm": "Ukloniti :address s ovog popisa?",
+    "msg_subscribers_added": "Dodano pretplatnika: :count.",
+    "msg_subscriber_removed": ":address je uklonjen s popisa."
   },
   "search": {
     "title": "Pretraživanje",

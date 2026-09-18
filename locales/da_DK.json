@@ -325,7 +325,14 @@
     "owners_desc": "Ejere kan administrere listeindstillinger og moderere beskeder.",
     "save_owners": "Gem ejere",
     "delete_button": "Slet mailingliste",
-    "back": "Tilbage til mailinglister"
+    "back": "Tilbage til mailinglister",
+    "subscribers": "Abonnenter",
+    "no_subscribers": "Denne liste har ingen abonnenter.",
+    "add_subscribers": "Tilføj abonnenter",
+    "subscribers_hint": "Abonnenters e-mailadresser (én pr. linje)",
+    "remove_subscriber_confirm": "Fjern :address fra denne liste?",
+    "msg_subscribers_added": ":count abonnent(er) tilføjet.",
+    "msg_subscriber_removed": ":address er fjernet fra listen."
   },
   "search": {
     "title": "Søg",

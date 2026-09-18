@@ -325,7 +325,14 @@
     "owners_desc": "Proprietarii pot gestiona setările listei și modera mesajele.",
     "save_owners": "Salvează proprietarii",
     "delete_button": "Șterge lista de corespondență",
-    "back": "Înapoi la listele de corespondență"
+    "back": "Înapoi la listele de corespondență",
+    "subscribers": "Abonați",
+    "no_subscribers": "Această listă nu are abonați.",
+    "add_subscribers": "Adaugă abonați",
+    "subscribers_hint": "Adresele de email ale abonaților (una pe linie)",
+    "remove_subscriber_confirm": "Eliminați :address din această listă?",
+    "msg_subscribers_added": "Au fost adăugați :count abonați.",
+    "msg_subscriber_removed": ":address a fost eliminat din listă."
   },
   "search": {
     "title": "Căutare",

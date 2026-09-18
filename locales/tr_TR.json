@@ -325,7 +325,14 @@
     "owners_desc": "Sahipler liste ayarlarını yönetebilir ve iletileri denetleyebilir.",
     "save_owners": "Sahipleri Kaydet",
     "delete_button": "Posta Listesini Sil",
-    "back": "Posta listelerine dön"
+    "back": "Posta listelerine dön",
+    "subscribers": "Aboneler",
+    "no_subscribers": "Bu listenin abonesi yok.",
+    "add_subscribers": "Abone Ekle",
+    "subscribers_hint": "Abone e-posta adresleri (her satıra bir tane)",
+    "remove_subscriber_confirm": ":address bu listeden çıkarılsın mı?",
+    "msg_subscribers_added": ":count abone eklendi.",
+    "msg_subscriber_removed": ":address listeden çıkarıldı."
   },
   "search": {
     "title": "Ara",

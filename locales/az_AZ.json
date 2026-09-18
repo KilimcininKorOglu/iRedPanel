@@ -325,7 +325,14 @@
     "owners_desc": "Sahiblər siyahı parametrlərini idarə edə və mesajları moderasiya edə bilər.",
     "save_owners": "Sahibləri yadda saxla",
     "delete_button": "Poçt siyahısını sil",
-    "back": "Poçt siyahılarına qayıt"
+    "back": "Poçt siyahılarına qayıt",
+    "subscribers": "Abunəçilər",
+    "no_subscribers": "Bu siyahının abunəçisi yoxdur.",
+    "add_subscribers": "Abunəçi əlavə et",
+    "subscribers_hint": "Abunəçi e-poçt ünvanları (hər sətirdə bir)",
+    "remove_subscriber_confirm": ":address bu siyahıdan çıxarılsın?",
+    "msg_subscribers_added": ":count abunəçi əlavə edildi.",
+    "msg_subscriber_removed": ":address siyahıdan çıxarıldı."
   },
   "search": {
     "title": "Axtarış",

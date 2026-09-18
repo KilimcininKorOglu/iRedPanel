@@ -325,7 +325,14 @@
     "owners_desc": "Lastniki lahko upravljajo nastavitve seznama in moderirajo sporočila.",
     "save_owners": "Shrani lastnike",
     "delete_button": "Izbriši poštni seznam",
-    "back": "Nazaj na poštne sezname"
+    "back": "Nazaj na poštne sezname",
+    "subscribers": "Naročniki",
+    "no_subscribers": "Ta seznam nima naročnikov.",
+    "add_subscribers": "Dodaj naročnike",
+    "subscribers_hint": "E-poštni naslovi naročnikov (eden na vrstico)",
+    "remove_subscriber_confirm": "Odstranim :address s tega seznama?",
+    "msg_subscribers_added": "Dodanih naročnikov: :count.",
+    "msg_subscriber_removed": ":address je odstranjen s seznama."
   },
   "search": {
     "title": "Iskanje",

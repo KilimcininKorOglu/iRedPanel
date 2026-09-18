@@ -325,7 +325,14 @@
     "owners_desc": "Власники можуть керувати налаштуваннями списку та модерувати повідомлення.",
     "save_owners": "Зберегти власників",
     "delete_button": "Видалити список розсилки",
-    "back": "Назад до списків розсилки"
+    "back": "Назад до списків розсилки",
+    "subscribers": "Підписники",
+    "no_subscribers": "Цей список не має підписників.",
+    "add_subscribers": "Додати підписників",
+    "subscribers_hint": "Адреси ел. пошти підписників (одна на рядок)",
+    "remove_subscriber_confirm": "Видалити :address з цього списку?",
+    "msg_subscribers_added": "Додано підписників: :count.",
+    "msg_subscriber_removed": ":address видалено зі списку."
   },
   "search": {
     "title": "Пошук",

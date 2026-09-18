@@ -325,7 +325,14 @@
     "owners_desc": "Les propriétaires peuvent gérer les paramètres de la liste et modérer les messages.",
     "save_owners": "Enregistrer les propriétaires",
     "delete_button": "Supprimer la liste de diffusion",
-    "back": "Retour aux listes de diffusion"
+    "back": "Retour aux listes de diffusion",
+    "subscribers": "Abonnés",
+    "no_subscribers": "Cette liste n'a aucun abonné.",
+    "add_subscribers": "Ajouter des abonnés",
+    "subscribers_hint": "Adresses e-mail des abonnés (une par ligne)",
+    "remove_subscriber_confirm": "Retirer :address de cette liste ?",
+    "msg_subscribers_added": ":count abonné(s) ajouté(s).",
+    "msg_subscriber_removed": ":address a été retiré de la liste."
   },
   "search": {
     "title": "Rechercher",

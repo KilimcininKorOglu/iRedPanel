@@ -325,7 +325,14 @@
     "owners_desc": "Eigenaren kunnen lijstinstellingen beheren en berichten modereren.",
     "save_owners": "Eigenaren opslaan",
     "delete_button": "Mailinglijst verwijderen",
-    "back": "Terug naar mailinglijsten"
+    "back": "Terug naar mailinglijsten",
+    "subscribers": "Abonnees",
+    "no_subscribers": "Deze lijst heeft geen abonnees.",
+    "add_subscribers": "Abonnees toevoegen",
+    "subscribers_hint": "E-mailadressen van abonnees (één per regel)",
+    "remove_subscriber_confirm": ":address uit deze lijst verwijderen?",
+    "msg_subscribers_added": ":count abonnee(s) toegevoegd.",
+    "msg_subscriber_removed": ":address is uit de lijst verwijderd."
   },
   "search": {
     "title": "Zoeken",

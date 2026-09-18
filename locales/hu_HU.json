@@ -325,7 +325,14 @@
     "owners_desc": "A tulajdonosok kezelhetik a lista beállításait és moderálhatják az üzeneteket.",
     "save_owners": "Tulajdonosok mentése",
     "delete_button": "Levelezőlista törlése",
-    "back": "Vissza a levelezőlistákhoz"
+    "back": "Vissza a levelezőlistákhoz",
+    "subscribers": "Feliratkozók",
+    "no_subscribers": "Ennek a listának nincs feliratkozója.",
+    "add_subscribers": "Feliratkozók hozzáadása",
+    "subscribers_hint": "Feliratkozók e-mail-címei (soronként egy)",
+    "remove_subscriber_confirm": "Eltávolítja :address címet a listáról?",
+    "msg_subscribers_added": ":count feliratkozó hozzáadva.",
+    "msg_subscriber_removed": ":address eltávolítva a listáról."
   },
   "search": {
     "title": "Keresés",

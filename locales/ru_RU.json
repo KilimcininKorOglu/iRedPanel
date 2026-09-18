@@ -325,7 +325,14 @@
     "owners_desc": "Владельцы могут управлять настройками списка и модерировать сообщения.",
     "save_owners": "Сохранить владельцев",
     "delete_button": "Удалить список рассылки",
-    "back": "Назад к спискам рассылки"
+    "back": "Назад к спискам рассылки",
+    "subscribers": "Подписчики",
+    "no_subscribers": "У этого списка нет подписчиков.",
+    "add_subscribers": "Добавить подписчиков",
+    "subscribers_hint": "Адреса эл. почты подписчиков (по одному на строку)",
+    "remove_subscriber_confirm": "Удалить :address из этого списка?",
+    "msg_subscribers_added": "Добавлено подписчиков: :count.",
+    "msg_subscriber_removed": ":address удалён из списка."
   },
   "search": {
     "title": "Поиск",

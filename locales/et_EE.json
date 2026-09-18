@@ -325,7 +325,14 @@
     "owners_desc": "Omanikud saavad hallata loendi seadeid ja modereerida sõnumeid.",
     "save_owners": "Salvesta omanikud",
     "delete_button": "Kustuta postiloend",
-    "back": "Tagasi postiloenditesse"
+    "back": "Tagasi postiloenditesse",
+    "subscribers": "Tellijad",
+    "no_subscribers": "Sellel listil pole tellijaid.",
+    "add_subscribers": "Lisa tellijaid",
+    "subscribers_hint": "Tellijate e-posti aadressid (üks rea kohta)",
+    "remove_subscriber_confirm": "Kas eemaldada :address sellest listist?",
+    "msg_subscribers_added": "Lisatud tellijaid: :count.",
+    "msg_subscriber_removed": ":address eemaldati listist."
   },
   "search": {
     "title": "Otsing",

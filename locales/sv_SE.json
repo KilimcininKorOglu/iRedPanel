@@ -325,7 +325,14 @@
     "owners_desc": "Ägare kan hantera listinställningar och moderera meddelanden.",
     "save_owners": "Spara ägare",
     "delete_button": "Ta bort sändlista",
-    "back": "Tillbaka till sändlistor"
+    "back": "Tillbaka till sändlistor",
+    "subscribers": "Prenumeranter",
+    "no_subscribers": "Den här listan har inga prenumeranter.",
+    "add_subscribers": "Lägg till prenumeranter",
+    "subscribers_hint": "Prenumeranternas e-postadresser (en per rad)",
+    "remove_subscriber_confirm": "Ta bort :address från den här listan?",
+    "msg_subscribers_added": ":count prenumerant(er) har lagts till.",
+    "msg_subscriber_removed": ":address har tagits bort från listan."
   },
   "search": {
     "title": "Sök",

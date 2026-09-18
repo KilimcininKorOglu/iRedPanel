@@ -325,7 +325,14 @@
     "owners_desc": "Chủ sở hữu có thể quản lý cài đặt danh sách và kiểm duyệt tin nhắn.",
     "save_owners": "Lưu chủ sở hữu",
     "delete_button": "Xóa danh sách gửi thư",
-    "back": "Quay lại danh sách gửi thư"
+    "back": "Quay lại danh sách gửi thư",
+    "subscribers": "Người đăng ký",
+    "no_subscribers": "Danh sách này chưa có người đăng ký.",
+    "add_subscribers": "Thêm người đăng ký",
+    "subscribers_hint": "Địa chỉ email của người đăng ký (mỗi dòng một địa chỉ)",
+    "remove_subscriber_confirm": "Gỡ :address khỏi danh sách này?",
+    "msg_subscribers_added": "Đã thêm :count người đăng ký.",
+    "msg_subscriber_removed": "Đã gỡ :address khỏi danh sách."
   },
   "search": {
     "title": "Tìm kiếm",

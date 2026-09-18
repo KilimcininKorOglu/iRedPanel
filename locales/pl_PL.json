@@ -325,7 +325,14 @@
     "owners_desc": "Właściciele mogą zarządzać ustawieniami listy i moderować wiadomości.",
     "save_owners": "Zapisz właścicieli",
     "delete_button": "Usuń listę mailingową",
-    "back": "Powrót do list mailingowych"
+    "back": "Powrót do list mailingowych",
+    "subscribers": "Subskrybenci",
+    "no_subscribers": "Ta lista nie ma subskrybentów.",
+    "add_subscribers": "Dodaj subskrybentów",
+    "subscribers_hint": "Adresy e-mail subskrybentów (jeden w wierszu)",
+    "remove_subscriber_confirm": "Usunąć :address z tej listy?",
+    "msg_subscribers_added": "Dodano subskrybentów: :count.",
+    "msg_subscriber_removed": "Usunięto :address z listy."
   },
   "search": {
     "title": "Szukaj",

@@ -10,6 +10,12 @@ use App\Repositories\DomainRepositoryInterface;
 
 class MysqlDomainRepository implements DomainRepositoryInterface
 {
+    /** Tables whose `domain` column ties a row to a deleted domain. */
+    private const DOMAIN_TABLES_ON_DELETE = [
+        'mailbox', 'alias', 'domain_admins', 'forwardings', 'maillists', 'maillist_owners', 'moderators',
+        'sender_bcc_domain', 'recipient_bcc_domain', 'sender_bcc_user', 'recipient_bcc_user', 'last_login',
+    ];
+
     public function getDomains(): array
     {
         $pdo = MysqlConnection::getInstance()->getPdo();
@@ -171,12 +177,17 @@ class MysqlDomainRepository implements DomainRepositoryInterface
             );
             $stmt->execute(['admin' => $adminEmail, 'domain' => $domainName]);
 
-            // Delete from all related tables
-            $tables = ['mailbox', 'alias', 'domain_admins', 'forwardings'];
-            foreach ($tables as $table) {
+            // Delete from every table with a domain column, as iRedAdmin delete_domains() does
+            foreach (self::DOMAIN_TABLES_ON_DELETE as $table) {
                 $stmt = $pdo->prepare("DELETE FROM {$table} WHERE domain = :domain");
                 $stmt->execute(['domain' => $domainName]);
             }
+
+            // Admin roles and relay hosts of the domain and of its mailboxes
+            $stmt = $pdo->prepare("DELETE FROM domain_admins WHERE username LIKE :pattern");
+            $stmt->execute(['pattern' => '%@' . $domainName]);
+            $stmt = $pdo->prepare("DELETE FROM sender_relayhost WHERE account = :domainAccount OR account LIKE :pattern");
+            $stmt->execute(['domainAccount' => '@' . $domainName, 'pattern' => '%@' . $domainName]);
 
             // Delete used_quota entries for this domain's users
             $stmt = $pdo->prepare("DELETE FROM used_quota WHERE SUBSTRING_INDEX(username, '@', -1) = :domain");

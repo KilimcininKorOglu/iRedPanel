@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Api;
 
 use App\Repositories\RepositoryFactory;
+use App\Utils\IredapdList;
 
 class GreylistApiController
 {
@@ -29,12 +30,27 @@ class GreylistApiController
         $data = ApiMiddleware::getJsonBody();
         $repo = RepositoryFactory::getIredapdRepository();
 
+        $senders = null;
+        if (isset($data['whitelistedSenders'])) {
+            $raw = $data['whitelistedSenders'];
+            if (!is_array($raw) || array_filter($raw, 'is_string') !== $raw) {
+                ApiResponse::error('whitelistedSenders must be an array of strings');
+                return;
+            }
+            try {
+                $senders = IredapdList::greylistSenders($raw);
+            } catch (\InvalidArgumentException $e) {
+                ApiResponse::error("Invalid whitelisted sender: {$e->getMessage()}");
+                return;
+            }
+        }
+
         if (isset($data['enabled'])) {
             $repo->setGreylistEnabled($account, (bool) $data['enabled']);
         }
 
-        if (isset($data['whitelistedSenders'])) {
-            $repo->setWhitelistedSenders($account, $data['whitelistedSenders']);
+        if ($senders !== null) {
+            $repo->setWhitelistedSenders($account, $senders);
         }
 
         ApiResponse::success(['message' => 'Greylist settings updated']);

@@ -87,12 +87,13 @@ class IredapdController
                     ActivityLogger::logUpdate('', $account, "Greylisting {$status} for {$account}");
                     $success = Translator::translate($enabled ? 'greylist.msg_enabled' : 'greylist.msg_disabled');
                 } elseif ($action === 'whitelist') {
-                    $sendersRaw = $_POST['whitelistedSenders'] ?? '';
-                    $senders = array_filter(array_map('trim', explode("\n", $sendersRaw)));
+                    $senders = IredapdList::greylistSenders(explode("\n", $_POST['whitelistedSenders'] ?? ''));
                     $repo->setWhitelistedSenders($account, $senders);
                     ActivityLogger::logUpdate('', $account, "Greylist whitelist updated for {$account}");
                     $success = Translator::translate('greylist.msg_whitelist_updated');
                 }
+            } catch (\InvalidArgumentException $e) {
+                $error = Translator::translate('common.msg_invalid_address', ['address' => $e->getMessage()]);
             } catch (\Exception $e) {
                 $error = BaseController::errorMessage($e);
             }

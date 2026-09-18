@@ -32,6 +32,22 @@ class IredapdListTest extends TestCase
         ];
     }
 
+    public function testGreylistSendersAcceptTheFormatsIredapdMatches(): void
+    {
+        // greylisting_whitelists is unique per (account, sender) with a
+        // case-insensitive collation, so case variants must collapse.
+        $senders = IredapdList::greylistSenders(['User@Example.com', '@example.org', '@.example.net', '192.0.2.1', '192.0.2.0/24', 'user@example.com']);
+
+        $this->assertSame(['user@example.com', '@example.org', '@.example.net', '192.0.2.1', '192.0.2.0/24'], $senders);
+    }
+
+    public function testGreylistSendersRejectsText(): void
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage('not an address');
+        IredapdList::greylistSenders(['@example.org', 'not an address']);
+    }
+
     public function testIpAddressesUseTheFormThatPostfixSends(): void
     {
         // iRedAPD looks up the client address exactly as Postfix reports it.

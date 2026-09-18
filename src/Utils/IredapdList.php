@@ -24,6 +24,19 @@ class IredapdList
     }
 
     /**
+     * Greylisting whitelist senders: an address, a domain, a sub-domain, an IP
+     * or a CIDR network. iRedAPD compares them in lower case.
+     *
+     * @param string[] $lines
+     * @return string[]
+     * @throws \InvalidArgumentException with the invalid entry as message
+     */
+    public static function greylistSenders(array $lines): array
+    {
+        return self::normalize($lines, [AmavisdAddress::class, 'isValidWblistAddress']);
+    }
+
+    /**
      * @param string[] $lines
      * @return string[]
      * @throws \InvalidArgumentException with the invalid entry as message

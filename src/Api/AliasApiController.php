@@ -67,9 +67,14 @@ class AliasApiController
             return;
         }
 
+        if (!str_ends_with(strtolower($address), '@' . strtolower($domain))) {
+            ApiResponse::error('address must be in domain');
+            return;
+        }
+
         $repo = RepositoryFactory::getAliasRepository();
-        if ($repo->getAlias($address) !== null) {
-            ApiResponse::error('Alias already exists', 409);
+        if ($repo->isAddressInUse($address)) {
+            ApiResponse::error('Address already in use', 409);
             return;
         }
 

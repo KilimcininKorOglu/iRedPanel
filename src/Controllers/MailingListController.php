@@ -56,11 +56,11 @@ class MailingListController
                     throw new \RuntimeException('Email address and domain are required');
                 }
 
-                $address = $localPart . '@' . $domain;
+                $address = strtolower($localPart . '@' . $domain);
                 $repo = RepositoryFactory::getMailingListRepository();
 
-                if ($repo->getMailingList($address) !== null) {
-                    throw new \RuntimeException('Mailing list already exists: ' . $address);
+                if (RepositoryFactory::getAliasRepository()->isAddressInUse($address)) {
+                    throw new \RuntimeException(Translator::translate('common.msg_address_in_use', ['address' => $address]));
                 }
 
                 // Enforce domain alias limit (mailing lists count as aliases)

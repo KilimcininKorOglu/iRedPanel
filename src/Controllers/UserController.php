@@ -361,6 +361,8 @@ class UserController
 
             if ($user !== null) {
                 $validationErrors['uid'] = Translator::translate('user.msg_exists', ['uid' => $userUid]);
+            } elseif (RepositoryFactory::getAliasRepository()->isAddressInUse(strtolower("{$userUid}@{$domain}"))) {
+                $validationErrors['uid'] = Translator::translate('common.msg_address_in_use', ['address' => "{$userUid}@{$domain}"]);
             } else {
                 try {
                     // The create form has no status field; a new mailbox starts active.
@@ -446,7 +448,7 @@ class UserController
             throw new \RuntimeException(Translator::translate('user.msg_alias_domain_mismatch', ['domain' => $domain]));
         }
         if (RepositoryFactory::getAliasRepository()->isAddressInUse($address)) {
-            throw new \RuntimeException(Translator::translate('user.msg_alias_in_use', ['address' => $address]));
+            throw new \RuntimeException(Translator::translate('common.msg_address_in_use', ['address' => $address]));
         }
     }
 

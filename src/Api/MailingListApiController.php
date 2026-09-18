@@ -54,9 +54,14 @@ class MailingListApiController
             return;
         }
 
+        if (!str_ends_with(strtolower($address), '@' . strtolower($domain))) {
+            ApiResponse::error('address must be in domain');
+            return;
+        }
+
         $repo = RepositoryFactory::getMailingListRepository();
-        if ($repo->getMailingList($address) !== null) {
-            ApiResponse::error('Mailing list already exists', 409);
+        if (RepositoryFactory::getAliasRepository()->isAddressInUse($address)) {
+            ApiResponse::error('Address already in use', 409);
             return;
         }
 

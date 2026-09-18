@@ -79,6 +79,11 @@ class UserApiController
             return;
         }
 
+        if (RepositoryFactory::getAliasRepository()->isAddressInUse(strtolower("{$user->uid}@{$domain}"))) {
+            ApiResponse::error('Address already in use', 409);
+            return;
+        }
+
         // Enforce domain limits
         if ($domainObj !== null) {
             if ($domainObj->mailboxes > 0 && $domainObj->currentUserCount >= $domainObj->mailboxes) {

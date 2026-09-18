@@ -58,13 +58,13 @@ class AliasController
                     throw new \RuntimeException('Email address and domain are required');
                 }
 
-                $address = $localPart . '@' . $domain;
+                $address = strtolower($localPart . '@' . $domain);
                 $members = array_filter(array_map('trim', explode("\n", $membersRaw)));
 
                 $repo = RepositoryFactory::getAliasRepository();
 
-                if ($repo->getAlias($address) !== null) {
-                    throw new \RuntimeException('Alias already exists: ' . $address);
+                if ($repo->isAddressInUse($address)) {
+                    throw new \RuntimeException(Translator::translate('common.msg_address_in_use', ['address' => $address]));
                 }
 
                 // Enforce domain alias limit

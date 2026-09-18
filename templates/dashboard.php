@@ -9,6 +9,9 @@
   </div>
   <?php endif; ?>
 
+  <?php if (empty($stats)): ?>
+  <p><a href="/domains" class="button primary outline"><?= $te('dashboard.manage_domains') ?></a></p>
+  <?php else: ?>
   <div class="row">
     <div class="col-4">
       <div class="card">
@@ -74,6 +77,7 @@
       </div>
     </div>
   </div>
+  <?php endif; ?>
 
   <?php if (!empty($systemInfo)): ?>
   <div class="row" style="margin-top: 1rem;">

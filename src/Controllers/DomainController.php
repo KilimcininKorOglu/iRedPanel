@@ -9,6 +9,7 @@ use App\I18n\Translator;
 use App\Middleware;
 use App\Models\Domain;
 use App\Models\DomainSettings;
+use App\Models\PaginatedResult;
 use App\Models\Settings;
 use App\Repositories\RepositoryFactory;
 use App\Services\ActivityLogger;
@@ -21,7 +22,7 @@ class DomainController
      */
     public static function domainList(TemplateEngine $tpl): void
     {
-        Middleware::globalAdminRequired();
+        Middleware::loginRequired();
 
         $settings = Settings::getInstance();
         $page = max(1, (int) ($_GET['page'] ?? 1));
@@ -33,13 +34,35 @@ class DomainController
             default => null,
         };
 
-        $paginatedResult = RepositoryFactory::getDomainRepository()->getDomainsPaginated($page, $perPage, $activeOnly);
+        $isGlobalAdmin = !empty($_SESSION['isGlobalAdmin']);
+        $paginatedResult = $isGlobalAdmin
+            ? RepositoryFactory::getDomainRepository()->getDomainsPaginated($page, $perPage, $activeOnly)
+            : self::managedDomainsPaginated($page, $perPage, $activeOnly);
 
         $tpl->render('domainList.php', [
             'paginatedResult' => $paginatedResult,
             'domains' => $paginatedResult->items,
             'statusFilter' => $statusFilter,
+            'isGlobalAdmin' => $isGlobalAdmin,
         ]);
+    }
+
+    /**
+     * Pages the domains that the logged-in domain admin manages.
+     */
+    private static function managedDomainsPaginated(int $page, int $perPage, ?bool $activeOnly): PaginatedResult
+    {
+        $repo = RepositoryFactory::getDomainRepository();
+        $domains = [];
+        foreach ($_SESSION['managedDomains'] ?? [] as $domainName) {
+            $domain = $repo->getDomain($domainName);
+            if ($domain !== null && ($activeOnly === null || $domain->active === $activeOnly)) {
+                $domains[] = $domain;
+            }
+        }
+        usort($domains, fn(Domain $a, Domain $b) => strcmp($a->domainName, $b->domainName));
+
+        return new PaginatedResult(array_slice($domains, ($page - 1) * $perPage, $perPage), count($domains), $page, $perPage);
     }
 
     /**

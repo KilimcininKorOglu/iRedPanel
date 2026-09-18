@@ -39,6 +39,11 @@ interface AliasRepositoryInterface
 
     public function removeUserAlias(string $email, string $aliasAddress): bool;
 
+    /**
+     * Returns true when a mailbox, alias, mailing list or per-user alias already uses the address.
+     */
+    public function isAddressInUse(string $address): bool;
+
     public function getCatchall(string $domain): ?string;
 
     public function setCatchall(string $domain, ?string $targetEmail): bool;

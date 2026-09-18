@@ -291,6 +291,22 @@ class MysqlAliasRepository implements AliasRepositoryInterface
         return true;
     }
 
+    public function isAddressInUse(string $address): bool
+    {
+        $pdo = MysqlConnection::getInstance()->getPdo();
+
+        // forwardings.address covers mailbox forwardings, alias members, lists and per-user aliases.
+        $stmt = $pdo->prepare(
+            "SELECT 1 FROM mailbox WHERE username = :mailbox
+             UNION SELECT 1 FROM alias WHERE address = :alias
+             UNION SELECT 1 FROM maillists WHERE address = :list
+             UNION SELECT 1 FROM forwardings WHERE address = :forwarding"
+        );
+        $stmt->execute(['mailbox' => $address, 'alias' => $address, 'list' => $address, 'forwarding' => $address]);
+
+        return $stmt->fetch() !== false;
+    }
+
     public function getCatchall(string $domain): ?string
     {
         $pdo = MysqlConnection::getInstance()->getPdo();

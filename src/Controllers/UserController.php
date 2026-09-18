@@ -163,8 +163,9 @@ class UserController
                     $action = $_POST['action'] ?? '';
 
                     if ($action === 'add') {
-                        $newAlias = trim($_POST['newAlias'] ?? '');
+                        $newAlias = strtolower(trim($_POST['newAlias'] ?? ''));
                         if ($newAlias !== '') {
+                            self::assertUserAliasAvailable($domain, $newAlias);
                             $aliasRepo->addUserAlias($email, $newAlias);
                             ActivityLogger::logUpdate($domain, $userUid, "Added alias: {$newAlias}");
                         }
@@ -430,6 +431,23 @@ class UserController
             'user' => $user,
             'defaultQuota' => $defaultQuota > 0 ? $defaultQuota : 100,
         ]);
+    }
+
+    /**
+     * A per-user alias delivers every message for the address to the user, so it
+     * must stay inside the user's domain and must not take over an existing address.
+     */
+    private static function assertUserAliasAvailable(string $domain, string $address): void
+    {
+        if (filter_var($address, FILTER_VALIDATE_EMAIL) === false) {
+            throw new \RuntimeException(Translator::translate('user.msg_alias_invalid', ['address' => $address]));
+        }
+        if (explode('@', $address, 2)[1] !== $domain) {
+            throw new \RuntimeException(Translator::translate('user.msg_alias_domain_mismatch', ['domain' => $domain]));
+        }
+        if (RepositoryFactory::getAliasRepository()->isAddressInUse($address)) {
+            throw new \RuntimeException(Translator::translate('user.msg_alias_in_use', ['address' => $address]));
+        }
     }
 
     private static function domainSettings(string $domain): DomainSettings

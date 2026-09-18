@@ -277,6 +277,26 @@ class LdapAliasRepository implements AliasRepositoryInterface
         return @ldap_mod_del($conn, $userDn, ['shadowAddress' => [$aliasAddress]]);
     }
 
+    public function isAddressInUse(string $address): bool
+    {
+        $conn = LdapConnection::getInstance()->getConn();
+        $escaped = ldap_escape($address, '', LDAP_ESCAPE_FILTER);
+
+        $result = @ldap_search(
+            $conn,
+            Settings::getInstance()->ldapRootDn,
+            "(|(mail={$escaped})(shadowAddress={$escaped}))",
+            ['mail'],
+            0,
+            1
+        );
+        if ($result === false) {
+            throw new \RuntimeException('LDAP search failed: ' . ldap_error($conn));
+        }
+
+        return (ldap_count_entries($conn, $result) ?: 0) > 0;
+    }
+
     public function getCatchall(string $domain): ?string
     {
         $conn = LdapConnection::getInstance()->getConn();

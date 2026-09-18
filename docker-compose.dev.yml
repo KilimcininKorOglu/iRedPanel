@@ -9,8 +9,11 @@ services:
     container_name: iredpanel-dev
     restart: unless-stopped
     # The repository, including .env and vendor/, is mounted live.
+    # IREDPANEL_ENV_FILE mounts another env file over .env inside the
+    # container, for example .env.docker-pgsql for the Docker backend stacks.
     volumes:
       - .:/var/www/html
+      - ./${IREDPANEL_ENV_FILE:-.env}:/var/www/html/.env:ro
     ports:
       - "127.0.0.1:8521:80"
     networks:

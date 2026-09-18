@@ -23,8 +23,9 @@ locale-parity:
 network:
 	docker network inspect $(NETWORK) >/dev/null 2>&1 || docker network create $(NETWORK)
 
+# Pick the panel env file with ENV, e.g. make dev-up ENV=.env.docker-pgsql
 dev-up: network
-	$(DEV) up -d --build
+	IREDPANEL_ENV_FILE=$(or $(ENV),.env) $(DEV) up -d --build --force-recreate
 
 dev-down:
 	$(DEV) down

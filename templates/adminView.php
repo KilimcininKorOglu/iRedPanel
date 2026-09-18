@@ -1,4 +1,4 @@
-<?php $pageTitle = $e($admin->username); ?>
+<?php $pageTitle = $admin->username; ?>
 <div class="container">
   <div class="row">
     <div class="col-8">

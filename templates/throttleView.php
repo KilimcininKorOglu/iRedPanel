@@ -1,4 +1,4 @@
-<?php $pageTitle = $t('throttle.view_title') . ': ' . $e($account); ?>
+<?php $pageTitle = $t('throttle.view_title') . ': ' . $account; ?>
 <div class="container">
   <h1><?= $te('throttle.settings_title') ?></h1>
 

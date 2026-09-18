@@ -1,4 +1,4 @@
-<?php $pageTitle = $t('greylist.view_title') . ': ' . $e($account); ?>
+<?php $pageTitle = $t('greylist.view_title') . ': ' . $account; ?>
 <div class="container">
   <h1><?= $te('greylist.settings_title') ?></h1>
 

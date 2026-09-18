@@ -1,4 +1,4 @@
-<?php $pageTitle = $e($domain->domainName); ?>
+<?php $pageTitle = $domain->domainName; ?>
 <div class="container">
   <div class="row">
     <div class="col-8">

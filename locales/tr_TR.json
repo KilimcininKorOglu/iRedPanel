@@ -294,7 +294,6 @@
     "create_title": "Posta Listesi Oluştur",
     "display_name_placeholder": "örn. Proje Tartışması",
     "max_msg_size": "Maks. ileti boyutu (bayt, 0 = sınırsız)",
-    "max_members": "Maks. üye (0 = sınırsız)",
     "create_button": "Posta Listesi Oluştur",
     "view_title": "Posta Listesi: :address",
     "list_settings": "Liste Ayarları",

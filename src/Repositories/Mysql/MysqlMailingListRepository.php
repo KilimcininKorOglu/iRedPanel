@@ -27,7 +27,7 @@ class MysqlMailingListRepository implements MailingListRepositoryInterface
         $totalCount = (int) $countStmt->fetch()['total'];
 
         $stmt = $pdo->prepare(
-            "SELECT address, domain, name, transport, accesspolicy, maxmsgsize, maxmembers, active, created
+            "SELECT address, domain, name, transport, accesspolicy, maxmsgsize, active, created
              FROM maillists {$where}
              ORDER BY address
              LIMIT :perPage OFFSET :offset"
@@ -52,7 +52,7 @@ class MysqlMailingListRepository implements MailingListRepositoryInterface
         $pdo = MysqlConnection::getInstance()->getPdo();
 
         $stmt = $pdo->prepare(
-            "SELECT address, domain, name, transport, accesspolicy, maxmsgsize, maxmembers, active, created
+            "SELECT address, domain, name, transport, accesspolicy, maxmsgsize, active, created
              FROM maillists WHERE address = :address LIMIT 1"
         );
         $stmt->execute(['address' => $address]);
@@ -62,15 +62,15 @@ class MysqlMailingListRepository implements MailingListRepositoryInterface
     }
 
     public function createMailingList(string $address, string $domain, string $name,
-                                     string $accessPolicy, int $maxMsgSize, int $maxMembers): bool
+                                     string $accessPolicy, int $maxMsgSize): bool
     {
         $pdo = MysqlConnection::getInstance()->getPdo();
 
         $transport = "mlmmj:{$address}";
 
         $stmt = $pdo->prepare(
-            "INSERT INTO maillists (address, domain, name, transport, accesspolicy, maxmsgsize, maxmembers, active, created)
-             VALUES (:address, :domain, :name, :transport, :accesspolicy, :maxmsgsize, :maxmembers, 1, NOW())"
+            "INSERT INTO maillists (address, domain, name, transport, accesspolicy, maxmsgsize, active, created)
+             VALUES (:address, :domain, :name, :transport, :accesspolicy, :maxmsgsize, 1, NOW())"
         );
         $stmt->execute([
             'address' => $address,
@@ -79,27 +79,25 @@ class MysqlMailingListRepository implements MailingListRepositoryInterface
             'transport' => $transport,
             'accesspolicy' => $accessPolicy,
             'maxmsgsize' => $maxMsgSize,
-            'maxmembers' => $maxMembers,
         ]);
 
         return true;
     }
 
     public function updateMailingList(string $address, string $name, string $accessPolicy,
-                                     int $maxMsgSize, int $maxMembers, bool $active): bool
+                                     int $maxMsgSize, bool $active): bool
     {
         $pdo = MysqlConnection::getInstance()->getPdo();
 
         $stmt = $pdo->prepare(
             "UPDATE maillists SET name = :name, accesspolicy = :accesspolicy,
-             maxmsgsize = :maxmsgsize, maxmembers = :maxmembers, active = :active
+             maxmsgsize = :maxmsgsize, active = :active
              WHERE address = :address"
         );
         $stmt->execute([
             'name' => $name,
             'accesspolicy' => $accessPolicy,
             'maxmsgsize' => $maxMsgSize,
-            'maxmembers' => $maxMembers,
             'active' => $active ? 1 : 0,
             'address' => $address,
         ]);
@@ -191,7 +189,6 @@ class MysqlMailingListRepository implements MailingListRepositoryInterface
             accessPolicy: $row['accesspolicy'] ?? 'public',
             transport: $row['transport'] ?? '',
             maxMsgSize: (int) ($row['maxmsgsize'] ?? 0),
-            maxMembers: (int) ($row['maxmembers'] ?? 0),
             active: (bool) ($row['active'] ?? true),
             created: $row['created'] ?? null,
         );

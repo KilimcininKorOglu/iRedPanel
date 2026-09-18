@@ -68,7 +68,7 @@ class LdapMailingListRepository implements MailingListRepositoryInterface
     }
 
     public function createMailingList(string $address, string $domain, string $name,
-                                     string $accessPolicy, int $maxMsgSize, int $maxMembers): bool
+                                     string $accessPolicy, int $maxMsgSize): bool
     {
         $conn = LdapConnection::getInstance()->getConn();
         $dn = $this->getMailingListDn($address);
@@ -88,15 +88,12 @@ class LdapMailingListRepository implements MailingListRepositoryInterface
         if ($maxMsgSize > 0) {
             $entry['maxMessageSize'] = (string) $maxMsgSize;
         }
-        if ($maxMembers > 0) {
-            $entry['maxMembers'] = (string) $maxMembers;
-        }
 
         return @ldap_add($conn, $dn, $entry);
     }
 
     public function updateMailingList(string $address, string $name, string $accessPolicy,
-                                     int $maxMsgSize, int $maxMembers, bool $active): bool
+                                     int $maxMsgSize, bool $active): bool
     {
         $conn = LdapConnection::getInstance()->getConn();
         $dn = $this->getMailingListDn($address);
@@ -106,7 +103,6 @@ class LdapMailingListRepository implements MailingListRepositoryInterface
             LdapUtils::modReplace('accountStatus', $active ? 'active' : 'disabled'),
             LdapUtils::modReplace('cn', $name !== '' ? $name : null),
             LdapUtils::modReplace('maxMessageSize', $maxMsgSize > 0 ? (string) $maxMsgSize : null),
-            LdapUtils::modReplace('maxMembers', $maxMembers > 0 ? (string) $maxMembers : null),
         ];
 
         return @ldap_modify_batch($conn, $dn, $modifications);
@@ -199,7 +195,6 @@ class LdapMailingListRepository implements MailingListRepositoryInterface
             accessPolicy: $entry['accesspolicy'][0] ?? 'public',
             transport: $entry['transport'][0] ?? '',
             maxMsgSize: (int) ($entry['maxmessagesize'][0] ?? 0),
-            maxMembers: (int) ($entry['maxmembers'][0] ?? 0),
             active: ($entry['accountstatus'][0] ?? 'active') === 'active',
         );
     }

@@ -76,7 +76,6 @@ class MailingListApiController
             $data['name'] ?? '',
             $data['accessPolicy'] ?? 'public',
             (int) ($data['maxMsgSize'] ?? 0),
-            (int) ($data['maxMembers'] ?? 0),
         );
         ApiResponse::created(['address' => $address]);
     }
@@ -98,7 +97,6 @@ class MailingListApiController
             $data['name'] ?? $ml->name,
             $data['accessPolicy'] ?? $ml->accessPolicy,
             (int) ($data['maxMsgSize'] ?? $ml->maxMsgSize),
-            (int) ($data['maxMembers'] ?? $ml->maxMembers),
             $data['active'] ?? $ml->active,
         );
         ApiResponse::success(['message' => 'Mailing list updated']);

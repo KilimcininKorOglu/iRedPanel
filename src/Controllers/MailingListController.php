@@ -51,7 +51,6 @@ class MailingListController
                 $name = trim($_POST['name'] ?? '');
                 $accessPolicy = trim($_POST['accessPolicy'] ?? 'public');
                 $maxMsgSize = (int) ($_POST['maxMsgSize'] ?? 0);
-                $maxMembers = (int) ($_POST['maxMembers'] ?? 0);
 
                 if ($localPart === '' || $domain === '') {
                     throw new \RuntimeException('Email address and domain are required');
@@ -74,7 +73,7 @@ class MailingListController
                     }
                 }
 
-                $repo->createMailingList($address, $domain, $name, $accessPolicy, $maxMsgSize, $maxMembers);
+                $repo->createMailingList($address, $domain, $name, $accessPolicy, $maxMsgSize);
                 ActivityLogger::logCreate('mailinglist', $domain, "Created mailing list: {$address}");
 
                 header("Location: /mailing-lists/{$address}");
@@ -117,10 +116,9 @@ class MailingListController
                     $name = trim($_POST['name'] ?? '');
                     $accessPolicy = trim($_POST['accessPolicy'] ?? 'public');
                     $maxMsgSize = (int) ($_POST['maxMsgSize'] ?? 0);
-                    $maxMembers = (int) ($_POST['maxMembers'] ?? 0);
                     $active = isset($_POST['active']);
 
-                    $repo->updateMailingList($address, $name, $accessPolicy, $maxMsgSize, $maxMembers, $active);
+                    $repo->updateMailingList($address, $name, $accessPolicy, $maxMsgSize, $active);
                     ActivityLogger::logUpdate('mailinglist', $ml->domain, "Updated mailing list: {$address}");
                     $success = Translator::translate('mlist.msg_updated');
                 } elseif ($action === 'updateOwners') {

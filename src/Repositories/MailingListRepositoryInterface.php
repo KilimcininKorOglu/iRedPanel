@@ -14,10 +14,10 @@ interface MailingListRepositoryInterface
     public function getMailingList(string $address): ?MailingList;
 
     public function createMailingList(string $address, string $domain, string $name,
-                                     string $accessPolicy, int $maxMsgSize, int $maxMembers): bool;
+                                     string $accessPolicy, int $maxMsgSize): bool;
 
     public function updateMailingList(string $address, string $name, string $accessPolicy,
-                                     int $maxMsgSize, int $maxMembers, bool $active): bool;
+                                     int $maxMsgSize, bool $active): bool;
 
     public function deleteMailingList(string $address): bool;
 

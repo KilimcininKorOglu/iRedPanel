@@ -294,7 +294,6 @@
     "create_title": "Mailinglijst aanmaken",
     "display_name_placeholder": "bijv. Projectdiscussie",
     "max_msg_size": "Max. berichtgrootte (bytes, 0 = onbeperkt)",
-    "max_members": "Max. leden (0 = onbeperkt)",
     "create_button": "Mailinglijst aanmaken",
     "view_title": "Mailinglijst: :address",
     "list_settings": "Lijstinstellingen",

@@ -294,7 +294,6 @@
     "create_title": "Vytvoriť distribučný zoznam",
     "display_name_placeholder": "napr. Diskusia o projekte",
     "max_msg_size": "Max. veľkosť správy (bajty, 0 = neobmedzené)",
-    "max_members": "Max. členov (0 = neobmedzené)",
     "create_button": "Vytvoriť distribučný zoznam",
     "view_title": "Distribučný zoznam: :address",
     "list_settings": "Nastavenia zoznamu",

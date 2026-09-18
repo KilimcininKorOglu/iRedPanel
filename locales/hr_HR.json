@@ -294,7 +294,6 @@
     "create_title": "Stvori mailing listu",
     "display_name_placeholder": "npr. Rasprava o projektu",
     "max_msg_size": "Maks. veličina poruke (bajtovi, 0 = neograničeno)",
-    "max_members": "Maks. članova (0 = neograničeno)",
     "create_button": "Stvori mailing listu",
     "view_title": "Mailing lista: :address",
     "list_settings": "Postavke liste",

@@ -29,16 +29,8 @@
             <option value="moderatorsOnly" <?= $ml->accessPolicy === 'moderatorsOnly' ? 'selected' : '' ?>><?= $te('alias.policy_moderators') ?></option>
           </select>
 
-          <div class="row">
-            <div class="col-6">
-              <label for="maxMsgSize"><?= $te('mlist.max_msg_size') ?></label>
-              <input type="number" id="maxMsgSize" name="maxMsgSize" min="0" value="<?= $e($ml->maxMsgSize) ?>" />
-            </div>
-            <div class="col-6">
-              <label for="maxMembers"><?= $te('mlist.max_members') ?></label>
-              <input type="number" id="maxMembers" name="maxMembers" min="0" value="<?= $e($ml->maxMembers) ?>" />
-            </div>
-          </div>
+          <label for="maxMsgSize"><?= $te('mlist.max_msg_size') ?></label>
+          <input type="number" id="maxMsgSize" name="maxMsgSize" min="0" value="<?= $e($ml->maxMsgSize) ?>" />
 
           <label>
             <input type="checkbox" name="active" <?= $ml->active ? 'checked' : '' ?> />

@@ -294,7 +294,6 @@
     "create_title": "Luo postituslista",
     "display_name_placeholder": "esim. Projektikeskustelu",
     "max_msg_size": "Viestin enimmäiskoko (tavua, 0 = rajoittamaton)",
-    "max_members": "Enimmäisjäsenmäärä (0 = rajoittamaton)",
     "create_button": "Luo postituslista",
     "view_title": "Postituslista: :address",
     "list_settings": "Listan asetukset",

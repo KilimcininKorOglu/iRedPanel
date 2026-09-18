@@ -294,7 +294,6 @@
     "create_title": "메일링 리스트 생성",
     "display_name_placeholder": "예: 프로젝트 토론",
     "max_msg_size": "최대 메시지 크기 (바이트, 0 = 무제한)",
-    "max_members": "최대 회원 수 (0 = 무제한)",
     "create_button": "메일링 리스트 생성",
     "view_title": "메일링 리스트: :address",
     "list_settings": "리스트 설정",

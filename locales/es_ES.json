@@ -294,7 +294,6 @@
     "create_title": "Crear lista de correo",
     "display_name_placeholder": "p. ej. Debate del proyecto",
     "max_msg_size": "Tamaño máx. de mensaje (bytes, 0 = ilimitado)",
-    "max_members": "Máx. miembros (0 = ilimitado)",
     "create_button": "Crear lista de correo",
     "view_title": "Lista de correo: :address",
     "list_settings": "Ajustes de la lista",

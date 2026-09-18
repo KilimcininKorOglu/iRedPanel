@@ -294,7 +294,6 @@
     "create_title": "Tạo danh sách gửi thư",
     "display_name_placeholder": "vd: Thảo luận dự án",
     "max_msg_size": "Kích thước tin nhắn tối đa (byte, 0 = không giới hạn)",
-    "max_members": "Số thành viên tối đa (0 = không giới hạn)",
     "create_button": "Tạo danh sách gửi thư",
     "view_title": "Danh sách gửi thư: :address",
     "list_settings": "Cài đặt danh sách",

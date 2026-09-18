@@ -294,7 +294,6 @@
     "create_title": "Mailingliste erstellen",
     "display_name_placeholder": "z. B. Projektdiskussion",
     "max_msg_size": "Max. Nachrichtengröße (Bytes, 0 = unbegrenzt)",
-    "max_members": "Max. Mitglieder (0 = unbegrenzt)",
     "create_button": "Mailingliste erstellen",
     "view_title": "Mailingliste: :address",
     "list_settings": "Listeneinstellungen",

@@ -294,7 +294,6 @@
     "create_title": "Create Mailing List",
     "display_name_placeholder": "e.g. Project Discussion",
     "max_msg_size": "Max message size (bytes, 0 = unlimited)",
-    "max_members": "Max members (0 = unlimited)",
     "create_button": "Create Mailing List",
     "view_title": "Mailing List: :address",
     "list_settings": "List Settings",

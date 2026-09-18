@@ -294,7 +294,6 @@
     "create_title": "Opret mailingliste",
     "display_name_placeholder": "f.eks. Projektdiskussion",
     "max_msg_size": "Maks. beskedstørrelse (bytes, 0 = ubegrænset)",
-    "max_members": "Maks. medlemmer (0 = ubegrænset)",
     "create_button": "Opret mailingliste",
     "view_title": "Mailingliste: :address",
     "list_settings": "Listeindstillinger",

@@ -294,7 +294,6 @@
     "create_title": "メーリングリストを作成",
     "display_name_placeholder": "例：プロジェクトディスカッション",
     "max_msg_size": "最大メッセージサイズ（バイト、0 = 無制限）",
-    "max_members": "最大メンバー数（0 = 無制限）",
     "create_button": "メーリングリストを作成",
     "view_title": "メーリングリスト：:address",
     "list_settings": "リスト設定",

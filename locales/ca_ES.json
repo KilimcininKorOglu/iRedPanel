@@ -294,7 +294,6 @@
     "create_title": "Crear llista de correu",
     "display_name_placeholder": "p. ex. Debat del projecte",
     "max_msg_size": "Mida màxima de missatge (bytes, 0 = il·limitat)",
-    "max_members": "Màxim de membres (0 = il·limitat)",
     "create_button": "Crear llista de correu",
     "view_title": "Llista de correu: :address",
     "list_settings": "Configuració de la llista",

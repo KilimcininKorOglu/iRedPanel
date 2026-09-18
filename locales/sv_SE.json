@@ -294,7 +294,6 @@
     "create_title": "Skapa sändlista",
     "display_name_placeholder": "t.ex. Projektdiskussion",
     "max_msg_size": "Max meddelandestorlek (byte, 0 = obegränsat)",
-    "max_members": "Max medlemmar (0 = obegränsat)",
     "create_button": "Skapa sändlista",
     "view_title": "Sändlista: :address",
     "list_settings": "Listinställningar",

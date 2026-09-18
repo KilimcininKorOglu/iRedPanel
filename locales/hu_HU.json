@@ -294,7 +294,6 @@
     "create_title": "Levelezőlista létrehozása",
     "display_name_placeholder": "pl. Projektmegbeszélés",
     "max_msg_size": "Max. üzenetméret (bájt, 0 = korlátlan)",
-    "max_members": "Max. tagok (0 = korlátlan)",
     "create_button": "Levelezőlista létrehozása",
     "view_title": "Levelezőlista: :address",
     "list_settings": "Lista beállításai",

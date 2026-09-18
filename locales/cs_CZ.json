@@ -294,7 +294,6 @@
     "create_title": "Vytvořit poštovní konferenci",
     "display_name_placeholder": "např. Diskuze o projektu",
     "max_msg_size": "Max. velikost zprávy (bajty, 0 = neomezeno)",
-    "max_members": "Max. členů (0 = neomezeno)",
     "create_button": "Vytvořit poštovní konferenci",
     "view_title": "Poštovní konference: :address",
     "list_settings": "Nastavení konference",

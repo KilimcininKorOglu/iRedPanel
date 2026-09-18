@@ -294,7 +294,6 @@
     "create_title": "Búa til póstlista",
     "display_name_placeholder": "t.d. Verkefnaumræða",
     "max_msg_size": "Hámarksstærð skilaboða (bæti, 0 = ótakmarkað)",
-    "max_members": "Hámark meðlima (0 = ótakmarkað)",
     "create_button": "Búa til póstlista",
     "view_title": "Póstlisti: :address",
     "list_settings": "Stillingar lista",

@@ -294,7 +294,6 @@
     "create_title": "Crea lista di distribuzione",
     "display_name_placeholder": "es. Discussione progetto",
     "max_msg_size": "Dimensione max messaggio (byte, 0 = illimitato)",
-    "max_members": "Max membri (0 = illimitato)",
     "create_button": "Crea lista di distribuzione",
     "view_title": "Lista di distribuzione: :address",
     "list_settings": "Impostazioni lista",

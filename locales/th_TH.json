@@ -294,7 +294,6 @@
     "create_title": "สร้างรายชื่อเมล",
     "display_name_placeholder": "เช่น การอภิปรายโครงการ",
     "max_msg_size": "ขนาดข้อความสูงสุด (ไบต์, 0 = ไม่จำกัด)",
-    "max_members": "สมาชิกสูงสุด (0 = ไม่จำกัด)",
     "create_button": "สร้างรายชื่อเมล",
     "view_title": "รายชื่อเมล: :address",
     "list_settings": "การตั้งค่ารายการ",

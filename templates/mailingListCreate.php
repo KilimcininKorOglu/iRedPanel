@@ -37,16 +37,8 @@
           <option value="moderatorsOnly"><?= $te('alias.policy_moderators') ?></option>
         </select>
 
-        <div class="row">
-          <div class="col-6">
-            <label for="maxMsgSize"><?= $te('mlist.max_msg_size') ?></label>
-            <input type="number" id="maxMsgSize" name="maxMsgSize" min="0" value="0" />
-          </div>
-          <div class="col-6">
-            <label for="maxMembers"><?= $te('mlist.max_members') ?></label>
-            <input type="number" id="maxMembers" name="maxMembers" min="0" value="0" />
-          </div>
-        </div>
+        <label for="maxMsgSize"><?= $te('mlist.max_msg_size') ?></label>
+        <input type="number" id="maxMsgSize" name="maxMsgSize" min="0" value="0" />
 
         <button type="submit" class="button primary"><?= $te('mlist.create_button') ?></button>
         <a href="/mailing-lists" class="button outline"><?= $te('common.cancel') ?></a>

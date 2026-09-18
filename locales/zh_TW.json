@@ -294,7 +294,6 @@
     "create_title": "建立郵件清單",
     "display_name_placeholder": "例如：專案討論",
     "max_msg_size": "最大訊息大小（位元組，0 = 無限制）",
-    "max_members": "最大成員數（0 = 無限制）",
     "create_button": "建立郵件清單",
     "view_title": "郵件清單：:address",
     "list_settings": "清單設定",

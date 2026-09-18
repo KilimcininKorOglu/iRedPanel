@@ -294,7 +294,6 @@
     "create_title": "Créer une liste de diffusion",
     "display_name_placeholder": "p. ex. Discussion projet",
     "max_msg_size": "Taille max. de message (octets, 0 = illimité)",
-    "max_members": "Max. membres (0 = illimité)",
     "create_button": "Créer la liste de diffusion",
     "view_title": "Liste de diffusion : :address",
     "list_settings": "Paramètres de la liste",

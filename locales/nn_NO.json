@@ -294,7 +294,6 @@
     "create_title": "Opprett e-postliste",
     "display_name_placeholder": "t.d. Prosjektdiskusjon",
     "max_msg_size": "Maks meldingsstorleik (byte, 0 = ubegrensa)",
-    "max_members": "Maks medlemmer (0 = ubegrensa)",
     "create_button": "Opprett e-postliste",
     "view_title": "E-postliste: :address",
     "list_settings": "Listeinnstillingar",

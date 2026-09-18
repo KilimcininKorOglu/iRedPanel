@@ -294,7 +294,6 @@
     "create_title": "Utwórz listę mailingową",
     "display_name_placeholder": "np. Dyskusja o projekcie",
     "max_msg_size": "Maks. rozmiar wiadomości (bajty, 0 = bez limitu)",
-    "max_members": "Maks. członków (0 = bez limitu)",
     "create_button": "Utwórz listę mailingową",
     "view_title": "Lista mailingowa: :address",
     "list_settings": "Ustawienia listy",

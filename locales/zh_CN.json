@@ -294,7 +294,6 @@
     "create_title": "创建邮件列表",
     "display_name_placeholder": "例如 项目讨论",
     "max_msg_size": "最大邮件大小（字节，0 = 无限制）",
-    "max_members": "最大成员数（0 = 无限制）",
     "create_button": "创建邮件列表",
     "view_title": "邮件列表：:address",
     "list_settings": "列表设置",

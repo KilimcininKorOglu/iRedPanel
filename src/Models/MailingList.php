@@ -13,7 +13,6 @@ class MailingList
         public readonly string $accessPolicy = 'public',
         public readonly string $transport = '',
         public readonly int $maxMsgSize = 0,
-        public readonly int $maxMembers = 0,
         public readonly bool $active = true,
         public readonly ?string $created = null,
     ) {}

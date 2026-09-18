@@ -294,7 +294,6 @@
     "create_title": "Ustvari poštni seznam",
     "display_name_placeholder": "npr. Razprava o projektu",
     "max_msg_size": "Največja velikost sporočila (bajti, 0 = neomejeno)",
-    "max_members": "Največ članov (0 = neomejeno)",
     "create_button": "Ustvari poštni seznam",
     "view_title": "Poštni seznam: :address",
     "list_settings": "Nastavitve seznama",

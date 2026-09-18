@@ -294,7 +294,6 @@
     "create_title": "Buat Milis",
     "display_name_placeholder": "mis: Diskusi Proyek",
     "max_msg_size": "Ukuran pesan maksimum (byte, 0 = tak terbatas)",
-    "max_members": "Anggota maksimum (0 = tak terbatas)",
     "create_button": "Buat Milis",
     "view_title": "Milis: :address",
     "list_settings": "Pengaturan milis",

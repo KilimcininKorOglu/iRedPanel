@@ -57,20 +57,11 @@ class MysqlSpamPolicyRepository implements SpamPolicyRepositoryInterface
     {
         $pdo = AmavisdConnection::getInstance()->getPdo();
 
-        $stmt = $pdo->prepare("SELECT u.id, u.policy_id FROM users u WHERE u.email = :account LIMIT 1");
-        $stmt->execute(['account' => $account]);
-        $user = $stmt->fetch();
-
-        if ($user === false) {
-            return true;
-        }
-
-        if ($user['policy_id'] !== null) {
-            $pdo->prepare("UPDATE users SET policy_id = NULL WHERE id = :uid")
-                ->execute(['uid' => $user['id']]);
-            $pdo->prepare("DELETE FROM policy WHERE id = :pid")
-                ->execute(['pid' => $user['policy_id']]);
-        }
+        // As iRedAdmin does: the account's own policy carries its name, and the
+        // users row stays because white/blacklist entries refer to it.
+        // users.policy_id is NOT NULL, so it keeps the old ID, and Amavisd
+        // falls through to the next lookup.
+        $pdo->prepare("DELETE FROM policy WHERE policy_name = :account")->execute(['account' => $account]);
 
         return true;
     }

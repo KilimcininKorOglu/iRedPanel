@@ -28,6 +28,7 @@
         <a href="/logs"><?= $te('nav.logs') ?></a>
         <?php if (!empty($features['amavisd'])): ?>
         <a href="/amavisd/quarantine"><?= $te('nav.quarantine') ?></a>
+        <a href="/amavisd/maillog"><?= $te('maillog.title') ?></a>
         <a href="/amavisd/spam-policy"><?= $te('nav.spam_policy') ?></a>
         <a href="/amavisd/wblist"><?= $te('nav.wblist') ?></a>
         <?php endif; ?>

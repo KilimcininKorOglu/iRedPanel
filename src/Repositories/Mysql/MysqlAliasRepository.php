@@ -8,6 +8,11 @@ use App\Models\Alias;
 use App\Models\PaginatedResult;
 use App\Repositories\AliasRepositoryInterface;
 
+/**
+ * Mail aliases in the iRedMail SQL layout: one `alias` row per alias, one
+ * `forwardings` row with `is_list = 1` per member, and the catch-all as
+ * `forwardings` rows whose `address` is the bare domain name.
+ */
 class MysqlAliasRepository implements AliasRepositoryInterface
 {
     public function getAliasesPaginated(int $page, int $perPage, ?string $domain = null): PaginatedResult
@@ -15,10 +20,10 @@ class MysqlAliasRepository implements AliasRepositoryInterface
         $pdo = MysqlConnection::getInstance()->getPdo();
         $offset = ($page - 1) * $perPage;
 
-        $where = "WHERE islist = 1";
+        $where = "";
         $params = [];
         if ($domain !== null) {
-            $where .= " AND domain = :domain";
+            $where = "WHERE domain = :domain";
             $params['domain'] = $domain;
         }
 
@@ -27,7 +32,7 @@ class MysqlAliasRepository implements AliasRepositoryInterface
         $totalCount = (int) $countStmt->fetch()['total'];
 
         $stmt = $pdo->prepare(
-            "SELECT address, domain, name, accesspolicy, islist, active, created, modified
+            "SELECT address, domain, name, accesspolicy, active, created, modified
              FROM alias {$where}
              ORDER BY address
              LIMIT :perPage OFFSET :offset"
@@ -52,9 +57,9 @@ class MysqlAliasRepository implements AliasRepositoryInterface
         $pdo = MysqlConnection::getInstance()->getPdo();
 
         $stmt = $pdo->prepare(
-            "SELECT address, domain, name, accesspolicy, islist, active, created, modified
+            "SELECT address, domain, name, accesspolicy, active, created, modified
              FROM alias
-             WHERE address = :address AND islist = 1
+             WHERE address = :address
              LIMIT 1"
         );
         $stmt->execute(['address' => $address]);
@@ -73,37 +78,17 @@ class MysqlAliasRepository implements AliasRepositoryInterface
 
         $pdo->beginTransaction();
         try {
-            $goto = !empty($members) ? implode(',', $members) : '';
-
-            $stmt = $pdo->prepare(
-                "INSERT INTO alias (address, domain, name, accesspolicy, goto, islist, active, created)
-                 VALUES (:address, :domain, :name, :accesspolicy, :goto, 1, 1, NOW())"
-            );
-            $stmt->execute([
+            $pdo->prepare(
+                "INSERT INTO alias (address, domain, name, accesspolicy, active, created)
+                 VALUES (:address, :domain, :name, :accesspolicy, 1, NOW())"
+            )->execute([
                 'address' => $address,
                 'domain' => $domain,
                 'name' => $name,
                 'accesspolicy' => $accessPolicy,
-                'goto' => $goto,
             ]);
 
-            foreach ($members as $member) {
-                $member = trim($member);
-                if ($member === '') {
-                    continue;
-                }
-                $destDomain = str_contains($member, '@') ? explode('@', $member, 2)[1] : $domain;
-                $fwdStmt = $pdo->prepare(
-                    "INSERT INTO forwardings (address, forwarding, domain, dest_domain, is_list, active)
-                     VALUES (:address, :forwarding, :domain, :destDomain, 1, 1)"
-                );
-                $fwdStmt->execute([
-                    'address' => $address,
-                    'forwarding' => $member,
-                    'domain' => $domain,
-                    'destDomain' => $destDomain,
-                ]);
-            }
+            $this->insertMembers($address, $domain, $members, true);
 
             $pdo->commit();
             return true;
@@ -119,44 +104,21 @@ class MysqlAliasRepository implements AliasRepositoryInterface
 
         $pdo->beginTransaction();
         try {
-            $goto = !empty($members) ? implode(',', $members) : '';
-
-            $stmt = $pdo->prepare(
-                "UPDATE alias SET name = :name, accesspolicy = :accesspolicy, goto = :goto,
+            $pdo->prepare(
+                "UPDATE alias SET name = :name, accesspolicy = :accesspolicy,
                  active = :active, modified = NOW()
-                 WHERE address = :address AND islist = 1"
-            );
-            $stmt->execute([
+                 WHERE address = :address"
+            )->execute([
                 'name' => $name,
                 'accesspolicy' => $accessPolicy,
-                'goto' => $goto,
                 'active' => $active ? 1 : 0,
                 'address' => $address,
             ]);
 
-            $alias = $this->getAlias($address);
-            $domain = $alias ? $alias->domain : explode('@', $address, 2)[1];
-
             $pdo->prepare("DELETE FROM forwardings WHERE address = :address AND is_list = 1")
                 ->execute(['address' => $address]);
 
-            foreach ($members as $member) {
-                $member = trim($member);
-                if ($member === '') {
-                    continue;
-                }
-                $destDomain = str_contains($member, '@') ? explode('@', $member, 2)[1] : $domain;
-                $fwdStmt = $pdo->prepare(
-                    "INSERT INTO forwardings (address, forwarding, domain, dest_domain, is_list, active)
-                     VALUES (:address, :forwarding, :domain, :destDomain, 1, 1)"
-                );
-                $fwdStmt->execute([
-                    'address' => $address,
-                    'forwarding' => $member,
-                    'domain' => $domain,
-                    'destDomain' => $destDomain,
-                ]);
-            }
+            $this->insertMembers($address, explode('@', $address, 2)[1], $members, $active);
 
             $pdo->commit();
             return true;
@@ -176,7 +138,7 @@ class MysqlAliasRepository implements AliasRepositoryInterface
                 ->execute(['address' => $address]);
             $pdo->prepare("DELETE FROM moderators WHERE address = :address")
                 ->execute(['address' => $address]);
-            $pdo->prepare("DELETE FROM alias WHERE address = :address AND islist = 1")
+            $pdo->prepare("DELETE FROM alias WHERE address = :address")
                 ->execute(['address' => $address]);
 
             $pdo->commit();
@@ -191,9 +153,10 @@ class MysqlAliasRepository implements AliasRepositoryInterface
     {
         $pdo = MysqlConnection::getInstance()->getPdo();
 
+        // No active filter: a disabled alias keeps its members.
         $stmt = $pdo->prepare(
             "SELECT forwarding FROM forwardings
-             WHERE address = :address AND is_list = 1 AND active = 1
+             WHERE address = :address AND is_list = 1
              ORDER BY forwarding"
         );
         $stmt->execute(['address' => $address]);
@@ -208,23 +171,12 @@ class MysqlAliasRepository implements AliasRepositoryInterface
 
     public function addAliasMember(string $address, string $member): bool
     {
-        $pdo = MysqlConnection::getInstance()->getPdo();
+        $alias = $this->getAlias($address);
+        if ($alias === null) {
+            throw new \RuntimeException("Alias not found: {$address}");
+        }
 
-        $domain = explode('@', $address, 2)[1];
-        $destDomain = str_contains($member, '@') ? explode('@', $member, 2)[1] : $domain;
-
-        $stmt = $pdo->prepare(
-            "INSERT IGNORE INTO forwardings (address, forwarding, domain, dest_domain, is_list, active)
-             VALUES (:address, :forwarding, :domain, :destDomain, 1, 1)"
-        );
-        $stmt->execute([
-            'address' => $address,
-            'forwarding' => $member,
-            'domain' => $domain,
-            'destDomain' => $destDomain,
-        ]);
-
-        $this->updateGotoField($address);
+        $this->insertMembers($address, $alias->domain, [$member], $alias->active);
         return true;
     }
 
@@ -232,12 +184,10 @@ class MysqlAliasRepository implements AliasRepositoryInterface
     {
         $pdo = MysqlConnection::getInstance()->getPdo();
 
-        $stmt = $pdo->prepare(
+        $pdo->prepare(
             "DELETE FROM forwardings WHERE address = :address AND forwarding = :forwarding AND is_list = 1"
-        );
-        $stmt->execute(['address' => $address, 'forwarding' => $member]);
+        )->execute(['address' => $address, 'forwarding' => $member]);
 
-        $this->updateGotoField($address);
         return true;
     }
 
@@ -345,72 +295,99 @@ class MysqlAliasRepository implements AliasRepositoryInterface
     {
         $pdo = MysqlConnection::getInstance()->getPdo();
 
-        $catchallAddress = '@' . $domain;
         $stmt = $pdo->prepare(
-            "SELECT goto FROM alias WHERE address = :address LIMIT 1"
+            "SELECT forwarding FROM forwardings WHERE address = :domain ORDER BY forwarding LIMIT 1"
         );
-        $stmt->execute(['address' => $catchallAddress]);
+        $stmt->execute(['domain' => $domain]);
 
         $row = $stmt->fetch();
-        if ($row === false || empty($row['goto'])) {
-            return null;
-        }
-
-        return $row['goto'];
+        return $row !== false ? $row['forwarding'] : null;
     }
 
     public function setCatchall(string $domain, ?string $targetEmail): bool
     {
         $pdo = MysqlConnection::getInstance()->getPdo();
 
-        $catchallAddress = '@' . $domain;
+        $pdo->beginTransaction();
+        try {
+            $pdo->prepare("DELETE FROM forwardings WHERE address = :domain")
+                ->execute(['domain' => $domain]);
 
-        if ($targetEmail === null || $targetEmail === '') {
-            $pdo->prepare("DELETE FROM alias WHERE address = :address")
-                ->execute(['address' => $catchallAddress]);
-        } else {
-            $stmt = $pdo->prepare("SELECT 1 FROM alias WHERE address = :address LIMIT 1");
-            $stmt->execute(['address' => $catchallAddress]);
-
-            if ($stmt->fetch() !== false) {
+            if ($targetEmail !== null && $targetEmail !== '') {
+                $destDomain = str_contains($targetEmail, '@') ? explode('@', $targetEmail, 2)[1] : $domain;
                 $pdo->prepare(
-                    "UPDATE alias SET goto = :goto, modified = NOW() WHERE address = :address"
-                )->execute(['goto' => $targetEmail, 'address' => $catchallAddress]);
-            } else {
-                $pdo->prepare(
-                    "INSERT INTO alias (address, goto, domain, active, created)
-                     VALUES (:address, :goto, :domain, 1, NOW())"
+                    "INSERT INTO forwardings (address, forwarding, domain, dest_domain, active)
+                     VALUES (:address, :forwarding, :domain, :destDomain, 1)"
                 )->execute([
-                    'address' => $catchallAddress,
-                    'goto' => $targetEmail,
+                    'address' => $domain,
+                    'forwarding' => $targetEmail,
                     'domain' => $domain,
+                    'destDomain' => $destDomain,
                 ]);
             }
-        }
 
-        return true;
+            $pdo->commit();
+            return true;
+        } catch (\Exception $e) {
+            $pdo->rollBack();
+            throw $e;
+        }
     }
 
     public function enableDisableAlias(string $address, bool $active): bool
     {
         $pdo = MysqlConnection::getInstance()->getPdo();
 
-        $stmt = $pdo->prepare(
-            "UPDATE alias SET active = :active, modified = NOW() WHERE address = :address AND islist = 1"
-        );
-        $stmt->execute(['active' => $active ? 1 : 0, 'address' => $address]);
+        // Postfix reads forwardings.active, so the member rows follow the alias status.
+        $pdo->beginTransaction();
+        try {
+            $pdo->prepare("UPDATE alias SET active = :active, modified = NOW() WHERE address = :address")
+                ->execute(['active' => $active ? 1 : 0, 'address' => $address]);
+            $pdo->prepare("UPDATE forwardings SET active = :active WHERE address = :address AND is_list = 1")
+                ->execute(['active' => $active ? 1 : 0, 'address' => $address]);
 
-        return true;
+            $pdo->commit();
+            return true;
+        } catch (\Exception $e) {
+            $pdo->rollBack();
+            throw $e;
+        }
     }
 
     public function countAliasesForDomain(string $domain): int
     {
         $pdo = MysqlConnection::getInstance()->getPdo();
         $stmt = $pdo->prepare(
-            "SELECT COUNT(*) AS cnt FROM alias WHERE domain = :domain AND islist = 1"
+            "SELECT (SELECT COUNT(*) FROM alias WHERE domain = :aliasDomain)
+                  + (SELECT COUNT(*) FROM maillists WHERE domain = :listDomain) AS cnt"
         );
-        $stmt->execute(['domain' => $domain]);
+        $stmt->execute(['aliasDomain' => $domain, 'listDomain' => $domain]);
         return (int) $stmt->fetch()['cnt'];
+    }
+
+    /**
+     * @param string[] $members
+     */
+    private function insertMembers(string $address, string $domain, array $members, bool $active): void
+    {
+        $stmt = MysqlConnection::getInstance()->getPdo()->prepare(
+            "INSERT IGNORE INTO forwardings (address, forwarding, domain, dest_domain, is_list, active)
+             VALUES (:address, :forwarding, :domain, :destDomain, 1, :active)"
+        );
+
+        foreach ($members as $member) {
+            $member = trim($member);
+            if ($member === '') {
+                continue;
+            }
+            $stmt->execute([
+                'address' => $address,
+                'forwarding' => $member,
+                'domain' => $domain,
+                'destDomain' => str_contains($member, '@') ? explode('@', $member, 2)[1] : $domain,
+                'active' => $active ? 1 : 0,
+            ]);
+        }
     }
 
     private function rowToAlias(array $row): Alias
@@ -420,20 +397,9 @@ class MysqlAliasRepository implements AliasRepositoryInterface
             domain: $row['domain'],
             name: $row['name'] ?? '',
             accessPolicy: $row['accesspolicy'] ?? 'public',
-            islist: (bool) ($row['islist'] ?? true),
             active: (bool) ($row['active'] ?? true),
             created: $row['created'] ?? null,
             modified: $row['modified'] ?? null,
         );
-    }
-
-    private function updateGotoField(string $address): void
-    {
-        $members = $this->getAliasMembers($address);
-        $goto = implode(',', $members);
-
-        $pdo = MysqlConnection::getInstance()->getPdo();
-        $pdo->prepare("UPDATE alias SET goto = :goto, modified = NOW() WHERE address = :address")
-            ->execute(['goto' => $goto, 'address' => $address]);
     }
 }

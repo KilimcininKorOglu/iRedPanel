@@ -95,7 +95,9 @@
     "not_found_title": "Feil 404. Siden ble ikke funnet",
     "not_found_body": "Siden du ba om, finnes ikke",
     "csrf_title": "Feil 403. Skjemaet er utløpt",
-    "csrf_body": "Sikkerhetstokenet for dette skjemaet er ugyldig eller utløpt. Gå tilbake, last inn siden på nytt og send skjemaet igjen."
+    "csrf_body": "Sikkerhetstokenet for dette skjemaet er ugyldig eller utløpt. Gå tilbake, last inn siden på nytt og send skjemaet igjen.",
+    "backend_down_title": "Feil 503. E-postserverens backend er ikke tilgjengelig",
+    "backend_down_body": "iRedPanel kan ikke koble til e-postserverens database eller katalog. Prøv igjen senere. Kontakt serveradministratoren hvis feilen fortsetter."
   },
   "newsletter": {
     "msg_invalid_email": "Vennligst oppgi en gyldig e-postadresse.",

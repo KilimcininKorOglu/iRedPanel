@@ -95,7 +95,9 @@
     "not_found_title": "Virhe 404. Sivua ei löytynyt",
     "not_found_body": "Pyytämääsi sivua ei ole olemassa",
     "csrf_title": "Virhe 403. Lomake on vanhentunut",
-    "csrf_body": "Tämän lomakkeen suojaustoken on virheellinen tai vanhentunut. Palaa takaisin, lataa sivu uudelleen ja lähetä lomake uudelleen."
+    "csrf_body": "Tämän lomakkeen suojaustoken on virheellinen tai vanhentunut. Palaa takaisin, lataa sivu uudelleen ja lähetä lomake uudelleen.",
+    "backend_down_title": "Virhe 503. Sähköpostipalvelimen backend ei ole tavoitettavissa",
+    "backend_down_body": "iRedPanel ei saa yhteyttä sähköpostipalvelimen tietokantaan tai hakemistoon. Yritä myöhemmin uudelleen. Jos virhe jatkuu, ota yhteys palvelimen ylläpitäjään."
   },
   "newsletter": {
     "msg_invalid_email": "Anna kelvollinen sähköpostiosoite.",

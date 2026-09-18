@@ -95,7 +95,9 @@
     "not_found_title": "Fehler 404. Seite nicht gefunden",
     "not_found_body": "Die angeforderte Seite existiert nicht",
     "csrf_title": "Fehler 403. Das Formular ist abgelaufen",
-    "csrf_body": "Das Sicherheitstoken dieses Formulars ist ungültig oder abgelaufen. Gehen Sie zurück, laden Sie die Seite neu und senden Sie das Formular erneut."
+    "csrf_body": "Das Sicherheitstoken dieses Formulars ist ungültig oder abgelaufen. Gehen Sie zurück, laden Sie die Seite neu und senden Sie das Formular erneut.",
+    "backend_down_title": "Fehler 503. Das Backend des Mailservers ist nicht erreichbar",
+    "backend_down_body": "iRedPanel kann keine Verbindung zur Datenbank oder zum Verzeichnis des Mailservers herstellen. Versuchen Sie es später erneut. Wenn der Fehler bestehen bleibt, wenden Sie sich an den Serveradministrator."
   },
   "newsletter": {
     "msg_invalid_email": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",

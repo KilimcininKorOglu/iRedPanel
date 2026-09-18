@@ -95,7 +95,9 @@
     "not_found_title": "Viga 404. Lehte ei leitud",
     "not_found_body": "Soovitud lehte ei ole olemas",
     "csrf_title": "Viga 403. Vorm on aegunud",
-    "csrf_body": "Selle vormi turvatoken on vigane või aegunud. Minge tagasi, laadige leht uuesti ja saatke vorm uuesti."
+    "csrf_body": "Selle vormi turvatoken on vigane või aegunud. Minge tagasi, laadige leht uuesti ja saatke vorm uuesti.",
+    "backend_down_title": "Viga 503. Meiliserveri backend ei ole kättesaadav",
+    "backend_down_body": "iRedPanel ei saa ühendust meiliserveri andmebaasi ega kataloogiga. Proovige hiljem uuesti. Kui viga jätkub, võtke ühendust serveri administraatoriga."
   },
   "newsletter": {
     "msg_invalid_email": "Palun sisestage kehtiv e-posti aadress.",

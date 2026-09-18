@@ -95,7 +95,9 @@
     "not_found_title": "Fel 404. Sidan hittades inte",
     "not_found_body": "Sidan du letar efter finns inte",
     "csrf_title": "Fel 403. Formuläret har gått ut",
-    "csrf_body": "Formulärets säkerhetstoken är ogiltig eller har gått ut. Gå tillbaka, ladda om sidan och skicka formuläret igen."
+    "csrf_body": "Formulärets säkerhetstoken är ogiltig eller har gått ut. Gå tillbaka, ladda om sidan och skicka formuläret igen.",
+    "backend_down_title": "Fel 503. E-postserverns backend går inte att nå",
+    "backend_down_body": "iRedPanel kan inte ansluta till e-postserverns databas eller katalog. Försök igen senare. Kontakta serveradministratören om felet kvarstår."
   },
   "newsletter": {
     "msg_invalid_email": "Ange en giltig e-postadress.",

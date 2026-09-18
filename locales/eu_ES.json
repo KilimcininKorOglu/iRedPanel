@@ -95,7 +95,9 @@
     "not_found_title": "404 errorea. Orria ez da aurkitu",
     "not_found_body": "Eskatu duzun orria ez da existitzen",
     "csrf_title": "403 errorea. Inprimakia iraungi da",
-    "csrf_body": "Inprimaki honen segurtasun tokena ez da baliozkoa edo iraungi egin da. Itzuli atzera, kargatu berriro orria eta bidali inprimakia berriro."
+    "csrf_body": "Inprimaki honen segurtasun tokena ez da baliozkoa edo iraungi egin da. Itzuli atzera, kargatu berriro orria eta bidali inprimakia berriro.",
+    "backend_down_title": "503 errorea. Posta zerbitzariaren backend-a ez dago eskuragarri",
+    "backend_down_body": "iRedPanel-ek ezin du posta zerbitzariaren datu-basera edo direktoriora konektatu. Saiatu berriro geroago. Errorea jarraitzen badu, jarri harremanetan zerbitzariaren administratzailearekin."
   },
   "newsletter": {
     "msg_invalid_email": "Sartu baliozko posta-helbide bat.",

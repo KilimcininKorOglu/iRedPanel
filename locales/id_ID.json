@@ -95,7 +95,9 @@
     "not_found_title": "Kesalahan 404. Halaman tidak ditemukan",
     "not_found_body": "Halaman yang Anda cari tidak ada",
     "csrf_title": "Kesalahan 403. Formulir telah kedaluwarsa",
-    "csrf_body": "Token keamanan formulir ini tidak valid atau telah kedaluwarsa. Kembali, muat ulang halaman, lalu kirim formulir lagi."
+    "csrf_body": "Token keamanan formulir ini tidak valid atau telah kedaluwarsa. Kembali, muat ulang halaman, lalu kirim formulir lagi.",
+    "backend_down_title": "Kesalahan 503. Backend server email tidak dapat dijangkau",
+    "backend_down_body": "iRedPanel tidak dapat terhubung ke database atau direktori server email. Coba lagi nanti. Jika kesalahan berlanjut, hubungi administrator server."
   },
   "newsletter": {
     "msg_invalid_email": "Silakan masukkan alamat email yang valid.",

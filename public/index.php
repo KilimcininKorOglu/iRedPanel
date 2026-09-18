@@ -538,15 +538,14 @@ $router->setNotFoundHandler(function () use ($tpl) {
     BaseController::page404($tpl);
 });
 
-// Dispatch request — catch backend connection errors at top level
+// Dispatch request, catch backend connection and CSRF errors at top level
 try {
     $router->dispatch(
         $_SERVER['REQUEST_URI'] ?? '/',
         $_SERVER['REQUEST_METHOD'] ?? 'GET'
     );
 } catch (BackendConnectionException $e) {
-    header('Location: /logout');
-    exit;
+    BaseController::pageBackendDown($tpl, $e);
 } catch (CsrfTokenException $e) {
     BaseController::pageCsrf($tpl);
 }

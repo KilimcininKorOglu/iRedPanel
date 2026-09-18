@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controllers;
 
 use App\CsrfProtection;
+use App\Exceptions\BackendConnectionException;
 use App\I18n\LocaleResolver;
 use App\I18n\Translator;
 use App\Repositories\RepositoryFactory;
@@ -80,6 +81,9 @@ class AuthController
 
     /**
      * Authenticates a user with the given email and password combination.
+     *
+     * @throws BackendConnectionException if the backend is not reachable, so
+     *         the outage is not reported as invalid credentials
      */
     private static function authenticateUser(string $email, string $password): bool
     {
@@ -87,6 +91,8 @@ class AuthController
             RepositoryFactory::getAuthRepository()->authenticate($email, $password);
             error_log("User {$email} authenticated successfully");
             return true;
+        } catch (BackendConnectionException $e) {
+            throw $e;
         } catch (\Exception $e) {
             error_log("Failed to authenticate user {$email}: {$e->getMessage()}");
             return false;

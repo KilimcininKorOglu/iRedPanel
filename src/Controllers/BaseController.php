@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controllers;
 
+use App\Exceptions\BackendConnectionException;
 use App\I18n\Translator;
 use App\TemplateEngine;
 
@@ -18,6 +19,10 @@ class BaseController
      */
     public static function errorMessage(\Throwable $e): string
     {
+        if ($e instanceof BackendConnectionException) {
+            error_log('Backend connection error: ' . $e->getMessage());
+            return Translator::translate('misc.backend_down_body');
+        }
         if (!$e instanceof \PDOException) {
             return $e->getMessage();
         }
@@ -41,5 +46,15 @@ class BaseController
     {
         http_response_code(403);
         $tpl->render('pageCsrf.php');
+    }
+
+    /**
+     * Renders the 503 page when the mail server backend is not reachable.
+     */
+    public static function pageBackendDown(TemplateEngine $tpl, BackendConnectionException $e): void
+    {
+        error_log('Backend connection error: ' . $e->getMessage());
+        http_response_code(503);
+        $tpl->render('pageBackendDown.php');
     }
 }

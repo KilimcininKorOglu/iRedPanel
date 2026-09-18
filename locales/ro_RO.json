@@ -95,7 +95,9 @@
     "not_found_title": "Eroare 404. Pagina nu a fost găsită",
     "not_found_body": "Pagina pe care o căutați nu există",
     "csrf_title": "Eroare 403. Formularul a expirat",
-    "csrf_body": "Tokenul de securitate al acestui formular este invalid sau a expirat. Reveniți, reîncărcați pagina și trimiteți din nou formularul."
+    "csrf_body": "Tokenul de securitate al acestui formular este invalid sau a expirat. Reveniți, reîncărcați pagina și trimiteți din nou formularul.",
+    "backend_down_title": "Eroare 503. Backend-ul serverului de e-mail nu este accesibil",
+    "backend_down_body": "iRedPanel nu se poate conecta la baza de date sau la directorul serverului de e-mail. Încercați din nou mai târziu. Dacă eroarea persistă, contactați administratorul serverului."
   },
   "newsletter": {
     "msg_invalid_email": "Introduceți o adresă de email validă.",

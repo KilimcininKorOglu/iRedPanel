@@ -95,7 +95,9 @@
     "not_found_title": "Lỗi 404. Không tìm thấy trang",
     "not_found_body": "Trang bạn đang tìm kiếm không tồn tại",
     "csrf_title": "Lỗi 403. Biểu mẫu đã hết hạn",
-    "csrf_body": "Token bảo mật của biểu mẫu này không hợp lệ hoặc đã hết hạn. Hãy quay lại, tải lại trang và gửi lại biểu mẫu."
+    "csrf_body": "Token bảo mật của biểu mẫu này không hợp lệ hoặc đã hết hạn. Hãy quay lại, tải lại trang và gửi lại biểu mẫu.",
+    "backend_down_title": "Lỗi 503. Không thể kết nối tới backend của máy chủ thư",
+    "backend_down_body": "iRedPanel không thể kết nối tới cơ sở dữ liệu hoặc thư mục của máy chủ thư. Hãy thử lại sau. Nếu lỗi vẫn tiếp diễn, hãy liên hệ quản trị viên máy chủ."
   },
   "newsletter": {
     "msg_invalid_email": "Vui lòng nhập địa chỉ email hợp lệ.",

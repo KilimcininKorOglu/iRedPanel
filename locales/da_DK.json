@@ -95,7 +95,9 @@
     "not_found_title": "Fejl 404. Siden blev ikke fundet",
     "not_found_body": "Den side, du anmodede om, findes ikke",
     "csrf_title": "Fejl 403. Formularen er udløbet",
-    "csrf_body": "Sikkerhedstokenet for denne formular er ugyldigt eller udløbet. Gå tilbage, genindlæs siden, og send formularen igen."
+    "csrf_body": "Sikkerhedstokenet for denne formular er ugyldigt eller udløbet. Gå tilbage, genindlæs siden, og send formularen igen.",
+    "backend_down_title": "Fejl 503. Mailserverens backend kan ikke nås",
+    "backend_down_body": "iRedPanel kan ikke oprette forbindelse til mailserverens database eller katalog. Prøv igen senere. Kontakt serveradministratoren, hvis fejlen fortsætter."
   },
   "newsletter": {
     "msg_invalid_email": "Indtast venligst en gyldig e-mailadresse.",

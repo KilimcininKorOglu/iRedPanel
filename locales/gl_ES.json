@@ -95,7 +95,9 @@
     "not_found_title": "Erro 404. Páxina non atopada",
     "not_found_body": "A páxina que solicitaches non existe",
     "csrf_title": "Erro 403. O formulario caducou",
-    "csrf_body": "O token de seguridade deste formulario non é válido ou caducou. Volva atrás, recargue a páxina e envíe o formulario de novo."
+    "csrf_body": "O token de seguridade deste formulario non é válido ou caducou. Volva atrás, recargue a páxina e envíe o formulario de novo.",
+    "backend_down_title": "Erro 503. O backend do servidor de correo non está accesible",
+    "backend_down_body": "iRedPanel non pode conectarse á base de datos nin ao directorio do servidor de correo. Ténteo de novo máis tarde. Se o erro continúa, contacte co administrador do servidor."
   },
   "newsletter": {
     "msg_invalid_email": "Introduce un enderezo de correo válido.",

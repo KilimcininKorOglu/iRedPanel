@@ -95,7 +95,9 @@
     "not_found_title": "Fout 404. Pagina niet gevonden",
     "not_found_body": "De opgevraagde pagina bestaat niet",
     "csrf_title": "Fout 403. Het formulier is verlopen",
-    "csrf_body": "Het beveiligingstoken van dit formulier is ongeldig of verlopen. Ga terug, laad de pagina opnieuw en verstuur het formulier opnieuw."
+    "csrf_body": "Het beveiligingstoken van dit formulier is ongeldig of verlopen. Ga terug, laad de pagina opnieuw en verstuur het formulier opnieuw.",
+    "backend_down_title": "Fout 503. De backend van de mailserver is niet bereikbaar",
+    "backend_down_body": "iRedPanel kan geen verbinding maken met de database of directory van de mailserver. Probeer het later opnieuw. Neem contact op met de serverbeheerder als de fout blijft optreden."
   },
   "newsletter": {
     "msg_invalid_email": "Voer een geldig e-mailadres in.",

@@ -95,7 +95,9 @@
     "not_found_title": "Chyba 404. Stránka nenalezena",
     "not_found_body": "Stránka, kterou hledáte, neexistuje",
     "csrf_title": "Chyba 403. Platnost formuláře vypršela",
-    "csrf_body": "Bezpečnostní token tohoto formuláře je neplatný nebo vypršel. Vraťte se zpět, znovu načtěte stránku a odešlete formulář znovu."
+    "csrf_body": "Bezpečnostní token tohoto formuláře je neplatný nebo vypršel. Vraťte se zpět, znovu načtěte stránku a odešlete formulář znovu.",
+    "backend_down_title": "Chyba 503. Backend poštovního serveru není dostupný",
+    "backend_down_body": "iRedPanel se nemůže připojit k databázi ani k adresáři poštovního serveru. Zkuste to znovu později. Pokud chyba přetrvává, kontaktujte správce serveru."
   },
   "newsletter": {
     "msg_invalid_email": "Zadejte prosím platnou e-mailovou adresu.",

@@ -95,7 +95,9 @@
     "not_found_title": "Villa 404. Síða fannst ekki",
     "not_found_body": "Síðan sem þú baðst um er ekki til",
     "csrf_title": "Villa 403. Eyðublaðið er útrunnið",
-    "csrf_body": "Öryggistoken þessa eyðublaðs er ógilt eða útrunnið. Farðu til baka, endurhlaðaðu síðuna og sendu eyðublaðið aftur."
+    "csrf_body": "Öryggistoken þessa eyðublaðs er ógilt eða útrunnið. Farðu til baka, endurhlaðaðu síðuna og sendu eyðublaðið aftur.",
+    "backend_down_title": "Villa 503. Ekki næst í backend póstþjónsins",
+    "backend_down_body": "iRedPanel getur ekki tengst gagnagrunni eða skrá póstþjónsins. Reyndu aftur síðar. Ef villan heldur áfram skaltu hafa samband við kerfisstjóra þjónsins."
   },
   "newsletter": {
     "msg_invalid_email": "Vinsamlegast sláðu inn gilt netfang.",

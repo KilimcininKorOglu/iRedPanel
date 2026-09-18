@@ -95,7 +95,9 @@
     "not_found_title": "Erreur 404. Page introuvable",
     "not_found_body": "La page demandée n'existe pas",
     "csrf_title": "Erreur 403. Le formulaire a expiré",
-    "csrf_body": "Le jeton de sécurité de ce formulaire est invalide ou a expiré. Revenez en arrière, rechargez la page et envoyez à nouveau le formulaire."
+    "csrf_body": "Le jeton de sécurité de ce formulaire est invalide ou a expiré. Revenez en arrière, rechargez la page et envoyez à nouveau le formulaire.",
+    "backend_down_title": "Erreur 503. Le backend du serveur de messagerie est inaccessible",
+    "backend_down_body": "iRedPanel ne peut pas se connecter à la base de données ou à l'annuaire du serveur de messagerie. Réessayez plus tard. Si l'erreur persiste, contactez l'administrateur du serveur."
   },
   "newsletter": {
     "msg_invalid_email": "Veuillez saisir une adresse e-mail valide.",

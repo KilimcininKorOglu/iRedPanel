@@ -95,7 +95,9 @@
     "not_found_title": "Errore 404. Pagina non trovata",
     "not_found_body": "La pagina richiesta non esiste",
     "csrf_title": "Errore 403. Il modulo è scaduto",
-    "csrf_body": "Il token di sicurezza di questo modulo non è valido o è scaduto. Torna indietro, ricarica la pagina e invia di nuovo il modulo."
+    "csrf_body": "Il token di sicurezza di questo modulo non è valido o è scaduto. Torna indietro, ricarica la pagina e invia di nuovo il modulo.",
+    "backend_down_title": "Errore 503. Il backend del server di posta non è raggiungibile",
+    "backend_down_body": "iRedPanel non riesce a connettersi al database o alla directory del server di posta. Riprova più tardi. Se l'errore persiste, contatta l'amministratore del server."
   },
   "newsletter": {
     "msg_invalid_email": "Inserisci un indirizzo e-mail valido.",

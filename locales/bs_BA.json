@@ -95,7 +95,9 @@
     "not_found_title": "Greška 404. Stranica nije pronađena",
     "not_found_body": "Stranica koju ste zatražili ne postoji",
     "csrf_title": "Greška 403. Obrazac je istekao",
-    "csrf_body": "Sigurnosni token ovog obrasca nije važeći ili je istekao. Vratite se, ponovo učitajte stranicu i ponovo pošaljite obrazac."
+    "csrf_body": "Sigurnosni token ovog obrasca nije važeći ili je istekao. Vratite se, ponovo učitajte stranicu i ponovo pošaljite obrazac.",
+    "backend_down_title": "Greška 503. Backend mail servera nije dostupan",
+    "backend_down_body": "iRedPanel se ne može povezati s bazom podataka ili direktorijem mail servera. Pokušajte ponovo kasnije. Ako se greška nastavi, obratite se administratoru servera."
   },
   "newsletter": {
     "msg_invalid_email": "Molimo unesite ispravnu e-mail adresu.",

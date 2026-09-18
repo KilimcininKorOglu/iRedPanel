@@ -35,6 +35,23 @@ class User
     ) {}
 
     /**
+     * Copies the mail service toggles from another User. The general profile
+     * form does not submit them, so an update from that form must keep them.
+     */
+    public function copyServicesFrom(User $other): void
+    {
+        $this->enableSmtp = $other->enableSmtp;
+        $this->enableSmtpSecured = $other->enableSmtpSecured;
+        $this->enablePop3 = $other->enablePop3;
+        $this->enablePop3Secured = $other->enablePop3Secured;
+        $this->enableImap = $other->enableImap;
+        $this->enableImapSecured = $other->enableImapSecured;
+        $this->enableManagesieve = $other->enableManagesieve;
+        $this->enableManagesieveSecured = $other->enableManagesieveSecured;
+        $this->enableSogo = $other->enableSogo;
+    }
+
+    /**
      * Creates a User from a normalized LDAP entry array.
      * Converts LDAP quota (bytes) to megabytes at the model boundary.
      */

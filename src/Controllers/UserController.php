@@ -80,6 +80,9 @@ class UserController
                     $existingUser = $userRepo->getUser($domain, $userUid);
                     $user = User::fromFormData($_POST);
                     $user->uid = $userUid;
+                    if ($existingUser !== null) {
+                        $user->copyServicesFrom($existingUser);
+                    }
 
                     // Prevent privilege escalation: only global admins can change domainGlobalAdmin
                     if (!Middleware::isGlobalAdmin()) {

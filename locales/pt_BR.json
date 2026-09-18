@@ -20,7 +20,8 @@
     "deleted_mailboxes": "Caixas de correio excluídas",
     "panel_settings": "Configurações do painel",
     "system": "Sistema",
-    "logout": "Sair"
+    "logout": "Sair",
+    "domain_ownership": "Propriedade do domínio"
   },
   "common": {
     "msg_password_updated": "Senha atualizada com sucesso!",
@@ -425,7 +426,7 @@
   "domain": {
     "msg_name_required": "O nome do domínio é obrigatório",
     "msg_exists": "O domínio ':domain' já existe",
-    "msg_ownership_required": "A propriedade do domínio deve ser verificada antes da criação",
+    "msg_ownership_required": "A propriedade do domínio deve ser verificada antes da criação. Adicione a :domain um registro DNS TXT com o valor :code e depois verifique-o na página Propriedade do domínio.",
     "msg_creation_limit": "Limite de criação de domínios atingido (:limit)",
     "msg_updated": "Domínio atualizado com sucesso!",
     "msg_settings_updated": "Configurações do domínio atualizadas com sucesso!",

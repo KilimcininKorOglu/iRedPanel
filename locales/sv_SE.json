@@ -20,7 +20,8 @@
     "deleted_mailboxes": "Borttagna brevlådor",
     "panel_settings": "Panelinställningar",
     "system": "System",
-    "logout": "Logga ut"
+    "logout": "Logga ut",
+    "domain_ownership": "Domänägarskap"
   },
   "common": {
     "msg_password_updated": "Lösenordet har uppdaterats!",
@@ -425,7 +426,7 @@
   "domain": {
     "msg_name_required": "Domännamn krävs",
     "msg_exists": "Domänen ':domain' finns redan",
-    "msg_ownership_required": "Domänägande måste verifieras innan skapande",
+    "msg_ownership_required": "Ägarskapet för domänen måste verifieras innan den skapas. Lägg till en DNS TXT-post med värdet :code för :domain och verifiera den sedan på sidan Domänägarskap.",
     "msg_creation_limit": "Gräns för att skapa domäner nådd (:limit)",
     "msg_updated": "Domän uppdaterad!",
     "msg_settings_updated": "Domäninställningar uppdaterade!",

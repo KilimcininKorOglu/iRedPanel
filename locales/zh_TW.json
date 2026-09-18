@@ -20,7 +20,8 @@
     "deleted_mailboxes": "已刪除的信箱",
     "panel_settings": "面板設定",
     "system": "系統",
-    "logout": "登出"
+    "logout": "登出",
+    "domain_ownership": "網域所有權"
   },
   "common": {
     "msg_password_updated": "密碼已成功更新！",
@@ -425,7 +426,7 @@
   "domain": {
     "msg_name_required": "網域名稱為必填",
     "msg_exists": "網域「:domain」已存在",
-    "msg_ownership_required": "建立前必須驗證網域擁有權",
+    "msg_ownership_required": "建立前必須驗證網域所有權。請為 :domain 新增值為 :code 的 DNS TXT 記錄，然後在「網域所有權」頁面驗證。",
     "msg_creation_limit": "已達網域建立上限（:limit）",
     "msg_updated": "網域已成功更新！",
     "msg_settings_updated": "網域設定已成功更新！",

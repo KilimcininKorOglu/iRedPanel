@@ -20,7 +20,8 @@
     "deleted_mailboxes": "Obrisani sandučići",
     "panel_settings": "Postavke panela",
     "system": "Sistem",
-    "logout": "Odjava"
+    "logout": "Odjava",
+    "domain_ownership": "Vlasništvo domene"
   },
   "common": {
     "msg_password_updated": "Lozinka je ažurirana!",
@@ -425,7 +426,7 @@
   "domain": {
     "msg_name_required": "Naziv domene je obavezan",
     "msg_exists": "Domena ':domain' već postoji",
-    "msg_ownership_required": "Vlasništvo nad domenom mora biti potvrđeno prije kreiranja",
+    "msg_ownership_required": "Vlasništvo domene mora se provjeriti prije kreiranja. Dodajte domeni :domain DNS TXT zapis s vrijednošću :code, zatim ga provjerite na stranici Vlasništvo domene.",
     "msg_creation_limit": "Dostignut je limit kreiranja domena (:limit)",
     "msg_updated": "Domena je ažurirana!",
     "msg_settings_updated": "Postavke domene su ažurirane!",

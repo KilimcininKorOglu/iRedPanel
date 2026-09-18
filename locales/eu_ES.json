@@ -20,7 +20,8 @@
     "deleted_mailboxes": "Ezabatutako postontziak",
     "panel_settings": "Panelaren ezarpenak",
     "system": "Sistema",
-    "logout": "Saioa itxi"
+    "logout": "Saioa itxi",
+    "domain_ownership": "Domeinuaren jabetza"
   },
   "common": {
     "msg_password_updated": "Pasahitza eguneratu da!",
@@ -425,7 +426,7 @@
   "domain": {
     "msg_name_required": "Domeinuaren izena beharrezkoa da",
     "msg_exists": "':domain' domeinua jada existitzen da",
-    "msg_ownership_required": "Domeinuaren jabetza egiaztatu behar da sortu aurretik",
+    "msg_ownership_required": "Domeinuaren jabetza sortu aurretik egiaztatu behar da. Gehitu :domain domeinuari :code balioa duen DNS TXT erregistro bat, eta egiaztatu Domeinuaren jabetza orrian.",
     "msg_creation_limit": "Domeinuak sortzeko muga iritsi da (:limit)",
     "msg_updated": "Domeinua eguneratu da!",
     "msg_settings_updated": "Domeinuaren ezarpenak eguneratu dira!",

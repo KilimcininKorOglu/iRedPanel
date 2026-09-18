@@ -54,6 +54,7 @@ class TemplateEngine
             'amavisd' => $settings->amavisdEnabled,
             'fail2ban' => $settings->fail2banEnabled,
             'iredapd' => $settings->iredapdEnabled,
+            'domainOwnership' => $settings->requireDomainOwnershipVerification,
         ];
         $passwordPolicy = json_encode([
             'minLength' => $settings->passwordMinLength,

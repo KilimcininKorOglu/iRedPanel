@@ -20,7 +20,8 @@
     "deleted_mailboxes": "Deleted Mailboxes",
     "panel_settings": "Panel Settings",
     "system": "System",
-    "logout": "Logout"
+    "logout": "Logout",
+    "domain_ownership": "Domain Ownership"
   },
   "common": {
     "msg_password_updated": "Password updated successfully!",
@@ -425,7 +426,7 @@
   "domain": {
     "msg_name_required": "Domain name is required",
     "msg_exists": "Domain ':domain' already exists",
-    "msg_ownership_required": "Domain ownership must be verified before creation",
+    "msg_ownership_required": "Domain ownership must be verified before creation. Add a DNS TXT record with the value :code to :domain, then verify it on the Domain Ownership page.",
     "msg_creation_limit": "Domain creation limit reached (:limit)",
     "msg_updated": "Domain updated successfully!",
     "msg_settings_updated": "Domain settings updated successfully!",

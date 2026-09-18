@@ -20,7 +20,8 @@
     "deleted_mailboxes": "Poistetut postilaatikot",
     "panel_settings": "Paneelin asetukset",
     "system": "Järjestelmä",
-    "logout": "Kirjaudu ulos"
+    "logout": "Kirjaudu ulos",
+    "domain_ownership": "Domainin omistajuus"
   },
   "common": {
     "msg_password_updated": "Salasana päivitetty onnistuneesti!",
@@ -425,7 +426,7 @@
   "domain": {
     "msg_name_required": "Verkkotunnuksen nimi vaaditaan",
     "msg_exists": "Verkkotunnus ':domain' on jo olemassa",
-    "msg_ownership_required": "Verkkotunnuksen omistajuus on vahvistettava ennen luontia",
+    "msg_ownership_required": "Domainin omistajuus on vahvistettava ennen luontia. Lisää domainille :domain DNS TXT -tietue, jonka arvo on :code, ja vahvista se sitten Domainin omistajuus -sivulla.",
     "msg_creation_limit": "Verkkotunnusten luontiraja saavutettu (:limit)",
     "msg_updated": "Verkkotunnus päivitetty onnistuneesti!",
     "msg_settings_updated": "Verkkotunnuksen asetukset päivitetty onnistuneesti!",

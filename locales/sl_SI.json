@@ -20,7 +20,8 @@
     "deleted_mailboxes": "Izbrisani poštni predali",
     "panel_settings": "Nastavitve plošče",
     "system": "Sistem",
-    "logout": "Odjava"
+    "logout": "Odjava",
+    "domain_ownership": "Lastništvo domene"
   },
   "common": {
     "msg_password_updated": "Geslo uspešno posodobljeno!",
@@ -425,7 +426,7 @@
   "domain": {
     "msg_name_required": "Ime domene je obvezno",
     "msg_exists": "Domena ':domain' že obstaja",
-    "msg_ownership_required": "Pred ustvarjanjem je treba preveriti lastništvo domene",
+    "msg_ownership_required": "Lastništvo domene mora biti pred ustvarjanjem preverjeno. Domeni :domain dodajte zapis DNS TXT z vrednostjo :code in ga nato preverite na strani Lastništvo domene.",
     "msg_creation_limit": "Dosežena omejitev ustvarjanja domen (:limit)",
     "msg_updated": "Domena uspešno posodobljena!",
     "msg_settings_updated": "Nastavitve domene uspešno posodobljene!",

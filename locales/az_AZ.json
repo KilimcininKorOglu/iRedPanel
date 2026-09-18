@@ -20,7 +20,8 @@
     "deleted_mailboxes": "Silinmiş poçt qutuları",
     "panel_settings": "Panel parametrləri",
     "system": "Sistem",
-    "logout": "Çıxış"
+    "logout": "Çıxış",
+    "domain_ownership": "Domen sahibliyi"
   },
   "common": {
     "msg_password_updated": "Parol uğurla yeniləndi!",
@@ -425,7 +426,7 @@
   "domain": {
     "msg_name_required": "Domen adı tələb olunur",
     "msg_exists": "':domain' domeni artıq mövcuddur",
-    "msg_ownership_required": "Yaratmadan əvvəl domen sahibliyi təsdiqlənməlidir",
+    "msg_ownership_required": "Domen yaradılmazdan əvvəl sahibliyi təsdiqlənməlidir. :domain üçün :code dəyəri olan DNS TXT qeydi əlavə edin, sonra onu Domen sahibliyi səhifəsində təsdiqləyin.",
     "msg_creation_limit": "Domen yaratma limitinə çatıldı (:limit)",
     "msg_updated": "Domen uğurla yeniləndi!",
     "msg_settings_updated": "Domen parametrləri uğurla yeniləndi!",

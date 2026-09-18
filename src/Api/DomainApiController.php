@@ -7,6 +7,7 @@ namespace App\Api;
 use App\Models\Domain;
 use App\Models\Settings;
 use App\Repositories\RepositoryFactory;
+use App\Services\DomainOwnershipService;
 
 class DomainApiController
 {
@@ -66,7 +67,11 @@ class DomainApiController
         if (Settings::getInstance()->requireDomainOwnershipVerification) {
             $ownershipRepo = RepositoryFactory::getDomainOwnershipRepository();
             if (!$ownershipRepo->isVerified($domain->domainName)) {
-                ApiResponse::error('Domain ownership must be verified before creation', 403);
+                $code = DomainOwnershipService::pendingCode($ownershipRepo, $domain->domainName, 'api');
+                ApiResponse::error(
+                    "Domain ownership must be verified before creation. Add a DNS TXT record with the value {$code} to {$domain->domainName}, then verify it on the Domain Ownership page.",
+                    403,
+                );
                 return;
             }
         }

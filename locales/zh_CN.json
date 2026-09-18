@@ -20,7 +20,8 @@
     "deleted_mailboxes": "已删除的邮箱",
     "panel_settings": "面板设置",
     "system": "系统",
-    "logout": "退出登录"
+    "logout": "退出登录",
+    "domain_ownership": "域名所有权"
   },
   "common": {
     "msg_password_updated": "密码更新成功！",
@@ -425,7 +426,7 @@
   "domain": {
     "msg_name_required": "域名为必填项",
     "msg_exists": "域名 ':domain' 已存在",
-    "msg_ownership_required": "创建前必须验证域名所有权",
+    "msg_ownership_required": "创建前必须验证域名所有权。请为 :domain 添加值为 :code 的 DNS TXT 记录，然后在“域名所有权”页面进行验证。",
     "msg_creation_limit": "已达到域名创建上限（:limit）",
     "msg_updated": "域名更新成功！",
     "msg_settings_updated": "域名设置更新成功！",

@@ -20,7 +20,8 @@
     "deleted_mailboxes": "Slettede postkasser",
     "panel_settings": "Panelindstillinger",
     "system": "System",
-    "logout": "Log ud"
+    "logout": "Log ud",
+    "domain_ownership": "Domæneejerskab"
   },
   "common": {
     "msg_password_updated": "Adgangskoden blev opdateret!",
@@ -425,7 +426,7 @@
   "domain": {
     "msg_name_required": "Domænenavn er påkrævet",
     "msg_exists": "Domænet ':domain' findes allerede",
-    "msg_ownership_required": "Domæneejerskab skal verificeres før oprettelse",
+    "msg_ownership_required": "Ejerskabet af domænet skal bekræftes før oprettelse. Tilføj en DNS TXT-post med værdien :code til :domain, og bekræft den derefter på siden Domæneejerskab.",
     "msg_creation_limit": "Grænse for oprettelse af domæner nået (:limit)",
     "msg_updated": "Domæne opdateret!",
     "msg_settings_updated": "Domæneindstillinger opdateret!",

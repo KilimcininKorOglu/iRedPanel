@@ -20,7 +20,8 @@
     "deleted_mailboxes": "삭제된 메일박스",
     "panel_settings": "패널 설정",
     "system": "시스템",
-    "logout": "로그아웃"
+    "logout": "로그아웃",
+    "domain_ownership": "도메인 소유권"
   },
   "common": {
     "msg_password_updated": "비밀번호가 성공적으로 업데이트되었습니다!",
@@ -425,7 +426,7 @@
   "domain": {
     "msg_name_required": "도메인 이름이 필요합니다",
     "msg_exists": "도메인 ':domain'이(가) 이미 존재합니다",
-    "msg_ownership_required": "생성 전에 도메인 소유권을 확인해야 합니다",
+    "msg_ownership_required": "생성하기 전에 도메인 소유권을 확인해야 합니다. :domain에 값이 :code인 DNS TXT 레코드를 추가한 다음 도메인 소유권 페이지에서 확인하십시오.",
     "msg_creation_limit": "도메인 생성 한도에 도달했습니다 (:limit)",
     "msg_updated": "도메인이 성공적으로 업데이트되었습니다!",
     "msg_settings_updated": "도메인 설정이 성공적으로 업데이트되었습니다!",

@@ -20,7 +20,8 @@
     "deleted_mailboxes": "Hộp thư đã xóa",
     "panel_settings": "Cài đặt bảng điều khiển",
     "system": "Hệ thống",
-    "logout": "Đăng xuất"
+    "logout": "Đăng xuất",
+    "domain_ownership": "Quyền sở hữu tên miền"
   },
   "common": {
     "msg_password_updated": "Mật khẩu đã được cập nhật thành công!",
@@ -425,7 +426,7 @@
   "domain": {
     "msg_name_required": "Tên miền là bắt buộc",
     "msg_exists": "Tên miền ':domain' đã tồn tại",
-    "msg_ownership_required": "Phải xác minh quyền sở hữu tên miền trước khi tạo",
+    "msg_ownership_required": "Cần xác minh quyền sở hữu tên miền trước khi tạo. Thêm bản ghi DNS TXT có giá trị :code cho :domain, sau đó xác minh trên trang Quyền sở hữu tên miền.",
     "msg_creation_limit": "Đã đạt giới hạn tạo tên miền (:limit)",
     "msg_updated": "Tên miền đã được cập nhật thành công!",
     "msg_settings_updated": "Cài đặt tên miền đã được cập nhật thành công!",

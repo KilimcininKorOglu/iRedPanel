@@ -20,7 +20,8 @@
     "deleted_mailboxes": "Verwijderde mailboxen",
     "panel_settings": "Paneelinstellingen",
     "system": "Systeem",
-    "logout": "Afmelden"
+    "logout": "Afmelden",
+    "domain_ownership": "Domeineigendom"
   },
   "common": {
     "msg_password_updated": "Wachtwoord succesvol bijgewerkt!",
@@ -425,7 +426,7 @@
   "domain": {
     "msg_name_required": "De domeinnaam is verplicht",
     "msg_exists": "Het domein ':domain' bestaat al",
-    "msg_ownership_required": "Het eigendom van het domein moet worden geverifieerd vóór het aanmaken",
+    "msg_ownership_required": "Het eigendom van het domein moet vóór het aanmaken worden geverifieerd. Voeg aan :domain een DNS TXT-record met de waarde :code toe en verifieer het daarna op de pagina Domeineigendom.",
     "msg_creation_limit": "Limiet voor domeinaanmaak bereikt (:limit)",
     "msg_updated": "Domein succesvol bijgewerkt!",
     "msg_settings_updated": "Domeininstellingen succesvol bijgewerkt!",

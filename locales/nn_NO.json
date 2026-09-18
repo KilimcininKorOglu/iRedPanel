@@ -20,7 +20,8 @@
     "deleted_mailboxes": "Sletta postkasser",
     "panel_settings": "Panelinnstillingar",
     "system": "System",
-    "logout": "Logg ut"
+    "logout": "Logg ut",
+    "domain_ownership": "Domeneeigarskap"
   },
   "common": {
     "msg_password_updated": "Passordet er oppdatert!",
@@ -425,7 +426,7 @@
   "domain": {
     "msg_name_required": "Domenenamn er påkravd",
     "msg_exists": "Domenet ':domain' finst allereie",
-    "msg_ownership_required": "Domeneeigarskap må stadfestast før oppretting",
+    "msg_ownership_required": "Eigarskapen til domenet må stadfestast før det blir oppretta. Legg til ein DNS TXT-post med verdien :code for :domain, og stadfest han deretter på sida Domeneeigarskap.",
     "msg_creation_limit": "Grense for domeneoppretting nådd (:limit)",
     "msg_updated": "Domene oppdatert!",
     "msg_settings_updated": "Domeneinnstillingar oppdaterte!",

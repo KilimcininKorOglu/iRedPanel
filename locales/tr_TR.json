@@ -20,7 +20,8 @@
     "deleted_mailboxes": "Silinen Posta Kutuları",
     "panel_settings": "Panel Ayarları",
     "system": "Sistem",
-    "logout": "Çıkış"
+    "logout": "Çıkış",
+    "domain_ownership": "Domain Sahipliği"
   },
   "common": {
     "msg_password_updated": "Parola başarıyla güncellendi!",
@@ -425,7 +426,7 @@
   "domain": {
     "msg_name_required": "Alan adı gerekli",
     "msg_exists": "':domain' alan adı zaten var",
-    "msg_ownership_required": "Oluşturmadan önce alan adı sahipliği doğrulanmalı",
+    "msg_ownership_required": "Domain oluşturulmadan önce sahipliği doğrulanmalı. :domain için :code değerini içeren bir DNS TXT kaydı ekleyin, sonra Domain Sahipliği sayfasında doğrulayın.",
     "msg_creation_limit": "Alan adı oluşturma sınırına ulaşıldı (:limit)",
     "msg_updated": "Alan adı başarıyla güncellendi!",
     "msg_settings_updated": "Alan adı ayarları başarıyla güncellendi!",

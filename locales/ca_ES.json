@@ -20,7 +20,8 @@
     "deleted_mailboxes": "Bústies eliminades",
     "panel_settings": "Configuració del tauler",
     "system": "Sistema",
-    "logout": "Tancar sessió"
+    "logout": "Tancar sessió",
+    "domain_ownership": "Propietat del domini"
   },
   "common": {
     "msg_password_updated": "Contrasenya actualitzada correctament!",
@@ -425,7 +426,7 @@
   "domain": {
     "msg_name_required": "El nom del domini és obligatori",
     "msg_exists": "El domini ':domain' ja existeix",
-    "msg_ownership_required": "S'ha de verificar la propietat del domini abans de la creació",
+    "msg_ownership_required": "Cal verificar la propietat del domini abans de crear-lo. Afegiu a :domain un registre DNS TXT amb el valor :code i després verifiqueu-lo a la pàgina Propietat del domini.",
     "msg_creation_limit": "S'ha assolit el límit de creació de dominis (:limit)",
     "msg_updated": "Domini actualitzat correctament!",
     "msg_settings_updated": "Configuració del domini actualitzada correctament!",

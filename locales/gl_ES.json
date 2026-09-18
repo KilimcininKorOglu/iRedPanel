@@ -20,7 +20,8 @@
     "deleted_mailboxes": "Caixas de correo eliminadas",
     "panel_settings": "Configuración do panel",
     "system": "Sistema",
-    "logout": "Pechar sesión"
+    "logout": "Pechar sesión",
+    "domain_ownership": "Propiedade do dominio"
   },
   "common": {
     "msg_password_updated": "Contrasinal actualizado!",
@@ -425,7 +426,7 @@
   "domain": {
     "msg_name_required": "O nome do dominio é obrigatorio",
     "msg_exists": "O dominio ':domain' xa existe",
-    "msg_ownership_required": "A propiedade do dominio debe verificarse antes da creación",
+    "msg_ownership_required": "A propiedade do dominio debe verificarse antes de crealo. Engada a :domain un rexistro DNS TXT co valor :code e despois verifíqueo na páxina Propiedade do dominio.",
     "msg_creation_limit": "Alcanzouse o límite de creación de dominios (:limit)",
     "msg_updated": "Dominio actualizado!",
     "msg_settings_updated": "Configuración do dominio actualizada!",

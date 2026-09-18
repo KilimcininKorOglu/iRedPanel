@@ -20,7 +20,8 @@
     "deleted_mailboxes": "Izbrisani poštanski sandučići",
     "panel_settings": "Postavke ploče",
     "system": "Sustav",
-    "logout": "Odjava"
+    "logout": "Odjava",
+    "domain_ownership": "Vlasništvo domene"
   },
   "common": {
     "msg_password_updated": "Lozinka je uspješno ažurirana!",
@@ -425,7 +426,7 @@
   "domain": {
     "msg_name_required": "Naziv domene je obavezan",
     "msg_exists": "Domena ':domain' već postoji",
-    "msg_ownership_required": "Vlasništvo nad domenom mora se provjeriti prije stvaranja",
+    "msg_ownership_required": "Vlasništvo domene mora se provjeriti prije stvaranja. Dodajte domeni :domain DNS TXT zapis s vrijednošću :code, zatim ga provjerite na stranici Vlasništvo domene.",
     "msg_creation_limit": "Dosegnuto ograničenje stvaranja domena (:limit)",
     "msg_updated": "Domena uspješno ažurirana!",
     "msg_settings_updated": "Postavke domene uspješno ažurirane!",

@@ -20,7 +20,8 @@
     "deleted_mailboxes": "Gelöschte Postfächer",
     "panel_settings": "Panel-Einstellungen",
     "system": "System",
-    "logout": "Abmelden"
+    "logout": "Abmelden",
+    "domain_ownership": "Domain-Besitz"
   },
   "common": {
     "msg_password_updated": "Passwort erfolgreich aktualisiert!",
@@ -425,7 +426,7 @@
   "domain": {
     "msg_name_required": "Domainname ist erforderlich",
     "msg_exists": "Domain ':domain' existiert bereits",
-    "msg_ownership_required": "Der Domainbesitz muss vor der Erstellung überprüft werden",
+    "msg_ownership_required": "Der Besitz der Domain muss vor dem Anlegen bestätigt werden. Fügen Sie für :domain einen DNS-TXT-Eintrag mit dem Wert :code hinzu und bestätigen Sie ihn dann auf der Seite Domain-Besitz.",
     "msg_creation_limit": "Limit für die Domain-Erstellung erreicht (:limit)",
     "msg_updated": "Domain erfolgreich aktualisiert!",
     "msg_settings_updated": "Domain-Einstellungen erfolgreich aktualisiert!",

@@ -24,6 +24,9 @@
         <a href="/aliases"><?= $te('nav.aliases') ?></a>
         <a href="/mailing-lists"><?= $te('nav.mailing_lists') ?></a>
         <a href="/domain-aliases"><?= $te('nav.domain_aliases') ?></a>
+        <?php if (!empty($features['domainOwnership'])): ?>
+        <a href="/verify/domain-ownership"><?= $te('nav.domain_ownership') ?></a>
+        <?php endif; ?>
         <a href="/admins"><?= $te('nav.admins') ?></a>
         <a href="/logs"><?= $te('nav.logs') ?></a>
         <?php if (!empty($features['amavisd'])): ?>

@@ -20,7 +20,8 @@
     "deleted_mailboxes": "Kustutatud postkastid",
     "panel_settings": "Paneeli seaded",
     "system": "Süsteem",
-    "logout": "Logi välja"
+    "logout": "Logi välja",
+    "domain_ownership": "Domeeni omandiõigus"
   },
   "common": {
     "msg_password_updated": "Parool edukalt uuendatud!",
@@ -425,7 +426,7 @@
   "domain": {
     "msg_name_required": "Domeeninimi on kohustuslik",
     "msg_exists": "Domeen ':domain' on juba olemas",
-    "msg_ownership_required": "Domeeni omandiõigus tuleb enne loomist kontrollida",
+    "msg_ownership_required": "Enne loomist tuleb domeeni omandiõigus kinnitada. Lisage domeenile :domain DNS TXT kirje väärtusega :code ja kinnitage see lehel Domeeni omandiõigus.",
     "msg_creation_limit": "Domeenide loomise piir saavutatud (:limit)",
     "msg_updated": "Domeen edukalt uuendatud!",
     "msg_settings_updated": "Domeeni seaded edukalt uuendatud!",

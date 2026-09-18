@@ -20,7 +20,8 @@
     "deleted_mailboxes": "Boîtes supprimées",
     "panel_settings": "Paramètres du panneau",
     "system": "Système",
-    "logout": "Déconnexion"
+    "logout": "Déconnexion",
+    "domain_ownership": "Propriété du domaine"
   },
   "common": {
     "msg_password_updated": "Mot de passe mis à jour avec succès !",
@@ -425,7 +426,7 @@
   "domain": {
     "msg_name_required": "Le nom de domaine est obligatoire",
     "msg_exists": "Le domaine ':domain' existe déjà",
-    "msg_ownership_required": "La propriété du domaine doit être vérifiée avant sa création",
+    "msg_ownership_required": "La propriété du domaine doit être vérifiée avant la création. Ajoutez à :domain un enregistrement DNS TXT avec la valeur :code, puis vérifiez-le sur la page Propriété du domaine.",
     "msg_creation_limit": "Limite de création de domaines atteinte (:limit)",
     "msg_updated": "Domaine mis à jour avec succès !",
     "msg_settings_updated": "Paramètres du domaine mis à jour avec succès !",

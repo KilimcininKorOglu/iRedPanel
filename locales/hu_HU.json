@@ -20,7 +20,8 @@
     "deleted_mailboxes": "Törölt postafiókok",
     "panel_settings": "Panelbeállítások",
     "system": "Rendszer",
-    "logout": "Kijelentkezés"
+    "logout": "Kijelentkezés",
+    "domain_ownership": "Domain tulajdonjog"
   },
   "common": {
     "msg_password_updated": "A jelszó sikeresen frissítve!",
@@ -425,7 +426,7 @@
   "domain": {
     "msg_name_required": "A domainnév megadása kötelező",
     "msg_exists": "A(z) ':domain' domain már létezik",
-    "msg_ownership_required": "A domain tulajdonjogát ellenőrizni kell a létrehozás előtt",
+    "msg_ownership_required": "A domain tulajdonjogát a létrehozás előtt igazolni kell. Adjon hozzá :domain domainhez egy DNS TXT rekordot :code értékkel, majd igazolja a Domain tulajdonjog oldalon.",
     "msg_creation_limit": "Elérte a domain-létrehozási korlátot (:limit)",
     "msg_updated": "Domain sikeresen frissítve!",
     "msg_settings_updated": "A domain beállításai sikeresen frissültek!",

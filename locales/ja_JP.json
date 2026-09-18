@@ -20,7 +20,8 @@
     "deleted_mailboxes": "削除されたメールボックス",
     "panel_settings": "パネル設定",
     "system": "システム",
-    "logout": "ログアウト"
+    "logout": "ログアウト",
+    "domain_ownership": "ドメイン所有権"
   },
   "common": {
     "msg_password_updated": "パスワードが正常に更新されました！",
@@ -425,7 +426,7 @@
   "domain": {
     "msg_name_required": "ドメイン名は必須です",
     "msg_exists": "ドメイン ':domain' は既に存在します",
-    "msg_ownership_required": "作成前にドメインの所有権を検証する必要があります",
+    "msg_ownership_required": "作成前にドメインの所有権を確認する必要があります。:domain に値 :code の DNS TXT レコードを追加し、ドメイン所有権ページで確認してください。",
     "msg_creation_limit": "ドメイン作成の上限に達しました（:limit）",
     "msg_updated": "ドメインが正常に更新されました！",
     "msg_settings_updated": "ドメイン設定が正常に更新されました！",

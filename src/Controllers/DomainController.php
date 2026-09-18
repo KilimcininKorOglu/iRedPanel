@@ -13,6 +13,7 @@ use App\Models\PaginatedResult;
 use App\Models\Settings;
 use App\Repositories\RepositoryFactory;
 use App\Services\ActivityLogger;
+use App\Services\DomainOwnershipService;
 use App\TemplateEngine;
 
 class DomainController
@@ -97,7 +98,8 @@ class DomainController
                     } elseif (Settings::getInstance()->requireDomainOwnershipVerification) {
                         $ownershipRepo = RepositoryFactory::getDomainOwnershipRepository();
                         if (!$ownershipRepo->isVerified($domain->domainName)) {
-                            $validationErrors['domainName'] = Translator::translate('domain.msg_ownership_required');
+                            $code = DomainOwnershipService::pendingCode($ownershipRepo, $domain->domainName, $_SESSION['email'] ?? '');
+                            $validationErrors['domainName'] = Translator::translate('domain.msg_ownership_required', ['domain' => $domain->domainName, 'code' => $code]);
                         }
                     }
 

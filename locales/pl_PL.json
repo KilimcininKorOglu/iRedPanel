@@ -20,7 +20,8 @@
     "deleted_mailboxes": "Usunięte skrzynki",
     "panel_settings": "Ustawienia panelu",
     "system": "System",
-    "logout": "Wyloguj"
+    "logout": "Wyloguj",
+    "domain_ownership": "Własność domeny"
   },
   "common": {
     "msg_password_updated": "Hasło zostało pomyślnie zaktualizowane!",
@@ -425,7 +426,7 @@
   "domain": {
     "msg_name_required": "Nazwa domeny jest wymagana",
     "msg_exists": "Domena ':domain' już istnieje",
-    "msg_ownership_required": "Własność domeny musi zostać zweryfikowana przed utworzeniem",
+    "msg_ownership_required": "Własność domeny musi zostać zweryfikowana przed jej utworzeniem. Dodaj do :domain rekord DNS TXT z wartością :code, a następnie zweryfikuj go na stronie Własność domeny.",
     "msg_creation_limit": "Osiągnięto limit tworzenia domen (:limit)",
     "msg_updated": "Domena zaktualizowana pomyślnie!",
     "msg_settings_updated": "Ustawienia domeny zaktualizowane pomyślnie!",

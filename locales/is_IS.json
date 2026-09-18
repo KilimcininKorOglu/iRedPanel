@@ -20,7 +20,8 @@
     "deleted_mailboxes": "Eydd pósthólf",
     "panel_settings": "Stillingar spjalds",
     "system": "Kerfi",
-    "logout": "Útskrá"
+    "logout": "Útskrá",
+    "domain_ownership": "Eignarhald léns"
   },
   "common": {
     "msg_password_updated": "Lykilorð uppfært!",
@@ -425,7 +426,7 @@
   "domain": {
     "msg_name_required": "Lénsheiti er nauðsynlegt",
     "msg_exists": "Lénið ':domain' er þegar til",
-    "msg_ownership_required": "Staðfesta þarf eignarhald léns fyrir sköpun",
+    "msg_ownership_required": "Staðfesta þarf eignarhald léns áður en það er stofnað. Bættu DNS TXT-færslu með gildinu :code við :domain og staðfestu hana síðan á síðunni Eignarhald léns.",
     "msg_creation_limit": "Hámarki lénssköpunar náð (:limit)",
     "msg_updated": "Lén uppfært!",
     "msg_settings_updated": "Lénsstillingar uppfærðar!",

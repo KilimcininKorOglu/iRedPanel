@@ -20,7 +20,8 @@
     "deleted_mailboxes": "Kotak Surat Terhapus",
     "panel_settings": "Pengaturan Panel",
     "system": "Sistem",
-    "logout": "Keluar"
+    "logout": "Keluar",
+    "domain_ownership": "Kepemilikan Domain"
   },
   "common": {
     "msg_password_updated": "Kata sandi berhasil diperbarui!",
@@ -425,7 +426,7 @@
   "domain": {
     "msg_name_required": "Nama domain wajib diisi",
     "msg_exists": "Domain ':domain' sudah ada",
-    "msg_ownership_required": "Kepemilikan domain harus diverifikasi sebelum pembuatan",
+    "msg_ownership_required": "Kepemilikan domain harus diverifikasi sebelum dibuat. Tambahkan record DNS TXT dengan nilai :code ke :domain, lalu verifikasi di halaman Kepemilikan Domain.",
     "msg_creation_limit": "Batas pembuatan domain tercapai (:limit)",
     "msg_updated": "Domain berhasil diperbarui!",
     "msg_settings_updated": "Pengaturan domain berhasil diperbarui!",

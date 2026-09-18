@@ -20,7 +20,8 @@
     "deleted_mailboxes": "Cutii poștale șterse",
     "panel_settings": "Setări panou",
     "system": "Sistem",
-    "logout": "Deconectare"
+    "logout": "Deconectare",
+    "domain_ownership": "Proprietatea domeniului"
   },
   "common": {
     "msg_password_updated": "Parola a fost actualizată cu succes!",
@@ -425,7 +426,7 @@
   "domain": {
     "msg_name_required": "Numele domeniului este obligatoriu",
     "msg_exists": "Domeniul ':domain' există deja",
-    "msg_ownership_required": "Proprietatea domeniului trebuie verificată înainte de creare",
+    "msg_ownership_required": "Proprietatea domeniului trebuie verificată înainte de creare. Adăugați pentru :domain o înregistrare DNS TXT cu valoarea :code, apoi verificați-o pe pagina Proprietatea domeniului.",
     "msg_creation_limit": "Limita de creare a domeniilor a fost atinsă (:limit)",
     "msg_updated": "Domeniul a fost actualizat cu succes!",
     "msg_settings_updated": "Setările domeniului au fost actualizate cu succes!",

@@ -20,7 +20,8 @@
     "deleted_mailboxes": "กล่องจดหมายที่ลบแล้ว",
     "panel_settings": "การตั้งค่าแผงควบคุม",
     "system": "ระบบ",
-    "logout": "ออกจากระบบ"
+    "logout": "ออกจากระบบ",
+    "domain_ownership": "ความเป็นเจ้าของโดเมน"
   },
   "common": {
     "msg_password_updated": "อัปเดตรหัสผ่านสำเร็จ!",
@@ -425,7 +426,7 @@
   "domain": {
     "msg_name_required": "จำเป็นต้องมีชื่อโดเมน",
     "msg_exists": "โดเมน ':domain' มีอยู่แล้ว",
-    "msg_ownership_required": "ต้องยืนยันความเป็นเจ้าของโดเมนก่อนสร้าง",
+    "msg_ownership_required": "ต้องยืนยันความเป็นเจ้าของโดเมนก่อนสร้าง เพิ่มระเบียน DNS TXT ที่มีค่า :code ให้ :domain แล้วยืนยันที่หน้าความเป็นเจ้าของโดเมน",
     "msg_creation_limit": "ถึงขีดจำกัดการสร้างโดเมนแล้ว (:limit)",
     "msg_updated": "อัปเดตโดเมนสำเร็จ!",
     "msg_settings_updated": "อัปเดตการตั้งค่าโดเมนสำเร็จ!",

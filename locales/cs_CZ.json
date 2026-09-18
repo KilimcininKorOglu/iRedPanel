@@ -20,7 +20,8 @@
     "deleted_mailboxes": "Smazané schránky",
     "panel_settings": "Nastavení panelu",
     "system": "Systém",
-    "logout": "Odhlásit se"
+    "logout": "Odhlásit se",
+    "domain_ownership": "Vlastnictví domény"
   },
   "common": {
     "msg_password_updated": "Heslo bylo úspěšně aktualizováno!",
@@ -425,7 +426,7 @@
   "domain": {
     "msg_name_required": "Název domény je povinný",
     "msg_exists": "Doména ':domain' již existuje",
-    "msg_ownership_required": "Před vytvořením musí být ověřeno vlastnictví domény",
+    "msg_ownership_required": "Vlastnictví domény musí být před vytvořením ověřeno. Přidejte k :domain DNS TXT záznam s hodnotou :code a poté jej ověřte na stránce Vlastnictví domény.",
     "msg_creation_limit": "Dosažen limit vytváření domén (:limit)",
     "msg_updated": "Doména úspěšně aktualizována!",
     "msg_settings_updated": "Nastavení domény úspěšně aktualizováno!",

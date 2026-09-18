@@ -526,7 +526,9 @@
     "not_scheduled": "No programada",
     "cancel_confirm": "¿Cancelar la eliminación? Se conservará el directorio del buzón.",
     "reschedule": "Reprogramar",
-    "empty": "No hay eliminaciones de buzones pendientes."
+    "empty": "No hay eliminaciones de buzones pendientes.",
+    "msg_not_found": "El registro de eliminación ya no existe.",
+    "msg_invalid_date": "Fecha no válida: :date"
   },
   "log": {
     "title": "Registro de actividad",

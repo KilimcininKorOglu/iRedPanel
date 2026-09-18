@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controllers;
 
 use App\CsrfProtection;
+use App\I18n\Translator;
 use App\Middleware;
 use App\Models\Settings;
 use App\Repositories\RepositoryFactory;
@@ -27,9 +28,13 @@ class DeletedMailboxController
         $repo = RepositoryFactory::getDeletedMailboxRepository();
         $paginatedResult = $repo->getPendingDeletions($page, $perPage);
 
+        $error = $_SESSION['flash_error'] ?? null;
+        unset($_SESSION['flash_error']);
+
         $tpl->render('deletedMailboxList.php', [
             'deletedMailboxes' => $paginatedResult->items,
             'paginatedResult' => $paginatedResult,
+            'error' => $error,
         ]);
     }
 
@@ -42,15 +47,16 @@ class DeletedMailboxController
         CsrfProtection::validateToken();
 
         try {
-            $repo = RepositoryFactory::getDeletedMailboxRepository();
-            $repo->cancelDeletion((int) $id);
+            if (!RepositoryFactory::getDeletedMailboxRepository()->cancelDeletion((int) $id)) {
+                throw new \RuntimeException(Translator::translate('deletedmbx.msg_not_found'));
+            }
             ActivityLogger::log('update', '', '', "Cancelled mailbox deletion #{$id}");
-            header("Location: /deleted-mailboxes");
-            exit;
         } catch (\Exception $e) {
-            http_response_code(500);
-            $tpl->render('page404.php');
+            $_SESSION['flash_error'] = BaseController::errorMessage($e);
         }
+
+        header("Location: /deleted-mailboxes");
+        exit;
     }
 
     /**
@@ -68,14 +74,19 @@ class DeletedMailboxController
         }
 
         try {
-            $repo = RepositoryFactory::getDeletedMailboxRepository();
-            $repo->reschedule((int) $id, $newDate);
+            $date = \DateTimeImmutable::createFromFormat('!Y-m-d', $newDate);
+            if ($date === false || $date->format('Y-m-d') !== $newDate) {
+                throw new \RuntimeException(Translator::translate('deletedmbx.msg_invalid_date', ['date' => $newDate]));
+            }
+            if (!RepositoryFactory::getDeletedMailboxRepository()->reschedule((int) $id, $newDate)) {
+                throw new \RuntimeException(Translator::translate('deletedmbx.msg_not_found'));
+            }
             ActivityLogger::log('update', '', '', "Rescheduled mailbox deletion #{$id} to {$newDate}");
-            header("Location: /deleted-mailboxes");
-            exit;
         } catch (\Exception $e) {
-            http_response_code(500);
-            $tpl->render('page404.php');
+            $_SESSION['flash_error'] = BaseController::errorMessage($e);
         }
+
+        header("Location: /deleted-mailboxes");
+        exit;
     }
 }

@@ -526,7 +526,9 @@
     "not_scheduled": "Ikke planlagt",
     "cancel_confirm": "Annuller sletning? Postkassemappen bevares.",
     "reschedule": "Omplanlæg",
-    "empty": "Ingen afventende postkasseslettelser."
+    "empty": "Ingen afventende postkasseslettelser.",
+    "msg_not_found": "Sletningsposten findes ikke længere.",
+    "msg_invalid_date": "Ugyldig dato: :date"
   },
   "log": {
     "title": "Aktivitetslog",

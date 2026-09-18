@@ -2,6 +2,10 @@
 <div class="container">
   <h1><?= $te('deletedmbx.title') ?></h1>
 
+  <?php if (!empty($error)): ?>
+  <p class="text-error"><?= $e($error) ?></p>
+  <?php endif; ?>
+
   <table class="striped">
     <thead>
       <tr>

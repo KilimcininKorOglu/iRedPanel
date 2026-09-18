@@ -526,7 +526,9 @@
     "not_scheduled": "Niet gepland",
     "cancel_confirm": "Verwijdering annuleren? De mailboxmap wordt behouden.",
     "reschedule": "Opnieuw plannen",
-    "empty": "Geen mailboxverwijderingen in afwachting."
+    "empty": "Geen mailboxverwijderingen in afwachting.",
+    "msg_not_found": "Het verwijderrecord bestaat niet meer.",
+    "msg_invalid_date": "Ongeldige datum: :date"
   },
   "log": {
     "title": "Activiteitenlogboek",

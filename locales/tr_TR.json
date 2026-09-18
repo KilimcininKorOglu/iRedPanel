@@ -526,7 +526,9 @@
     "not_scheduled": "Planlanmadı",
     "cancel_confirm": "Silme iptal edilsin mi? Posta kutusu dizini korunacak.",
     "reschedule": "Yeniden Planla",
-    "empty": "Bekleyen posta kutusu silme işlemi yok."
+    "empty": "Bekleyen posta kutusu silme işlemi yok.",
+    "msg_not_found": "Silme kaydı artık yok.",
+    "msg_invalid_date": "Geçersiz tarih: :date"
   },
   "log": {
     "title": "Etkinlik Günlüğü",

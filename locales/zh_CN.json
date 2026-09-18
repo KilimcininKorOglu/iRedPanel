@@ -526,7 +526,9 @@
     "not_scheduled": "未计划",
     "cancel_confirm": "取消删除？邮箱目录将被保留。",
     "reschedule": "重新计划",
-    "empty": "没有待删除的邮箱。"
+    "empty": "没有待删除的邮箱。",
+    "msg_not_found": "该删除记录已不存在。",
+    "msg_invalid_date": "无效日期：:date"
   },
   "log": {
     "title": "活动日志",

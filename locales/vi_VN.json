@@ -526,7 +526,9 @@
     "not_scheduled": "Chưa lên lịch",
     "cancel_confirm": "Hủy xóa? Thư mục hộp thư sẽ được giữ lại.",
     "reschedule": "Lên lịch lại",
-    "empty": "Không có hộp thư nào đang chờ xóa."
+    "empty": "Không có hộp thư nào đang chờ xóa.",
+    "msg_not_found": "Bản ghi xóa không còn tồn tại.",
+    "msg_invalid_date": "Ngày không hợp lệ: :date"
   },
   "log": {
     "title": "Nhật ký hoạt động",

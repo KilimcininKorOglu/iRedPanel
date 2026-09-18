@@ -526,7 +526,9 @@
     "not_scheduled": "Nije zakazano",
     "cancel_confirm": "Otkazati brisanje? Direktorij sandučića bit će sačuvan.",
     "reschedule": "Ponovo zakaži",
-    "empty": "Nema sandučića na čekanju za brisanje."
+    "empty": "Nema sandučića na čekanju za brisanje.",
+    "msg_not_found": "Zapis o brisanju više ne postoji.",
+    "msg_invalid_date": "Neispravan datum: :date"
   },
   "log": {
     "title": "Zapis aktivnosti",

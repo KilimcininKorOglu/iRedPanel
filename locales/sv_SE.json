@@ -526,7 +526,9 @@
     "not_scheduled": "Inte schemalagd",
     "cancel_confirm": "Avbryt borttagning? Brevlådekatalogen behålls.",
     "reschedule": "Omschemalägg",
-    "empty": "Inga väntande brevlådeborttagningar."
+    "empty": "Inga väntande brevlådeborttagningar.",
+    "msg_not_found": "Borttagningsposten finns inte längre.",
+    "msg_invalid_date": "Ogiltigt datum: :date"
   },
   "log": {
     "title": "Aktivitetslogg",

@@ -15,11 +15,15 @@ interface DeletedMailboxRepositoryInterface
 
     /**
      * Cancels a pending deletion (removes the record).
+     *
+     * @return bool false when no record has this id
      */
-    public function cancelDeletion(int $id): void;
+    public function cancelDeletion(int $id): bool;
 
     /**
-     * Reschedules a pending deletion to a new date.
+     * Reschedules a pending deletion to a new date (Y-m-d).
+     *
+     * @return bool false when no record has this id
      */
-    public function reschedule(int $id, string $newDate): void;
+    public function reschedule(int $id, string $newDate): bool;
 }

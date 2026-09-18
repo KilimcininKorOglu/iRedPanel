@@ -526,7 +526,9 @@
     "not_scheduled": "Ikke planlagt",
     "cancel_confirm": "Avbryte sletting? Postbokskatalogen beholdes.",
     "reschedule": "Planlegg på nytt",
-    "empty": "Ingen ventende postbokssletting."
+    "empty": "Ingen ventende postbokssletting.",
+    "msg_not_found": "Slettingsoppføringen finnes ikke lenger.",
+    "msg_invalid_date": "Ugyldig dato: :date"
   },
   "log": {
     "title": "Aktivitetslogg",

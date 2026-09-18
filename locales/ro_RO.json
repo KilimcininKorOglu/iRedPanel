@@ -526,7 +526,9 @@
     "not_scheduled": "Neprogramat",
     "cancel_confirm": "Anulați ștergerea? Directorul cutiei poștale va fi păstrat.",
     "reschedule": "Reprogramează",
-    "empty": "Nicio ștergere de cutie poștală în așteptare."
+    "empty": "Nicio ștergere de cutie poștală în așteptare.",
+    "msg_not_found": "Înregistrarea de ștergere nu mai există.",
+    "msg_invalid_date": "Dată nevalidă: :date"
   },
   "log": {
     "title": "Jurnal de activitate",

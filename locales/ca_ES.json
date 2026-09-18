@@ -526,7 +526,9 @@
     "not_scheduled": "No programada",
     "cancel_confirm": "Cancel·lar l'eliminació? El directori de la bústia es conservarà.",
     "reschedule": "Reprogramar",
-    "empty": "No hi ha eliminacions de bústia pendents."
+    "empty": "No hi ha eliminacions de bústia pendents.",
+    "msg_not_found": "El registre d'eliminació ja no existeix.",
+    "msg_invalid_date": "Data no vàlida: :date"
   },
   "log": {
     "title": "Registre d'activitat",

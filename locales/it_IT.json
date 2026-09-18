@@ -526,7 +526,9 @@
     "not_scheduled": "Non pianificata",
     "cancel_confirm": "Annullare l'eliminazione? La directory della casella verrà conservata.",
     "reschedule": "Ripianifica",
-    "empty": "Nessuna eliminazione di casella in attesa."
+    "empty": "Nessuna eliminazione di casella in attesa.",
+    "msg_not_found": "Il record di eliminazione non esiste più.",
+    "msg_invalid_date": "Data non valida: :date"
   },
   "log": {
     "title": "Registro attività",

@@ -526,7 +526,9 @@
     "not_scheduled": "Ekki áætlað",
     "cancel_confirm": "Hætta við eyðingu? Pósthólfsmappan verður varðveitt.",
     "reschedule": "Endurskipuleggja",
-    "empty": "Engar pósthólfaeyðingar í bið."
+    "empty": "Engar pósthólfaeyðingar í bið.",
+    "msg_not_found": "Eyðingarfærslan er ekki lengur til.",
+    "msg_invalid_date": "Ógild dagsetning: :date"
   },
   "log": {
     "title": "Aðgerðaannáll",

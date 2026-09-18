@@ -526,7 +526,9 @@
     "not_scheduled": "Nenaplánováno",
     "cancel_confirm": "Zrušit smazání? Adresář schránky bude zachován.",
     "reschedule": "Přeplánovat",
-    "empty": "Žádná čekající smazání schránek."
+    "empty": "Žádná čekající smazání schránek.",
+    "msg_not_found": "Záznam o smazání již neexistuje.",
+    "msg_invalid_date": "Neplatné datum: :date"
   },
   "log": {
     "title": "Protokol aktivity",

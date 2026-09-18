@@ -526,7 +526,9 @@
     "not_scheduled": "Não agendada",
     "cancel_confirm": "Cancelar a eliminação? O diretório da caixa de correio será mantido.",
     "reschedule": "Reagendar",
-    "empty": "Nenhuma eliminação de caixa de correio pendente."
+    "empty": "Nenhuma eliminação de caixa de correio pendente.",
+    "msg_not_found": "O registo de eliminação já não existe.",
+    "msg_invalid_date": "Data inválida: :date"
   },
   "log": {
     "title": "Registo de atividade",

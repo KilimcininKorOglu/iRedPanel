@@ -526,7 +526,9 @@
     "not_scheduled": "Niezaplanowane",
     "cancel_confirm": "Anulować usunięcie? Katalog skrzynki zostanie zachowany.",
     "reschedule": "Zmień termin",
-    "empty": "Brak oczekujących usunięć skrzynek."
+    "empty": "Brak oczekujących usunięć skrzynek.",
+    "msg_not_found": "Rekord usunięcia już nie istnieje.",
+    "msg_invalid_date": "Nieprawidłowa data: :date"
   },
   "log": {
     "title": "Dziennik aktywności",

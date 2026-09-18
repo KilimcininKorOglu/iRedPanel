@@ -526,7 +526,9 @@
     "not_scheduled": "Tidak terjadwal",
     "cancel_confirm": "Batalkan penghapusan? Direktori kotak surat akan dipertahankan.",
     "reschedule": "Jadwalkan ulang",
-    "empty": "Tidak ada kotak surat yang menunggu penghapusan."
+    "empty": "Tidak ada kotak surat yang menunggu penghapusan.",
+    "msg_not_found": "Catatan penghapusan sudah tidak ada.",
+    "msg_invalid_date": "Tanggal tidak valid: :date"
   },
   "log": {
     "title": "Log Aktivitas",

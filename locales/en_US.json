@@ -526,7 +526,9 @@
     "not_scheduled": "Not scheduled",
     "cancel_confirm": "Cancel deletion? The mailbox directory will be preserved.",
     "reschedule": "Reschedule",
-    "empty": "No pending mailbox deletions."
+    "empty": "No pending mailbox deletions.",
+    "msg_not_found": "The deletion record no longer exists.",
+    "msg_invalid_date": "Invalid date: :date"
   },
   "log": {
     "title": "Activity Log",

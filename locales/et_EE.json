@@ -526,7 +526,9 @@
     "not_scheduled": "Pole ajastatud",
     "cancel_confirm": "Kas tühistada kustutamine? Postkasti kataloog säilitatakse.",
     "reschedule": "Ajasta uuesti",
-    "empty": "Kustutamist ootavaid postkaste pole."
+    "empty": "Kustutamist ootavaid postkaste pole.",
+    "msg_not_found": "Kustutamise kirjet enam ei ole.",
+    "msg_invalid_date": "Vigane kuupäev: :date"
   },
   "log": {
     "title": "Tegevuslogi",

@@ -526,7 +526,9 @@
     "not_scheduled": "Ikkje planlagd",
     "cancel_confirm": "Avbryte sletting? Postkassemappa blir teken vare på.",
     "reschedule": "Planlegg på nytt",
-    "empty": "Ingen postkasseslettingar ventar."
+    "empty": "Ingen postkasseslettingar ventar.",
+    "msg_not_found": "Slettingsoppføringa finst ikkje lenger.",
+    "msg_invalid_date": "Ugyldig dato: :date"
   },
   "log": {
     "title": "Aktivitetslogg",

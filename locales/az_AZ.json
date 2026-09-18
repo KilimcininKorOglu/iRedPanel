@@ -526,7 +526,9 @@
     "not_scheduled": "Planlaşdırılmayıb",
     "cancel_confirm": "Silməni ləğv etmək? Poçt qutusu qovluğu saxlanılacaq.",
     "reschedule": "Yenidən planlaşdır",
-    "empty": "Gözləyən poçt qutusu silməsi yoxdur."
+    "empty": "Gözləyən poçt qutusu silməsi yoxdur.",
+    "msg_not_found": "Silinmə qeydi artıq mövcud deyil.",
+    "msg_invalid_date": "Yanlış tarix: :date"
   },
   "log": {
     "title": "Fəaliyyət jurnalı",

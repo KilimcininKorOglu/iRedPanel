@@ -526,7 +526,9 @@
     "not_scheduled": "Nicht geplant",
     "cancel_confirm": "Löschung abbrechen? Das Postfachverzeichnis bleibt erhalten.",
     "reschedule": "Neu planen",
-    "empty": "Keine ausstehenden Postfachlöschungen."
+    "empty": "Keine ausstehenden Postfachlöschungen.",
+    "msg_not_found": "Der Löschungseintrag existiert nicht mehr.",
+    "msg_invalid_date": "Ungültiges Datum: :date"
   },
   "log": {
     "title": "Aktivitätsprotokoll",

@@ -526,7 +526,9 @@
     "not_scheduled": "Nenaplánované",
     "cancel_confirm": "Zrušiť odstránenie? Adresár schránky sa ponechá.",
     "reschedule": "Preplánovať",
-    "empty": "Žiadne čakajúce odstránenia schránok."
+    "empty": "Žiadne čakajúce odstránenia schránok.",
+    "msg_not_found": "Záznam o odstránení už neexistuje.",
+    "msg_invalid_date": "Neplatný dátum: :date"
   },
   "log": {
     "title": "Záznam aktivity",

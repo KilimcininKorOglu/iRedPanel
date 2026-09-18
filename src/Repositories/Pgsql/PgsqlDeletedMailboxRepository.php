@@ -36,27 +36,23 @@ class PgsqlDeletedMailboxRepository implements DeletedMailboxRepositoryInterface
         return new PaginatedResult($items, $totalCount, $page, $perPage);
     }
 
-    public function cancelDeletion(int $id): void
+    public function cancelDeletion(int $id): bool
     {
         $pdo = PgsqlConnection::getInstance()->getPdo();
 
         $stmt = $pdo->prepare("DELETE FROM deleted_mailboxes WHERE id = :id");
         $stmt->execute(['id' => $id]);
 
-        if ($stmt->rowCount() === 0) {
-            throw new \RuntimeException("Deleted mailbox record #{$id} not found");
-        }
+        return $stmt->rowCount() > 0;
     }
 
-    public function reschedule(int $id, string $newDate): void
+    public function reschedule(int $id, string $newDate): bool
     {
         $pdo = PgsqlConnection::getInstance()->getPdo();
 
         $stmt = $pdo->prepare("UPDATE deleted_mailboxes SET delete_date = :newDate WHERE id = :id");
         $stmt->execute(['newDate' => $newDate, 'id' => $id]);
 
-        if ($stmt->rowCount() === 0) {
-            throw new \RuntimeException("Deleted mailbox record #{$id} not found");
-        }
+        return $stmt->rowCount() > 0;
     }
 }

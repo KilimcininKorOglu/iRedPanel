@@ -526,7 +526,9 @@
     "not_scheduled": "Non planifiée",
     "cancel_confirm": "Annuler la suppression ? Le répertoire de la boîte sera conservé.",
     "reschedule": "Replanifier",
-    "empty": "Aucune suppression de boîte en attente."
+    "empty": "Aucune suppression de boîte en attente.",
+    "msg_not_found": "L'enregistrement de suppression n'existe plus.",
+    "msg_invalid_date": "Date non valide : :date"
   },
   "log": {
     "title": "Journal d'activité",

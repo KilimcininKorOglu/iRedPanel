@@ -526,7 +526,9 @@
     "not_scheduled": "Programatu gabe",
     "cancel_confirm": "Ezabaketa bertan behera utzi? Postontziaren direktorioa mantenduko da.",
     "reschedule": "Berriz programatu",
-    "empty": "Ez dago postontzirik ezabatzeke."
+    "empty": "Ez dago postontzirik ezabatzeke.",
+    "msg_not_found": "Ezabatze-erregistroa jada ez dago.",
+    "msg_invalid_date": "Data baliogabea: :date"
   },
   "log": {
     "title": "Jarduera-erregistroa",

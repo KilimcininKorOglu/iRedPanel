@@ -526,7 +526,9 @@
     "not_scheduled": "Ni načrtovano",
     "cancel_confirm": "Prekličem izbrisanje? Imenik poštnega predala bo ohranjen.",
     "reschedule": "Prenačrtuj",
-    "empty": "Ni čakajočih izbrisanj poštnih predalov."
+    "empty": "Ni čakajočih izbrisanj poštnih predalov.",
+    "msg_not_found": "Zapis o brisanju ne obstaja več.",
+    "msg_invalid_date": "Neveljaven datum: :date"
   },
   "log": {
     "title": "Dnevnik dejavnosti",

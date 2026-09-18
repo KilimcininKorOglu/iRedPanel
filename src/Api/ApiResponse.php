@@ -44,7 +44,7 @@ class ApiResponse
             'total' => $result->totalCount,
             'page' => $result->currentPage,
             'perPage' => $result->perPage,
-            'totalPages' => $result->totalPages,
+            'totalPages' => $result->totalPages(),
         ]);
     }
 

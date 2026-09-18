@@ -48,15 +48,11 @@ $iredadminPdo = getIredadminPdo($settings);
 // Get last notification time
 $lastNotifyTime = 0;
 if ($iredadminPdo !== null) {
-    try {
-        $stmt = $iredadminPdo->prepare("SELECT value FROM tracking WHERE k = 'quarantine_notify_time' LIMIT 1");
-        $stmt->execute();
-        $row = $stmt->fetch();
-        if ($row !== false) {
-            $lastNotifyTime = (int) $row['value'];
-        }
-    } catch (\PDOException $e) {
-        // tracking table may not exist
+    $stmt = $iredadminPdo->prepare("SELECT v FROM tracking WHERE k = 'quarantine_notify_time' LIMIT 1");
+    $stmt->execute();
+    $row = $stmt->fetch();
+    if ($row !== false) {
+        $lastNotifyTime = (int) $row['v'];
     }
 }
 
@@ -135,20 +131,16 @@ foreach ($users as $userEmail) {
 
 // Update last notification time
 if ($iredadminPdo !== null && $notified > 0) {
-    try {
-        $now = time();
-        $stmt = $iredadminPdo->prepare("SELECT 1 FROM tracking WHERE k = 'quarantine_notify_time' LIMIT 1");
-        $stmt->execute();
+    $now = time();
+    $stmt = $iredadminPdo->prepare("SELECT 1 FROM tracking WHERE k = 'quarantine_notify_time' LIMIT 1");
+    $stmt->execute();
 
-        if ($stmt->fetch() !== false) {
-            $iredadminPdo->prepare("UPDATE tracking SET value = :val WHERE k = 'quarantine_notify_time'")
-                ->execute(['val' => (string) $now]);
-        } else {
-            $iredadminPdo->prepare("INSERT INTO tracking (k, value) VALUES ('quarantine_notify_time', :val)")
-                ->execute(['val' => (string) $now]);
-        }
-    } catch (\PDOException $e) {
-        // tracking table may not exist
+    if ($stmt->fetch() !== false) {
+        $iredadminPdo->prepare("UPDATE tracking SET v = :val WHERE k = 'quarantine_notify_time'")
+            ->execute(['val' => (string) $now]);
+    } else {
+        $iredadminPdo->prepare("INSERT INTO tracking (k, v) VALUES ('quarantine_notify_time', :val)")
+            ->execute(['val' => (string) $now]);
     }
 }
 

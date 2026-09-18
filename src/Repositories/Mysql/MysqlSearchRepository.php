@@ -8,6 +8,10 @@ use App\Repositories\SearchRepositoryInterface;
 
 class MysqlSearchRepository implements SearchRepositoryInterface
 {
+    /** Standalone admins plus mailboxes with admin rights, as the admin list shows them. */
+    private const ADMINS_TABLE = '(SELECT username, name, active FROM admin
+        UNION SELECT username, name, active FROM mailbox WHERE isadmin = 1 OR isglobaladmin = 1) AS admins';
+
     public function search(string $query, array $accountTypes = [], array $statusFilter = [], array $managedDomains = []): array
     {
         $pdo = MysqlConnection::getInstance()->getPdo();
@@ -51,7 +55,7 @@ class MysqlSearchRepository implements SearchRepositoryInterface
         }
 
         if (($searchAll || in_array('admin', $accountTypes, true)) && empty($managedDomains)) {
-            $results['admins'] = $this->searchTable($pdo, 'admin', 'username, name, active', ['username', 'name'], $likeQuery, $statusFilter, '', []);
+            $results['admins'] = $this->searchTable($pdo, self::ADMINS_TABLE, 'username, name, active', ['username', 'name'], $likeQuery, $statusFilter, '', []);
         }
 
         return $results;

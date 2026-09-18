@@ -44,6 +44,23 @@ class Settings
     public readonly string $iredapdDbUser;
     public readonly string $iredapdDbPassword;
 
+    // mlmmjadmin RESTful API, which manages the mlmmj mailing list spool
+    public readonly string $mlmmjadminApiUrl;
+    public readonly string $mlmmjadminApiToken;
+
+    // Outgoing SMTP for newsletter confirmations and quarantine notifications
+    public readonly string $smtpHost;
+    public readonly int $smtpPort;
+    public readonly string $smtpSecurity;
+    public readonly bool $smtpTlsVerify;
+    public readonly string $smtpUser;
+    public readonly string $smtpPassword;
+    public readonly string $smtpFrom;
+
+    // Base URL of the panel used in links sent by mail
+    public readonly string $publicUrl;
+    public readonly int $newsletterExpireHours;
+
     // LDAP settings (populated only when backend=ldap)
     public readonly string $ldapUri;
     public readonly string $ldapRootDn;
@@ -234,6 +251,8 @@ class Settings
         $this->iredapdDbUser = $this->env('IREDPANEL_IREDAPD_DB_USER', '');
         $this->iredapdDbPassword = $this->env('IREDPANEL_IREDAPD_DB_PASSWORD', '');
 
+        $this->loadMailSettings();
+
         // Conditional backend settings
         if ($this->backend === 'ldap') {
             $this->ldapUri = $this->envRequired('IREDPANEL_LDAP_URI');
@@ -297,6 +316,34 @@ class Settings
             $this->ldapPassword = '';
             $this->ldapTlsVerify = false;
         }
+    }
+
+    /**
+     * Loads the mlmmjadmin API, SMTP and public URL settings.
+     */
+    private function loadMailSettings(): void
+    {
+        $this->mlmmjadminApiUrl = rtrim($this->env('IREDPANEL_MLMMJADMIN_API_URL', ''), '/');
+        $this->mlmmjadminApiToken = $this->env('IREDPANEL_MLMMJADMIN_API_TOKEN', '');
+
+        $security = strtolower($this->env('IREDPANEL_SMTP_SECURITY', 'starttls'));
+        if (!in_array($security, ['none', 'starttls', 'tls'], true)) {
+            throw new \RuntimeException("Unsupported SMTP security: {$security}. Must be 'none', 'starttls', or 'tls'");
+        }
+        $this->smtpSecurity = $security;
+        $this->smtpHost = $this->env('IREDPANEL_SMTP_HOST', '');
+        $this->smtpPort = $this->envInt('IREDPANEL_SMTP_PORT', $security === 'tls' ? 465 : 587);
+        $this->smtpTlsVerify = $this->envBool('IREDPANEL_SMTP_TLS_VERIFY', true);
+        $this->smtpUser = $this->env('IREDPANEL_SMTP_USER', '');
+        $this->smtpPassword = $this->env('IREDPANEL_SMTP_PASSWORD', '');
+        $this->smtpFrom = $this->env('IREDPANEL_SMTP_FROM', '');
+
+        $publicUrl = rtrim($this->env('IREDPANEL_PUBLIC_URL', ''), '/');
+        if ($publicUrl !== '' && !preg_match('#^https?://[^/?\#\s]+(/[^?\#\s]*)?$#', $publicUrl)) {
+            throw new \RuntimeException('IREDPANEL_PUBLIC_URL must be an http(s) URL without query, for example https://panel.example.com');
+        }
+        $this->publicUrl = $publicUrl;
+        $this->newsletterExpireHours = max(1, $this->envInt('IREDPANEL_NEWSLETTER_EXPIRE_HOURS', 24));
     }
 
     public static function getInstance(): self

@@ -6,6 +6,7 @@ namespace App\Api;
 
 use App\Models\MailingList;
 use App\Repositories\RepositoryFactory;
+use App\Services\MailingListService;
 
 class MailingListApiController
 {
@@ -46,20 +47,24 @@ class MailingListApiController
         ApiMiddleware::requireGlobalKey();
         ApiMiddleware::requireWriteAccess();
         $data = ApiMiddleware::getJsonBody();
-        $address = $data['address'] ?? '';
-        $domain = $data['domain'] ?? '';
+        $address = strtolower(trim((string) ($data['address'] ?? '')));
+        $domain = strtolower(trim((string) ($data['domain'] ?? '')));
 
         if ($address === '' || $domain === '') {
             ApiResponse::error('address and domain are required');
             return;
         }
 
-        if (!str_ends_with(strtolower($address), '@' . strtolower($domain))) {
+        if (filter_var($address, FILTER_VALIDATE_EMAIL) === false) {
+            ApiResponse::error('Invalid address');
+            return;
+        }
+
+        if (!str_ends_with($address, '@' . $domain)) {
             ApiResponse::error('address must be in domain');
             return;
         }
 
-        $repo = RepositoryFactory::getMailingListRepository();
         if (RepositoryFactory::getAliasRepository()->isAddressInUse($address)) {
             ApiResponse::error('Address already in use', 409);
             return;
@@ -76,7 +81,7 @@ class MailingListApiController
             }
         }
 
-        $repo->createMailingList(
+        MailingListService::create(
             $address, $domain,
             $data['name'] ?? '',
             $data['accessPolicy'] ?? 'public',
@@ -97,12 +102,12 @@ class MailingListApiController
         }
 
         $data = ApiMiddleware::getJsonBody();
-        $repo->updateMailingList(
+        MailingListService::update(
             $address,
             $data['name'] ?? $ml->name,
             $data['accessPolicy'] ?? $ml->accessPolicy,
             (int) ($data['maxMsgSize'] ?? $ml->maxMsgSize),
-            $data['active'] ?? $ml->active,
+            (bool) ($data['active'] ?? $ml->active),
         );
         ApiResponse::success(['message' => 'Mailing list updated']);
     }
@@ -117,7 +122,7 @@ class MailingListApiController
             return;
         }
 
-        $repo->deleteMailingList($address);
+        MailingListService::delete($address);
         ApiResponse::deleted();
     }
 }

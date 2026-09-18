@@ -90,6 +90,23 @@ IREDPANEL_BACKEND=ldap    # or "mysql" or "pgsql"
 | `PGSQL_PASSWORD` | -        | Database password                   |
 | `STORAGE_NODE`   | `vmail1` | Storage node name for new mailboxes |
 
+### Mailing Lists and Outgoing Mail
+
+Mailing lists live in the mlmmj spool on the mail server. The panel creates, updates and deletes them, and manages their subscribers, through the [mlmmjadmin](https://github.com/iredmail/mlmmjadmin) RESTful API. Newsletter confirmation mail and the quarantine notification CLI send mail through SMTP.
+
+| Variable                | Default    | Description                                                       |
+|-------------------------|------------|-------------------------------------------------------------------|
+| `MLMMJADMIN_API_URL`    | -          | mlmmjadmin API base URL, for example `http://127.0.0.1:7790/api`  |
+| `MLMMJADMIN_API_TOKEN`  | -          | One of `api_auth_tokens` in `/opt/mlmmjadmin/settings.py`         |
+| `SMTP_HOST`             | -          | SMTP server hostname                                              |
+| `SMTP_PORT`             | `587`      | SMTP port (`465` when `SMTP_SECURITY=tls`)                        |
+| `SMTP_SECURITY`         | `starttls` | `none`, `starttls` or `tls`                                       |
+| `SMTP_TLS_VERIFY`       | `true`     | Verify the SMTP server TLS certificate                            |
+| `SMTP_USER`             | -          | SMTP AUTH user (empty disables AUTH)                              |
+| `SMTP_PASSWORD`         | -          | SMTP AUTH password                                                |
+| `SMTP_FROM`             | -          | Sender address of mail sent by the panel                          |
+| `PUBLIC_URL`            | -          | Public base URL of the panel, used in links sent by mail          |
+
 ### Optional Settings
 
 These settings serve as initial defaults. Once the iRedAdmin database is configured, they can also be managed from the **Panel Settings** UI (`/panel-settings`). Database values take precedence over `.env` values.

@@ -10,6 +10,7 @@ use App\Middleware;
 use App\Models\Settings;
 use App\Repositories\RepositoryFactory;
 use App\Services\ActivityLogger;
+use App\Services\MailingListService;
 use App\TemplateEngine;
 
 class MailingListController
@@ -46,36 +47,7 @@ class MailingListController
             CsrfProtection::validateToken();
 
             try {
-                $localPart = trim($_POST['localPart'] ?? '');
-                $domain = trim($_POST['domain'] ?? '');
-                $name = trim($_POST['name'] ?? '');
-                $accessPolicy = trim($_POST['accessPolicy'] ?? 'public');
-                $maxMsgSize = (int) ($_POST['maxMsgSize'] ?? 0);
-
-                if ($localPart === '' || $domain === '') {
-                    throw new \RuntimeException('Email address and domain are required');
-                }
-
-                $address = strtolower($localPart . '@' . $domain);
-                $repo = RepositoryFactory::getMailingListRepository();
-
-                if (RepositoryFactory::getAliasRepository()->isAddressInUse($address)) {
-                    throw new \RuntimeException(Translator::translate('common.msg_address_in_use', ['address' => $address]));
-                }
-
-                // Enforce domain alias limit (mailing lists count as aliases)
-                $domainObj = RepositoryFactory::getDomainRepository()->getDomain($domain);
-                if ($domainObj !== null && $domainObj->aliases > 0) {
-                    $aliasRepo = RepositoryFactory::getAliasRepository();
-                    $aliasCount = $aliasRepo->countAliasesForDomain($domain);
-                    if ($aliasCount >= $domainObj->aliases) {
-                        throw new \RuntimeException("Domain alias limit reached ({$aliasCount}/{$domainObj->aliases})");
-                    }
-                }
-
-                $repo->createMailingList($address, $domain, $name, $accessPolicy, $maxMsgSize);
-                ActivityLogger::logCreate($domain, '', "Created mailing list: {$address}");
-
+                $address = self::createFromPost();
                 header("Location: /mailing-lists/{$address}");
                 exit;
             } catch (\Exception $e) {
@@ -87,6 +59,56 @@ class MailingListController
             'domains' => $domains,
             'error' => $error,
         ]);
+    }
+
+    /**
+     * Validates the create form and creates the list.
+     *
+     * @return string the new list address
+     */
+    private static function createFromPost(): string
+    {
+        $localPart = trim($_POST['localPart'] ?? '');
+        $domain = trim($_POST['domain'] ?? '');
+        if ($localPart === '' || $domain === '') {
+            throw new \RuntimeException('Email address and domain are required');
+        }
+
+        $address = strtolower($localPart . '@' . $domain);
+        if (filter_var($address, FILTER_VALIDATE_EMAIL) === false) {
+            throw new \RuntimeException(Translator::translate('common.msg_invalid_email', ['address' => $address]));
+        }
+        if (RepositoryFactory::getAliasRepository()->isAddressInUse($address)) {
+            throw new \RuntimeException(Translator::translate('common.msg_address_in_use', ['address' => $address]));
+        }
+        self::assertAliasLimit($domain);
+
+        MailingListService::create(
+            $address,
+            $domain,
+            trim($_POST['name'] ?? ''),
+            trim($_POST['accessPolicy'] ?? 'public'),
+            (int) ($_POST['maxMsgSize'] ?? 0),
+        );
+        ActivityLogger::logCreate($domain, '', "Created mailing list: {$address}");
+
+        return $address;
+    }
+
+    /**
+     * Mailing lists count against the domain alias limit.
+     */
+    private static function assertAliasLimit(string $domain): void
+    {
+        $domainObj = RepositoryFactory::getDomainRepository()->getDomain($domain);
+        if ($domainObj === null || $domainObj->aliases <= 0) {
+            return;
+        }
+
+        $aliasCount = RepositoryFactory::getAliasRepository()->countAliasesForDomain($domain);
+        if ($aliasCount >= $domainObj->aliases) {
+            throw new \RuntimeException("Domain alias limit reached ({$aliasCount}/{$domainObj->aliases})");
+        }
     }
 
     public static function view(TemplateEngine $tpl, string $address): void
@@ -118,13 +140,13 @@ class MailingListController
                     $maxMsgSize = (int) ($_POST['maxMsgSize'] ?? 0);
                     $active = isset($_POST['active']);
 
-                    $repo->updateMailingList($address, $name, $accessPolicy, $maxMsgSize, $active);
+                    MailingListService::update($address, $name, $accessPolicy, $maxMsgSize, $active);
                     ActivityLogger::logUpdate($ml->domain, '', "Updated mailing list: {$address}");
                     $success = Translator::translate('mlist.msg_updated');
                 } elseif ($action === 'updateOwners') {
                     $ownersRaw = trim($_POST['owners'] ?? '');
                     $newOwners = array_filter(array_map('trim', explode("\n", $ownersRaw)));
-                    $repo->setOwners($address, $newOwners);
+                    MailingListService::setOwners($address, $newOwners);
                     ActivityLogger::logUpdate($ml->domain, '', "Updated owners for: {$address}");
                     $success = Translator::translate('mlist.msg_owners_updated');
                 }
@@ -152,7 +174,7 @@ class MailingListController
         $repo = RepositoryFactory::getMailingListRepository();
         try {
             $ml = $repo->getMailingList($address) ?? throw BaseController::itemNotFound();
-            $repo->deleteMailingList($address);
+            MailingListService::delete($address);
             ActivityLogger::logDelete($ml->domain, '', "Deleted mailing list: {$address}");
         } catch (\Exception $e) {
             BaseController::flashItemError($address, $e);
@@ -179,7 +201,7 @@ class MailingListController
         $done = BaseController::runBulk($selected, function (string $address) use ($repo, $action): void {
             $repo->getMailingList($address) ?? throw BaseController::itemNotFound();
             if ($action === 'delete') {
-                $repo->deleteMailingList($address);
+                MailingListService::delete($address);
             } else {
                 $repo->enableDisableMailingList($address, $action === 'enable');
             }

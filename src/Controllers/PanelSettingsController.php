@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controllers;
 
 use App\CsrfProtection;
+use App\I18n\Translator;
 use App\Middleware;
 use App\Models\Settings;
 use App\Repositories\RepositoryFactory;
@@ -43,51 +44,6 @@ class PanelSettingsController
         ],
     ];
 
-    /**
-     * Human-readable labels for setting keys.
-     */
-    private const LABELS = [
-        'brandName' => 'Panel Name',
-        'brandLogoUrl' => 'Logo URL',
-        'brandFooterText' => 'Footer Text',
-        'brandPrimaryColor' => 'Primary Color (CSS)',
-        'passwordMinLength' => 'Minimum Password Length',
-        'passwordIncludesSpecialChars' => 'Require Special Characters',
-        'passwordIncludesNumbers' => 'Require Numbers',
-        'passwordIncludesLowercase' => 'Require Lowercase',
-        'passwordIncludesUppercase' => 'Require Uppercase',
-        'passwordHashesUsePrefixedScheme' => 'Use {SCHEME} Prefix in Hashes',
-        'passwordDefaultScheme' => 'Default Hashing Scheme',
-        'requireOldPasswordOnChange' => 'Require Old Password on Change',
-        'sessionTimeout' => 'Session Timeout (seconds)',
-        'sessionValidateIp' => 'Invalidate Session on IP Change',
-        'allowedIpRanges' => 'Allowed IP Ranges (CIDR)',
-        'defaultLanguage' => 'Default Language',
-        'paginationPerPage' => 'Items Per Page',
-        'checkUpdates' => 'Check for Updates on Dashboard',
-        'requireDomainOwnershipVerification' => 'Require Domain Ownership Verification',
-        'amavisdEnabled' => 'Amavisd Integration',
-        'amavisdRemoveQuarantinedInDays' => 'Quarantine Retention (days)',
-        'amavisdRemoveMaillogInDays' => 'Mail Log Retention (days)',
-        'fail2banEnabled' => 'Fail2ban Integration',
-        'fail2banSocket' => 'Fail2ban Socket Path',
-        'fail2banJails' => 'Fail2ban Jails (comma-separated)',
-        'iredapdEnabled' => 'iRedAPD Integration',
-        'geoIpDbPath' => 'GeoIP Database Path (.mmdb)',
-        'apiEnabled' => 'REST API',
-        'apiKey' => 'Legacy API Key',
-        'apiAllowedIps' => 'API Allowed IPs (comma-separated)',
-    ];
-
-    private const CATEGORY_TITLES = [
-        'branding' => 'Branding',
-        'password' => 'Password Policy',
-        'session' => 'Session & Security',
-        'display' => 'Display & Behavior',
-        'integrations' => 'Integrations',
-        'api' => 'REST API',
-    ];
-
     public static function view(TemplateEngine $tpl): void
     {
         Middleware::globalAdminRequired();
@@ -102,10 +58,19 @@ class PanelSettingsController
         $repo->ensureTableExists();
         $dbSettings = $repo->getAll();
 
+        $categoryTitles = [];
+        foreach (array_keys(self::CATEGORIES) as $category) {
+            $categoryTitles[$category] = Translator::translate("panelset.cat_{$category}");
+        }
+        $labels = [];
+        foreach (self::CATEGORIES[$activeTab] as $key) {
+            $labels[$key] = Translator::translate("panelset.label_{$key}");
+        }
+
         $tpl->render('panelSettings.php', [
             'categories' => self::CATEGORIES,
-            'categoryTitles' => self::CATEGORY_TITLES,
-            'labels' => self::LABELS,
+            'categoryTitles' => $categoryTitles,
+            'labels' => $labels,
             'overridableKeys' => Settings::OVERRIDABLE_KEYS,
             'settings' => $settings,
             'dbSettings' => $dbSettings,
@@ -203,7 +168,7 @@ class PanelSettingsController
             );
         }
 
-        $_SESSION['flash_success'] = 'Settings saved successfully.';
+        BaseController::flashSuccess(Translator::translate('panelset.msg_saved'));
         header("Location: /panel-settings?tab={$category}");
         exit;
     }

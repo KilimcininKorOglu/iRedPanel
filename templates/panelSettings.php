@@ -1,16 +1,8 @@
-<?php
-$pageTitle = $t('panelset.title');
-$flashSuccess = $_SESSION['flash_success'] ?? '';
-unset($_SESSION['flash_success']);
-?>
+<?php $pageTitle = $t('panelset.title'); ?>
 <div class="container">
   <div class="row">
     <div class="col-10">
       <h1><?= $te('panelset.title') ?></h1>
-
-      <?php if ($flashSuccess !== ''): ?>
-      <p class="text-success"><?= $e($flashSuccess) ?></p>
-      <?php endif; ?>
 
       <nav class="tabs">
         <?php foreach ($categoryTitles as $catKey => $catTitle): ?>

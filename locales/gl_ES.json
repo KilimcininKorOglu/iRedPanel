@@ -390,7 +390,9 @@
     "label_geoIpDbPath": "Ruta da base de datos GeoIP (.mmdb)",
     "label_apiEnabled": "REST API",
     "label_apiKey": "Clave de API antiga",
-    "label_apiAllowedIps": "IP permitidas para a API (separadas por comas)"
+    "label_apiAllowedIps": "IP permitidas para a API (separadas por comas)",
+    "msg_invalid": "Estes valores non son válidos e non se gardaron: :fields",
+    "msg_ip_lockout": "Os intervalos de IP permitidos non se gardaron porque non inclúen o seu propio enderezo :ip."
   },
   "quarantine": {
     "title": "Corentena",

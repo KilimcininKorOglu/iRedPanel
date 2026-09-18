@@ -390,7 +390,9 @@
     "label_geoIpDbPath": "GeoIP-adatbázis elérési útja (.mmdb)",
     "label_apiEnabled": "REST API",
     "label_apiKey": "Régi API-kulcs",
-    "label_apiAllowedIps": "API-hoz engedélyezett IP-címek (vesszővel elválasztva)"
+    "label_apiAllowedIps": "API-hoz engedélyezett IP-címek (vesszővel elválasztva)",
+    "msg_invalid": "Ezek az értékek érvénytelenek, és nem lettek mentve: :fields",
+    "msg_ip_lockout": "Az engedélyezett IP-tartományok nem lettek mentve, mert nem tartalmazzák a saját címét (:ip)."
   },
   "quarantine": {
     "title": "Karantén",

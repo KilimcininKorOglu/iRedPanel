@@ -390,7 +390,9 @@
     "label_geoIpDbPath": "Putanja GeoIP baze podataka (.mmdb)",
     "label_apiEnabled": "REST API",
     "label_apiKey": "Stari API ključ",
-    "label_apiAllowedIps": "Dozvoljene IP adrese za API (odvojene zarezom)"
+    "label_apiAllowedIps": "Dozvoljene IP adrese za API (odvojene zarezom)",
+    "msg_invalid": "Ove vrijednosti nisu važeće i nisu sačuvane: :fields",
+    "msg_ip_lockout": "Dozvoljeni IP rasponi nisu sačuvani jer ne uključuju vašu vlastitu adresu :ip."
   },
   "quarantine": {
     "title": "Karantin",

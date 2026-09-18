@@ -390,7 +390,9 @@
     "label_geoIpDbPath": "GeoIP 数据库路径 (.mmdb)",
     "label_apiEnabled": "REST API",
     "label_apiKey": "旧版 API 密钥",
-    "label_apiAllowedIps": "允许访问 API 的 IP (逗号分隔)"
+    "label_apiAllowedIps": "允许访问 API 的 IP (逗号分隔)",
+    "msg_invalid": "以下值无效，未保存: :fields",
+    "msg_ip_lockout": "允许的 IP 范围未保存，因为其中不包含您自己的地址 :ip。"
   },
   "quarantine": {
     "title": "隔离区",

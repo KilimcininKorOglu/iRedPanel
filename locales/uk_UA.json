@@ -390,7 +390,9 @@
     "label_geoIpDbPath": "Шлях до бази даних GeoIP (.mmdb)",
     "label_apiEnabled": "REST API",
     "label_apiKey": "Застарілий ключ API",
-    "label_apiAllowedIps": "Дозволені IP для API (через кому)"
+    "label_apiAllowedIps": "Дозволені IP для API (через кому)",
+    "msg_invalid": "Ці значення недійсні й не збережені: :fields",
+    "msg_ip_lockout": "Дозволені діапазони IP не збережено, бо вони не містять вашу власну адресу :ip."
   },
   "quarantine": {
     "title": "Карантин",

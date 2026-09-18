@@ -390,7 +390,9 @@
     "label_geoIpDbPath": "Ruta de la base de dades GeoIP (.mmdb)",
     "label_apiEnabled": "REST API",
     "label_apiKey": "Clau d'API antiga",
-    "label_apiAllowedIps": "IP permeses per a l'API (separades per comes)"
+    "label_apiAllowedIps": "IP permeses per a l'API (separades per comes)",
+    "msg_invalid": "Aquests valors no són vàlids i no s'han desat: :fields",
+    "msg_ip_lockout": "Els intervals d'IP permesos no s'han desat, perquè no inclouen la vostra adreça :ip."
   },
   "quarantine": {
     "title": "Quarantena",

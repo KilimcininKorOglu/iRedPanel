@@ -390,7 +390,9 @@
     "label_geoIpDbPath": "GeoIP datu-basearen bidea (.mmdb)",
     "label_apiEnabled": "REST API",
     "label_apiKey": "API gako zaharra",
-    "label_apiAllowedIps": "APIrako baimendutako IPak (komaz bereizita)"
+    "label_apiAllowedIps": "APIrako baimendutako IPak (komaz bereizita)",
+    "msg_invalid": "Balio hauek ez dira baliozkoak eta ez dira gorde: :fields",
+    "msg_ip_lockout": "Baimendutako IP barrutiak ez dira gorde, ez dutelako zure helbidea (:ip) barne hartzen."
   },
   "quarantine": {
     "title": "Berrogeialdia",

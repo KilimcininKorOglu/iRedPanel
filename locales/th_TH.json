@@ -390,7 +390,9 @@
     "label_geoIpDbPath": "พาธฐานข้อมูล GeoIP (.mmdb)",
     "label_apiEnabled": "REST API",
     "label_apiKey": "คีย์ API แบบเดิม",
-    "label_apiAllowedIps": "IP ที่อนุญาตสำหรับ API (คั่นด้วยจุลภาค)"
+    "label_apiAllowedIps": "IP ที่อนุญาตสำหรับ API (คั่นด้วยจุลภาค)",
+    "msg_invalid": "ค่าต่อไปนี้ไม่ถูกต้องและไม่ได้บันทึก: :fields",
+    "msg_ip_lockout": "ไม่ได้บันทึกช่วง IP ที่อนุญาต เนื่องจากไม่มีที่อยู่ของคุณเอง :ip"
   },
   "quarantine": {
     "title": "การกักกัน",

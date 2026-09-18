@@ -390,7 +390,9 @@
     "label_geoIpDbPath": "Sökväg till GeoIP-databas (.mmdb)",
     "label_apiEnabled": "REST API",
     "label_apiKey": "Äldre API-nyckel",
-    "label_apiAllowedIps": "Tillåtna IP-adresser för API (kommaseparerade)"
+    "label_apiAllowedIps": "Tillåtna IP-adresser för API (kommaseparerade)",
+    "msg_invalid": "Dessa värden är ogiltiga och sparades inte: :fields",
+    "msg_ip_lockout": "De tillåtna IP-intervallen sparades inte, eftersom de inte omfattar din egen adress :ip."
   },
   "quarantine": {
     "title": "Karantän",

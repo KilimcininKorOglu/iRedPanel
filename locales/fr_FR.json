@@ -390,7 +390,9 @@
     "label_geoIpDbPath": "Chemin de la base GeoIP (.mmdb)",
     "label_apiEnabled": "REST API",
     "label_apiKey": "Ancienne clé d'API",
-    "label_apiAllowedIps": "IP autorisées pour l'API (séparées par des virgules)"
+    "label_apiAllowedIps": "IP autorisées pour l'API (séparées par des virgules)",
+    "msg_invalid": "Ces valeurs sont invalides et n'ont pas été enregistrées : :fields",
+    "msg_ip_lockout": "Les plages IP autorisées n'ont pas été enregistrées, car elles n'incluent pas votre propre adresse :ip."
   },
   "quarantine": {
     "title": "Quarantaine",

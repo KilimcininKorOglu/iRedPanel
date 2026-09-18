@@ -390,7 +390,9 @@
     "label_geoIpDbPath": "Calea bazei de date GeoIP (.mmdb)",
     "label_apiEnabled": "REST API",
     "label_apiKey": "Cheie API veche",
-    "label_apiAllowedIps": "IP-uri permise pentru API (separate prin virgulă)"
+    "label_apiAllowedIps": "IP-uri permise pentru API (separate prin virgulă)",
+    "msg_invalid": "Aceste valori sunt invalide și nu au fost salvate: :fields",
+    "msg_ip_lockout": "Intervalele IP permise nu au fost salvate, deoarece nu includ propria dvs. adresă :ip."
   },
   "quarantine": {
     "title": "Carantină",

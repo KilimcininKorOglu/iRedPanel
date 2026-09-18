@@ -390,7 +390,9 @@
     "label_geoIpDbPath": "Percorso del database GeoIP (.mmdb)",
     "label_apiEnabled": "REST API",
     "label_apiKey": "Chiave API legacy",
-    "label_apiAllowedIps": "IP consentiti per l'API (separati da virgole)"
+    "label_apiAllowedIps": "IP consentiti per l'API (separati da virgole)",
+    "msg_invalid": "Questi valori non sono validi e non sono stati salvati: :fields",
+    "msg_ip_lockout": "Gli intervalli IP consentiti non sono stati salvati perché non includono il tuo indirizzo :ip."
   },
   "quarantine": {
     "title": "Quarantena",

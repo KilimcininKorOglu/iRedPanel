@@ -390,7 +390,9 @@
     "label_geoIpDbPath": "Cesta k databáze GeoIP (.mmdb)",
     "label_apiEnabled": "REST API",
     "label_apiKey": "Starý kľúč API",
-    "label_apiAllowedIps": "Povolené IP pre API (oddelené čiarkou)"
+    "label_apiAllowedIps": "Povolené IP pre API (oddelené čiarkou)",
+    "msg_invalid": "Tieto hodnoty sú neplatné a neboli uložené: :fields",
+    "msg_ip_lockout": "Povolené rozsahy IP neboli uložené, pretože nezahŕňajú vašu vlastnú adresu :ip."
   },
   "quarantine": {
     "title": "Karanténa",

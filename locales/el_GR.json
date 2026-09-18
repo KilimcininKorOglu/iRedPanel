@@ -390,7 +390,9 @@
     "label_geoIpDbPath": "Διαδρομή βάσης δεδομένων GeoIP (.mmdb)",
     "label_apiEnabled": "REST API",
     "label_apiKey": "Παλαιό κλειδί API",
-    "label_apiAllowedIps": "Επιτρεπόμενες IP για το API (χωρισμένες με κόμμα)"
+    "label_apiAllowedIps": "Επιτρεπόμενες IP για το API (χωρισμένες με κόμμα)",
+    "msg_invalid": "Αυτές οι τιμές δεν είναι έγκυρες και δεν αποθηκεύτηκαν: :fields",
+    "msg_ip_lockout": "Τα επιτρεπόμενα εύρη IP δεν αποθηκεύτηκαν, επειδή δεν περιλαμβάνουν τη δική σας διεύθυνση :ip."
   },
   "quarantine": {
     "title": "Καραντίνα",

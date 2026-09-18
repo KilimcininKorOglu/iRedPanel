@@ -390,7 +390,9 @@
     "label_geoIpDbPath": "GeoIP-tietokannan polku (.mmdb)",
     "label_apiEnabled": "REST API",
     "label_apiKey": "Vanha API-avain",
-    "label_apiAllowedIps": "API:n sallitut IP-osoitteet (pilkuin eroteltuna)"
+    "label_apiAllowedIps": "API:n sallitut IP-osoitteet (pilkuin eroteltuna)",
+    "msg_invalid": "Nämä arvot ovat virheellisiä, eikä niitä tallennettu: :fields",
+    "msg_ip_lockout": "Sallittuja IP-alueita ei tallennettu, koska ne eivät sisällä omaa osoitettasi :ip."
   },
   "quarantine": {
     "title": "Karanteeni",

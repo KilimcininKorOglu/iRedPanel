@@ -390,7 +390,9 @@
     "label_geoIpDbPath": "GeoIP 데이터베이스 경로 (.mmdb)",
     "label_apiEnabled": "REST API",
     "label_apiKey": "기존 API 키",
-    "label_apiAllowedIps": "API 허용 IP (쉼표로 구분)"
+    "label_apiAllowedIps": "API 허용 IP (쉼표로 구분)",
+    "msg_invalid": "다음 값은 유효하지 않아 저장되지 않았습니다: :fields",
+    "msg_ip_lockout": "허용 IP 범위에 자신의 주소 :ip가 포함되어 있지 않아 저장되지 않았습니다."
   },
   "quarantine": {
     "title": "격리",

@@ -390,7 +390,9 @@
     "label_geoIpDbPath": "Pot do podatkovne baze GeoIP (.mmdb)",
     "label_apiEnabled": "REST API",
     "label_apiKey": "Stari ključ API",
-    "label_apiAllowedIps": "Dovoljeni IP-ji za API (ločeni z vejico)"
+    "label_apiAllowedIps": "Dovoljeni IP-ji za API (ločeni z vejico)",
+    "msg_invalid": "Te vrednosti niso veljavne in niso bile shranjene: :fields",
+    "msg_ip_lockout": "Dovoljeni obsegi IP niso bili shranjeni, ker ne vključujejo vašega naslova :ip."
   },
   "quarantine": {
     "title": "Karantena",

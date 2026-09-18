@@ -390,7 +390,9 @@
     "label_geoIpDbPath": "Ruta de la base de datos GeoIP (.mmdb)",
     "label_apiEnabled": "REST API",
     "label_apiKey": "Clave de API antigua",
-    "label_apiAllowedIps": "IP permitidas para la API (separadas por comas)"
+    "label_apiAllowedIps": "IP permitidas para la API (separadas por comas)",
+    "msg_invalid": "Estos valores no son válidos y no se guardaron: :fields",
+    "msg_ip_lockout": "Los rangos de IP permitidos no se guardaron porque no incluyen su propia dirección :ip."
   },
   "quarantine": {
     "title": "Cuarentena",

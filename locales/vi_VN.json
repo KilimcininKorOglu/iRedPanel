@@ -390,7 +390,9 @@
     "label_geoIpDbPath": "Đường dẫn cơ sở dữ liệu GeoIP (.mmdb)",
     "label_apiEnabled": "REST API",
     "label_apiKey": "Khóa API cũ",
-    "label_apiAllowedIps": "IP được phép dùng API (phân tách bằng dấu phẩy)"
+    "label_apiAllowedIps": "IP được phép dùng API (phân tách bằng dấu phẩy)",
+    "msg_invalid": "Các giá trị sau không hợp lệ và không được lưu: :fields",
+    "msg_ip_lockout": "Dải IP được phép không được lưu vì không bao gồm địa chỉ của chính bạn :ip."
   },
   "quarantine": {
     "title": "Cách ly",

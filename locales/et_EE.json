@@ -390,7 +390,9 @@
     "label_geoIpDbPath": "GeoIP andmebaasi tee (.mmdb)",
     "label_apiEnabled": "REST API",
     "label_apiKey": "Vana API võti",
-    "label_apiAllowedIps": "API lubatud IP-d (komaga eraldatud)"
+    "label_apiAllowedIps": "API lubatud IP-d (komaga eraldatud)",
+    "msg_invalid": "Need väärtused on vigased ja neid ei salvestatud: :fields",
+    "msg_ip_lockout": "Lubatud IP-vahemikke ei salvestatud, sest need ei sisalda teie enda aadressi :ip."
   },
   "quarantine": {
     "title": "Karantiin",

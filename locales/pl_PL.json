@@ -390,7 +390,9 @@
     "label_geoIpDbPath": "Ścieżka bazy danych GeoIP (.mmdb)",
     "label_apiEnabled": "REST API",
     "label_apiKey": "Stary klucz API",
-    "label_apiAllowedIps": "Dozwolone adresy IP dla API (oddzielone przecinkami)"
+    "label_apiAllowedIps": "Dozwolone adresy IP dla API (oddzielone przecinkami)",
+    "msg_invalid": "Te wartości są nieprawidłowe i nie zostały zapisane: :fields",
+    "msg_ip_lockout": "Dozwolone zakresy IP nie zostały zapisane, ponieważ nie obejmują Twojego adresu :ip."
   },
   "quarantine": {
     "title": "Kwarantanna",

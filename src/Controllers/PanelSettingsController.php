@@ -91,72 +91,35 @@ class PanelSettingsController
             exit;
         }
 
-        $keys = self::CATEGORIES[$category];
-        $repo = RepositoryFactory::getPanelSettingsRepository();
-        $repo->ensureTableExists();
-        $admin = $_SESSION['email'] ?? 'system';
-
         $toSave = [];
-        foreach ($keys as $key) {
-            $type = Settings::OVERRIDABLE_KEYS[$key] ?? null;
-            if ($type === null) {
-                continue;
-            }
-
-            if ($type === 'bool') {
-                $toSave[$key] = isset($_POST[$key]) ? 'true' : 'false';
-            } elseif ($type === 'int') {
-                $value = max(0, (int) ($_POST[$key] ?? '0'));
-                if ($key === 'sessionTimeout') {
-                    $value = max(60, $value);
-                }
-                if ($key === 'passwordMinLength') {
-                    $value = max(1, $value);
-                }
-                if ($key === 'paginationPerPage') {
-                    $value = max(1, $value);
-                }
-                $toSave[$key] = (string) $value;
+        $rejected = [];
+        foreach (self::CATEGORIES[$category] as $key) {
+            $value = self::normalize($key, Settings::OVERRIDABLE_KEYS[$key], $_POST[$key] ?? null);
+            if ($value === null) {
+                $rejected[] = Translator::translate("panelset.label_{$key}");
             } else {
-                $value = trim($_POST[$key] ?? '');
-                if ($key === 'passwordDefaultScheme') {
-                    $value = strtoupper($value);
-                    if (!in_array($value, Settings::ALLOWED_SCHEMES, true)) {
-                        continue;
-                    }
-                }
-                if ($key === 'defaultLanguage' && !\App\I18n\Translator::isSupported($value)) {
-                    continue;
-                }
-                if ($key === 'fail2banJails') {
-                    $jails = array_filter(array_map('trim', explode(',', $value)));
-                    foreach ($jails as $jail) {
-                        if (!preg_match('/^[a-zA-Z0-9_-]+$/', $jail)) {
-                            continue 2;
-                        }
-                    }
-                    $value = implode(',', $jails);
-                }
-                if ($key === 'fail2banSocket' && $value !== '') {
-                    if (!preg_match('#^(/[a-zA-Z0-9._/-]+)$#', $value)) {
-                        continue;
-                    }
-                }
-                if ($key === 'brandPrimaryColor' && $value !== '') {
-                    if (!preg_match('/^(#[0-9a-fA-F]{3,8}|[a-zA-Z]+|rgba?\(\s*[\d.,\s\/]+\)|hsla?\(\s*[\d.,%\s\/]+\))$/', $value)) {
-                        continue;
-                    }
-                }
-                if ($key === 'geoIpDbPath' && $value !== '') {
-                    if (!str_ends_with($value, '.mmdb') || str_contains($value, '..')) {
-                        continue;
-                    }
-                }
                 $toSave[$key] = $value;
             }
         }
 
-        if (!empty($toSave)) {
+        $errors = [];
+        if ($rejected !== []) {
+            $errors[] = Translator::translate('panelset.msg_invalid', ['fields' => implode(', ', $rejected)]);
+        }
+        // Saving ranges that exclude the admin's own address would lock the admin out.
+        $clientIp = $_SERVER['REMOTE_ADDR'] ?? '';
+        if (isset($toSave['allowedIpRanges']) && !Middleware::isIpAllowed($clientIp, $toSave['allowedIpRanges'])) {
+            unset($toSave['allowedIpRanges']);
+            $errors[] = Translator::translate('panelset.msg_ip_lockout', ['ip' => $clientIp]);
+        }
+        if ($errors !== []) {
+            BaseController::flashError(implode(' ', $errors));
+        }
+
+        if ($toSave !== []) {
+            $admin = $_SESSION['email'] ?? 'system';
+            $repo = RepositoryFactory::getPanelSettingsRepository();
+            $repo->ensureTableExists();
             $repo->setMany($toSave, $admin);
             Settings::invalidateCache();
 
@@ -166,10 +129,85 @@ class PanelSettingsController
                 $admin,
                 "Panel settings updated: {$category} (" . implode(', ', array_keys($toSave)) . ')'
             );
+            BaseController::flashSuccess(Translator::translate('panelset.msg_saved'));
         }
 
-        BaseController::flashSuccess(Translator::translate('panelset.msg_saved'));
         header("Location: /panel-settings?tab={$category}");
         exit;
+    }
+
+    /** Lowest accepted value of the integer settings; the others accept 0. */
+    private const INT_MINIMUMS = ['sessionTimeout' => 60, 'passwordMinLength' => 1, 'paginationPerPage' => 1];
+
+    private const COLOR_PATTERN = '/^(#[0-9a-fA-F]{3,8}|[a-zA-Z]+|rgba?\(\s*[\d.,\s\/]+\)|hsla?\(\s*[\d.,%\s\/]+\))$/';
+
+    /**
+     * Returns the value to store for a submitted setting, or null when the
+     * submitted value is invalid.
+     */
+    private static function normalize(string $key, string $type, mixed $submitted): ?string
+    {
+        if ($type === 'bool') {
+            return $submitted !== null ? 'true' : 'false';
+        }
+        if ($submitted !== null && !is_string($submitted)) {
+            return null;
+        }
+        $value = trim($submitted ?? '');
+        if ($type === 'int') {
+            $minimum = self::INT_MINIMUMS[$key] ?? 0;
+            return ctype_digit($value) && (int) $value >= $minimum ? (string) (int) $value : null;
+        }
+        return self::normalizeString($key, $value);
+    }
+
+    private static function normalizeString(string $key, string $value): ?string
+    {
+        $valid = match ($key) {
+            'passwordDefaultScheme' => in_array(strtoupper($value), Settings::ALLOWED_SCHEMES, true),
+            'defaultLanguage' => Translator::isSupported($value),
+            'fail2banJails' => self::allMatch(self::splitList($value), '/^[a-zA-Z0-9_-]+$/'),
+            'allowedIpRanges', 'apiAllowedIps' => self::allValidIpRanges(self::splitList($value)),
+            'fail2banSocket' => $value === '' || preg_match('#^(/[a-zA-Z0-9._/-]+)$#', $value) === 1,
+            'brandPrimaryColor' => $value === '' || preg_match(self::COLOR_PATTERN, $value) === 1,
+            'geoIpDbPath' => $value === '' || (str_ends_with($value, '.mmdb') && !str_contains($value, '..')),
+            default => true,
+        };
+        if (!$valid) {
+            return null;
+        }
+        return match ($key) {
+            'passwordDefaultScheme' => strtoupper($value),
+            'fail2banJails', 'allowedIpRanges', 'apiAllowedIps' => implode(',', self::splitList($value)),
+            default => $value,
+        };
+    }
+
+    /** @return string[] the non-empty, trimmed entries of a comma-separated list */
+    private static function splitList(string $value): array
+    {
+        return array_values(array_filter(array_map('trim', explode(',', $value)), fn(string $entry) => $entry !== ''));
+    }
+
+    /** @param string[] $entries */
+    private static function allMatch(array $entries, string $pattern): bool
+    {
+        foreach ($entries as $entry) {
+            if (preg_match($pattern, $entry) !== 1) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /** @param string[] $entries */
+    private static function allValidIpRanges(array $entries): bool
+    {
+        foreach ($entries as $entry) {
+            if (!Middleware::isValidIpRange($entry)) {
+                return false;
+            }
+        }
+        return true;
     }
 }

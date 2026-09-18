@@ -390,7 +390,9 @@
     "label_geoIpDbPath": "GeoIP verilənlər bazası yolu (.mmdb)",
     "label_apiEnabled": "REST API",
     "label_apiKey": "Köhnə API açarı",
-    "label_apiAllowedIps": "API üçün icazəli IP-lər (vergüllə ayrılmış)"
+    "label_apiAllowedIps": "API üçün icazəli IP-lər (vergüllə ayrılmış)",
+    "msg_invalid": "Bu dəyərlər etibarsızdır və yadda saxlanılmadı: :fields",
+    "msg_ip_lockout": "İcazə verilən IP diapazonları yadda saxlanılmadı, çünki sizin öz ünvanınızı (:ip) əhatə etmir."
   },
   "quarantine": {
     "title": "Karantin",

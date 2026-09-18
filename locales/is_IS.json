@@ -390,7 +390,9 @@
     "label_geoIpDbPath": "Slóð GeoIP-gagnagrunns (.mmdb)",
     "label_apiEnabled": "REST API",
     "label_apiKey": "Eldri API-lykill",
-    "label_apiAllowedIps": "Leyfðar IP-tölur fyrir API (aðskildar með kommu)"
+    "label_apiAllowedIps": "Leyfðar IP-tölur fyrir API (aðskildar með kommu)",
+    "msg_invalid": "Þessi gildi eru ógild og voru ekki vistuð: :fields",
+    "msg_ip_lockout": "Leyfð IP-bil voru ekki vistuð, því þau innihalda ekki þitt eigið vistfang :ip."
   },
   "quarantine": {
     "title": "Sóttkví",

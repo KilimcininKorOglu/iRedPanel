@@ -390,7 +390,9 @@
     "label_geoIpDbPath": "Pad naar GeoIP-database (.mmdb)",
     "label_apiEnabled": "REST API",
     "label_apiKey": "Oude API-sleutel",
-    "label_apiAllowedIps": "Toegestane IP's voor de API (kommagescheiden)"
+    "label_apiAllowedIps": "Toegestane IP's voor de API (kommagescheiden)",
+    "msg_invalid": "Deze waarden zijn ongeldig en zijn niet opgeslagen: :fields",
+    "msg_ip_lockout": "De toegestane IP-bereiken zijn niet opgeslagen, omdat ze uw eigen adres :ip niet bevatten."
   },
   "quarantine": {
     "title": "Quarantaine",

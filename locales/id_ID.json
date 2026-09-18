@@ -390,7 +390,9 @@
     "label_geoIpDbPath": "Path database GeoIP (.mmdb)",
     "label_apiEnabled": "REST API",
     "label_apiKey": "Kunci API lama",
-    "label_apiAllowedIps": "IP yang diizinkan untuk API (dipisahkan koma)"
+    "label_apiAllowedIps": "IP yang diizinkan untuk API (dipisahkan koma)",
+    "msg_invalid": "Nilai-nilai ini tidak valid dan tidak disimpan: :fields",
+    "msg_ip_lockout": "Rentang IP yang diizinkan tidak disimpan karena tidak mencakup alamat Anda sendiri :ip."
   },
   "quarantine": {
     "title": "Karantina",

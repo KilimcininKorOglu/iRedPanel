@@ -390,7 +390,9 @@
     "label_geoIpDbPath": "Путь к базе данных GeoIP (.mmdb)",
     "label_apiEnabled": "REST API",
     "label_apiKey": "Устаревший ключ API",
-    "label_apiAllowedIps": "Разрешённые IP для API (через запятую)"
+    "label_apiAllowedIps": "Разрешённые IP для API (через запятую)",
+    "msg_invalid": "Эти значения недопустимы и не сохранены: :fields",
+    "msg_ip_lockout": "Разрешённые диапазоны IP не сохранены, так как не включают ваш собственный адрес :ip."
   },
   "quarantine": {
     "title": "Карантин",

@@ -390,7 +390,9 @@
     "label_geoIpDbPath": "Sti til GeoIP-database (.mmdb)",
     "label_apiEnabled": "REST API",
     "label_apiKey": "Eldre API-nøkkel",
-    "label_apiAllowedIps": "Tillatne IP-ar for API (kommaseparert)"
+    "label_apiAllowedIps": "Tillatne IP-ar for API (kommaseparert)",
+    "msg_invalid": "Desse verdiane er ugyldige og vart ikkje lagra: :fields",
+    "msg_ip_lockout": "Dei tillatne IP-områda vart ikkje lagra, fordi dei ikkje omfattar di eiga adresse :ip."
   },
   "quarantine": {
     "title": "Karantene",

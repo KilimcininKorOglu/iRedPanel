@@ -390,7 +390,9 @@
     "label_geoIpDbPath": "GeoIP データベースのパス (.mmdb)",
     "label_apiEnabled": "REST API",
     "label_apiKey": "旧 API キー",
-    "label_apiAllowedIps": "API を許可する IP (カンマ区切り)"
+    "label_apiAllowedIps": "API を許可する IP (カンマ区切り)",
+    "msg_invalid": "次の値は無効なため保存されませんでした: :fields",
+    "msg_ip_lockout": "許可する IP 範囲にあなた自身のアドレス :ip が含まれていないため、保存されませんでした。"
   },
   "quarantine": {
     "title": "隔離",

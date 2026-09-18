@@ -20,7 +20,7 @@
             <label for="domain"><?= $te('common.domain') ?></label>
             <select id="domain" name="domain" required>
               <?php foreach ($domains as $d): ?>
-              <option value="<?= $e($d['domain'] ?? $d['name'] ?? '') ?>">@<?= $e($d['domain'] ?? $d['name'] ?? '') ?></option>
+              <option value="<?= $e($d['domainName']) ?>">@<?= $e($d['domainName']) ?></option>
               <?php endforeach; ?>
             </select>
           </div>

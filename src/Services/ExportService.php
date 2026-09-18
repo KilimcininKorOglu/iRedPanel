@@ -63,7 +63,7 @@ class ExportService
 
             $userRepo = RepositoryFactory::getUserRepository();
             foreach ($domains as $d) {
-                $domainName = $d['domain'] ?? $d['name'] ?? '';
+                $domainName = $d['domainName'];
                 $users = $userRepo->getUsers($domainName);
                 $data['domains'][] = [
                     'domain' => $domainName,
@@ -80,7 +80,7 @@ class ExportService
 
             $userRepo = RepositoryFactory::getUserRepository();
             foreach ($domains as $d) {
-                $domainName = $d['domain'] ?? $d['name'] ?? '';
+                $domainName = $d['domainName'];
                 $users = $userRepo->getUsers($domainName);
                 fputcsv($out, [self::neutralizeCsvValue($domainName), count($users)]);
             }

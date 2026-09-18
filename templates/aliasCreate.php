@@ -23,9 +23,9 @@
               <label for="domain"><?= $te('common.domain') ?></label>
               <select id="domain" name="domain" required>
                 <?php foreach ($domains as $d): ?>
-                <option value="<?= $e($d['domain'] ?? $d['name'] ?? '') ?>"
-                  <?= (($_POST['domain'] ?? '') === ($d['domain'] ?? $d['name'] ?? '')) ? 'selected' : '' ?>>
-                  @<?= $e($d['domain'] ?? $d['name'] ?? '') ?>
+                <option value="<?= $e($d['domainName']) ?>"
+                  <?= (($_POST['domain'] ?? '') === $d['domainName']) ? 'selected' : '' ?>>
+                  @<?= $e($d['domainName']) ?>
                 </option>
                 <?php endforeach; ?>
               </select>

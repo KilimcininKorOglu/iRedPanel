@@ -8,9 +8,9 @@
         <select name="domain" onchange="this.form.submit()">
           <option value=""><?= $te('lastlogin.all_domains') ?></option>
           <?php foreach ($domains as $d): ?>
-          <option value="<?= $e($d['domain'] ?? $d['name'] ?? '') ?>"
-            <?= ($filterDomain === ($d['domain'] ?? $d['name'] ?? '')) ? 'selected' : '' ?>>
-            <?= $e($d['domain'] ?? $d['name'] ?? '') ?>
+          <option value="<?= $e($d['domainName']) ?>"
+            <?= ($filterDomain === $d['domainName']) ? 'selected' : '' ?>>
+            <?= $e($d['domainName']) ?>
           </option>
           <?php endforeach; ?>
         </select>

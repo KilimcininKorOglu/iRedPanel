@@ -570,7 +570,17 @@
     "to": "받는 사람",
     "subject": "제목",
     "spam_level": "스팸 수준",
-    "empty": "메일 로그 항목이 없습니다."
+    "empty": "메일 로그 항목이 없습니다.",
+    "content_C": "정상",
+    "content_S": "스팸",
+    "content_Y": "스팸 의심",
+    "content_V": "바이러스",
+    "content_B": "차단됨",
+    "content_H": "잘못된 header",
+    "content_M": "잘못된 MIME",
+    "content_O": "크기 초과",
+    "content_T": "MTA 오류",
+    "content_U": "검사 안 함"
   },
   "deletedmbx": {
     "title": "삭제된 메일박스",

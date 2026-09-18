@@ -570,7 +570,17 @@
     "to": "За",
     "subject": "Предмет",
     "spam_level": "Ниво нежељене поште",
-    "empty": "Нема уноса у запису е-поште."
+    "empty": "Нема уноса у запису е-поште.",
+    "content_C": "Чисто",
+    "content_S": "Спам",
+    "content_Y": "Сумњиво",
+    "content_V": "Вирус",
+    "content_B": "Забрањено",
+    "content_H": "Неисправан header",
+    "content_M": "Неисправан MIME",
+    "content_O": "Превелико",
+    "content_T": "MTA грешка",
+    "content_U": "Непроверено"
   },
   "deletedmbx": {
     "title": "Обрисани сандучићи",

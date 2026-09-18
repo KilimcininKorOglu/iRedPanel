@@ -570,7 +570,17 @@
     "to": "Za",
     "subject": "Predmet",
     "spam_level": "Razina neželjene pošte",
-    "empty": "Nema unosa u zapisu e-pošte."
+    "empty": "Nema unosa u zapisu e-pošte.",
+    "content_C": "Čisto",
+    "content_S": "Spam",
+    "content_Y": "Sumnjivo",
+    "content_V": "Virus",
+    "content_B": "Zabranjeno",
+    "content_H": "Neispravan header",
+    "content_M": "Neispravan MIME",
+    "content_O": "Preveliko",
+    "content_T": "MTA pogreška",
+    "content_U": "Neprovjereno"
   },
   "deletedmbx": {
     "title": "Izbrisani poštanski sandučići",

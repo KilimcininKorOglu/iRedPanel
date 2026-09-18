@@ -570,7 +570,17 @@
     "to": "Aan",
     "subject": "Onderwerp",
     "spam_level": "Spamniveau",
-    "empty": "Geen vermeldingen in het maillogboek."
+    "empty": "Geen vermeldingen in het maillogboek.",
+    "content_C": "Schoon",
+    "content_S": "Spam",
+    "content_Y": "Verdacht",
+    "content_V": "Virus",
+    "content_B": "Geblokkeerd",
+    "content_H": "Ongeldige header",
+    "content_M": "Ongeldige MIME",
+    "content_O": "Te groot",
+    "content_T": "MTA-fout",
+    "content_U": "Niet gecontroleerd"
   },
   "deletedmbx": {
     "title": "Verwijderde mailboxen",

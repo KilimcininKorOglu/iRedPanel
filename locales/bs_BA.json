@@ -570,7 +570,17 @@
     "to": "Za",
     "subject": "Predmet",
     "spam_level": "Nivo spama",
-    "empty": "Nema unosa e-mail zapisa."
+    "empty": "Nema unosa e-mail zapisa.",
+    "content_C": "Čisto",
+    "content_S": "Spam",
+    "content_Y": "Sumnjivo na spam",
+    "content_V": "Virus",
+    "content_B": "Zabranjeno",
+    "content_H": "Loš header",
+    "content_M": "Loš MIME",
+    "content_O": "Prevelika",
+    "content_T": "MTA greška",
+    "content_U": "Neprovjereno"
   },
   "deletedmbx": {
     "title": "Obrisani sandučići",

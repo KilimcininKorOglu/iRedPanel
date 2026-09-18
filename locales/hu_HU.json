@@ -570,7 +570,17 @@
     "to": "Címzett",
     "subject": "Tárgy",
     "spam_level": "Spamszint",
-    "empty": "Nincsenek levelezési naplóbejegyzések."
+    "empty": "Nincsenek levelezési naplóbejegyzések.",
+    "content_C": "Tiszta",
+    "content_S": "Spam",
+    "content_Y": "Gyanús",
+    "content_V": "Vírus",
+    "content_B": "Tiltott",
+    "content_H": "Hibás header",
+    "content_M": "Hibás MIME",
+    "content_O": "Túl nagy",
+    "content_T": "MTA-hiba",
+    "content_U": "Ellenőrizetlen"
   },
   "deletedmbx": {
     "title": "Törölt postafiókok",

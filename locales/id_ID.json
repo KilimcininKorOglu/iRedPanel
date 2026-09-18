@@ -570,7 +570,17 @@
     "to": "Kepada",
     "subject": "Subjek",
     "spam_level": "Level spam",
-    "empty": "Tidak ada entri log email."
+    "empty": "Tidak ada entri log email.",
+    "content_C": "Bersih",
+    "content_S": "Spam",
+    "content_Y": "Mencurigakan",
+    "content_V": "Virus",
+    "content_B": "Diblokir",
+    "content_H": "Header rusak",
+    "content_M": "MIME rusak",
+    "content_O": "Terlalu besar",
+    "content_T": "Galat MTA",
+    "content_U": "Belum diperiksa"
   },
   "deletedmbx": {
     "title": "Kotak Surat Terhapus",

@@ -570,7 +570,17 @@
     "to": "A",
     "subject": "Oggetto",
     "spam_level": "Livello di spam",
-    "empty": "Nessuna voce nel registro di posta."
+    "empty": "Nessuna voce nel registro di posta.",
+    "content_C": "Pulito",
+    "content_S": "Spam",
+    "content_Y": "Sospetto",
+    "content_V": "Virus",
+    "content_B": "Bloccato",
+    "content_H": "Header non valido",
+    "content_M": "MIME non valido",
+    "content_O": "Troppo grande",
+    "content_T": "Errore MTA",
+    "content_U": "Non controllato"
   },
   "deletedmbx": {
     "title": "Caselle eliminate",

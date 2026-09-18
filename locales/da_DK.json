@@ -570,7 +570,17 @@
     "to": "Til",
     "subject": "Emne",
     "spam_level": "Spamniveau",
-    "empty": "Ingen maillogposter."
+    "empty": "Ingen maillogposter.",
+    "content_C": "Ren",
+    "content_S": "Spam",
+    "content_Y": "Mistænkelig",
+    "content_V": "Virus",
+    "content_B": "Forbudt",
+    "content_H": "Ugyldig header",
+    "content_M": "Ugyldig MIME",
+    "content_O": "For stor",
+    "content_T": "MTA-fejl",
+    "content_U": "Ikke kontrolleret"
   },
   "deletedmbx": {
     "title": "Slettede postkasser",

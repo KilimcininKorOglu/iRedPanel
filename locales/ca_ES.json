@@ -570,7 +570,17 @@
     "to": "Per a",
     "subject": "Assumpte",
     "spam_level": "Nivell de correu brossa",
-    "empty": "No hi ha entrades al registre de correu."
+    "empty": "No hi ha entrades al registre de correu.",
+    "content_C": "Net",
+    "content_S": "Correu brossa",
+    "content_Y": "Sospitós",
+    "content_V": "Virus",
+    "content_B": "Prohibit",
+    "content_H": "Header incorrecte",
+    "content_M": "MIME incorrecte",
+    "content_O": "Massa gran",
+    "content_T": "Error de l'MTA",
+    "content_U": "No comprovat"
   },
   "deletedmbx": {
     "title": "Bústies eliminades",

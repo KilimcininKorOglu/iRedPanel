@@ -570,7 +570,17 @@
     "to": "Đến",
     "subject": "Chủ đề",
     "spam_level": "Mức thư rác",
-    "empty": "Không có mục nhật ký email."
+    "empty": "Không có mục nhật ký email.",
+    "content_C": "Sạch",
+    "content_S": "Thư rác",
+    "content_Y": "Nghi là thư rác",
+    "content_V": "Virus",
+    "content_B": "Bị cấm",
+    "content_H": "Header lỗi",
+    "content_M": "MIME lỗi",
+    "content_O": "Quá lớn",
+    "content_T": "Lỗi MTA",
+    "content_U": "Chưa kiểm tra"
   },
   "deletedmbx": {
     "title": "Hộp thư đã xóa",

@@ -570,7 +570,17 @@
     "to": "Para",
     "subject": "Asunto",
     "spam_level": "Nivel de spam",
-    "empty": "No hay entradas en el registro de correo."
+    "empty": "No hay entradas en el registro de correo.",
+    "content_C": "Limpio",
+    "content_S": "Spam",
+    "content_Y": "Sospechoso",
+    "content_V": "Virus",
+    "content_B": "Prohibido",
+    "content_H": "Header incorrecto",
+    "content_M": "MIME incorrecto",
+    "content_O": "Demasiado grande",
+    "content_T": "Error del MTA",
+    "content_U": "Sin comprobar"
   },
   "deletedmbx": {
     "title": "Buzones eliminados",

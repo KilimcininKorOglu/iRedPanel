@@ -570,7 +570,17 @@
     "to": "Kellele",
     "subject": "Teema",
     "spam_level": "Rämpsposti tase",
-    "empty": "E-posti logis pole kirjeid."
+    "empty": "E-posti logis pole kirjeid.",
+    "content_C": "Puhas",
+    "content_S": "Rämpspost",
+    "content_Y": "Kahtlane",
+    "content_V": "Viirus",
+    "content_B": "Keelatud",
+    "content_H": "Vigane header",
+    "content_M": "Vigane MIME",
+    "content_O": "Liiga suur",
+    "content_T": "MTA viga",
+    "content_U": "Kontrollimata"
   },
   "deletedmbx": {
     "title": "Kustutatud postkastid",

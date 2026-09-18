@@ -570,7 +570,17 @@
     "to": "Za",
     "subject": "Zadeva",
     "spam_level": "Raven neželene pošte",
-    "empty": "Ni vnosov v poštnem dnevniku."
+    "empty": "Ni vnosov v poštnem dnevniku.",
+    "content_C": "Čisto",
+    "content_S": "Neželena pošta",
+    "content_Y": "Sumljivo",
+    "content_V": "Virus",
+    "content_B": "Prepovedano",
+    "content_H": "Napačen header",
+    "content_M": "Napačen MIME",
+    "content_O": "Prevelika",
+    "content_T": "Napaka MTA",
+    "content_U": "Nepreverjeno"
   },
   "deletedmbx": {
     "title": "Izbrisani poštni predali",

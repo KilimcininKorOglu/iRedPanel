@@ -570,7 +570,17 @@
     "to": "ถึง",
     "subject": "หัวข้อ",
     "spam_level": "ระดับสแปม",
-    "empty": "ไม่มีรายการบันทึกเมล"
+    "empty": "ไม่มีรายการบันทึกเมล",
+    "content_C": "ปกติ",
+    "content_S": "สแปม",
+    "content_Y": "สงสัยว่าเป็นสแปม",
+    "content_V": "ไวรัส",
+    "content_B": "ถูกห้าม",
+    "content_H": "header ผิดรูปแบบ",
+    "content_M": "MIME ผิดรูปแบบ",
+    "content_O": "ขนาดใหญ่เกิน",
+    "content_T": "ข้อผิดพลาด MTA",
+    "content_U": "ไม่ได้ตรวจสอบ"
   },
   "deletedmbx": {
     "title": "กล่องจดหมายที่ลบแล้ว",

@@ -570,7 +570,17 @@
     "to": "Alıcı",
     "subject": "Konu",
     "spam_level": "Spam düzeyi",
-    "empty": "Posta günlüğü kaydı yok."
+    "empty": "Posta günlüğü kaydı yok.",
+    "content_C": "Temiz",
+    "content_S": "Spam",
+    "content_Y": "Spam şüphesi",
+    "content_V": "Virüs",
+    "content_B": "Yasaklı",
+    "content_H": "Hatalı header",
+    "content_M": "Hatalı MIME",
+    "content_O": "Çok büyük",
+    "content_T": "MTA hatası",
+    "content_U": "Kontrol edilmedi"
   },
   "deletedmbx": {
     "title": "Silinen Posta Kutuları",

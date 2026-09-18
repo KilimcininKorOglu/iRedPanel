@@ -570,7 +570,17 @@
     "to": "To",
     "subject": "Subject",
     "spam_level": "Spam level",
-    "empty": "No mail log entries."
+    "empty": "No mail log entries.",
+    "content_C": "Clean",
+    "content_S": "Spam",
+    "content_Y": "Spammy",
+    "content_V": "Virus",
+    "content_B": "Banned",
+    "content_H": "Bad header",
+    "content_M": "Bad MIME",
+    "content_O": "Oversized",
+    "content_T": "MTA error",
+    "content_U": "Unchecked"
   },
   "deletedmbx": {
     "title": "Deleted Mailboxes",

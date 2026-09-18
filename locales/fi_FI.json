@@ -570,7 +570,17 @@
     "to": "Vastaanottaja",
     "subject": "Aihe",
     "spam_level": "Roskapostitaso",
-    "empty": "Ei sähköpostilokimerkintöjä."
+    "empty": "Ei sähköpostilokimerkintöjä.",
+    "content_C": "Puhdas",
+    "content_S": "Roskaposti",
+    "content_Y": "Epäilyttävä",
+    "content_V": "Virus",
+    "content_B": "Estetty",
+    "content_H": "Virheellinen header",
+    "content_M": "Virheellinen MIME",
+    "content_O": "Liian suuri",
+    "content_T": "MTA-virhe",
+    "content_U": "Tarkistamaton"
   },
   "deletedmbx": {
     "title": "Poistetut postilaatikot",

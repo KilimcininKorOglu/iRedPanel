@@ -570,7 +570,17 @@
     "to": "收件人",
     "subject": "主题",
     "spam_level": "垃圾邮件级别",
-    "empty": "没有邮件日志条目。"
+    "empty": "没有邮件日志条目。",
+    "content_C": "正常",
+    "content_S": "垃圾邮件",
+    "content_Y": "疑似垃圾邮件",
+    "content_V": "病毒",
+    "content_B": "被禁止",
+    "content_H": "错误的 header",
+    "content_M": "错误的 MIME",
+    "content_O": "超大",
+    "content_T": "MTA 错误",
+    "content_U": "未检查"
   },
   "deletedmbx": {
     "title": "已删除的邮箱",

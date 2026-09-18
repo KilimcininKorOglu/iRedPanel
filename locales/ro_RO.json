@@ -570,7 +570,17 @@
     "to": "Către",
     "subject": "Subiect",
     "spam_level": "Nivel spam",
-    "empty": "Nicio intrare în jurnalul de email."
+    "empty": "Nicio intrare în jurnalul de email.",
+    "content_C": "Curat",
+    "content_S": "Spam",
+    "content_Y": "Suspect",
+    "content_V": "Virus",
+    "content_B": "Blocat",
+    "content_H": "Header invalid",
+    "content_M": "MIME invalid",
+    "content_O": "Prea mare",
+    "content_T": "Eroare MTA",
+    "content_U": "Neverificat"
   },
   "deletedmbx": {
     "title": "Cutii poștale șterse",

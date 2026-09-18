@@ -570,7 +570,17 @@
     "to": "Para",
     "subject": "Asunto",
     "spam_level": "Nivel de spam",
-    "empty": "Non hai entradas no rexistro de correo."
+    "empty": "Non hai entradas no rexistro de correo.",
+    "content_C": "Limpo",
+    "content_S": "Spam",
+    "content_Y": "Sospeitoso",
+    "content_V": "Virus",
+    "content_B": "Prohibido",
+    "content_H": "Header incorrecto",
+    "content_M": "MIME incorrecto",
+    "content_O": "Demasiado grande",
+    "content_T": "Erro do MTA",
+    "content_U": "Sen comprobar"
   },
   "deletedmbx": {
     "title": "Caixas de correo eliminadas",

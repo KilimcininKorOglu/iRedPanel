@@ -570,7 +570,17 @@
     "to": "Komu",
     "subject": "Predmet",
     "spam_level": "Úroveň spamu",
-    "empty": "Žiadne položky poštového záznamu."
+    "empty": "Žiadne položky poštového záznamu.",
+    "content_C": "Čistá",
+    "content_S": "Spam",
+    "content_Y": "Podozrivá",
+    "content_V": "Vírus",
+    "content_B": "Zakázaná",
+    "content_H": "Chybný header",
+    "content_M": "Chybný MIME",
+    "content_O": "Príliš veľká",
+    "content_T": "Chyba MTA",
+    "content_U": "Neskontrolovaná"
   },
   "deletedmbx": {
     "title": "Odstránené schránky",

@@ -570,7 +570,17 @@
     "to": "Til",
     "subject": "Emne",
     "spam_level": "Spamnivå",
-    "empty": "Ingen e-postloggoppføringer."
+    "empty": "Ingen e-postloggoppføringer.",
+    "content_C": "Ren",
+    "content_S": "Spam",
+    "content_Y": "Mistenkelig",
+    "content_V": "Virus",
+    "content_B": "Blokkert",
+    "content_H": "Ugyldig header",
+    "content_M": "Ugyldig MIME",
+    "content_O": "For stor",
+    "content_T": "MTA-feil",
+    "content_U": "Ikke kontrollert"
   },
   "deletedmbx": {
     "title": "Slettede postbokser",

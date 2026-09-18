@@ -570,7 +570,17 @@
     "to": "Til",
     "subject": "Efni",
     "spam_level": "Ruslpóststig",
-    "empty": "Engar póstannálafærslur."
+    "empty": "Engar póstannálafærslur.",
+    "content_C": "Hreint",
+    "content_S": "Ruslpóstur",
+    "content_Y": "Grunsamlegt",
+    "content_V": "Veira",
+    "content_B": "Bannað",
+    "content_H": "Gallaður header",
+    "content_M": "Gallað MIME",
+    "content_O": "Of stórt",
+    "content_T": "MTA-villa",
+    "content_U": "Óathugað"
   },
   "deletedmbx": {
     "title": "Eydd pósthólf",

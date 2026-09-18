@@ -570,7 +570,17 @@
     "to": "宛先",
     "subject": "件名",
     "spam_level": "スパムレベル",
-    "empty": "メールログのエントリはありません。"
+    "empty": "メールログのエントリはありません。",
+    "content_C": "正常",
+    "content_S": "スパム",
+    "content_Y": "スパムの疑い",
+    "content_V": "ウイルス",
+    "content_B": "禁止",
+    "content_H": "不正な header",
+    "content_M": "不正な MIME",
+    "content_O": "サイズ超過",
+    "content_T": "MTA エラー",
+    "content_U": "未検査"
   },
   "deletedmbx": {
     "title": "削除されたメールボックス",

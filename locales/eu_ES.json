@@ -570,7 +570,17 @@
     "to": "Nori",
     "subject": "Gaia",
     "spam_level": "Spam maila",
-    "empty": "Ez dago posta-erregistro sarrerarik."
+    "empty": "Ez dago posta-erregistro sarrerarik.",
+    "content_C": "Garbia",
+    "content_S": "Spama",
+    "content_Y": "Susmagarria",
+    "content_V": "Birusa",
+    "content_B": "Debekatua",
+    "content_H": "Header okerra",
+    "content_M": "MIME okerra",
+    "content_O": "Handiegia",
+    "content_T": "MTA errorea",
+    "content_U": "Egiaztatu gabea"
   },
   "deletedmbx": {
     "title": "Ezabatutako postontziak",

@@ -570,7 +570,17 @@
     "to": "Til",
     "subject": "Emne",
     "spam_level": "Spamnivå",
-    "empty": "Ingen e-postloggoppføringar."
+    "empty": "Ingen e-postloggoppføringar.",
+    "content_C": "Rein",
+    "content_S": "Spam",
+    "content_Y": "Mistenkjeleg",
+    "content_V": "Virus",
+    "content_B": "Blokkert",
+    "content_H": "Ugyldig header",
+    "content_M": "Ugyldig MIME",
+    "content_O": "For stor",
+    "content_T": "MTA-feil",
+    "content_U": "Ikkje kontrollert"
   },
   "deletedmbx": {
     "title": "Sletta postkasser",

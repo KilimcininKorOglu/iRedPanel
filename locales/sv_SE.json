@@ -570,7 +570,17 @@
     "to": "Till",
     "subject": "Ämne",
     "spam_level": "Skräppostnivå",
-    "empty": "Inga poster i postloggen."
+    "empty": "Inga poster i postloggen.",
+    "content_C": "Ren",
+    "content_S": "Skräppost",
+    "content_Y": "Misstänkt",
+    "content_V": "Virus",
+    "content_B": "Blockerad",
+    "content_H": "Ogiltig header",
+    "content_M": "Ogiltig MIME",
+    "content_O": "För stor",
+    "content_T": "MTA-fel",
+    "content_U": "Okontrollerad"
   },
   "deletedmbx": {
     "title": "Borttagna brevlådor",

@@ -570,7 +570,17 @@
     "to": "À",
     "subject": "Objet",
     "spam_level": "Niveau de spam",
-    "empty": "Aucune entrée dans le journal de messagerie."
+    "empty": "Aucune entrée dans le journal de messagerie.",
+    "content_C": "Propre",
+    "content_S": "Spam",
+    "content_Y": "Suspect",
+    "content_V": "Virus",
+    "content_B": "Interdit",
+    "content_H": "Header invalide",
+    "content_M": "MIME invalide",
+    "content_O": "Trop volumineux",
+    "content_T": "Erreur MTA",
+    "content_U": "Non vérifié"
   },
   "deletedmbx": {
     "title": "Boîtes supprimées",

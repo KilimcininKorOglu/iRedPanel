@@ -1,4 +1,8 @@
-<?php $pageTitle = $t('maillog.title'); ?>
+<?php
+$pageTitle = $t('maillog.title');
+// Amavisd content codes of msgs.content that have a translated label.
+$contentTypes = ['C', 'S', 'Y', 'V', 'B', 'H', 'M', 'O', 'T', 'U'];
+?>
 <div class="container">
   <h1><?= $te('maillog.title') ?></h1>
 
@@ -33,7 +37,8 @@
         <td><?= $e($entry['recipient'] ?? '') ?></td>
         <td><?= $e($entry['subject'] ?? '') ?></td>
         <td><?= $e($entry['spam_level'] ?? '') ?></td>
-        <td><?= $e($entry['content'] ?? '') ?></td>
+        <?php $content = trim((string) ($entry['content'] ?? '')); ?>
+        <td><?= in_array($content, $contentTypes, true) ? $te("maillog.content_{$content}") : $e($content) ?></td>
       </tr>
       <?php endforeach; ?>
       <?php if (empty($entries)): ?>

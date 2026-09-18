@@ -570,7 +570,17 @@
     "to": "An",
     "subject": "Betreff",
     "spam_level": "Spam-Stufe",
-    "empty": "Keine Mail-Protokolleinträge."
+    "empty": "Keine Mail-Protokolleinträge.",
+    "content_C": "Sauber",
+    "content_S": "Spam",
+    "content_Y": "Spamverdächtig",
+    "content_V": "Virus",
+    "content_B": "Gesperrt",
+    "content_H": "Fehlerhafter Header",
+    "content_M": "Fehlerhaftes MIME",
+    "content_O": "Zu groß",
+    "content_T": "MTA-Fehler",
+    "content_U": "Nicht geprüft"
   },
   "deletedmbx": {
     "title": "Gelöschte Postfächer",

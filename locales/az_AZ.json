@@ -570,7 +570,17 @@
     "to": "Kimə",
     "subject": "Mövzu",
     "spam_level": "Spam səviyyəsi",
-    "empty": "Poçt jurnalı qeydi yoxdur."
+    "empty": "Poçt jurnalı qeydi yoxdur.",
+    "content_C": "Təmiz",
+    "content_S": "Spam",
+    "content_Y": "Spama bənzər",
+    "content_V": "Virus",
+    "content_B": "Qadağan",
+    "content_H": "Pis header",
+    "content_M": "Pis MIME",
+    "content_O": "Çox böyük",
+    "content_T": "MTA xətası",
+    "content_U": "Yoxlanılmayıb"
   },
   "deletedmbx": {
     "title": "Silinmiş poçt qutuları",

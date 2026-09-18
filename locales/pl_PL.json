@@ -570,7 +570,17 @@
     "to": "Do",
     "subject": "Temat",
     "spam_level": "Poziom spamu",
-    "empty": "Brak wpisów w dzienniku poczty."
+    "empty": "Brak wpisów w dzienniku poczty.",
+    "content_C": "Czysta",
+    "content_S": "Spam",
+    "content_Y": "Podejrzana",
+    "content_V": "Wirus",
+    "content_B": "Zablokowana",
+    "content_H": "Błędny header",
+    "content_M": "Błędny MIME",
+    "content_O": "Za duża",
+    "content_T": "Błąd MTA",
+    "content_U": "Niesprawdzona"
   },
   "deletedmbx": {
     "title": "Usunięte skrzynki",

@@ -570,7 +570,17 @@
     "to": "До",
     "subject": "Тема",
     "spam_level": "Ниво на спам",
-    "empty": "Няма записи в пощенския дневник."
+    "empty": "Няма записи в пощенския дневник.",
+    "content_C": "Чисто",
+    "content_S": "Спам",
+    "content_Y": "Подобно на спам",
+    "content_V": "Вирус",
+    "content_B": "Забранено",
+    "content_H": "Лош header",
+    "content_M": "Лош MIME",
+    "content_O": "Твърде голямо",
+    "content_T": "MTA грешка",
+    "content_U": "Непроверено"
   },
   "deletedmbx": {
     "title": "Изтрити пощенски кутии",

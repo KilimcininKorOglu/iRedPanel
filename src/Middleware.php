@@ -106,30 +106,47 @@ class Middleware
      */
     public static function isIpAllowed(string $ip, string $ranges): bool
     {
-        $rangeList = array_map('trim', explode(',', $ranges));
+        // An empty entry (e.g. from a trailing comma) is a separator, not a range.
+        $rangeList = array_filter(array_map('trim', explode(',', $ranges)), fn(string $cidr) => $cidr !== '');
+        if ($rangeList === []) {
+            return true;
+        }
         foreach ($rangeList as $cidr) {
-            if ($cidr === '' || self::ipInCidr($ip, $cidr)) {
+            if (self::ipInCidr($ip, $cidr)) {
                 return true;
             }
         }
         return false;
     }
 
+    /**
+     * Whether an entry of an allowed IP list is an IPv4/IPv6 address or an
+     * IPv4 CIDR range with a prefix length of 0 to 32.
+     */
+    public static function isValidIpRange(string $entry): bool
+    {
+        if (!str_contains($entry, '/')) {
+            return filter_var($entry, FILTER_VALIDATE_IP) !== false;
+        }
+        [$subnet, $mask] = explode('/', $entry, 2);
+        return filter_var($subnet, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4) !== false
+            && ctype_digit($mask) && (int) $mask <= 32;
+    }
+
     private static function ipInCidr(string $ip, string $cidr): bool
     {
+        if (!self::isValidIpRange($cidr)) {
+            return false;
+        }
         if (!str_contains($cidr, '/')) {
             return $ip === $cidr;
         }
         [$subnet, $mask] = explode('/', $cidr, 2);
-        $mask = (int) $mask;
-        if ($mask === 0) {
-            return true;
-        }
         $ipLong = ip2long($ip);
-        $subnetLong = ip2long($subnet);
-        if ($ipLong === false || $subnetLong === false) {
+        if ($ipLong === false) {
             return false;
         }
-        return ($ipLong >> (32 - $mask)) === ($subnetLong >> (32 - $mask));
+        $shift = 32 - (int) $mask;
+        return ($ipLong >> $shift) === (ip2long($subnet) >> $shift);
     }
 }

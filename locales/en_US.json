@@ -409,7 +409,8 @@
     "relay_desc": "Route outbound mail from this domain through a specific relay server.",
     "relay_host": "Relay Host",
     "relay_format": "Format: <code>[hostname]:port</code> — square brackets prevent MX lookup.",
-    "save_relay": "Save relay settings"
+    "save_relay": "Save relay settings",
+    "msg_is_alias_domain": "The domain :domain is already an alias domain"
   },
   "admin": {
     "msg_email_required": "A valid email address is required",
@@ -494,7 +495,9 @@
     "delete_confirm": "Delete alias :domain?",
     "empty": "No domain aliases found.",
     "alias_domain_name": "Alias domain name",
-    "select_target": "-- Select target domain --"
+    "select_target": "-- Select target domain --",
+    "msg_is_mail_domain": "The domain :alias is a mail domain and cannot be an alias domain",
+    "msg_target_not_found": "The target domain :domain does not exist"
   },
   "domainownership": {
     "title": "Domain Ownership Verification",

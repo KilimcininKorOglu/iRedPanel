@@ -409,7 +409,8 @@
     "relay_desc": "Směrujte odchozí poštu z této domény přes konkrétní přenosový server.",
     "relay_host": "Přenosový server",
     "relay_format": "Formát: <code>[nazev_hostitele]:port</code> — hranaté závorky zabraňují vyhledávání MX.",
-    "save_relay": "Uložit nastavení přenosu"
+    "save_relay": "Uložit nastavení přenosu",
+    "msg_is_alias_domain": "Doména :domain je již aliasovou doménou"
   },
   "admin": {
     "msg_email_required": "Je vyžadována platná e-mailová adresa",
@@ -494,7 +495,9 @@
     "delete_confirm": "Smazat alias :domain?",
     "empty": "Nebyly nalezeny žádné aliasy domén.",
     "alias_domain_name": "Název domény aliasu",
-    "select_target": "-- Vyberte cílovou doménu --"
+    "select_target": "-- Vyberte cílovou doménu --",
+    "msg_is_mail_domain": "Doména :alias je poštovní doména a nemůže být aliasovou doménou",
+    "msg_target_not_found": "Cílová doména :domain neexistuje"
   },
   "domainownership": {
     "title": "Ověření vlastnictví domény",

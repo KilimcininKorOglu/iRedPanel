@@ -409,7 +409,8 @@
     "relay_desc": "透過特定轉發伺服器路由此網域的傳出郵件。",
     "relay_host": "轉發伺服器",
     "relay_format": "格式：<code>[主機名稱]:連接埠</code> — 方括號可防止 MX 查詢。",
-    "save_relay": "儲存轉發設定"
+    "save_relay": "儲存轉發設定",
+    "msg_is_alias_domain": "網域 :domain 已是別名網域"
   },
   "admin": {
     "msg_email_required": "需要有效的電子郵件位址",
@@ -494,7 +495,9 @@
     "delete_confirm": "要刪除別名 :domain 嗎？",
     "empty": "找不到網域別名。",
     "alias_domain_name": "別名網域名稱",
-    "select_target": "-- 選擇目標網域 --"
+    "select_target": "-- 選擇目標網域 --",
+    "msg_is_mail_domain": "網域 :alias 是郵件網域，不能作為別名網域",
+    "msg_target_not_found": "目標網域 :domain 不存在"
   },
   "domainownership": {
     "title": "網域擁有權驗證",

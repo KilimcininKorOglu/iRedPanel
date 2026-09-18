@@ -409,7 +409,8 @@
     "relay_desc": "Dirigera utgående post från denna domän via en specifik reläserver.",
     "relay_host": "Reläserver",
     "relay_format": "Format: <code>[värdnamn]:port</code> — hakparenteser förhindrar MX-uppslagning.",
-    "save_relay": "Spara reläinställningar"
+    "save_relay": "Spara reläinställningar",
+    "msg_is_alias_domain": "Domänen :domain är redan en aliasdomän"
   },
   "admin": {
     "msg_email_required": "En giltig e-postadress krävs",
@@ -494,7 +495,9 @@
     "delete_confirm": "Ta bort alias :domain?",
     "empty": "Inga domänalias hittades.",
     "alias_domain_name": "Aliasdomännamn",
-    "select_target": "-- Välj måldomän --"
+    "select_target": "-- Välj måldomän --",
+    "msg_is_mail_domain": "Domänen :alias är en e-postdomän och kan inte vara en aliasdomän",
+    "msg_target_not_found": "Måldomänen :domain finns inte"
   },
   "domainownership": {
     "title": "Verifiering av domänägande",

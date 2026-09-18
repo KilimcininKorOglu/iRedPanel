@@ -409,7 +409,8 @@
     "relay_desc": "Định tuyến email đi của tên miền này qua một máy chủ chuyển tiếp cụ thể.",
     "relay_host": "Máy chủ chuyển tiếp",
     "relay_format": "Định dạng: <code>[tên_máy_chủ]:cổng</code> — dấu ngoặc vuông ngăn tra cứu MX.",
-    "save_relay": "Lưu cài đặt chuyển tiếp"
+    "save_relay": "Lưu cài đặt chuyển tiếp",
+    "msg_is_alias_domain": "Tên miền :domain đã là tên miền bí danh"
   },
   "admin": {
     "msg_email_required": "Cần địa chỉ email hợp lệ",
@@ -494,7 +495,9 @@
     "delete_confirm": "Xóa bí danh :domain?",
     "empty": "Không tìm thấy bí danh tên miền.",
     "alias_domain_name": "Tên miền bí danh",
-    "select_target": "-- Chọn tên miền đích --"
+    "select_target": "-- Chọn tên miền đích --",
+    "msg_is_mail_domain": "Tên miền :alias là tên miền thư và không thể là tên miền bí danh",
+    "msg_target_not_found": "Tên miền đích :domain không tồn tại"
   },
   "domainownership": {
     "title": "Xác minh quyền sở hữu tên miền",

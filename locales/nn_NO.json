@@ -409,7 +409,8 @@
     "relay_desc": "Rut utgåande e-post frå dette domenet gjennom ein bestemt relétenar.",
     "relay_host": "Relétenar",
     "relay_format": "Format: <code>[hostname]:port</code> — hakeparentesar hindrar MX-oppslag.",
-    "save_relay": "Lagre reléinnstillingar"
+    "save_relay": "Lagre reléinnstillingar",
+    "msg_is_alias_domain": "Domenet :domain er allereie eit aliasdomene"
   },
   "admin": {
     "msg_email_required": "Ei gyldig e-postadresse er påkravd",
@@ -494,7 +495,9 @@
     "delete_confirm": "Slette alias :domain?",
     "empty": "Ingen domenealias funne.",
     "alias_domain_name": "Aliasdomenenamn",
-    "select_target": "-- Vel måldomene --"
+    "select_target": "-- Vel måldomene --",
+    "msg_is_mail_domain": "Domenet :alias er eit e-postdomene og kan ikkje vere eit aliasdomene",
+    "msg_target_not_found": "Måldomenet :domain finst ikkje"
   },
   "domainownership": {
     "title": "Stadfesting av domeneeigarskap",

@@ -409,7 +409,8 @@
     "relay_desc": "Bu alan adından giden postayı belirli bir aktarma sunucusu üzerinden yönlendirin.",
     "relay_host": "Aktarma Sunucusu",
     "relay_format": "Biçim: <code>[anasistem]:port</code> — köşeli parantezler MX aramasını engeller.",
-    "save_relay": "Aktarma Ayarlarını Kaydet"
+    "save_relay": "Aktarma Ayarlarını Kaydet",
+    "msg_is_alias_domain": ":domain zaten bir alias domain"
   },
   "admin": {
     "msg_email_required": "Geçerli bir e-posta adresi gerekli",
@@ -494,7 +495,9 @@
     "delete_confirm": ":domain takma adı silinsin mi?",
     "empty": "Alan adı takma adı bulunamadı.",
     "alias_domain_name": "Takma ad alanı adı",
-    "select_target": "-- Hedef alan seçin --"
+    "select_target": "-- Hedef alan seçin --",
+    "msg_is_mail_domain": ":alias bir mail domain'i, alias domain olamaz",
+    "msg_target_not_found": "Hedef domain :domain mevcut değil"
   },
   "domainownership": {
     "title": "Alan Adı Sahipliği Doğrulaması",

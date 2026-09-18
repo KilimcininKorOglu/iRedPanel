@@ -409,7 +409,8 @@
     "relay_desc": "Beina útgangspósti frá þessu léni í gegnum tiltekinn endurvarpsþjón.",
     "relay_host": "Endurvarpsþjónn",
     "relay_format": "Snið: <code>[hostname]:port</code> — hornklofar koma í veg fyrir MX-uppflettingu.",
-    "save_relay": "Vista endurvarpsstillingar"
+    "save_relay": "Vista endurvarpsstillingar",
+    "msg_is_alias_domain": "Lénið :domain er þegar samnefnislén"
   },
   "admin": {
     "msg_email_required": "Gilt netfang er nauðsynlegt",
@@ -494,7 +495,9 @@
     "delete_confirm": "Eyða samnefni :domain?",
     "empty": "Engin lénssamnefni fundust.",
     "alias_domain_name": "Samnefnislénsheiti",
-    "select_target": "-- Veldu marklén --"
+    "select_target": "-- Veldu marklén --",
+    "msg_is_mail_domain": "Lénið :alias er póstlén og getur ekki verið samnefnislén",
+    "msg_target_not_found": "Marklénið :domain er ekki til"
   },
   "domainownership": {
     "title": "Staðfesting eignarhalds léns",

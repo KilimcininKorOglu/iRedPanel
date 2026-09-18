@@ -69,6 +69,8 @@ class DomainController
                     // Check for duplicate
                     if ($repo->getDomain($domain->domainName) !== null) {
                         $validationErrors['domainName'] = Translator::translate('domain.msg_exists', ['domain' => $domain->domainName]);
+                    } elseif (RepositoryFactory::getDomainAliasRepository()->getAlias($domain->domainName) !== null) {
+                        $validationErrors['domainName'] = Translator::translate('domain.msg_is_alias_domain', ['domain' => $domain->domainName]);
                     } elseif (Settings::getInstance()->requireDomainOwnershipVerification) {
                         $ownershipRepo = RepositoryFactory::getDomainOwnershipRepository();
                         if (!$ownershipRepo->isVerified($domain->domainName)) {

@@ -409,7 +409,8 @@
     "relay_desc": "Acheminer le courrier sortant de ce domaine via un serveur relais spécifique.",
     "relay_host": "Hôte relais",
     "relay_format": "Format : <code>[hostname]:port</code> — les crochets empêchent la recherche MX.",
-    "save_relay": "Enregistrer les paramètres de relais"
+    "save_relay": "Enregistrer les paramètres de relais",
+    "msg_is_alias_domain": "Le domaine :domain est déjà un domaine alias"
   },
   "admin": {
     "msg_email_required": "Une adresse e-mail valide est requise",
@@ -494,7 +495,9 @@
     "delete_confirm": "Supprimer l'alias :domain ?",
     "empty": "Aucun alias de domaine trouvé.",
     "alias_domain_name": "Nom du domaine d'alias",
-    "select_target": "-- Sélectionner le domaine cible --"
+    "select_target": "-- Sélectionner le domaine cible --",
+    "msg_is_mail_domain": "Le domaine :alias est un domaine de messagerie et ne peut pas être un domaine alias",
+    "msg_target_not_found": "Le domaine cible :domain n'existe pas"
   },
   "domainownership": {
     "title": "Vérification de la propriété du domaine",

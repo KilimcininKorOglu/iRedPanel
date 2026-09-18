@@ -409,7 +409,8 @@
     "relay_desc": "このドメインの送信メールを特定のリレーサーバー経由でルーティングします。",
     "relay_host": "リレーホスト",
     "relay_format": "形式：<code>[hostname]:port</code> — 角括弧は MX ルックアップを防止します。",
-    "save_relay": "リレー設定を保存"
+    "save_relay": "リレー設定を保存",
+    "msg_is_alias_domain": "ドメイン :domain は既にエイリアスドメインです"
   },
   "admin": {
     "msg_email_required": "有効なメールアドレスが必要です",
@@ -494,7 +495,9 @@
     "delete_confirm": "エイリアス :domain を削除しますか？",
     "empty": "ドメインエイリアスが見つかりません。",
     "alias_domain_name": "エイリアスドメイン名",
-    "select_target": "-- ターゲットドメインを選択 --"
+    "select_target": "-- ターゲットドメインを選択 --",
+    "msg_is_mail_domain": "ドメイン :alias はメールドメインのため、エイリアスドメインにできません",
+    "msg_target_not_found": "ターゲットドメイン :domain は存在しません"
   },
   "domainownership": {
     "title": "ドメイン所有権の検証",

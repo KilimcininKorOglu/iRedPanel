@@ -409,7 +409,8 @@
     "relay_desc": "Encaminar el correu de sortida d'aquest domini a través d'un servidor de retransmissió específic.",
     "relay_host": "Amfitrió de retransmissió",
     "relay_format": "Format: <code>[nomamfitrió]:port</code> — els claudàtors eviten la cerca de MX.",
-    "save_relay": "Desar configuració de retransmissió"
+    "save_relay": "Desar configuració de retransmissió",
+    "msg_is_alias_domain": "El domini :domain ja és un domini àlies"
   },
   "admin": {
     "msg_email_required": "Cal una adreça de correu electrònic vàlida",
@@ -494,7 +495,9 @@
     "delete_confirm": "Eliminar l'àlies :domain?",
     "empty": "No s'han trobat àlies de domini.",
     "alias_domain_name": "Nom del domini d'àlies",
-    "select_target": "-- Seleccionar domini de destinació --"
+    "select_target": "-- Seleccionar domini de destinació --",
+    "msg_is_mail_domain": "El domini :alias és un domini de correu i no pot ser un domini àlies",
+    "msg_target_not_found": "El domini de destinació :domain no existeix"
   },
   "domainownership": {
     "title": "Verificació de propietat del domini",

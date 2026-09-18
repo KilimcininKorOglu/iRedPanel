@@ -409,7 +409,8 @@
     "relay_desc": "Bideratu domeinu honen irteerako posta errele-zerbitzari zehatz baten bidez.",
     "relay_host": "Errele-zerbitzaria",
     "relay_format": "Formatua: <code>[hostname]:port</code> — kortxeteek MX bilaketa saihesten dute.",
-    "save_relay": "Gorde errele ezarpenak"
+    "save_relay": "Gorde errele ezarpenak",
+    "msg_is_alias_domain": ":domain domeinua alias domeinua da jada"
   },
   "admin": {
     "msg_email_required": "Baliozko posta-helbidea beharrezkoa da",
@@ -494,7 +495,9 @@
     "delete_confirm": ":domain aliasa ezabatu?",
     "empty": "Ez da domeinu-aliasik aurkitu.",
     "alias_domain_name": "Alias domeinuaren izena",
-    "select_target": "-- Hautatu helburu-domeinua --"
+    "select_target": "-- Hautatu helburu-domeinua --",
+    "msg_is_mail_domain": ":alias domeinua posta-domeinu bat da eta ezin da alias domeinua izan",
+    "msg_target_not_found": ":domain helburu-domeinua ez dago"
   },
   "domainownership": {
     "title": "Domeinuaren jabetzaren egiaztapena",

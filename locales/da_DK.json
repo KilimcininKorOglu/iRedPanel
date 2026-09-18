@@ -409,7 +409,8 @@
     "relay_desc": "Dirigér udgående mail fra dette domæne gennem en bestemt relæserver.",
     "relay_host": "Relævært",
     "relay_format": "Format: <code>[hostname]:port</code> — firkantede parenteser forhindrer MX-opslag.",
-    "save_relay": "Gem relæindstillinger"
+    "save_relay": "Gem relæindstillinger",
+    "msg_is_alias_domain": "Domænet :domain er allerede et aliasdomæne"
   },
   "admin": {
     "msg_email_required": "En gyldig e-mailadresse er påkrævet",
@@ -494,7 +495,9 @@
     "delete_confirm": "Slet alias :domain?",
     "empty": "Ingen domænealiasser fundet.",
     "alias_domain_name": "Aliasdomænenavn",
-    "select_target": "-- Vælg måldomæne --"
+    "select_target": "-- Vælg måldomæne --",
+    "msg_is_mail_domain": "Domænet :alias er et maildomæne og kan ikke være et aliasdomæne",
+    "msg_target_not_found": "Måldomænet :domain findes ikke"
   },
   "domainownership": {
     "title": "Verificering af domæneejerskab",

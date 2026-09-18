@@ -409,7 +409,8 @@
     "relay_desc": "Direcționează email-urile de ieșire de la acest domeniu prin intermediul unui server de releu specific.",
     "relay_host": "Server de releu",
     "relay_format": "Format: <code>[nume_gazdă]:port</code> — parantezele pătrate previn căutarea MX.",
-    "save_relay": "Salvează setările de releu"
+    "save_relay": "Salvează setările de releu",
+    "msg_is_alias_domain": "Domeniul :domain este deja un domeniu alias"
   },
   "admin": {
     "msg_email_required": "Este necesară o adresă de email validă",
@@ -494,7 +495,9 @@
     "delete_confirm": "Ștergeți alias-ul :domain?",
     "empty": "Nu s-au găsit alias-uri de domeniu.",
     "alias_domain_name": "Nume domeniu alias",
-    "select_target": "-- Selectați domeniul țintă --"
+    "select_target": "-- Selectați domeniul țintă --",
+    "msg_is_mail_domain": "Domeniul :alias este un domeniu de e-mail și nu poate fi domeniu alias",
+    "msg_target_not_found": "Domeniul țintă :domain nu există"
   },
   "domainownership": {
     "title": "Verificare proprietate domeniu",

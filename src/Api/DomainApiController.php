@@ -58,6 +58,10 @@ class DomainApiController
             ApiResponse::error('Domain already exists', 409);
             return;
         }
+        if (RepositoryFactory::getDomainAliasRepository()->getAlias($domain->domainName) !== null) {
+            ApiResponse::error('Domain already exists as an alias domain', 409);
+            return;
+        }
 
         if (Settings::getInstance()->requireDomainOwnershipVerification) {
             $ownershipRepo = RepositoryFactory::getDomainOwnershipRepository();

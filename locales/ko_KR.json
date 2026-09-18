@@ -409,7 +409,8 @@
     "relay_desc": "이 도메인의 발신 메일을 특정 릴레이 서버를 통해 라우팅합니다.",
     "relay_host": "릴레이 서버",
     "relay_format": "형식: <code>[호스트이름]:포트</code> — 대괄호는 MX 조회를 방지합니다.",
-    "save_relay": "릴레이 설정 저장"
+    "save_relay": "릴레이 설정 저장",
+    "msg_is_alias_domain": "도메인 :domain 은(는) 이미 별칭 도메인입니다"
   },
   "admin": {
     "msg_email_required": "유효한 이메일 주소가 필요합니다",
@@ -494,7 +495,9 @@
     "delete_confirm": "별칭 :domain를 삭제하시겠습니까?",
     "empty": "도메인 별칭을 찾을 수 없습니다.",
     "alias_domain_name": "별칭 도메인 이름",
-    "select_target": "-- 대상 도메인 선택 --"
+    "select_target": "-- 대상 도메인 선택 --",
+    "msg_is_mail_domain": "도메인 :alias 은(는) 메일 도메인이므로 별칭 도메인이 될 수 없습니다",
+    "msg_target_not_found": "대상 도메인 :domain 이(가) 없습니다"
   },
   "domainownership": {
     "title": "도메인 소유권 확인",

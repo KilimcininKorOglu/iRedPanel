@@ -409,7 +409,8 @@
     "relay_desc": "Kieruj pocztę wychodzącą z tej domeny przez określony serwer przekazujący.",
     "relay_host": "Serwer przekazujący",
     "relay_format": "Format: <code>[nazwa_hosta]:port</code> — nawiasy kwadratowe zapobiegają wyszukiwaniu MX.",
-    "save_relay": "Zapisz ustawienia przekazywania"
+    "save_relay": "Zapisz ustawienia przekazywania",
+    "msg_is_alias_domain": "Domena :domain jest już domeną aliasu"
   },
   "admin": {
     "msg_email_required": "Wymagany jest prawidłowy adres e-mail",
@@ -494,7 +495,9 @@
     "delete_confirm": "Usunąć alias :domain?",
     "empty": "Nie znaleziono aliasów domen.",
     "alias_domain_name": "Nazwa domeny aliasu",
-    "select_target": "-- Wybierz domenę docelową --"
+    "select_target": "-- Wybierz domenę docelową --",
+    "msg_is_mail_domain": "Domena :alias jest domeną pocztową i nie może być domeną aliasu",
+    "msg_target_not_found": "Domena docelowa :domain nie istnieje"
   },
   "domainownership": {
     "title": "Weryfikacja własności domeny",

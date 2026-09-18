@@ -409,7 +409,8 @@
     "relay_desc": "Ausgehende Mail dieser Domain über einen bestimmten Relay-Server leiten.",
     "relay_host": "Relay-Host",
     "relay_format": "Format: <code>[hostname]:port</code> — eckige Klammern verhindern die MX-Abfrage.",
-    "save_relay": "Relay-Einstellungen speichern"
+    "save_relay": "Relay-Einstellungen speichern",
+    "msg_is_alias_domain": "Die Domain :domain ist bereits eine Alias-Domain"
   },
   "admin": {
     "msg_email_required": "Eine gültige E-Mail-Adresse ist erforderlich",
@@ -494,7 +495,9 @@
     "delete_confirm": "Alias :domain löschen?",
     "empty": "Keine Domain-Aliase gefunden.",
     "alias_domain_name": "Name der Alias-Domain",
-    "select_target": "-- Ziel-Domain auswählen --"
+    "select_target": "-- Ziel-Domain auswählen --",
+    "msg_is_mail_domain": "Die Domain :alias ist eine Mail-Domain und kann keine Alias-Domain sein",
+    "msg_target_not_found": "Die Zieldomain :domain existiert nicht"
   },
   "domainownership": {
     "title": "Überprüfung des Domainbesitzes",

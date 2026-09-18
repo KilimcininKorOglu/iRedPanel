@@ -409,7 +409,8 @@
     "relay_desc": "Suuna selle domeeni väljaminev post läbi kindla edastusserveri.",
     "relay_host": "Edastusserver",
     "relay_format": "Vorming: <code>[hostname]:port</code> — nurksulud takistavad MX-otsingut.",
-    "save_relay": "Salvesta edastuse seaded"
+    "save_relay": "Salvesta edastuse seaded",
+    "msg_is_alias_domain": "Domeen :domain on juba aliasdomeen"
   },
   "admin": {
     "msg_email_required": "Nõutav on kehtiv e-posti aadress",
@@ -494,7 +495,9 @@
     "delete_confirm": "Kas kustutada alias :domain?",
     "empty": "Ühtegi domeeni aliast ei leitud.",
     "alias_domain_name": "Aliasdomeeni nimi",
-    "select_target": "-- Valige sihtdomeen --"
+    "select_target": "-- Valige sihtdomeen --",
+    "msg_is_mail_domain": "Domeen :alias on e-posti domeen ega saa olla aliasdomeen",
+    "msg_target_not_found": "Sihtdomeeni :domain ei ole olemas"
   },
   "domainownership": {
     "title": "Domeeni omandiõiguse kontroll",

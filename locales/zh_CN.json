@@ -409,7 +409,8 @@
     "relay_desc": "将此域名的出站邮件通过特定的中继服务器路由。",
     "relay_host": "中继主机",
     "relay_format": "格式：<code>[hostname]:port</code> — 方括号可防止 MX 查询。",
-    "save_relay": "保存中继设置"
+    "save_relay": "保存中继设置",
+    "msg_is_alias_domain": "域名 :domain 已是别名域"
   },
   "admin": {
     "msg_email_required": "需要有效的电子邮件地址",
@@ -494,7 +495,9 @@
     "delete_confirm": "删除别名 :domain？",
     "empty": "未找到域名别名。",
     "alias_domain_name": "别名域名名称",
-    "select_target": "-- 选择目标域名 --"
+    "select_target": "-- 选择目标域名 --",
+    "msg_is_mail_domain": "域名 :alias 是邮件域，不能作为别名域",
+    "msg_target_not_found": "目标域 :domain 不存在"
   },
   "domainownership": {
     "title": "域名所有权验证",

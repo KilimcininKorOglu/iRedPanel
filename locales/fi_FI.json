@@ -409,7 +409,8 @@
     "relay_desc": "Ohjaa tämän verkkotunnuksen lähtevä posti tietyn välityspalvelimen kautta.",
     "relay_host": "Välityspalvelin",
     "relay_format": "Muoto: <code>[hostname]:port</code> — hakasulkeet estävät MX-haun.",
-    "save_relay": "Tallenna välitysasetukset"
+    "save_relay": "Tallenna välitysasetukset",
+    "msg_is_alias_domain": "Verkkotunnus :domain on jo aliasverkkotunnus"
   },
   "admin": {
     "msg_email_required": "Kelvollinen sähköpostiosoite vaaditaan",
@@ -494,7 +495,9 @@
     "delete_confirm": "Poistetaanko alias :domain?",
     "empty": "Verkkotunnusaliaksia ei löytynyt.",
     "alias_domain_name": "Aliasverkkotunnuksen nimi",
-    "select_target": "-- Valitse kohdeverkkotunnus --"
+    "select_target": "-- Valitse kohdeverkkotunnus --",
+    "msg_is_mail_domain": "Verkkotunnus :alias on sähköpostiverkkotunnus eikä voi olla aliasverkkotunnus",
+    "msg_target_not_found": "Kohdeverkkotunnusta :domain ei ole"
   },
   "domainownership": {
     "title": "Verkkotunnuksen omistajuuden vahvistus",

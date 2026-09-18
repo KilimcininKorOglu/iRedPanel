@@ -409,7 +409,8 @@
     "relay_desc": "A domainről kimenő levelek irányítása egy adott továbbító szerveren keresztül.",
     "relay_host": "Relé gazdagép",
     "relay_format": "Formátum: <code>[hostname]:port</code> — a szögletes zárójelek megakadályozzák az MX-keresést.",
-    "save_relay": "Relébeállítások mentése"
+    "save_relay": "Relébeállítások mentése",
+    "msg_is_alias_domain": "A(z) :domain már alias domain"
   },
   "admin": {
     "msg_email_required": "Érvényes e-mail-cím megadása kötelező",
@@ -494,7 +495,9 @@
     "delete_confirm": "Törli a(z) :domain álnevet?",
     "empty": "Nem található domain alias.",
     "alias_domain_name": "Álnév-domain neve",
-    "select_target": "-- Válasszon cél-domaint --"
+    "select_target": "-- Válasszon cél-domaint --",
+    "msg_is_mail_domain": "A(z) :alias levelezési domain, nem lehet alias domain",
+    "msg_target_not_found": "A(z) :domain céldomain nem létezik"
   },
   "domainownership": {
     "title": "Domain tulajdonjogának ellenőrzése",

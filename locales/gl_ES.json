@@ -409,7 +409,8 @@
     "relay_desc": "Encamiña o correo saínte deste dominio a través dun servidor de retransmisión específico.",
     "relay_host": "Servidor de retransmisión",
     "relay_format": "Formato: <code>[hostname]:port</code> — os corchetes evitan a busca de MX.",
-    "save_relay": "Gardar configuración de retransmisión"
+    "save_relay": "Gardar configuración de retransmisión",
+    "msg_is_alias_domain": "O dominio :domain xa é un dominio alias"
   },
   "admin": {
     "msg_email_required": "É obrigatorio un enderezo de correo válido",
@@ -494,7 +495,9 @@
     "delete_confirm": "Eliminar o alias :domain?",
     "empty": "Non se atoparon alias de dominio.",
     "alias_domain_name": "Nome do dominio alias",
-    "select_target": "-- Seleccionar dominio de destino --"
+    "select_target": "-- Seleccionar dominio de destino --",
+    "msg_is_mail_domain": "O dominio :alias é un dominio de correo e non pode ser un dominio alias",
+    "msg_target_not_found": "O dominio de destino :domain non existe"
   },
   "domainownership": {
     "title": "Verificación da propiedade do dominio",

@@ -409,7 +409,8 @@
     "relay_desc": "Smerovať odchádzajúcu poštu z tejto domény cez konkrétny relé server.",
     "relay_host": "Relé hostiteľ",
     "relay_format": "Formát: <code>[hostname]:port</code> — hranaté zátvorky zabránia vyhľadávaniu MX.",
-    "save_relay": "Uložiť nastavenia relé"
+    "save_relay": "Uložiť nastavenia relé",
+    "msg_is_alias_domain": "Doména :domain je už aliasovou doménou"
   },
   "admin": {
     "msg_email_required": "Vyžaduje sa platná e-mailová adresa",
@@ -494,7 +495,9 @@
     "delete_confirm": "Odstrániť alias :domain?",
     "empty": "Nenašli sa žiadne aliasy domén.",
     "alias_domain_name": "Názov aliasovej domény",
-    "select_target": "-- Vyberte cieľovú doménu --"
+    "select_target": "-- Vyberte cieľovú doménu --",
+    "msg_is_mail_domain": "Doména :alias je poštová doména a nemôže byť aliasovou doménou",
+    "msg_target_not_found": "Cieľová doména :domain neexistuje"
   },
   "domainownership": {
     "title": "Overenie vlastníctva domény",

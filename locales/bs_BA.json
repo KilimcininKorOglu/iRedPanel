@@ -409,7 +409,8 @@
     "relay_desc": "Usmjeri odlazni e-mail ove domene kroz određeni relej server.",
     "relay_host": "Relej server",
     "relay_format": "Format: <code>[hostname]:port</code> — uglaste zagrade sprječavaju MX pretragu.",
-    "save_relay": "Sačuvaj postavke releja"
+    "save_relay": "Sačuvaj postavke releja",
+    "msg_is_alias_domain": "Domena :domain je već alias domena"
   },
   "admin": {
     "msg_email_required": "Ispravna e-mail adresa je obavezna",
@@ -494,7 +495,9 @@
     "delete_confirm": "Obrisati alias :domain?",
     "empty": "Nema pronađenih aliasa domena.",
     "alias_domain_name": "Naziv alias domene",
-    "select_target": "-- Odaberi ciljnu domenu --"
+    "select_target": "-- Odaberi ciljnu domenu --",
+    "msg_is_mail_domain": "Domena :alias je domena e-pošte i ne može biti alias domena",
+    "msg_target_not_found": "Odredišna domena :domain ne postoji"
   },
   "domainownership": {
     "title": "Potvrda vlasništva nad domenom",

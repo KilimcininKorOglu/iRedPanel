@@ -29,11 +29,27 @@ class DomainAliasApiController
         ApiMiddleware::requireGlobalKey();
         ApiMiddleware::requireWriteAccess();
         $data = ApiMiddleware::getJsonBody();
-        $aliasDomain = $data['aliasDomain'] ?? '';
-        $targetDomain = $data['targetDomain'] ?? '';
+        $aliasDomain = strtolower(trim((string) ($data['aliasDomain'] ?? '')));
+        $targetDomain = strtolower(trim((string) ($data['targetDomain'] ?? '')));
 
         if ($aliasDomain === '' || $targetDomain === '') {
             ApiResponse::error('aliasDomain and targetDomain are required');
+            return;
+        }
+        if (!preg_match('/^[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*\.[a-z]{2,}$/', $aliasDomain)
+            || $aliasDomain === $targetDomain) {
+            ApiResponse::error('aliasDomain must be a valid domain name other than targetDomain');
+            return;
+        }
+
+        $domainRepo = RepositoryFactory::getDomainRepository();
+        if ($domainRepo->getDomain($aliasDomain) !== null
+            || RepositoryFactory::getDomainAliasRepository()->getAlias($aliasDomain) !== null) {
+            ApiResponse::error('aliasDomain already exists as a mail domain or an alias domain', 409);
+            return;
+        }
+        if ($domainRepo->getDomain($targetDomain) === null) {
+            ApiResponse::error('targetDomain does not exist', 404);
             return;
         }
 

@@ -409,7 +409,8 @@
     "relay_desc": "Instrada la posta in uscita di questo dominio tramite un server relay specifico.",
     "relay_host": "Host relay",
     "relay_format": "Formato: <code>[hostname]:port</code> — le parentesi quadre impediscono la ricerca MX.",
-    "save_relay": "Salva impostazioni relay"
+    "save_relay": "Salva impostazioni relay",
+    "msg_is_alias_domain": "Il dominio :domain è già un dominio alias"
   },
   "admin": {
     "msg_email_required": "È richiesto un indirizzo e-mail valido",
@@ -494,7 +495,9 @@
     "delete_confirm": "Eliminare l'alias :domain?",
     "empty": "Nessun alias di dominio trovato.",
     "alias_domain_name": "Nome del dominio alias",
-    "select_target": "-- Seleziona dominio di destinazione --"
+    "select_target": "-- Seleziona dominio di destinazione --",
+    "msg_is_mail_domain": "Il dominio :alias è un dominio di posta e non può essere un dominio alias",
+    "msg_target_not_found": "Il dominio di destinazione :domain non esiste"
   },
   "domainownership": {
     "title": "Verifica della proprietà del dominio",

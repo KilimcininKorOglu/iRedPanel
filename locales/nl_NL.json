@@ -409,7 +409,8 @@
     "relay_desc": "Uitgaande e-mail van dit domein via een specifieke relayserver routeren.",
     "relay_host": "Relayhost",
     "relay_format": "Indeling: <code>[hostname]:port</code> — de vierkante haken voorkomen MX-opzoeking.",
-    "save_relay": "Relay-instellingen opslaan"
+    "save_relay": "Relay-instellingen opslaan",
+    "msg_is_alias_domain": "Het domein :domain is al een aliasdomein"
   },
   "admin": {
     "msg_email_required": "Een geldig e-mailadres is vereist",
@@ -494,7 +495,9 @@
     "delete_confirm": "Alias :domain verwijderen?",
     "empty": "Geen domeinaliassen gevonden.",
     "alias_domain_name": "Naam van aliasdomein",
-    "select_target": "-- Selecteer doeldomein --"
+    "select_target": "-- Selecteer doeldomein --",
+    "msg_is_mail_domain": "Het domein :alias is een maildomein en kan geen aliasdomein zijn",
+    "msg_target_not_found": "Het doeldomein :domain bestaat niet"
   },
   "domainownership": {
     "title": "Verificatie van domeineigendom",

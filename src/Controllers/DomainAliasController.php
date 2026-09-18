@@ -51,31 +51,13 @@ class DomainAliasController
 
             try {
                 $alias = DomainAlias::fromFormData($_POST);
-
-                if (empty($alias->aliasDomain)) {
-                    $validationErrors['aliasDomain'] = Translator::translate('domainalias.msg_alias_required');
-                } elseif (!preg_match('/^[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*\.[a-z]{2,}$/', $alias->aliasDomain)) {
-                    $validationErrors['aliasDomain'] = Translator::translate('common.msg_invalid_domain_format');
-                }
-
-                if (empty($alias->targetDomain)) {
-                    $validationErrors['targetDomain'] = Translator::translate('domainalias.msg_target_required');
-                }
-
-                if ($alias->aliasDomain === $alias->targetDomain) {
-                    $validationErrors['aliasDomain'] = Translator::translate('domainalias.msg_same_as_target');
-                }
+                $validationErrors = self::validateAlias($alias);
 
                 if (empty($validationErrors)) {
-                    $repo = RepositoryFactory::getDomainAliasRepository();
-                    if ($repo->getAlias($alias->aliasDomain) !== null) {
-                        $validationErrors['aliasDomain'] = Translator::translate('domainalias.msg_exists', ['alias' => $alias->aliasDomain]);
-                    } else {
-                        $repo->createAlias($alias);
-                        ActivityLogger::logCreate($alias->targetDomain, '', "Domain alias created: {$alias->aliasDomain} -> {$alias->targetDomain}");
-                        header("Location: /domain-aliases");
-                        exit;
-                    }
+                    RepositoryFactory::getDomainAliasRepository()->createAlias($alias);
+                    ActivityLogger::logCreate($alias->targetDomain, '', "Domain alias created: {$alias->aliasDomain} -> {$alias->targetDomain}");
+                    header("Location: /domain-aliases");
+                    exit;
                 }
             } catch (\Exception $e) {
                 $error = BaseController::errorMessage($e);
@@ -90,6 +72,42 @@ class DomainAliasController
             'validationErrors' => $validationErrors,
             'allDomains' => $allDomains,
         ]);
+    }
+
+    /**
+     * Returns translated validation errors keyed by form field. An alias domain
+     * must not be a mail domain, and its target must be an existing mail domain.
+     *
+     * @return array<string, string>
+     */
+    private static function validateAlias(DomainAlias $alias): array
+    {
+        $errors = [];
+        if (empty($alias->aliasDomain)) {
+            $errors['aliasDomain'] = Translator::translate('domainalias.msg_alias_required');
+        } elseif (!preg_match('/^[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*\.[a-z]{2,}$/', $alias->aliasDomain)) {
+            $errors['aliasDomain'] = Translator::translate('common.msg_invalid_domain_format');
+        } elseif ($alias->aliasDomain === $alias->targetDomain) {
+            $errors['aliasDomain'] = Translator::translate('domainalias.msg_same_as_target');
+        }
+        if (empty($alias->targetDomain)) {
+            $errors['targetDomain'] = Translator::translate('domainalias.msg_target_required');
+        }
+        if (!empty($errors)) {
+            return $errors;
+        }
+
+        $domainRepo = RepositoryFactory::getDomainRepository();
+        if ($domainRepo->getDomain($alias->aliasDomain) !== null) {
+            $errors['aliasDomain'] = Translator::translate('domainalias.msg_is_mail_domain', ['alias' => $alias->aliasDomain]);
+        } elseif (RepositoryFactory::getDomainAliasRepository()->getAlias($alias->aliasDomain) !== null) {
+            $errors['aliasDomain'] = Translator::translate('domainalias.msg_exists', ['alias' => $alias->aliasDomain]);
+        }
+        if ($domainRepo->getDomain($alias->targetDomain) === null) {
+            $errors['targetDomain'] = Translator::translate('domainalias.msg_target_not_found', ['domain' => $alias->targetDomain]);
+        }
+
+        return $errors;
     }
 
     /**

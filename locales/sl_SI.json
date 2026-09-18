@@ -409,7 +409,8 @@
     "relay_desc": "Usmerjaj odhodno pošto te domene prek določenega strežnika za posredovanje.",
     "relay_host": "Gostitelj za posredovanje",
     "relay_format": "Oblika: <code>[imegostitelja]:vrata</code> — oglati oklepaji preprečijo iskanje MX.",
-    "save_relay": "Shrani nastavitve posredovanja"
+    "save_relay": "Shrani nastavitve posredovanja",
+    "msg_is_alias_domain": "Domena :domain je že domena vzdevka"
   },
   "admin": {
     "msg_email_required": "Zahtevan je veljaven e-poštni naslov",
@@ -494,7 +495,9 @@
     "delete_confirm": "Izbrišem vzdevek :domain?",
     "empty": "Ni najdenih domenskih vzdevkov.",
     "alias_domain_name": "Ime domene vzdevka",
-    "select_target": "-- Izberi ciljno domeno --"
+    "select_target": "-- Izberi ciljno domeno --",
+    "msg_is_mail_domain": "Domena :alias je poštna domena in ne more biti domena vzdevka",
+    "msg_target_not_found": "Ciljna domena :domain ne obstaja"
   },
   "domainownership": {
     "title": "Preverjanje lastništva domene",

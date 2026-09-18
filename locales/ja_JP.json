@@ -234,7 +234,10 @@
     "set_heading": "スロットルを設定",
     "outbound": "送信",
     "inbound": "受信",
-    "save": "スロットルを保存"
+    "save": "スロットルを保存",
+    "external": "外部 (他サーバーからの受信)",
+    "limit_hint": "-1 はドメインまたはグローバル設定を継承します。0 は無制限です。クォータとメッセージサイズの単位はバイトです。",
+    "msg_invalid_value": "無効な値: :field"
   },
   "user": {
     "msg_quota_exceeds_max": "ユーザークォータ（:quota MB）がドメインの上限（:max MB）を超えています",

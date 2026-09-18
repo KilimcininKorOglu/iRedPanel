@@ -53,21 +53,29 @@
         <select name="kind">
           <option value="outbound"><?= $te('throttle.outbound') ?></option>
           <option value="inbound"><?= $te('throttle.inbound') ?></option>
+          <option value="external"><?= $te('throttle.external') ?></option>
         </select>
       </div>
       <div class="col-3">
         <label><?= $te('throttle.period_seconds') ?></label>
-        <input type="number" name="period" value="3600" min="0" />
+        <input type="number" name="period" value="3600" min="1" required />
       </div>
+    </div>
+    <div class="row">
       <div class="col-3">
         <label><?= $te('throttle.max_messages') ?></label>
-        <input type="number" name="maxMsgs" value="0" min="0" />
+        <input type="number" name="maxMsgs" value="-1" min="-1" />
       </div>
       <div class="col-3">
         <label><?= $te('throttle.max_quota_bytes') ?></label>
-        <input type="number" name="maxQuota" value="0" min="0" />
+        <input type="number" name="maxQuota" value="-1" min="-1" />
+      </div>
+      <div class="col-3">
+        <label><?= $te('throttle.max_message_size') ?></label>
+        <input type="number" name="msgSize" value="-1" min="-1" />
       </div>
     </div>
+    <p class="text-light"><?= $te('throttle.limit_hint') ?></p>
     <p>
       <button type="submit" class="button primary"><?= $te('throttle.save') ?></button>
     </p>

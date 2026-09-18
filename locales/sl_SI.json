@@ -234,7 +234,10 @@
     "set_heading": "Nastavi omejevanje",
     "outbound": "Odhodno",
     "inbound": "Dohodno",
-    "save": "Shrani omejevanje"
+    "save": "Shrani omejevanje",
+    "external": "Zunanje (dohodno z drugih strežnikov)",
+    "limit_hint": "-1 prevzame nastavitev domene ali globalno nastavitev. 0 pomeni neomejeno. Kvota in velikost sporočila sta v bajtih.",
+    "msg_invalid_value": "Neveljavna vrednost: :field"
   },
   "user": {
     "msg_quota_exceeds_max": "Uporabniška kvota (:quota MB) presega največjo domensko (:max MB)",

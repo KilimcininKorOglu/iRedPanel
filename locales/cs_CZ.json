@@ -234,7 +234,10 @@
     "set_heading": "Nastavit omezení",
     "outbound": "Odchozí",
     "inbound": "Příchozí",
-    "save": "Uložit omezení"
+    "save": "Uložit omezení",
+    "external": "Externí (příchozí z jiných serverů)",
+    "limit_hint": "-1 převezme nastavení domény nebo globální nastavení. 0 znamená bez omezení. Kvóta a velikost zprávy jsou v bajtech.",
+    "msg_invalid_value": "Neplatná hodnota: :field"
   },
   "user": {
     "msg_quota_exceeds_max": "Kvóta uživatele (:quota MB) překračuje maximum domény (:max MB)",

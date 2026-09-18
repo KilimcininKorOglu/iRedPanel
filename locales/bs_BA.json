@@ -234,7 +234,10 @@
     "set_heading": "Postavi ograničenje",
     "outbound": "Odlazno",
     "inbound": "Dolazno",
-    "save": "Sačuvaj ograničenje"
+    "save": "Sačuvaj ograničenje",
+    "external": "Vanjski (dolazni s drugih servera)",
+    "limit_hint": "-1 nasljeđuje postavku domene ili globalnu postavku. 0 znači neograničeno. Kvota i veličina poruke su u bajtima.",
+    "msg_invalid_value": "Neispravna vrijednost: :field"
   },
   "user": {
     "msg_quota_exceeds_max": "Kvota korisnika (:quota MB) prelazi maksimum domene (:max MB)",

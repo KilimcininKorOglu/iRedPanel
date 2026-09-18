@@ -234,7 +234,10 @@
     "set_heading": "Set struping",
     "outbound": "Utgåande",
     "inbound": "Innkomande",
-    "save": "Lagre struping"
+    "save": "Lagre struping",
+    "external": "Ekstern (innkomande frå andre serverar)",
+    "limit_hint": "-1 arvar domenet si eller den globale innstillinga. 0 tyder uavgrensa. Kvote og meldingsstorleik er oppgitt i byte.",
+    "msg_invalid_value": "Ugyldig verdi: :field"
   },
   "user": {
     "msg_quota_exceeds_max": "Brukarkvote (:quota MB) overstig domenemaksimum (:max MB)",

@@ -234,7 +234,10 @@
     "set_heading": "Đặt giới hạn",
     "outbound": "Đi",
     "inbound": "Đến",
-    "save": "Lưu giới hạn"
+    "save": "Lưu giới hạn",
+    "external": "Bên ngoài (đến từ máy chủ khác)",
+    "limit_hint": "-1 kế thừa cài đặt của tên miền hoặc cài đặt toàn cục. 0 nghĩa là không giới hạn. Hạn mức và kích thước thư tính bằng byte.",
+    "msg_invalid_value": "Giá trị không hợp lệ: :field"
   },
   "user": {
     "msg_quota_exceeds_max": "Hạn ngạch người dùng (:quota MB) vượt quá mức tối đa của tên miền (:max MB)",

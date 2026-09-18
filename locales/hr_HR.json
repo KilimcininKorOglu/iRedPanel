@@ -234,7 +234,10 @@
     "set_heading": "Postavi ograničavanje",
     "outbound": "Odlazno",
     "inbound": "Dolazno",
-    "save": "Spremi ograničavanje"
+    "save": "Spremi ograničavanje",
+    "external": "Vanjski (dolazni s drugih poslužitelja)",
+    "limit_hint": "-1 nasljeđuje postavku domene ili globalnu postavku. 0 znači neograničeno. Kvota i veličina poruke izražene su u bajtovima.",
+    "msg_invalid_value": "Neispravna vrijednost: :field"
   },
   "user": {
     "msg_quota_exceeds_max": "Korisnička kvota (:quota MB) premašuje maksimum domene (:max MB)",

@@ -234,7 +234,10 @@
     "set_heading": "Korlátozás beállítása",
     "outbound": "Kimenő",
     "inbound": "Bejövő",
-    "save": "Korlátozás mentése"
+    "save": "Korlátozás mentése",
+    "external": "Külső (más szerverekről érkező)",
+    "limit_hint": "A -1 a domain vagy a globális beállítást örökli. A 0 korlátlant jelent. A kvóta és az üzenetméret bájtban értendő.",
+    "msg_invalid_value": "Érvénytelen érték: :field"
   },
   "user": {
     "msg_quota_exceeds_max": "A felhasználói kvóta (:quota MB) meghaladja a domain maximumát (:max MB)",

@@ -234,7 +234,10 @@
     "set_heading": "Ezarri muga",
     "outbound": "Irteerakoa",
     "inbound": "Sarrerakoa",
-    "save": "Gorde muga"
+    "save": "Gorde muga",
+    "external": "Kanpokoa (beste zerbitzarietatik sarrerakoa)",
+    "limit_hint": "-1 balioak domeinuaren edo ezarpen orokorraren balioa hartzen du. 0 mugagabea da. Kuota eta mezuaren tamaina bytetan daude.",
+    "msg_invalid_value": "Balio baliogabea: :field"
   },
   "user": {
     "msg_quota_exceeds_max": "Erabiltzailearen kuotak (:quota MB) domeinuaren gehienekoa gainditzen du (:max MB)",

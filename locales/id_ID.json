@@ -234,7 +234,10 @@
     "set_heading": "Atur pembatasan",
     "outbound": "Keluar",
     "inbound": "Masuk",
-    "save": "Simpan pembatasan"
+    "save": "Simpan pembatasan",
+    "external": "Eksternal (masuk dari server lain)",
+    "limit_hint": "-1 mewarisi pengaturan domain atau global. 0 berarti tidak terbatas. Kuota dan ukuran pesan dalam byte.",
+    "msg_invalid_value": "Nilai tidak valid: :field"
   },
   "user": {
     "msg_quota_exceeds_max": "Kuota pengguna (:quota MB) melebihi maksimum domain (:max MB)",

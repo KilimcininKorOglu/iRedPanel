@@ -234,7 +234,10 @@
     "set_heading": "Set throttle",
     "outbound": "Outbound",
     "inbound": "Inbound",
-    "save": "Save throttle"
+    "save": "Save throttle",
+    "external": "External (inbound from other servers)",
+    "limit_hint": "-1 inherits the domain or global setting. 0 means unlimited. Quota and message size are in bytes.",
+    "msg_invalid_value": "Invalid value: :field"
   },
   "user": {
     "msg_quota_exceeds_max": "User quota (:quota MB) exceeds domain maximum (:max MB)",

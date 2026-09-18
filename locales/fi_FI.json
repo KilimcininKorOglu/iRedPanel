@@ -234,7 +234,10 @@
     "set_heading": "Aseta rajoitus",
     "outbound": "Lähtevä",
     "inbound": "Saapuva",
-    "save": "Tallenna rajoitus"
+    "save": "Tallenna rajoitus",
+    "external": "Ulkoinen (saapuva muilta palvelimilta)",
+    "limit_hint": "-1 perii domainin tai yleisen asetuksen. 0 tarkoittaa rajoittamatonta. Kiintiö ja viestin koko ilmoitetaan tavuina.",
+    "msg_invalid_value": "Virheellinen arvo: :field"
   },
   "user": {
     "msg_quota_exceeds_max": "Käyttäjän kiintiö (:quota MB) ylittää verkkotunnuksen enimmäismäärän (:max MB)",

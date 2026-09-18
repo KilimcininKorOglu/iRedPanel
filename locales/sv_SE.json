@@ -234,7 +234,10 @@
     "set_heading": "Ställ in begränsningar",
     "outbound": "Utgående",
     "inbound": "Inkommande",
-    "save": "Spara begränsningar"
+    "save": "Spara begränsningar",
+    "external": "Extern (inkommande från andra servrar)",
+    "limit_hint": "-1 ärver domänens eller den globala inställningen. 0 betyder obegränsat. Kvot och meddelandestorlek anges i byte.",
+    "msg_invalid_value": "Ogiltigt värde: :field"
   },
   "user": {
     "msg_quota_exceeds_max": "Användarens kvot (:quota MB) överskrider domänens maximum (:max MB)",

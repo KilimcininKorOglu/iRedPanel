@@ -234,7 +234,10 @@
     "set_heading": "Indstil begrænsning",
     "outbound": "Udgående",
     "inbound": "Indgående",
-    "save": "Gem begrænsning"
+    "save": "Gem begrænsning",
+    "external": "Ekstern (indgående fra andre servere)",
+    "limit_hint": "-1 arver domænets eller den globale indstilling. 0 betyder ubegrænset. Kvote og beskedstørrelse angives i bytes.",
+    "msg_invalid_value": "Ugyldig værdi: :field"
   },
   "user": {
     "msg_quota_exceeds_max": "Brugerkvote (:quota MB) overstiger domænets maksimum (:max MB)",

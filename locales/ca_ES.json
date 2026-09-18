@@ -234,7 +234,10 @@
     "set_heading": "Establir limitació",
     "outbound": "Sortida",
     "inbound": "Entrada",
-    "save": "Desar limitació"
+    "save": "Desar limitació",
+    "external": "Extern (entrant des d'altres servidors)",
+    "limit_hint": "-1 hereta la configuració del domini o global. 0 vol dir il·limitat. La quota i la mida del missatge són en bytes.",
+    "msg_invalid_value": "Valor no vàlid: :field"
   },
   "user": {
     "msg_quota_exceeds_max": "La quota de l'usuari (:quota MB) supera el màxim del domini (:max MB)",

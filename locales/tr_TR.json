@@ -234,7 +234,10 @@
     "set_heading": "Sınırlama Ayarla",
     "outbound": "Giden",
     "inbound": "Gelen",
-    "save": "Sınırlamayı kaydet"
+    "save": "Sınırlamayı kaydet",
+    "external": "Harici (diğer sunuculardan gelen)",
+    "limit_hint": "-1 domain veya global ayarı devralır. 0 sınırsız demektir. Kota ve ileti boyutu byte cinsindendir.",
+    "msg_invalid_value": "Geçersiz değer: :field"
   },
   "user": {
     "msg_quota_exceeds_max": "Kullanıcı kotası (:quota MB) alan adı maksimumunu (:max MB) aşıyor",

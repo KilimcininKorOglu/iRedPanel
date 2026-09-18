@@ -234,7 +234,10 @@
     "set_heading": "제한 설정",
     "outbound": "발신",
     "inbound": "수신",
-    "save": "제한 저장"
+    "save": "제한 저장",
+    "external": "외부 (다른 서버에서 수신)",
+    "limit_hint": "-1은 도메인 또는 전역 설정을 상속합니다. 0은 무제한입니다. 할당량과 메시지 크기의 단위는 바이트입니다.",
+    "msg_invalid_value": "잘못된 값: :field"
   },
   "user": {
     "msg_quota_exceeds_max": "사용자 할당량 (:quota MB)이 도메인 최대값 (:max MB)을 초과합니다",

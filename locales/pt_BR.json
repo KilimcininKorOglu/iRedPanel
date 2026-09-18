@@ -234,7 +234,10 @@
     "set_heading": "Definir limitação",
     "outbound": "Saída",
     "inbound": "Entrada",
-    "save": "Salvar limitação"
+    "save": "Salvar limitação",
+    "external": "Externo (recebido de outros servidores)",
+    "limit_hint": "-1 herda a configuração do domínio ou global. 0 significa ilimitado. A cota e o tamanho da mensagem estão em bytes.",
+    "msg_invalid_value": "Valor inválido: :field"
   },
   "user": {
     "msg_quota_exceeds_max": "A cota do usuário (:quota MB) excede o máximo do domínio (:max MB)",

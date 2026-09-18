@@ -234,7 +234,10 @@
     "set_heading": "Sürət limiti təyin et",
     "outbound": "Gedən",
     "inbound": "Gələn",
-    "save": "Sürət limitini yadda saxla"
+    "save": "Sürət limitini yadda saxla",
+    "external": "Xarici (digər serverlərdən gələn)",
+    "limit_hint": "-1 domen və ya qlobal ayarı miras alır. 0 limitsiz deməkdir. Kvota və məktub ölçüsü bayt ilə göstərilir.",
+    "msg_invalid_value": "Yanlış dəyər: :field"
   },
   "user": {
     "msg_quota_exceeds_max": "İstifadəçi kvotası (:quota MB) domen maksimumunu (:max MB) aşır",

@@ -8,12 +8,22 @@ use App\CsrfProtection;
 use App\I18n\Translator;
 use App\Middleware;
 use App\Models\Settings;
+use App\Models\ThrottleSetting;
 use App\Repositories\RepositoryFactory;
 use App\Services\ActivityLogger;
 use App\TemplateEngine;
 
 class IredapdController
 {
+    /** Form label of each ThrottleSetting field, for validation messages. */
+    private const THROTTLE_FIELD_LABELS = [
+        'kind' => 'throttle.kind',
+        'period' => 'throttle.period_seconds',
+        'maxMsgs' => 'throttle.max_messages',
+        'maxQuota' => 'throttle.max_quota_bytes',
+        'msgSize' => 'throttle.max_message_size',
+    ];
+
     public static function throttleView(TemplateEngine $tpl, string $account): void
     {
         Middleware::globalAdminRequired();
@@ -26,15 +36,20 @@ class IredapdController
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             CsrfProtection::validateToken();
             try {
-                $kind = $_POST['kind'] ?? 'outbound';
-                $period = (int) ($_POST['period'] ?? 3600);
-                $maxMsgs = (int) ($_POST['maxMsgs'] ?? 0);
-                $maxQuota = (int) ($_POST['maxQuota'] ?? 0);
-                $msgSize = (int) ($_POST['msgSize'] ?? 0);
-
-                $repo->setThrottleSettings($account, $kind, $period, $maxMsgs, $maxQuota, $msgSize);
+                $setting = ThrottleSetting::fromInput($_POST);
+                $repo->setThrottleSettings(
+                    $account,
+                    $setting->kind,
+                    $setting->period,
+                    $setting->maxMsgs,
+                    $setting->maxQuota,
+                    $setting->msgSize,
+                );
                 ActivityLogger::logUpdate('', $account, "Throttle settings updated for {$account}");
                 $success = Translator::translate('throttle.msg_updated');
+            } catch (\InvalidArgumentException $e) {
+                $label = Translator::translate(self::THROTTLE_FIELD_LABELS[$e->getMessage()] ?? 'throttle.kind');
+                $error = Translator::translate('throttle.msg_invalid_value', ['field' => $label]);
             } catch (\Exception $e) {
                 $error = BaseController::errorMessage($e);
             }

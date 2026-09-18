@@ -234,7 +234,10 @@
     "set_heading": "设置限流",
     "outbound": "出站",
     "inbound": "入站",
-    "save": "保存限流"
+    "save": "保存限流",
+    "external": "外部（来自其他服务器的入站）",
+    "limit_hint": "-1 继承域名或全局设置。0 表示不限制。配额和邮件大小的单位为字节。",
+    "msg_invalid_value": "无效的值：:field"
   },
   "user": {
     "msg_quota_exceeds_max": "用户配额（:quota MB）超过域名上限（:max MB）",

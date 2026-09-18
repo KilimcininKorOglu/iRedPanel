@@ -234,7 +234,10 @@
     "set_heading": "Setja takmörkun",
     "outbound": "Sending",
     "inbound": "Móttaka",
-    "save": "Vista takmörkun"
+    "save": "Vista takmörkun",
+    "external": "Ytri (móttekið frá öðrum þjónum)",
+    "limit_hint": "-1 erfir stillingu léns eða altæka stillingu. 0 þýðir ótakmarkað. Kvóti og stærð skilaboða eru í bætum.",
+    "msg_invalid_value": "Ógilt gildi: :field"
   },
   "user": {
     "msg_quota_exceeds_max": "Notandakvóti (:quota MB) fer yfir hámark léns (:max MB)",

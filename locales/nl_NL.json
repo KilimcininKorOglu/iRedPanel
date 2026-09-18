@@ -234,7 +234,10 @@
     "set_heading": "Beperking instellen",
     "outbound": "Uitgaand",
     "inbound": "Inkomend",
-    "save": "Beperking opslaan"
+    "save": "Beperking opslaan",
+    "external": "Extern (inkomend van andere servers)",
+    "limit_hint": "-1 neemt de domein- of globale instelling over. 0 betekent onbeperkt. Quota en berichtgrootte zijn in bytes.",
+    "msg_invalid_value": "Ongeldige waarde: :field"
   },
   "user": {
     "msg_quota_exceeds_max": "De quota van de gebruiker (:quota MB) overschrijdt het domeinmaximum (:max MB)",

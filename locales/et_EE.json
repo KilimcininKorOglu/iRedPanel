@@ -234,7 +234,10 @@
     "set_heading": "Määra piiramine",
     "outbound": "Väljaminev",
     "inbound": "Sissetulev",
-    "save": "Salvesta piiramine"
+    "save": "Salvesta piiramine",
+    "external": "Väline (sissetulev teistest serveritest)",
+    "limit_hint": "-1 pärib domeeni või globaalse sätte. 0 tähendab piiramatut. Kvoot ja kirja suurus on baitides.",
+    "msg_invalid_value": "Vigane väärtus: :field"
   },
   "user": {
     "msg_quota_exceeds_max": "Kasutaja kvoot (:quota MB) ületab domeeni maksimumi (:max MB)",

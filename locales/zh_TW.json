@@ -234,7 +234,10 @@
     "set_heading": "設定限流",
     "outbound": "傳出",
     "inbound": "傳入",
-    "save": "儲存限流"
+    "save": "儲存限流",
+    "external": "外部（來自其他伺服器的入站）",
+    "limit_hint": "-1 繼承網域或全域設定。0 表示不限制。配額與郵件大小的單位為位元組。",
+    "msg_invalid_value": "無效的值：:field"
   },
   "user": {
     "msg_quota_exceeds_max": "使用者配額（:quota MB）超過網域上限（:max MB）",

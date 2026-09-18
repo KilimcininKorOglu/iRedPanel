@@ -234,7 +234,10 @@
     "set_heading": "Establecer limitación",
     "outbound": "Saínte",
     "inbound": "Entrante",
-    "save": "Gardar limitación"
+    "save": "Gardar limitación",
+    "external": "Externo (entrante doutros servidores)",
+    "limit_hint": "-1 herda a configuración do dominio ou global. 0 significa ilimitado. A cota e o tamaño da mensaxe están en bytes.",
+    "msg_invalid_value": "Valor non válido: :field"
   },
   "user": {
     "msg_quota_exceeds_max": "A cota do usuario (:quota MB) supera o máximo do dominio (:max MB)",

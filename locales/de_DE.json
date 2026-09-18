@@ -234,7 +234,10 @@
     "set_heading": "Drosselung festlegen",
     "outbound": "Ausgehend",
     "inbound": "Eingehend",
-    "save": "Drosselung speichern"
+    "save": "Drosselung speichern",
+    "external": "Extern (eingehend von anderen Servern)",
+    "limit_hint": "-1 übernimmt die Domain- oder globale Einstellung. 0 bedeutet unbegrenzt. Kontingent und Nachrichtengröße sind in Bytes.",
+    "msg_invalid_value": "Ungültiger Wert: :field"
   },
   "user": {
     "msg_quota_exceeds_max": "Benutzerkontingent (:quota MB) überschreitet das Domain-Maximum (:max MB)",

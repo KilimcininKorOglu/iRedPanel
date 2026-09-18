@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Api;
 
+use App\Models\ThrottleSetting;
 use App\Repositories\RepositoryFactory;
 
 class ThrottleApiController
@@ -20,15 +21,20 @@ class ThrottleApiController
         ApiMiddleware::requireGlobalKey();
         ApiMiddleware::requireWriteAccess();
         $data = ApiMiddleware::getJsonBody();
-        $repo = RepositoryFactory::getIredapdRepository();
+        try {
+            $setting = ThrottleSetting::fromInput($data);
+        } catch (\InvalidArgumentException $e) {
+            ApiResponse::error("Invalid {$e->getMessage()}");
+            return;
+        }
 
-        $repo->setThrottleSettings(
+        RepositoryFactory::getIredapdRepository()->setThrottleSettings(
             $account,
-            $data['kind'] ?? 'outbound',
-            (int) ($data['period'] ?? 3600),
-            (int) ($data['maxMsgs'] ?? 0),
-            (int) ($data['maxQuota'] ?? 0),
-            (int) ($data['msgSize'] ?? 0),
+            $setting->kind,
+            $setting->period,
+            $setting->maxMsgs,
+            $setting->maxQuota,
+            $setting->msgSize,
         );
 
         ApiResponse::success(['message' => 'Throttle settings updated']);

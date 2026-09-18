@@ -234,7 +234,10 @@
     "set_heading": "Setează limitări",
     "outbound": "Ieșire",
     "inbound": "Intrare",
-    "save": "Salvează limitările"
+    "save": "Salvează limitările",
+    "external": "Extern (primit de la alte servere)",
+    "limit_hint": "-1 moștenește setarea domeniului sau setarea globală. 0 înseamnă nelimitat. Cota și dimensiunea mesajului sunt în octeți.",
+    "msg_invalid_value": "Valoare invalidă: :field"
   },
   "user": {
     "msg_quota_exceeds_max": "Cota utilizatorului (:quota MB) depășește maximul domeniului (:max MB)",

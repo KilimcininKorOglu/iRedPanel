@@ -234,7 +234,10 @@
     "set_heading": "Définir la limitation",
     "outbound": "Sortant",
     "inbound": "Entrant",
-    "save": "Enregistrer la limitation"
+    "save": "Enregistrer la limitation",
+    "external": "Externe (entrant depuis d'autres serveurs)",
+    "limit_hint": "-1 hérite du réglage du domaine ou global. 0 signifie illimité. Le quota et la taille des messages sont en octets.",
+    "msg_invalid_value": "Valeur invalide : :field"
   },
   "user": {
     "msg_quota_exceeds_max": "Le quota de l'utilisateur (:quota Mo) dépasse le maximum du domaine (:max Mo)",

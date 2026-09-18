@@ -234,7 +234,10 @@
     "set_heading": "Ustaw ograniczenia",
     "outbound": "Wychodzące",
     "inbound": "Przychodzące",
-    "save": "Zapisz ograniczenia"
+    "save": "Zapisz ograniczenia",
+    "external": "Zewnętrzny (przychodzący z innych serwerów)",
+    "limit_hint": "-1 dziedziczy ustawienie domeny lub globalne. 0 oznacza brak limitu. Limit i rozmiar wiadomości podaje się w bajtach.",
+    "msg_invalid_value": "Nieprawidłowa wartość: :field"
   },
   "user": {
     "msg_quota_exceeds_max": "Limit użytkownika (:quota MB) przekracza maksimum domeny (:max MB)",

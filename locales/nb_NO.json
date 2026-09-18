@@ -234,7 +234,10 @@
     "set_heading": "Angi begrensning",
     "outbound": "Utgående",
     "inbound": "Innkommende",
-    "save": "Lagre begrensning"
+    "save": "Lagre begrensning",
+    "external": "Ekstern (innkommende fra andre servere)",
+    "limit_hint": "-1 arver domenets eller den globale innstillingen. 0 betyr ubegrenset. Kvote og meldingsstørrelse oppgis i byte.",
+    "msg_invalid_value": "Ugyldig verdi: :field"
   },
   "user": {
     "msg_quota_exceeds_max": "Brukerkvote (:quota MB) overstiger domenets maksimum (:max MB)",

@@ -21,10 +21,19 @@ class ActivityLogger
             : IredadminConnection::getInstance();
     }
 
+    /**
+     * Event name that iRedAdmin writes for an "enable" action. The log table is
+     * shared with iRedAdmin, so the panel writes the same name.
+     */
+    public const EVENT_ENABLE = 'active';
+
     public static function log(string $event, string $domain, string $username, string $msg, string $logLevel = 'info'): void
     {
         if (!Settings::getInstance()->activityLoggingEnabled) {
             return;
+        }
+        if ($event === 'enable') {
+            $event = self::EVENT_ENABLE;
         }
 
         $conn = self::getConnection();

@@ -58,7 +58,10 @@ class LogController
             $params['domain'] = $filterDomain;
         }
 
-        if ($filterEvent !== '') {
+        if ($filterEvent === ActivityLogger::EVENT_ENABLE) {
+            // Earlier panel versions wrote "enable" instead of iRedAdmin's "active".
+            $where .= " AND event IN ('active', 'enable')";
+        } elseif ($filterEvent !== '') {
             $where .= ' AND event = :event';
             $params['event'] = $filterEvent;
         }

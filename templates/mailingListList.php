@@ -48,10 +48,8 @@
               <td><?= $e($ml->accessPolicy) ?></td>
               <td><?= $localize($ml->active ? 'active' : 'disabled') ?></td>
               <td>
-                <form method="post" action="/mailing-lists/<?= $e($ml->address) ?>/delete" style="display:inline" data-confirm="<?= $te('mlist.delete_confirm', ['address' => $ml->address]) ?>">
-                  <?= $csrfField ?>
-                  <button type="submit" class="button error outline"><?= $te('common.delete') ?></button>
-                </form>
+                <?php /* A form cannot nest inside the bulk form: the button posts the bulk form to the delete route. */ ?>
+                <button type="submit" formaction="/mailing-lists/<?= $e($ml->address) ?>/delete" formnovalidate class="button error outline" data-confirm="<?= $te('mlist.delete_confirm', ['address' => $ml->address]) ?>"><?= $te('common.delete') ?></button>
               </td>
             </tr>
             <?php endforeach; ?>

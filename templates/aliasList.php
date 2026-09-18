@@ -50,10 +50,8 @@
               <td><?= $localize($alias->active ? 'active' : 'disabled') ?></td>
               <td><?= $e($alias->created ?? '') ?></td>
               <td>
-                <form method="post" action="/aliases/<?= $e($alias->address) ?>/delete" style="display:inline" data-confirm="<?= $te('alias.delete_confirm', ['address' => $alias->address]) ?>">
-                  <?= $csrfField ?>
-                  <button type="submit" class="button error outline"><?= $te('common.delete') ?></button>
-                </form>
+                <?php /* A form cannot nest inside the bulk form: the button posts the bulk form to the delete route. */ ?>
+                <button type="submit" formaction="/aliases/<?= $e($alias->address) ?>/delete" formnovalidate class="button error outline" data-confirm="<?= $te('alias.delete_confirm', ['address' => $alias->address]) ?>"><?= $te('common.delete') ?></button>
               </td>
             </tr>
             <?php endforeach; ?>

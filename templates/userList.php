@@ -81,10 +81,8 @@
             <td><?= $localize($user->accountStatus) ?></td>
             <td>
               <a href="/<?= $e($domain) ?>/users/<?= $e($user->uid) ?>/general" class="button primary outline"><?= $te('common.edit') ?></a>
-              <form method="post" action="/<?= $e($domain) ?>/users/<?= $e($user->uid) ?>/delete" style="display:inline" data-confirm="<?= $te('user.delete_confirm', ['uid' => $user->uid]) ?>">
-                <?= $csrfField ?>
-                <button type="submit" class="button error outline"><?= $te('common.delete') ?></button>
-              </form>
+              <?php /* A form cannot nest inside the bulk form: the button posts the bulk form to the delete route. */ ?>
+              <button type="submit" formaction="/<?= $e($domain) ?>/users/<?= $e($user->uid) ?>/delete" formnovalidate class="button error outline" data-confirm="<?= $te('user.delete_confirm', ['uid' => $user->uid]) ?>"><?= $te('common.delete') ?></button>
             </td>
           </tr>
           <?php endforeach; ?>

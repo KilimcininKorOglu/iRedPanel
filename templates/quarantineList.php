@@ -10,12 +10,13 @@
       <div class="col-6">
         <button type="submit" class="button outline"><?= $te('quarantine.filter') ?></button>
         <a href="/amavisd/quarantine" class="button outline"><?= $te('quarantine.clear') ?></a>
-        <form method="post" action="/amavisd/cleanup" style="display:inline" data-confirm="<?= $te('quarantine.cleanup_confirm') ?>">
-          <?= $csrfField ?>
-          <button type="submit" class="button error outline"><?= $te('quarantine.cleanup') ?></button>
-        </form>
+        <button type="submit" form="quarantineCleanup" class="button error outline"><?= $te('quarantine.cleanup') ?></button>
       </div>
     </div>
+  </form>
+  <?php /* Outside the GET filter form: a form cannot nest inside another form. */ ?>
+  <form id="quarantineCleanup" method="post" action="/amavisd/cleanup" data-confirm="<?= $te('quarantine.cleanup_confirm') ?>">
+    <?= $csrfField ?>
   </form>
 
   <table class="striped">

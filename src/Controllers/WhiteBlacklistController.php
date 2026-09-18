@@ -62,7 +62,7 @@ class WhiteBlacklistController
                     $success = Translator::translate('wblist.msg_entry_removed');
                 }
             } catch (\Exception $e) {
-                $error = $e->getMessage();
+                $error = BaseController::errorMessage($e);
             }
         }
 

@@ -128,7 +128,7 @@ class AdminController
                     }
                 }
             } catch (\Exception $e) {
-                $error = $e->getMessage();
+                $error = BaseController::errorMessage($e);
             }
         }
 
@@ -224,7 +224,7 @@ class AdminController
                     }
                 }
             } catch (\Exception $e) {
-                $error = $e->getMessage();
+                $error = BaseController::errorMessage($e);
             }
         }
 

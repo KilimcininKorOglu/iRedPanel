@@ -27,6 +27,7 @@
     "msg_bcc_updated": "Cài đặt BCC đã được cập nhật thành công!",
     "msg_relay_updated": "Cài đặt chuyển tiếp đã được cập nhật thành công!",
     "msg_invalid_domain_format": "Định dạng tên miền không hợp lệ",
+    "msg_operation_failed": "Thao tác thất bại. Lỗi đã được ghi vào log của máy chủ.",
     "save": "Lưu",
     "cancel": "Hủy",
     "delete": "Xóa",

@@ -27,6 +27,7 @@
     "msg_bcc_updated": "BCC 設定が正常に更新されました！",
     "msg_relay_updated": "リレー設定が正常に更新されました！",
     "msg_invalid_domain_format": "ドメイン名の形式が無効です",
+    "msg_operation_failed": "操作に失敗しました。エラーはサーバーログに記録されました。",
     "save": "保存",
     "cancel": "キャンセル",
     "delete": "削除",

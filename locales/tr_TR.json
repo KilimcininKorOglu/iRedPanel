@@ -27,6 +27,7 @@
     "msg_bcc_updated": "BCC ayarları başarıyla güncellendi!",
     "msg_relay_updated": "Aktarma ayarları başarıyla güncellendi!",
     "msg_invalid_domain_format": "Geçersiz alan adı biçimi",
+    "msg_operation_failed": "İşlem başarısız oldu. Hata sunucu log dosyasına yazıldı.",
     "save": "Kaydet",
     "cancel": "İptal",
     "delete": "Sil",

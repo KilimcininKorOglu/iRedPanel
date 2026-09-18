@@ -27,6 +27,7 @@
     "msg_bcc_updated": "Nastavení BCC bylo úspěšně aktualizováno!",
     "msg_relay_updated": "Nastavení přenosu bylo úspěšně aktualizováno!",
     "msg_invalid_domain_format": "Neplatný formát názvu domény",
+    "msg_operation_failed": "Operace se nezdařila. Chyba byla zapsána do protokolu serveru.",
     "save": "Uložit",
     "cancel": "Zrušit",
     "delete": "Smazat",

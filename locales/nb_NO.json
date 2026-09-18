@@ -27,6 +27,7 @@
     "msg_bcc_updated": "BCC-innstillinger ble oppdatert!",
     "msg_relay_updated": "Reléinnstillinger ble oppdatert!",
     "msg_invalid_domain_format": "Ugyldig domenenavnformat",
+    "msg_operation_failed": "Operasjonen mislyktes. Feilen ble skrevet til serverloggen.",
     "save": "Lagre",
     "cancel": "Avbryt",
     "delete": "Slett",

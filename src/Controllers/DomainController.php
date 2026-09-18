@@ -115,7 +115,7 @@ class DomainController
                     }
                 }
             } catch (\Exception $e) {
-                $error = $e->getMessage();
+                $error = BaseController::errorMessage($e);
             }
         }
 
@@ -194,7 +194,7 @@ class DomainController
                     $success = Translator::translate('common.msg_relay_updated');
                 }
             } catch (\Exception $e) {
-                $error = $e->getMessage();
+                $error = BaseController::errorMessage($e);
             }
         }
 

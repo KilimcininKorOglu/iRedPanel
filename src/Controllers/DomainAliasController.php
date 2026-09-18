@@ -78,7 +78,7 @@ class DomainAliasController
                     }
                 }
             } catch (\Exception $e) {
-                $error = $e->getMessage();
+                $error = BaseController::errorMessage($e);
             }
         }
 

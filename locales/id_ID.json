@@ -27,6 +27,7 @@
     "msg_bcc_updated": "Pengaturan BCC berhasil diperbarui!",
     "msg_relay_updated": "Pengaturan relay berhasil diperbarui!",
     "msg_invalid_domain_format": "Format nama domain tidak valid",
+    "msg_operation_failed": "Operasi gagal. Kesalahan telah ditulis ke log server.",
     "save": "Simpan",
     "cancel": "Batal",
     "delete": "Hapus",

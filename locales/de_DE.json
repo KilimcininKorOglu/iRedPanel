@@ -27,6 +27,7 @@
     "msg_bcc_updated": "BCC-Einstellungen erfolgreich aktualisiert!",
     "msg_relay_updated": "Relay-Einstellungen erfolgreich aktualisiert!",
     "msg_invalid_domain_format": "Ungültiges Domainnamen-Format",
+    "msg_operation_failed": "Der Vorgang ist fehlgeschlagen. Der Fehler wurde in das Serverprotokoll geschrieben.",
     "save": "Speichern",
     "cancel": "Abbrechen",
     "delete": "Löschen",

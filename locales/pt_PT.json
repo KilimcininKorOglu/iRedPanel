@@ -27,6 +27,7 @@
     "msg_bcc_updated": "Definições de BCC atualizadas com sucesso!",
     "msg_relay_updated": "Definições de retransmissão atualizadas com sucesso!",
     "msg_invalid_domain_format": "Formato de nome de domínio inválido",
+    "msg_operation_failed": "A operação falhou. O erro foi registado no registo do servidor.",
     "save": "Guardar",
     "cancel": "Cancelar",
     "delete": "Eliminar",

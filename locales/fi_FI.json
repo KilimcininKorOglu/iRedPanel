@@ -27,6 +27,7 @@
     "msg_bcc_updated": "BCC-asetukset päivitetty onnistuneesti!",
     "msg_relay_updated": "Välitysasetukset päivitetty onnistuneesti!",
     "msg_invalid_domain_format": "Virheellinen verkkotunnuksen muoto",
+    "msg_operation_failed": "Toiminto epäonnistui. Virhe kirjoitettiin palvelimen lokiin.",
     "save": "Tallenna",
     "cancel": "Peruuta",
     "delete": "Poista",

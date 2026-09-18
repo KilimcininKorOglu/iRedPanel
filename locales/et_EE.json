@@ -27,6 +27,7 @@
     "msg_bcc_updated": "BCC seaded edukalt uuendatud!",
     "msg_relay_updated": "Edastuse seaded edukalt uuendatud!",
     "msg_invalid_domain_format": "Vigane domeeninime vorming",
+    "msg_operation_failed": "Toiming ebaõnnestus. Viga kirjutati serveri logisse.",
     "save": "Salvesta",
     "cancel": "Tühista",
     "delete": "Kustuta",

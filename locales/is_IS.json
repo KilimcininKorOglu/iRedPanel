@@ -27,6 +27,7 @@
     "msg_bcc_updated": "BCC-stillingar uppfærðar!",
     "msg_relay_updated": "Endurvarpsstillingar uppfærðar!",
     "msg_invalid_domain_format": "Ógilt snið á lénsheiti",
+    "msg_operation_failed": "Aðgerðin mistókst. Villan var skráð í annál þjónsins.",
     "save": "Vista",
     "cancel": "Hætta við",
     "delete": "Eyða",

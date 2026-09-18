@@ -27,6 +27,7 @@
     "msg_bcc_updated": "A BCC-beállítások sikeresen frissítve!",
     "msg_relay_updated": "A relébeállítások sikeresen frissítve!",
     "msg_invalid_domain_format": "Érvénytelen domainnév-formátum",
+    "msg_operation_failed": "A művelet sikertelen. A hiba a szervernaplóba került.",
     "save": "Mentés",
     "cancel": "Mégse",
     "delete": "Törlés",

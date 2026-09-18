@@ -27,6 +27,7 @@
     "msg_bcc_updated": "Paramètres CCI mis à jour avec succès !",
     "msg_relay_updated": "Paramètres de relais mis à jour avec succès !",
     "msg_invalid_domain_format": "Format de nom de domaine non valide",
+    "msg_operation_failed": "L'opération a échoué. L'erreur a été écrite dans le journal du serveur.",
     "save": "Enregistrer",
     "cancel": "Annuler",
     "delete": "Supprimer",

@@ -27,6 +27,7 @@
     "msg_bcc_updated": "Ustawienia BCC zostały pomyślnie zaktualizowane!",
     "msg_relay_updated": "Ustawienia przekazywania zostały pomyślnie zaktualizowane!",
     "msg_invalid_domain_format": "Nieprawidłowy format nazwy domeny",
+    "msg_operation_failed": "Operacja nie powiodła się. Błąd został zapisany w dzienniku serwera.",
     "save": "Zapisz",
     "cancel": "Anuluj",
     "delete": "Usuń",

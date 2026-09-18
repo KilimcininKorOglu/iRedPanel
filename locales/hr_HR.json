@@ -27,6 +27,7 @@
     "msg_bcc_updated": "Postavke BCC-a uspješno ažurirane!",
     "msg_relay_updated": "Postavke releja uspješno ažurirane!",
     "msg_invalid_domain_format": "Nevažeći format naziva domene",
+    "msg_operation_failed": "Operacija nije uspjela. Pogreška je zapisana u zapisnik poslužitelja.",
     "save": "Spremi",
     "cancel": "Odustani",
     "delete": "Izbriši",

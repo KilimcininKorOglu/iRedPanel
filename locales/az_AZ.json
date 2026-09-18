@@ -27,6 +27,7 @@
     "msg_bcc_updated": "BCC parametrləri uğurla yeniləndi!",
     "msg_relay_updated": "Relay parametrləri uğurla yeniləndi!",
     "msg_invalid_domain_format": "Yanlış domen adı formatı",
+    "msg_operation_failed": "Əməliyyat uğursuz oldu. Xəta server jurnalına yazıldı.",
     "save": "Yadda saxla",
     "cancel": "Ləğv et",
     "delete": "Sil",

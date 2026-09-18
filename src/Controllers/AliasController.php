@@ -82,7 +82,7 @@ class AliasController
                 header("Location: /aliases/{$address}");
                 exit;
             } catch (\Exception $e) {
-                $error = $e->getMessage();
+                $error = BaseController::errorMessage($e);
             }
         }
 
@@ -151,7 +151,7 @@ class AliasController
                 $members = $repo->getAliasMembers($address);
                 $moderators = $repo->getModerators($address);
             } catch (\Exception $e) {
-                $error = $e->getMessage();
+                $error = BaseController::errorMessage($e);
             }
         }
 

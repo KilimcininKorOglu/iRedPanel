@@ -27,6 +27,7 @@
     "msg_bcc_updated": "BCC-instellingen succesvol bijgewerkt!",
     "msg_relay_updated": "Relay-instellingen succesvol bijgewerkt!",
     "msg_invalid_domain_format": "Ongeldige domeinnaamindeling",
+    "msg_operation_failed": "De bewerking is mislukt. De fout is naar het serverlogboek geschreven.",
     "save": "Opslaan",
     "cancel": "Annuleren",
     "delete": "Verwijderen",

@@ -27,6 +27,7 @@
     "msg_bcc_updated": "Impostazioni CCN aggiornate con successo!",
     "msg_relay_updated": "Impostazioni relay aggiornate con successo!",
     "msg_invalid_domain_format": "Formato del nome di dominio non valido",
+    "msg_operation_failed": "L'operazione non è riuscita. L'errore è stato scritto nel log del server.",
     "save": "Salva",
     "cancel": "Annulla",
     "delete": "Elimina",

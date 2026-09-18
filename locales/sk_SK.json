@@ -27,6 +27,7 @@
     "msg_bcc_updated": "Nastavenia BCC boli úspešne aktualizované!",
     "msg_relay_updated": "Nastavenia relé boli úspešne aktualizované!",
     "msg_invalid_domain_format": "Neplatný formát názvu domény",
+    "msg_operation_failed": "Operácia zlyhala. Chyba bola zapísaná do protokolu servera.",
     "save": "Uložiť",
     "cancel": "Zrušiť",
     "delete": "Odstrániť",

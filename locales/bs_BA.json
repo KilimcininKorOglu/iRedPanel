@@ -27,6 +27,7 @@
     "msg_bcc_updated": "BCC postavke su ažurirane!",
     "msg_relay_updated": "Postavke releja su ažurirane!",
     "msg_invalid_domain_format": "Neispravan format naziva domene",
+    "msg_operation_failed": "Operacija nije uspjela. Greška je upisana u serverski log.",
     "save": "Sačuvaj",
     "cancel": "Otkaži",
     "delete": "Obriši",

@@ -27,6 +27,7 @@
     "msg_bcc_updated": "密送设置更新成功！",
     "msg_relay_updated": "中继设置更新成功！",
     "msg_invalid_domain_format": "域名格式无效",
+    "msg_operation_failed": "操作失败。错误已写入服务器日志。",
     "save": "保存",
     "cancel": "取消",
     "delete": "删除",

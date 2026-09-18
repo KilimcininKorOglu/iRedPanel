@@ -51,7 +51,7 @@ class SpamPolicyController
                     $success = Translator::translate('spampolicy.msg_updated');
                 }
             } catch (\Exception $e) {
-                $error = $e->getMessage();
+                $error = BaseController::errorMessage($e);
             }
         }
 

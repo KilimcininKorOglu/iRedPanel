@@ -80,7 +80,7 @@ class MailingListController
                 header("Location: /mailing-lists/{$address}");
                 exit;
             } catch (\Exception $e) {
-                $error = $e->getMessage();
+                $error = BaseController::errorMessage($e);
             }
         }
 
@@ -134,7 +134,7 @@ class MailingListController
                 $ml = $repo->getMailingList($address);
                 $owners = $repo->getOwners($address);
             } catch (\Exception $e) {
-                $error = $e->getMessage();
+                $error = BaseController::errorMessage($e);
             }
         }
 

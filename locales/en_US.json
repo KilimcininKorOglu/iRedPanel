@@ -27,6 +27,7 @@
     "msg_bcc_updated": "BCC settings updated successfully!",
     "msg_relay_updated": "Relay settings updated successfully!",
     "msg_invalid_domain_format": "Invalid domain name format",
+    "msg_operation_failed": "The operation failed. The error was written to the server log.",
     "save": "Save",
     "cancel": "Cancel",
     "delete": "Delete",

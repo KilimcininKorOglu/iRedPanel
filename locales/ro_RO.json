@@ -27,6 +27,7 @@
     "msg_bcc_updated": "Setările BCC au fost actualizate cu succes!",
     "msg_relay_updated": "Setările de releu au fost actualizate cu succes!",
     "msg_invalid_domain_format": "Format de nume de domeniu nevalid",
+    "msg_operation_failed": "Operațiunea a eșuat. Eroarea a fost scrisă în jurnalul serverului.",
     "save": "Salvează",
     "cancel": "Anulează",
     "delete": "Șterge",

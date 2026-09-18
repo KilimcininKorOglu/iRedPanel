@@ -27,6 +27,7 @@
     "msg_bcc_updated": "Configuración BCC actualizada!",
     "msg_relay_updated": "Configuración de retransmisión actualizada!",
     "msg_invalid_domain_format": "Formato de nome de dominio non válido",
+    "msg_operation_failed": "A operación fallou. O erro rexistrouse no rexistro do servidor.",
     "save": "Gardar",
     "cancel": "Cancelar",
     "delete": "Eliminar",

@@ -27,6 +27,7 @@
     "msg_bcc_updated": "BCC 설정이 성공적으로 업데이트되었습니다!",
     "msg_relay_updated": "릴레이 설정이 성공적으로 업데이트되었습니다!",
     "msg_invalid_domain_format": "잘못된 도메인 이름 형식",
+    "msg_operation_failed": "작업에 실패했습니다. 오류가 서버 로그에 기록되었습니다.",
     "save": "저장",
     "cancel": "취소",
     "delete": "삭제",

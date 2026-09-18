@@ -27,6 +27,7 @@
     "msg_bcc_updated": "¡Ajustes de CCO actualizados correctamente!",
     "msg_relay_updated": "¡Ajustes de retransmisión actualizados correctamente!",
     "msg_invalid_domain_format": "Formato de nombre de dominio no válido",
+    "msg_operation_failed": "La operación ha fallado. El error se ha registrado en el log del servidor.",
     "save": "Guardar",
     "cancel": "Cancelar",
     "delete": "Eliminar",

@@ -36,7 +36,7 @@ class IredapdController
                 ActivityLogger::logUpdate('', $account, "Throttle settings updated for {$account}");
                 $success = Translator::translate('throttle.msg_updated');
             } catch (\Exception $e) {
-                $error = $e->getMessage();
+                $error = BaseController::errorMessage($e);
             }
         }
 
@@ -78,7 +78,7 @@ class IredapdController
                     $success = Translator::translate('greylist.msg_whitelist_updated');
                 }
             } catch (\Exception $e) {
-                $error = $e->getMessage();
+                $error = BaseController::errorMessage($e);
             }
         }
 
@@ -136,7 +136,7 @@ class IredapdController
                 ActivityLogger::log('update', '', '', 'Updated rDNS white/blacklist');
                 $success = Translator::translate('wblist.msg_rdns_updated');
             } catch (\Exception $e) {
-                $error = $e->getMessage();
+                $error = BaseController::errorMessage($e);
             }
         }
 
@@ -167,7 +167,7 @@ class IredapdController
                 ActivityLogger::log('update', '', '', 'Updated SenderScore whitelist');
                 $success = Translator::translate('wblist.msg_senderscore_updated');
             } catch (\Exception $e) {
-                $error = $e->getMessage();
+                $error = BaseController::errorMessage($e);
             }
         }
 

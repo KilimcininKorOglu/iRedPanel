@@ -27,6 +27,7 @@
     "msg_bcc_updated": "BCC-inställningarna har uppdaterats!",
     "msg_relay_updated": "Reläinställningarna har uppdaterats!",
     "msg_invalid_domain_format": "Ogiltigt domännamnsformat",
+    "msg_operation_failed": "Åtgärden misslyckades. Felet skrevs till serverloggen.",
     "save": "Spara",
     "cancel": "Avbryt",
     "delete": "Ta bort",

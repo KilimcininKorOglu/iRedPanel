@@ -27,6 +27,7 @@
     "msg_bcc_updated": "Nastavitve BCC uspešno posodobljene!",
     "msg_relay_updated": "Nastavitve posredovanja uspešno posodobljene!",
     "msg_invalid_domain_format": "Neveljavna oblika imena domene",
+    "msg_operation_failed": "Operacija ni uspela. Napaka je bila zapisana v strežniški dnevnik.",
     "save": "Shrani",
     "cancel": "Prekliči",
     "delete": "Izbriši",

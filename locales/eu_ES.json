@@ -27,6 +27,7 @@
     "msg_bcc_updated": "BCC ezarpenak eguneratu dira!",
     "msg_relay_updated": "Errele ezarpenak eguneratu dira!",
     "msg_invalid_domain_format": "Domeinu-izenaren formatu baliogabea",
+    "msg_operation_failed": "Eragiketak huts egin du. Errorea zerbitzariaren erregistroan idatzi da.",
     "save": "Gorde",
     "cancel": "Utzi",
     "delete": "Ezabatu",

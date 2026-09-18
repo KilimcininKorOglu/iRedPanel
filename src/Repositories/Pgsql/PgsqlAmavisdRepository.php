@@ -40,7 +40,7 @@ class PgsqlAmavisdRepository implements AmavisdRepositoryInterface
         $totalCount = (int) $countStmt->fetch()['total'];
 
         $stmt = $pdo->prepare(
-            "SELECT DISTINCT m.mail_id, m.from_addr, m.subject, m.time_iso, m.content,
+            "SELECT DISTINCT m.mail_id, m.from_addr, m.subject, m.time_iso, m.time_num, m.content,
                     r.email AS recipient, m.spam_level
              FROM msgs m
              JOIN msgrcpt mr ON m.mail_id = mr.mail_id
@@ -148,7 +148,7 @@ class PgsqlAmavisdRepository implements AmavisdRepositoryInterface
         $totalCount = (int) $countStmt->fetch()['total'];
 
         $stmt = $pdo->prepare(
-            "SELECT m.mail_id, m.from_addr, m.subject, m.time_iso, m.content,
+            "SELECT m.mail_id, m.from_addr, m.subject, m.time_iso, m.time_num, m.content,
                     r.email AS recipient, m.spam_level
              FROM msgs m
              JOIN msgrcpt mr ON m.mail_id = mr.mail_id

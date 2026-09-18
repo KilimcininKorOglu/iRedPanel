@@ -33,7 +33,7 @@
     <tbody>
       <?php foreach ($messages as $msg): ?>
       <tr>
-        <td><?= $e($msg['time_iso'] ?? '') ?></td>
+        <td><?= $e(date('Y-m-d H:i:s', (int) $msg['time_num'])) ?></td>
         <td><?= $e($msg['from_addr'] ?? '') ?></td>
         <td><?= $e($msg['recipient'] ?? '') ?></td>
         <td><?= $e($msg['subject'] ?? '') ?></td>

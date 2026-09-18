@@ -28,7 +28,7 @@
     <tbody>
       <?php foreach ($entries as $entry): ?>
       <tr>
-        <td><?= $e($entry['time_iso'] ?? '') ?></td>
+        <td><?= $e(date('Y-m-d H:i:s', (int) $entry['time_num'])) ?></td>
         <td><?= $e($entry['from_addr'] ?? '') ?></td>
         <td><?= $e($entry['recipient'] ?? '') ?></td>
         <td><?= $e($entry['subject'] ?? '') ?></td>

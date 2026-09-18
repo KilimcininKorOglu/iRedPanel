@@ -185,12 +185,12 @@ class MysqlUserRepository implements UserRepositoryInterface
                 (username, password, name, first_name, last_name,
                  quota, employeeid, rank, mobile, telephone,
                  domain, active, isglobaladmin, storagebasedirectory,
-                 storagenode, maildir)
+                 storagenode, maildir, created, passwordlastchange)
              VALUES
                 (:username, :password, :cn, :givenName, :sn,
                  :quota, :employeeNumber, :title, :mobile, :telephoneNumber,
                  :domain, :active, :isGlobalAdmin, :storageBase,
-                 :storageNode, :maildir)"
+                 :storageNode, :maildir, NOW(), NOW())"
         );
         $stmt->execute([
             'username' => $username,

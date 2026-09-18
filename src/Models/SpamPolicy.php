@@ -48,8 +48,8 @@ class SpamPolicy
             spamTagLevel: ($post['spamTagLevel'] ?? '') !== '' ? (float) $post['spamTagLevel'] : null,
             spamTag2Level: ($post['spamTag2Level'] ?? '') !== '' ? (float) $post['spamTag2Level'] : null,
             spamKillLevel: ($post['spamKillLevel'] ?? '') !== '' ? (float) $post['spamKillLevel'] : null,
-            spamSubjectTag: trim($post['spamSubjectTag'] ?? ''),
-            spamSubjectTag2: trim($post['spamSubjectTag2'] ?? ''),
+            spamSubjectTag: self::subjectTag($post['spamSubjectTag'] ?? ''),
+            spamSubjectTag2: self::subjectTag($post['spamSubjectTag2'] ?? ''),
             bypassVirusChecks: (bool) ($post['bypassVirusChecks'] ?? false),
             bypassSpamChecks: (bool) ($post['bypassSpamChecks'] ?? false),
             virusLover: (bool) ($post['virusLover'] ?? false),
@@ -57,6 +57,16 @@ class SpamPolicy
             bannedFilesLover: (bool) ($post['bannedFilesLover'] ?? false),
             badHeaderLover: (bool) ($post['badHeaderLover'] ?? false),
         );
+    }
+
+    /**
+     * Amavisd puts the tag in front of the subject as it is, so a trailing
+     * space is what separates "[SPAM] " from the subject and must stay.
+     */
+    private static function subjectTag(mixed $value): string
+    {
+        $tag = is_string($value) ? ltrim($value) : '';
+        return trim($tag) === '' ? '' : $tag;
     }
 
     private static function ynToBool(string $value): bool

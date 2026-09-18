@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Repositories\Mysql;
 
+use App\Exceptions\BackendConnectionException;
+use App\Models\PaginatedResult;
 use App\Repositories\IredapdRepositoryInterface;
 use App\Utils\IredapdAccount;
 
@@ -11,14 +13,7 @@ class MysqlIredapdRepository implements IredapdRepositoryInterface
 {
     public function getThrottleSettings(string $account): array
     {
-        $conn = IredapdConnection::getInstance();
-        if (!$conn->isAvailable()) {
-            return [];
-        }
-
-        $pdo = $conn->getPdo();
-
-        $stmt = $pdo->prepare(
+        $stmt = $this->pdo()->prepare(
             "SELECT id, account, kind, priority, period, max_msgs, max_quota, msg_size
              FROM throttle
              WHERE account = :account
@@ -31,12 +26,7 @@ class MysqlIredapdRepository implements IredapdRepositoryInterface
 
     public function setThrottleSettings(string $account, string $kind, int $period, int $maxMsgs, int $maxQuota, int $msgSize): void
     {
-        $conn = IredapdConnection::getInstance();
-        if (!$conn->isAvailable()) {
-            throw new \RuntimeException('iRedAPD database not available');
-        }
-
-        $pdo = $conn->getPdo();
+        $pdo = $this->pdo();
 
         // Check if entry exists
         $stmt = $pdo->prepare(
@@ -71,14 +61,7 @@ class MysqlIredapdRepository implements IredapdRepositoryInterface
 
     public function getGreylistSettings(string $account): array
     {
-        $conn = IredapdConnection::getInstance();
-        if (!$conn->isAvailable()) {
-            return [];
-        }
-
-        $pdo = $conn->getPdo();
-
-        $stmt = $pdo->prepare(
+        $stmt = $this->pdo()->prepare(
             "SELECT id, account, sender, comment, active
              FROM greylisting
              WHERE account = :account"
@@ -90,12 +73,7 @@ class MysqlIredapdRepository implements IredapdRepositoryInterface
 
     public function setGreylistEnabled(string $account, bool $enabled): void
     {
-        $conn = IredapdConnection::getInstance();
-        if (!$conn->isAvailable()) {
-            throw new \RuntimeException('iRedAPD database not available');
-        }
-
-        $pdo = $conn->getPdo();
+        $pdo = $this->pdo();
         // iRedAPD takes the matching row with the highest priority, so the
         // account row must outrank the global '@.' row (priority 0).
         $priority = IredapdAccount::priority($account);
@@ -125,26 +103,14 @@ class MysqlIredapdRepository implements IredapdRepositoryInterface
      */
     public function getWhitelistedSenders(string $account): array
     {
-        $conn = IredapdConnection::getInstance();
-        if (!$conn->isAvailable()) {
-            return [];
-        }
-
-        $pdo = $conn->getPdo();
-
-        $stmt = $pdo->prepare(
+        $stmt = $this->pdo()->prepare(
             "SELECT sender FROM greylisting_whitelists
              WHERE account = :account
              ORDER BY sender"
         );
         $stmt->execute(['account' => $account]);
 
-        $senders = [];
-        while ($row = $stmt->fetch()) {
-            $senders[] = $row['sender'];
-        }
-
-        return $senders;
+        return $stmt->fetchAll(\PDO::FETCH_COLUMN);
     }
 
     public function setWhitelistedSenders(string $account, array $senders): void
@@ -166,65 +132,39 @@ class MysqlIredapdRepository implements IredapdRepositoryInterface
         });
     }
 
-    public function getGreylistTrackingPaginated(int $page, int $perPage): \App\Models\PaginatedResult
+    public function getGreylistTrackingPaginated(int $page, int $perPage): PaginatedResult
     {
-        $conn = IredapdConnection::getInstance();
-        if (!$conn->isAvailable()) {
-            return new \App\Models\PaginatedResult([], 0, $page, $perPage);
-        }
+        $pdo = $this->pdo();
 
-        $pdo = $conn->getPdo();
+        $countStmt = $pdo->query("SELECT COUNT(*) AS total FROM greylisting_tracking WHERE passed = 1");
+        $totalCount = (int) $countStmt->fetch()['total'];
 
-        try {
-            $countStmt = $pdo->query("SELECT COUNT(*) AS total FROM greylisting_tracking WHERE passed = 1");
-            $totalCount = (int) $countStmt->fetch()['total'];
+        $stmt = $pdo->prepare(
+            "SELECT sender, recipient, client_address, init_time, record_expired, passed, blocked_count
+             FROM greylisting_tracking
+             WHERE passed = 1
+             ORDER BY init_time DESC
+             LIMIT :perPage OFFSET :offset"
+        );
+        $stmt->bindValue('perPage', $perPage, \PDO::PARAM_INT);
+        $stmt->bindValue('offset', ($page - 1) * $perPage, \PDO::PARAM_INT);
+        $stmt->execute();
 
-            $offset = ($page - 1) * $perPage;
-
-            $stmt = $pdo->prepare(
-                "SELECT sender, recipient, client_address, init_time, record_expired, passed, blocked_count
-                 FROM greylisting_tracking
-                 WHERE passed = 1
-                 ORDER BY init_time DESC
-                 LIMIT :perPage OFFSET :offset"
-            );
-            $stmt->bindValue('perPage', $perPage, \PDO::PARAM_INT);
-            $stmt->bindValue('offset', $offset, \PDO::PARAM_INT);
-            $stmt->execute();
-
-            $items = [];
-            while ($row = $stmt->fetch()) {
-                $items[] = $row;
-            }
-
-            return new \App\Models\PaginatedResult($items, $totalCount, $page, $perPage);
-        } catch (\PDOException $e) {
-            return new \App\Models\PaginatedResult([], 0, $page, $perPage);
-        }
+        return new PaginatedResult($stmt->fetchAll(), $totalCount, $page, $perPage);
     }
 
     public function getWblistRdns(): array
     {
-        $conn = IredapdConnection::getInstance();
-        if (!$conn->isAvailable()) {
-            return ['whitelists' => [], 'blacklists' => []];
-        }
-
-        $pdo = $conn->getPdo();
         $whitelists = [];
         $blacklists = [];
 
-        try {
-            $stmt = $pdo->query("SELECT rdns, wb FROM wblist_rdns ORDER BY rdns");
-            while ($row = $stmt->fetch()) {
-                if ($row['wb'] === 'W') {
-                    $whitelists[] = $row['rdns'];
-                } else {
-                    $blacklists[] = $row['rdns'];
-                }
+        $stmt = $this->pdo()->query("SELECT rdns, wb FROM wblist_rdns ORDER BY rdns");
+        while ($row = $stmt->fetch()) {
+            if ($row['wb'] === 'W') {
+                $whitelists[] = $row['rdns'];
+            } else {
+                $blacklists[] = $row['rdns'];
             }
-        } catch (\PDOException $e) {
-            // Table may not exist
         }
 
         return ['whitelists' => $whitelists, 'blacklists' => $blacklists];
@@ -249,24 +189,11 @@ class MysqlIredapdRepository implements IredapdRepositoryInterface
 
     public function getSenderScoreWhitelist(): array
     {
-        $conn = IredapdConnection::getInstance();
-        if (!$conn->isAvailable()) {
-            return [];
-        }
+        $stmt = $this->pdo()->query(
+            "SELECT client_address FROM senderscore_cache WHERE time = 4102444799 ORDER BY client_address"
+        );
 
-        $pdo = $conn->getPdo();
-        $ips = [];
-
-        try {
-            $stmt = $pdo->query("SELECT client_address FROM senderscore_cache WHERE time = 4102444799 ORDER BY client_address");
-            while ($row = $stmt->fetch()) {
-                $ips[] = $row['client_address'];
-            }
-        } catch (\PDOException $e) {
-            // Table may not exist
-        }
-
-        return $ips;
+        return $stmt->fetchAll(\PDO::FETCH_COLUMN);
     }
 
     public function setSenderScoreWhitelist(array $ips): void
@@ -293,12 +220,7 @@ class MysqlIredapdRepository implements IredapdRepositoryInterface
      */
     private function replaceAll(callable $work): void
     {
-        $conn = IredapdConnection::getInstance();
-        if (!$conn->isAvailable()) {
-            throw new \RuntimeException('iRedAPD database not available');
-        }
-
-        $pdo = $conn->getPdo();
+        $pdo = $this->pdo();
         $pdo->beginTransaction();
         try {
             $work($pdo);
@@ -307,5 +229,18 @@ class MysqlIredapdRepository implements IredapdRepositoryInterface
             $pdo->rollBack();
             throw $e;
         }
+    }
+
+    /**
+     * @throws BackendConnectionException when the connection failed, so a page
+     *                                    never shows an empty list for a database it cannot read
+     */
+    private function pdo(): \PDO
+    {
+        $pdo = IredapdConnection::getInstance()->getPdo();
+        if ($pdo === null) {
+            throw new BackendConnectionException('iRedAPD database not available');
+        }
+        return $pdo;
     }
 }

@@ -22,7 +22,7 @@
             <td><?= $e($entry['sender'] ?? '') ?></td>
             <td><?= $e($entry['recipient'] ?? '') ?></td>
             <td><?= $e($entry['client_address'] ?? '') ?></td>
-            <td><?= $e($entry['init_time'] ?? '') ?></td>
+            <td><?= $e(date('Y-m-d H:i:s', (int) $entry['init_time'])) ?></td>
             <td><?= $e($entry['blocked_count'] ?? 0) ?></td>
           </tr>
           <?php endforeach; ?>

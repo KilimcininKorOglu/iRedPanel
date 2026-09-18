@@ -13,12 +13,10 @@ class PgsqlSpamPolicyRepository implements SpamPolicyRepositoryInterface
     {
         $pdo = AmavisdPgsqlConnection::getInstance()->getPdo();
 
-        $stmt = $pdo->prepare(
-            "SELECT p.* FROM policy p
-             JOIN users u ON u.policy_id = p.id
-             WHERE u.email = :account
-             LIMIT 1"
-        );
+        // As iRedAdmin does, an account's own policy is the one named after it.
+        // users.policy_id is not usable: it defaults to 1 (the global policy)
+        // for rows that white/blacklist entries created.
+        $stmt = $pdo->prepare("SELECT * FROM policy WHERE policy_name = :account LIMIT 1");
         $stmt->execute(['account' => $account]);
 
         $row = $stmt->fetch();
@@ -35,25 +33,17 @@ class PgsqlSpamPolicyRepository implements SpamPolicyRepositoryInterface
 
         $pdo->beginTransaction();
         try {
-            $stmt = $pdo->prepare("SELECT u.id, u.policy_id FROM users u WHERE u.email = :account LIMIT 1");
+            $stmt = $pdo->prepare("SELECT id FROM policy WHERE policy_name = :account LIMIT 1");
             $stmt->execute(['account' => $account]);
-            $user = $stmt->fetch();
+            $policyId = $stmt->fetchColumn();
 
-            if ($user !== false && $user['policy_id'] !== null) {
-                $this->updatePolicyRow($pdo, (int) $user['policy_id'], $policy);
+            if ($policyId !== false) {
+                $policyId = (int) $policyId;
+                $this->updatePolicyRow($pdo, $policyId, $policy);
             } else {
                 $policyId = $this->insertPolicyRow($pdo, $policy, $account);
-
-                if ($user !== false) {
-                    $pdo->prepare("UPDATE users SET policy_id = :pid WHERE id = :uid")
-                        ->execute(['pid' => $policyId, 'uid' => $user['id']]);
-                } else {
-                    $priority = $this->getPriority($account);
-                    $pdo->prepare(
-                        "INSERT INTO users (email, priority, policy_id) VALUES (:email, :priority, :pid)"
-                    )->execute(['email' => $account, 'priority' => $priority, 'pid' => $policyId]);
-                }
             }
+            $this->linkUser($pdo, $account, $policyId);
 
             $pdo->commit();
             return true;
@@ -92,22 +82,17 @@ class PgsqlSpamPolicyRepository implements SpamPolicyRepositoryInterface
         $where = "";
         $params = [];
         if ($domain !== null) {
-            $where = "WHERE u.email = :domain OR u.email LIKE :pattern";
+            $where = "WHERE policy_name = :domain OR policy_name LIKE :pattern";
             $params = ['domain' => '@' . $domain, 'pattern' => '%@' . $domain];
         }
 
-        $stmt = $pdo->prepare(
-            "SELECT u.email, p.* FROM users u
-             JOIN policy p ON u.policy_id = p.id
-             {$where}
-             ORDER BY u.email"
-        );
+        $stmt = $pdo->prepare("SELECT * FROM policy {$where} ORDER BY policy_name");
         $stmt->execute($params);
 
         $results = [];
         while ($row = $stmt->fetch()) {
             $results[] = [
-                'account' => $row['email'],
+                'account' => $row['policy_name'],
                 'policy' => SpamPolicy::fromRow($row),
             ];
         }
@@ -115,10 +100,22 @@ class PgsqlSpamPolicyRepository implements SpamPolicyRepositoryInterface
         return $results;
     }
 
+    /**
+     * Points the account's users row, which Amavisd looks up, at its policy.
+     */
+    private function linkUser(\PDO $pdo, string $account, int $policyId): void
+    {
+        $stmt = $pdo->prepare("UPDATE users SET policy_id = :pid WHERE email = :account");
+        $stmt->execute(['pid' => $policyId, 'account' => $account]);
+
+        if ($stmt->rowCount() === 0) {
+            $pdo->prepare("INSERT INTO users (email, priority, policy_id) VALUES (:email, :priority, :pid)")
+                ->execute(['email' => $account, 'priority' => $this->getPriority($account), 'pid' => $policyId]);
+        }
+    }
+
     private function insertPolicyRow(\PDO $pdo, SpamPolicy $policy, string $account): int
     {
-        $policyName = $policy->policyName !== '' ? $policy->policyName : $account;
-
         $stmt = $pdo->prepare(
             "INSERT INTO policy (policy_name, spam_tag_level, spam_tag2_level, spam_kill_level,
              spam_subject_tag, spam_subject_tag2, bypass_virus_checks, bypass_spam_checks,
@@ -126,7 +123,8 @@ class PgsqlSpamPolicyRepository implements SpamPolicyRepositoryInterface
              VALUES (:name, :tag, :tag2, :kill, :subj, :subj2, :bvc, :bsc, :vl, :sl, :bfl, :bhl)
              RETURNING id"
         );
-        $stmt->execute($this->policyParams($policy, $policyName));
+        // getPolicy() finds the policy by this name, so it is always the account.
+        $stmt->execute($this->policyParams($policy, $account));
 
         return (int) $stmt->fetchColumn();
     }

@@ -6,6 +6,7 @@ namespace App\Repositories\Mysql;
 
 use App\Models\SpamPolicy;
 use App\Repositories\SpamPolicyRepositoryInterface;
+use App\Utils\AmavisdAddress;
 
 class MysqlSpamPolicyRepository implements SpamPolicyRepositoryInterface
 {
@@ -103,7 +104,7 @@ class MysqlSpamPolicyRepository implements SpamPolicyRepositoryInterface
         $exists->execute(['account' => $account]);
         if ($exists->fetchColumn() === false) {
             $pdo->prepare("INSERT INTO users (email, priority, policy_id) VALUES (:email, :priority, :pid)")
-                ->execute(['email' => $account, 'priority' => $this->getPriority($account), 'pid' => $policyId]);
+                ->execute(['email' => $account, 'priority' => AmavisdAddress::priority($account), 'pid' => $policyId]);
         }
     }
 
@@ -165,16 +166,5 @@ class MysqlSpamPolicyRepository implements SpamPolicyRepositoryInterface
             'bfl' => SpamPolicy::boolToYn($policy->bannedFilesLover),
             'bhl' => SpamPolicy::boolToYn($policy->badHeaderLover),
         ];
-    }
-
-    private function getPriority(string $account): int
-    {
-        if ($account === '@.') {
-            return 0;
-        }
-        if (str_starts_with($account, '@')) {
-            return 2;
-        }
-        return 7;
     }
 }

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Repositories\Mysql;
 
 use App\Repositories\WhiteBlacklistRepositoryInterface;
+use App\Utils\AmavisdAddress;
 
 class MysqlWhiteBlacklistRepository implements WhiteBlacklistRepositoryInterface
 {
@@ -40,40 +41,38 @@ class MysqlWhiteBlacklistRepository implements WhiteBlacklistRepositoryInterface
 
     public function getOrCreateUserId(string $email): int
     {
-        $pdo = AmavisdConnection::getInstance()->getPdo();
-
-        $stmt = $pdo->prepare("SELECT id FROM users WHERE email = :email LIMIT 1");
-        $stmt->execute(['email' => $email]);
-        $row = $stmt->fetch();
-
-        if ($row !== false) {
-            return (int) $row['id'];
-        }
-
-        $priority = $this->getPriority($email);
-        $pdo->prepare("INSERT INTO users (email, priority) VALUES (:email, :priority)")
-            ->execute(['email' => $email, 'priority' => $priority]);
-
-        return (int) $pdo->lastInsertId();
+        return $this->getOrCreateAddressId('users', $email);
     }
 
     public function getOrCreateMailaddrId(string $email): int
     {
-        $pdo = AmavisdConnection::getInstance()->getPdo();
+        return $this->getOrCreateAddressId('mailaddr', $email);
+    }
 
-        $stmt = $pdo->prepare("SELECT id FROM mailaddr WHERE email = :email LIMIT 1");
+    /**
+     * Returns the row ID of an address in users or mailaddr, with the
+     * priority that iRedAdmin gives its address format.
+     */
+    private function getOrCreateAddressId(string $table, string $email): int
+    {
+        $pdo = AmavisdConnection::getInstance()->getPdo();
+        $priority = AmavisdAddress::priority($email);
+
+        $stmt = $pdo->prepare("SELECT id, priority FROM {$table} WHERE email = :email LIMIT 1");
         $stmt->execute(['email' => $email]);
         $row = $stmt->fetch();
 
-        if ($row !== false) {
-            return (int) $row['id'];
+        if ($row === false) {
+            $pdo->prepare("INSERT INTO {$table} (email, priority) VALUES (:email, :priority)")
+                ->execute(['email' => $email, 'priority' => $priority]);
+            return (int) $pdo->lastInsertId();
         }
-
-        $priority = $this->getMailaddrPriority($email);
-        $pdo->prepare("INSERT INTO mailaddr (email, priority) VALUES (:email, :priority)")
-            ->execute(['email' => $email, 'priority' => $priority]);
-
-        return (int) $pdo->lastInsertId();
+        if ((int) $row['priority'] !== $priority) {
+            // Earlier panel versions wrote priorities that differ from iRedAdmin.
+            $pdo->prepare("UPDATE {$table} SET priority = :priority WHERE id = :id")
+                ->execute(['priority' => $priority, 'id' => $row['id']]);
+        }
+        return (int) $row['id'];
     }
 
     private function getList(string $account, string $table): array
@@ -158,27 +157,5 @@ class MysqlWhiteBlacklistRepository implements WhiteBlacklistRepositoryInterface
         $row = $stmt->fetch();
 
         return $row !== false ? (int) $row['id'] : null;
-    }
-
-    private function getPriority(string $email): int
-    {
-        if ($email === '@.') {
-            return 0;
-        }
-        if (str_starts_with($email, '@')) {
-            return 2;
-        }
-        return 7;
-    }
-
-    private function getMailaddrPriority(string $email): int
-    {
-        if ($email === '@.') {
-            return 0;
-        }
-        if (str_starts_with($email, '@')) {
-            return 2;
-        }
-        return 7;
     }
 }

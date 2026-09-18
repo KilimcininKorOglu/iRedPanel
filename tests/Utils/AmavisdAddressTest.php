@@ -40,6 +40,16 @@ class AmavisdAddressTest extends TestCase
         $this->assertSame($type, AmavisdAddress::type($address));
     }
 
+    public function testADomainOutranksItsSubdomainWildcard(): void
+    {
+        // Amavisd takes the matching row with the highest priority, so an
+        // entry for @domain.com must win over one for @.domain.com.
+        $this->assertSame(10, AmavisdAddress::priority('user@domain.com'));
+        $this->assertSame(5, AmavisdAddress::priority('@domain.com'));
+        $this->assertSame(3, AmavisdAddress::priority('@.domain.com'));
+        $this->assertSame(0, AmavisdAddress::priority('@.'));
+    }
+
     public function testWblistRejectsAWildcardIp(): void
     {
         // iRedAdmin get_wblist_address_type has no wildcard IP format.

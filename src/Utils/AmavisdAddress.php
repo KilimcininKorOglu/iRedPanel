@@ -25,6 +25,22 @@ class AmavisdAddress
     ];
 
     /**
+     * Amavisd and iRedAPD sort matching rows by this priority, highest first
+     * (iRedAdmin MAILADDR_PRIORITIES).
+     */
+    private const PRIORITIES = [
+        'email' => 10,
+        'ip' => 9,
+        'wildcard_ip' => 8,
+        'cidr_network' => 7,
+        'wildcard_addr' => 7,
+        'domain' => 5,
+        'subdomain' => 3,
+        'tld_domain' => 2,
+        'catchall' => 0,
+    ];
+
+    /**
      * Returns the format of an address, or null when Amavisd cannot use it.
      */
     public static function type(string $address): ?string
@@ -43,6 +59,18 @@ class AmavisdAddress
     public static function isValidWblistAddress(string $address): bool
     {
         return in_array(self::type($address), self::WBLIST_TYPES, true);
+    }
+
+    /**
+     * @throws \InvalidArgumentException for an address that Amavisd cannot use
+     */
+    public static function priority(string $address): int
+    {
+        $type = self::type($address);
+        if ($type === null) {
+            throw new \InvalidArgumentException("Invalid Amavisd address: {$address}");
+        }
+        return self::PRIORITIES[$type];
     }
 
     private static function domainType(string $domain): ?string

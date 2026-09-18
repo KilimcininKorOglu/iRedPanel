@@ -77,7 +77,10 @@
     "enable_selected": "Enable selected",
     "disable_selected": "Disable selected",
     "delete_selected": "Delete selected",
-    "apply_bulk_confirm": "Apply bulk action?"
+    "apply_bulk_confirm": "Apply bulk action?",
+    "msg_bulk_done": "The action was applied to :count item(s).",
+    "msg_bulk_failed": "The action failed for: :items",
+    "msg_item_not_found": "not found"
   },
   "auth": {
     "title": "Authentication",
@@ -451,7 +454,8 @@
     "max_quota": "Max Quota (MB)",
     "allow_domain_creation": "Allow domain creation",
     "save_limits": "Save Limits",
-    "msg_hosted_domain": "A standalone admin cannot use the hosted domain :domain. Make a mailbox of this domain an admin instead."
+    "msg_hosted_domain": "A standalone admin cannot use the hosted domain :domain. Make a mailbox of this domain an admin instead.",
+    "msg_cannot_remove_self": "You cannot delete or disable your own admin account"
   },
   "alias": {
     "msg_updated": "Alias updated successfully!",

@@ -77,7 +77,10 @@
     "enable_selected": "Omogući odabrano",
     "disable_selected": "Onemogući odabrano",
     "delete_selected": "Obriši odabrano",
-    "apply_bulk_confirm": "Primijeniti grupnu radnju?"
+    "apply_bulk_confirm": "Primijeniti grupnu radnju?",
+    "msg_bulk_done": "Radnja je primijenjena na :count stavki.",
+    "msg_bulk_failed": "Radnja nije uspjela za: :items",
+    "msg_item_not_found": "nije pronađeno"
   },
   "auth": {
     "title": "Autentifikacija",
@@ -451,7 +454,8 @@
     "max_quota": "Maks. kvota (MB)",
     "allow_domain_creation": "Dozvoli kreiranje domena",
     "save_limits": "Sačuvaj ograničenja",
-    "msg_hosted_domain": "Samostalni administrator ne može koristiti hostanu domenu :domain. Umjesto toga postavite poštanski sandučić ove domene za administratora."
+    "msg_hosted_domain": "Samostalni administrator ne može koristiti hostanu domenu :domain. Umjesto toga postavite poštanski sandučić ove domene za administratora.",
+    "msg_cannot_remove_self": "Ne možete obrisati ili onemogućiti vlastiti administratorski račun"
   },
   "alias": {
     "msg_updated": "Alias je ažuriran!",

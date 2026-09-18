@@ -77,7 +77,10 @@
     "enable_selected": "Gaitu hautatutakoak",
     "disable_selected": "Desgaitu hautatutakoak",
     "delete_selected": "Ezabatu hautatutakoak",
-    "apply_bulk_confirm": "Ekintza masiboa aplikatu?"
+    "apply_bulk_confirm": "Ekintza masiboa aplikatu?",
+    "msg_bulk_done": "Ekintza :count elementutan aplikatu da.",
+    "msg_bulk_failed": "Ekintzak huts egin du hauetan: :items",
+    "msg_item_not_found": "ez da aurkitu"
   },
   "auth": {
     "title": "Autentifikazioa",
@@ -451,7 +454,8 @@
     "max_quota": "Geh. kuota (MB)",
     "allow_domain_creation": "Baimendu domeinuak sortzea",
     "save_limits": "Gorde mugak",
-    "msg_hosted_domain": "Administratzaile independente batek ezin du :domain domeinu ostatatua erabili. Horren ordez, egin domeinu honetako postontzi bat administratzaile."
+    "msg_hosted_domain": "Administratzaile independente batek ezin du :domain domeinu ostatatua erabili. Horren ordez, egin domeinu honetako postontzi bat administratzaile.",
+    "msg_cannot_remove_self": "Ezin duzu zure administratzaile-kontua ezabatu edo desgaitu"
   },
   "alias": {
     "msg_updated": "Aliasa eguneratu da!",

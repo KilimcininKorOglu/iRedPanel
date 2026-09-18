@@ -77,7 +77,10 @@
     "enable_selected": "Aktifkan yang dipilih",
     "disable_selected": "Nonaktifkan yang dipilih",
     "delete_selected": "Hapus yang dipilih",
-    "apply_bulk_confirm": "Terapkan tindakan massal?"
+    "apply_bulk_confirm": "Terapkan tindakan massal?",
+    "msg_bulk_done": "Tindakan diterapkan pada :count item.",
+    "msg_bulk_failed": "Tindakan gagal untuk: :items",
+    "msg_item_not_found": "tidak ditemukan"
   },
   "auth": {
     "title": "Autentikasi",
@@ -451,7 +454,8 @@
     "max_quota": "Kuota maksimum (MB)",
     "allow_domain_creation": "Izinkan pembuatan domain",
     "save_limits": "Simpan batas",
-    "msg_hosted_domain": "Admin mandiri tidak dapat memakai domain yang di-host :domain. Jadikan kotak surat dari domain ini sebagai admin."
+    "msg_hosted_domain": "Admin mandiri tidak dapat memakai domain yang di-host :domain. Jadikan kotak surat dari domain ini sebagai admin.",
+    "msg_cannot_remove_self": "Anda tidak dapat menghapus atau menonaktifkan akun admin Anda sendiri"
   },
   "alias": {
     "msg_updated": "Alias berhasil diperbarui!",

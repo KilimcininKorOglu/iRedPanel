@@ -150,11 +150,12 @@ class MailingListController
         CsrfProtection::validateToken();
 
         $repo = RepositoryFactory::getMailingListRepository();
-        $ml = $repo->getMailingList($address);
-
-        if ($ml !== null) {
+        try {
+            $ml = $repo->getMailingList($address) ?? throw BaseController::itemNotFound();
             $repo->deleteMailingList($address);
             ActivityLogger::logDelete($ml->domain, '', "Deleted mailing list: {$address}");
+        } catch (\Exception $e) {
+            BaseController::flashItemError($address, $e);
         }
 
         header("Location: /mailing-lists");
@@ -169,24 +170,24 @@ class MailingListController
         $action = $_POST['action'] ?? '';
         $selected = $_POST['selected'] ?? [];
 
-        if (empty($selected)) {
+        if (!is_array($selected) || !in_array($action, BaseController::BULK_ACTIONS, true)) {
             header("Location: /mailing-lists");
             exit;
         }
 
         $repo = RepositoryFactory::getMailingListRepository();
-
-        foreach ($selected as $address) {
-            if ($action === 'enable') {
-                $repo->enableDisableMailingList($address, true);
-            } elseif ($action === 'disable') {
-                $repo->enableDisableMailingList($address, false);
-            } elseif ($action === 'delete') {
+        $done = BaseController::runBulk($selected, function (string $address) use ($repo, $action): void {
+            $repo->getMailingList($address) ?? throw BaseController::itemNotFound();
+            if ($action === 'delete') {
                 $repo->deleteMailingList($address);
+            } else {
+                $repo->enableDisableMailingList($address, $action === 'enable');
             }
-        }
+        });
 
-        ActivityLogger::log($action, '', '', "Bulk {$action} on " . count($selected) . " mailing lists");
+        if ($done !== []) {
+            ActivityLogger::log($action, '', '', "Bulk {$action} on " . count($done) . " mailing lists");
+        }
         header("Location: /mailing-lists");
         exit;
     }

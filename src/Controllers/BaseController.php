@@ -10,6 +10,74 @@ use App\TemplateEngine;
 
 class BaseController
 {
+    /** Actions that the list pages offer in their bulk action menu. */
+    public const BULK_ACTIONS = ['enable', 'disable', 'delete'];
+
+    /**
+     * Stores an error message that the next rendered page shows.
+     */
+    public static function flashError(string $message): void
+    {
+        $_SESSION['flash_error'] = $message;
+    }
+
+    /**
+     * Stores a success message that the next rendered page shows.
+     */
+    public static function flashSuccess(string $message): void
+    {
+        $_SESSION['flash_success'] = $message;
+    }
+
+    /**
+     * Applies $apply to every selected item and stores the outcome as flash
+     * messages. $apply throws to report a failure for one item; the other
+     * items still run.
+     *
+     * @return list<string> the items that succeeded
+     */
+    public static function runBulk(array $items, callable $apply): array
+    {
+        $done = [];
+        $failed = [];
+        foreach (array_filter($items, 'is_string') as $item) {
+            try {
+                $apply($item);
+                $done[] = $item;
+            } catch (\Exception $e) {
+                $failed[] = self::itemFailure($item, $e);
+            }
+        }
+
+        if ($failed !== []) {
+            self::flashError(Translator::translate('common.msg_bulk_failed', ['items' => implode(', ', $failed)]));
+        }
+        if ($done !== []) {
+            self::flashSuccess(Translator::translate('common.msg_bulk_done', ['count' => count($done)]));
+        }
+        return $done;
+    }
+
+    /**
+     * Stores the failure of an action on one item as the flash error.
+     */
+    public static function flashItemError(string $item, \Throwable $e): void
+    {
+        self::flashError(Translator::translate('common.msg_bulk_failed', ['items' => self::itemFailure($item, $e)]));
+    }
+
+    private static function itemFailure(string $item, \Throwable $e): string
+    {
+        return "{$item} (" . self::errorMessage($e) . ')';
+    }
+
+    /**
+     * Returns the exception for an item that an action cannot find.
+     */
+    public static function itemNotFound(): \RuntimeException
+    {
+        return new \RuntimeException(Translator::translate('common.msg_item_not_found'));
+    }
     /**
      * Returns the flash text for a failed operation.
      *

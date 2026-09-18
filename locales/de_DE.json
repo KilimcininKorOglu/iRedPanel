@@ -77,7 +77,10 @@
     "enable_selected": "Auswahl aktivieren",
     "disable_selected": "Auswahl deaktivieren",
     "delete_selected": "Auswahl löschen",
-    "apply_bulk_confirm": "Sammelaktion anwenden?"
+    "apply_bulk_confirm": "Sammelaktion anwenden?",
+    "msg_bulk_done": "Die Aktion wurde auf :count Element(e) angewendet.",
+    "msg_bulk_failed": "Die Aktion ist fehlgeschlagen für: :items",
+    "msg_item_not_found": "nicht gefunden"
   },
   "auth": {
     "title": "Authentifizierung",
@@ -451,7 +454,8 @@
     "max_quota": "Max. Kontingent (MB)",
     "allow_domain_creation": "Domain-Erstellung erlauben",
     "save_limits": "Limits speichern",
-    "msg_hosted_domain": "Ein eigenständiger Admin kann die gehostete Domain :domain nicht verwenden. Machen Sie stattdessen ein Postfach dieser Domain zum Admin."
+    "msg_hosted_domain": "Ein eigenständiger Admin kann die gehostete Domain :domain nicht verwenden. Machen Sie stattdessen ein Postfach dieser Domain zum Admin.",
+    "msg_cannot_remove_self": "Sie können Ihr eigenes Administratorkonto nicht löschen oder deaktivieren"
   },
   "alias": {
     "msg_updated": "Alias erfolgreich aktualisiert!",

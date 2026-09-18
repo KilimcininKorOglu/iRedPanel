@@ -77,7 +77,10 @@
     "enable_selected": "Luba valitud",
     "disable_selected": "Keela valitud",
     "delete_selected": "Kustuta valitud",
-    "apply_bulk_confirm": "Kas käivitada hulgitoiming?"
+    "apply_bulk_confirm": "Kas käivitada hulgitoiming?",
+    "msg_bulk_done": "Toimingut rakendati :count elemendile.",
+    "msg_bulk_failed": "Toiming ebaõnnestus: :items",
+    "msg_item_not_found": "ei leitud"
   },
   "auth": {
     "title": "Autentimine",
@@ -451,7 +454,8 @@
     "max_quota": "Maks. kvoot (MB)",
     "allow_domain_creation": "Luba domeenide loomine",
     "save_limits": "Salvesta piirangud",
-    "msg_hosted_domain": "Eraldiseisev administraator ei saa kasutada majutatud domeeni :domain. Tehke selle asemel administraatoriks selle domeeni postkast."
+    "msg_hosted_domain": "Eraldiseisev administraator ei saa kasutada majutatud domeeni :domain. Tehke selle asemel administraatoriks selle domeeni postkast.",
+    "msg_cannot_remove_self": "Te ei saa oma administraatorikontot kustutada ega keelata"
   },
   "alias": {
     "msg_updated": "Alias edukalt uuendatud!",

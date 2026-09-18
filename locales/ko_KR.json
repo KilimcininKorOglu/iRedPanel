@@ -77,7 +77,10 @@
     "enable_selected": "선택 항목 활성화",
     "disable_selected": "선택 항목 비활성화",
     "delete_selected": "선택 항목 삭제",
-    "apply_bulk_confirm": "일괄 작업을 적용하시겠습니까?"
+    "apply_bulk_confirm": "일괄 작업을 적용하시겠습니까?",
+    "msg_bulk_done": ":count개 항목에 작업을 적용했습니다.",
+    "msg_bulk_failed": "다음 항목에서 작업이 실패했습니다: :items",
+    "msg_item_not_found": "찾을 수 없음"
   },
   "auth": {
     "title": "인증",
@@ -451,7 +454,8 @@
     "max_quota": "최대 할당량 (MB)",
     "allow_domain_creation": "도메인 생성 허용",
     "save_limits": "한도 저장",
-    "msg_hosted_domain": "독립 관리자는 호스팅된 도메인 :domain 을(를) 사용할 수 없습니다. 대신 이 도메인의 사서함을 관리자로 지정하세요."
+    "msg_hosted_domain": "독립 관리자는 호스팅된 도메인 :domain 을(를) 사용할 수 없습니다. 대신 이 도메인의 사서함을 관리자로 지정하세요.",
+    "msg_cannot_remove_self": "자신의 관리자 계정은 삭제하거나 비활성화할 수 없습니다"
   },
   "alias": {
     "msg_updated": "별칭이 성공적으로 업데이트되었습니다!",

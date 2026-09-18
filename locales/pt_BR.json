@@ -77,7 +77,10 @@
     "enable_selected": "Ativar selecionados",
     "disable_selected": "Desativar selecionados",
     "delete_selected": "Excluir selecionados",
-    "apply_bulk_confirm": "Executar a ação em massa?"
+    "apply_bulk_confirm": "Executar a ação em massa?",
+    "msg_bulk_done": "A ação foi aplicada a :count item(ns).",
+    "msg_bulk_failed": "A ação falhou para: :items",
+    "msg_item_not_found": "não encontrado"
   },
   "auth": {
     "title": "Autenticação",
@@ -451,7 +454,8 @@
     "max_quota": "Cota máx. (MB)",
     "allow_domain_creation": "Permitir criação de domínios",
     "save_limits": "Salvar limites",
-    "msg_hosted_domain": "Um administrador independente não pode usar o domínio hospedado :domain. Em vez disso, torne administradora uma caixa de correio deste domínio."
+    "msg_hosted_domain": "Um administrador independente não pode usar o domínio hospedado :domain. Em vez disso, torne administradora uma caixa de correio deste domínio.",
+    "msg_cannot_remove_self": "Você não pode excluir nem desativar sua própria conta de administrador"
   },
   "alias": {
     "msg_updated": "Alias atualizado com sucesso!",

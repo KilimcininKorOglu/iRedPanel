@@ -77,7 +77,10 @@
     "enable_selected": "啟用所選",
     "disable_selected": "停用所選",
     "delete_selected": "刪除所選",
-    "apply_bulk_confirm": "要套用批次操作嗎？"
+    "apply_bulk_confirm": "要套用批次操作嗎？",
+    "msg_bulk_done": "操作已套用至 :count 個項目。",
+    "msg_bulk_failed": "以下項目操作失敗: :items",
+    "msg_item_not_found": "找不到"
   },
   "auth": {
     "title": "驗證",
@@ -451,7 +454,8 @@
     "max_quota": "最大配額（MB）",
     "allow_domain_creation": "允許建立網域",
     "save_limits": "儲存限制",
-    "msg_hosted_domain": "獨立管理員不能使用本伺服器託管的網域 :domain。請改為將該網域中的信箱設為管理員。"
+    "msg_hosted_domain": "獨立管理員不能使用本伺服器託管的網域 :domain。請改為將該網域中的信箱設為管理員。",
+    "msg_cannot_remove_self": "無法刪除或停用您自己的管理員帳號"
   },
   "alias": {
     "msg_updated": "別名已成功更新！",

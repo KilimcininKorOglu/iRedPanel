@@ -77,7 +77,10 @@
     "enable_selected": "Seçilmişləri aktivləşdir",
     "disable_selected": "Seçilmişləri deaktivləşdir",
     "delete_selected": "Seçilmişləri sil",
-    "apply_bulk_confirm": "Kütləvi əməliyyatı tətbiq etmək?"
+    "apply_bulk_confirm": "Kütləvi əməliyyatı tətbiq etmək?",
+    "msg_bulk_done": "Əməliyyat :count elementə tətbiq edildi.",
+    "msg_bulk_failed": "Əməliyyat bunlar üçün uğursuz oldu: :items",
+    "msg_item_not_found": "tapılmadı"
   },
   "auth": {
     "title": "Autentifikasiya",
@@ -451,7 +454,8 @@
     "max_quota": "Maks. kvota (MB)",
     "allow_domain_creation": "Domen yaratmağa icazə ver",
     "save_limits": "Limitləri yadda saxla",
-    "msg_hosted_domain": "Müstəqil admin serverdəki :domain domenindən istifadə edə bilməz. Bunun əvəzinə bu domenin bir poçt qutusunu admin edin."
+    "msg_hosted_domain": "Müstəqil admin serverdəki :domain domenindən istifadə edə bilməz. Bunun əvəzinə bu domenin bir poçt qutusunu admin edin.",
+    "msg_cannot_remove_self": "Öz admin hesabınızı silə və ya deaktiv edə bilməzsiniz"
   },
   "alias": {
     "msg_updated": "Təxəllüs uğurla yeniləndi!",

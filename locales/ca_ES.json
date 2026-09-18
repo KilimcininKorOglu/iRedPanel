@@ -77,7 +77,10 @@
     "enable_selected": "Habilitar seleccionats",
     "disable_selected": "Deshabilitar seleccionats",
     "delete_selected": "Eliminar seleccionats",
-    "apply_bulk_confirm": "Aplicar acció massiva?"
+    "apply_bulk_confirm": "Aplicar acció massiva?",
+    "msg_bulk_done": "L'acció s'ha aplicat a :count element(s).",
+    "msg_bulk_failed": "L'acció ha fallat per a: :items",
+    "msg_item_not_found": "no trobat"
   },
   "auth": {
     "title": "Autenticació",
@@ -451,7 +454,8 @@
     "max_quota": "Quota màxima (MB)",
     "allow_domain_creation": "Permetre la creació de dominis",
     "save_limits": "Desar límits",
-    "msg_hosted_domain": "Un administrador independent no pot utilitzar el domini allotjat :domain. En lloc d'això, feu administradora una bústia d'aquest domini."
+    "msg_hosted_domain": "Un administrador independent no pot utilitzar el domini allotjat :domain. En lloc d'això, feu administradora una bústia d'aquest domini.",
+    "msg_cannot_remove_self": "No podeu suprimir ni desactivar el vostre propi compte d'administrador"
   },
   "alias": {
     "msg_updated": "Àlies actualitzat correctament!",

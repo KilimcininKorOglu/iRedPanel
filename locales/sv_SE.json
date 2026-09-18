@@ -77,7 +77,10 @@
     "enable_selected": "Aktivera valda",
     "disable_selected": "Inaktivera valda",
     "delete_selected": "Ta bort valda",
-    "apply_bulk_confirm": "Tillämpa massåtgärd?"
+    "apply_bulk_confirm": "Tillämpa massåtgärd?",
+    "msg_bulk_done": "Åtgärden tillämpades på :count objekt.",
+    "msg_bulk_failed": "Åtgärden misslyckades för: :items",
+    "msg_item_not_found": "hittades inte"
   },
   "auth": {
     "title": "Autentisering",
@@ -451,7 +454,8 @@
     "max_quota": "Max kvot (MB)",
     "allow_domain_creation": "Tillåt skapande av domäner",
     "save_limits": "Spara gränser",
-    "msg_hosted_domain": "En fristående administratör kan inte använda den hostade domänen :domain. Gör i stället en brevlåda i domänen till administratör."
+    "msg_hosted_domain": "En fristående administratör kan inte använda den hostade domänen :domain. Gör i stället en brevlåda i domänen till administratör.",
+    "msg_cannot_remove_self": "Du kan inte ta bort eller inaktivera ditt eget administratörskonto"
   },
   "alias": {
     "msg_updated": "Alias uppdaterat!",

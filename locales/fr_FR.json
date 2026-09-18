@@ -77,7 +77,10 @@
     "enable_selected": "Activer la sélection",
     "disable_selected": "Désactiver la sélection",
     "delete_selected": "Supprimer la sélection",
-    "apply_bulk_confirm": "Appliquer l'action groupée ?"
+    "apply_bulk_confirm": "Appliquer l'action groupée ?",
+    "msg_bulk_done": "L'action a été appliquée à :count élément(s).",
+    "msg_bulk_failed": "L'action a échoué pour : :items",
+    "msg_item_not_found": "introuvable"
   },
   "auth": {
     "title": "Authentification",
@@ -451,7 +454,8 @@
     "max_quota": "Quota max. (Mo)",
     "allow_domain_creation": "Autoriser la création de domaines",
     "save_limits": "Enregistrer les limites",
-    "msg_hosted_domain": "Un administrateur autonome ne peut pas utiliser le domaine hébergé :domain. Faites plutôt d'une boîte aux lettres de ce domaine un administrateur."
+    "msg_hosted_domain": "Un administrateur autonome ne peut pas utiliser le domaine hébergé :domain. Faites plutôt d'une boîte aux lettres de ce domaine un administrateur.",
+    "msg_cannot_remove_self": "Vous ne pouvez pas supprimer ni désactiver votre propre compte administrateur"
   },
   "alias": {
     "msg_updated": "Alias mis à jour avec succès !",

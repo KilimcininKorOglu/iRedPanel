@@ -275,28 +275,24 @@ class DomainController
         $action = $_POST['action'] ?? '';
         $adminEmail = $_SESSION['email'] ?? '';
 
-        if (empty($selectedDomains) || !is_array($selectedDomains)) {
+        if (!is_array($selectedDomains) || !in_array($action, BaseController::BULK_ACTIONS, true)) {
             header("Location: /domains");
             exit;
         }
 
         $domainRepo = RepositoryFactory::getDomainRepository();
-
-        foreach ($selectedDomains as $domainName) {
-            try {
-                if ($action === 'enable') {
-                    $domainRepo->enableDisableDomain($domainName, true);
-                } elseif ($action === 'disable') {
-                    $domainRepo->enableDisableDomain($domainName, false);
-                } elseif ($action === 'delete') {
-                    $domainRepo->deleteDomain($domainName, $adminEmail);
-                }
-            } catch (\Exception $e) {
-                error_log("Bulk action '{$action}' failed for domain '{$domainName}': " . $e->getMessage());
+        $done = BaseController::runBulk($selectedDomains, function (string $domainName) use ($domainRepo, $action, $adminEmail): void {
+            $domainRepo->getDomain($domainName) ?? throw BaseController::itemNotFound();
+            if ($action === 'delete') {
+                $domainRepo->deleteDomain($domainName, $adminEmail);
+            } else {
+                $domainRepo->enableDisableDomain($domainName, $action === 'enable');
             }
-        }
+        });
 
-        ActivityLogger::log($action, '', '', "Bulk {$action} on " . count($selectedDomains) . " domains");
+        if ($done !== []) {
+            ActivityLogger::log($action, '', '', "Bulk {$action} on " . count($done) . " domains");
+        }
         header("Location: /domains");
         exit;
     }
@@ -311,14 +307,15 @@ class DomainController
 
         try {
             $adminEmail = $_SESSION['email'] ?? '';
-            RepositoryFactory::getDomainRepository()->deleteDomain($domainName, $adminEmail);
+            $domainRepo = RepositoryFactory::getDomainRepository();
+            $domainRepo->getDomain($domainName) ?? throw BaseController::itemNotFound();
+            $domainRepo->deleteDomain($domainName, $adminEmail);
             ActivityLogger::logDelete($domainName, '', "Domain deleted: {$domainName}");
-            header("Location: /domains");
-            exit;
         } catch (\Exception $e) {
-            http_response_code(500);
-            $tpl->render('page404.php');
+            BaseController::flashItemError($domainName, $e);
         }
+        header("Location: /domains");
+        exit;
     }
 
     private static function getBackendPdo(): ?\PDO

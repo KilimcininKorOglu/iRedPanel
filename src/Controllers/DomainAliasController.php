@@ -119,13 +119,14 @@ class DomainAliasController
         CsrfProtection::validateToken();
 
         try {
-            RepositoryFactory::getDomainAliasRepository()->deleteAlias($aliasDomain);
+            $aliasRepo = RepositoryFactory::getDomainAliasRepository();
+            $aliasRepo->getAlias($aliasDomain) ?? throw BaseController::itemNotFound();
+            $aliasRepo->deleteAlias($aliasDomain);
             ActivityLogger::logDelete('', '', "Domain alias deleted: {$aliasDomain}");
-            header("Location: /domain-aliases");
-            exit;
         } catch (\Exception $e) {
-            http_response_code(500);
-            $tpl->render('page404.php');
+            BaseController::flashItemError($aliasDomain, $e);
         }
+        header("Location: /domain-aliases");
+        exit;
     }
 }

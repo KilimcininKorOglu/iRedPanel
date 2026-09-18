@@ -77,7 +77,10 @@
     "enable_selected": "Seçilenleri etkinleştir",
     "disable_selected": "Seçilenleri devre dışı bırak",
     "delete_selected": "Seçilenleri sil",
-    "apply_bulk_confirm": "Toplu işlem uygulansın mı?"
+    "apply_bulk_confirm": "Toplu işlem uygulansın mı?",
+    "msg_bulk_done": "İşlem :count öğeye uygulandı.",
+    "msg_bulk_failed": "İşlem şunlar için başarısız oldu: :items",
+    "msg_item_not_found": "bulunamadı"
   },
   "auth": {
     "title": "Kimlik Doğrulama",
@@ -451,7 +454,8 @@
     "max_quota": "Maks. Kota (MB)",
     "allow_domain_creation": "Alan adı oluşturmaya izin ver",
     "save_limits": "Sınırları Kaydet",
-    "msg_hosted_domain": "Bağımsız bir admin, sunucudaki :domain domain'ini kullanamaz. Bunun yerine bu domain'deki bir mailbox'ı admin yapın."
+    "msg_hosted_domain": "Bağımsız bir admin, sunucudaki :domain domain'ini kullanamaz. Bunun yerine bu domain'deki bir mailbox'ı admin yapın.",
+    "msg_cannot_remove_self": "Kendi admin hesabınızı silemez veya devre dışı bırakamazsınız"
   },
   "alias": {
     "msg_updated": "Takma ad başarıyla güncellendi!",

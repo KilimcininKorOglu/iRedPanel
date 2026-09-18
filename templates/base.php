@@ -59,6 +59,16 @@
         <?php endif; ?>
       </div>
     </nav>
+    <?php if ($flashError !== null || $flashSuccess !== null): ?>
+    <div class="container">
+      <?php if ($flashError !== null): ?>
+      <p class="text-error"><?= $e($flashError) ?></p>
+      <?php endif; ?>
+      <?php if ($flashSuccess !== null): ?>
+      <p class="text-success"><?= $e($flashSuccess) ?></p>
+      <?php endif; ?>
+    </div>
+    <?php endif; ?>
     <?= $bodyContent ?>
     <footer class="footer">
       <div class="container">

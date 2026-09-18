@@ -73,6 +73,12 @@ class TemplateEngine
         include $this->templateDir . '/' . $template;
         $bodyContent = ob_get_clean();
 
+        // A redirect after a POST leaves its outcome here. Controllers that show
+        // the message inside their own page have already taken it.
+        $flashError = $_SESSION['flash_error'] ?? null;
+        $flashSuccess = $_SESSION['flash_success'] ?? null;
+        unset($_SESSION['flash_error'], $_SESSION['flash_success']);
+
         include $this->templateDir . '/base.php';
     }
 }

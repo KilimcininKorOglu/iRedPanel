@@ -77,7 +77,10 @@
     "enable_selected": "Activează selectate",
     "disable_selected": "Dezactivează selectate",
     "delete_selected": "Șterge selectate",
-    "apply_bulk_confirm": "Aplicați acțiunea în masă?"
+    "apply_bulk_confirm": "Aplicați acțiunea în masă?",
+    "msg_bulk_done": "Acțiunea a fost aplicată pentru :count element(e).",
+    "msg_bulk_failed": "Acțiunea a eșuat pentru: :items",
+    "msg_item_not_found": "negăsit"
   },
   "auth": {
     "title": "Autentificare",
@@ -451,7 +454,8 @@
     "max_quota": "Cotă max. (MB)",
     "allow_domain_creation": "Permite crearea de domenii",
     "save_limits": "Salvează limitele",
-    "msg_hosted_domain": "Un administrator independent nu poate folosi domeniul găzduit :domain. Faceți în schimb administrator o căsuță poștală din acest domeniu."
+    "msg_hosted_domain": "Un administrator independent nu poate folosi domeniul găzduit :domain. Faceți în schimb administrator o căsuță poștală din acest domeniu.",
+    "msg_cannot_remove_self": "Nu vă puteți șterge sau dezactiva propriul cont de administrator"
   },
   "alias": {
     "msg_updated": "Alias-ul a fost actualizat cu succes!",

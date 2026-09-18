@@ -77,7 +77,10 @@
     "enable_selected": "Povolit vybrané",
     "disable_selected": "Zakázat vybrané",
     "delete_selected": "Smazat vybrané",
-    "apply_bulk_confirm": "Použít hromadnou akci?"
+    "apply_bulk_confirm": "Použít hromadnou akci?",
+    "msg_bulk_done": "Akce byla použita na :count položek.",
+    "msg_bulk_failed": "Akce selhala pro: :items",
+    "msg_item_not_found": "nenalezeno"
   },
   "auth": {
     "title": "Ověření",
@@ -451,7 +454,8 @@
     "max_quota": "Max. kvóta (MB)",
     "allow_domain_creation": "Povolit vytváření domén",
     "save_limits": "Uložit limity",
-    "msg_hosted_domain": "Samostatný správce nemůže používat hostovanou doménu :domain. Místo toho udělejte správcem schránku této domény."
+    "msg_hosted_domain": "Samostatný správce nemůže používat hostovanou doménu :domain. Místo toho udělejte správcem schránku této domény.",
+    "msg_cannot_remove_self": "Nemůžete smazat ani zakázat vlastní účet správce"
   },
   "alias": {
     "msg_updated": "Alias úspěšně aktualizován!",

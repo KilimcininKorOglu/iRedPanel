@@ -9,6 +9,7 @@ use App\I18n\Translator;
 use App\Middleware;
 use App\Models\Admin;
 use App\Models\UserPassword;
+use App\Repositories\AdminRepositoryInterface;
 use App\Repositories\RepositoryFactory;
 use App\Services\ActivityLogger;
 use App\TemplateEngine;
@@ -41,51 +42,60 @@ class AdminController
         $selectedAdmins = $_POST['selectedAdmins'] ?? [];
         $action = $_POST['action'] ?? '';
 
-        if (empty($selectedAdmins) || !is_array($selectedAdmins)) {
+        if (!is_array($selectedAdmins) || !in_array($action, BaseController::BULK_ACTIONS, true)) {
             header("Location: /admins");
             exit;
         }
 
         $adminRepo = RepositoryFactory::getAdminRepository();
-        $currentEmail = $_SESSION['email'] ?? '';
-
-        // Exclude current user from destructive bulk actions
-        if ($action === 'delete' || $action === 'disable') {
-            $selectedAdmins = array_filter($selectedAdmins, fn($u) => $u !== $currentEmail);
-
-            // Prevent wiping all global admins
-            $globalAdminCount = $adminRepo->countGlobalAdmins();
-            $affectedGlobalAdmins = 0;
-            foreach ($selectedAdmins as $adminUsername) {
-                $admin = $adminRepo->getAdmin($adminUsername);
-                if ($admin !== null && $admin->isGlobalAdmin) {
-                    $affectedGlobalAdmins++;
-                }
-            }
-            if ($affectedGlobalAdmins >= $globalAdminCount) {
-                $_SESSION['adminError'] = 'Cannot ' . $action . ' all global admin accounts';
+        if ($action !== 'enable') {
+            $guardError = self::removalGuardError($adminRepo, array_filter($selectedAdmins, 'is_string'));
+            if ($guardError !== null) {
+                BaseController::flashError($guardError);
                 header("Location: /admins");
                 exit;
             }
         }
 
-        foreach ($selectedAdmins as $adminUsername) {
-            try {
-                if ($action === 'enable') {
-                    $adminRepo->enableDisableAdmin($adminUsername, true);
-                } elseif ($action === 'disable') {
-                    $adminRepo->enableDisableAdmin($adminUsername, false);
-                } elseif ($action === 'delete') {
-                    $adminRepo->deleteAdmin($adminUsername);
-                }
-            } catch (\Exception $e) {
-                error_log("Bulk action '{$action}' failed for admin '{$adminUsername}': " . $e->getMessage());
+        $done = BaseController::runBulk($selectedAdmins, function (string $adminUsername) use ($adminRepo, $action): void {
+            $adminRepo->getAdmin($adminUsername) ?? throw BaseController::itemNotFound();
+            if ($action === 'delete') {
+                $adminRepo->deleteAdmin($adminUsername);
+            } else {
+                $adminRepo->enableDisableAdmin($adminUsername, $action === 'enable');
             }
-        }
+        });
 
-        ActivityLogger::log($action, '', '', "Bulk {$action} on " . count($selectedAdmins) . " admins");
+        if ($done !== []) {
+            ActivityLogger::log($action, '', '', "Bulk {$action} on " . count($done) . " admins");
+        }
         header("Location: /admins");
         exit;
+    }
+
+    /**
+     * Returns why the admins must not be deleted or disabled, or null when the
+     * action is allowed: an admin must not remove itself, and at least one
+     * global admin must stay.
+     *
+     * @param string[] $usernames
+     */
+    private static function removalGuardError(AdminRepositoryInterface $adminRepo, array $usernames): ?string
+    {
+        if (in_array($_SESSION['email'] ?? '', $usernames, true)) {
+            return Translator::translate('admin.msg_cannot_remove_self');
+        }
+
+        $affectedGlobalAdmins = 0;
+        foreach ($usernames as $username) {
+            if ($adminRepo->getAdmin($username)?->isGlobalAdmin === true) {
+                $affectedGlobalAdmins++;
+            }
+        }
+        if ($affectedGlobalAdmins > 0 && $affectedGlobalAdmins >= $adminRepo->countGlobalAdmins()) {
+            return Translator::translate('admin.msg_cannot_remove_last_global');
+        }
+        return null;
     }
 
     /**
@@ -271,29 +281,22 @@ class AdminController
         Middleware::globalAdminRequired();
         CsrfProtection::validateToken();
 
-        // Prevent self-deletion
-        if ($adminEmail === ($_SESSION['email'] ?? '')) {
-            $_SESSION['adminError'] = 'Cannot delete your own admin account';
-            header("Location: /admins");
-            exit;
-        }
-
-        // Prevent last global admin deletion
         $adminRepo = RepositoryFactory::getAdminRepository();
-        $targetAdmin = $adminRepo->getAdmin($adminEmail);
-        if ($targetAdmin !== null && $targetAdmin->isGlobalAdmin && $adminRepo->countGlobalAdmins() <= 1) {
-            $_SESSION['adminError'] = 'Cannot delete the last global admin account';
+        $guardError = self::removalGuardError($adminRepo, [$adminEmail]);
+        if ($guardError !== null) {
+            BaseController::flashError($guardError);
             header("Location: /admins");
             exit;
         }
 
         try {
+            $adminRepo->getAdmin($adminEmail) ?? throw BaseController::itemNotFound();
             $adminRepo->deleteAdmin($adminEmail);
-            header("Location: /admins");
-            exit;
+            ActivityLogger::logDelete('', '', "Admin deleted: {$adminEmail}");
         } catch (\Exception $e) {
-            http_response_code(500);
-            $tpl->render('page404.php');
+            BaseController::flashItemError($adminEmail, $e);
         }
+        header("Location: /admins");
+        exit;
     }
 }

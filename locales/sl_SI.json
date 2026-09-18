@@ -77,7 +77,10 @@
     "enable_selected": "Omogoči izbrano",
     "disable_selected": "Onemogoči izbrano",
     "delete_selected": "Izbriši izbrano",
-    "apply_bulk_confirm": "Uporabi množično dejanje?"
+    "apply_bulk_confirm": "Uporabi množično dejanje?",
+    "msg_bulk_done": "Dejanje je bilo uporabljeno za :count elementov.",
+    "msg_bulk_failed": "Dejanje ni uspelo za: :items",
+    "msg_item_not_found": "ni najdeno"
   },
   "auth": {
     "title": "Preverjanje pristnosti",
@@ -451,7 +454,8 @@
     "max_quota": "Največja kvota (MB)",
     "allow_domain_creation": "Dovoli ustvarjanje domen",
     "save_limits": "Shrani omejitve",
-    "msg_hosted_domain": "Samostojni skrbnik ne more uporabljati gostujoče domene :domain. Namesto tega nastavite poštni predal te domene za skrbnika."
+    "msg_hosted_domain": "Samostojni skrbnik ne more uporabljati gostujoče domene :domain. Namesto tega nastavite poštni predal te domene za skrbnika.",
+    "msg_cannot_remove_self": "Svojega skrbniškega računa ne morete izbrisati ali onemogočiti"
   },
   "alias": {
     "msg_updated": "Vzdevek uspešno posodobljen!",

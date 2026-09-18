@@ -77,7 +77,10 @@
     "enable_selected": "Povoliť vybrané",
     "disable_selected": "Zakázať vybrané",
     "delete_selected": "Odstrániť vybrané",
-    "apply_bulk_confirm": "Vykonať hromadnú akciu?"
+    "apply_bulk_confirm": "Vykonať hromadnú akciu?",
+    "msg_bulk_done": "Akcia bola použitá na :count položiek.",
+    "msg_bulk_failed": "Akcia zlyhala pre: :items",
+    "msg_item_not_found": "nenájdené"
   },
   "auth": {
     "title": "Overenie",
@@ -451,7 +454,8 @@
     "max_quota": "Max. kvóta (MB)",
     "allow_domain_creation": "Povoliť vytváranie domén",
     "save_limits": "Uložiť limity",
-    "msg_hosted_domain": "Samostatný správca nemôže používať hostovanú doménu :domain. Namiesto toho urobte správcom schránku tejto domény."
+    "msg_hosted_domain": "Samostatný správca nemôže používať hostovanú doménu :domain. Namiesto toho urobte správcom schránku tejto domény.",
+    "msg_cannot_remove_self": "Nemôžete odstrániť ani zakázať vlastný účet správcu"
   },
   "alias": {
     "msg_updated": "Alias úspešne aktualizovaný!",

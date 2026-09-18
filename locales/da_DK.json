@@ -77,7 +77,10 @@
     "enable_selected": "Aktiver valgte",
     "disable_selected": "Deaktiver valgte",
     "delete_selected": "Slet valgte",
-    "apply_bulk_confirm": "Anvend massehandling?"
+    "apply_bulk_confirm": "Anvend massehandling?",
+    "msg_bulk_done": "Handlingen blev udført på :count element(er).",
+    "msg_bulk_failed": "Handlingen mislykkedes for: :items",
+    "msg_item_not_found": "ikke fundet"
   },
   "auth": {
     "title": "Godkendelse",
@@ -451,7 +454,8 @@
     "max_quota": "Maks. kvote (MB)",
     "allow_domain_creation": "Tillad oprettelse af domæner",
     "save_limits": "Gem grænser",
-    "msg_hosted_domain": "En selvstændig administrator kan ikke bruge det hostede domæne :domain. Gør i stedet en postkasse i domænet til administrator."
+    "msg_hosted_domain": "En selvstændig administrator kan ikke bruge det hostede domæne :domain. Gør i stedet en postkasse i domænet til administrator.",
+    "msg_cannot_remove_self": "Du kan ikke slette eller deaktivere din egen administratorkonto"
   },
   "alias": {
     "msg_updated": "Alias opdateret!",

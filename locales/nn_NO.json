@@ -77,7 +77,10 @@
     "enable_selected": "Aktiver valde",
     "disable_selected": "Deaktiver valde",
     "delete_selected": "Slett valde",
-    "apply_bulk_confirm": "Utfør masshandling?"
+    "apply_bulk_confirm": "Utfør masshandling?",
+    "msg_bulk_done": "Handlinga vart utført på :count element.",
+    "msg_bulk_failed": "Handlinga mislukkast for: :items",
+    "msg_item_not_found": "ikkje funne"
   },
   "auth": {
     "title": "Autentisering",
@@ -451,7 +454,8 @@
     "max_quota": "Maks kvote (MB)",
     "allow_domain_creation": "Tillat domeneoppretting",
     "save_limits": "Lagre grenser",
-    "msg_hosted_domain": "Ein frittståande administrator kan ikkje bruke det hosta domenet :domain. Gjer i staden ein postboks i domenet til administrator."
+    "msg_hosted_domain": "Ein frittståande administrator kan ikkje bruke det hosta domenet :domain. Gjer i staden ein postboks i domenet til administrator.",
+    "msg_cannot_remove_self": "Du kan ikkje slette eller deaktivere din eigen administratorkonto"
   },
   "alias": {
     "msg_updated": "Alias oppdatert!",

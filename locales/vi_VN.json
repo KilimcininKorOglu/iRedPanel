@@ -77,7 +77,10 @@
     "enable_selected": "Bật mục đã chọn",
     "disable_selected": "Tắt mục đã chọn",
     "delete_selected": "Xóa mục đã chọn",
-    "apply_bulk_confirm": "Áp dụng hành động hàng loạt?"
+    "apply_bulk_confirm": "Áp dụng hành động hàng loạt?",
+    "msg_bulk_done": "Đã áp dụng thao tác cho :count mục.",
+    "msg_bulk_failed": "Thao tác thất bại với: :items",
+    "msg_item_not_found": "không tìm thấy"
   },
   "auth": {
     "title": "Xác thực",
@@ -451,7 +454,8 @@
     "max_quota": "Hạn ngạch tối đa (MB)",
     "allow_domain_creation": "Cho phép tạo tên miền",
     "save_limits": "Lưu giới hạn",
-    "msg_hosted_domain": "Quản trị viên độc lập không thể dùng tên miền được lưu trữ :domain. Thay vào đó, hãy đặt một hộp thư của tên miền này làm quản trị viên."
+    "msg_hosted_domain": "Quản trị viên độc lập không thể dùng tên miền được lưu trữ :domain. Thay vào đó, hãy đặt một hộp thư của tên miền này làm quản trị viên.",
+    "msg_cannot_remove_self": "Bạn không thể xóa hoặc vô hiệu hóa tài khoản quản trị của chính mình"
   },
   "alias": {
     "msg_updated": "Bí danh đã được cập nhật thành công!",

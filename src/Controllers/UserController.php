@@ -305,30 +305,25 @@ class UserController
         $action = $_POST['action'] ?? '';
         $adminEmail = $_SESSION['email'] ?? '';
 
-        if (empty($selectedUsers) || !is_array($selectedUsers)) {
+        if (!is_array($selectedUsers) || !in_array($action, BaseController::BULK_ACTIONS, true)) {
             header("Location: /{$domain}/users");
             exit;
         }
 
         $userRepo = RepositoryFactory::getUserRepository();
-
-        foreach ($selectedUsers as $uid) {
-            try {
-                if ($action === 'enable' || $action === 'disable') {
-                    $user = $userRepo->getUser($domain, $uid);
-                    if ($user !== null) {
-                        $user->accountStatus = ($action === 'enable');
-                        $userRepo->updateUser($domain, $user);
-                    }
-                } elseif ($action === 'delete') {
-                    $userRepo->deleteUser($domain, $uid, $adminEmail);
-                }
-            } catch (\Exception $e) {
-                error_log("Bulk action '{$action}' failed for user '{$uid}@{$domain}': " . $e->getMessage());
+        $done = BaseController::runBulk($selectedUsers, function (string $uid) use ($userRepo, $domain, $action, $adminEmail): void {
+            $user = $userRepo->getUser($domain, $uid) ?? throw BaseController::itemNotFound();
+            if ($action === 'delete') {
+                $userRepo->deleteUser($domain, $uid, $adminEmail);
+                return;
             }
-        }
+            $user->accountStatus = ($action === 'enable');
+            $userRepo->updateUser($domain, $user);
+        });
 
-        ActivityLogger::log($action, $domain, '', "Bulk {$action} on " . count($selectedUsers) . " users");
+        if ($done !== []) {
+            ActivityLogger::log($action, $domain, '', "Bulk {$action} on " . count($done) . " users");
+        }
         header("Location: /{$domain}/users");
         exit;
     }
@@ -343,14 +338,15 @@ class UserController
 
         try {
             $adminEmail = $_SESSION['email'] ?? '';
-            RepositoryFactory::getUserRepository()->deleteUser($domain, $userUid, $adminEmail);
+            $userRepo = RepositoryFactory::getUserRepository();
+            $userRepo->getUser($domain, $userUid) ?? throw BaseController::itemNotFound();
+            $userRepo->deleteUser($domain, $userUid, $adminEmail);
             ActivityLogger::logDelete($domain, $userUid, "User deleted");
-            header("Location: /{$domain}/users");
-            exit;
         } catch (\Exception $e) {
-            http_response_code(500);
-            $tpl->render('page404.php');
+            BaseController::flashItemError("{$userUid}@{$domain}", $e);
         }
+        header("Location: /{$domain}/users");
+        exit;
     }
 
     /**

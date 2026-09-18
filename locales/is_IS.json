@@ -77,7 +77,10 @@
     "enable_selected": "Virkja valið",
     "disable_selected": "Afvirkja valið",
     "delete_selected": "Eyða völdu",
-    "apply_bulk_confirm": "Beita fjöldaaðgerð?"
+    "apply_bulk_confirm": "Beita fjöldaaðgerð?",
+    "msg_bulk_done": "Aðgerðinni var beitt á :count atriði.",
+    "msg_bulk_failed": "Aðgerðin mistókst fyrir: :items",
+    "msg_item_not_found": "fannst ekki"
   },
   "auth": {
     "title": "Auðkenning",
@@ -451,7 +454,8 @@
     "max_quota": "Hámarkskvóti (MB)",
     "allow_domain_creation": "Leyfa lénssköpun",
     "save_limits": "Vista takmörk",
-    "msg_hosted_domain": "Sjálfstæður stjórnandi getur ekki notað hýsta lénið :domain. Gerðu í staðinn pósthólf í þessu léni að stjórnanda."
+    "msg_hosted_domain": "Sjálfstæður stjórnandi getur ekki notað hýsta lénið :domain. Gerðu í staðinn pósthólf í þessu léni að stjórnanda.",
+    "msg_cannot_remove_self": "Þú getur ekki eytt eða gert óvirkan þinn eigin stjórnandaaðgang"
   },
   "alias": {
     "msg_updated": "Samnefni uppfært!",

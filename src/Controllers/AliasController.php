@@ -170,11 +170,12 @@ class AliasController
         CsrfProtection::validateToken();
 
         $repo = RepositoryFactory::getAliasRepository();
-        $alias = $repo->getAlias($address);
-
-        if ($alias !== null) {
+        try {
+            $alias = $repo->getAlias($address) ?? throw BaseController::itemNotFound();
             $repo->deleteAlias($address);
             ActivityLogger::logDelete($alias->domain, '', "Deleted mail alias: {$address}");
+        } catch (\Exception $e) {
+            BaseController::flashItemError($address, $e);
         }
 
         header("Location: /aliases");
@@ -189,26 +190,22 @@ class AliasController
         $action = $_POST['action'] ?? '';
         $selectedAliases = $_POST['selected'] ?? [];
 
-        if (empty($selectedAliases)) {
+        if (!is_array($selectedAliases) || !in_array($action, BaseController::BULK_ACTIONS, true)) {
             header("Location: /aliases");
             exit;
         }
 
         $repo = RepositoryFactory::getAliasRepository();
-
-        foreach ($selectedAliases as $address) {
-            $domain = explode('@', $address, 2)[1] ?? '';
-            if ($action === 'enable') {
-                $repo->enableDisableAlias($address, true);
-                ActivityLogger::logUpdate($domain, '', "Enabled alias: {$address}");
-            } elseif ($action === 'disable') {
-                $repo->enableDisableAlias($address, false);
-                ActivityLogger::logUpdate($domain, '', "Disabled alias: {$address}");
-            } elseif ($action === 'delete') {
+        BaseController::runBulk($selectedAliases, function (string $address) use ($repo, $action): void {
+            $alias = $repo->getAlias($address) ?? throw BaseController::itemNotFound();
+            if ($action === 'delete') {
                 $repo->deleteAlias($address);
-                ActivityLogger::logDelete($domain, '', "Deleted alias: {$address}");
+                ActivityLogger::logDelete($alias->domain, '', "Deleted alias: {$address}");
+                return;
             }
-        }
+            $repo->enableDisableAlias($address, $action === 'enable');
+            ActivityLogger::logUpdate($alias->domain, '', ucfirst($action) . "d alias: {$address}");
+        });
 
         header("Location: /aliases");
         exit;

@@ -77,7 +77,10 @@
     "enable_selected": "Kijelöltek engedélyezése",
     "disable_selected": "Kijelöltek letiltása",
     "delete_selected": "Kijelöltek törlése",
-    "apply_bulk_confirm": "Végrehajtja a tömeges műveletet?"
+    "apply_bulk_confirm": "Végrehajtja a tömeges műveletet?",
+    "msg_bulk_done": "A művelet :count elemre lett alkalmazva.",
+    "msg_bulk_failed": "A művelet sikertelen volt: :items",
+    "msg_item_not_found": "nem található"
   },
   "auth": {
     "title": "Hitelesítés",
@@ -451,7 +454,8 @@
     "max_quota": "Max. kvóta (MB)",
     "allow_domain_creation": "Domain-létrehozás engedélyezése",
     "save_limits": "Korlátok mentése",
-    "msg_hosted_domain": "Önálló adminisztrátor nem használhatja a kiszolgált :domain domaint. Ehelyett tegye adminisztrátorrá a domain egyik postafiókját."
+    "msg_hosted_domain": "Önálló adminisztrátor nem használhatja a kiszolgált :domain domaint. Ehelyett tegye adminisztrátorrá a domain egyik postafiókját.",
+    "msg_cannot_remove_self": "A saját rendszergazdai fiókját nem törölheti és nem tilthatja le"
   },
   "alias": {
     "msg_updated": "Álnév sikeresen frissítve!",

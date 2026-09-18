@@ -238,6 +238,19 @@ class MysqlUserRepository implements UserRepositoryInterface
             'maildir' => "{$domain}/{$user->uid}/",
         ]);
 
+            // Without the address=forwarding row, Postfix sends the mail of this mailbox
+            // to the domain catch-all and does not resolve it through an alias domain.
+            $pdo->prepare(
+                "INSERT INTO forwardings (address, forwarding, domain, dest_domain, is_forwarding, active)
+                 VALUES (:address, :forwarding, :domain, :destDomain, 1, :active)"
+            )->execute([
+                'address' => $username,
+                'forwarding' => $username,
+                'domain' => $domain,
+                'destDomain' => $domain,
+                'active' => $user->accountStatus ? 1 : 0,
+            ]);
+
             $pdo->commit();
         } catch (\Throwable $e) {
             if ($pdo->inTransaction()) {

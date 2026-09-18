@@ -79,7 +79,8 @@ class MysqlForwardingRepository implements ForwardingRepositoryInterface
     {
         $pdo = MysqlConnection::getInstance()->getPdo();
 
-        if ($keepCopy) {
+        // A mailbox without external forwardings needs its self row for local delivery
+        if ($keepCopy || $this->getForwardings($email) === []) {
             $stmt = $pdo->prepare(
                 "INSERT IGNORE INTO forwardings (address, forwarding, domain, dest_domain, is_forwarding, active)
                  VALUES (:address, :self, :domain, :domain2, 1,

@@ -26,7 +26,9 @@ interface ForwardingRepositoryInterface
     public function getKeepCopy(string $email): bool;
 
     /**
-     * Sets whether the user keeps a local copy when forwarding.
+     * Sets whether the user keeps a local copy when forwarding. Call it after
+     * setForwardings(): a user without forwarding addresses always keeps the
+     * SQL self row, because Postfix needs it for local delivery.
      */
     public function setKeepCopy(string $email, string $domain, bool $keepCopy): void;
 }

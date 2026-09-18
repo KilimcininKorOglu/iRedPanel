@@ -74,7 +74,7 @@ class MailingListController
                 }
 
                 $repo->createMailingList($address, $domain, $name, $accessPolicy, $maxMsgSize);
-                ActivityLogger::logCreate('mailinglist', $domain, "Created mailing list: {$address}");
+                ActivityLogger::logCreate($domain, '', "Created mailing list: {$address}");
 
                 header("Location: /mailing-lists/{$address}");
                 exit;
@@ -119,13 +119,13 @@ class MailingListController
                     $active = isset($_POST['active']);
 
                     $repo->updateMailingList($address, $name, $accessPolicy, $maxMsgSize, $active);
-                    ActivityLogger::logUpdate('mailinglist', $ml->domain, "Updated mailing list: {$address}");
+                    ActivityLogger::logUpdate($ml->domain, '', "Updated mailing list: {$address}");
                     $success = Translator::translate('mlist.msg_updated');
                 } elseif ($action === 'updateOwners') {
                     $ownersRaw = trim($_POST['owners'] ?? '');
                     $newOwners = array_filter(array_map('trim', explode("\n", $ownersRaw)));
                     $repo->setOwners($address, $newOwners);
-                    ActivityLogger::logUpdate('mailinglist', $ml->domain, "Updated owners for: {$address}");
+                    ActivityLogger::logUpdate($ml->domain, '', "Updated owners for: {$address}");
                     $success = Translator::translate('mlist.msg_owners_updated');
                 }
 
@@ -154,7 +154,7 @@ class MailingListController
 
         if ($ml !== null) {
             $repo->deleteMailingList($address);
-            ActivityLogger::logDelete('mailinglist', $ml->domain, "Deleted mailing list: {$address}");
+            ActivityLogger::logDelete($ml->domain, '', "Deleted mailing list: {$address}");
         }
 
         header("Location: /mailing-lists");

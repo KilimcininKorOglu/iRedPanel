@@ -77,7 +77,7 @@ class AliasController
                 }
 
                 $repo->createAlias($address, $domain, $name, $members, $accessPolicy);
-                ActivityLogger::logCreate('alias', $domain, "Created mail alias: {$address}");
+                ActivityLogger::logCreate($domain, '', "Created mail alias: {$address}");
 
                 header("Location: /aliases/{$address}");
                 exit;
@@ -121,13 +121,13 @@ class AliasController
                     $newMember = trim($_POST['newMember'] ?? '');
                     if ($newMember !== '') {
                         $repo->addAliasMember($address, $newMember);
-                        ActivityLogger::logUpdate('alias', $alias->domain, "Added member {$newMember} to alias {$address}");
+                        ActivityLogger::logUpdate($alias->domain, '', "Added member {$newMember} to alias {$address}");
                     }
                 } elseif ($action === 'removeMember') {
                     $memberToRemove = $_POST['member'] ?? '';
                     if ($memberToRemove !== '') {
                         $repo->removeAliasMember($address, $memberToRemove);
-                        ActivityLogger::logUpdate('alias', $alias->domain, "Removed member {$memberToRemove} from alias {$address}");
+                        ActivityLogger::logUpdate($alias->domain, '', "Removed member {$memberToRemove} from alias {$address}");
                     }
                 } elseif ($action === 'updateSettings') {
                     $name = trim($_POST['name'] ?? '');
@@ -137,13 +137,13 @@ class AliasController
                     $updatedMembers = array_filter(array_map('trim', explode("\n", $membersRaw)));
 
                     $repo->updateAlias($address, $name, $updatedMembers, $accessPolicy, $active);
-                    ActivityLogger::logUpdate('alias', $alias->domain, "Updated alias settings: {$address}");
+                    ActivityLogger::logUpdate($alias->domain, '', "Updated alias settings: {$address}");
                 } elseif ($action === 'updateModerators') {
                     $moderatorsRaw = trim($_POST['moderators'] ?? '');
                     $newModerators = array_filter(array_map('trim', explode("\n", $moderatorsRaw)));
 
                     $repo->setModerators($address, $newModerators);
-                    ActivityLogger::logUpdate('alias', $alias->domain, "Updated moderators for alias {$address}");
+                    ActivityLogger::logUpdate($alias->domain, '', "Updated moderators for alias {$address}");
                 }
 
                 $success = Translator::translate('alias.msg_updated');
@@ -174,7 +174,7 @@ class AliasController
 
         if ($alias !== null) {
             $repo->deleteAlias($address);
-            ActivityLogger::logDelete('alias', $alias->domain, "Deleted mail alias: {$address}");
+            ActivityLogger::logDelete($alias->domain, '', "Deleted mail alias: {$address}");
         }
 
         header("Location: /aliases");
@@ -197,15 +197,16 @@ class AliasController
         $repo = RepositoryFactory::getAliasRepository();
 
         foreach ($selectedAliases as $address) {
+            $domain = explode('@', $address, 2)[1] ?? '';
             if ($action === 'enable') {
                 $repo->enableDisableAlias($address, true);
-                ActivityLogger::logUpdate('alias', '', "Enabled alias: {$address}");
+                ActivityLogger::logUpdate($domain, '', "Enabled alias: {$address}");
             } elseif ($action === 'disable') {
                 $repo->enableDisableAlias($address, false);
-                ActivityLogger::logUpdate('alias', '', "Disabled alias: {$address}");
+                ActivityLogger::logUpdate($domain, '', "Disabled alias: {$address}");
             } elseif ($action === 'delete') {
                 $repo->deleteAlias($address);
-                ActivityLogger::logDelete('alias', '', "Deleted alias: {$address}");
+                ActivityLogger::logDelete($domain, '', "Deleted alias: {$address}");
             }
         }
 

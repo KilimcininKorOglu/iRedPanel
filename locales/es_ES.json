@@ -93,7 +93,9 @@
     "error": "Error",
     "not_found": "No encontrado",
     "not_found_title": "Error 404. Página no encontrada",
-    "not_found_body": "La página solicitada no existe"
+    "not_found_body": "La página solicitada no existe",
+    "csrf_title": "Error 403. El formulario ha caducado",
+    "csrf_body": "El token de seguridad de este formulario no es válido o ha caducado. Vuelva atrás, recargue la página y envíe el formulario de nuevo."
   },
   "newsletter": {
     "msg_invalid_email": "Introduzca una dirección de correo electrónico válida.",

@@ -93,7 +93,9 @@
     "error": "Hiba",
     "not_found": "Nem található",
     "not_found_title": "404-es hiba. Az oldal nem található",
-    "not_found_body": "A kért oldal nem létezik"
+    "not_found_body": "A kért oldal nem létezik",
+    "csrf_title": "403-as hiba. Az űrlap lejárt",
+    "csrf_body": "Az űrlap biztonsági tokenje érvénytelen vagy lejárt. Lépjen vissza, töltse újra az oldalt, és küldje el újra az űrlapot."
   },
   "newsletter": {
     "msg_invalid_email": "Kérjük, adjon meg egy érvényes e-mail-címet.",

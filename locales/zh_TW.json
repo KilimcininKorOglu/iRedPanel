@@ -93,7 +93,9 @@
     "error": "錯誤",
     "not_found": "找不到",
     "not_found_title": "錯誤 404。找不到頁面",
-    "not_found_body": "您要尋找的頁面不存在"
+    "not_found_body": "您要尋找的頁面不存在",
+    "csrf_title": "錯誤 403。表單已過期",
+    "csrf_body": "此表單的安全 token 無效或已過期。請返回，重新整理頁面後再次提交表單。"
   },
   "newsletter": {
     "msg_invalid_email": "請輸入有效的電子郵件位址。",

@@ -93,7 +93,9 @@
     "error": "Fehler",
     "not_found": "Nicht gefunden",
     "not_found_title": "Fehler 404. Seite nicht gefunden",
-    "not_found_body": "Die angeforderte Seite existiert nicht"
+    "not_found_body": "Die angeforderte Seite existiert nicht",
+    "csrf_title": "Fehler 403. Das Formular ist abgelaufen",
+    "csrf_body": "Das Sicherheitstoken dieses Formulars ist ungültig oder abgelaufen. Gehen Sie zurück, laden Sie die Seite neu und senden Sie das Formular erneut."
   },
   "newsletter": {
     "msg_invalid_email": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",

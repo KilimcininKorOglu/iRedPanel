@@ -93,7 +93,9 @@
     "error": "Feil",
     "not_found": "Ikke funnet",
     "not_found_title": "Feil 404. Siden ble ikke funnet",
-    "not_found_body": "Siden du ba om, finnes ikke"
+    "not_found_body": "Siden du ba om, finnes ikke",
+    "csrf_title": "Feil 403. Skjemaet er utløpt",
+    "csrf_body": "Sikkerhetstokenet for dette skjemaet er ugyldig eller utløpt. Gå tilbake, last inn siden på nytt og send skjemaet igjen."
   },
   "newsletter": {
     "msg_invalid_email": "Vennligst oppgi en gyldig e-postadresse.",

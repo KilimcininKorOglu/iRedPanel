@@ -93,7 +93,9 @@
     "error": "Virhe",
     "not_found": "Ei löytynyt",
     "not_found_title": "Virhe 404. Sivua ei löytynyt",
-    "not_found_body": "Pyytämääsi sivua ei ole olemassa"
+    "not_found_body": "Pyytämääsi sivua ei ole olemassa",
+    "csrf_title": "Virhe 403. Lomake on vanhentunut",
+    "csrf_body": "Tämän lomakkeen suojaustoken on virheellinen tai vanhentunut. Palaa takaisin, lataa sivu uudelleen ja lähetä lomake uudelleen."
   },
   "newsletter": {
     "msg_invalid_email": "Anna kelvollinen sähköpostiosoite.",

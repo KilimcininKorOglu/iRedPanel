@@ -93,7 +93,9 @@
     "error": "Erro",
     "not_found": "Não encontrado",
     "not_found_title": "Erro 404. Página não encontrada",
-    "not_found_body": "A página solicitada não existe"
+    "not_found_body": "A página solicitada não existe",
+    "csrf_title": "Erro 403. O formulário expirou",
+    "csrf_body": "O token de segurança deste formulário é inválido ou expirou. Volte, recarregue a página e envie o formulário novamente."
   },
   "newsletter": {
     "msg_invalid_email": "Por favor, insira um endereço de e-mail válido.",

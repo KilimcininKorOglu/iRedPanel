@@ -93,7 +93,9 @@
     "error": "Błąd",
     "not_found": "Nie znaleziono",
     "not_found_title": "Błąd 404. Strona nie znaleziona",
-    "not_found_body": "Żądana strona nie istnieje"
+    "not_found_body": "Żądana strona nie istnieje",
+    "csrf_title": "Błąd 403. Formularz wygasł",
+    "csrf_body": "Token bezpieczeństwa tego formularza jest nieprawidłowy lub wygasł. Wróć, odśwież stronę i wyślij formularz ponownie."
   },
   "newsletter": {
     "msg_invalid_email": "Wprowadź prawidłowy adres e-mail.",

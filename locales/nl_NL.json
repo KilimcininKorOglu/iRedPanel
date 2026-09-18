@@ -93,7 +93,9 @@
     "error": "Fout",
     "not_found": "Niet gevonden",
     "not_found_title": "Fout 404. Pagina niet gevonden",
-    "not_found_body": "De opgevraagde pagina bestaat niet"
+    "not_found_body": "De opgevraagde pagina bestaat niet",
+    "csrf_title": "Fout 403. Het formulier is verlopen",
+    "csrf_body": "Het beveiligingstoken van dit formulier is ongeldig of verlopen. Ga terug, laad de pagina opnieuw en verstuur het formulier opnieuw."
   },
   "newsletter": {
     "msg_invalid_email": "Voer een geldig e-mailadres in.",

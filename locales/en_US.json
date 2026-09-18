@@ -93,7 +93,9 @@
     "error": "Error",
     "not_found": "Not Found",
     "not_found_title": "Error 404. Page not found",
-    "not_found_body": "The page you requested does not exist"
+    "not_found_body": "The page you requested does not exist",
+    "csrf_title": "Error 403. The form has expired",
+    "csrf_body": "The security token of this form is invalid or has expired. Go back, reload the page and submit the form again."
   },
   "newsletter": {
     "msg_invalid_email": "Please enter a valid email address.",

@@ -93,7 +93,9 @@
     "error": "Fel",
     "not_found": "Hittades inte",
     "not_found_title": "Fel 404. Sidan hittades inte",
-    "not_found_body": "Sidan du letar efter finns inte"
+    "not_found_body": "Sidan du letar efter finns inte",
+    "csrf_title": "Fel 403. Formuläret har gått ut",
+    "csrf_body": "Formulärets säkerhetstoken är ogiltig eller har gått ut. Gå tillbaka, ladda om sidan och skicka formuläret igen."
   },
   "newsletter": {
     "msg_invalid_email": "Ange en giltig e-postadress.",

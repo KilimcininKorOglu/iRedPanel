@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App;
 
+use App\Exceptions\CsrfTokenException;
+
 class CsrfProtection
 {
     /**
@@ -19,7 +21,8 @@ class CsrfProtection
 
     /**
      * Validates the CSRF token from the POST request.
-     * Throws RuntimeException if the token is missing or invalid.
+     *
+     * @throws CsrfTokenException if the token is missing or invalid
      */
     public static function validateToken(): void
     {
@@ -30,8 +33,8 @@ class CsrfProtection
         $token = $_POST['_csrf_token'] ?? '';
         $expected = $_SESSION['csrfToken'] ?? '';
 
-        if ($token === '' || $expected === '' || !hash_equals($expected, $token)) {
-            throw new \RuntimeException('Invalid CSRF token');
+        if (!is_string($token) || $token === '' || $expected === '' || !hash_equals($expected, $token)) {
+            throw new CsrfTokenException('Invalid CSRF token');
         }
     }
 }

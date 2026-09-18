@@ -93,7 +93,9 @@
     "error": "Viga",
     "not_found": "Ei leitud",
     "not_found_title": "Viga 404. Lehte ei leitud",
-    "not_found_body": "Soovitud lehte ei ole olemas"
+    "not_found_body": "Soovitud lehte ei ole olemas",
+    "csrf_title": "Viga 403. Vorm on aegunud",
+    "csrf_body": "Selle vormi turvatoken on vigane või aegunud. Minge tagasi, laadige leht uuesti ja saatke vorm uuesti."
   },
   "newsletter": {
     "msg_invalid_email": "Palun sisestage kehtiv e-posti aadress.",

@@ -93,7 +93,9 @@
     "error": "Hata",
     "not_found": "Bulunamadı",
     "not_found_title": "Hata 404. Sayfa bulunamadı",
-    "not_found_body": "İstediğiniz sayfa mevcut değil"
+    "not_found_body": "İstediğiniz sayfa mevcut değil",
+    "csrf_title": "Hata 403. Formun süresi doldu",
+    "csrf_body": "Bu formun güvenlik token'ı geçersiz veya süresi dolmuş. Geri dönün, sayfayı yeniden yükleyin ve formu tekrar gönderin."
   },
   "newsletter": {
     "msg_invalid_email": "Lütfen geçerli bir e-posta adresi girin.",

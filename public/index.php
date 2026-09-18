@@ -37,6 +37,7 @@ use App\Controllers\PanelSettingsController;
 use App\Controllers\SystemSettingsController;
 use App\Controllers\UserController;
 use App\Exceptions\BackendConnectionException;
+use App\Exceptions\CsrfTokenException;
 use App\Router;
 use App\TemplateEngine;
 
@@ -546,4 +547,6 @@ try {
 } catch (BackendConnectionException $e) {
     header('Location: /logout');
     exit;
+} catch (CsrfTokenException $e) {
+    BaseController::pageCsrf($tpl);
 }

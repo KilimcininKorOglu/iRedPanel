@@ -93,7 +93,9 @@
     "error": "Chyba",
     "not_found": "Nenájdené",
     "not_found_title": "Chyba 404. Stránka sa nenašla",
-    "not_found_body": "Požadovaná stránka neexistuje"
+    "not_found_body": "Požadovaná stránka neexistuje",
+    "csrf_title": "Chyba 403. Platnosť formulára vypršala",
+    "csrf_body": "Bezpečnostný token tohto formulára je neplatný alebo vypršal. Vráťte sa späť, znova načítajte stránku a odošlite formulár znova."
   },
   "newsletter": {
     "msg_invalid_email": "Zadajte platnú e-mailovú adresu.",

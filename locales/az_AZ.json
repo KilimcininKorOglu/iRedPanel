@@ -93,7 +93,9 @@
     "error": "Xəta",
     "not_found": "Tapılmadı",
     "not_found_title": "Xəta 404. Səhifə tapılmadı",
-    "not_found_body": "Sorğuladığınız səhifə mövcud deyil"
+    "not_found_body": "Sorğuladığınız səhifə mövcud deyil",
+    "csrf_title": "Xəta 403. Formun vaxtı bitib",
+    "csrf_body": "Bu formun təhlükəsizlik tokeni etibarsızdır və ya vaxtı bitib. Geri qayıdın, səhifəni yeniləyin və formu yenidən göndərin."
   },
   "newsletter": {
     "msg_invalid_email": "Zəhmət olmasa etibarlı e-poçt ünvanı daxil edin.",

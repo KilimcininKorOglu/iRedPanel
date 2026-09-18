@@ -93,7 +93,9 @@
     "error": "Erreur",
     "not_found": "Introuvable",
     "not_found_title": "Erreur 404. Page introuvable",
-    "not_found_body": "La page demandée n'existe pas"
+    "not_found_body": "La page demandée n'existe pas",
+    "csrf_title": "Erreur 403. Le formulaire a expiré",
+    "csrf_body": "Le jeton de sécurité de ce formulaire est invalide ou a expiré. Revenez en arrière, rechargez la page et envoyez à nouveau le formulaire."
   },
   "newsletter": {
     "msg_invalid_email": "Veuillez saisir une adresse e-mail valide.",

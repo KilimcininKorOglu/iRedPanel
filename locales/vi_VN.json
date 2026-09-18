@@ -93,7 +93,9 @@
     "error": "Lỗi",
     "not_found": "Không tìm thấy",
     "not_found_title": "Lỗi 404. Không tìm thấy trang",
-    "not_found_body": "Trang bạn đang tìm kiếm không tồn tại"
+    "not_found_body": "Trang bạn đang tìm kiếm không tồn tại",
+    "csrf_title": "Lỗi 403. Biểu mẫu đã hết hạn",
+    "csrf_body": "Token bảo mật của biểu mẫu này không hợp lệ hoặc đã hết hạn. Hãy quay lại, tải lại trang và gửi lại biểu mẫu."
   },
   "newsletter": {
     "msg_invalid_email": "Vui lòng nhập địa chỉ email hợp lệ.",

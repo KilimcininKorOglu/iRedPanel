@@ -33,4 +33,13 @@ class BaseController
         http_response_code(404);
         $tpl->render('page404.php');
     }
+
+    /**
+     * Renders the 403 page for a form with a missing or invalid CSRF token.
+     */
+    public static function pageCsrf(TemplateEngine $tpl): void
+    {
+        http_response_code(403);
+        $tpl->render('pageCsrf.php');
+    }
 }

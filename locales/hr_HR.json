@@ -93,7 +93,9 @@
     "error": "Pogreška",
     "not_found": "Nije pronađeno",
     "not_found_title": "Pogreška 404. Stranica nije pronađena",
-    "not_found_body": "Tražena stranica ne postoji"
+    "not_found_body": "Tražena stranica ne postoji",
+    "csrf_title": "Pogreška 403. Obrazac je istekao",
+    "csrf_body": "Sigurnosni token ovog obrasca nije valjan ili je istekao. Vratite se, ponovno učitajte stranicu i ponovno pošaljite obrazac."
   },
   "newsletter": {
     "msg_invalid_email": "Molimo unesite valjanu adresu e-pošte.",

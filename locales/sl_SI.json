@@ -93,7 +93,9 @@
     "error": "Napaka",
     "not_found": "Ni najdeno",
     "not_found_title": "Napaka 404. Stran ni najdena",
-    "not_found_body": "Zahtevana stran ne obstaja"
+    "not_found_body": "Zahtevana stran ne obstaja",
+    "csrf_title": "Napaka 403. Obrazec je potekel",
+    "csrf_body": "Varnostni token tega obrazca ni veljaven ali je potekel. Vrnite se, znova naložite stran in ponovno pošljite obrazec."
   },
   "newsletter": {
     "msg_invalid_email": "Vnesite veljaven e-poštni naslov.",

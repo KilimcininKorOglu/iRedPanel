@@ -93,7 +93,9 @@
     "error": "Errorea",
     "not_found": "Ez da aurkitu",
     "not_found_title": "404 errorea. Orria ez da aurkitu",
-    "not_found_body": "Eskatu duzun orria ez da existitzen"
+    "not_found_body": "Eskatu duzun orria ez da existitzen",
+    "csrf_title": "403 errorea. Inprimakia iraungi da",
+    "csrf_body": "Inprimaki honen segurtasun tokena ez da baliozkoa edo iraungi egin da. Itzuli atzera, kargatu berriro orria eta bidali inprimakia berriro."
   },
   "newsletter": {
     "msg_invalid_email": "Sartu baliozko posta-helbide bat.",

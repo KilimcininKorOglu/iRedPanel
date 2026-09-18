@@ -446,7 +446,8 @@
     "max_lists": "最大メーリングリスト数",
     "max_quota": "最大クォータ（MB）",
     "allow_domain_creation": "ドメイン作成を許可",
-    "save_limits": "制限を保存"
+    "save_limits": "制限を保存",
+    "msg_hosted_domain": "独立した管理者はホストされているドメイン :domain を使用できません。代わりにこのドメインのメールボックスを管理者にしてください。"
   },
   "alias": {
     "msg_updated": "エイリアスが正常に更新されました！",

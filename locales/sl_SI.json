@@ -446,7 +446,8 @@
     "max_lists": "Največ poštnih seznamov",
     "max_quota": "Največja kvota (MB)",
     "allow_domain_creation": "Dovoli ustvarjanje domen",
-    "save_limits": "Shrani omejitve"
+    "save_limits": "Shrani omejitve",
+    "msg_hosted_domain": "Samostojni skrbnik ne more uporabljati gostujoče domene :domain. Namesto tega nastavite poštni predal te domene za skrbnika."
   },
   "alias": {
     "msg_updated": "Vzdevek uspešno posodobljen!",

@@ -446,7 +446,8 @@
     "max_lists": "Max. Mailinglisten",
     "max_quota": "Max. Kontingent (MB)",
     "allow_domain_creation": "Domain-Erstellung erlauben",
-    "save_limits": "Limits speichern"
+    "save_limits": "Limits speichern",
+    "msg_hosted_domain": "Ein eigenständiger Admin kann die gehostete Domain :domain nicht verwenden. Machen Sie stattdessen ein Postfach dieser Domain zum Admin."
   },
   "alias": {
     "msg_updated": "Alias erfolgreich aktualisiert!",

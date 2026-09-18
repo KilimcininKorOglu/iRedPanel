@@ -446,7 +446,8 @@
     "max_lists": "Maks. list mailingowych",
     "max_quota": "Maks. limit (MB)",
     "allow_domain_creation": "Zezwól na tworzenie domen",
-    "save_limits": "Zapisz limity"
+    "save_limits": "Zapisz limity",
+    "msg_hosted_domain": "Samodzielny administrator nie może używać hostowanej domeny :domain. Zamiast tego nadaj uprawnienia administratora skrzynce z tej domeny."
   },
   "alias": {
     "msg_updated": "Alias zaktualizowany pomyślnie!",

@@ -446,7 +446,8 @@
     "max_lists": "Max liste di distribuzione",
     "max_quota": "Quota max (MB)",
     "allow_domain_creation": "Consenti la creazione di domini",
-    "save_limits": "Salva limiti"
+    "save_limits": "Salva limiti",
+    "msg_hosted_domain": "Un amministratore autonomo non può usare il dominio ospitato :domain. Rendi invece amministratore una casella di questo dominio."
   },
   "alias": {
     "msg_updated": "Alias aggiornato con successo!",

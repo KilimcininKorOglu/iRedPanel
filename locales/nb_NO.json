@@ -446,7 +446,8 @@
     "max_lists": "Maks e-postlister",
     "max_quota": "Maks kvote (MB)",
     "allow_domain_creation": "Tillat oppretting av domener",
-    "save_limits": "Lagre grenser"
+    "save_limits": "Lagre grenser",
+    "msg_hosted_domain": "En frittstående administrator kan ikke bruke det hostede domenet :domain. Gjør i stedet en postboks i domenet til administrator."
   },
   "alias": {
     "msg_updated": "Alias oppdatert!",

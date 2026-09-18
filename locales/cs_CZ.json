@@ -446,7 +446,8 @@
     "max_lists": "Max. poštovních konferencí",
     "max_quota": "Max. kvóta (MB)",
     "allow_domain_creation": "Povolit vytváření domén",
-    "save_limits": "Uložit limity"
+    "save_limits": "Uložit limity",
+    "msg_hosted_domain": "Samostatný správce nemůže používat hostovanou doménu :domain. Místo toho udělejte správcem schránku této domény."
   },
   "alias": {
     "msg_updated": "Alias úspěšně aktualizován!",

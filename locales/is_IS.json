@@ -446,7 +446,8 @@
     "max_lists": "Hámark póstlista",
     "max_quota": "Hámarkskvóti (MB)",
     "allow_domain_creation": "Leyfa lénssköpun",
-    "save_limits": "Vista takmörk"
+    "save_limits": "Vista takmörk",
+    "msg_hosted_domain": "Sjálfstæður stjórnandi getur ekki notað hýsta lénið :domain. Gerðu í staðinn pósthólf í þessu léni að stjórnanda."
   },
   "alias": {
     "msg_updated": "Samnefni uppfært!",

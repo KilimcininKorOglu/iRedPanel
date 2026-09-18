@@ -446,7 +446,8 @@
     "max_lists": "Maks. postiloendeid",
     "max_quota": "Maks. kvoot (MB)",
     "allow_domain_creation": "Luba domeenide loomine",
-    "save_limits": "Salvesta piirangud"
+    "save_limits": "Salvesta piirangud",
+    "msg_hosted_domain": "Eraldiseisev administraator ei saa kasutada majutatud domeeni :domain. Tehke selle asemel administraatoriks selle domeeni postkast."
   },
   "alias": {
     "msg_updated": "Alias edukalt uuendatud!",

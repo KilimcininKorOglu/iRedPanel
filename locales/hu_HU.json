@@ -446,7 +446,8 @@
     "max_lists": "Max. levelezőlisták",
     "max_quota": "Max. kvóta (MB)",
     "allow_domain_creation": "Domain-létrehozás engedélyezése",
-    "save_limits": "Korlátok mentése"
+    "save_limits": "Korlátok mentése",
+    "msg_hosted_domain": "Önálló adminisztrátor nem használhatja a kiszolgált :domain domaint. Ehelyett tegye adminisztrátorrá a domain egyik postafiókját."
   },
   "alias": {
     "msg_updated": "Álnév sikeresen frissítve!",

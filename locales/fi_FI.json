@@ -446,7 +446,8 @@
     "max_lists": "Enimmäispostituslistat",
     "max_quota": "Enimmäiskiintiö (MB)",
     "allow_domain_creation": "Salli verkkotunnusten luonti",
-    "save_limits": "Tallenna rajat"
+    "save_limits": "Tallenna rajat",
+    "msg_hosted_domain": "Erillinen ylläpitäjä ei voi käyttää palvelimen verkkotunnusta :domain. Tee sen sijaan tämän verkkotunnuksen postilaatikosta ylläpitäjä."
   },
   "alias": {
     "msg_updated": "Alias päivitetty onnistuneesti!",

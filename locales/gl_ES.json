@@ -446,7 +446,8 @@
     "max_lists": "Máx. listas de correo",
     "max_quota": "Máx. cota (MB)",
     "allow_domain_creation": "Permitir creación de dominios",
-    "save_limits": "Gardar límites"
+    "save_limits": "Gardar límites",
+    "msg_hosted_domain": "Un administrador independente non pode usar o dominio aloxado :domain. No seu lugar, faga administradora unha caixa de correo deste dominio."
   },
   "alias": {
     "msg_updated": "Alias actualizado!",

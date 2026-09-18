@@ -446,7 +446,8 @@
     "max_lists": "Geh. posta-zerrendak",
     "max_quota": "Geh. kuota (MB)",
     "allow_domain_creation": "Baimendu domeinuak sortzea",
-    "save_limits": "Gorde mugak"
+    "save_limits": "Gorde mugak",
+    "msg_hosted_domain": "Administratzaile independente batek ezin du :domain domeinu ostatatua erabili. Horren ordez, egin domeinu honetako postontzi bat administratzaile."
   },
   "alias": {
     "msg_updated": "Aliasa eguneratu da!",

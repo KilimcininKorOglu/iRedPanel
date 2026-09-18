@@ -446,7 +446,8 @@
     "max_lists": "Max. liste de corespondență",
     "max_quota": "Cotă max. (MB)",
     "allow_domain_creation": "Permite crearea de domenii",
-    "save_limits": "Salvează limitele"
+    "save_limits": "Salvează limitele",
+    "msg_hosted_domain": "Un administrator independent nu poate folosi domeniul găzduit :domain. Faceți în schimb administrator o căsuță poștală din acest domeniu."
   },
   "alias": {
     "msg_updated": "Alias-ul a fost actualizat cu succes!",

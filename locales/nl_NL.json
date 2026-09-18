@@ -446,7 +446,8 @@
     "max_lists": "Max. mailinglijsten",
     "max_quota": "Max. quota (MB)",
     "allow_domain_creation": "Domeinaanmaak toestaan",
-    "save_limits": "Limieten opslaan"
+    "save_limits": "Limieten opslaan",
+    "msg_hosted_domain": "Een zelfstandige beheerder kan het gehoste domein :domain niet gebruiken. Maak in plaats daarvan een mailbox van dit domein beheerder."
   },
   "alias": {
     "msg_updated": "Alias succesvol bijgewerkt!",

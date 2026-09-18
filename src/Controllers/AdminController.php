@@ -91,6 +91,17 @@ class AdminController
     /**
      * Displays the admin creation form and handles creation.
      */
+    /**
+     * Whether the domain is a mail domain or an alias domain of this server. As in
+     * iRedAdmin, a standalone admin must not use such a domain: its address would
+     * collide with a mailbox that has its own password.
+     */
+    public static function isHostedDomain(string $domain): bool
+    {
+        return RepositoryFactory::getDomainRepository()->getDomain($domain) !== null
+            || RepositoryFactory::getDomainAliasRepository()->getAlias($domain) !== null;
+    }
+
     public static function adminCreate(TemplateEngine $tpl): void
     {
         Middleware::globalAdminRequired();
@@ -119,6 +130,8 @@ class AdminController
                     // Check for duplicate
                     if ($repo->getAdmin($admin->username) !== null) {
                         $validationErrors['username'] = Translator::translate('admin.msg_exists', ['username' => $admin->username]);
+                    } elseif (self::isHostedDomain(substr(strrchr($admin->username, '@'), 1))) {
+                        $validationErrors['username'] = Translator::translate('admin.msg_hosted_domain', ['domain' => substr(strrchr($admin->username, '@'), 1)]);
                     } else {
                         $passwordHash = PasswordUtils::generatePasswordHash($password);
                         $repo->createAdmin($admin, $passwordHash);

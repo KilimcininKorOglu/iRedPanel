@@ -446,7 +446,8 @@
     "max_lists": "Max. distribučných zoznamov",
     "max_quota": "Max. kvóta (MB)",
     "allow_domain_creation": "Povoliť vytváranie domén",
-    "save_limits": "Uložiť limity"
+    "save_limits": "Uložiť limity",
+    "msg_hosted_domain": "Samostatný správca nemôže používať hostovanú doménu :domain. Namiesto toho urobte správcom schránku tejto domény."
   },
   "alias": {
     "msg_updated": "Alias úspešne aktualizovaný!",

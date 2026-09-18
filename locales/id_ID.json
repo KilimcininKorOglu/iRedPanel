@@ -446,7 +446,8 @@
     "max_lists": "Milis maksimum",
     "max_quota": "Kuota maksimum (MB)",
     "allow_domain_creation": "Izinkan pembuatan domain",
-    "save_limits": "Simpan batas"
+    "save_limits": "Simpan batas",
+    "msg_hosted_domain": "Admin mandiri tidak dapat memakai domain yang di-host :domain. Jadikan kotak surat dari domain ini sebagai admin."
   },
   "alias": {
     "msg_updated": "Alias berhasil diperbarui!",

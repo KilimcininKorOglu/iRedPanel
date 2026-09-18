@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Api;
 
+use App\Controllers\AdminController;
 use App\Models\Admin;
 use App\Repositories\RepositoryFactory;
 use App\Utils\PasswordUtils;
@@ -57,6 +58,10 @@ class AdminApiController
         $repo = RepositoryFactory::getAdminRepository();
         if ($repo->getAdmin($email) !== null) {
             ApiResponse::error('Admin already exists', 409);
+            return;
+        }
+        if (AdminController::isHostedDomain(substr(strrchr($email, '@'), 1))) {
+            ApiResponse::error('A standalone admin cannot use a hosted domain; make a mailbox an admin instead', 409);
             return;
         }
 

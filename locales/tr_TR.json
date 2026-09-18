@@ -446,7 +446,8 @@
     "max_lists": "Maks. Posta Listesi",
     "max_quota": "Maks. Kota (MB)",
     "allow_domain_creation": "Alan adı oluşturmaya izin ver",
-    "save_limits": "Sınırları Kaydet"
+    "save_limits": "Sınırları Kaydet",
+    "msg_hosted_domain": "Bağımsız bir admin, sunucudaki :domain domain'ini kullanamaz. Bunun yerine bu domain'deki bir mailbox'ı admin yapın."
   },
   "alias": {
     "msg_updated": "Takma ad başarıyla güncellendi!",

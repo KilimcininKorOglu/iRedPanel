@@ -446,7 +446,8 @@
     "max_lists": "最大郵件清單數",
     "max_quota": "最大配額（MB）",
     "allow_domain_creation": "允許建立網域",
-    "save_limits": "儲存限制"
+    "save_limits": "儲存限制",
+    "msg_hosted_domain": "獨立管理員不能使用本伺服器託管的網域 :domain。請改為將該網域中的信箱設為管理員。"
   },
   "alias": {
     "msg_updated": "別名已成功更新！",

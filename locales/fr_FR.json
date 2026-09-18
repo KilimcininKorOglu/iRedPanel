@@ -446,7 +446,8 @@
     "max_lists": "Max. listes de diffusion",
     "max_quota": "Quota max. (Mo)",
     "allow_domain_creation": "Autoriser la création de domaines",
-    "save_limits": "Enregistrer les limites"
+    "save_limits": "Enregistrer les limites",
+    "msg_hosted_domain": "Un administrateur autonome ne peut pas utiliser le domaine hébergé :domain. Faites plutôt d'une boîte aux lettres de ce domaine un administrateur."
   },
   "alias": {
     "msg_updated": "Alias mis à jour avec succès !",

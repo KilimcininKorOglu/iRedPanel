@@ -446,7 +446,8 @@
     "max_lists": "Maks. mailing lista",
     "max_quota": "Maks. kvota (MB)",
     "allow_domain_creation": "Dozvoli kreiranje domena",
-    "save_limits": "Sačuvaj ograničenja"
+    "save_limits": "Sačuvaj ograničenja",
+    "msg_hosted_domain": "Samostalni administrator ne može koristiti hostanu domenu :domain. Umjesto toga postavite poštanski sandučić ove domene za administratora."
   },
   "alias": {
     "msg_updated": "Alias je ažuriran!",

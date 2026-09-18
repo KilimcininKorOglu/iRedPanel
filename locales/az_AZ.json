@@ -446,7 +446,8 @@
     "max_lists": "Maks. poçt siyahısı",
     "max_quota": "Maks. kvota (MB)",
     "allow_domain_creation": "Domen yaratmağa icazə ver",
-    "save_limits": "Limitləri yadda saxla"
+    "save_limits": "Limitləri yadda saxla",
+    "msg_hosted_domain": "Müstəqil admin serverdəki :domain domenindən istifadə edə bilməz. Bunun əvəzinə bu domenin bir poçt qutusunu admin edin."
   },
   "alias": {
     "msg_updated": "Təxəllüs uğurla yeniləndi!",

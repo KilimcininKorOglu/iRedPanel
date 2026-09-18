@@ -446,7 +446,8 @@
     "max_lists": "Số danh sách gửi thư tối đa",
     "max_quota": "Hạn ngạch tối đa (MB)",
     "allow_domain_creation": "Cho phép tạo tên miền",
-    "save_limits": "Lưu giới hạn"
+    "save_limits": "Lưu giới hạn",
+    "msg_hosted_domain": "Quản trị viên độc lập không thể dùng tên miền được lưu trữ :domain. Thay vào đó, hãy đặt một hộp thư của tên miền này làm quản trị viên."
   },
   "alias": {
     "msg_updated": "Bí danh đã được cập nhật thành công!",

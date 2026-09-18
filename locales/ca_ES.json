@@ -446,7 +446,8 @@
     "max_lists": "Màxim de llistes de correu",
     "max_quota": "Quota màxima (MB)",
     "allow_domain_creation": "Permetre la creació de dominis",
-    "save_limits": "Desar límits"
+    "save_limits": "Desar límits",
+    "msg_hosted_domain": "Un administrador independent no pot utilitzar el domini allotjat :domain. En lloc d'això, feu administradora una bústia d'aquest domini."
   },
   "alias": {
     "msg_updated": "Àlies actualitzat correctament!",

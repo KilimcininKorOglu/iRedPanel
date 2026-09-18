@@ -446,7 +446,8 @@
     "max_lists": "최대 메일링 리스트 수",
     "max_quota": "최대 할당량 (MB)",
     "allow_domain_creation": "도메인 생성 허용",
-    "save_limits": "한도 저장"
+    "save_limits": "한도 저장",
+    "msg_hosted_domain": "독립 관리자는 호스팅된 도메인 :domain 을(를) 사용할 수 없습니다. 대신 이 도메인의 사서함을 관리자로 지정하세요."
   },
   "alias": {
     "msg_updated": "별칭이 성공적으로 업데이트되었습니다!",

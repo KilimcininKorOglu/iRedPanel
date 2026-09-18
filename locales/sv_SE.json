@@ -446,7 +446,8 @@
     "max_lists": "Max sändlistor",
     "max_quota": "Max kvot (MB)",
     "allow_domain_creation": "Tillåt skapande av domäner",
-    "save_limits": "Spara gränser"
+    "save_limits": "Spara gränser",
+    "msg_hosted_domain": "En fristående administratör kan inte använda den hostade domänen :domain. Gör i stället en brevlåda i domänen till administratör."
   },
   "alias": {
     "msg_updated": "Alias uppdaterat!",

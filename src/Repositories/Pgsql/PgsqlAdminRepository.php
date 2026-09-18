@@ -17,7 +17,7 @@ class PgsqlAdminRepository implements AdminRepositoryInterface
         // Standalone admins
         $stmt = $pdo->query(
             "SELECT a.username, a.name, a.active, a.created, a.passwordlastchange,
-                    CASE WHEN da.domain = 'ALL' THEN 1 ELSE 0 END AS isGlobalAdmin
+                    CASE WHEN da.domain = 'ALL' THEN 1 ELSE 0 END AS \"isGlobalAdmin\"
              FROM admin a
              LEFT JOIN domain_admins da ON da.username = a.username AND da.domain = 'ALL'
              ORDER BY a.username"
@@ -29,7 +29,7 @@ class PgsqlAdminRepository implements AdminRepositoryInterface
         // Mailbox-based admins
         $stmt = $pdo->query(
             "SELECT m.username, m.name, m.active, m.created, m.passwordlastchange,
-                    m.isglobaladmin AS isGlobalAdmin
+                    m.isglobaladmin AS \"isGlobalAdmin\"
              FROM mailbox m
              WHERE m.isadmin = 1 OR m.isglobaladmin = 1
              ORDER BY m.username"
@@ -70,7 +70,7 @@ class PgsqlAdminRepository implements AdminRepositoryInterface
             // Check mailbox-based admins
             $stmt = $pdo->prepare(
                 "SELECT m.username, m.name, m.active, m.created, m.passwordlastchange,
-                        m.isglobaladmin AS isGlobalAdmin
+                        m.isglobaladmin AS \"isGlobalAdmin\"
                  FROM mailbox m
                  WHERE m.username = :username AND (m.isadmin = 1 OR m.isglobaladmin = 1)
                  LIMIT 1"

@@ -15,9 +15,10 @@ class PgsqlDomainRepository implements DomainRepositoryInterface
         $pdo = PgsqlConnection::getInstance()->getPdo();
 
         $stmt = $pdo->query(
-            "SELECT d.domain AS domainName,
+            // Quoted aliases keep their case; PostgreSQL folds bare identifiers to lowercase.
+            "SELECT d.domain AS \"domainName\",
                     d.active,
-                    COUNT(m.username) AS userCount
+                    COUNT(m.username) AS \"userCount\"
              FROM domain d
              LEFT JOIN mailbox m ON m.domain = d.domain
              GROUP BY d.domain, d.active
@@ -54,8 +55,8 @@ class PgsqlDomainRepository implements DomainRepositoryInterface
         $stmt = $pdo->prepare(
             "SELECT d.domain, d.description, d.active, d.maxquota, d.quota,
                     d.mailboxes, d.aliases, d.transport, d.settings, d.created, d.modified,
-                    COUNT(m.username) AS userCount,
-                    COALESCE(SUM(m.quota), 0) AS quotaUsed
+                    COUNT(m.username) AS \"userCount\",
+                    COALESCE(SUM(m.quota), 0) AS \"quotaUsed\"
              FROM domain d
              LEFT JOIN mailbox m ON m.domain = d.domain
              WHERE {$where}
@@ -83,8 +84,8 @@ class PgsqlDomainRepository implements DomainRepositoryInterface
         $stmt = $pdo->prepare(
             "SELECT d.domain, d.description, d.active, d.maxquota, d.quota,
                     d.mailboxes, d.aliases, d.transport, d.settings, d.created, d.modified,
-                    COUNT(m.username) AS userCount,
-                    COALESCE(SUM(m.quota), 0) AS quotaUsed
+                    COUNT(m.username) AS \"userCount\",
+                    COALESCE(SUM(m.quota), 0) AS \"quotaUsed\"
              FROM domain d
              LEFT JOIN mailbox m ON m.domain = d.domain
              WHERE d.domain = :domain
@@ -216,7 +217,7 @@ class PgsqlDomainRepository implements DomainRepositoryInterface
         $pdo = PgsqlConnection::getInstance()->getPdo();
 
         $stmt = $pdo->prepare(
-            "SELECT COALESCE(SUM(bytes), 0) AS totalBytes FROM used_quota WHERE SPLIT_PART(username, '@', 2) = :domain"
+            "SELECT COALESCE(SUM(bytes), 0) AS \"totalBytes\" FROM used_quota WHERE SPLIT_PART(username, '@', 2) = :domain"
         );
         $stmt->execute(['domain' => $domainName]);
         $row = $stmt->fetch();

@@ -35,120 +35,50 @@ class MysqlSearchRepository implements SearchRepositoryInterface
         ];
 
         if ($searchAll || in_array('domain', $accountTypes, true)) {
-            $results['domains'] = $this->searchDomains($pdo, $likeQuery, $statusFilter, $domainFilter, $domainParams);
+            $results['domains'] = $this->searchTable($pdo, 'domain', 'domain, description, active', ['domain', 'description'], $likeQuery, $statusFilter, $domainFilter, $domainParams);
         }
 
         if ($searchAll || in_array('user', $accountTypes, true)) {
-            $results['users'] = $this->searchUsers($pdo, $likeQuery, $statusFilter, $domainFilter, $domainParams);
+            $results['users'] = $this->searchTable($pdo, 'mailbox', 'username, name, domain, active', ['username', 'name'], $likeQuery, $statusFilter, $domainFilter, $domainParams);
         }
 
         if ($searchAll || in_array('alias', $accountTypes, true)) {
-            $results['aliases'] = $this->searchAliases($pdo, $likeQuery, $statusFilter, $domainFilter, $domainParams);
+            $results['aliases'] = $this->searchTable($pdo, 'alias', 'address, name, domain, active', ['address', 'name'], $likeQuery, $statusFilter, $domainFilter, $domainParams);
         }
 
         if ($searchAll || in_array('ml', $accountTypes, true)) {
-            $results['mailingLists'] = $this->searchMailingLists($pdo, $likeQuery, $statusFilter, $domainFilter, $domainParams);
+            $results['mailingLists'] = $this->searchTable($pdo, 'maillists', 'address, name, domain, active', ['address', 'name'], $likeQuery, $statusFilter, $domainFilter, $domainParams);
         }
 
-        if ($searchAll || in_array('admin', $accountTypes, true)) {
-            if (empty($managedDomains)) {
-                $results['admins'] = $this->searchAdmins($pdo, $likeQuery, $statusFilter);
-            }
+        if (($searchAll || in_array('admin', $accountTypes, true)) && empty($managedDomains)) {
+            $results['admins'] = $this->searchTable($pdo, 'admin', 'username, name, active', ['username', 'name'], $likeQuery, $statusFilter, '', []);
         }
 
         return $results;
     }
 
-    private function searchDomains(\PDO $pdo, string $like, array $statusFilter, string $domainFilter, array $domainParams): array
+    /**
+     * Searches one table. Each search column gets its own placeholder, because
+     * native prepared statements do not accept a repeated named parameter.
+     */
+    private function searchTable(\PDO $pdo, string $table, string $columns, array $searchCols, string $like, array $statusFilter, string $domainFilter, array $domainParams): array
     {
-        $where = "(domain LIKE :q OR description LIKE :q)";
-        $params = array_merge(['q' => $like], $domainParams);
-
-        if (!empty($domainFilter)) {
-            $where .= str_replace('domain', 'domain', $domainFilter);
+        $conditions = [];
+        $params = $domainParams;
+        foreach ($searchCols as $i => $col) {
+            $conditions[] = "{$col} LIKE :q{$i}";
+            $params["q{$i}"] = $like;
         }
-
-        $where .= $this->statusClause($statusFilter);
-
-        $stmt = $pdo->prepare("SELECT domain, description, active FROM domain WHERE {$where} ORDER BY domain LIMIT 50");
-        $stmt->execute($params);
-        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
-    }
-
-    private function searchUsers(\PDO $pdo, string $like, array $statusFilter, string $domainFilter, array $domainParams): array
-    {
-        $where = "(username LIKE :q OR name LIKE :q)";
-        $params = array_merge(['q' => $like], $domainParams);
-
-        if (!empty($domainFilter)) {
-            $where .= $domainFilter;
-        }
-
-        $where .= $this->statusClause($statusFilter);
-
-        $stmt = $pdo->prepare("SELECT username, name, domain, active FROM mailbox WHERE {$where} ORDER BY username LIMIT 50");
-        $stmt->execute($params);
-        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
-    }
-
-    private function searchAliases(\PDO $pdo, string $like, array $statusFilter, string $domainFilter, array $domainParams): array
-    {
-        $where = "(address LIKE :q OR name LIKE :q) AND islist = 1";
-        $params = array_merge(['q' => $like], $domainParams);
-
-        if (!empty($domainFilter)) {
-            $where .= $domainFilter;
-        }
-
-        $where .= $this->statusClause($statusFilter);
-
-        $stmt = $pdo->prepare("SELECT address, name, domain, active FROM alias WHERE {$where} ORDER BY address LIMIT 50");
-        $stmt->execute($params);
-        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
-    }
-
-    private function searchMailingLists(\PDO $pdo, string $like, array $statusFilter, string $domainFilter, array $domainParams): array
-    {
-        $where = "(address LIKE :q OR name LIKE :q)";
-        $params = array_merge(['q' => $like], $domainParams);
-
-        if (!empty($domainFilter)) {
-            $where .= $domainFilter;
-        }
-
-        $where .= $this->statusClause($statusFilter);
-
-        $stmt = $pdo->prepare("SELECT address, name, domain, active FROM maillists WHERE {$where} ORDER BY address LIMIT 50");
-        $stmt->execute($params);
-        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
-    }
-
-    private function searchAdmins(\PDO $pdo, string $like, array $statusFilter): array
-    {
-        $where = "(username LIKE :q OR name LIKE :q)";
-        $params = ['q' => $like];
-
-        $where .= $this->statusClause($statusFilter);
-
-        $stmt = $pdo->prepare("SELECT username, name, active FROM admin WHERE {$where} ORDER BY username LIMIT 50");
-        $stmt->execute($params);
-        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
-    }
-
-    private function statusClause(array $statusFilter): string
-    {
-        if (empty($statusFilter)) {
-            return '';
-        }
+        $where = '(' . implode(' OR ', $conditions) . ')' . $domainFilter;
 
         if (in_array('active', $statusFilter, true) && !in_array('disabled', $statusFilter, true)) {
-            return ' AND active = 1';
+            $where .= ' AND active = 1';
+        } elseif (in_array('disabled', $statusFilter, true) && !in_array('active', $statusFilter, true)) {
+            $where .= ' AND active = 0';
         }
 
-        if (in_array('disabled', $statusFilter, true) && !in_array('active', $statusFilter, true)) {
-            return ' AND active = 0';
-        }
-
-        return '';
+        $stmt = $pdo->prepare("SELECT {$columns} FROM {$table} WHERE {$where} ORDER BY {$searchCols[0]} LIMIT 50");
+        $stmt->execute($params);
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 }

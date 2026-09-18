@@ -35,46 +35,41 @@ class PgsqlSearchRepository implements SearchRepositoryInterface
         ];
 
         if ($searchAll || in_array('domain', $accountTypes, true)) {
-            $results['domains'] = $this->searchTable($pdo, 'domain', 'domain', ['domain', 'description'], $likeQuery, $statusFilter, $domainFilter, $domainParams);
+            $results['domains'] = $this->searchTable($pdo, 'domain', 'domain, description, active', ['domain', 'description'], $likeQuery, $statusFilter, $domainFilter, $domainParams);
         }
 
         if ($searchAll || in_array('user', $accountTypes, true)) {
-            $results['users'] = $this->searchTable($pdo, 'mailbox', 'username', ['username', 'name'], $likeQuery, $statusFilter, $domainFilter, $domainParams);
+            $results['users'] = $this->searchTable($pdo, 'mailbox', 'username, name, domain, active', ['username', 'name'], $likeQuery, $statusFilter, $domainFilter, $domainParams);
         }
 
         if ($searchAll || in_array('alias', $accountTypes, true)) {
-            $results['aliases'] = $this->searchTable($pdo, 'alias', 'address', ['address', 'name'], $likeQuery, $statusFilter, $domainFilter, $domainParams, 'AND islist = 1');
+            $results['aliases'] = $this->searchTable($pdo, 'alias', 'address, name, domain, active', ['address', 'name'], $likeQuery, $statusFilter, $domainFilter, $domainParams);
         }
 
         if ($searchAll || in_array('ml', $accountTypes, true)) {
-            $results['mailingLists'] = $this->searchTable($pdo, 'maillists', 'address', ['address', 'name'], $likeQuery, $statusFilter, $domainFilter, $domainParams);
+            $results['mailingLists'] = $this->searchTable($pdo, 'maillists', 'address, name, domain, active', ['address', 'name'], $likeQuery, $statusFilter, $domainFilter, $domainParams);
         }
 
-        if ($searchAll || in_array('admin', $accountTypes, true)) {
-            if (empty($managedDomains)) {
-                $results['admins'] = $this->searchTable($pdo, 'admin', 'username', ['username', 'name'], $likeQuery, $statusFilter, '', []);
-            }
+        if (($searchAll || in_array('admin', $accountTypes, true)) && empty($managedDomains)) {
+            $results['admins'] = $this->searchTable($pdo, 'admin', 'username, name, active', ['username', 'name'], $likeQuery, $statusFilter, '', []);
         }
 
         return $results;
     }
 
-    private function searchTable(\PDO $pdo, string $table, string $orderCol, array $searchCols, string $like, array $statusFilter, string $domainFilter, array $domainParams, string $extraWhere = ''): array
+    /**
+     * Searches one table. Each search column gets its own placeholder, because
+     * native prepared statements do not accept a repeated named parameter.
+     */
+    private function searchTable(\PDO $pdo, string $table, string $columns, array $searchCols, string $like, array $statusFilter, string $domainFilter, array $domainParams): array
     {
         $conditions = [];
-        foreach ($searchCols as $col) {
-            $conditions[] = "{$col} ILIKE :q";
+        $params = $domainParams;
+        foreach ($searchCols as $i => $col) {
+            $conditions[] = "{$col} ILIKE :q{$i}";
+            $params["q{$i}"] = $like;
         }
-        $where = '(' . implode(' OR ', $conditions) . ')';
-        $params = array_merge(['q' => $like], $domainParams);
-
-        if ($extraWhere !== '') {
-            $where .= ' ' . $extraWhere;
-        }
-
-        if (!empty($domainFilter)) {
-            $where .= $domainFilter;
-        }
+        $where = '(' . implode(' OR ', $conditions) . ')' . $domainFilter;
 
         if (in_array('active', $statusFilter, true) && !in_array('disabled', $statusFilter, true)) {
             $where .= ' AND active = 1';
@@ -82,7 +77,7 @@ class PgsqlSearchRepository implements SearchRepositoryInterface
             $where .= ' AND active = 0';
         }
 
-        $stmt = $pdo->prepare("SELECT * FROM {$table} WHERE {$where} ORDER BY {$orderCol} LIMIT 50");
+        $stmt = $pdo->prepare("SELECT {$columns} FROM {$table} WHERE {$where} ORDER BY {$searchCols[0]} LIMIT 50");
         $stmt->execute($params);
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }

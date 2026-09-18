@@ -19,15 +19,16 @@ class MailingListService
         $client = MlmmjadminClient::fromSettings();
         $repo = self::repo();
 
+        $owners = self::owners($address, []);
         $repo->createMailingList($address, $domain, $name, $accessPolicy, $maxMsgSize);
         try {
-            $client->createList($address, MlmmjadminClient::listParams(
-                $name, $accessPolicy, $maxMsgSize, self::owners($address, [])
-            ));
+            $client->createList($address, MlmmjadminClient::listParams($name, $accessPolicy, $maxMsgSize, $owners));
         } catch (\Throwable $e) {
             $repo->deleteMailingList($address);
             throw $e;
         }
+        // Record the default owner, so the owner list matches mlmmj.
+        $repo->setOwners($address, $owners);
     }
 
     /**

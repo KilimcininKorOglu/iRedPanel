@@ -42,11 +42,15 @@ class AdminApiController
         ApiMiddleware::requireGlobalKey();
         ApiMiddleware::requireWriteAccess();
         $data = ApiMiddleware::getJsonBody();
-        $email = $data['email'] ?? '';
-        $password = $data['password'] ?? '';
+        $email = strtolower(trim((string) ($data['email'] ?? '')));
+        $password = (string) ($data['password'] ?? '');
 
         if ($email === '' || $password === '') {
             ApiResponse::error('email and password are required');
+            return;
+        }
+        if (filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
+            ApiResponse::error('email is not a valid email address');
             return;
         }
 
@@ -63,7 +67,13 @@ class AdminApiController
         }
 
         $passwordHash = PasswordUtils::generatePasswordHash($password);
-        $repo->createAdmin($email, $passwordHash, $data['name'] ?? '', $data['isGlobalAdmin'] ?? false);
+        $admin = new Admin(
+            username: $email,
+            name: trim((string) ($data['name'] ?? '')),
+            active: (bool) ($data['active'] ?? true),
+            isGlobalAdmin: (bool) ($data['isGlobalAdmin'] ?? false),
+        );
+        $repo->createAdmin($admin, $passwordHash);
         ApiResponse::created(['email' => $email]);
     }
 

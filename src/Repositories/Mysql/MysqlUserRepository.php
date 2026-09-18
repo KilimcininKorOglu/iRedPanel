@@ -185,12 +185,12 @@ class MysqlUserRepository implements UserRepositoryInterface
                 (username, password, name, first_name, last_name,
                  quota, employeeid, rank, mobile, telephone,
                  domain, active, isglobaladmin, storagebasedirectory,
-                 storagenode, maildir, local_part)
+                 storagenode, maildir)
              VALUES
                 (:username, :password, :cn, :givenName, :sn,
                  :quota, :employeeNumber, :title, :mobile, :telephoneNumber,
                  :domain, :active, :isGlobalAdmin, :storageBase,
-                 :storageNode, :maildir, :localPart)"
+                 :storageNode, :maildir)"
         );
         $stmt->execute([
             'username' => $username,
@@ -209,7 +209,6 @@ class MysqlUserRepository implements UserRepositoryInterface
             'storageBase' => $settings->vmailPath,
             'storageNode' => $settings->storageNode,
             'maildir' => "{$domain}/{$user->uid}/",
-            'localPart' => $user->uid,
         ]);
 
             $pdo->commit();

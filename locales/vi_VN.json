@@ -80,7 +80,8 @@
     "apply_bulk_confirm": "Áp dụng hành động hàng loạt?",
     "msg_bulk_done": "Đã áp dụng thao tác cho :count mục.",
     "msg_bulk_failed": "Thao tác thất bại với: :items",
-    "msg_item_not_found": "không tìm thấy"
+    "msg_item_not_found": "không tìm thấy",
+    "msg_invalid_address": "Địa chỉ không hợp lệ: :address"
   },
   "auth": {
     "title": "Xác thực",

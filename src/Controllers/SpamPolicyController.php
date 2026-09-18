@@ -12,6 +12,7 @@ use App\Models\SpamPolicy;
 use App\Repositories\RepositoryFactory;
 use App\Services\ActivityLogger;
 use App\TemplateEngine;
+use App\Utils\AmavisdAddress;
 
 class SpamPolicyController
 {
@@ -45,6 +46,9 @@ class SpamPolicyController
                     ActivityLogger::log('delete', '', '', "Deleted spam policy for {$account}");
                     $success = Translator::translate('spampolicy.msg_deleted');
                 } else {
+                    if (!AmavisdAddress::isValidAccount($account)) {
+                        throw new \RuntimeException(Translator::translate('common.msg_invalid_address', ['address' => $account]));
+                    }
                     $policy = SpamPolicy::fromFormData($_POST);
                     $repo->createOrUpdatePolicy($account, $policy);
                     ActivityLogger::logUpdate('', $account, "Spam policy updated for {$account}");

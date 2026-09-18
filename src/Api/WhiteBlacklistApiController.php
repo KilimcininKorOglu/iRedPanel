@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Api;
 
 use App\Repositories\RepositoryFactory;
+use App\Utils\AmavisdAddress;
 
 class WhiteBlacklistApiController
 {
@@ -29,8 +30,9 @@ class WhiteBlacklistApiController
         $wb = $data['wb'] ?? 'W';
         $direction = $data['direction'] ?? 'inbound';
 
-        if ($sender === '') {
-            ApiResponse::error('sender is required');
+        $invalid = self::invalidField($account, $sender, $wb);
+        if ($invalid !== null) {
+            ApiResponse::error("Invalid {$invalid}");
             return;
         }
 
@@ -65,5 +67,18 @@ class WhiteBlacklistApiController
         }
 
         ApiResponse::deleted();
+    }
+
+    /**
+     * Returns the name of the first field that Amavisd cannot use, or null.
+     */
+    private static function invalidField(string $account, mixed $sender, mixed $wb): ?string
+    {
+        return match (true) {
+            !AmavisdAddress::isValidAccount($account) => 'account',
+            !is_string($sender) || !AmavisdAddress::isValidWblistAddress($sender) => 'sender',
+            !in_array($wb, ['W', 'B'], true) => 'wb (use W or B)',
+            default => null,
+        };
     }
 }

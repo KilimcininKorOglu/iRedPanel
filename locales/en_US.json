@@ -80,7 +80,8 @@
     "apply_bulk_confirm": "Apply bulk action?",
     "msg_bulk_done": "The action was applied to :count item(s).",
     "msg_bulk_failed": "The action failed for: :items",
-    "msg_item_not_found": "not found"
+    "msg_item_not_found": "not found",
+    "msg_invalid_address": "Invalid address: :address"
   },
   "auth": {
     "title": "Authentication",

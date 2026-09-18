@@ -80,7 +80,8 @@
     "apply_bulk_confirm": "Suoritetaanko massatoiminto?",
     "msg_bulk_done": "Toiminto kohdistettiin :count kohteeseen.",
     "msg_bulk_failed": "Toiminto epäonnistui kohteille: :items",
-    "msg_item_not_found": "ei löytynyt"
+    "msg_item_not_found": "ei löytynyt",
+    "msg_invalid_address": "Virheellinen osoite: :address"
   },
   "auth": {
     "title": "Todennus",

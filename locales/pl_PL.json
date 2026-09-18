@@ -80,7 +80,8 @@
     "apply_bulk_confirm": "Zastosować akcję zbiorczą?",
     "msg_bulk_done": "Akcję zastosowano do :count element(ów).",
     "msg_bulk_failed": "Akcja nie powiodła się dla: :items",
-    "msg_item_not_found": "nie znaleziono"
+    "msg_item_not_found": "nie znaleziono",
+    "msg_invalid_address": "Nieprawidłowy adres: :address"
   },
   "auth": {
     "title": "Uwierzytelnianie",

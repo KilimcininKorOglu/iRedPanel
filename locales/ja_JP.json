@@ -80,7 +80,8 @@
     "apply_bulk_confirm": "一括操作を適用しますか？",
     "msg_bulk_done": ":count 件に操作を適用しました。",
     "msg_bulk_failed": "次の項目で操作に失敗しました: :items",
-    "msg_item_not_found": "見つかりません"
+    "msg_item_not_found": "見つかりません",
+    "msg_invalid_address": "無効なアドレス: :address"
   },
   "auth": {
     "title": "認証",

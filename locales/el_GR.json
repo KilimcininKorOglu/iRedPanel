@@ -80,7 +80,8 @@
     "apply_bulk_confirm": "Εφαρμογή μαζικής ενέργειας;",
     "msg_bulk_done": "Η ενέργεια εφαρμόστηκε σε :count στοιχεία.",
     "msg_bulk_failed": "Η ενέργεια απέτυχε για: :items",
-    "msg_item_not_found": "δεν βρέθηκε"
+    "msg_item_not_found": "δεν βρέθηκε",
+    "msg_invalid_address": "Μη έγκυρη διεύθυνση: :address"
   },
   "auth": {
     "title": "Έλεγχος ταυτότητας",

@@ -80,7 +80,8 @@
     "apply_bulk_confirm": "要套用批次操作嗎？",
     "msg_bulk_done": "操作已套用至 :count 個項目。",
     "msg_bulk_failed": "以下項目操作失敗: :items",
-    "msg_item_not_found": "找不到"
+    "msg_item_not_found": "找不到",
+    "msg_invalid_address": "無效的位址: :address"
   },
   "auth": {
     "title": "驗證",

@@ -80,7 +80,8 @@
     "apply_bulk_confirm": "Застосувати масову дію?",
     "msg_bulk_done": "Дію застосовано до елементів: :count.",
     "msg_bulk_failed": "Дію не виконано для: :items",
-    "msg_item_not_found": "не знайдено"
+    "msg_item_not_found": "не знайдено",
+    "msg_invalid_address": "Недійсна адреса: :address"
   },
   "auth": {
     "title": "Автентифікація",

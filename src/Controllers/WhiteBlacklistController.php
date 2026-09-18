@@ -11,6 +11,7 @@ use App\Models\Settings;
 use App\Repositories\RepositoryFactory;
 use App\Services\ActivityLogger;
 use App\TemplateEngine;
+use App\Utils\AmavisdAddress;
 
 class WhiteBlacklistController
 {
@@ -36,12 +37,9 @@ class WhiteBlacklistController
                 $direction = $_POST['direction'] ?? 'inbound';
 
                 if ($action === 'add') {
-                    $sender = trim($_POST['sender'] ?? '');
-                    $wb = $_POST['wb'] ?? 'W';
-
-                    if ($sender === '') {
-                        throw new \RuntimeException('Email address is required');
-                    }
+                    $sender = trim((string) ($_POST['sender'] ?? ''));
+                    $wb = ($_POST['wb'] ?? 'W') === 'B' ? 'B' : 'W';
+                    self::assertValidEntry($account, $sender);
 
                     if ($direction === 'outbound') {
                         $repo->addOutboundEntry($account, $sender, $wb);
@@ -76,6 +74,19 @@ class WhiteBlacklistController
             'success' => $success,
             'error' => $error,
         ]);
+    }
+
+    /**
+     * Rejects addresses that Amavisd and iRedAPD cannot match, as iRedAdmin does.
+     */
+    private static function assertValidEntry(string $account, string $sender): void
+    {
+        if (!AmavisdAddress::isValidAccount($account)) {
+            throw new \RuntimeException(Translator::translate('common.msg_invalid_address', ['address' => $account]));
+        }
+        if (!AmavisdAddress::isValidWblistAddress($sender)) {
+            throw new \RuntimeException(Translator::translate('common.msg_invalid_address', ['address' => $sender]));
+        }
     }
 
     private static function requireEnabled(): void

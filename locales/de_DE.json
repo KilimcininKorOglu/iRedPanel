@@ -80,7 +80,8 @@
     "apply_bulk_confirm": "Sammelaktion anwenden?",
     "msg_bulk_done": "Die Aktion wurde auf :count Element(e) angewendet.",
     "msg_bulk_failed": "Die Aktion ist fehlgeschlagen für: :items",
-    "msg_item_not_found": "nicht gefunden"
+    "msg_item_not_found": "nicht gefunden",
+    "msg_invalid_address": "Ungültige Adresse: :address"
   },
   "auth": {
     "title": "Authentifizierung",

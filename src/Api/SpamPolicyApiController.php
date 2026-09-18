@@ -6,6 +6,7 @@ namespace App\Api;
 
 use App\Models\SpamPolicy;
 use App\Repositories\RepositoryFactory;
+use App\Utils\AmavisdAddress;
 
 class SpamPolicyApiController
 {
@@ -25,6 +26,10 @@ class SpamPolicyApiController
         ApiMiddleware::requireGlobalKey();
         ApiMiddleware::requireWriteAccess();
         $data = ApiMiddleware::getJsonBody();
+        if (!AmavisdAddress::isValidAccount($account)) {
+            ApiResponse::error('Invalid account');
+            return;
+        }
         $policy = SpamPolicy::fromFormData($data);
         RepositoryFactory::getSpamPolicyRepository()->createOrUpdatePolicy($account, $policy);
         ApiResponse::success(['message' => 'Spam policy updated']);

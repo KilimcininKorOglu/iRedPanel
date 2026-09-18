@@ -80,7 +80,8 @@
     "apply_bulk_confirm": "Aplicar acció massiva?",
     "msg_bulk_done": "L'acció s'ha aplicat a :count element(s).",
     "msg_bulk_failed": "L'acció ha fallat per a: :items",
-    "msg_item_not_found": "no trobat"
+    "msg_item_not_found": "no trobat",
+    "msg_invalid_address": "Adreça no vàlida: :address"
   },
   "auth": {
     "title": "Autenticació",

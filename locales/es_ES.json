@@ -80,7 +80,8 @@
     "apply_bulk_confirm": "¿Aplicar acción en lote?",
     "msg_bulk_done": "La acción se aplicó a :count elemento(s).",
     "msg_bulk_failed": "La acción falló para: :items",
-    "msg_item_not_found": "no encontrado"
+    "msg_item_not_found": "no encontrado",
+    "msg_invalid_address": "Dirección no válida: :address"
   },
   "auth": {
     "title": "Autenticación",

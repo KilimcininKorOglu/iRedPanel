@@ -80,7 +80,8 @@
     "apply_bulk_confirm": "ใช้การกระทำหลายรายการหรือไม่?",
     "msg_bulk_done": "ดำเนินการกับ :count รายการแล้ว",
     "msg_bulk_failed": "การดำเนินการล้มเหลวสำหรับ: :items",
-    "msg_item_not_found": "ไม่พบ"
+    "msg_item_not_found": "ไม่พบ",
+    "msg_invalid_address": "ที่อยู่ไม่ถูกต้อง: :address"
   },
   "auth": {
     "title": "การยืนยันตัวตน",

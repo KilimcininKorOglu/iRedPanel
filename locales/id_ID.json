@@ -80,7 +80,8 @@
     "apply_bulk_confirm": "Terapkan tindakan massal?",
     "msg_bulk_done": "Tindakan diterapkan pada :count item.",
     "msg_bulk_failed": "Tindakan gagal untuk: :items",
-    "msg_item_not_found": "tidak ditemukan"
+    "msg_item_not_found": "tidak ditemukan",
+    "msg_invalid_address": "Alamat tidak valid: :address"
   },
   "auth": {
     "title": "Autentikasi",

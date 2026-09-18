@@ -80,7 +80,8 @@
     "apply_bulk_confirm": "Toplu işlem uygulansın mı?",
     "msg_bulk_done": "İşlem :count öğeye uygulandı.",
     "msg_bulk_failed": "İşlem şunlar için başarısız oldu: :items",
-    "msg_item_not_found": "bulunamadı"
+    "msg_item_not_found": "bulunamadı",
+    "msg_invalid_address": "Geçersiz adres: :address"
   },
   "auth": {
     "title": "Kimlik Doğrulama",

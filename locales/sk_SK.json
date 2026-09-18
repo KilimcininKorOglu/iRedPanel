@@ -80,7 +80,8 @@
     "apply_bulk_confirm": "Vykonať hromadnú akciu?",
     "msg_bulk_done": "Akcia bola použitá na :count položiek.",
     "msg_bulk_failed": "Akcia zlyhala pre: :items",
-    "msg_item_not_found": "nenájdené"
+    "msg_item_not_found": "nenájdené",
+    "msg_invalid_address": "Neplatná adresa: :address"
   },
   "auth": {
     "title": "Overenie",

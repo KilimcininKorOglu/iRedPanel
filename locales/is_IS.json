@@ -80,7 +80,8 @@
     "apply_bulk_confirm": "Beita fjöldaaðgerð?",
     "msg_bulk_done": "Aðgerðinni var beitt á :count atriði.",
     "msg_bulk_failed": "Aðgerðin mistókst fyrir: :items",
-    "msg_item_not_found": "fannst ekki"
+    "msg_item_not_found": "fannst ekki",
+    "msg_invalid_address": "Ógilt vistfang: :address"
   },
   "auth": {
     "title": "Auðkenning",

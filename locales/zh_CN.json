@@ -80,7 +80,8 @@
     "apply_bulk_confirm": "应用批量操作？",
     "msg_bulk_done": "操作已应用于 :count 个项目。",
     "msg_bulk_failed": "以下项目操作失败: :items",
-    "msg_item_not_found": "未找到"
+    "msg_item_not_found": "未找到",
+    "msg_invalid_address": "无效的地址: :address"
   },
   "auth": {
     "title": "身份验证",

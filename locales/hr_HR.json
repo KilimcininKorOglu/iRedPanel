@@ -80,7 +80,8 @@
     "apply_bulk_confirm": "Izvršiti skupnu radnju?",
     "msg_bulk_done": "Radnja je primijenjena na :count stavki.",
     "msg_bulk_failed": "Radnja nije uspjela za: :items",
-    "msg_item_not_found": "nije pronađeno"
+    "msg_item_not_found": "nije pronađeno",
+    "msg_invalid_address": "Nevažeća adresa: :address"
   },
   "auth": {
     "title": "Autentifikacija",

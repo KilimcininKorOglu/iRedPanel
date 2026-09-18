@@ -80,7 +80,8 @@
     "apply_bulk_confirm": "Anvend massehandling?",
     "msg_bulk_done": "Handlingen blev udført på :count element(er).",
     "msg_bulk_failed": "Handlingen mislykkedes for: :items",
-    "msg_item_not_found": "ikke fundet"
+    "msg_item_not_found": "ikke fundet",
+    "msg_invalid_address": "Ugyldig adresse: :address"
   },
   "auth": {
     "title": "Godkendelse",

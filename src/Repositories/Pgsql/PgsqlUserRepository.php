@@ -67,57 +67,71 @@ class PgsqlUserRepository implements UserRepositoryInterface
     public function updateUser(string $domain, User $user): void
     {
         $pdo = PgsqlConnection::getInstance()->getPdo();
+        $username = "{$user->uid}@{$domain}";
+        $active = $user->accountStatus ? 1 : 0;
 
-        $stmt = $pdo->prepare(
-            "UPDATE mailbox SET
-                name = :cn,
-                first_name = :givenName,
-                last_name = :sn,
-                quota = :quota,
-                employeeid = :employeeNumber,
-                rank = :title,
-                mobile = :mobile,
-                telephone = :telephoneNumber,
-                active = :active,
-                isglobaladmin = :isGlobalAdmin,
-                enablesmtp = :enableSmtp,
-                enablesmtpsecured = :enableSmtpSecured,
-                enablepop3 = :enablePop3,
-                enablepop3secured = :enablePop3Secured,
-                enableimap = :enableImap,
-                enableimapsecured = :enableImapSecured,
-                enablemanagesieve = :enableManagesieve,
-                enablemanagesievesecured = :enableManagesieveSecured,
-                enablesogo = :enableSogo,
-                modified = NOW()
-             WHERE username = :username AND domain = :domain"
-        );
-        $stmt->execute([
-            'cn' => $user->cn,
-            'givenName' => $user->givenName,
-            'sn' => $user->sn,
-            'quota' => $user->mailQuota,
-            'employeeNumber' => $user->employeeNumber,
-            'title' => $user->title,
-            'mobile' => $user->mobile,
-            'telephoneNumber' => $user->telephoneNumber,
-            'active' => $user->accountStatus ? 1 : 0,
-            'isGlobalAdmin' => $user->domainGlobalAdmin ? 1 : 0,
-            'enableSmtp' => $user->enableSmtp ? 1 : 0,
-            'enableSmtpSecured' => $user->enableSmtpSecured ? 1 : 0,
-            'enablePop3' => $user->enablePop3 ? 1 : 0,
-            'enablePop3Secured' => $user->enablePop3Secured ? 1 : 0,
-            'enableImap' => $user->enableImap ? 1 : 0,
-            'enableImapSecured' => $user->enableImapSecured ? 1 : 0,
-            'enableManagesieve' => $user->enableManagesieve ? 1 : 0,
-            'enableManagesieveSecured' => $user->enableManagesieveSecured ? 1 : 0,
-            'enableSogo' => $user->enableSogo ? 1 : 0,
-            'username' => "{$user->uid}@{$domain}",
-            'domain' => $domain,
-        ]);
+        $pdo->beginTransaction();
+        try {
+            $stmt = $pdo->prepare(
+                "UPDATE mailbox SET
+                    name = :cn,
+                    first_name = :givenName,
+                    last_name = :sn,
+                    quota = :quota,
+                    employeeid = :employeeNumber,
+                    rank = :title,
+                    mobile = :mobile,
+                    telephone = :telephoneNumber,
+                    active = :active,
+                    isglobaladmin = :isGlobalAdmin,
+                    enablesmtp = :enableSmtp,
+                    enablesmtpsecured = :enableSmtpSecured,
+                    enablepop3 = :enablePop3,
+                    enablepop3secured = :enablePop3Secured,
+                    enableimap = :enableImap,
+                    enableimapsecured = :enableImapSecured,
+                    enablemanagesieve = :enableManagesieve,
+                    enablemanagesievesecured = :enableManagesieveSecured,
+                    enablesogo = :enableSogo,
+                    modified = NOW()
+                 WHERE username = :username AND domain = :domain"
+            );
+            $stmt->execute([
+                'cn' => $user->cn,
+                'givenName' => $user->givenName,
+                'sn' => $user->sn,
+                'quota' => $user->mailQuota,
+                'employeeNumber' => $user->employeeNumber,
+                'title' => $user->title,
+                'mobile' => $user->mobile,
+                'telephoneNumber' => $user->telephoneNumber,
+                'active' => $active,
+                'isGlobalAdmin' => $user->domainGlobalAdmin ? 1 : 0,
+                'enableSmtp' => $user->enableSmtp ? 1 : 0,
+                'enableSmtpSecured' => $user->enableSmtpSecured ? 1 : 0,
+                'enablePop3' => $user->enablePop3 ? 1 : 0,
+                'enablePop3Secured' => $user->enablePop3Secured ? 1 : 0,
+                'enableImap' => $user->enableImap ? 1 : 0,
+                'enableImapSecured' => $user->enableImapSecured ? 1 : 0,
+                'enableManagesieve' => $user->enableManagesieve ? 1 : 0,
+                'enableManagesieveSecured' => $user->enableManagesieveSecured ? 1 : 0,
+                'enableSogo' => $user->enableSogo ? 1 : 0,
+                'username' => $username,
+                'domain' => $domain,
+            ]);
 
-        if ($stmt->rowCount() === 0) {
-            throw new \RuntimeException("User '{$user->uid}@{$domain}' not found or no changes applied");
+            if ($stmt->rowCount() === 0) {
+                throw new \RuntimeException("User '{$username}' not found or no changes applied");
+            }
+
+            // Postfix reads forwardings.active, so the forwardings of a disabled mailbox must stop too.
+            $pdo->prepare("UPDATE forwardings SET active = :active WHERE address = :username")
+                ->execute(['active' => $active, 'username' => $username]);
+
+            $pdo->commit();
+        } catch (\Throwable $e) {
+            $pdo->rollBack();
+            throw $e;
         }
     }
 

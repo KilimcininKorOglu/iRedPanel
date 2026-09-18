@@ -14,7 +14,7 @@ class MysqlForwardingRepository implements ForwardingRepositoryInterface
 
         $stmt = $pdo->prepare(
             "SELECT forwarding FROM forwardings
-             WHERE address = :address AND forwarding != :self AND is_forwarding = 1 AND active = 1
+             WHERE address = :address AND forwarding != :self AND is_forwarding = 1
              ORDER BY forwarding"
         );
         $stmt->execute(['address' => $email, 'self' => $email]);
@@ -37,11 +37,12 @@ class MysqlForwardingRepository implements ForwardingRepositoryInterface
         );
         $stmt->execute(['address' => $email, 'self' => $email]);
 
-        // Insert new forwardings
+        // Insert new forwardings with the status of the mailbox, so a disabled mailbox does not forward mail
         if (!empty($forwardingAddresses)) {
             $stmt = $pdo->prepare(
                 "INSERT INTO forwardings (address, forwarding, domain, dest_domain, is_forwarding, active)
-                 VALUES (:address, :forwarding, :domain, :destDomain, 1, 1)"
+                 VALUES (:address, :forwarding, :domain, :destDomain, 1,
+                         (SELECT active FROM mailbox WHERE username = :owner))"
             );
             foreach ($forwardingAddresses as $forward) {
                 $forward = trim($forward);
@@ -54,6 +55,7 @@ class MysqlForwardingRepository implements ForwardingRepositoryInterface
                     'forwarding' => $forward,
                     'domain' => $domain,
                     'destDomain' => $destDomain,
+                    'owner' => $email,
                 ]);
             }
         }
@@ -65,7 +67,7 @@ class MysqlForwardingRepository implements ForwardingRepositoryInterface
 
         $stmt = $pdo->prepare(
             "SELECT 1 FROM forwardings
-             WHERE address = :address AND forwarding = :self AND is_forwarding = 1 AND active = 1
+             WHERE address = :address AND forwarding = :self AND is_forwarding = 1
              LIMIT 1"
         );
         $stmt->execute(['address' => $email, 'self' => $email]);
@@ -80,9 +82,10 @@ class MysqlForwardingRepository implements ForwardingRepositoryInterface
         if ($keepCopy) {
             $stmt = $pdo->prepare(
                 "INSERT IGNORE INTO forwardings (address, forwarding, domain, dest_domain, is_forwarding, active)
-                 VALUES (:address, :self, :domain, :domain2, 1, 1)"
+                 VALUES (:address, :self, :domain, :domain2, 1,
+                         (SELECT active FROM mailbox WHERE username = :owner))"
             );
-            $stmt->execute(['address' => $email, 'self' => $email, 'domain' => $domain, 'domain2' => $domain]);
+            $stmt->execute(['address' => $email, 'self' => $email, 'domain' => $domain, 'domain2' => $domain, 'owner' => $email]);
         } else {
             $stmt = $pdo->prepare(
                 "DELETE FROM forwardings WHERE address = :address AND forwarding = :self AND is_forwarding = 1"

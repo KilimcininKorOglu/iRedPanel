@@ -641,9 +641,13 @@
     "view_title": "Greylisting",
     "settings_title": "Greylisting-innstillinger",
     "status_heading": "Greylisting-status",
-    "enabled_for": "Greylisting aktivert for :account",
     "whitelist_heading": "Hvitlistede avsendere",
     "senders_label": "Avsendere (én per linje, f.eks. @example.com eller user@example.com)",
-    "save_whitelist": "Lagre hvitliste"
+    "save_whitelist": "Lagre hvitliste",
+    "state_for": "Greylisting for :account",
+    "state_inherit": "Bruk domenets eller den globale innstillingen",
+    "state_enabled": "Aktivert",
+    "state_disabled": "Deaktivert",
+    "msg_inherited": "Egen greylisting-innstilling fjernet. Domenets eller den globale innstillingen gjelder."
   }
 }

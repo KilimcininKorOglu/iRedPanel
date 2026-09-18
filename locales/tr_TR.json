@@ -641,9 +641,13 @@
     "view_title": "Gri Liste",
     "settings_title": "Gri Liste Ayarları",
     "status_heading": "Gri liste durumu",
-    "enabled_for": ":account için gri liste etkin",
     "whitelist_heading": "Beyaz listedeki göndericiler",
     "senders_label": "Göndericiler (her satıra bir tane, örn. @example.com veya user@example.com)",
-    "save_whitelist": "Beyaz listeyi kaydet"
+    "save_whitelist": "Beyaz listeyi kaydet",
+    "state_for": ":account için greylisting",
+    "state_inherit": "Domain veya global ayarı kullan",
+    "state_enabled": "Açık",
+    "state_disabled": "Kapalı",
+    "msg_inherited": "Hesabın kendi greylisting ayarı kaldırıldı. Domain veya global ayar geçerli."
   }
 }

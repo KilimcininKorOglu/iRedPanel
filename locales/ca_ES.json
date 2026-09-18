@@ -641,9 +641,13 @@
     "view_title": "Llista grisa",
     "settings_title": "Configuració de la llista grisa",
     "status_heading": "Estat de la llista grisa",
-    "enabled_for": "Llista grisa habilitada per a :account",
     "whitelist_heading": "Remitents a la llista blanca",
     "senders_label": "Remitents (un per línia, p. ex. @exemple.com o usuari@exemple.com)",
-    "save_whitelist": "Desar llista blanca"
+    "save_whitelist": "Desar llista blanca",
+    "state_for": "Greylisting per a :account",
+    "state_inherit": "Utilitza la configuració del domini o global",
+    "state_enabled": "Activat",
+    "state_disabled": "Desactivat",
+    "msg_inherited": "S'ha eliminat la configuració pròpia de greylisting. S'aplica la del domini o la global."
   }
 }

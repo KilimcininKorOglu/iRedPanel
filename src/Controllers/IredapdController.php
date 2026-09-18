@@ -88,12 +88,8 @@ class IredapdController
             try {
                 $action = $_POST['action'] ?? '';
 
-                if ($action === 'toggle') {
-                    $enabled = isset($_POST['enabled']);
-                    $repo->setGreylistEnabled($account, $enabled);
-                    $status = $enabled ? 'enabled' : 'disabled';
-                    ActivityLogger::logUpdate('', $account, "Greylisting {$status} for {$account}");
-                    $success = Translator::translate($enabled ? 'greylist.msg_enabled' : 'greylist.msg_disabled');
+                if ($action === 'state') {
+                    $success = self::applyGreylistState($account, (string) ($_POST['state'] ?? ''));
                 } elseif ($action === 'whitelist') {
                     $senders = IredapdList::greylistSenders(explode("\n", $_POST['whitelistedSenders'] ?? ''));
                     $repo->setWhitelistedSenders($account, $senders);
@@ -107,19 +103,12 @@ class IredapdController
             }
         }
 
-        $greylistSettings = $repo->getGreylistSettings($account);
         $whitelistedSenders = $repo->getWhitelistedSenders($account);
-        $greylistEnabled = false;
-        foreach ($greylistSettings as $setting) {
-            if (($setting['sender'] ?? '') === '@.' && ($setting['active'] ?? 0)) {
-                $greylistEnabled = true;
-                break;
-            }
-        }
 
         $tpl->render('greylistView.php', [
             'account' => $account,
-            'greylistEnabled' => $greylistEnabled,
+            'greylistState' => self::greylistState($account, $repo->getGreylistSettings($account)),
+            'canInherit' => $account !== '@.',
             'whitelistedSenders' => $whitelistedSenders,
             'success' => $success,
             'error' => $error,
@@ -212,6 +201,44 @@ class IredapdController
             'success' => $success,
             'error' => $error,
         ]);
+    }
+
+    /**
+     * The account's own greylisting state: 'enabled', 'disabled', or
+     * 'inherit' when iRedAPD applies the domain or global setting.
+     *
+     * @param array<int, array<string, mixed>> $settings rows of getGreylistSettings()
+     */
+    private static function greylistState(string $account, array $settings): string
+    {
+        foreach ($settings as $setting) {
+            if ($setting['sender'] === '@.') {
+                return $setting['active'] ? 'enabled' : 'disabled';
+            }
+        }
+        // Without any matching row iRedAPD does not greylist.
+        return $account === '@.' ? 'disabled' : 'inherit';
+    }
+
+    /**
+     * Stores the greylisting state of an account and returns the success
+     * message. 'inherit' removes the account's own row; the global '@.'
+     * account has nothing to inherit from.
+     */
+    private static function applyGreylistState(string $account, string $state): string
+    {
+        $repo = RepositoryFactory::getIredapdRepository();
+        if ($state === 'inherit' && $account !== '@.') {
+            $repo->removeGreylistSetting($account);
+            ActivityLogger::logUpdate('', $account, "Greylisting setting removed for {$account}");
+            return Translator::translate('greylist.msg_inherited');
+        }
+        if ($state !== 'enabled' && $state !== 'disabled') {
+            throw new \UnexpectedValueException("Invalid greylisting state: {$state}");
+        }
+        $repo->setGreylistEnabled($account, $state === 'enabled');
+        ActivityLogger::logUpdate('', $account, "Greylisting {$state} for {$account}");
+        return Translator::translate($state === 'enabled' ? 'greylist.msg_enabled' : 'greylist.msg_disabled');
     }
 
     /**

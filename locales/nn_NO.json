@@ -641,9 +641,13 @@
     "view_title": "Gråliste",
     "settings_title": "Grålisteinnstillingar",
     "status_heading": "Grålistestatus",
-    "enabled_for": "Gråliste aktivert for :account",
     "whitelist_heading": "Avsendarar på kvitliste",
     "senders_label": "Avsendarar (éin per linje, t.d. @example.com eller brukar@example.com)",
-    "save_whitelist": "Lagre kvitliste"
+    "save_whitelist": "Lagre kvitliste",
+    "state_for": "Greylisting for :account",
+    "state_inherit": "Bruk innstillinga til domenet eller den globale",
+    "state_enabled": "Aktivert",
+    "state_disabled": "Deaktivert",
+    "msg_inherited": "Eiga greylisting-innstilling fjerna. Innstillinga til domenet eller den globale gjeld."
   }
 }

@@ -641,9 +641,13 @@
     "view_title": "Greylisting",
     "settings_title": "Greylisting-Einstellungen",
     "status_heading": "Greylisting-Status",
-    "enabled_for": "Greylisting aktiviert für :account",
     "whitelist_heading": "Zugelassene Absender",
     "senders_label": "Absender (einer pro Zeile, z. B. @beispiel.de oder benutzer@beispiel.de)",
-    "save_whitelist": "Whitelist speichern"
+    "save_whitelist": "Whitelist speichern",
+    "state_for": "Greylisting für :account",
+    "state_inherit": "Domain- oder globale Einstellung verwenden",
+    "state_enabled": "Aktiviert",
+    "state_disabled": "Deaktiviert",
+    "msg_inherited": "Eigene Greylisting-Einstellung entfernt. Die Domain- oder globale Einstellung gilt."
   }
 }

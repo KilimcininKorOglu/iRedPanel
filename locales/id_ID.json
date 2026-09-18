@@ -641,9 +641,13 @@
     "view_title": "Daftar Abu-abu",
     "settings_title": "Pengaturan Daftar Abu-abu",
     "status_heading": "Status daftar abu-abu",
-    "enabled_for": "Daftar abu-abu diaktifkan untuk :account",
     "whitelist_heading": "Pengirim daftar putih",
     "senders_label": "Pengirim (satu per baris, mis. @example.com atau user@example.com)",
-    "save_whitelist": "Simpan daftar putih"
+    "save_whitelist": "Simpan daftar putih",
+    "state_for": "Greylisting untuk :account",
+    "state_inherit": "Gunakan pengaturan domain atau global",
+    "state_enabled": "Aktif",
+    "state_disabled": "Nonaktif",
+    "msg_inherited": "Pengaturan greylisting sendiri dihapus. Pengaturan domain atau global berlaku."
   }
 }

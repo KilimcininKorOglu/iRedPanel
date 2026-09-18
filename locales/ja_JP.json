@@ -641,9 +641,13 @@
     "view_title": "グレーリスト",
     "settings_title": "グレーリスト設定",
     "status_heading": "グレーリストステータス",
-    "enabled_for": ":account に対してグレーリストが有効です",
     "whitelist_heading": "ホワイトリスト送信者",
     "senders_label": "送信者（1 行に 1 つ、例：@example.com または user@example.com）",
-    "save_whitelist": "ホワイトリストを保存"
+    "save_whitelist": "ホワイトリストを保存",
+    "state_for": ":account の Greylisting",
+    "state_inherit": "ドメインまたはグローバル設定を使用",
+    "state_enabled": "有効",
+    "state_disabled": "無効",
+    "msg_inherited": "独自の Greylisting 設定を削除しました。ドメインまたはグローバル設定が適用されます。"
   }
 }

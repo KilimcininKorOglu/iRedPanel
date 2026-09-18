@@ -641,9 +641,13 @@
     "view_title": "Sivo uvrščanje",
     "settings_title": "Nastavitve sivega uvrščanja",
     "status_heading": "Stanje sivega uvrščanja",
-    "enabled_for": "Sivo uvrščanje omogočeno za :account",
     "whitelist_heading": "Pošiljatelji na belem seznamu",
     "senders_label": "Pošiljatelji (eden na vrstico, npr. @primer.com ali uporabnik@primer.com)",
-    "save_whitelist": "Shrani beli seznam"
+    "save_whitelist": "Shrani beli seznam",
+    "state_for": "Greylisting za :account",
+    "state_inherit": "Uporabi nastavitev domene ali globalno",
+    "state_enabled": "Vklopljeno",
+    "state_disabled": "Izklopljeno",
+    "msg_inherited": "Lastna nastavitev greylistinga odstranjena. Velja nastavitev domene ali globalna."
   }
 }

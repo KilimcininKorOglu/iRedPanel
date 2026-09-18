@@ -641,9 +641,13 @@
     "view_title": "Greylisting",
     "settings_title": "Greylisting-asetukset",
     "status_heading": "Greylisting-tila",
-    "enabled_for": "Greylisting otettu käyttöön kohteelle :account",
     "whitelist_heading": "Sallitut lähettäjät",
     "senders_label": "Lähettäjät (yksi riviä kohden, esim. @example.com tai user@example.com)",
-    "save_whitelist": "Tallenna sallittujen lista"
+    "save_whitelist": "Tallenna sallittujen lista",
+    "state_for": "Greylisting: :account",
+    "state_inherit": "Käytä domainin tai yleistä asetusta",
+    "state_enabled": "Käytössä",
+    "state_disabled": "Pois käytöstä",
+    "msg_inherited": "Oma greylisting-asetus poistettu. Domainin tai yleinen asetus on voimassa."
   }
 }

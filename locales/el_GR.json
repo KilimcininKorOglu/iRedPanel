@@ -641,9 +641,13 @@
     "view_title": "Γκρι λίστα",
     "settings_title": "Ρυθμίσεις γκρι λίστας",
     "status_heading": "Κατάσταση γκρι λίστας",
-    "enabled_for": "Η γκρι λίστα ενεργοποιήθηκε για :account",
     "whitelist_heading": "Αποστολείς στη λευκή λίστα",
     "senders_label": "Αποστολείς (ένας ανά γραμμή, π.χ. @example.com ή user@example.com)",
-    "save_whitelist": "Αποθήκευση λευκής λίστας"
+    "save_whitelist": "Αποθήκευση λευκής λίστας",
+    "state_for": "Greylisting για :account",
+    "state_inherit": "Χρήση της ρύθμισης του domain ή της καθολικής",
+    "state_enabled": "Ενεργό",
+    "state_disabled": "Ανενεργό",
+    "msg_inherited": "Η δική του ρύθμιση greylisting αφαιρέθηκε. Ισχύει η ρύθμιση του domain ή η καθολική."
   }
 }

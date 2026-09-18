@@ -641,9 +641,13 @@
     "view_title": "Greylisting",
     "settings_title": "Подешавања greylisting-а",
     "status_heading": "Статус greylisting-а",
-    "enabled_for": "Greylisting омогућен за :account",
     "whitelist_heading": "Пошиљаоци на белој листи",
     "senders_label": "Пошиљаоци (један по реду, нпр. @example.com или user@example.com)",
-    "save_whitelist": "Сачувај белу листу"
+    "save_whitelist": "Сачувај белу листу",
+    "state_for": "Greylisting за :account",
+    "state_inherit": "Користи подешавање домена или глобално",
+    "state_enabled": "Укључено",
+    "state_disabled": "Искључено",
+    "msg_inherited": "Сопствено greylisting подешавање уклоњено. Важи подешавање домена или глобално."
   }
 }

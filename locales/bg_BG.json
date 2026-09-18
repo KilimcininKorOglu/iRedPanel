@@ -641,9 +641,13 @@
     "view_title": "Greylisting",
     "settings_title": "Настройки за greylisting",
     "status_heading": "Състояние на greylisting",
-    "enabled_for": "Greylisting е активиран за :account",
     "whitelist_heading": "Податели в белия списък",
     "senders_label": "Податели (един на ред, напр. @example.com или user@example.com)",
-    "save_whitelist": "Запази белия списък"
+    "save_whitelist": "Запази белия списък",
+    "state_for": "Greylisting за :account",
+    "state_inherit": "Използвай настройката на домейна или глобалната",
+    "state_enabled": "Включено",
+    "state_disabled": "Изключено",
+    "msg_inherited": "Собствената greylisting настройка е премахната. Важи настройката на домейна или глобалната."
   }
 }

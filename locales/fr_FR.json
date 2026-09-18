@@ -641,9 +641,13 @@
     "view_title": "Greylisting",
     "settings_title": "Paramètres du greylisting",
     "status_heading": "Statut du greylisting",
-    "enabled_for": "Greylisting activé pour :account",
     "whitelist_heading": "Expéditeurs en liste blanche",
     "senders_label": "Expéditeurs (un par ligne, p. ex. @exemple.com ou utilisateur@exemple.com)",
-    "save_whitelist": "Enregistrer la liste blanche"
+    "save_whitelist": "Enregistrer la liste blanche",
+    "state_for": "Greylisting pour :account",
+    "state_inherit": "Utiliser le réglage du domaine ou global",
+    "state_enabled": "Activé",
+    "state_disabled": "Désactivé",
+    "msg_inherited": "Réglage de greylisting propre supprimé. Le réglage du domaine ou global s'applique."
   }
 }

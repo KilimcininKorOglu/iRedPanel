@@ -20,12 +20,16 @@
   <h3><?= $te('greylist.status_heading') ?></h3>
   <form method="post">
     <?= $csrfField ?>
-    <input type="hidden" name="action" value="toggle" />
+    <input type="hidden" name="action" value="state" />
     <p>
-      <label>
-        <input type="checkbox" name="enabled" <?php if ($greylistEnabled): ?>checked<?php endif; ?> />
-        <?= $te('greylist.enabled_for', ['account' => $account]) ?>
-      </label>
+      <label for="greylistState"><?= $te('greylist.state_for', ['account' => $account]) ?></label>
+      <select id="greylistState" name="state">
+        <?php if ($canInherit): ?>
+        <option value="inherit"<?= $greylistState === 'inherit' ? ' selected' : '' ?>><?= $te('greylist.state_inherit') ?></option>
+        <?php endif; ?>
+        <option value="enabled"<?= $greylistState === 'enabled' ? ' selected' : '' ?>><?= $te('greylist.state_enabled') ?></option>
+        <option value="disabled"<?= $greylistState === 'disabled' ? ' selected' : '' ?>><?= $te('greylist.state_disabled') ?></option>
+      </select>
     </p>
     <p>
       <button type="submit" class="button primary"><?= $te('common.save') ?></button>

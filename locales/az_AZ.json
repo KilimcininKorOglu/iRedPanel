@@ -641,9 +641,13 @@
     "view_title": "Boz siyahı",
     "settings_title": "Boz siyahı parametrləri",
     "status_heading": "Boz siyahı statusu",
-    "enabled_for": ":account üçün boz siyahı aktivdir",
     "whitelist_heading": "Ağ siyahıdakı göndərənlər",
     "senders_label": "Göndərənlər (hər sətirdə bir, məs. @example.com və ya user@example.com)",
-    "save_whitelist": "Ağ siyahını yadda saxla"
+    "save_whitelist": "Ağ siyahını yadda saxla",
+    "state_for": ":account üçün greylisting",
+    "state_inherit": "Domen və ya qlobal ayardan istifadə et",
+    "state_enabled": "Aktiv",
+    "state_disabled": "Deaktiv",
+    "msg_inherited": "Hesabın öz greylisting ayarı silindi. Domen və ya qlobal ayar tətbiq olunur."
   }
 }

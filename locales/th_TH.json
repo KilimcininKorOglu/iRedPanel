@@ -641,9 +641,13 @@
     "view_title": "Greylisting",
     "settings_title": "การตั้งค่า Greylisting",
     "status_heading": "สถานะ greylisting",
-    "enabled_for": "เปิดใช้งาน greylisting สำหรับ :account",
     "whitelist_heading": "ผู้ส่งในรายการขาว",
     "senders_label": "ผู้ส่ง (หนึ่งรายการต่อบรรทัด เช่น @example.com หรือ user@example.com)",
-    "save_whitelist": "บันทึกรายการขาว"
+    "save_whitelist": "บันทึกรายการขาว",
+    "state_for": "Greylisting สำหรับ :account",
+    "state_inherit": "ใช้ค่าของโดเมนหรือค่าส่วนกลาง",
+    "state_enabled": "เปิด",
+    "state_disabled": "ปิด",
+    "msg_inherited": "ลบการตั้งค่า greylisting ของบัญชีแล้ว ระบบใช้ค่าของโดเมนหรือค่าส่วนกลาง"
   }
 }

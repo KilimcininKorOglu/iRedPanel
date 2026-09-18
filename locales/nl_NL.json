@@ -641,9 +641,13 @@
     "view_title": "Greylisting",
     "settings_title": "Greylisting-instellingen",
     "status_heading": "Greylisting-status",
-    "enabled_for": "Greylisting ingeschakeld voor :account",
     "whitelist_heading": "Afzenders op witte lijst",
     "senders_label": "Afzenders (één per regel, bijv. @voorbeeld.com of gebruiker@voorbeeld.com)",
-    "save_whitelist": "Witte lijst opslaan"
+    "save_whitelist": "Witte lijst opslaan",
+    "state_for": "Greylisting voor :account",
+    "state_inherit": "Domein- of globale instelling gebruiken",
+    "state_enabled": "Ingeschakeld",
+    "state_disabled": "Uitgeschakeld",
+    "msg_inherited": "Eigen greylisting-instelling verwijderd. De domein- of globale instelling geldt."
   }
 }

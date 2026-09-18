@@ -10,6 +10,12 @@ interface IredapdRepositoryInterface
     public function setThrottleSettings(string $account, string $kind, int $period, int $maxMsgs, int $maxQuota, int $msgSize): void;
     public function getGreylistSettings(string $account): array;
     public function setGreylistEnabled(string $account, bool $enabled): void;
+
+    /**
+     * Removes the account's own greylisting setting, so iRedAPD applies the
+     * setting of the domain or the global '@.' account.
+     */
+    public function removeGreylistSetting(string $account): void;
     /** @return string[] */
     public function getWhitelistedSenders(string $account): array;
     /** @param string[] $senders */

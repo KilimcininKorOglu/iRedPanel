@@ -641,9 +641,13 @@
     "view_title": "Greylisting",
     "settings_title": "Postavke greylistinga",
     "status_heading": "Status greylistinga",
-    "enabled_for": "Greylisting omogućen za :account",
     "whitelist_heading": "Pošiljatelji na bijeloj listi",
     "senders_label": "Pošiljatelji (jedan po retku, npr. @example.com ili user@example.com)",
-    "save_whitelist": "Spremi bijelu listu"
+    "save_whitelist": "Spremi bijelu listu",
+    "state_for": "Greylisting za :account",
+    "state_inherit": "Koristi postavku domene ili globalnu",
+    "state_enabled": "Uključeno",
+    "state_disabled": "Isključeno",
+    "msg_inherited": "Vlastita postavka greylistinga uklonjena. Vrijedi postavka domene ili globalna."
   }
 }

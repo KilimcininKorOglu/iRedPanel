@@ -641,9 +641,13 @@
     "view_title": "Šedá listina",
     "settings_title": "Nastavení šedé listiny",
     "status_heading": "Stav šedé listiny",
-    "enabled_for": "Šedá listina povolena pro :account",
     "whitelist_heading": "Odesílatelé na bílé listině",
     "senders_label": "Odesílatelé (jeden na řádek, např. @example.com nebo user@example.com)",
-    "save_whitelist": "Uložit bílou listinu"
+    "save_whitelist": "Uložit bílou listinu",
+    "state_for": "Greylisting pro :account",
+    "state_inherit": "Použít nastavení domény nebo globální",
+    "state_enabled": "Zapnuto",
+    "state_disabled": "Vypnuto",
+    "msg_inherited": "Vlastní nastavení greylistingu odstraněno. Platí nastavení domény nebo globální."
   }
 }

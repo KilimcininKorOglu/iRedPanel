@@ -641,9 +641,13 @@
     "view_title": "Greylisting",
     "settings_title": "Nastavenia greylistingu",
     "status_heading": "Stav greylistingu",
-    "enabled_for": "Greylisting povolený pre :account",
     "whitelist_heading": "Odosielatelia na bielom zozname",
     "senders_label": "Odosielatelia (jeden na riadok, napr. @example.com alebo user@example.com)",
-    "save_whitelist": "Uložiť biely zoznam"
+    "save_whitelist": "Uložiť biely zoznam",
+    "state_for": "Greylisting pre :account",
+    "state_inherit": "Použiť nastavenie domény alebo globálne",
+    "state_enabled": "Zapnuté",
+    "state_disabled": "Vypnuté",
+    "msg_inherited": "Vlastné nastavenie greylistingu odstránené. Platí nastavenie domény alebo globálne."
   }
 }

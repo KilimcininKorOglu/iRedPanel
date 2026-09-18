@@ -641,9 +641,13 @@
     "view_title": "Сірий список",
     "settings_title": "Налаштування сірого списку",
     "status_heading": "Статус сірого списку",
-    "enabled_for": "Сірий список увімкнено для :account",
     "whitelist_heading": "Відправники у білому списку",
     "senders_label": "Відправники (один на рядок, напр. @example.com або user@example.com)",
-    "save_whitelist": "Зберегти білий список"
+    "save_whitelist": "Зберегти білий список",
+    "state_for": "Greylisting для :account",
+    "state_inherit": "Використовувати налаштування домену або глобальне",
+    "state_enabled": "Увімкнено",
+    "state_disabled": "Вимкнено",
+    "msg_inherited": "Власне налаштування greylisting видалено. Діє налаштування домену або глобальне."
   }
 }

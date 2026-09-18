@@ -641,9 +641,13 @@
     "view_title": "Greylisting",
     "settings_title": "Ajustes de greylisting",
     "status_heading": "Estado de greylisting",
-    "enabled_for": "Greylisting activado para :account",
     "whitelist_heading": "Remitentes en lista blanca",
     "senders_label": "Remitentes (uno por línea, p. ej. @ejemplo.com o usuario@ejemplo.com)",
-    "save_whitelist": "Guardar lista blanca"
+    "save_whitelist": "Guardar lista blanca",
+    "state_for": "Greylisting para :account",
+    "state_inherit": "Usar la configuración del dominio o global",
+    "state_enabled": "Activado",
+    "state_disabled": "Desactivado",
+    "msg_inherited": "Configuración propia de greylisting eliminada. Se aplica la del dominio o la global."
   }
 }

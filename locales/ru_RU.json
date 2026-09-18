@@ -641,9 +641,13 @@
     "view_title": "Серый список",
     "settings_title": "Настройки серого списка",
     "status_heading": "Статус серого списка",
-    "enabled_for": "Серый список включён для :account",
     "whitelist_heading": "Отправители в белом списке",
     "senders_label": "Отправители (по одному на строку, напр. @пример.com или пользователь@пример.com)",
-    "save_whitelist": "Сохранить белый список"
+    "save_whitelist": "Сохранить белый список",
+    "state_for": "Greylisting для :account",
+    "state_inherit": "Использовать настройку домена или глобальную",
+    "state_enabled": "Включено",
+    "state_disabled": "Выключено",
+    "msg_inherited": "Собственная настройка greylisting удалена. Действует настройка домена или глобальная."
   }
 }

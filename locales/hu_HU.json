@@ -641,9 +641,13 @@
     "view_title": "Greylisting",
     "settings_title": "Greylisting-beállítások",
     "status_heading": "Greylisting-állapot",
-    "enabled_for": "Greylisting engedélyezve a következőhöz: :account",
     "whitelist_heading": "Fehérlistázott feladók",
     "senders_label": "Feladók (soronként egy, pl. @example.com vagy user@example.com)",
-    "save_whitelist": "Fehérlista mentése"
+    "save_whitelist": "Fehérlista mentése",
+    "state_for": "Greylisting ehhez: :account",
+    "state_inherit": "A domain vagy a globális beállítás használata",
+    "state_enabled": "Bekapcsolva",
+    "state_disabled": "Kikapcsolva",
+    "msg_inherited": "A saját greylisting beállítás törölve. A domain vagy a globális beállítás érvényes."
   }
 }

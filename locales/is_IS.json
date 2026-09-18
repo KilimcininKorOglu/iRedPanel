@@ -641,9 +641,13 @@
     "view_title": "Grár listi",
     "settings_title": "Stillingar grás lista",
     "status_heading": "Staða grás lista",
-    "enabled_for": "Grár listi virkur fyrir :account",
     "whitelist_heading": "Sendendur á hvítum lista",
     "senders_label": "Sendendur (einn á línu, t.d. @example.com eða notandi@example.com)",
-    "save_whitelist": "Vista hvítan lista"
+    "save_whitelist": "Vista hvítan lista",
+    "state_for": "Greylisting fyrir :account",
+    "state_inherit": "Nota stillingu léns eða altæka stillingu",
+    "state_enabled": "Virkt",
+    "state_disabled": "Óvirkt",
+    "msg_inherited": "Eigin greylisting-stilling fjarlægð. Stilling léns eða altæk stilling gildir."
   }
 }

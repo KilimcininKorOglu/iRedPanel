@@ -641,9 +641,13 @@
     "view_title": "Greylisting",
     "settings_title": "Greylistingu seaded",
     "status_heading": "Greylistingu olek",
-    "enabled_for": "Greylisting lubatud kontole :account",
     "whitelist_heading": "Valges nimekirjas saatjad",
     "senders_label": "Saatjad (üks rea kohta, nt @example.com või user@example.com)",
-    "save_whitelist": "Salvesta valge nimekiri"
+    "save_whitelist": "Salvesta valge nimekiri",
+    "state_for": "Greylisting: :account",
+    "state_inherit": "Kasuta domeeni või globaalset sätet",
+    "state_enabled": "Sees",
+    "state_disabled": "Väljas",
+    "msg_inherited": "Oma greylisting säte eemaldatud. Kehtib domeeni või globaalne säte."
   }
 }

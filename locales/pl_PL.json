@@ -641,9 +641,13 @@
     "view_title": "Szara lista",
     "settings_title": "Ustawienia szarej listy",
     "status_heading": "Status szarej listy",
-    "enabled_for": "Szara lista włączona dla :account",
     "whitelist_heading": "Nadawcy na białej liście",
     "senders_label": "Nadawcy (jeden w wierszu, np. @example.com lub user@example.com)",
-    "save_whitelist": "Zapisz białą listę"
+    "save_whitelist": "Zapisz białą listę",
+    "state_for": "Greylisting dla :account",
+    "state_inherit": "Użyj ustawienia domeny lub globalnego",
+    "state_enabled": "Włączony",
+    "state_disabled": "Wyłączony",
+    "msg_inherited": "Usunięto własne ustawienie greylistingu. Obowiązuje ustawienie domeny lub globalne."
   }
 }

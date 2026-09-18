@@ -641,9 +641,13 @@
     "view_title": "Listă gri",
     "settings_title": "Setările listei gri",
     "status_heading": "Stare listă gri",
-    "enabled_for": "Lista gri activată pentru :account",
     "whitelist_heading": "Expeditori pe lista albă",
     "senders_label": "Expeditori (unul pe linie, de ex. @example.com sau user@example.com)",
-    "save_whitelist": "Salvează lista albă"
+    "save_whitelist": "Salvează lista albă",
+    "state_for": "Greylisting pentru :account",
+    "state_inherit": "Folosește setarea domeniului sau globală",
+    "state_enabled": "Activat",
+    "state_disabled": "Dezactivat",
+    "msg_inherited": "Setarea proprie de greylisting a fost eliminată. Se aplică setarea domeniului sau cea globală."
   }
 }

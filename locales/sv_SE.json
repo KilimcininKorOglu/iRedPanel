@@ -641,9 +641,13 @@
     "view_title": "Gråslista",
     "settings_title": "Gråslisteinställningar",
     "status_heading": "Gråslistestatus",
-    "enabled_for": "Gråslista aktiverad för :account",
     "whitelist_heading": "Vitlistade avsändare",
     "senders_label": "Avsändare (en per rad, t.ex. @example.com eller user@example.com)",
-    "save_whitelist": "Spara vitlista"
+    "save_whitelist": "Spara vitlista",
+    "state_for": "Greylisting för :account",
+    "state_inherit": "Använd domänens eller den globala inställningen",
+    "state_enabled": "Aktiverad",
+    "state_disabled": "Inaktiverad",
+    "msg_inherited": "Egen greylisting-inställning borttagen. Domänens eller den globala inställningen gäller."
   }
 }

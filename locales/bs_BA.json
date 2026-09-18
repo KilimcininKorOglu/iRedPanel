@@ -641,9 +641,13 @@
     "view_title": "Siva lista",
     "settings_title": "Postavke sive liste",
     "status_heading": "Status sive liste",
-    "enabled_for": "Siva lista omogućena za :account",
     "whitelist_heading": "Pošiljaoci na bijeloj listi",
     "senders_label": "Pošiljaoci (jedan po liniji, npr. @example.com ili korisnik@example.com)",
-    "save_whitelist": "Sačuvaj bijelu listu"
+    "save_whitelist": "Sačuvaj bijelu listu",
+    "state_for": "Greylisting za :account",
+    "state_inherit": "Koristi postavku domene ili globalnu",
+    "state_enabled": "Uključeno",
+    "state_disabled": "Isključeno",
+    "msg_inherited": "Vlastita postavka greylistinga uklonjena. Važi postavka domene ili globalna."
   }
 }

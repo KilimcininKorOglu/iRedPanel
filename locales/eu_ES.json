@@ -641,9 +641,13 @@
     "view_title": "Zerrenda grisa",
     "settings_title": "Zerrenda grisaren ezarpenak",
     "status_heading": "Zerrenda grisaren egoera",
-    "enabled_for": "Zerrenda grisa gaituta :account-erako",
     "whitelist_heading": "Zerrenda zuriko bidaltzaileak",
     "senders_label": "Bidaltzaileak (bat lerroko, adib. @example.com edo erabiltzailea@example.com)",
-    "save_whitelist": "Gorde zerrenda zuria"
+    "save_whitelist": "Gorde zerrenda zuria",
+    "state_for": ":account kontuaren greylisting-a",
+    "state_inherit": "Erabili domeinuaren edo ezarpen orokorra",
+    "state_enabled": "Gaituta",
+    "state_disabled": "Desgaituta",
+    "msg_inherited": "Greylisting ezarpen propioa kendu da. Domeinuaren edo ezarpen orokorra aplikatzen da."
   }
 }

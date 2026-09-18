@@ -641,9 +641,13 @@
     "view_title": "Danh sách xám",
     "settings_title": "Cài đặt danh sách xám",
     "status_heading": "Trạng thái danh sách xám",
-    "enabled_for": "Danh sách xám đã bật cho :account",
     "whitelist_heading": "Người gửi trong danh sách trắng",
     "senders_label": "Người gửi (mỗi dòng một địa chỉ, vd: @example.com hoặc user@example.com)",
-    "save_whitelist": "Lưu danh sách trắng"
+    "save_whitelist": "Lưu danh sách trắng",
+    "state_for": "Greylisting cho :account",
+    "state_inherit": "Dùng cài đặt của tên miền hoặc toàn cục",
+    "state_enabled": "Bật",
+    "state_disabled": "Tắt",
+    "msg_inherited": "Đã xóa cài đặt greylisting riêng. Cài đặt của tên miền hoặc toàn cục được áp dụng."
   }
 }

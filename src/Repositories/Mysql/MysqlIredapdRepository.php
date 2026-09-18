@@ -98,6 +98,12 @@ class MysqlIredapdRepository implements IredapdRepositoryInterface
         }
     }
 
+    public function removeGreylistSetting(string $account): void
+    {
+        $this->pdo()->prepare("DELETE FROM greylisting WHERE account = :account AND sender = '@.'")
+            ->execute(['account' => $account]);
+    }
+
     /**
      * @return string[]
      */

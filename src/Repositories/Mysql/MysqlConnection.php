@@ -26,6 +26,8 @@ class MysqlConnection
                 \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION,
                 \PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_ASSOC,
                 \PDO::ATTR_EMULATE_PREPARES => false,
+                // rowCount() counts matched rows, so an UPDATE that changes nothing is not "not found"
+                \PDO::MYSQL_ATTR_FOUND_ROWS => true,
             ]);
         } catch (\PDOException $e) {
             throw new MysqlConnectionException("Failed to connect to MySQL: " . $e->getMessage());

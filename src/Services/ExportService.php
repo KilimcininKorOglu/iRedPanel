@@ -21,9 +21,9 @@ class ExportService
                 $data[] = [
                     'uid' => $user->uid,
                     'email' => $user->uid . '@' . $domain,
-                    'name' => $user->name,
+                    'name' => $user->cn,
                     'mailQuota' => $user->mailQuota,
-                    'active' => $user->active,
+                    'active' => $user->accountStatus,
                 ];
             }
             echo json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
@@ -37,9 +37,9 @@ class ExportService
                 fputcsv($out, [
                     self::neutralizeCsvValue($user->uid),
                     self::neutralizeCsvValue($user->uid . '@' . $domain),
-                    self::neutralizeCsvValue($user->name),
+                    self::neutralizeCsvValue($user->cn),
                     $user->mailQuota,
-                    $user->active ? 'Yes' : 'No',
+                    $user->accountStatus ? 'Yes' : 'No',
                 ], escape: '');
             }
             fclose($out);

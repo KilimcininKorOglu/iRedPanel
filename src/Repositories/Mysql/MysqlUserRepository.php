@@ -17,7 +17,7 @@ class MysqlUserRepository implements UserRepositoryInterface
 
         $stmt = $pdo->prepare(
             "SELECT username, name, first_name, last_name,
-                    quota, employeeid, mobile, phone, active,
+                    quota, employeeid, mobile, telephone, active,
                     isglobaladmin, rank, domain,
                     enablesmtp, enablesmtpsecured, enablepop3, enablepop3secured,
                     enableimap, enableimapsecured, enablemanagesieve,
@@ -45,7 +45,7 @@ class MysqlUserRepository implements UserRepositoryInterface
 
         $stmt = $pdo->prepare(
             "SELECT username, name, first_name, last_name,
-                    quota, employeeid, mobile, phone, active,
+                    quota, employeeid, mobile, telephone, active,
                     isglobaladmin, rank, domain,
                     enablesmtp, enablesmtpsecured, enablepop3, enablepop3secured,
                     enableimap, enableimapsecured, enablemanagesieve,
@@ -77,7 +77,7 @@ class MysqlUserRepository implements UserRepositoryInterface
                 employeeid = :employeeNumber,
                 rank = :title,
                 mobile = :mobile,
-                phone = :telephoneNumber,
+                telephone = :telephoneNumber,
                 active = :active,
                 isglobaladmin = :isGlobalAdmin,
                 enablesmtp = :enableSmtp,
@@ -183,7 +183,7 @@ class MysqlUserRepository implements UserRepositoryInterface
             $stmt = $pdo->prepare(
             "INSERT INTO mailbox
                 (username, password, name, first_name, last_name,
-                 quota, employeeid, rank, mobile, phone,
+                 quota, employeeid, rank, mobile, telephone,
                  domain, active, isglobaladmin, storagebasedirectory,
                  storagenode, maildir, local_part)
              VALUES
@@ -257,7 +257,7 @@ class MysqlUserRepository implements UserRepositoryInterface
 
         $stmt = $pdo->prepare(
             "SELECT username, name, first_name, last_name,
-                    quota, employeeid, mobile, phone, active,
+                    quota, employeeid, mobile, telephone, active,
                     isglobaladmin, rank, domain,
                     enablesmtp, enablesmtpsecured, enablepop3, enablepop3secured,
                     enableimap, enableimapsecured, enablemanagesieve,
@@ -377,7 +377,7 @@ class MysqlUserRepository implements UserRepositoryInterface
     /**
      * Converts a MySQL row to a User model.
      * Maps: name→cn, first_name→givenName, last_name→sn,
-     *       employeeid→employeeNumber, rank→title, phone→telephoneNumber
+     *       employeeid→employeeNumber, rank→title, telephone→telephoneNumber
      */
     private static function rowToUser(array $row): User
     {
@@ -394,7 +394,7 @@ class MysqlUserRepository implements UserRepositoryInterface
             employeeNumber: $row['employeeid'] ?? '',
             title: $row['rank'] ?? '',
             mobile: $row['mobile'] ?? '',
-            telephoneNumber: $row['phone'] ?? '',
+            telephoneNumber: $row['telephone'] ?? '',
             domainGlobalAdmin: (bool) ($row['isglobaladmin'] ?? 0),
             enableSmtp: (bool) ($row['enablesmtp'] ?? 1),
             enableSmtpSecured: (bool) ($row['enablesmtpsecured'] ?? 1),

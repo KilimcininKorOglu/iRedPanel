@@ -182,12 +182,13 @@ $router->addRoute(['GET', 'POST'], '/admins/create', function () use ($tpl) {
     AdminController::adminCreate($tpl);
 });
 
-$router->addRoute(['GET', 'POST'], '/admins/{adminEmail}/{editMode}', function (string $adminEmail, string $editMode) use ($tpl) {
-    AdminController::adminView($tpl, $adminEmail, $editMode);
-});
-
+// Register before the {editMode} route: the router takes the first matching path.
 $router->addRoute('POST', '/admins/{adminEmail}/delete', function (string $adminEmail) use ($tpl) {
     AdminController::adminDelete($tpl, $adminEmail);
+});
+
+$router->addRoute(['GET', 'POST'], '/admins/{adminEmail}/{editMode}', function (string $adminEmail, string $editMode) use ($tpl) {
+    AdminController::adminView($tpl, $adminEmail, $editMode);
 });
 
 // Activity log

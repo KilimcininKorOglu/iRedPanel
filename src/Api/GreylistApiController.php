@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Api;
 
 use App\Repositories\RepositoryFactory;
+use App\Utils\IredapdAccount;
 use App\Utils\IredapdList;
 
 class GreylistApiController
@@ -12,6 +13,10 @@ class GreylistApiController
     public static function get(string $account): void
     {
         ApiMiddleware::requireGlobalKey();
+        if (!IredapdAccount::isValid($account)) {
+            ApiResponse::error('Invalid account');
+            return;
+        }
         $repo = RepositoryFactory::getIredapdRepository();
         $settings = $repo->getGreylistSettings($account);
         $whitelisted = $repo->getWhitelistedSenders($account);
@@ -28,6 +33,10 @@ class GreylistApiController
         ApiMiddleware::requireGlobalKey();
         ApiMiddleware::requireWriteAccess();
         $data = ApiMiddleware::getJsonBody();
+        if (!IredapdAccount::isValid($account)) {
+            ApiResponse::error('Invalid account');
+            return;
+        }
         $repo = RepositoryFactory::getIredapdRepository();
 
         $senders = null;

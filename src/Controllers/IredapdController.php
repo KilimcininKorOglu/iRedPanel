@@ -12,6 +12,7 @@ use App\Models\ThrottleSetting;
 use App\Repositories\RepositoryFactory;
 use App\Services\ActivityLogger;
 use App\TemplateEngine;
+use App\Utils\IredapdAccount;
 use App\Utils\IredapdList;
 
 class IredapdController
@@ -29,6 +30,10 @@ class IredapdController
     {
         Middleware::globalAdminRequired();
         self::requireEnabled();
+        if (!IredapdAccount::isValid($account)) {
+            BaseController::page404($tpl);
+            return;
+        }
 
         $repo = RepositoryFactory::getIredapdRepository();
         $success = null;
@@ -49,8 +54,7 @@ class IredapdController
                 ActivityLogger::logUpdate('', $account, "Throttle settings updated for {$account}");
                 $success = Translator::translate('throttle.msg_updated');
             } catch (\InvalidArgumentException $e) {
-                $label = Translator::translate(self::THROTTLE_FIELD_LABELS[$e->getMessage()] ?? 'throttle.kind');
-                $error = Translator::translate('throttle.msg_invalid_value', ['field' => $label]);
+                $error = self::throttleFieldError($e);
             } catch (\Exception $e) {
                 $error = BaseController::errorMessage($e);
             }
@@ -70,6 +74,10 @@ class IredapdController
     {
         Middleware::globalAdminRequired();
         self::requireEnabled();
+        if (!IredapdAccount::isValid($account)) {
+            BaseController::page404($tpl);
+            return;
+        }
 
         $repo = RepositoryFactory::getIredapdRepository();
         $success = null;
@@ -204,6 +212,19 @@ class IredapdController
             'success' => $success,
             'error' => $error,
         ]);
+    }
+
+    /**
+     * Names the form field that ThrottleSetting rejected. Any other invalid
+     * argument is a failure the admin cannot fix in the form.
+     */
+    private static function throttleFieldError(\InvalidArgumentException $e): string
+    {
+        $labelKey = self::THROTTLE_FIELD_LABELS[$e->getMessage()] ?? null;
+        if ($labelKey === null) {
+            return BaseController::errorMessage($e);
+        }
+        return Translator::translate('throttle.msg_invalid_value', ['field' => Translator::translate($labelKey)]);
     }
 
     private static function requireEnabled(): void

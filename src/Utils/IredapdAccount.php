@@ -23,6 +23,11 @@ class IredapdAccount
         'catchall' => 0,
     ];
 
+    public static function isValid(string $account): bool
+    {
+        return isset(self::PRIORITIES[AmavisdAddress::type($account) ?? '']);
+    }
+
     /**
      * @throws \InvalidArgumentException for an account that iRedAPD cannot match
      */

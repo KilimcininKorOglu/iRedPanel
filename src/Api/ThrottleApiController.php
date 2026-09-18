@@ -6,12 +6,17 @@ namespace App\Api;
 
 use App\Models\ThrottleSetting;
 use App\Repositories\RepositoryFactory;
+use App\Utils\IredapdAccount;
 
 class ThrottleApiController
 {
     public static function get(string $account): void
     {
         ApiMiddleware::requireGlobalKey();
+        if (!IredapdAccount::isValid($account)) {
+            ApiResponse::error('Invalid account');
+            return;
+        }
         $settings = RepositoryFactory::getIredapdRepository()->getThrottleSettings($account);
         ApiResponse::success(['account' => $account, 'settings' => $settings]);
     }
@@ -21,6 +26,10 @@ class ThrottleApiController
         ApiMiddleware::requireGlobalKey();
         ApiMiddleware::requireWriteAccess();
         $data = ApiMiddleware::getJsonBody();
+        if (!IredapdAccount::isValid($account)) {
+            ApiResponse::error('Invalid account');
+            return;
+        }
         try {
             $setting = ThrottleSetting::fromInput($data);
         } catch (\InvalidArgumentException $e) {

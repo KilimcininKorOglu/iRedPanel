@@ -19,6 +19,14 @@ class IredapdAccountTest extends TestCase
         $this->assertSame(0, IredapdAccount::priority('@.'));
     }
 
+    public function testIsValidMatchesThePriorityRules(): void
+    {
+        $this->assertTrue(IredapdAccount::isValid('@.'));
+        $this->assertTrue(IredapdAccount::isValid('192.0.2.0/24'));
+        $this->assertFalse(IredapdAccount::isValid('garbage-account'));
+        $this->assertFalse(IredapdAccount::isValid(''));
+    }
+
     public function testRejectsAnAccountThatIredapdCannotMatch(): void
     {
         $this->expectException(\InvalidArgumentException::class);

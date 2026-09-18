@@ -62,7 +62,7 @@ while (($line = fgets($handle)) !== false) {
         continue;
     }
 
-    $fields = array_map('trim', str_getcsv($line));
+    $fields = array_map('trim', str_getcsv($line, escape: ''));
     $email = $fields[0] ?? '';
     $password = $fields[1] ?? '';
     $quotaMb = (int) ($fields[2] ?? 0);

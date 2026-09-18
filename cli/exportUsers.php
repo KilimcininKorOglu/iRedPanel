@@ -28,7 +28,7 @@ $users = $userRepo->getUsers($domain);
 $header = ['email', 'name', 'first_name', 'last_name', 'quota_mb', 'active', 'global_admin'];
 
 $output = fopen($outputFile ?? 'php://stdout', 'w');
-fputcsv($output, $header);
+fputcsv($output, $header, escape: '');
 
 foreach ($users as $user) {
     fputcsv($output, [
@@ -39,7 +39,7 @@ foreach ($users as $user) {
         $user->mailQuota,
         $user->accountStatus ? '1' : '0',
         $user->domainGlobalAdmin ? '1' : '0',
-    ]);
+    ], escape: '');
 }
 
 if ($outputFile) {

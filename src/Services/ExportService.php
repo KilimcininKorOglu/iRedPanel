@@ -31,7 +31,7 @@ class ExportService
             self::sendCsvHeaders("users-{$domain}.csv");
 
             $out = fopen('php://output', 'w');
-            fputcsv($out, ['UID', 'Email', 'Name', 'Quota (MB)', 'Active']);
+            fputcsv($out, ['UID', 'Email', 'Name', 'Quota (MB)', 'Active'], escape: '');
 
             foreach ($users as $user) {
                 fputcsv($out, [
@@ -40,7 +40,7 @@ class ExportService
                     self::neutralizeCsvValue($user->name),
                     $user->mailQuota,
                     $user->active ? 'Yes' : 'No',
-                ]);
+                ], escape: '');
             }
             fclose($out);
         }
@@ -76,13 +76,13 @@ class ExportService
             self::sendCsvHeaders('admin-stats.csv');
 
             $out = fopen('php://output', 'w');
-            fputcsv($out, ['Domain', 'User Count']);
+            fputcsv($out, ['Domain', 'User Count'], escape: '');
 
             $userRepo = RepositoryFactory::getUserRepository();
             foreach ($domains as $d) {
                 $domainName = $d['domainName'];
                 $users = $userRepo->getUsers($domainName);
-                fputcsv($out, [self::neutralizeCsvValue($domainName), count($users)]);
+                fputcsv($out, [self::neutralizeCsvValue($domainName), count($users)], escape: '');
             }
             fclose($out);
         }

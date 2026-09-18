@@ -11,6 +11,17 @@ use App\Utils\PasswordVerifier;
 
 class MysqlUserRepository implements UserRepositoryInterface
 {
+    /** Columns outside `mailbox` that hold the address of a deleted user. */
+    private const ADDRESS_COLUMNS_ON_DELETE = [
+        'forwardings' => ['address', 'forwarding'],
+        'sender_bcc_user' => ['username', 'bcc_address'],
+        'recipient_bcc_user' => ['username', 'bcc_address'],
+        'sender_bcc_domain' => ['bcc_address'],
+        'recipient_bcc_domain' => ['bcc_address'],
+        'moderators' => ['moderator'],
+        'sender_relayhost' => ['account'],
+    ];
+
     public function getUser(string $domain, string $userId): ?User
     {
         $pdo = MysqlConnection::getInstance()->getPdo();
@@ -315,9 +326,13 @@ class MysqlUserRepository implements UserRepositoryInterface
             );
             $stmt->execute(['admin' => $adminEmail, 'username' => $username, 'domain' => $domain]);
 
-            // Delete from related tables
-            $stmt = $pdo->prepare("DELETE FROM forwardings WHERE address = :u OR forwarding = :u2");
-            $stmt->execute(['u' => $username, 'u2' => $username]);
+            // Delete every row that holds the address, as iRedAdmin delete_users() does
+            foreach (self::ADDRESS_COLUMNS_ON_DELETE as $table => $columns) {
+                foreach ($columns as $column) {
+                    $pdo->prepare("DELETE FROM {$table} WHERE {$column} = :username")
+                        ->execute(['username' => $username]);
+                }
+            }
 
             $stmt = $pdo->prepare("DELETE FROM used_quota WHERE username = :username");
             $stmt->execute(['username' => $username]);

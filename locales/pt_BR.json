@@ -151,7 +151,9 @@
     "remove": "Remover",
     "no_inbound": "Nenhuma entrada de entrada.",
     "no_outbound": "Nenhuma entrada de saída.",
-    "back": "Voltar à quarentena"
+    "back": "Voltar à quarentena",
+    "msg_invalid_rdns": "Nome rDNS inválido: :name",
+    "msg_rdns_in_both": ":name está na lista branca e na lista negra."
   },
   "spampolicy": {
     "msg_deleted": "Política de spam excluída!",

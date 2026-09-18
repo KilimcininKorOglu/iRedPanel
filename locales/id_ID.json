@@ -151,7 +151,9 @@
     "remove": "Hapus",
     "no_inbound": "Tidak ada entri masuk.",
     "no_outbound": "Tidak ada entri keluar.",
-    "back": "Kembali ke karantina"
+    "back": "Kembali ke karantina",
+    "msg_invalid_rdns": "Nama rDNS tidak valid: :name",
+    "msg_rdns_in_both": ":name ada di whitelist dan blacklist sekaligus."
   },
   "spampolicy": {
     "msg_deleted": "Kebijakan spam dihapus!",

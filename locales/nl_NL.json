@@ -151,7 +151,9 @@
     "remove": "Verwijderen",
     "no_inbound": "Geen inkomende vermeldingen.",
     "no_outbound": "Geen uitgaande vermeldingen.",
-    "back": "Terug naar quarantaine"
+    "back": "Terug naar quarantaine",
+    "msg_invalid_rdns": "Ongeldige rDNS-naam: :name",
+    "msg_rdns_in_both": ":name staat zowel op de whitelist als op de blacklist."
   },
   "spampolicy": {
     "msg_deleted": "Spambeleid verwijderd!",

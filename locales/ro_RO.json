@@ -151,7 +151,9 @@
     "remove": "Elimină",
     "no_inbound": "Nicio intrare de intrare.",
     "no_outbound": "Nicio intrare de ieșire.",
-    "back": "Înapoi la carantină"
+    "back": "Înapoi la carantină",
+    "msg_invalid_rdns": "Nume rDNS invalid: :name",
+    "msg_rdns_in_both": ":name este atât în lista albă, cât și în lista neagră."
   },
   "spampolicy": {
     "msg_deleted": "Politica spam a fost ștearsă!",

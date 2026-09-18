@@ -151,7 +151,9 @@
     "remove": "Odstrani",
     "no_inbound": "Ni vnosov dohodne pošte.",
     "no_outbound": "Ni vnosov odhodne pošte.",
-    "back": "Nazaj na karanteno"
+    "back": "Nazaj na karanteno",
+    "msg_invalid_rdns": "Neveljavno ime rDNS: :name",
+    "msg_rdns_in_both": ":name je na beli in na črni listi."
   },
   "spampolicy": {
     "msg_deleted": "Pravilnik o neželeni pošti izbrisan!",

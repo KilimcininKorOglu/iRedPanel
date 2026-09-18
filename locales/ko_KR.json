@@ -151,7 +151,9 @@
     "remove": "제거",
     "no_inbound": "수신 항목이 없습니다.",
     "no_outbound": "발신 항목이 없습니다.",
-    "back": "격리로 돌아가기"
+    "back": "격리로 돌아가기",
+    "msg_invalid_rdns": "잘못된 rDNS 이름: :name",
+    "msg_rdns_in_both": ":name이(가) 화이트리스트와 블랙리스트에 모두 있습니다."
   },
   "spampolicy": {
     "msg_deleted": "스팸 정책이 삭제되었습니다!",

@@ -12,6 +12,7 @@ use App\Models\ThrottleSetting;
 use App\Repositories\RepositoryFactory;
 use App\Services\ActivityLogger;
 use App\TemplateEngine;
+use App\Utils\IredapdList;
 
 class IredapdController
 {
@@ -145,11 +146,19 @@ class IredapdController
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             CsrfProtection::validateToken();
             try {
-                $whitelists = array_filter(array_map('trim', explode("\n", $_POST['whitelists'] ?? '')));
-                $blacklists = array_filter(array_map('trim', explode("\n", $_POST['blacklists'] ?? '')));
+                $whitelists = IredapdList::rdnsNames(explode("\n", $_POST['whitelists'] ?? ''));
+                $blacklists = IredapdList::rdnsNames(explode("\n", $_POST['blacklists'] ?? ''));
+                $inBoth = array_intersect($whitelists, $blacklists);
+                if ($inBoth !== []) {
+                    throw new \DomainException(reset($inBoth));
+                }
                 $repo->setWblistRdns($whitelists, $blacklists);
                 ActivityLogger::log('update', '', '', 'Updated rDNS white/blacklist');
                 $success = Translator::translate('wblist.msg_rdns_updated');
+            } catch (\InvalidArgumentException $e) {
+                $error = Translator::translate('wblist.msg_invalid_rdns', ['name' => $e->getMessage()]);
+            } catch (\DomainException $e) {
+                $error = Translator::translate('wblist.msg_rdns_in_both', ['name' => $e->getMessage()]);
             } catch (\Exception $e) {
                 $error = BaseController::errorMessage($e);
             }

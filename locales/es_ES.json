@@ -151,7 +151,9 @@
     "remove": "Quitar",
     "no_inbound": "No hay entradas de entrada.",
     "no_outbound": "No hay entradas de salida.",
-    "back": "Volver a la cuarentena"
+    "back": "Volver a la cuarentena",
+    "msg_invalid_rdns": "Nombre rDNS no válido: :name",
+    "msg_rdns_in_both": ":name está en la lista blanca y en la lista negra."
   },
   "spampolicy": {
     "msg_deleted": "¡Política antispam eliminada!",

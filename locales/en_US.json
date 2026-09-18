@@ -151,7 +151,9 @@
     "remove": "Remove",
     "no_inbound": "No inbound entries.",
     "no_outbound": "No outbound entries.",
-    "back": "Back to quarantine"
+    "back": "Back to quarantine",
+    "msg_invalid_rdns": "Invalid rDNS name: :name",
+    "msg_rdns_in_both": ":name is in both the whitelist and the blacklist."
   },
   "spampolicy": {
     "msg_deleted": "Spam policy deleted!",

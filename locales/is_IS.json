@@ -151,7 +151,9 @@
     "remove": "Fjarlægja",
     "no_inbound": "Engar móttökufærslur.",
     "no_outbound": "Engar sendingarfærslur.",
-    "back": "Til baka í sóttkví"
+    "back": "Til baka í sóttkví",
+    "msg_invalid_rdns": "Ógilt rDNS-nafn: :name",
+    "msg_rdns_in_both": ":name er bæði á hvítlista og svartlista."
   },
   "spampolicy": {
     "msg_deleted": "Ruslpóststefnu eytt!",

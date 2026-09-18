@@ -151,7 +151,9 @@
     "remove": "Ukloni",
     "no_inbound": "Nema dolaznih unosa.",
     "no_outbound": "Nema odlaznih unosa.",
-    "back": "Nazad na karantin"
+    "back": "Nazad na karantin",
+    "msg_invalid_rdns": "Neispravan rDNS naziv: :name",
+    "msg_rdns_in_both": ":name je i na bijeloj i na crnoj listi."
   },
   "spampolicy": {
     "msg_deleted": "Politika spama je obrisana!",

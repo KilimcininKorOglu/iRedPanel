@@ -151,7 +151,9 @@
     "remove": "Fjern",
     "no_inbound": "Ingen innkommende oppføringer.",
     "no_outbound": "Ingen utgående oppføringer.",
-    "back": "Tilbake til karantene"
+    "back": "Tilbake til karantene",
+    "msg_invalid_rdns": "Ugyldig rDNS-navn: :name",
+    "msg_rdns_in_both": ":name står både på hvitelisten og på svartelisten."
   },
   "spampolicy": {
     "msg_deleted": "Spampolicy slettet!",

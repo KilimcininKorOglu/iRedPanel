@@ -151,7 +151,9 @@
     "remove": "Treure",
     "no_inbound": "No hi ha entrades d'entrada.",
     "no_outbound": "No hi ha entrades de sortida.",
-    "back": "Tornar a la quarantena"
+    "back": "Tornar a la quarantena",
+    "msg_invalid_rdns": "Nom rDNS no vàlid: :name",
+    "msg_rdns_in_both": ":name és a la llista blanca i a la llista negra."
   },
   "spampolicy": {
     "msg_deleted": "Política de correu brossa eliminada!",

@@ -151,7 +151,9 @@
     "remove": "Eltávolítás",
     "no_inbound": "Nincsenek bejövő bejegyzések.",
     "no_outbound": "Nincsenek kimenő bejegyzések.",
-    "back": "Vissza a karanténba"
+    "back": "Vissza a karanténba",
+    "msg_invalid_rdns": "Érvénytelen rDNS név: :name",
+    "msg_rdns_in_both": ":name a fehérlistán és a feketelistán is szerepel."
   },
   "spampolicy": {
     "msg_deleted": "Spamszabályzat törölve!",

@@ -151,7 +151,9 @@
     "remove": "Poista",
     "no_inbound": "Ei saapuvia merkintöjä.",
     "no_outbound": "Ei lähteviä merkintöjä.",
-    "back": "Takaisin karanteeniin"
+    "back": "Takaisin karanteeniin",
+    "msg_invalid_rdns": "Virheellinen rDNS-nimi: :name",
+    "msg_rdns_in_both": ":name on sekä sallittujen että estettyjen listalla."
   },
   "spampolicy": {
     "msg_deleted": "Roskapostikäytäntö poistettu!",

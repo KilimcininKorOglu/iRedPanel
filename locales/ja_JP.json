@@ -151,7 +151,9 @@
     "remove": "削除",
     "no_inbound": "受信エントリはありません。",
     "no_outbound": "送信エントリはありません。",
-    "back": "隔離に戻る"
+    "back": "隔離に戻る",
+    "msg_invalid_rdns": "無効な rDNS 名: :name",
+    "msg_rdns_in_both": ":name はホワイトリストとブラックリストの両方にあります。"
   },
   "spampolicy": {
     "msg_deleted": "スパムポリシーを削除しました！",

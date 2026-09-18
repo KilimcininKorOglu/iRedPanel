@@ -151,7 +151,9 @@
     "remove": "Kendu",
     "no_inbound": "Sarrerako sarrerarik ez.",
     "no_outbound": "Irteerako sarrerarik ez.",
-    "back": "Itzuli berrogeialdira"
+    "back": "Itzuli berrogeialdira",
+    "msg_invalid_rdns": "rDNS izen baliogabea: :name",
+    "msg_rdns_in_both": ":name zerrenda zurian eta zerrenda beltzean dago."
   },
   "spampolicy": {
     "msg_deleted": "Spam politika ezabatu da!",

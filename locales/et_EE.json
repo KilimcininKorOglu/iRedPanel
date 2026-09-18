@@ -151,7 +151,9 @@
     "remove": "Eemalda",
     "no_inbound": "Sissetulevaid kirjeid pole.",
     "no_outbound": "Väljaminevaid kirjeid pole.",
-    "back": "Tagasi karantiini"
+    "back": "Tagasi karantiini",
+    "msg_invalid_rdns": "Vigane rDNS nimi: :name",
+    "msg_rdns_in_both": ":name on nii lubatud kui ka keelatud nimekirjas."
   },
   "spampolicy": {
     "msg_deleted": "Rämpsposti poliitika kustutatud!",

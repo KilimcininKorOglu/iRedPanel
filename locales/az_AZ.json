@@ -151,7 +151,9 @@
     "remove": "Çıxar",
     "no_inbound": "Gələn qeyd yoxdur.",
     "no_outbound": "Gedən qeyd yoxdur.",
-    "back": "Karantinə qayıt"
+    "back": "Karantinə qayıt",
+    "msg_invalid_rdns": "Yanlış rDNS adı: :name",
+    "msg_rdns_in_both": ":name həm ağ, həm də qara siyahıdadır."
   },
   "spampolicy": {
     "msg_deleted": "Spam siyasəti silindi!",

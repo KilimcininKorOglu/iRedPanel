@@ -151,7 +151,9 @@
     "remove": "Gỡ bỏ",
     "no_inbound": "Không có mục đến.",
     "no_outbound": "Không có mục đi.",
-    "back": "Quay lại cách ly"
+    "back": "Quay lại cách ly",
+    "msg_invalid_rdns": "Tên rDNS không hợp lệ: :name",
+    "msg_rdns_in_both": ":name nằm trong cả danh sách trắng và danh sách đen."
   },
   "spampolicy": {
     "msg_deleted": "Chính sách thư rác đã được xóa!",

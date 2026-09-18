@@ -151,7 +151,9 @@
     "remove": "Kaldır",
     "no_inbound": "Gelen kayıt yok.",
     "no_outbound": "Giden kayıt yok.",
-    "back": "Karantinaya dön"
+    "back": "Karantinaya dön",
+    "msg_invalid_rdns": "Geçersiz rDNS adı: :name",
+    "msg_rdns_in_both": ":name hem whitelist hem blacklist içinde."
   },
   "spampolicy": {
     "msg_deleted": "Spam politikası silindi!",

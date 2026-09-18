@@ -151,7 +151,9 @@
     "remove": "Odstrániť",
     "no_inbound": "Žiadne prichádzajúce položky.",
     "no_outbound": "Žiadne odchádzajúce položky.",
-    "back": "Späť na karanténu"
+    "back": "Späť na karanténu",
+    "msg_invalid_rdns": "Neplatný názov rDNS: :name",
+    "msg_rdns_in_both": ":name je na bielej aj na čiernej listine."
   },
   "spampolicy": {
     "msg_deleted": "Zásady spamu odstránené!",

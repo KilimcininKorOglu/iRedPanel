@@ -151,7 +151,9 @@
     "remove": "Ta bort",
     "no_inbound": "Inga inkommande poster.",
     "no_outbound": "Inga utgående poster.",
-    "back": "Tillbaka till karantän"
+    "back": "Tillbaka till karantän",
+    "msg_invalid_rdns": "Ogiltigt rDNS-namn: :name",
+    "msg_rdns_in_both": ":name finns både i vitlistan och i svartlistan."
   },
   "spampolicy": {
     "msg_deleted": "Skräppostpolicy borttagen!",

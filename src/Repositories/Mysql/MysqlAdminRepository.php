@@ -296,31 +296,11 @@ class MysqlAdminRepository implements AdminRepositoryInterface
 
     public function getAdminsPaginated(int $page, int $perPage): \App\Models\PaginatedResult
     {
-        $pdo = MysqlConnection::getInstance()->getPdo();
-        $offset = ($page - 1) * $perPage;
+        // Pages the same list as getAdmins(), which also holds the mailbox-based admins
+        $admins = $this->getAdmins();
+        $offset = max(0, ($page - 1) * $perPage);
 
-        $countStmt = $pdo->query("SELECT COUNT(*) AS total FROM admin");
-        $totalCount = (int) $countStmt->fetch()['total'];
-
-        $stmt = $pdo->prepare(
-            "SELECT a.username, a.name, a.active, a.created, a.passwordlastchange, a.settings,
-                    CASE WHEN da.domain = 'ALL' THEN 1 ELSE 0 END AS isGlobalAdmin
-             FROM admin a
-             LEFT JOIN domain_admins da ON a.username = da.username AND da.domain = 'ALL'
-             GROUP BY a.username, a.name, a.active, a.created, a.passwordlastchange, a.settings, da.domain
-             ORDER BY a.username
-             LIMIT :perPage OFFSET :offset"
-        );
-        $stmt->bindValue('perPage', $perPage, \PDO::PARAM_INT);
-        $stmt->bindValue('offset', $offset, \PDO::PARAM_INT);
-        $stmt->execute();
-
-        $items = [];
-        while ($row = $stmt->fetch()) {
-            $items[] = Admin::fromMysqlRow($row);
-        }
-
-        return new \App\Models\PaginatedResult($items, $totalCount, $page, $perPage);
+        return new \App\Models\PaginatedResult(array_slice($admins, $offset, $perPage), count($admins), $page, $perPage);
     }
 
     public function countManagedDomains(string $adminUsername): int

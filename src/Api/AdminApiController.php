@@ -19,7 +19,7 @@ class AdminApiController
 
         $result = $repo->getAdminsPaginated($page, $perPage);
         ApiResponse::paginated($result, fn(Admin $a) => [
-            'email' => $a->email,
+            'email' => $a->username,
             'name' => $a->name,
             'isGlobalAdmin' => $a->isGlobalAdmin,
             'active' => $a->active,

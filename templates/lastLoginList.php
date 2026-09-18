@@ -24,7 +24,6 @@
             <th>IMAP</th>
             <th>POP3</th>
             <th>LDA</th>
-            <th>LMTP</th>
           </tr>
         </thead>
         <tbody>
@@ -35,11 +34,10 @@
             <td><?= $e($login['imap'] ?? $t('lastlogin.never')) ?></td>
             <td><?= $e($login['pop3'] ?? $t('lastlogin.never')) ?></td>
             <td><?= $e($login['lda'] ?? $t('lastlogin.never')) ?></td>
-            <td><?= $e($login['lmtp'] ?? $t('lastlogin.never')) ?></td>
           </tr>
           <?php endforeach; ?>
           <?php if (empty($logins)): ?>
-          <tr><td colspan="6" class="text-light"><?= $te('lastlogin.empty') ?></td></tr>
+          <tr><td colspan="5" class="text-light"><?= $te('lastlogin.empty') ?></td></tr>
           <?php endif; ?>
         </tbody>
       </table>

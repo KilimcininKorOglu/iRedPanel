@@ -35,7 +35,14 @@ class PgsqlDashboardRepository implements DashboardRepositoryInterface
         $row = $pdo->query("SELECT COUNT(*) AS c FROM mailbox WHERE active = 1")->fetch();
         $stats['activeUsers'] = (int) $row['c'];
 
-        $row = $pdo->query("SELECT COUNT(*) AS c FROM admin")->fetch();
+        // Same set as AdminRepository::getAdmins(): standalone plus mailbox-based admins.
+        $row = $pdo->query(
+            "SELECT COUNT(*) AS c FROM (
+                 SELECT username FROM admin
+                 UNION
+                 SELECT username FROM mailbox WHERE isadmin = 1 OR isglobaladmin = 1
+             ) admins"
+        )->fetch();
         $stats['totalAdmins'] = (int) $row['c'];
 
         $row = $pdo->query("SELECT COALESCE(SUM(quota), 0) AS q FROM mailbox")->fetch();

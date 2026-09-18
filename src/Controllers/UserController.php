@@ -7,6 +7,7 @@ namespace App\Controllers;
 use App\CsrfProtection;
 use App\I18n\Translator;
 use App\Middleware;
+use App\Models\DomainSettings;
 use App\Models\Settings;
 use App\Models\User;
 use App\Models\UserPassword;
@@ -116,7 +117,7 @@ class UserController
                     if (empty($validationErrors)) {
                         $password = $_POST['password'] ?? '';
                         $passwordRepeat = $_POST['password_repeat'] ?? '';
-                        $validationErrors = UserPassword::validate($password, $passwordRepeat);
+                        $validationErrors = UserPassword::validate($password, $passwordRepeat, self::domainSettings($domain));
 
                         if (empty($validationErrors)) {
                             $passwordHash = PasswordUtils::generatePasswordHash($password);
@@ -362,7 +363,7 @@ class UserController
                     $user = User::fromFormData($_POST + ['accountStatus' => true]);
                     $password = $_POST['password'] ?? '';
                     $passwordRepeat = $_POST['password_repeat'] ?? '';
-                    $validationErrors = UserPassword::validate($password, $passwordRepeat);
+                    $validationErrors = UserPassword::validate($password, $passwordRepeat, self::domainSettings($domain));
 
                     if (empty($validationErrors)) {
                         // Enforce admin resource limits
@@ -417,11 +418,21 @@ class UserController
             }
         }
 
+        $defaultQuota = self::domainSettings($domain)->defaultUserQuota;
+
         $tpl->render('userCreate.php', [
             'domain' => $domain,
             'validationErrors' => $validationErrors,
             'error' => $error,
             'user' => $user,
+            'defaultQuota' => $defaultQuota > 0 ? $defaultQuota : 100,
         ]);
+    }
+
+    private static function domainSettings(string $domain): DomainSettings
+    {
+        return DomainSettings::fromSettingsString(
+            RepositoryFactory::getDomainRepository()->getDomain($domain)?->settings ?? ''
+        );
     }
 }

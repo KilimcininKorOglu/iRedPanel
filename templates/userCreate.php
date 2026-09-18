@@ -63,7 +63,7 @@
                 id="mailQuota"
                 name="mailQuota"
                 type="number"
-                value="<?= $e($user?->mailQuota ?? 100) ?>"
+                value="<?= $e($user?->mailQuota ?? $defaultQuota) ?>"
                 required
               />
             </p>

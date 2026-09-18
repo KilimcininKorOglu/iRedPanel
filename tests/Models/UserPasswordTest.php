@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Tests\Models;
 
+use App\Models\DomainSettings;
 use App\Models\UserPassword;
 use PHPUnit\Framework\TestCase;
 
@@ -62,5 +63,30 @@ class UserPasswordTest extends TestCase
         $errors = UserPassword::validate("Test1234!\xC3\xBC", "Test1234!\xC3\xBC");
         $this->assertArrayHasKey('password', $errors);
         $this->assertStringContainsString('ASCII', $errors['password']);
+    }
+
+    /**
+     * A domain minimum length replaces the global minimum of 8.
+     */
+    public function testDomainMinimumLengthOverridesGlobalMinimum(): void
+    {
+        $domainSettings = new DomainSettings(minPasswordLength: 12);
+
+        $errors = UserPassword::validate('Test1234!', 'Test1234!', $domainSettings);
+        $this->assertStringContainsString('at least 12', $errors['password']);
+
+        $this->assertEmpty(UserPassword::validate('Test1234!abc', 'Test1234!abc', $domainSettings));
+    }
+
+    public function testDomainMaximumLengthIsEnforced(): void
+    {
+        $errors = UserPassword::validate('Test1234!abc', 'Test1234!abc', new DomainSettings(maxPasswordLength: 10));
+
+        $this->assertStringContainsString('at most 10', $errors['password']);
+    }
+
+    public function testZeroDomainLimitsKeepGlobalRules(): void
+    {
+        $this->assertEmpty(UserPassword::validate('Test1234!', 'Test1234!', new DomainSettings()));
     }
 }

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Api;
 
+use App\Models\DomainSettings;
 use App\Models\User;
 use App\Repositories\RepositoryFactory;
 use App\Utils\PasswordUtils;
@@ -62,8 +63,15 @@ class UserApiController
             unset($data['domainGlobalAdmin']);
         }
 
+        $domainObj = RepositoryFactory::getDomainRepository()->getDomain($domain);
+        $domainSettings = DomainSettings::fromSettingsString($domainObj?->settings ?? '');
+
         // A new mailbox starts active unless the request sets accountStatus.
-        $user = User::fromFormData($data + ['accountStatus' => true]);
+        $defaults = ['accountStatus' => true];
+        if ($domainSettings->defaultUserQuota > 0) {
+            $defaults['mailQuota'] = $domainSettings->defaultUserQuota;
+        }
+        $user = User::fromFormData($data + $defaults);
         $password = $data['password'] ?? '';
 
         if ($user->uid === '' || $password === '') {
@@ -72,7 +80,6 @@ class UserApiController
         }
 
         // Enforce domain limits
-        $domainObj = RepositoryFactory::getDomainRepository()->getDomain($domain);
         if ($domainObj !== null) {
             if ($domainObj->mailboxes > 0 && $domainObj->currentUserCount >= $domainObj->mailboxes) {
                 ApiResponse::error("Domain mailbox limit reached ({$domainObj->currentUserCount}/{$domainObj->mailboxes})", 403);
@@ -88,7 +95,7 @@ class UserApiController
             }
         }
 
-        $validationErrors = \App\Models\UserPassword::validate($password, $password);
+        $validationErrors = \App\Models\UserPassword::validate($password, $password, $domainSettings);
         if (!empty($validationErrors)) {
             ApiResponse::error('Password policy violation: ' . implode(', ', $validationErrors));
             return;
@@ -122,7 +129,10 @@ class UserApiController
         unset($data['domainGlobalAdmin']);
 
         if (isset($data['password'])) {
-            $validationErrors = \App\Models\UserPassword::validate($data['password'], $data['password']);
+            $domainSettings = DomainSettings::fromSettingsString(
+                RepositoryFactory::getDomainRepository()->getDomain($domain)?->settings ?? ''
+            );
+            $validationErrors = \App\Models\UserPassword::validate($data['password'], $data['password'], $domainSettings);
             if (!empty($validationErrors)) {
                 ApiResponse::error('Password policy violation: ' . implode(', ', $validationErrors));
                 return;

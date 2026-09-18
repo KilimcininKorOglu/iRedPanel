@@ -125,7 +125,8 @@ class PgsqlUserRepository implements UserRepositoryInterface
         $pdo = PgsqlConnection::getInstance()->getPdo();
 
         $stmt = $pdo->prepare(
-            "UPDATE mailbox SET password = :password WHERE username = :username AND domain = :domain"
+            "UPDATE mailbox SET password = :password, passwordlastchange = NOW()
+             WHERE username = :username AND domain = :domain"
         );
         $stmt->execute([
             'password' => $passwordHash,

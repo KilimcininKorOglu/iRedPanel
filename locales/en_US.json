@@ -410,7 +410,8 @@
     "release": "Release",
     "release_confirm": "Release this message to the recipient?",
     "delete_confirm": "Delete this quarantined message?",
-    "empty": "No quarantined messages."
+    "empty": "No quarantined messages.",
+    "msg_released": "Message :id was released to its recipients."
   },
   "domain": {
     "msg_name_required": "Domain name is required",

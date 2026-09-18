@@ -410,7 +410,8 @@
     "release": "Liberar",
     "release_confirm": "Liberar esta mensaxe ao destinatario?",
     "delete_confirm": "Eliminar esta mensaxe en corentena?",
-    "empty": "Non hai mensaxes en corentena."
+    "empty": "Non hai mensaxes en corentena.",
+    "msg_released": "A mensaxe :id liberouse aos seus destinatarios."
   },
   "domain": {
     "msg_name_required": "O nome do dominio é obrigatorio",

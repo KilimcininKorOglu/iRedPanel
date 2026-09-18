@@ -33,6 +33,9 @@ class Settings
     public readonly string $amavisdDbName;
     public readonly string $amavisdDbUser;
     public readonly string $amavisdDbPassword;
+    // Amavisd AM.PDP socket that releases quarantined messages
+    public readonly string $amavisdQuarantineHost;
+    public readonly int $amavisdQuarantinePort;
 
     // iRedAPD DB connection
     public readonly string $iredapdDbHost;
@@ -215,6 +218,8 @@ class Settings
         $this->amavisdDbName = $this->env('IREDPANEL_AMAVISD_DB_NAME', 'amavisd');
         $this->amavisdDbUser = $this->env('IREDPANEL_AMAVISD_DB_USER', '');
         $this->amavisdDbPassword = $this->env('IREDPANEL_AMAVISD_DB_PASSWORD', '');
+        $this->amavisdQuarantineHost = $this->env('IREDPANEL_AMAVISD_QUARANTINE_HOST', $this->amavisdDbHost);
+        $this->amavisdQuarantinePort = $this->envInt('IREDPANEL_AMAVISD_QUARANTINE_PORT', 9998);
 
         // Fail2ban integration
         $this->fail2banEnabled = $this->envBool('IREDPANEL_FAIL2BAN_ENABLED', false);

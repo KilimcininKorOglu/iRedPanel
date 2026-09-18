@@ -410,7 +410,8 @@
     "release": "해제",
     "release_confirm": "이 메시지를 수신자에게 해제하시겠습니까?",
     "delete_confirm": "격리에서 이 메시지를 삭제하시겠습니까?",
-    "empty": "격리된 메시지가 없습니다."
+    "empty": "격리된 메시지가 없습니다.",
+    "msg_released": "메시지 :id을(를) 수신자에게 해제했습니다."
   },
   "domain": {
     "msg_name_required": "도메인 이름이 필요합니다",

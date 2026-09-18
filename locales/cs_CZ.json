@@ -410,7 +410,8 @@
     "release": "Uvolnit",
     "release_confirm": "Uvolnit tuto zprávu příjemci?",
     "delete_confirm": "Smazat tuto zprávu z karantény?",
-    "empty": "Žádné zprávy v karanténě."
+    "empty": "Žádné zprávy v karanténě.",
+    "msg_released": "Zpráva :id byla uvolněna příjemcům."
   },
   "domain": {
     "msg_name_required": "Název domény je povinný",

@@ -410,7 +410,8 @@
     "release": "Otpusti",
     "release_confirm": "Otpustiti ovu poruku primatelju?",
     "delete_confirm": "Izbrisati ovu poruku u karanteni?",
-    "empty": "Nema poruka u karanteni."
+    "empty": "Nema poruka u karanteni.",
+    "msg_released": "Poruka :id puštena je primateljima."
   },
   "domain": {
     "msg_name_required": "Naziv domene je obavezan",

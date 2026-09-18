@@ -410,7 +410,8 @@
     "release": "Zwolnij",
     "release_confirm": "Zwolnić tę wiadomość do odbiorcy?",
     "delete_confirm": "Usunąć tę wiadomość z kwarantanny?",
-    "empty": "Brak wiadomości w kwarantannie."
+    "empty": "Brak wiadomości w kwarantannie.",
+    "msg_released": "Wiadomość :id została zwolniona do odbiorców."
   },
   "domain": {
     "msg_name_required": "Nazwa domeny jest wymagana",

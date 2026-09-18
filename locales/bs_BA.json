@@ -410,7 +410,8 @@
     "release": "Oslobodi",
     "release_confirm": "Osloboditi ovu poruku primaocu?",
     "delete_confirm": "Obrisati ovu poruku iz karantina?",
-    "empty": "Nema poruka u karantinu."
+    "empty": "Nema poruka u karantinu.",
+    "msg_released": "Poruka :id je puštena primaocima."
   },
   "domain": {
     "msg_name_required": "Naziv domene je obavezan",

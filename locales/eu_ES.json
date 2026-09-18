@@ -410,7 +410,8 @@
     "release": "Askatu",
     "release_confirm": "Mezu hau hartzaileari askatu?",
     "delete_confirm": "Berrogeialdiko mezu hau ezabatu?",
-    "empty": "Ez dago mezurik berrogeialdian."
+    "empty": "Ez dago mezurik berrogeialdian.",
+    "msg_released": ":id mezua hartzaileei askatu zaie."
   },
   "domain": {
     "msg_name_required": "Domeinuaren izena beharrezkoa da",

@@ -410,7 +410,8 @@
     "release": "Lepaskan",
     "release_confirm": "Lepaskan pesan ini ke penerima?",
     "delete_confirm": "Hapus pesan ini dari karantina?",
-    "empty": "Tidak ada pesan dalam karantina."
+    "empty": "Tidak ada pesan dalam karantina.",
+    "msg_released": "Pesan :id telah dilepaskan ke penerimanya."
   },
   "domain": {
     "msg_name_required": "Nama domain wajib diisi",

@@ -410,7 +410,8 @@
     "release": "Libérer",
     "release_confirm": "Libérer ce message vers le destinataire ?",
     "delete_confirm": "Supprimer ce message en quarantaine ?",
-    "empty": "Aucun message en quarantaine."
+    "empty": "Aucun message en quarantaine.",
+    "msg_released": "Le message :id a été libéré vers ses destinataires."
   },
   "domain": {
     "msg_name_required": "Le nom de domaine est obligatoire",

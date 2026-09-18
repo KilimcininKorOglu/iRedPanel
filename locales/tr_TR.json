@@ -410,7 +410,8 @@
     "release": "Serbest bırak",
     "release_confirm": "Bu ileti alıcıya serbest bırakılsın mı?",
     "delete_confirm": "Bu karantina iletisi silinsin mi?",
-    "empty": "Karantinaya alınan ileti yok."
+    "empty": "Karantinaya alınan ileti yok.",
+    "msg_released": ":id mesajı alıcılarına gönderildi."
   },
   "domain": {
     "msg_name_required": "Alan adı gerekli",

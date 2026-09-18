@@ -410,7 +410,8 @@
     "release": "Burax",
     "release_confirm": "Bu mesajı alıcıya buraxmaq?",
     "delete_confirm": "Bu karantin mesajını silmək?",
-    "empty": "Karantində mesaj yoxdur."
+    "empty": "Karantində mesaj yoxdur.",
+    "msg_released": ":id mesajı alıcılarına buraxıldı."
   },
   "domain": {
     "msg_name_required": "Domen adı tələb olunur",

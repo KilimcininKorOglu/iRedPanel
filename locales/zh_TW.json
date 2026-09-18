@@ -410,7 +410,8 @@
     "release": "釋放",
     "release_confirm": "要將此訊息釋放給收件者嗎？",
     "delete_confirm": "要從隔離區刪除此訊息嗎？",
-    "empty": "隔離區中沒有訊息。"
+    "empty": "隔離區中沒有訊息。",
+    "msg_released": "郵件 :id 已放行給收件人。"
   },
   "domain": {
     "msg_name_required": "網域名稱為必填",

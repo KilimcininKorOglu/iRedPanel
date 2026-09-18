@@ -410,7 +410,8 @@
     "release": "Vabasta",
     "release_confirm": "Kas vabastada see sõnum saajale?",
     "delete_confirm": "Kas kustutada see karantiinisõnum?",
-    "empty": "Karantiinis pole sõnumeid."
+    "empty": "Karantiinis pole sõnumeid.",
+    "msg_released": "Sõnum :id vabastati saajatele."
   },
   "domain": {
     "msg_name_required": "Domeeninimi on kohustuslik",

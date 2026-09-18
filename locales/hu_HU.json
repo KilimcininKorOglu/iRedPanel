@@ -410,7 +410,8 @@
     "release": "Felszabadítás",
     "release_confirm": "Felszabadítja ezt az üzenetet a címzettnek?",
     "delete_confirm": "Törli ezt a karanténüzenetet?",
-    "empty": "Nincsenek karanténba helyezett üzenetek."
+    "empty": "Nincsenek karanténba helyezett üzenetek.",
+    "msg_released": "A(z) :id üzenet kiadva a címzetteknek."
   },
   "domain": {
     "msg_name_required": "A domainnév megadása kötelező",

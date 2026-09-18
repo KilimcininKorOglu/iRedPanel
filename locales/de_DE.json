@@ -410,7 +410,8 @@
     "release": "Freigeben",
     "release_confirm": "Diese Nachricht an den Empfänger freigeben?",
     "delete_confirm": "Diese Quarantäne-Nachricht löschen?",
-    "empty": "Keine Nachrichten in Quarantäne."
+    "empty": "Keine Nachrichten in Quarantäne.",
+    "msg_released": "Die Nachricht :id wurde an ihre Empfänger freigegeben."
   },
   "domain": {
     "msg_name_required": "Domainname ist erforderlich",

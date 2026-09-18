@@ -410,7 +410,8 @@
     "release": "Släpp",
     "release_confirm": "Släpp detta meddelande till mottagaren?",
     "delete_confirm": "Ta bort detta meddelande från karantänen?",
-    "empty": "Inga meddelanden i karantän."
+    "empty": "Inga meddelanden i karantän.",
+    "msg_released": "Meddelandet :id släpptes till mottagarna."
   },
   "domain": {
     "msg_name_required": "Domännamn krävs",

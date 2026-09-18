@@ -410,7 +410,8 @@
     "release": "Sprosti",
     "release_confirm": "Sprostim to sporočilo prejemniku?",
     "delete_confirm": "Izbrišem to sporočilo v karanteni?",
-    "empty": "Ni sporočil v karanteni."
+    "empty": "Ni sporočil v karanteni.",
+    "msg_released": "Sporočilo :id je bilo sproščeno prejemnikom."
   },
   "domain": {
     "msg_name_required": "Ime domene je obvezno",

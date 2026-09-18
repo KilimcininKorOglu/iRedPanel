@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controllers;
 
 use App\CsrfProtection;
+use App\I18n\Translator;
 use App\Middleware;
 use App\Models\Settings;
 use App\Repositories\RepositoryFactory;
@@ -41,10 +42,12 @@ class AmavisdController
 
         try {
             $repo = RepositoryFactory::getAmavisdRepository();
-            $repo->releaseMessage($mailId);
+            $repo->releaseMessage($mailId, $_SESSION['email'] ?? 'iredpanel');
             ActivityLogger::log('update', '', '', "Released quarantined message: {$mailId}");
+            BaseController::flashSuccess(Translator::translate('quarantine.msg_released', ['id' => $mailId]));
         } catch (\Exception $e) {
             error_log("Amavisd release failed: " . $e->getMessage());
+            BaseController::flashItemError($mailId, $e);
         }
 
         header("Location: /amavisd/quarantine");

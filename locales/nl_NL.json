@@ -410,7 +410,8 @@
     "release": "Vrijgeven",
     "release_confirm": "Dit bericht vrijgeven aan de ontvanger?",
     "delete_confirm": "Dit bericht in quarantaine verwijderen?",
-    "empty": "Geen berichten in quarantaine."
+    "empty": "Geen berichten in quarantaine.",
+    "msg_released": "Bericht :id is vrijgegeven aan de ontvangers."
   },
   "domain": {
     "msg_name_required": "De domeinnaam is verplicht",

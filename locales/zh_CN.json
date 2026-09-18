@@ -410,7 +410,8 @@
     "release": "放行",
     "release_confirm": "将此邮件放行给收件人？",
     "delete_confirm": "删除此隔离邮件？",
-    "empty": "没有隔离的邮件。"
+    "empty": "没有隔离的邮件。",
+    "msg_released": "邮件 :id 已放行给收件人。"
   },
   "domain": {
     "msg_name_required": "域名为必填项",

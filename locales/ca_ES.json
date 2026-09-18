@@ -410,7 +410,8 @@
     "release": "Alliberar",
     "release_confirm": "Alliberar aquest missatge al destinatari?",
     "delete_confirm": "Eliminar aquest missatge en quarantena?",
-    "empty": "No hi ha missatges en quarantena."
+    "empty": "No hi ha missatges en quarantena.",
+    "msg_released": "El missatge :id s'ha alliberat als seus destinataris."
   },
   "domain": {
     "msg_name_required": "El nom del domini és obligatori",

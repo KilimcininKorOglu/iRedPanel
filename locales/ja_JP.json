@@ -410,7 +410,8 @@
     "release": "リリース",
     "release_confirm": "このメッセージを受信者にリリースしますか？",
     "delete_confirm": "この隔離メッセージを削除しますか？",
-    "empty": "隔離されたメッセージはありません。"
+    "empty": "隔離されたメッセージはありません。",
+    "msg_released": "メッセージ :id を受信者に解放しました。"
   },
   "domain": {
     "msg_name_required": "ドメイン名は必須です",

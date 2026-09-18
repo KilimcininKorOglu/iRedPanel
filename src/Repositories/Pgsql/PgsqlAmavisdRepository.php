@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace App\Repositories\Pgsql;
 
 use App\Models\PaginatedResult;
+use App\Models\Settings;
 use App\Repositories\AmavisdRepositoryInterface;
+use App\Services\AmavisdReleaseClient;
 
 class PgsqlAmavisdRepository implements AmavisdRepositoryInterface
 {
@@ -60,7 +62,7 @@ class PgsqlAmavisdRepository implements AmavisdRepositoryInterface
         return new PaginatedResult($items, $totalCount, $page, $perPage);
     }
 
-    public function releaseMessage(string $mailId): void
+    public function releaseMessage(string $mailId, string $requestedBy): void
     {
         $conn = AmavisdPgsqlConnection::getInstance();
         if (!$conn->isAvailable()) {
@@ -69,8 +71,13 @@ class PgsqlAmavisdRepository implements AmavisdRepositoryInterface
 
         $pdo = $conn->getPdo();
 
-        // Get the secret_id for amavisd-release
-        $stmt = $pdo->prepare("SELECT secret_id FROM msgs WHERE mail_id = :mailId LIMIT 1");
+        // mail_id and secret_id are bytea columns in the PostgreSQL schema.
+        $stmt = $pdo->prepare(
+            "SELECT convert_from(m.secret_id, 'UTF8') AS secret_id FROM msgs m
+             WHERE m.mail_id = convert_to(:mailId, 'UTF8')
+               AND EXISTS (SELECT 1 FROM quarantine q WHERE q.mail_id = m.mail_id)
+             LIMIT 1"
+        );
         $stmt->execute(['mailId' => $mailId]);
         $row = $stmt->fetch();
 
@@ -78,28 +85,22 @@ class PgsqlAmavisdRepository implements AmavisdRepositoryInterface
             throw new \RuntimeException("Quarantined message not found: {$mailId}");
         }
 
-        $secretId = $row['secret_id'];
-        $safeSecretId = escapeshellarg($secretId);
-
-        $proc = @proc_open(
-            "amavisd-release {$safeSecretId} 2>&1",
-            [0 => ['pipe', 'r'], 1 => ['pipe', 'w'], 2 => ['pipe', 'w']],
-            $pipes
+        $settings = Settings::getInstance();
+        AmavisdReleaseClient::release(
+            $settings->amavisdQuarantineHost,
+            $settings->amavisdQuarantinePort,
+            $mailId,
+            $row['secret_id'],
+            $requestedBy
         );
 
-        if (!is_resource($proc)) {
-            throw new \RuntimeException('Failed to execute amavisd-release command');
-        }
-
-        fclose($pipes[0]);
-        $output = stream_get_contents($pipes[1]);
-        fclose($pipes[1]);
-        fclose($pipes[2]);
-        $exitCode = proc_close($proc);
-
-        if ($exitCode !== 0) {
-            throw new \RuntimeException("amavisd-release failed (exit {$exitCode}): " . trim($output ?: ''));
-        }
+        // Amavisd delivered the message, so it is no longer quarantined.
+        $pdo->beginTransaction();
+        $pdo->prepare("UPDATE msgs SET content = 'C', quar_type = '' WHERE mail_id = convert_to(:mailId, 'UTF8')")
+            ->execute(['mailId' => $mailId]);
+        $pdo->prepare("DELETE FROM quarantine WHERE mail_id = convert_to(:mailId, 'UTF8')")
+            ->execute(['mailId' => $mailId]);
+        $pdo->commit();
     }
 
     public function deleteQuarantinedMessage(string $mailId): void

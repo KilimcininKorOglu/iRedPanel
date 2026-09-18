@@ -410,7 +410,8 @@
     "release": "Sleppa",
     "release_confirm": "Sleppa þessum skilaboðum til viðtakanda?",
     "delete_confirm": "Eyða þessum skilaboðum í sóttkví?",
-    "empty": "Engin skilaboð í sóttkví."
+    "empty": "Engin skilaboð í sóttkví.",
+    "msg_released": "Skeytinu :id var sleppt til viðtakenda."
   },
   "domain": {
     "msg_name_required": "Lénsheiti er nauðsynlegt",

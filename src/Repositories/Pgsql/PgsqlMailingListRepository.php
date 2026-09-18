@@ -66,22 +66,38 @@ class PgsqlMailingListRepository implements MailingListRepositoryInterface
     {
         $pdo = PgsqlConnection::getInstance()->getPdo();
 
-        $transport = "mlmmj:{$address}";
+        $pdo->beginTransaction();
+        try {
+            $pdo->prepare(
+                "INSERT INTO maillists (address, domain, name, transport, accesspolicy, maxmsgsize, mlid, active, created)
+                 VALUES (:address, :domain, :name, :transport, :accesspolicy, :maxmsgsize, :mlid, 1, NOW())"
+            )->execute([
+                'address' => $address,
+                'domain' => $domain,
+                'name' => $name,
+                'transport' => MailingList::transportFor($address),
+                'accesspolicy' => $accessPolicy,
+                'maxmsgsize' => $maxMsgSize,
+                'mlid' => MailingList::generateId(),
+            ]);
 
-        $stmt = $pdo->prepare(
-            "INSERT INTO maillists (address, domain, name, transport, accesspolicy, maxmsgsize, active, created)
-             VALUES (:address, :domain, :name, :transport, :accesspolicy, :maxmsgsize, 1, NOW())"
-        );
-        $stmt->execute([
-            'address' => $address,
-            'domain' => $domain,
-            'name' => $name,
-            'transport' => $transport,
-            'accesspolicy' => $accessPolicy,
-            'maxmsgsize' => $maxMsgSize,
-        ]);
+            // Postfix accepts the list address through virtual_alias_maps, which reads forwardings.
+            $pdo->prepare(
+                "INSERT INTO forwardings (address, forwarding, domain, dest_domain, is_maillist, active)
+                 VALUES (:address, :forwarding, :domain, :destDomain, 1, 1)"
+            )->execute([
+                'address' => $address,
+                'forwarding' => $address,
+                'domain' => $domain,
+                'destDomain' => $domain,
+            ]);
 
-        return true;
+            $pdo->commit();
+            return true;
+        } catch (\Exception $e) {
+            $pdo->rollBack();
+            throw $e;
+        }
     }
 
     public function updateMailingList(string $address, string $name, string $accessPolicy,
@@ -114,6 +130,8 @@ class PgsqlMailingListRepository implements MailingListRepositoryInterface
             $pdo->prepare("DELETE FROM maillist_owners WHERE address = :address")
                 ->execute(['address' => $address]);
             $pdo->prepare("DELETE FROM maillists WHERE address = :address")
+                ->execute(['address' => $address]);
+            $pdo->prepare("DELETE FROM forwardings WHERE address = :address")
                 ->execute(['address' => $address]);
             $pdo->commit();
             return true;

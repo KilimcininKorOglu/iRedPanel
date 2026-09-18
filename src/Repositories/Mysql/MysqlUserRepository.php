@@ -88,7 +88,8 @@ class MysqlUserRepository implements UserRepositoryInterface
                 enableimapsecured = :enableImapSecured,
                 enablemanagesieve = :enableManagesieve,
                 enablemanagesievesecured = :enableManagesieveSecured,
-                enablesogo = :enableSogo
+                enablesogo = :enableSogo,
+                modified = NOW()
              WHERE username = :username AND domain = :domain"
         );
         $stmt->execute([

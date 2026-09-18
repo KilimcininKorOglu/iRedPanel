@@ -58,7 +58,7 @@ class PgsqlAdminRepository implements AdminRepositoryInterface
         $pdo = PgsqlConnection::getInstance()->getPdo();
 
         $stmt = $pdo->prepare(
-            "SELECT a.username, a.name, a.active, a.created, a.passwordlastchange
+            "SELECT a.username, a.name, a.active, a.created, a.passwordlastchange, a.settings
              FROM admin a
              WHERE a.username = :username
              LIMIT 1"

@@ -36,6 +36,17 @@
   width: auto;
 }
 
+/* Chota gives [type=submit] white text and .button.outline a transparent
+   background, so an outline submit button needs its own text color. */
+.button.outline {
+  color: var(--color-darkGrey);
+}
+
+.button.outline.error {
+  border-color: var(--color-error);
+  color: var(--color-error);
+}
+
 .breadcrumbs {
   margin-bottom: 1rem;
 }

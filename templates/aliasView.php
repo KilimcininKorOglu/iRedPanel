@@ -7,7 +7,11 @@
         <li class="breadcrumb-item active" aria-current="page"><?= $e($alias->address) ?></li>
       </ol>
     </nav>
-    <h1><?= $te('alias.view_title', ['address' => $alias->address]) ?></h1>
+    <h1><?= $te('alias.view_title', ['address' => $alias->address]) ?>
+      <?php if ($managed): ?>
+      <span class="badge badge-status fs-6 align-middle <?= $tone('managed', 'directory') ?>" title="<?= $te('resource.managed_help') ?>"><i class="bi bi-diagram-3 me-1"></i><?= $te('resource.managed_by') ?></span>
+      <?php endif; ?>
+    </h1>
   </div>
   <?php if (!empty($session['isGlobalAdmin'])): ?>
   <div class="page-actions">
@@ -19,6 +23,9 @@
   <?php endif; ?>
 </div>
 
+<?php if ($managed): ?>
+<div class="alert alert-info"><?= $te('resource.managed_group_help') ?></div>
+<?php endif; ?>
 <?php if (!empty($success)): ?>
 <div class="alert alert-success"><?= $e($success) ?></div>
 <?php endif; ?>
@@ -42,7 +49,7 @@
         <div class="row g-3 mb-3">
           <div class="col-md-6">
             <label for="name" class="form-label"><?= $te('alias.display_name') ?></label>
-            <input type="text" id="name" name="name" class="form-control" value="<?= $e($alias->name) ?>" />
+            <input type="text" id="name" name="name" class="form-control" value="<?= $e($alias->name) ?>"<?= $managed ? ' readonly' : '' ?> />
           </div>
           <div class="col-md-6">
             <label for="accessPolicy" class="form-label"><?= $te('alias.access_policy') ?></label>
@@ -61,7 +68,11 @@
         </div>
 
         <label for="members" class="form-label"><?= $te('alias.members_oneline') ?></label>
+        <?php if ($managed): ?>
+        <textarea id="members" rows="8" class="form-control" readonly><?= $e(implode("\n", $members)) ?></textarea>
+        <?php else: ?>
         <textarea id="members" name="members" data-account-picker="multi" rows="8" class="form-control"><?= $e(implode("\n", $members)) ?></textarea>
+        <?php endif; ?>
       </div>
       <div class="card-footer">
         <button type="submit" class="btn btn-primary"><?= $te('mlist.save_settings') ?></button>
@@ -70,6 +81,7 @@
 
     <div class="card" id="section-members">
       <div class="card-header"><?= $te('alias.current_members') ?></div>
+      <?php if (!$managed): ?>
       <div class="card-body">
         <form method="post" action="/aliases/<?= $e($alias->address) ?>" class="d-flex flex-wrap gap-2">
           <?= $csrfField ?>
@@ -78,6 +90,7 @@
           <button type="submit" class="btn btn-primary"><i class="bi bi-plus-lg me-1"></i><?= $te('alias.add_member') ?></button>
         </form>
       </div>
+      <?php endif; ?>
       <?php if (!empty($members)): ?>
       <div class="table-responsive">
         <table class="table table-striped table-hover">
@@ -92,12 +105,14 @@
             <tr>
               <td><?= $e($member) ?></td>
               <td>
+                <?php if (!$managed): ?>
                 <form method="post" action="/aliases/<?= $e($alias->address) ?>" class="table-actions">
                   <?= $csrfField ?>
                   <input type="hidden" name="action" value="removeMember" />
                   <input type="hidden" name="member" value="<?= $e($member) ?>" />
                   <button type="submit" class="btn btn-sm btn-outline-danger" data-confirm="<?= $te('alias.remove_confirm', ['member' => $member]) ?>"><i class="bi bi-x-lg me-1"></i><?= $te('alias.remove') ?></button>
                 </form>
+                <?php endif; ?>
               </td>
             </tr>
             <?php endforeach; ?>

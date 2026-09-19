@@ -8,6 +8,7 @@ use App\Models\DomainSettings;
 use App\Models\User;
 use App\Repositories\RepositoryFactory;
 use App\Services\AccountSettingsService;
+use App\Services\Replication\ReplicatedAccountGuard;
 use App\Utils\PasswordUtils;
 
 class UserApiController
@@ -130,6 +131,12 @@ class UserApiController
             return;
         }
         $user->uid = $uid;
+
+        $locked = ReplicatedAccountGuard::changedUserFields("{$uid}@{$domain}", $user, $existing);
+        if ($locked !== []) {
+            ApiResponse::error('Managed by the directory, read-only fields: ' . implode(', ', $locked), 409);
+            return;
+        }
 
         if (isset($data['password'])) {
             $domainSettings = DomainSettings::fromSettingsString(

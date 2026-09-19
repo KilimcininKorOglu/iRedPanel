@@ -2,6 +2,8 @@
 $pageTitle = $t('user.view_title');
 $userPath = '/' . $e($domain) . '/users/' . $e($user->uid);
 $fieldClass = fn (string $field): string => 'form-control' . (!empty($validationErrors[$field]) ? ' is-invalid' : '');
+// A field that the directory replicates can change only in the directory.
+$locked = fn (string $field): string => in_array($field, $lockedFields, true) ? ' readonly' : '';
 $tabs = [
     'general' => $t('user.tab_general'),
     'password' => $t('common.password'),
@@ -28,7 +30,11 @@ $services = [
         <li class="breadcrumb-item active" aria-current="page"><?= $e($user->uid) ?></li>
       </ol>
     </nav>
-    <h1><?= $e($user->uid) ?><span class="text-body-secondary fw-normal">@<?= $e($domain) ?></span></h1>
+    <h1><?= $e($user->uid) ?><span class="text-body-secondary fw-normal">@<?= $e($domain) ?></span>
+      <?php if ($managedBy !== null): ?>
+      <span class="badge badge-status fs-6 align-middle <?= $tone('managed', 'directory') ?>" title="<?= $te('resource.managed_help') ?>"><i class="bi bi-diagram-3 me-1"></i><?= $te('resource.managed_by') ?></span>
+      <?php endif; ?>
+    </h1>
   </div>
 </div>
 
@@ -42,6 +48,9 @@ $services = [
   <?php endif; ?>
 </ul>
 
+<?php if ($managedBy !== null && $editMode === 'general'): ?>
+<div class="alert alert-info"><?= $te('resource.managed_help') ?></div>
+<?php endif; ?>
 <?php if (!empty($error)): ?>
 <div class="alert alert-danger"><?= $e($error) ?></div>
 <?php endif; ?>
@@ -51,7 +60,7 @@ $services = [
 
 <div class="row">
   <div class="col-xl-8">
-    <?php if ($editMode === 'general' && !empty($session['isGlobalAdmin'])): ?>
+    <?php if ($editMode === 'general' && !empty($session['isGlobalAdmin']) && $managedBy === null): ?>
     <details class="card mb-4">
       <summary class="card-header"><?= $te('user.rename_email') ?></summary>
       <div class="card-body">
@@ -75,7 +84,7 @@ $services = [
         <input type="hidden" value="<?= $e($user->uid) ?>" name="uid" />
 
         <div class="form-check form-switch mb-3">
-          <input id="accountStatus" name="accountStatus" type="checkbox" class="form-check-input" <?php if ($user->accountStatus): ?>checked<?php endif; ?> />
+          <input id="accountStatus" name="accountStatus" type="checkbox" class="form-check-input" <?php if ($user->accountStatus): ?>checked<?php endif; ?><?= $locked('accountStatus') !== '' ? ' disabled' : '' ?> />
           <label class="form-check-label" for="accountStatus"><?= $te('user.record_active') ?></label>
         </div>
 
@@ -86,31 +95,31 @@ $services = [
           </div>
           <div class="col-md-6">
             <label for="cn" class="form-label"><?= $te('user.full_name') ?></label>
-            <input id="cn" name="cn" type="text" class="form-control" value="<?= $e($user->cn) ?>" />
+            <input id="cn" name="cn" type="text" class="form-control" value="<?= $e($user->cn) ?>"<?= $locked('cn') ?> />
           </div>
           <div class="col-md-6">
             <label for="givenName" class="form-label"><?= $te('user.first_name') ?></label>
-            <input id="givenName" name="givenName" type="text" class="form-control" value="<?= $e($user->givenName) ?>" />
+            <input id="givenName" name="givenName" type="text" class="form-control" value="<?= $e($user->givenName) ?>"<?= $locked('givenName') ?> />
           </div>
           <div class="col-md-6">
             <label for="sn" class="form-label"><?= $te('user.last_name') ?></label>
-            <input id="sn" name="sn" type="text" class="form-control" value="<?= $e($user->sn) ?>" />
+            <input id="sn" name="sn" type="text" class="form-control" value="<?= $e($user->sn) ?>"<?= $locked('sn') ?> />
           </div>
           <div class="col-md-6">
             <label for="employeeNumber" class="form-label"><?= $te('user.employee_number') ?></label>
-            <input id="employeeNumber" name="employeeNumber" type="text" class="form-control" value="<?= $e($user->employeeNumber) ?>" />
+            <input id="employeeNumber" name="employeeNumber" type="text" class="form-control" value="<?= $e($user->employeeNumber) ?>"<?= $locked('employeeNumber') ?> />
           </div>
           <div class="col-md-6">
             <label for="title" class="form-label"><?= $te('user.position') ?></label>
-            <input id="title" name="title" type="text" class="form-control" value="<?= $e($user->title) ?>" />
+            <input id="title" name="title" type="text" class="form-control" value="<?= $e($user->title) ?>"<?= $locked('title') ?> />
           </div>
           <div class="col-md-6">
             <label for="mobile" class="form-label"><?= $te('user.mobile_phone') ?></label>
-            <input id="mobile" name="mobile" type="text" class="form-control" value="<?= $e($user->mobile) ?>" />
+            <input id="mobile" name="mobile" type="text" class="form-control" value="<?= $e($user->mobile) ?>"<?= $locked('mobile') ?> />
           </div>
           <div class="col-md-6">
             <label for="telephoneNumber" class="form-label"><?= $te('user.work_phone') ?></label>
-            <input id="telephoneNumber" name="telephoneNumber" type="text" class="form-control" value="<?= $e($user->telephoneNumber) ?>" />
+            <input id="telephoneNumber" name="telephoneNumber" type="text" class="form-control" value="<?= $e($user->telephoneNumber) ?>"<?= $locked('telephoneNumber') ?> />
           </div>
         </div>
         <?php if (!empty($session['isGlobalAdmin'])): ?>

@@ -476,6 +476,15 @@ details.card:not([open]) > summary {
   color: #52525b;
 }
 
+/* A read-only field (for example a directory-owned value) must not look editable. */
+.form-control[readonly],
+.form-control[readonly]:focus {
+  background-color: #18181b;
+  border-style: dashed;
+  color: var(--app-muted);
+  box-shadow: none;
+}
+
 .form-label {
   font-size: 0.85rem;
   font-weight: 500;

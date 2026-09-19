@@ -14,6 +14,7 @@ use App\Models\UserPassword;
 use App\Repositories\RepositoryFactory;
 use App\Services\AccountSettingsService;
 use App\Services\ActivityLogger;
+use App\Services\Replication\ReplicatedAccountGuard;
 use App\TemplateEngine;
 use App\Utils\PasswordUtils;
 
@@ -84,6 +85,7 @@ class UserController
                     $user->uid = $userUid;
                     if ($existingUser !== null) {
                         $user->copyServicesFrom($existingUser);
+                        ReplicatedAccountGuard::keepUserFields("{$userUid}@{$domain}", $user, $existingUser);
                     }
 
                     // Prevent privilege escalation: only global admins can change domainGlobalAdmin
@@ -249,6 +251,8 @@ class UserController
             'userRecipientBcc' => $userRecipientBcc,
             'userRelayhost' => $userRelayhost,
             'requireOldPassword' => Settings::getInstance()->requireOldPasswordOnChange,
+            'managedBy' => ReplicatedAccountGuard::owner("{$userUid}@{$domain}"),
+            'lockedFields' => ReplicatedAccountGuard::lockedUserFields("{$userUid}@{$domain}"),
         ]);
     }
 
@@ -275,6 +279,8 @@ class UserController
             if (RepositoryFactory::getAliasRepository()->isAddressInUse($newEmail)) {
                 throw new \RuntimeException(Translator::translate('common.msg_address_in_use', ['address' => $newEmail]));
             }
+            // The directory owns the address; a rename here would be undone by the next replication.
+            ReplicatedAccountGuard::assertNotReplicated("{$userUid}@{$domain}");
 
             RepositoryFactory::getUserRepository()->renameUser($domain, $userUid, $newUid);
             AccountSettingsService::renameAccount("{$userUid}@{$domain}", $newEmail);
@@ -310,6 +316,9 @@ class UserController
                 $userRepo->deleteUser($domain, $uid, $adminEmail);
                 AccountSettingsService::deleteAccounts(["{$uid}@{$domain}"]);
                 return;
+            }
+            if (in_array('accountStatus', ReplicatedAccountGuard::lockedUserFields("{$uid}@{$domain}"), true)) {
+                ReplicatedAccountGuard::assertNotReplicated("{$uid}@{$domain}");
             }
             $user->accountStatus = ($action === 'enable');
             $userRepo->updateUser($domain, $user);

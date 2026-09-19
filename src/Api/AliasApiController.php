@@ -7,6 +7,7 @@ namespace App\Api;
 use App\Models\Alias;
 use App\Repositories\RepositoryFactory;
 use App\Services\AccountSettingsService;
+use App\Services\Replication\ReplicatedAccountGuard;
 use App\Utils\AddressList;
 
 class AliasApiController
@@ -128,17 +129,25 @@ class AliasApiController
         }
 
         $data = ApiMiddleware::getJsonBody();
+        $storedMembers = $repo->getAliasMembers($address);
         try {
-            $members = array_key_exists('members', $data) ? self::members($data['members']) : $repo->getAliasMembers($address);
+            $members = array_key_exists('members', $data) ? self::members($data['members']) : $storedMembers;
             $accessPolicy = Alias::validAccessPolicy($data['accessPolicy'] ?? $alias->accessPolicy);
         } catch (\InvalidArgumentException $e) {
             ApiResponse::error($e->getMessage());
             return;
         }
 
+        $name = (string) ($data['name'] ?? $alias->name);
+        $locked = ReplicatedAccountGuard::changedGroupFields($address, $name, $members, $alias->name, $storedMembers);
+        if ($locked !== []) {
+            ApiResponse::error('Managed by the directory, read-only fields: ' . implode(', ', $locked), 409);
+            return;
+        }
+
         $repo->updateAlias(
             $address,
-            $data['name'] ?? $alias->name,
+            $name,
             $members,
             $accessPolicy,
             $data['active'] ?? $alias->active,

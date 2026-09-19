@@ -7,10 +7,12 @@ namespace App\Controllers;
 use App\CsrfProtection;
 use App\I18n\Translator;
 use App\Middleware;
+use App\Models\Alias;
 use App\Models\Settings;
 use App\Repositories\RepositoryFactory;
 use App\Services\AccountSettingsService;
 use App\Services\ActivityLogger;
+use App\Services\Replication\ReplicatedAccountGuard;
 use App\TemplateEngine;
 
 class AliasController
@@ -94,35 +96,7 @@ class AliasController
             CsrfProtection::validateToken();
 
             try {
-                $action = $_POST['action'] ?? 'update';
-
-                if ($action === 'addMember') {
-                    $newMember = BaseController::postedAddress('newMember');
-                    if ($newMember !== null) {
-                        $repo->addAliasMember($address, $newMember);
-                        ActivityLogger::logUpdate($alias->domain, '', "Added member {$newMember} to alias {$address}");
-                    }
-                } elseif ($action === 'removeMember') {
-                    $memberToRemove = $_POST['member'] ?? '';
-                    if ($memberToRemove !== '') {
-                        $repo->removeAliasMember($address, $memberToRemove);
-                        ActivityLogger::logUpdate($alias->domain, '', "Removed member {$memberToRemove} from alias {$address}");
-                    }
-                } elseif ($action === 'updateSettings') {
-                    $name = trim($_POST['name'] ?? '');
-                    $accessPolicy = BaseController::postedAccessPolicy();
-                    $active = isset($_POST['active']);
-                    $updatedMembers = BaseController::postedAddresses('members');
-
-                    $repo->updateAlias($address, $name, $updatedMembers, $accessPolicy, $active);
-                    ActivityLogger::logUpdate($alias->domain, '', "Updated alias settings: {$address}");
-                } elseif ($action === 'updateModerators') {
-                    $newModerators = BaseController::postedAddresses('moderators');
-
-                    $repo->setModerators($address, $newModerators);
-                    ActivityLogger::logUpdate($alias->domain, '', "Updated moderators for alias {$address}");
-                }
-
+                self::applyAction($alias, $members);
                 $success = Translator::translate('alias.msg_updated');
                 $alias = $repo->getAlias($address);
                 $members = $repo->getAliasMembers($address);
@@ -136,9 +110,70 @@ class AliasController
             'alias' => $alias,
             'members' => $members,
             'moderators' => $moderators,
+            'managed' => ReplicatedAccountGuard::isGroupLocked($address),
             'success' => $success,
             'error' => $error,
         ]);
+    }
+
+    /**
+     * Runs one posted change of the alias view. The directory owns the name and
+     * the members of a replicated group, so they keep their stored values.
+     *
+     * @param string[] $members the stored members
+     */
+    private static function applyAction(Alias $alias, array $members): void
+    {
+        match ($_POST['action'] ?? 'update') {
+            'addMember' => self::changeMember($alias, true),
+            'removeMember' => self::changeMember($alias, false),
+            'updateSettings' => self::updateSettings($alias, $members),
+            'updateModerators' => self::updateModerators($alias),
+            default => null,
+        };
+    }
+
+    private static function changeMember(Alias $alias, bool $add): void
+    {
+        ReplicatedAccountGuard::assertNotReplicated($alias->address);
+        $member = $add ? BaseController::postedAddress('newMember') : ($_POST['member'] ?? '');
+        if ($member === null || $member === '') {
+            return;
+        }
+
+        $repo = RepositoryFactory::getAliasRepository();
+        if ($add) {
+            $repo->addAliasMember($alias->address, $member);
+            ActivityLogger::logUpdate($alias->domain, '', "Added member {$member} to alias {$alias->address}");
+            return;
+        }
+        $repo->removeAliasMember($alias->address, $member);
+        ActivityLogger::logUpdate($alias->domain, '', "Removed member {$member} from alias {$alias->address}");
+    }
+
+    /**
+     * @param string[] $members the stored members
+     */
+    private static function updateSettings(Alias $alias, array $members): void
+    {
+        $locked = ReplicatedAccountGuard::isGroupLocked($alias->address);
+        $name = $locked ? $alias->name : trim($_POST['name'] ?? '');
+        $updatedMembers = $locked ? $members : BaseController::postedAddresses('members');
+
+        RepositoryFactory::getAliasRepository()->updateAlias(
+            $alias->address,
+            $name,
+            $updatedMembers,
+            BaseController::postedAccessPolicy(),
+            isset($_POST['active']),
+        );
+        ActivityLogger::logUpdate($alias->domain, '', "Updated alias settings: {$alias->address}");
+    }
+
+    private static function updateModerators(Alias $alias): void
+    {
+        RepositoryFactory::getAliasRepository()->setModerators($alias->address, BaseController::postedAddresses('moderators'));
+        ActivityLogger::logUpdate($alias->domain, '', "Updated moderators for alias {$alias->address}");
     }
 
     public static function delete(TemplateEngine $tpl, string $address): void

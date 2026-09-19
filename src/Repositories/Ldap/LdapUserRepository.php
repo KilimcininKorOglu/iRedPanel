@@ -33,7 +33,7 @@ class LdapUserRepository implements UserRepositoryInterface
     ];
 
     private const USER_LIST_ATTRS = [
-        'mail', 'accountStatus', 'domainGlobalAdmin', 'mailQuota', 'uid',
+        'mail', 'accountStatus', 'domainGlobalAdmin', 'mailQuota', 'uid', 'cn',
     ];
 
     public function getUser(string $domain, string $userId): ?User
@@ -70,27 +70,29 @@ class LdapUserRepository implements UserRepositoryInterface
 
     public function getUsers(string $domain): array
     {
-        $conn = LdapConnection::getInstance()->getConn();
-        $baseDn = 'ou=Users,' . LdapUtils::getDomainDn($domain);
-        $safeDomain = ldap_escape($domain, '', LDAP_ESCAPE_FILTER);
+        return self::listUsers($domain);
+    }
 
-        $result = @ldap_list(
-            $conn,
-            $baseDn,
-            "(&(objectClass=mailUser)(!(mail=@{$safeDomain})))",
+    /**
+     * Reads the mailboxes of a domain without the catch-all entry. An LDAP error throws.
+     *
+     * @param string $extraFilter filter components added inside the AND
+     * @return User[]
+     */
+    private static function listUsers(string $domain, string $extraFilter = ''): array
+    {
+        $safeDomain = ldap_escape($domain, '', LDAP_ESCAPE_FILTER);
+        $entries = LdapUtils::searchEntries(
+            LdapConnection::getInstance()->getConn(),
+            'ou=Users,' . LdapUtils::getDomainDn($domain),
+            "(&(objectClass=mailUser)(!(mail=@{$safeDomain})){$extraFilter})",
             self::USER_LIST_ATTRS
         );
 
-        $users = [];
-        if ($result !== false) {
-            $entries = ldap_get_entries($conn, $result);
-            for ($i = 0; $i < ($entries['count'] ?? 0); $i++) {
-                $normalized = LdapUtils::normalizeEntry($entries[$i], self::USER_LIST_ATTRS);
-                $users[] = User::fromLdapEntry($normalized);
-            }
-        }
-
-        return $users;
+        return array_map(
+            static fn (array $entry): User => User::fromLdapEntry(LdapUtils::normalizeEntry($entry, self::USER_LIST_ATTRS)),
+            $entries
+        );
     }
 
     public function updateUser(string $domain, User $user): void
@@ -207,35 +209,15 @@ class LdapUserRepository implements UserRepositoryInterface
 
     public function getUsersPaginated(string $domain, int $page, int $perPage, ?string $startsWith = null, ?bool $activeOnly = null, string $sortBy = 'uid', string $sortDir = 'asc'): PaginatedResult
     {
-        $conn = LdapConnection::getInstance()->getConn();
-        $baseDn = 'ou=Users,' . LdapUtils::getDomainDn($domain);
-        $safeDomain = ldap_escape($domain, '', LDAP_ESCAPE_FILTER);
-
-        $filter = "(&(objectClass=mailUser)(!(mail=@{$safeDomain}))";
-
+        $filter = '';
         if ($startsWith !== null && $startsWith !== '') {
-            $safeLetter = ldap_escape($startsWith, '', LDAP_ESCAPE_FILTER);
-            $filter .= "(uid={$safeLetter}*)";
+            $filter .= '(uid=' . ldap_escape($startsWith, '', LDAP_ESCAPE_FILTER) . '*)';
+        }
+        if ($activeOnly !== null) {
+            $filter .= $activeOnly ? '(accountStatus=active)' : '(accountStatus=disabled)';
         }
 
-        if ($activeOnly === true) {
-            $filter .= "(accountStatus=active)";
-        } elseif ($activeOnly === false) {
-            $filter .= "(accountStatus=disabled)";
-        }
-
-        $filter .= ')';
-
-        $result = @ldap_list($conn, $baseDn, $filter, self::USER_LIST_ATTRS);
-
-        $allUsers = [];
-        if ($result !== false) {
-            $entries = ldap_get_entries($conn, $result);
-            for ($i = 0; $i < ($entries['count'] ?? 0); $i++) {
-                $normalized = LdapUtils::normalizeEntry($entries[$i], self::USER_LIST_ATTRS);
-                $allUsers[] = User::fromLdapEntry($normalized);
-            }
-        }
+        $allUsers = self::listUsers($domain, $filter);
 
         // Sort in PHP
         $sortProperty = match ($sortBy) {

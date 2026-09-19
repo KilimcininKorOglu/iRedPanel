@@ -105,7 +105,9 @@
     "password_placeholder": "Введите пароль администратора",
     "sign_in": "Войти",
     "failed_attempts": "Неудачных попыток входа: :count",
-    "invalid_credentials": "Неверные учётные данные!"
+    "invalid_credentials": "Неверные учётные данные!",
+    "msg_session_expired": "Срок действия сеанса истёк. Войдите снова.",
+    "msg_ip_changed": "Сеанс закрыт, так как ваш IP-адрес изменился. Войдите снова."
   },
   "misc": {
     "error": "Ошибка",

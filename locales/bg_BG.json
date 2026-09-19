@@ -105,7 +105,9 @@
     "password_placeholder": "Въведете парола на администратор",
     "sign_in": "Вход",
     "failed_attempts": "Неуспешни опити за вход: :count",
-    "invalid_credentials": "Невалидни данни за вход!"
+    "invalid_credentials": "Невалидни данни за вход!",
+    "msg_session_expired": "Сесията ви изтече. Влезте отново.",
+    "msg_ip_changed": "Сесията беше затворена, защото IP адресът ви се промени. Влезте отново."
   },
   "misc": {
     "error": "Грешка",

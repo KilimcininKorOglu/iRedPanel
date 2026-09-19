@@ -105,7 +105,9 @@
     "password_placeholder": "Sartu administratzailearen pasahitza",
     "sign_in": "Hasi saioa",
     "failed_attempts": "Saio-hasiera saiakera hutsegin: :count",
-    "invalid_credentials": "Kredentzial baliogabeak!"
+    "invalid_credentials": "Kredentzial baliogabeak!",
+    "msg_session_expired": "Saioa iraungi da. Hasi saioa berriro.",
+    "msg_ip_changed": "Saioa itxi da zure IP helbidea aldatu delako. Hasi saioa berriro."
   },
   "misc": {
     "error": "Errorea",

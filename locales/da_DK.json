@@ -105,7 +105,9 @@
     "password_placeholder": "Indtast administratoradgangskode",
     "sign_in": "Log ind",
     "failed_attempts": "Mislykkede loginforsøg: :count",
-    "invalid_credentials": "Ugyldige loginoplysninger!"
+    "invalid_credentials": "Ugyldige loginoplysninger!",
+    "msg_session_expired": "Din session er udløbet. Log ind igen.",
+    "msg_ip_changed": "Sessionen blev lukket, fordi din IP-adresse ændrede sig. Log ind igen."
   },
   "misc": {
     "error": "Fejl",

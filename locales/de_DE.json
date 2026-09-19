@@ -105,7 +105,9 @@
     "password_placeholder": "Administrator-Passwort eingeben",
     "sign_in": "Anmelden",
     "failed_attempts": "Fehlgeschlagene Anmeldeversuche: :count",
-    "invalid_credentials": "Ungültige Anmeldedaten!"
+    "invalid_credentials": "Ungültige Anmeldedaten!",
+    "msg_session_expired": "Ihre Sitzung ist abgelaufen. Bitte melden Sie sich erneut an.",
+    "msg_ip_changed": "Die Sitzung wurde beendet, weil sich Ihre IP-Adresse geändert hat. Bitte melden Sie sich erneut an."
   },
   "misc": {
     "error": "Fehler",

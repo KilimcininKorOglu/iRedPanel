@@ -105,7 +105,9 @@
     "password_placeholder": "Digite a senha do administrador",
     "sign_in": "Entrar",
     "failed_attempts": "Tentativas de login com falha: :count",
-    "invalid_credentials": "Credenciais inválidas!"
+    "invalid_credentials": "Credenciais inválidas!",
+    "msg_session_expired": "Sua sessão expirou. Entre novamente.",
+    "msg_ip_changed": "A sessão foi encerrada porque seu endereço IP mudou. Entre novamente."
   },
   "misc": {
     "error": "Erro",

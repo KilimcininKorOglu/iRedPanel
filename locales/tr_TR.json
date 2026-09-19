@@ -105,7 +105,9 @@
     "password_placeholder": "Yönetici parolasını girin",
     "sign_in": "Giriş Yap",
     "failed_attempts": "Başarısız giriş denemesi: :count",
-    "invalid_credentials": "Geçersiz kimlik bilgileri!"
+    "invalid_credentials": "Geçersiz kimlik bilgileri!",
+    "msg_session_expired": "Oturumunuzun süresi doldu. Lütfen yeniden giriş yapın.",
+    "msg_ip_changed": "IP adresiniz değiştiği için oturum kapatıldı. Lütfen yeniden giriş yapın."
   },
   "misc": {
     "error": "Hata",

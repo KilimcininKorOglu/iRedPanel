@@ -105,7 +105,9 @@
     "password_placeholder": "Введіть пароль адміністратора",
     "sign_in": "Увійти",
     "failed_attempts": "Невдалі спроби входу: :count",
-    "invalid_credentials": "Неправильні облікові дані!"
+    "invalid_credentials": "Неправильні облікові дані!",
+    "msg_session_expired": "Термін дії сеансу минув. Увійдіть знову.",
+    "msg_ip_changed": "Сеанс закрито, бо ваша IP-адреса змінилася. Увійдіть знову."
   },
   "misc": {
     "error": "Помилка",

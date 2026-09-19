@@ -105,7 +105,9 @@
     "password_placeholder": "Saisissez le mot de passe de l'administrateur",
     "sign_in": "Se connecter",
     "failed_attempts": "Tentatives de connexion échouées : :count",
-    "invalid_credentials": "Identifiants non valides !"
+    "invalid_credentials": "Identifiants non valides !",
+    "msg_session_expired": "Votre session a expiré. Veuillez vous reconnecter.",
+    "msg_ip_changed": "La session a été fermée, car votre adresse IP a changé. Veuillez vous reconnecter."
   },
   "misc": {
     "error": "Erreur",

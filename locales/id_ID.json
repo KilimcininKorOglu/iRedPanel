@@ -105,7 +105,9 @@
     "password_placeholder": "Masukkan kata sandi administrator",
     "sign_in": "Masuk",
     "failed_attempts": "Percobaan masuk gagal: :count",
-    "invalid_credentials": "Kredensial tidak valid!"
+    "invalid_credentials": "Kredensial tidak valid!",
+    "msg_session_expired": "Sesi Anda telah berakhir. Silakan masuk lagi.",
+    "msg_ip_changed": "Sesi ditutup karena alamat IP Anda berubah. Silakan masuk lagi."
   },
   "misc": {
     "error": "Kesalahan",

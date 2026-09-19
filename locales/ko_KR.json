@@ -105,7 +105,9 @@
     "password_placeholder": "관리자 비밀번호를 입력하세요",
     "sign_in": "로그인",
     "failed_attempts": "로그인 실패 횟수: :count",
-    "invalid_credentials": "잘못된 자격 증명입니다!"
+    "invalid_credentials": "잘못된 자격 증명입니다!",
+    "msg_session_expired": "세션이 만료되었습니다. 다시 로그인하세요.",
+    "msg_ip_changed": "IP 주소가 바뀌어 세션이 종료되었습니다. 다시 로그인하세요."
   },
   "misc": {
     "error": "오류",

@@ -17,6 +17,18 @@ class AuthController
     /**
      * Login page request handler.
      */
+    /**
+     * Explains why Middleware::loginRequired() closed the previous session.
+     */
+    private static function loginNotice(): ?string
+    {
+        return match (true) {
+            isset($_GET['expired']) => Translator::translate('auth.msg_session_expired'),
+            isset($_GET['ip_changed']) => Translator::translate('auth.msg_ip_changed'),
+            default => null,
+        };
+    }
+
     public static function loginPage(TemplateEngine $tpl): void
     {
         $next = $_GET['next'] ?? $_POST['next'] ?? '/';
@@ -74,6 +86,7 @@ class AuthController
         $tpl->render('loginPage.php', [
             'next' => $next,
             'error' => $error,
+            'notice' => $error === null ? self::loginNotice() : null,
             'email' => $email,
             'failedAttempts' => $_SESSION['failedLoginAttempts'] ?? 0,
         ]);

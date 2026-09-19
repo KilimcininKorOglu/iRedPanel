@@ -14,8 +14,9 @@ class Middleware
      */
     public static function loginRequired(): void
     {
+        // A POST-only route answers a GET redirect with 405, so only a GET page is resumed.
+        $next = urlencode(($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'GET' ? ($_SERVER['REQUEST_URI'] ?? '/') : '/');
         if (empty($_SESSION['email'])) {
-            $next = urlencode($_SERVER['REQUEST_URI'] ?? '/');
             header("Location: /login?next={$next}");
             exit;
         }
@@ -26,7 +27,7 @@ class Middleware
         if ($lastActivity > 0 && (time() - $lastActivity) > $settings->sessionTimeout) {
             $_SESSION = [];
             session_destroy();
-            header('Location: /login?expired=1');
+            header("Location: /login?expired=1&next={$next}");
             exit;
         }
         $_SESSION['lastActivity'] = time();
@@ -38,7 +39,7 @@ class Middleware
             if ($loginIp !== '' && $currentIp !== $loginIp) {
                 $_SESSION = [];
                 session_destroy();
-                header('Location: /login?ip_changed=1');
+                header("Location: /login?ip_changed=1&next={$next}");
                 exit;
             }
         }

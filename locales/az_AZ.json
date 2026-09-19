@@ -105,7 +105,9 @@
     "password_placeholder": "Admin parolunu daxil edin",
     "sign_in": "Daxil ol",
     "failed_attempts": "Uğursuz giriş cəhdləri: :count",
-    "invalid_credentials": "Yanlış giriş məlumatları!"
+    "invalid_credentials": "Yanlış giriş məlumatları!",
+    "msg_session_expired": "Sessiyanın vaxtı bitdi. Yenidən daxil olun.",
+    "msg_ip_changed": "IP ünvanınız dəyişdiyi üçün sessiya bağlandı. Yenidən daxil olun."
   },
   "misc": {
     "error": "Xəta",

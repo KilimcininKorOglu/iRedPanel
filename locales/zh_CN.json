@@ -105,7 +105,9 @@
     "password_placeholder": "请输入管理员密码",
     "sign_in": "登录",
     "failed_attempts": "登录失败次数：:count",
-    "invalid_credentials": "凭据无效！"
+    "invalid_credentials": "凭据无效！",
+    "msg_session_expired": "会话已过期，请重新登录。",
+    "msg_ip_changed": "您的 IP 地址已变化，会话已关闭。请重新登录。"
   },
   "misc": {
     "error": "错误",

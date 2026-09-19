@@ -105,7 +105,9 @@
     "password_placeholder": "Sláðu inn lykilorð stjórnanda",
     "sign_in": "Skrá inn",
     "failed_attempts": "Misheppnaðar innskráningartilraunir: :count",
-    "invalid_credentials": "Ógild auðkenni!"
+    "invalid_credentials": "Ógild auðkenni!",
+    "msg_session_expired": "Lotan þín er útrunnin. Skráðu þig inn aftur.",
+    "msg_ip_changed": "Lotunni var lokað því IP-talan þín breyttist. Skráðu þig inn aftur."
   },
   "misc": {
     "error": "Villa",

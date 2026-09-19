@@ -105,7 +105,9 @@
     "password_placeholder": "Adja meg az adminisztrátor jelszavát",
     "sign_in": "Bejelentkezés",
     "failed_attempts": "Sikertelen bejelentkezési kísérletek: :count",
-    "invalid_credentials": "Érvénytelen hitelesítő adatok!"
+    "invalid_credentials": "Érvénytelen hitelesítő adatok!",
+    "msg_session_expired": "A munkamenet lejárt. Jelentkezzen be újra.",
+    "msg_ip_changed": "A munkamenet bezárult, mert megváltozott az IP-címe. Jelentkezzen be újra."
   },
   "misc": {
     "error": "Hiba",

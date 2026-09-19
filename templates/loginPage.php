@@ -9,6 +9,9 @@
       <?php if (!empty($error)): ?>
       <p class="text-error"><?= $e($error) ?></p>
       <?php endif; ?>
+      <?php if (!empty($notice)): ?>
+      <p class="text-grey"><?= $e($notice) ?></p>
+      <?php endif; ?>
       <?php if (($failedAttempts ?? 0) > 0): ?>
       <p class="text-error"><?= $te('auth.failed_attempts', ['count' => (int) $failedAttempts]) ?></p>
       <?php endif; ?>

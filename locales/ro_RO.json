@@ -105,7 +105,9 @@
     "password_placeholder": "Introduceți parola administratorului",
     "sign_in": "Conectare",
     "failed_attempts": "Încercări de conectare eșuate: :count",
-    "invalid_credentials": "Credențiale nevalide!"
+    "invalid_credentials": "Credențiale nevalide!",
+    "msg_session_expired": "Sesiunea a expirat. Autentificați-vă din nou.",
+    "msg_ip_changed": "Sesiunea a fost închisă, deoarece adresa IP s-a schimbat. Autentificați-vă din nou."
   },
   "misc": {
     "error": "Eroare",

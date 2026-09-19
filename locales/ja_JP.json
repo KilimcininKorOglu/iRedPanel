@@ -105,7 +105,9 @@
     "password_placeholder": "管理者パスワードを入力してください",
     "sign_in": "サインイン",
     "failed_attempts": "ログイン失敗回数：:count",
-    "invalid_credentials": "認証情報が無効です！"
+    "invalid_credentials": "認証情報が無効です！",
+    "msg_session_expired": "セッションの有効期限が切れました。もう一度サインインしてください。",
+    "msg_ip_changed": "IP アドレスが変わったため、セッションを終了しました。もう一度サインインしてください。"
   },
   "misc": {
     "error": "エラー",

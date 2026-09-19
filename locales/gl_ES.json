@@ -105,7 +105,9 @@
     "password_placeholder": "Introduce o contrasinal do administrador",
     "sign_in": "Iniciar sesión",
     "failed_attempts": "Intentos de inicio de sesión fallidos: :count",
-    "invalid_credentials": "Credenciais non válidas!"
+    "invalid_credentials": "Credenciais non válidas!",
+    "msg_session_expired": "A súa sesión caducou. Inicie sesión de novo.",
+    "msg_ip_changed": "A sesión pechouse porque o seu enderezo IP cambiou. Inicie sesión de novo."
   },
   "misc": {
     "error": "Erro",

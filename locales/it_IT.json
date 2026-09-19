@@ -105,7 +105,9 @@
     "password_placeholder": "Inserisci la password dell'amministratore",
     "sign_in": "Accedi",
     "failed_attempts": "Tentativi di accesso falliti: :count",
-    "invalid_credentials": "Credenziali non valide!"
+    "invalid_credentials": "Credenziali non valide!",
+    "msg_session_expired": "La sessione è scaduta. Accedi di nuovo.",
+    "msg_ip_changed": "La sessione è stata chiusa perché il tuo indirizzo IP è cambiato. Accedi di nuovo."
   },
   "misc": {
     "error": "Errore",

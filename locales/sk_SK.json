@@ -105,7 +105,9 @@
     "password_placeholder": "Zadajte heslo správcu",
     "sign_in": "Prihlásiť sa",
     "failed_attempts": "Neúspešné pokusy o prihlásenie: :count",
-    "invalid_credentials": "Neplatné prihlasovacie údaje!"
+    "invalid_credentials": "Neplatné prihlasovacie údaje!",
+    "msg_session_expired": "Vaša relácia vypršala. Prihláste sa znova.",
+    "msg_ip_changed": "Relácia bola ukončená, pretože sa zmenila vaša IP adresa. Prihláste sa znova."
   },
   "misc": {
     "error": "Chyba",

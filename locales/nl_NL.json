@@ -105,7 +105,9 @@
     "password_placeholder": "Voer het beheerderswachtwoord in",
     "sign_in": "Aanmelden",
     "failed_attempts": "Mislukte aanmeldpogingen: :count",
-    "invalid_credentials": "Ongeldige inloggegevens!"
+    "invalid_credentials": "Ongeldige inloggegevens!",
+    "msg_session_expired": "Uw sessie is verlopen. Meld u opnieuw aan.",
+    "msg_ip_changed": "De sessie is gesloten, omdat uw IP-adres is gewijzigd. Meld u opnieuw aan."
   },
   "misc": {
     "error": "Fout",

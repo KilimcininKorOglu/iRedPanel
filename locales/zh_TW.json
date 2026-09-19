@@ -105,7 +105,9 @@
     "password_placeholder": "輸入管理員密碼",
     "sign_in": "登入",
     "failed_attempts": "登入失敗次數：:count",
-    "invalid_credentials": "認證憑證無效！"
+    "invalid_credentials": "認證憑證無效！",
+    "msg_session_expired": "工作階段已過期，請重新登入。",
+    "msg_ip_changed": "您的 IP 位址已變更，工作階段已關閉。請重新登入。"
   },
   "misc": {
     "error": "錯誤",

@@ -105,7 +105,9 @@
     "password_placeholder": "Ange administratörens lösenord",
     "sign_in": "Logga in",
     "failed_attempts": "Misslyckade inloggningsförsök: :count",
-    "invalid_credentials": "Ogiltiga inloggningsuppgifter!"
+    "invalid_credentials": "Ogiltiga inloggningsuppgifter!",
+    "msg_session_expired": "Din session har gått ut. Logga in igen.",
+    "msg_ip_changed": "Sessionen stängdes eftersom din IP-adress ändrades. Logga in igen."
   },
   "misc": {
     "error": "Fel",

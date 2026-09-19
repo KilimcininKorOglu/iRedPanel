@@ -105,7 +105,9 @@
     "password_placeholder": "Introduïu la contrasenya de l'administrador",
     "sign_in": "Iniciar sessió",
     "failed_attempts": "Intents d'inici de sessió fallits: :count",
-    "invalid_credentials": "Credencials no vàlides!"
+    "invalid_credentials": "Credencials no vàlides!",
+    "msg_session_expired": "La sessió ha caducat. Torneu a iniciar la sessió.",
+    "msg_ip_changed": "La sessió s'ha tancat perquè la vostra adreça IP ha canviat. Torneu a iniciar la sessió."
   },
   "misc": {
     "error": "Error",

@@ -105,7 +105,9 @@
     "password_placeholder": "Vnesite geslo skrbnika",
     "sign_in": "Prijava",
     "failed_attempts": "Neuspeli poskusi prijave: :count",
-    "invalid_credentials": "Neveljavni podatki za prijavo!"
+    "invalid_credentials": "Neveljavni podatki za prijavo!",
+    "msg_session_expired": "Vaša seja je potekla. Znova se prijavite.",
+    "msg_ip_changed": "Seja je bila zaprta, ker se je vaš naslov IP spremenil. Znova se prijavite."
   },
   "misc": {
     "error": "Napaka",

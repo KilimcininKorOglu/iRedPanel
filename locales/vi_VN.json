@@ -105,7 +105,9 @@
     "password_placeholder": "Nhập mật khẩu quản trị viên",
     "sign_in": "Đăng nhập",
     "failed_attempts": "Số lần đăng nhập thất bại: :count",
-    "invalid_credentials": "Thông tin đăng nhập không hợp lệ!"
+    "invalid_credentials": "Thông tin đăng nhập không hợp lệ!",
+    "msg_session_expired": "Phiên của bạn đã hết hạn. Vui lòng đăng nhập lại.",
+    "msg_ip_changed": "Phiên đã bị đóng vì địa chỉ IP của bạn đã thay đổi. Vui lòng đăng nhập lại."
   },
   "misc": {
     "error": "Lỗi",

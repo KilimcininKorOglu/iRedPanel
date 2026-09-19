@@ -105,7 +105,9 @@
     "password_placeholder": "Wprowadź hasło administratora",
     "sign_in": "Zaloguj się",
     "failed_attempts": "Nieudane próby logowania: :count",
-    "invalid_credentials": "Nieprawidłowe dane logowania!"
+    "invalid_credentials": "Nieprawidłowe dane logowania!",
+    "msg_session_expired": "Twoja sesja wygasła. Zaloguj się ponownie.",
+    "msg_ip_changed": "Sesja została zamknięta, ponieważ zmienił się Twój adres IP. Zaloguj się ponownie."
   },
   "misc": {
     "error": "Błąd",

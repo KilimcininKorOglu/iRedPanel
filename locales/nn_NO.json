@@ -105,7 +105,9 @@
     "password_placeholder": "Skriv inn administratorpassord",
     "sign_in": "Logg inn",
     "failed_attempts": "Mislukka innloggingsforsøk: :count",
-    "invalid_credentials": "Ugyldige påloggingsdetaljar!"
+    "invalid_credentials": "Ugyldige påloggingsdetaljar!",
+    "msg_session_expired": "Økta di er utgått. Logg inn på nytt.",
+    "msg_ip_changed": "Økta vart lukka fordi IP-adressa di endra seg. Logg inn på nytt."
   },
   "misc": {
     "error": "Feil",

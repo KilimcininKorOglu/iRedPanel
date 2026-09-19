@@ -105,7 +105,9 @@
     "password_placeholder": "Sisestage administraatori parool",
     "sign_in": "Logi sisse",
     "failed_attempts": "Ebaõnnestunud sisselogimiskatsed: :count",
-    "invalid_credentials": "Vigased sisselogimisandmed!"
+    "invalid_credentials": "Vigased sisselogimisandmed!",
+    "msg_session_expired": "Teie seanss aegus. Logige uuesti sisse.",
+    "msg_ip_changed": "Seanss suleti, sest teie IP-aadress muutus. Logige uuesti sisse."
   },
   "misc": {
     "error": "Viga",

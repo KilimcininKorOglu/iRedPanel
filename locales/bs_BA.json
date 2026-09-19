@@ -105,7 +105,9 @@
     "password_placeholder": "Unesite lozinku administratora",
     "sign_in": "Prijava",
     "failed_attempts": "Neuspjeli pokušaji prijave: :count",
-    "invalid_credentials": "Neispravni podaci za prijavu!"
+    "invalid_credentials": "Neispravni podaci za prijavu!",
+    "msg_session_expired": "Vaša sesija je istekla. Prijavite se ponovo.",
+    "msg_ip_changed": "Sesija je zatvorena jer se vaša IP adresa promijenila. Prijavite se ponovo."
   },
   "misc": {
     "error": "Greška",

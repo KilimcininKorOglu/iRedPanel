@@ -105,7 +105,9 @@
     "password_placeholder": "Enter admin password",
     "sign_in": "Sign in",
     "failed_attempts": "Failed login attempts: :count",
-    "invalid_credentials": "Invalid credentials!"
+    "invalid_credentials": "Invalid credentials!",
+    "msg_session_expired": "Your session expired. Please sign in again.",
+    "msg_ip_changed": "Your IP address changed, so the session was closed. Please sign in again."
   },
   "misc": {
     "error": "Error",

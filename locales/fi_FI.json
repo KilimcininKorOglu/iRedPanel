@@ -105,7 +105,9 @@
     "password_placeholder": "Anna ylläpitäjän salasana",
     "sign_in": "Kirjaudu sisään",
     "failed_attempts": "Epäonnistuneet kirjautumisyritykset: :count",
-    "invalid_credentials": "Virheelliset tunnistetiedot!"
+    "invalid_credentials": "Virheelliset tunnistetiedot!",
+    "msg_session_expired": "Istuntosi vanheni. Kirjaudu uudelleen.",
+    "msg_ip_changed": "Istunto suljettiin, koska IP-osoitteesi muuttui. Kirjaudu uudelleen."
   },
   "misc": {
     "error": "Virhe",

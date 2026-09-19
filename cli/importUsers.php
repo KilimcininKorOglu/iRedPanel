@@ -100,8 +100,10 @@ while (($line = fgets($handle)) !== false) {
             $passwordHash = PasswordUtils::generatePasswordHash($password);
         }
 
+        // An imported mailbox starts active, as one created in the web form or the API.
         $user = new User(
             uid: $uid,
+            accountStatus: true,
             cn: $displayName,
             mailQuota: $quotaMb,
             employeeNumber: $employeeId,

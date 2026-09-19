@@ -29,6 +29,14 @@ class AccountResourceRepositoryTest extends TestCase
                 return true;
             }
 
+            // SQLite has no session locks; the MySQL and PostgreSQL locks run only against a live server.
+            public function tryLock(int $resourceId): bool
+            {
+                return true;
+            }
+
+            public function unlock(int $resourceId): void {}
+
             protected function pdo(): \PDO
             {
                 return $this->connection;

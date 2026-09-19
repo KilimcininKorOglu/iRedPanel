@@ -65,17 +65,13 @@ final class ReplicationRunner
      */
     public function run(AccountResource $resource, bool $allowMassDisable = false): ?RunResult
     {
-        $lock = fopen(sys_get_temp_dir() . "/iredpanel-replication-{$resource->id}.lock", 'c');
-        if ($lock === false) {
-            throw new \RuntimeException('Cannot open the replication lock file');
+        if (!$this->store->tryLock($resource->id)) {
+            return null;
         }
         try {
-            if (!flock($lock, LOCK_EX | LOCK_NB)) {
-                return null;
-            }
             return $this->runLocked($resource, $allowMassDisable);
         } finally {
-            fclose($lock);
+            $this->store->unlock($resource->id);
         }
     }
 

@@ -18,6 +18,23 @@ class PgsqlAccountResourceRepository extends SqlAccountResourceRepository
         return IredadminPgsqlConnection::getInstance()->requirePdo();
     }
 
+    /** First key of the advisory locks of the replication; the second key is the resource id. */
+    private const LOCK_NAMESPACE = 0x1EDD;
+
+    public function tryLock(int $resourceId): bool
+    {
+        $stmt = $this->pdo()->prepare('SELECT pg_try_advisory_lock(:namespace, :id)');
+        $stmt->execute(['namespace' => self::LOCK_NAMESPACE, 'id' => $resourceId]);
+
+        return (bool) $stmt->fetchColumn();
+    }
+
+    public function unlock(int $resourceId): void
+    {
+        $this->pdo()->prepare('SELECT pg_advisory_unlock(:namespace, :id)')
+            ->execute(['namespace' => self::LOCK_NAMESPACE, 'id' => $resourceId]);
+    }
+
     protected function insertedId(string $table): int
     {
         return (int) $this->pdo()->lastInsertId("{$table}_id_seq");

@@ -18,6 +18,24 @@ class MysqlAccountResourceRepository extends SqlAccountResourceRepository
         return IredadminConnection::getInstance()->requirePdo();
     }
 
+    public function tryLock(int $resourceId): bool
+    {
+        $stmt = $this->pdo()->prepare('SELECT GET_LOCK(:name, 0)');
+        $stmt->execute(['name' => self::lockName($resourceId)]);
+
+        return (int) $stmt->fetchColumn() === 1;
+    }
+
+    public function unlock(int $resourceId): void
+    {
+        $this->pdo()->prepare('SELECT RELEASE_LOCK(:name)')->execute(['name' => self::lockName($resourceId)]);
+    }
+
+    private static function lockName(int $resourceId): string
+    {
+        return "iredpanel-replication-{$resourceId}";
+    }
+
     protected function schema(): array
     {
         return [

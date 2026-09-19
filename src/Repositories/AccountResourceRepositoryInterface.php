@@ -38,6 +38,18 @@ interface AccountResourceRepositoryInterface
 
     public function recordRun(int $id, int $at, string $status): void;
 
+    /**
+     * Takes the replication lock of a resource without waiting. The database session
+     * holds the lock, so the cron job and a web request exclude each other even when
+     * they run on different hosts or see different /tmp directories, and the lock of
+     * a crashed run ends with its connection.
+     *
+     * @return bool false when another run holds the lock
+     */
+    public function tryLock(int $resourceId): bool;
+
+    public function unlock(int $resourceId): void;
+
     /** @return array<string, ReplicatedAccount> keyed by GUID */
     public function replicatedAccounts(int $resourceId): array;
 

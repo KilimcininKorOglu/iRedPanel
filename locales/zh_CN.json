@@ -513,7 +513,8 @@
     "relay_host": "中继主机",
     "relay_format": "格式：<code>[hostname]:port</code> — 方括号可防止 MX 查询。",
     "save_relay": "保存中继设置",
-    "msg_is_alias_domain": "域名 :domain 已是别名域"
+    "msg_is_alias_domain": "域名 :domain 已是别名域",
+    "msg_password_length_range": "最小密码长度（:min）超过最大密码长度（:max）。没有密码能同时满足这两个限制。"
   },
   "admin": {
     "msg_email_required": "需要有效的电子邮件地址",

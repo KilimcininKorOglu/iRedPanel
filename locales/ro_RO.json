@@ -513,7 +513,8 @@
     "relay_host": "Server de releu",
     "relay_format": "Format: <code>[nume_gazdă]:port</code> — parantezele pătrate previn căutarea MX.",
     "save_relay": "Salvează setările de releu",
-    "msg_is_alias_domain": "Domeniul :domain este deja un domeniu alias"
+    "msg_is_alias_domain": "Domeniul :domain este deja un domeniu alias",
+    "msg_password_length_range": "Lungimea minimă a parolei (:min) depășește lungimea maximă (:max). Nicio parolă nu poate respecta ambele limite."
   },
   "admin": {
     "msg_email_required": "Este necesară o adresă de email validă",

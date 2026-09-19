@@ -513,7 +513,8 @@
     "relay_host": "Host relay",
     "relay_format": "Formato: <code>[hostname]:port</code> — le parentesi quadre impediscono la ricerca MX.",
     "save_relay": "Salva impostazioni relay",
-    "msg_is_alias_domain": "Il dominio :domain è già un dominio alias"
+    "msg_is_alias_domain": "Il dominio :domain è già un dominio alias",
+    "msg_password_length_range": "La lunghezza minima della password (:min) supera quella massima (:max). Nessuna password può rispettare entrambi i limiti."
   },
   "admin": {
     "msg_email_required": "È richiesto un indirizzo e-mail valido",

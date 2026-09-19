@@ -513,7 +513,8 @@
     "relay_host": "Relay hostu",
     "relay_format": "Format: <code>[hostadı]:port</code> — kvadrat mötərizələr MX axtarışının qarşısını alır.",
     "save_relay": "Relay parametrlərini yadda saxla",
-    "msg_is_alias_domain": ":domain artıq alias domendir"
+    "msg_is_alias_domain": ":domain artıq alias domendir",
+    "msg_password_length_range": "Minimum şifrə uzunluğu (:min) maksimum şifrə uzunluğundan (:max) böyükdür. Heç bir şifrə hər iki limitə uyğun gəlmir."
   },
   "admin": {
     "msg_email_required": "Etibarlı e-poçt ünvanı tələb olunur",

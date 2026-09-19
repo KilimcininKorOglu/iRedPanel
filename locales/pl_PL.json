@@ -513,7 +513,8 @@
     "relay_host": "Serwer przekazujący",
     "relay_format": "Format: <code>[nazwa_hosta]:port</code> — nawiasy kwadratowe zapobiegają wyszukiwaniu MX.",
     "save_relay": "Zapisz ustawienia przekazywania",
-    "msg_is_alias_domain": "Domena :domain jest już domeną aliasu"
+    "msg_is_alias_domain": "Domena :domain jest już domeną aliasu",
+    "msg_password_length_range": "Minimalna długość hasła (:min) przekracza maksymalną (:max). Żadne hasło nie spełni obu limitów."
   },
   "admin": {
     "msg_email_required": "Wymagany jest prawidłowy adres e-mail",

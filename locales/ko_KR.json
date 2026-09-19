@@ -513,7 +513,8 @@
     "relay_host": "릴레이 서버",
     "relay_format": "형식: <code>[호스트이름]:포트</code> — 대괄호는 MX 조회를 방지합니다.",
     "save_relay": "릴레이 설정 저장",
-    "msg_is_alias_domain": "도메인 :domain 은(는) 이미 별칭 도메인입니다"
+    "msg_is_alias_domain": "도메인 :domain 은(는) 이미 별칭 도메인입니다",
+    "msg_password_length_range": "최소 비밀번호 길이(:min)가 최대 길이(:max)보다 큽니다. 두 제한을 모두 충족하는 비밀번호는 없습니다."
   },
   "admin": {
     "msg_email_required": "유효한 이메일 주소가 필요합니다",

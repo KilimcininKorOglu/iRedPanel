@@ -513,7 +513,8 @@
     "relay_host": "Endurvarpsþjónn",
     "relay_format": "Snið: <code>[hostname]:port</code> — hornklofar koma í veg fyrir MX-uppflettingu.",
     "save_relay": "Vista endurvarpsstillingar",
-    "msg_is_alias_domain": "Lénið :domain er þegar samnefnislén"
+    "msg_is_alias_domain": "Lénið :domain er þegar samnefnislén",
+    "msg_password_length_range": "Lágmarkslengd lykilorðs (:min) er meiri en hámarkslengd (:max). Ekkert lykilorð getur uppfyllt bæði mörkin."
   },
   "admin": {
     "msg_email_required": "Gilt netfang er nauðsynlegt",

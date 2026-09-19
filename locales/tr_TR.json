@@ -513,7 +513,8 @@
     "relay_host": "Aktarma Sunucusu",
     "relay_format": "Biçim: <code>[anasistem]:port</code> — köşeli parantezler MX aramasını engeller.",
     "save_relay": "Aktarma Ayarlarını Kaydet",
-    "msg_is_alias_domain": ":domain zaten bir alias domain"
+    "msg_is_alias_domain": ":domain zaten bir alias domain",
+    "msg_password_length_range": "Minimum şifre uzunluğu (:min), maksimum şifre uzunluğundan (:max) büyük. Hiçbir şifre iki sınırı birden karşılayamaz."
   },
   "admin": {
     "msg_email_required": "Geçerli bir e-posta adresi gerekli",

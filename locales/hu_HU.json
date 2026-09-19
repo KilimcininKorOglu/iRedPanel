@@ -513,7 +513,8 @@
     "relay_host": "Relé gazdagép",
     "relay_format": "Formátum: <code>[hostname]:port</code> — a szögletes zárójelek megakadályozzák az MX-keresést.",
     "save_relay": "Relébeállítások mentése",
-    "msg_is_alias_domain": "A(z) :domain már alias domain"
+    "msg_is_alias_domain": "A(z) :domain már alias domain",
+    "msg_password_length_range": "A jelszó minimális hossza (:min) nagyobb a maximálisnál (:max). Egyetlen jelszó sem felelhet meg mindkét korlátnak."
   },
   "admin": {
     "msg_email_required": "Érvényes e-mail-cím megadása kötelező",

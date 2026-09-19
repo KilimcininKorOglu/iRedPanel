@@ -1,0 +1,59 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Tests\Models;
+
+use App\Exceptions\InvalidInputException;
+use App\Models\DomainSettings;
+use App\Models\Settings;
+use PHPUnit\Framework\TestCase;
+
+class DomainSettingsTest extends TestCase
+{
+    public function testFormValuesRoundTripThroughTheSettingsString(): void
+    {
+        $settings = DomainSettings::fromFormData([
+            'defaultUserQuota' => '256',
+            'minPasswordLength' => '10',
+            'maxPasswordLength' => '64',
+        ]);
+
+        $this->assertSame('default_user_quota:256;min_passwd_length:10;max_passwd_length:64;', $settings->toSettingsString());
+    }
+
+    /**
+     * 0 means "use the global value" or "unlimited", so an invalid value used to remove the limit.
+     */
+    public function testNegativeNumberIsRejectedWithItsFieldLabel(): void
+    {
+        try {
+            DomainSettings::fromFormData(['minPasswordLength' => '-3']);
+            $this->fail('A negative length must be rejected');
+        } catch (InvalidInputException $e) {
+            $this->assertSame('domain.min_password_length', $e->fieldKey);
+        }
+    }
+
+    public function testMinAboveMaxIsRejected(): void
+    {
+        $this->expectException(InvalidInputException::class);
+        DomainSettings::fromFormData(['minPasswordLength' => '50', 'maxPasswordLength' => '20']);
+    }
+
+    /**
+     * With no domain min, UserPassword applies the global min, so that value must fit under the max too.
+     */
+    public function testGlobalMinAboveDomainMaxIsRejected(): void
+    {
+        $globalMin = Settings::getInstance()->passwordMinLength;
+        $this->assertGreaterThan(1, $globalMin);
+
+        try {
+            DomainSettings::fromFormData(['maxPasswordLength' => (string) ($globalMin - 1)]);
+            $this->fail('A max below the global min must be rejected');
+        } catch (InvalidInputException $e) {
+            $this->assertSame(['min' => $globalMin, 'max' => $globalMin - 1], $e->params);
+        }
+    }
+}

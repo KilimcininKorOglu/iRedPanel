@@ -513,7 +513,8 @@
     "relay_host": "Server relay",
     "relay_format": "Format: <code>[namahost]:port</code> — tanda kurung siku mencegah pencarian MX.",
     "save_relay": "Simpan pengaturan relay",
-    "msg_is_alias_domain": "Domain :domain sudah menjadi domain alias"
+    "msg_is_alias_domain": "Domain :domain sudah menjadi domain alias",
+    "msg_password_length_range": "Panjang kata sandi minimum (:min) melebihi panjang maksimum (:max). Tidak ada kata sandi yang dapat memenuhi kedua batas."
   },
   "admin": {
     "msg_email_required": "Alamat email yang valid diperlukan",

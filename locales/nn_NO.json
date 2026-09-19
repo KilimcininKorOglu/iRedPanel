@@ -513,7 +513,8 @@
     "relay_host": "Relétenar",
     "relay_format": "Format: <code>[hostname]:port</code> — hakeparentesar hindrar MX-oppslag.",
     "save_relay": "Lagre reléinnstillingar",
-    "msg_is_alias_domain": "Domenet :domain er allereie eit aliasdomene"
+    "msg_is_alias_domain": "Domenet :domain er allereie eit aliasdomene",
+    "msg_password_length_range": "Minste passordlengd (:min) er større enn største passordlengd (:max). Ingen passord kan oppfylle begge grensene."
   },
   "admin": {
     "msg_email_required": "Ei gyldig e-postadresse er påkravd",

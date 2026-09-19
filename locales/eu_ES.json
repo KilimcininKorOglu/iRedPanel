@@ -513,7 +513,8 @@
     "relay_host": "Errele-zerbitzaria",
     "relay_format": "Formatua: <code>[hostname]:port</code> — kortxeteek MX bilaketa saihesten dute.",
     "save_relay": "Gorde errele ezarpenak",
-    "msg_is_alias_domain": ":domain domeinua alias domeinua da jada"
+    "msg_is_alias_domain": ":domain domeinua alias domeinua da jada",
+    "msg_password_length_range": "Pasahitzaren gutxieneko luzera (:min) gehienekoa (:max) baino handiagoa da. Ezein pasahitzek ezin ditu bi mugak bete."
   },
   "admin": {
     "msg_email_required": "Baliozko posta-helbidea beharrezkoa da",

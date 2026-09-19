@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Exceptions\InvalidInputException;
 use App\Utils\FormValue;
+use App\Utils\WholeNumber;
 
 /**
  * Represents per-domain settings stored in domain.settings column (MySQL)
@@ -80,14 +82,45 @@ class DomainSettings
         return empty($parts) ? '' : implode(';', $parts) . ';';
     }
 
+    /**
+     * @throws InvalidInputException when a number is not a whole number of 0 or more,
+     *         or the min password length exceeds the max password length
+     */
     public static function fromFormData(array $post): self
     {
-        return new self(
-            defaultUserQuota: (int) ($post['defaultUserQuota'] ?? 0),
-            minPasswordLength: (int) ($post['minPasswordLength'] ?? 0),
-            maxPasswordLength: (int) ($post['maxPasswordLength'] ?? 0),
+        $settings = new self(
+            defaultUserQuota: self::number($post, 'defaultUserQuota', 'domain.default_user_quota'),
+            minPasswordLength: self::number($post, 'minPasswordLength', 'domain.min_password_length'),
+            maxPasswordLength: self::number($post, 'maxPasswordLength', 'domain.max_password_length'),
             disclaimer: FormValue::text($post, 'disclaimer'),
             disabledMailServices: $post['disabledMailServices'] ?? [],
+        );
+
+        // No password could satisfy both limits. A min of 0 falls back to the global min, like UserPassword
+        // does, so the message shows the effective min.
+        $minLength = $settings->minPasswordLength > 0
+            ? $settings->minPasswordLength
+            : Settings::getInstance()->passwordMinLength;
+        if ($settings->maxPasswordLength > 0 && $minLength > $settings->maxPasswordLength) {
+            throw new InvalidInputException(
+                "The min password length ({$minLength}) must not exceed maxPasswordLength",
+                'domain.msg_password_length_range',
+                ['min' => $minLength, 'max' => $settings->maxPasswordLength],
+            );
+        }
+
+        return $settings;
+    }
+
+    /**
+     * A value of 0 means "use the global setting" or "unlimited", so an invalid value must not become 0.
+     */
+    private static function number(array $post, string $key, string $labelKey): int
+    {
+        return WholeNumber::parse($post[$key] ?? 0) ?? throw new InvalidInputException(
+            "{$key} must be a whole number of 0 or more",
+            'common.msg_invalid_whole_number',
+            fieldKey: $labelKey,
         );
     }
 

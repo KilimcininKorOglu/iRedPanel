@@ -513,7 +513,8 @@
     "relay_host": "Edastusserver",
     "relay_format": "Vorming: <code>[hostname]:port</code> — nurksulud takistavad MX-otsingut.",
     "save_relay": "Salvesta edastuse seaded",
-    "msg_is_alias_domain": "Domeen :domain on juba aliasdomeen"
+    "msg_is_alias_domain": "Domeen :domain on juba aliasdomeen",
+    "msg_password_length_range": "Parooli minimaalne pikkus (:min) ületab maksimaalse (:max). Ükski parool ei saa täita mõlemat piirangut."
   },
   "admin": {
     "msg_email_required": "Nõutav on kehtiv e-posti aadress",

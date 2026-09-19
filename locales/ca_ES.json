@@ -513,7 +513,8 @@
     "relay_host": "Amfitrió de retransmissió",
     "relay_format": "Format: <code>[nomamfitrió]:port</code> — els claudàtors eviten la cerca de MX.",
     "save_relay": "Desar configuració de retransmissió",
-    "msg_is_alias_domain": "El domini :domain ja és un domini àlies"
+    "msg_is_alias_domain": "El domini :domain ja és un domini àlies",
+    "msg_password_length_range": "La longitud mínima de la contrasenya (:min) supera la màxima (:max). Cap contrasenya no pot complir tots dos límits."
   },
   "admin": {
     "msg_email_required": "Cal una adreça de correu electrònic vàlida",

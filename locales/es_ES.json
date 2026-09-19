@@ -513,7 +513,8 @@
     "relay_host": "Host de retransmisión",
     "relay_format": "Formato: <code>[hostname]:port</code> — los corchetes evitan la búsqueda de MX.",
     "save_relay": "Guardar ajustes de retransmisión",
-    "msg_is_alias_domain": "El dominio :domain ya es un dominio alias"
+    "msg_is_alias_domain": "El dominio :domain ya es un dominio alias",
+    "msg_password_length_range": "La longitud mínima de la contraseña (:min) supera la máxima (:max). Ninguna contraseña puede cumplir ambos límites."
   },
   "admin": {
     "msg_email_required": "Se requiere una dirección de correo válida",

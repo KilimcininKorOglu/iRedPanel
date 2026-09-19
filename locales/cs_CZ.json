@@ -513,7 +513,8 @@
     "relay_host": "Přenosový server",
     "relay_format": "Formát: <code>[nazev_hostitele]:port</code> — hranaté závorky zabraňují vyhledávání MX.",
     "save_relay": "Uložit nastavení přenosu",
-    "msg_is_alias_domain": "Doména :domain je již aliasovou doménou"
+    "msg_is_alias_domain": "Doména :domain je již aliasovou doménou",
+    "msg_password_length_range": "Minimální délka hesla (:min) je větší než maximální (:max). Žádné heslo nemůže splnit oba limity."
   },
   "admin": {
     "msg_email_required": "Je vyžadována platná e-mailová adresa",

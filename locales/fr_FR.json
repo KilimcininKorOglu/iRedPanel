@@ -513,7 +513,8 @@
     "relay_host": "Hôte relais",
     "relay_format": "Format : <code>[hostname]:port</code> — les crochets empêchent la recherche MX.",
     "save_relay": "Enregistrer les paramètres de relais",
-    "msg_is_alias_domain": "Le domaine :domain est déjà un domaine alias"
+    "msg_is_alias_domain": "Le domaine :domain est déjà un domaine alias",
+    "msg_password_length_range": "La longueur minimale du mot de passe (:min) dépasse la longueur maximale (:max). Aucun mot de passe ne peut respecter les deux limites."
   },
   "admin": {
     "msg_email_required": "Une adresse e-mail valide est requise",

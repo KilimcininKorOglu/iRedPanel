@@ -513,7 +513,8 @@
     "relay_host": "Relay-Host",
     "relay_format": "Format: <code>[hostname]:port</code> — eckige Klammern verhindern die MX-Abfrage.",
     "save_relay": "Relay-Einstellungen speichern",
-    "msg_is_alias_domain": "Die Domain :domain ist bereits eine Alias-Domain"
+    "msg_is_alias_domain": "Die Domain :domain ist bereits eine Alias-Domain",
+    "msg_password_length_range": "Die minimale Passwortlänge (:min) ist größer als die maximale (:max). Kein Passwort kann beide Grenzen erfüllen."
   },
   "admin": {
     "msg_email_required": "Eine gültige E-Mail-Adresse ist erforderlich",

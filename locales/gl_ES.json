@@ -513,7 +513,8 @@
     "relay_host": "Servidor de retransmisión",
     "relay_format": "Formato: <code>[hostname]:port</code> — os corchetes evitan a busca de MX.",
     "save_relay": "Gardar configuración de retransmisión",
-    "msg_is_alias_domain": "O dominio :domain xa é un dominio alias"
+    "msg_is_alias_domain": "O dominio :domain xa é un dominio alias",
+    "msg_password_length_range": "A lonxitude mínima do contrasinal (:min) supera a máxima (:max). Ningún contrasinal pode cumprir os dous límites."
   },
   "admin": {
     "msg_email_required": "É obrigatorio un enderezo de correo válido",

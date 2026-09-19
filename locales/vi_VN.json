@@ -513,7 +513,8 @@
     "relay_host": "Máy chủ chuyển tiếp",
     "relay_format": "Định dạng: <code>[tên_máy_chủ]:cổng</code> — dấu ngoặc vuông ngăn tra cứu MX.",
     "save_relay": "Lưu cài đặt chuyển tiếp",
-    "msg_is_alias_domain": "Tên miền :domain đã là tên miền bí danh"
+    "msg_is_alias_domain": "Tên miền :domain đã là tên miền bí danh",
+    "msg_password_length_range": "Độ dài mật khẩu tối thiểu (:min) lớn hơn độ dài tối đa (:max). Không mật khẩu nào đáp ứng được cả hai giới hạn."
   },
   "admin": {
     "msg_email_required": "Cần địa chỉ email hợp lệ",

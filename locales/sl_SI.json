@@ -513,7 +513,8 @@
     "relay_host": "Gostitelj za posredovanje",
     "relay_format": "Oblika: <code>[imegostitelja]:vrata</code> — oglati oklepaji preprečijo iskanje MX.",
     "save_relay": "Shrani nastavitve posredovanja",
-    "msg_is_alias_domain": "Domena :domain je že domena vzdevka"
+    "msg_is_alias_domain": "Domena :domain je že domena vzdevka",
+    "msg_password_length_range": "Najmanjša dolžina gesla (:min) presega največjo (:max). Nobeno geslo ne more izpolniti obeh omejitev."
   },
   "admin": {
     "msg_email_required": "Zahtevan je veljaven e-poštni naslov",

@@ -513,7 +513,8 @@
     "relay_host": "リレーホスト",
     "relay_format": "形式：<code>[hostname]:port</code> — 角括弧は MX ルックアップを防止します。",
     "save_relay": "リレー設定を保存",
-    "msg_is_alias_domain": "ドメイン :domain は既にエイリアスドメインです"
+    "msg_is_alias_domain": "ドメイン :domain は既にエイリアスドメインです",
+    "msg_password_length_range": "パスワードの最小長 (:min) が最大長 (:max) を超えています。両方の制限を満たすパスワードはありません。"
   },
   "admin": {
     "msg_email_required": "有効なメールアドレスが必要です",

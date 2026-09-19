@@ -513,7 +513,8 @@
     "relay_host": "Relejni poslužitelj",
     "relay_format": "Format: <code>[hostname]:port</code> — uglate zagrade sprječavaju pretraživanje MX-a.",
     "save_relay": "Spremi postavke releja",
-    "msg_is_alias_domain": "Domena :domain već je alias domena"
+    "msg_is_alias_domain": "Domena :domain već je alias domena",
+    "msg_password_length_range": "Minimalna duljina lozinke (:min) veća je od maksimalne (:max). Nijedna lozinka ne može zadovoljiti oba ograničenja."
   },
   "admin": {
     "msg_email_required": "Potrebna je valjana adresa e-pošte",

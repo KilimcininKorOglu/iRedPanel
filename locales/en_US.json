@@ -513,7 +513,8 @@
     "relay_host": "Relay Host",
     "relay_format": "Format: <code>[hostname]:port</code> — square brackets prevent MX lookup.",
     "save_relay": "Save relay settings",
-    "msg_is_alias_domain": "The domain :domain is already an alias domain"
+    "msg_is_alias_domain": "The domain :domain is already an alias domain",
+    "msg_password_length_range": "The min password length (:min) exceeds the max password length (:max). No password can meet both limits."
   },
   "admin": {
     "msg_email_required": "A valid email address is required",

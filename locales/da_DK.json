@@ -513,7 +513,8 @@
     "relay_host": "Relævært",
     "relay_format": "Format: <code>[hostname]:port</code> — firkantede parenteser forhindrer MX-opslag.",
     "save_relay": "Gem relæindstillinger",
-    "msg_is_alias_domain": "Domænet :domain er allerede et aliasdomæne"
+    "msg_is_alias_domain": "Domænet :domain er allerede et aliasdomæne",
+    "msg_password_length_range": "Minimal adgangskodelængde (:min) er større end maksimal (:max). Ingen adgangskode kan opfylde begge grænser."
   },
   "admin": {
     "msg_email_required": "En gyldig e-mailadresse er påkrævet",

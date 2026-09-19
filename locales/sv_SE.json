@@ -513,7 +513,8 @@
     "relay_host": "Reläserver",
     "relay_format": "Format: <code>[värdnamn]:port</code> — hakparenteser förhindrar MX-uppslagning.",
     "save_relay": "Spara reläinställningar",
-    "msg_is_alias_domain": "Domänen :domain är redan en aliasdomän"
+    "msg_is_alias_domain": "Domänen :domain är redan en aliasdomän",
+    "msg_password_length_range": "Minsta lösenordslängd (:min) är större än största lösenordslängd (:max). Inget lösenord kan uppfylla båda gränserna."
   },
   "admin": {
     "msg_email_required": "En giltig e-postadress krävs",

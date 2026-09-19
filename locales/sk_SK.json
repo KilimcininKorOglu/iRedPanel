@@ -513,7 +513,8 @@
     "relay_host": "Relé hostiteľ",
     "relay_format": "Formát: <code>[hostname]:port</code> — hranaté zátvorky zabránia vyhľadávaniu MX.",
     "save_relay": "Uložiť nastavenia relé",
-    "msg_is_alias_domain": "Doména :domain je už aliasovou doménou"
+    "msg_is_alias_domain": "Doména :domain je už aliasovou doménou",
+    "msg_password_length_range": "Minimálna dĺžka hesla (:min) je väčšia ako maximálna (:max). Žiadne heslo nemôže splniť oba limity."
   },
   "admin": {
     "msg_email_required": "Vyžaduje sa platná e-mailová adresa",

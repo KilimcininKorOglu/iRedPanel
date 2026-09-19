@@ -513,7 +513,8 @@
     "relay_host": "Välityspalvelin",
     "relay_format": "Muoto: <code>[hostname]:port</code> — hakasulkeet estävät MX-haun.",
     "save_relay": "Tallenna välitysasetukset",
-    "msg_is_alias_domain": "Verkkotunnus :domain on jo aliasverkkotunnus"
+    "msg_is_alias_domain": "Verkkotunnus :domain on jo aliasverkkotunnus",
+    "msg_password_length_range": "Salasanan vähimmäispituus (:min) ylittää enimmäispituuden (:max). Mikään salasana ei voi täyttää kumpaakin rajaa."
   },
   "admin": {
     "msg_email_required": "Kelvollinen sähköpostiosoite vaaditaan",

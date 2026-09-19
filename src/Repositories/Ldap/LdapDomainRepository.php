@@ -92,28 +92,36 @@ class LdapDomainRepository implements DomainRepositoryInterface
 
     /**
      * Builds a Domain from an ldap_get_entries() entry. iRedMail does not maintain
-     * domainCurrentUserNumber, so the users are counted.
+     * domainCurrentUserNumber, so the mailboxes are counted and their quota summed.
      */
     private static function toDomain(\LDAP\Connection $conn, array $entry): Domain
     {
         $domain = Domain::fromLdapEntry(LdapUtils::normalizeEntry($entry, self::DOMAIN_DETAIL_ATTRS));
         LdapAccountSetting::applyTo($domain, LdapUtils::allValues($entry, 'accountSetting'));
-        $domain->currentUserCount = self::countUsers($conn, $domain->domainName);
+        self::applyMailboxTotals($conn, $domain);
 
         return $domain;
     }
 
-    private static function countUsers(\LDAP\Connection $conn, string $domainName): int
+    /**
+     * Sets the mailbox count and the allocated quota in MB, which the SQL backends read
+     * with COUNT(*) and SUM(quota) over the mailbox table. The catch-all entry is excluded.
+     */
+    private static function applyMailboxTotals(\LDAP\Connection $conn, Domain $domain): void
     {
-        $safeDomain = ldap_escape($domainName, '', LDAP_ESCAPE_FILTER);
-        $result = @ldap_list(
+        $safeDomain = ldap_escape($domain->domainName, '', LDAP_ESCAPE_FILTER);
+        $mailboxes = LdapUtils::searchEntries(
             $conn,
-            'ou=Users,' . LdapUtils::getDomainDn($domainName),
+            'ou=Users,' . LdapUtils::getDomainDn($domain->domainName),
             "(&(objectClass=mailUser)(!(mail=@{$safeDomain})))",
-            ['mail']
+            ['mailQuota']
         );
 
-        return $result === false ? 0 : ldap_count_entries($conn, $result);
+        $domain->currentUserCount = count($mailboxes);
+        $domain->currentQuotaUsed = intdiv(array_sum(array_map(
+            static fn (array $mailbox): int => (int) (LdapUtils::allValues($mailbox, 'mailQuota')[0] ?? 0),
+            $mailboxes
+        )), 1048576);
     }
 
     public function createDomain(Domain $domain): void

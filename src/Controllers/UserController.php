@@ -22,6 +22,7 @@ use App\Services\ActivityLogger;
 use App\Services\AdminLimits;
 use App\Services\Replication\ReplicatedAccountGuard;
 use App\Services\UserAliasService;
+use App\Services\UserBulkUpdate;
 use App\TemplateEngine;
 use App\Utils\FormValue;
 use App\Utils\PasswordUtils;
@@ -312,6 +313,55 @@ class UserController
         }
     }
 
+    /** Bulk actions that write one value to every selected mailbox. */
+    private const BULK_CHANGES = ['language', 'transport', 'password'];
+
+    /**
+     * Writes the posted value of $action to every selected mailbox and redirects to the list.
+     *
+     * @param list<string> $uids
+     */
+    private static function bulkChange(string $domain, array $uids, string $action): void
+    {
+        try {
+            $changes = self::bulkChangeValue($domain, $action);
+            $updated = UserBulkUpdate::apply($domain, $uids, $changes);
+            ActivityLogger::log('update', $domain, '', "Bulk {$action} on " . count($updated) . " users");
+            BaseController::flashSuccess(Translator::translate('common.msg_bulk_done', ['count' => count($updated)]));
+        } catch (\Exception $e) {
+            BaseController::flashError(BaseController::errorMessage($e));
+        }
+
+        header("Location: /{$domain}/users");
+        exit;
+    }
+
+    /**
+     * The validated value of a bulk change.
+     *
+     * @return array<string, mixed> one UserBulkUpdate field
+     * @throws \Exception when the posted value is invalid or the admin may not set it
+     */
+    private static function bulkChangeValue(string $domain, string $action): array
+    {
+        if ($action === 'transport') {
+            // A wrong transport loses mail, so only a global admin sets it.
+            Middleware::globalAdminRequired();
+            return ['transport' => MailTransport::valid(FormValue::text($_POST, 'bulkTransport'))];
+        }
+        if ($action === 'language') {
+            return ['language' => (string) User::validLanguage(FormValue::text($_POST, 'bulkLanguage'))];
+        }
+
+        $password = is_string($_POST['bulkPassword'] ?? null) ? $_POST['bulkPassword'] : '';
+        $errors = UserPassword::validateLocalized($password, $password, self::domainSettings($domain));
+        if ($errors !== []) {
+            throw new \RuntimeException(reset($errors));
+        }
+
+        return ['password' => $password];
+    }
+
     public static function bulkAction(TemplateEngine $tpl, string $domain): void
     {
         Middleware::domainAdminRequired($domain);
@@ -321,9 +371,14 @@ class UserController
         $action = $_POST['action'] ?? '';
         $adminEmail = $_SESSION['email'] ?? '';
 
-        if (!BaseController::isValidBulkRequest($selectedUsers, $action)) {
+        if (!BaseController::isValidBulkRequest($selectedUsers, $action, [...BaseController::BULK_ACTIONS, ...self::BULK_CHANGES])) {
             header("Location: /{$domain}/users");
             exit;
+        }
+
+        if (in_array($action, self::BULK_CHANGES, true)) {
+            self::bulkChange($domain, array_values(array_filter($selectedUsers, 'is_string')), $action);
+            return;
         }
 
         $deleteDate = $action === 'delete' ? BaseController::postedDeleteDate("/{$domain}/users") : null;

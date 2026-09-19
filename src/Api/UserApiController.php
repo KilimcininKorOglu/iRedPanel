@@ -16,6 +16,7 @@ use App\Services\AccountRenameService;
 use App\Services\AccountSettingsService;
 use App\Services\Replication\ReplicatedAccountGuard;
 use App\Services\UserAliasService;
+use App\Services\UserBulkUpdate;
 use App\Utils\FormValue;
 use App\Utils\PasswordUtils;
 
@@ -185,6 +186,108 @@ class UserApiController
     }
 
     /**
+     * Changes the mailboxes of one domain in one request: `accountStatus`, `password`,
+     * `language` and `transport`. Without `users` every mailbox of the domain changes.
+     */
+    public static function bulkUpdate(string $domain): void
+    {
+        ApiMiddleware::requireDomainAccess($domain);
+        ApiMiddleware::requireWriteAccess();
+        $data = ApiMiddleware::getJsonBody();
+
+        $pageError = self::closedPageError($data, $domain);
+        if ($pageError !== null) {
+            ApiResponse::error($pageError, 403);
+            return;
+        }
+
+        try {
+            $changes = self::bulkChanges($data, $domain);
+            $uids = self::bulkTargets($data, $domain);
+        } catch (InvalidInputException $e) {
+            ApiResponse::invalidInput($e);
+            return;
+        } catch (\InvalidArgumentException $e) {
+            ApiResponse::error($e->getMessage());
+            return;
+        }
+
+        $updated = UserBulkUpdate::apply($domain, $uids, $changes);
+        ApiResponse::success(['message' => 'Users updated', 'updated' => count($updated)]);
+    }
+
+    /**
+     * The fields of a bulk update body.
+     *
+     * @return array<string, mixed> at least one field
+     * @throws InvalidInputException|\InvalidArgumentException when a value is invalid or no field is set
+     */
+    private static function bulkChanges(array $data, string $domain): array
+    {
+        $changes = [];
+        if (array_key_exists('accountStatus', $data)) {
+            $changes['accountStatus'] = ApiInput::bool($data, 'accountStatus', true);
+        }
+        if (array_key_exists('language', $data)) {
+            $changes['language'] = (string) User::validLanguage($data['language']);
+        }
+        if (array_key_exists('transport', $data)) {
+            // A wrong transport loses mail, so only a global key sets it.
+            ApiMiddleware::requireGlobalKey();
+            $changes['transport'] = MailTransport::valid($data['transport']);
+        }
+        if (array_key_exists('password', $data)) {
+            $password = is_string($data['password']) ? $data['password'] : '';
+            $errors = UserPassword::validate($password, $password, self::domainSettings($domain));
+            if ($errors !== []) {
+                throw new \InvalidArgumentException('Password policy violation: ' . $errors['password']);
+            }
+            $changes['password'] = $password;
+        }
+        if ($changes === []) {
+            throw new \InvalidArgumentException('One of ' . implode(', ', UserBulkUpdate::FIELDS) . ' is required');
+        }
+
+        return $changes;
+    }
+
+    /**
+     * The mailboxes that a bulk update changes: `users` (addresses or local parts of the
+     * domain), or every mailbox of the domain.
+     *
+     * @return list<string> local parts
+     * @throws \InvalidArgumentException when an address belongs to another domain
+     */
+    private static function bulkTargets(array $data, string $domain): array
+    {
+        if (!array_key_exists('users', $data)) {
+            return array_map(static fn (User $user): string => $user->uid, RepositoryFactory::getUserRepository()->getUsers($domain));
+        }
+
+        $uids = [];
+        foreach (ApiInput::strings($data['users'], 'users') as $entry) {
+            $address = strtolower(trim($entry));
+            [$uid, $entryDomain] = str_contains($address, '@') ? explode('@', $address, 2) : [$address, $domain];
+            if ($entryDomain !== $domain || $uid === '') {
+                throw new \InvalidArgumentException("users must hold mailboxes of {$domain}: {$address}");
+            }
+            $uids[] = $uid;
+        }
+
+        return $uids;
+    }
+
+    /**
+     * The settings of the domain, for the password policy.
+     */
+    private static function domainSettings(string $domain): DomainSettings
+    {
+        return DomainSettings::fromSettingsString(
+            RepositoryFactory::getDomainRepository()->getDomain($domain)?->settings ?? ''
+        );
+    }
+
+    /**
      * Applies `services`, `addServices` and `removeServices` to the mail service toggles
      * of $user. The toggle fields (`enableSmtp` and the others) also stay accepted.
      *
@@ -220,10 +323,7 @@ class UserApiController
      */
     private static function changePassword(string $domain, string $uid, string $password): bool
     {
-        $domainSettings = DomainSettings::fromSettingsString(
-            RepositoryFactory::getDomainRepository()->getDomain($domain)?->settings ?? ''
-        );
-        $validationErrors = \App\Models\UserPassword::validate($password, $password, $domainSettings);
+        $validationErrors = UserPassword::validate($password, $password, self::domainSettings($domain));
         if (!empty($validationErrors)) {
             // The API has no repeat field, so every policy error is under the password key.
             ApiResponse::error('Password policy violation: ' . $validationErrors['password']);
@@ -493,8 +593,8 @@ class UserApiController
     }
 
     /**
-     * The hash of `password`, or `passwordHash` as given (iRedAdmin-Pro `password_hash`),
-     * which the password policy cannot check.
+     * The hash of `password`, or `passwordHash` as given, which the password policy
+     * cannot check.
      *
      * @throws InvalidInputException when both or none are given, or the password breaks the policy
      */

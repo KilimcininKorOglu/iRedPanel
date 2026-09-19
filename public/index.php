@@ -495,6 +495,9 @@ $router->addRoute('GET', '/api/v1/domains/{domain}/users', function (string $dom
 $router->addRoute('POST', '/api/v1/domains/{domain}/users', function (string $domain) use ($apiAuth) {
     $apiAuth(); UserApiController::create($domain);
 });
+$router->addRoute('PUT', '/api/v1/domains/{domain}/users', function (string $domain) use ($apiAuth) {
+    $apiAuth(); UserApiController::bulkUpdate($domain);
+});
 $router->addRoute('GET', '/api/v1/users/{email}', function (string $email) use ($apiAuth) {
     $apiAuth(); UserApiController::get($email);
 });

@@ -336,7 +336,7 @@ server {
 - Forwarding with a keep-copy option, per-user alias addresses, sender and recipient BCC, relay host, and a per-user Postfix transport (global admin only)
 - Address rename that updates every related table
 - Used quota and last login display (Dovecot `used_quota` and `last_login` data)
-- Bulk enable, disable and delete; alphabetic filter, sortable columns, random password generation
+- Bulk enable, disable and delete, and a bulk language, password or transport change; alphabetic filter, sortable columns, random password generation
 - Domain limits (maximum mailboxes and quota) checked in the web form, the REST API and the CLI
 - New mailbox options, as in iRedAdmin: a password hash instead of a password (`{SSHA512}`, `{CRYPT}`, `{BCRYPT}` and the other iRedMail schemes; the password policy does not check a hash), the language, the mailbox format (`maildir`, `mdbox`, `sdbox`) and folder, and, for a global admin only, an absolute maildir path. A path that another mailbox uses, or that lies inside another mailbox, is refused
 
@@ -449,7 +449,7 @@ The REST API lives at `/api/v1/*`. It is disabled by default (`API_ENABLED=false
 | Resource | Endpoints |
 |----------|-----------|
 | Domains | `GET, POST /domains`; `GET, PUT, DELETE /domains/{domain}` |
-| Users | `GET, POST /domains/{domain}/users`; `GET, PUT, DELETE /users/{email}` |
+| Users | `GET, POST, PUT /domains/{domain}/users`; `GET, PUT, DELETE /users/{email}` |
 | Aliases | `GET, POST /aliases`; `GET, PUT, DELETE /aliases/{address}` |
 | Mailing lists | `GET, POST /mailing-lists`; `GET, PUT, DELETE /mailing-lists/{address}` |
 | List subscribers | `GET, POST, DELETE /mailing-lists/{address}/subscribers` |

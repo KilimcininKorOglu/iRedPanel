@@ -99,7 +99,22 @@ $sortIcon = function (string $col) use ($sortBy, $sortDir) {
       <option value="enable"><?= $te('common.enable_selected') ?></option>
       <option value="disable"><?= $te('common.disable_selected') ?></option>
       <option value="delete"><?= $te('common.delete_selected') ?></option>
+      <option value="language"><?= $te('user.language') ?></option>
+      <option value="password"><?= $te('common.password') ?></option>
+      <?php if (!empty($session['isGlobalAdmin'])): ?>
+      <option value="transport"><?= $te('user.transport') ?></option>
+      <?php endif; ?>
     </select>
+    <select name="bulkLanguage" class="form-select form-select-sm w-auto" aria-label="<?= $te('user.language') ?>">
+      <option value=""><?= $te('user.language_default') ?></option>
+      <?php foreach ($availableLocales as $code => $name): ?>
+      <option value="<?= $e($code) ?>"><?= $e($name) ?></option>
+      <?php endforeach; ?>
+    </select>
+    <input type="password" name="bulkPassword" autocomplete="new-password" class="form-control form-control-sm w-auto" placeholder="<?= $te('common.password') ?>" />
+    <?php if (!empty($session['isGlobalAdmin'])): ?>
+    <input type="text" name="bulkTransport" class="form-control form-control-sm w-auto font-monospace" placeholder="<?= $te('user.transport') ?>" />
+    <?php endif; ?>
     <?php include __DIR__ . '/keepMailboxDays.php'; ?>
     <button type="submit" class="btn btn-sm btn-outline-secondary" data-bulk-confirm="<?= $e(json_encode(['delete' => $t('user.bulk_delete_confirm')])) ?>"><?= $te('common.apply') ?></button>
   </div>

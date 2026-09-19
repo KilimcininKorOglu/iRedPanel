@@ -14,4 +14,13 @@ interface AmavisdRepositoryInterface extends AccountSettingsStoreInterface
     public function getMailLog(int $page, int $perPage, ?string $email = null): PaginatedResult;
     public function cleanupQuarantined(int $olderThanDays): int;
     public function cleanupMailLog(int $olderThanDays): int;
+
+    /**
+     * @param ?int $since Unix time; only messages received at or after it
+     * @return string[] mail IDs of the quarantined messages, newest first
+     */
+    public function getQuarantinedMailIds(?int $since = null): array;
+
+    /** The full message: Amavisd stores it in chunks, joined here in chunk order. */
+    public function getQuarantinedMailText(string $mailId): string;
 }

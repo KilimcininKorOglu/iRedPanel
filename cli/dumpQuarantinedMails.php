@@ -9,9 +9,26 @@ if (php_sapi_name() !== 'cli') {
 
 require_once __DIR__ . '/bootstrap.php';
 
-use App\Repositories\Mysql\AmavisdConnection;
+use App\Repositories\RepositoryFactory;
 
-$options = getopt('', ['output:', 'since::']);
+/**
+ * @return ?int the start of the day in UTC, or null without --since
+ */
+function sinceTime(array $options): ?int
+{
+    if (!isset($options['since'])) {
+        return null;
+    }
+    $date = \DateTimeImmutable::createFromFormat('!Y-m-d', (string) $options['since'], new \DateTimeZone('UTC'));
+    if ($date === false || $date->format('Y-m-d') !== $options['since']) {
+        fwrite(STDERR, "Error: --since must be a date in the form YYYY-MM-DD.\n");
+        exit(1);
+    }
+
+    return $date->getTimestamp();
+}
+
+$options = getopt('', ['output:', 'since:']);
 
 if (empty($options['output'])) {
     echo "Usage: php cli/dumpQuarantinedMails.php --output=/path/to/dir [--since=YYYY-MM-DD]\n";
@@ -20,49 +37,25 @@ if (empty($options['output'])) {
 }
 
 $outputDir = rtrim($options['output'], '/');
-if (!is_dir($outputDir)) {
-    echo "Error: Output directory does not exist: {$outputDir}\n";
+if (!is_dir($outputDir) || !is_writable($outputDir)) {
+    fwrite(STDERR, "Error: Output directory does not exist or is not writable: {$outputDir}\n");
     exit(1);
 }
+$since = sinceTime($options);
 
-$conn = AmavisdConnection::getInstance();
-if (!$conn->isAvailable()) {
-    echo "Error: Amavisd database not available. Check IREDPANEL_AMAVISD_* settings.\n";
-    exit(1);
-}
-
-$pdo = $conn->getPdo();
-$where = '1=1';
-$params = [];
-
-if (!empty($options['since'])) {
-    $where .= ' AND m.time_iso >= :since';
-    $params['since'] = $options['since'];
-}
-
-$stmt = $pdo->prepare(
-    "SELECT q.mail_id, q.mail_text, m.from_addr, m.subject, m.time_iso
-     FROM quarantine q
-     JOIN msgs m ON q.mail_id = m.mail_id
-     WHERE {$where}
-     ORDER BY m.time_num DESC"
-);
-
-foreach ($params as $key => $value) {
-    $stmt->bindValue($key, $value);
-}
-$stmt->execute();
-
+$repo = RepositoryFactory::getAmavisdRepository();
 $count = 0;
-while ($row = $stmt->fetch()) {
-    $mailId = preg_replace('/[^a-zA-Z0-9_-]/', '_', $row['mail_id']);
-    $filename = "spam-{$mailId}.eml";
-    $mailText = $row['mail_text'] ?? '';
-
-    if ($mailText !== '') {
-        file_put_contents("{$outputDir}/{$filename}", $mailText);
-        $count++;
+foreach ($repo->getQuarantinedMailIds($since) as $mailId) {
+    $mailText = $repo->getQuarantinedMailText($mailId);
+    if ($mailText === '') {
+        continue;
     }
+    $filename = 'spam-' . preg_replace('/[^a-zA-Z0-9_-]/', '_', $mailId) . '.eml';
+    if (file_put_contents("{$outputDir}/{$filename}", $mailText) === false) {
+        fwrite(STDERR, "Error: Cannot write {$outputDir}/{$filename}\n");
+        exit(1);
+    }
+    $count++;
 }
 
 echo "Exported {$count} quarantined message(s) to {$outputDir}\n";

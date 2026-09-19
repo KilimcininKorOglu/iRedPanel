@@ -206,6 +206,28 @@ class MysqlAmavisdRepository implements AmavisdRepositoryInterface
         return $stmt->rowCount();
     }
 
+    public function getQuarantinedMailIds(?int $since = null): array
+    {
+        $stmt = $this->amavisdPdo()->prepare(
+            "SELECT m.mail_id FROM msgs m
+             WHERE EXISTS (SELECT 1 FROM quarantine q WHERE q.mail_id = m.mail_id) AND m.time_num >= :since
+             ORDER BY m.time_num DESC"
+        );
+        $stmt->execute(['since' => $since ?? 0]);
+
+        return $stmt->fetchAll(\PDO::FETCH_COLUMN);
+    }
+
+    public function getQuarantinedMailText(string $mailId): string
+    {
+        $stmt = $this->amavisdPdo()->prepare(
+            "SELECT mail_text FROM quarantine WHERE mail_id = :mailId ORDER BY chunk_ind"
+        );
+        $stmt->execute(['mailId' => $mailId]);
+
+        return implode('', $stmt->fetchAll(\PDO::FETCH_COLUMN));
+    }
+
     public function deleteAccountSettings(array $accounts): void
     {
         $this->accountSettings()->delete(AccountMatch::accounts($accounts));
@@ -223,9 +245,12 @@ class MysqlAmavisdRepository implements AmavisdRepositoryInterface
 
     private function accountSettings(): AmavisdAccountSettings
     {
-        $pdo = AmavisdConnection::getInstance()->getPdo()
-            ?? throw new BackendConnectionException('Amavisd database not available');
+        return new AmavisdAccountSettings($this->amavisdPdo());
+    }
 
-        return new AmavisdAccountSettings($pdo);
+    private function amavisdPdo(): \PDO
+    {
+        return AmavisdConnection::getInstance()->getPdo()
+            ?? throw new BackendConnectionException('Amavisd database not available');
     }
 }

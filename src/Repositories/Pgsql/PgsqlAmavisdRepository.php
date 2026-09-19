@@ -240,6 +240,32 @@ class PgsqlAmavisdRepository implements AmavisdRepositoryInterface
         return $stmt->rowCount();
     }
 
+    public function getQuarantinedMailIds(?int $since = null): array
+    {
+        // mail_id is bytea; convert_from gives the text.
+        $stmt = $this->amavisdPdo()->prepare(
+            "SELECT convert_from(m.mail_id, 'UTF8') FROM msgs m
+             WHERE EXISTS (SELECT 1 FROM quarantine q WHERE q.mail_id = m.mail_id) AND m.time_num >= :since
+             ORDER BY m.time_num DESC"
+        );
+        $stmt->execute(['since' => $since ?? 0]);
+
+        return $stmt->fetchAll(\PDO::FETCH_COLUMN);
+    }
+
+    public function getQuarantinedMailText(string $mailId): string
+    {
+        $stmt = $this->amavisdPdo()->prepare(
+            "SELECT mail_text FROM quarantine WHERE mail_id = convert_to(:mailId, 'UTF8') ORDER BY chunk_ind"
+        );
+        $stmt->execute(['mailId' => $mailId]);
+
+        return implode('', array_map(
+            static fn(mixed $chunk): string => is_resource($chunk) ? self::streamText($chunk) : (string) $chunk,
+            $stmt->fetchAll(\PDO::FETCH_COLUMN),
+        ));
+    }
+
     public function deleteAccountSettings(array $accounts): void
     {
         $this->accountSettings()->delete(AccountMatch::accounts($accounts));
@@ -257,10 +283,13 @@ class PgsqlAmavisdRepository implements AmavisdRepositoryInterface
 
     private function accountSettings(): AmavisdAccountSettings
     {
-        $pdo = AmavisdPgsqlConnection::getInstance()->getPdo()
-            ?? throw new BackendConnectionException('Amavisd database not available');
-
         // users.email is bytea in the PostgreSQL schema.
-        return new AmavisdAccountSettings($pdo, "convert_to(%s, 'UTF8')");
+        return new AmavisdAccountSettings($this->amavisdPdo(), "convert_to(%s, 'UTF8')");
+    }
+
+    private function amavisdPdo(): \PDO
+    {
+        return AmavisdPgsqlConnection::getInstance()->getPdo()
+            ?? throw new BackendConnectionException('Amavisd database not available');
     }
 }

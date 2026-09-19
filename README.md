@@ -1,8 +1,10 @@
 # iRedPanel
 
-A full-featured PHP web application for managing [iRedMail](https://www.iredmail.org/) mail servers. Supports OpenLDAP, MySQL/MariaDB, and PostgreSQL backends with optional Amavisd, Fail2ban, and iRedAPD integrations. Includes a REST API, mail alias and mailing list management, spam policy control, a 40-language UI, and role-based admin access.
+A PHP web application for managing [iRedMail](https://www.iredmail.org/) mail servers. It supports the OpenLDAP, MySQL/MariaDB and PostgreSQL backends, with optional Amavisd, Fail2ban and iRedAPD integrations. It includes a black dark-theme web UI in 40 languages, a REST API, mail alias and mailing list management, spam policy control, and role-based admin access.
 
-Built with vanilla PHP 8.1+ -- no framework, no ORM, no template engine dependency. Uses `vlucas/phpdotenv` for environment configuration and vendored Bootstrap 5.3, Bootstrap Icons, SweetAlert2 and Tom Select for the UI.
+The application is vanilla PHP 8.1+ with no framework, no ORM and no template engine. Runtime dependencies are `vlucas/phpdotenv` (environment configuration) and `phpmailer/phpmailer` (outgoing mail). The UI uses vendored Bootstrap 5.3, Bootstrap Icons, SweetAlert2 and Tom Select.
+
+![iRedPanel dashboard](docs/screenshots/dashboard.png)
 
 | Project    | Value                                                |
 |------------|------------------------------------------------------|
@@ -11,24 +13,42 @@ Built with vanilla PHP 8.1+ -- no framework, no ORM, no template engine dependen
 | Repository | `https://github.com/KilimcininKorOglu/iRedPanel.git` |
 | License    | MIT                                                  |
 
-### Supported Backends
+## Contents
 
-| iRedMail Backend | Supported |
-|------------------|-----------|
-| OpenLDAP         | Yes       |
-| MySQL/MariaDB    | Yes       |
-| PostgreSQL       | Yes       |
+- [Supported Backends](#supported-backends)
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Running](#running)
+- [Web UI](#web-ui)
+- [Features](#features)
+- [REST API](#rest-api)
+- [CLI Tools](#cli-tools)
+- [Authentication and Access Control](#authentication-and-access-control)
+- [Architecture](#architecture)
+- [Project Structure](#project-structure)
+- [Development and Testing](#development-and-testing)
+- [License](#license)
 
-Select the backend via `IREDPANEL_BACKEND` environment variable (`ldap`, `mysql`, or `pgsql`).
+## Supported Backends
+
+| iRedMail backend | Supported | `IREDPANEL_BACKEND` |
+|------------------|-----------|---------------------|
+| OpenLDAP         | Yes       | `ldap`              |
+| MySQL/MariaDB    | Yes       | `mysql`             |
+| PostgreSQL       | Yes       | `pgsql`             |
+
+With the LDAP backend, mail accounts live in LDAP, and the iRedAdmin, Amavisd and iRedAPD data live in SQL databases, as in a standard iRedMail LDAP installation.
 
 ## Requirements
 
 - PHP 8.1 or higher
-- PHP LDAP extension (`ext-ldap`) -- for LDAP backend
-- PHP PDO MySQL extension (`ext-pdo_mysql`) -- for MySQL backend
-- PHP PDO PostgreSQL extension (`ext-pdo_pgsql`) -- for PostgreSQL backend
+- `ext-ldap` for the LDAP backend
+- `ext-pdo` and `ext-pdo_mysql` for the MySQL/MariaDB backend, and for the SQL integrations of an LDAP installation
+- `ext-pdo` and `ext-pdo_pgsql` for the PostgreSQL backend
 - [Composer](https://getcomposer.org/) (included as `composer.phar`)
-- An iRedMail server with OpenLDAP, MySQL/MariaDB, or PostgreSQL backend
+- An iRedMail server with an OpenLDAP, MySQL/MariaDB or PostgreSQL backend
+- For mailing lists: the [mlmmjadmin](https://github.com/iredmail/mlmmjadmin) API of the mail server
 
 ## Installation
 
@@ -39,23 +59,18 @@ php composer.phar install
 cp .env.example .env
 ```
 
-Edit `.env` with your backend choice and connection details, then start the application (see [Running](#running)).
+Edit `.env` with the backend and its connection details, then start the application (see [Running](#running)).
 
 ## Configuration
 
-All settings use the `IREDPANEL_` prefix and are loaded from `.env` or `.env.prod` via [vlucas/phpdotenv](https://github.com/vlucas/phpdotenv).
-
-### Backend Selection
-
-```env
-IREDPANEL_BACKEND=ldap    # or "mysql" or "pgsql"
-```
+All settings use the `IREDPANEL_` prefix and are loaded from `.env` or `.env.prod` via [vlucas/phpdotenv](https://github.com/vlucas/phpdotenv). The tables below omit the prefix. `.env.example` is the complete template.
 
 ### General Settings
 
-| Variable     | Required | Description            |
-|--------------|----------|------------------------|
-| `SECRET_KEY` | Yes      | Application secret key |
+| Variable     | Default | Description                                   |
+|--------------|---------|-----------------------------------------------|
+| `BACKEND`    | `ldap`  | `ldap`, `mysql` or `pgsql`                    |
+| `SECRET_KEY` | -       | Application secret key (required)             |
 
 ### LDAP Settings (required when `BACKEND=ldap`)
 
@@ -65,120 +80,130 @@ IREDPANEL_BACKEND=ldap    # or "mysql" or "pgsql"
 | `LDAP_ROOT_DN`    | -       | LDAP root DN                              | `dc=example,dc=com`        |
 | `LDAP_USER`       | -       | Service bind: admin email, CN or full DN  | `postmaster@example.com`   |
 | `LDAP_PASSWORD`   | -       | Password of the service bind              | `secret`                   |
-| `LDAP_TLS_VERIFY` | `false` | Verify TLS certificate on LDAP connection | `true`                     |
+| `LDAP_TLS_VERIFY` | `false` | Verify the TLS certificate of the server  | `true`                     |
 
-### MySQL Settings (required when `BACKEND=mysql`)
+### MySQL/MariaDB Settings (required when `BACKEND=mysql`)
 
 | Variable         | Default      | Description                         |
 |------------------|--------------|-------------------------------------|
-| `MYSQL_HOST`     | -            | MySQL server hostname               |
-| `MYSQL_PORT`     | `3306`       | MySQL server port                   |
+| `MYSQL_HOST`     | -            | Database server hostname            |
+| `MYSQL_PORT`     | `3306`       | Database server port                |
 | `MYSQL_DATABASE` | -            | Database name (e.g. `vmail`)        |
 | `MYSQL_USER`     | -            | Database user                       |
 | `MYSQL_PASSWORD` | -            | Database password                   |
-| `VMAIL_PATH`     | `/var/vmail` | Mail storage base path              |
-| `STORAGE_NODE`   | `vmail1`     | Storage node name for new mailboxes |
 
 ### PostgreSQL Settings (required when `BACKEND=pgsql`)
 
 | Variable         | Default  | Description                         |
 |------------------|----------|-------------------------------------|
-| `PGSQL_HOST`     | -        | PostgreSQL server hostname          |
-| `PGSQL_PORT`     | `5432`   | PostgreSQL server port              |
+| `PGSQL_HOST`     | -        | Database server hostname            |
+| `PGSQL_PORT`     | `5432`   | Database server port                |
 | `PGSQL_DATABASE` | -        | Database name (e.g. `vmail`)        |
 | `PGSQL_USER`     | -        | Database user                       |
 | `PGSQL_PASSWORD` | -        | Database password                   |
-| `STORAGE_NODE`   | `vmail1` | Storage node name for new mailboxes |
+
+### Mail Storage (MySQL/MariaDB and PostgreSQL)
+
+| Variable       | Default      | Description                         |
+|----------------|--------------|-------------------------------------|
+| `VMAIL_PATH`   | `/var/vmail` | Mail storage base path              |
+| `STORAGE_NODE` | `vmail1`     | Storage node name for new mailboxes |
 
 ### Mailing Lists and Outgoing Mail
 
-Mailing lists live in the mlmmj spool on the mail server. The panel creates, updates and deletes them, and manages their subscribers, through the [mlmmjadmin](https://github.com/iredmail/mlmmjadmin) RESTful API. Newsletter confirmation mail and the quarantine notification CLI send mail through SMTP.
+Mailing lists live in the mlmmj spool on the mail server. The panel creates, updates and deletes them, and manages their owners, moderators and subscribers, through the mlmmjadmin RESTful API. Newsletter confirmation mail and the quarantine notification CLI send mail through SMTP.
 
-| Variable                | Default    | Description                                                       |
-|-------------------------|------------|-------------------------------------------------------------------|
-| `MLMMJADMIN_API_URL`    | -          | mlmmjadmin API base URL, for example `http://127.0.0.1:7790/api`  |
-| `MLMMJADMIN_API_TOKEN`  | -          | One of `api_auth_tokens` in `/opt/mlmmjadmin/settings.py`         |
-| `SMTP_HOST`             | -          | SMTP server hostname                                              |
-| `SMTP_PORT`             | `587`      | SMTP port (`465` when `SMTP_SECURITY=tls`)                        |
-| `SMTP_SECURITY`         | `starttls` | `none`, `starttls` or `tls`                                       |
-| `SMTP_TLS_VERIFY`       | `true`     | Verify the SMTP server TLS certificate                            |
-| `SMTP_USER`             | -          | SMTP AUTH user (empty disables AUTH)                              |
-| `SMTP_PASSWORD`         | -          | SMTP AUTH password                                                |
-| `SMTP_FROM`             | -          | Sender address of mail sent by the panel                          |
-| `PUBLIC_URL`            | -          | Public base URL of the panel, used in links sent by mail          |
+| Variable               | Default    | Description                                                      |
+|------------------------|------------|------------------------------------------------------------------|
+| `MLMMJADMIN_API_URL`   | -          | mlmmjadmin API base URL, for example `http://127.0.0.1:7790/api` |
+| `MLMMJADMIN_API_TOKEN` | -          | One of `api_auth_tokens` in `/opt/mlmmjadmin/settings.py`        |
+| `SMTP_HOST`            | -          | SMTP server hostname                                             |
+| `SMTP_PORT`            | `587`      | SMTP port (`465` when `SMTP_SECURITY=tls`)                       |
+| `SMTP_SECURITY`        | `starttls` | `none`, `starttls` or `tls`                                      |
+| `SMTP_TLS_VERIFY`      | `true`     | Verify the TLS certificate of the SMTP server                    |
+| `SMTP_USER`            | -          | SMTP AUTH user (empty disables AUTH)                             |
+| `SMTP_PASSWORD`        | -          | SMTP AUTH password                                               |
+| `SMTP_FROM`            | -          | Sender address of mail sent by the panel                         |
+| `PUBLIC_URL`           | -          | Public base URL of the panel, used in links sent by mail         |
 
-### Optional Settings
+### Panel Behavior (database-overridable)
 
-These settings serve as initial defaults. Once the iRedAdmin database is configured, they can also be managed from the **Panel Settings** UI (`/panel-settings`). Database values take precedence over `.env` values.
+These values are the initial defaults. When the iRedAdmin database is configured, a global admin can also change them in **Panel Settings** (`/panel-settings`). A database value takes precedence over the `.env` value.
 
-| Variable                                | Default   | Description                                  |
-|-----------------------------------------|-----------|----------------------------------------------|
-| `PASSWORD_MIN_LENGTH`                   | `8`       | Minimum password length                      |
-| `PASSWORD_INCLUDES_SPECIAL_CHARS`       | `true`    | Require special characters in passwords      |
-| `PASSWORD_INCLUDES_NUMBERS`             | `true`    | Require digits in passwords                  |
-| `PASSWORD_INCLUDES_LOWERCASE`           | `true`    | Require lowercase letters in passwords       |
-| `PASSWORD_INCLUDES_UPPERCASE`           | `true`    | Require uppercase letters in passwords       |
-| `PASSWORD_HASHES_USE_PREFIXED_SCHEME`   | `true`    | Use `{SCHEME}` prefix in password hashes     |
-| `PASSWORD_DEFAULT_SCHEME`               | `SSHA512` | Default password hashing scheme              |
-| `REQUIRE_OLD_PASSWORD_ON_CHANGE`        | `false`   | Require current password for password change |
-| `DEFAULT_LANGUAGE`                      | `en_US`   | Default UI locale code (40 languages, e.g. `en_US`, `tr_TR`, `de_DE`) |
-| `PAGINATION_PER_PAGE`                   | `50`      | Items per page on list views                 |
-| `SESSION_TIMEOUT`                       | `1800`    | Session timeout in seconds                   |
-| `ALLOWED_IP_RANGES`                     | -         | Comma-separated CIDR ranges for panel access |
-| `SESSION_VALIDATE_IP`                   | `false`   | Invalidate session on client IP change       |
-| `CHECK_UPDATES`                         | `true`    | Check GitHub for new versions on dashboard   |
-| `GEOIP_DB_PATH`                         | -         | Path to MaxMind GeoLite2-City .mmdb file     |
-| `REQUIRE_DOMAIN_OWNERSHIP_VERIFICATION` | `false`   | Require DNS TXT verification for new domains |
-| `NEWSLETTER_EXPIRE_HOURS`               | `24`      | Token expiry for newsletter confirmations    |
-
-### Branding
-
-| Variable              | Default                     | Description                |
-|-----------------------|-----------------------------|----------------------------|
-| `BRAND_NAME`          | `iRedPanel`                 | Panel name in UI and title |
-| `BRAND_LOGO_URL`      | `/static/logo-iredmail.png` | Logo URL in navigation     |
-| `BRAND_FOOTER_TEXT`   | -                           | Custom footer text         |
-| `BRAND_PRIMARY_COLOR` | -                           | CSS primary color override |
+| Variable                                | Default   | Description                                                  |
+|-----------------------------------------|-----------|--------------------------------------------------------------|
+| `PASSWORD_MIN_LENGTH`                   | `8`       | Minimum password length                                      |
+| `PASSWORD_INCLUDES_SPECIAL_CHARS`       | `true`    | Require special characters in passwords                      |
+| `PASSWORD_INCLUDES_NUMBERS`             | `true`    | Require digits in passwords                                  |
+| `PASSWORD_INCLUDES_LOWERCASE`           | `true`    | Require lowercase letters in passwords                       |
+| `PASSWORD_INCLUDES_UPPERCASE`           | `true`    | Require uppercase letters in passwords                       |
+| `PASSWORD_HASHES_USE_PREFIXED_SCHEME`   | `true`    | Write the `{SCHEME}` prefix in password hashes               |
+| `PASSWORD_DEFAULT_SCHEME`               | `SSHA512` | Default password hashing scheme                              |
+| `REQUIRE_OLD_PASSWORD_ON_CHANGE`        | `false`   | Require the current password for a password change           |
+| `DEFAULT_LANGUAGE`                      | `en_US`   | Default UI locale code (for example `en_US`, `tr_TR`, `de_DE`) |
+| `PAGINATION_PER_PAGE`                   | `50`      | Items per page on list views                                 |
+| `SESSION_TIMEOUT`                       | `1800`    | Session timeout in seconds                                   |
+| `ALLOWED_IP_RANGES`                     | -         | Comma-separated CIDR ranges that may open the panel          |
+| `SESSION_VALIDATE_IP`                   | `false`   | End the session when the client IP changes                   |
+| `CHECK_UPDATES`                         | `true`    | Check GitHub for a new version on the dashboard              |
+| `GEOIP_DB_PATH`                         | -         | Path to a MaxMind GeoLite2-City `.mmdb` file                 |
+| `REQUIRE_DOMAIN_OWNERSHIP_VERIFICATION` | `false`   | Require DNS TXT verification for new domains                 |
+| `NEWSLETTER_EXPIRE_HOURS`               | `24`      | Expiry of newsletter confirmation tokens                     |
+| `BRAND_NAME`                            | `iRedPanel` | Panel name in the UI and the page title                    |
+| `BRAND_LOGO_URL`                        | `/static/logo-iredmail.png` | Logo URL in the sidebar and on the login page |
+| `BRAND_FOOTER_TEXT`                     | -         | Custom footer text                                           |
+| `BRAND_PRIMARY_COLOR`                   | -         | Accent color of the UI (CSS color value)                     |
 
 ### REST API (optional)
 
-| Variable          | Default | Description                                   |
-|-------------------|---------|-----------------------------------------------|
-| `API_ENABLED`     | `false` | Enable REST API at `/api/v1/*`                |
-| `API_KEY`         | -       | API authentication key (sent via X-API-Key)   |
-| `API_ALLOWED_IPS` | -       | Comma-separated IPs allowed to access the API |
+| Variable          | Default | Description                                            |
+|-------------------|---------|--------------------------------------------------------|
+| `API_ENABLED`     | `false` | Enable the REST API at `/api/v1/*`                     |
+| `API_KEY`         | -       | Global API key with full access (sent as `X-API-Key`) |
+| `API_ALLOWED_IPS` | -       | Comma-separated IPs or CIDR ranges that may use the API |
 
-### Activity Logging (optional)
+### Integration Databases
 
-Connects to the `iredadmin` database for admin activity logging, panel settings storage, and system settings.
+The default port of every integration database follows the backend: `5432` when `BACKEND=pgsql`, otherwise `3306`.
 
-**Note:** Integration database port defaults are `3306` (MySQL). When using `BACKEND=pgsql`, set `*_DB_PORT` to `5432` for each integration.
+**iRedAdmin database** (activity log, panel settings, domain ownership, newsletter tokens, and, with LDAP, deleted mailboxes, last logins and used quota):
 
 | Variable                   | Default     | Description                 |
 |----------------------------|-------------|-----------------------------|
-| `ACTIVITY_LOGGING_ENABLED` | `true`      | Enable/disable activity log |
-| `IREDADMIN_DB_HOST`        | -           | iRedAdmin database host     |
-| `IREDADMIN_DB_PORT`        | `3306`      | iRedAdmin database port     |
-| `IREDADMIN_DB_NAME`        | `iredadmin` | iRedAdmin database name     |
-| `IREDADMIN_DB_USER`        | -           | iRedAdmin database user     |
-| `IREDADMIN_DB_PASSWORD`    | -           | iRedAdmin database password |
+| `ACTIVITY_LOGGING_ENABLED` | `true`      | Enable the activity log     |
+| `IREDADMIN_DB_HOST`        | -           | Database host               |
+| `IREDADMIN_DB_PORT`        | see above   | Database port               |
+| `IREDADMIN_DB_NAME`        | `iredadmin` | Database name               |
+| `IREDADMIN_DB_USER`        | -           | Database user               |
+| `IREDADMIN_DB_PASSWORD`    | -           | Database password           |
 
-### Amavisd Integration (optional)
+**Amavisd** (quarantine, mail log, spam policy, white/blacklist):
 
-Enables quarantine viewer, mail log, spam policy management, and white/blacklist management.
+| Variable                             | Default           | Description                                        |
+|--------------------------------------|-------------------|----------------------------------------------------|
+| `AMAVISD_ENABLED`                    | `false`           | Enable the Amavisd pages                           |
+| `AMAVISD_DB_HOST`                    | -                 | Database host                                      |
+| `AMAVISD_DB_PORT`                    | see above         | Database port                                      |
+| `AMAVISD_DB_NAME`                    | `amavisd`         | Database name                                      |
+| `AMAVISD_DB_USER`                    | -                 | Database user                                      |
+| `AMAVISD_DB_PASSWORD`                | -                 | Database password                                  |
+| `AMAVISD_QUARANTINE_HOST`            | `AMAVISD_DB_HOST` | Host of the Amavisd AM.PDP port for message release |
+| `AMAVISD_QUARANTINE_PORT`            | `9998`            | Amavisd AM.PDP port                                |
+| `AMAVISD_REMOVE_QUARANTINED_IN_DAYS` | `7`               | Quarantine retention in days                       |
+| `AMAVISD_REMOVE_MAILLOG_IN_DAYS`     | `7`               | Mail log retention in days                         |
 
-| Variable                             | Default   | Description               |
-|--------------------------------------|-----------|---------------------------|
-| `AMAVISD_ENABLED`                    | `false`   | Enable Amavisd features   |
-| `AMAVISD_DB_HOST`                    | -         | Amavisd database host     |
-| `AMAVISD_DB_PORT`                    | `3306`    | Amavisd database port     |
-| `AMAVISD_DB_NAME`                    | `amavisd` | Amavisd database name     |
-| `AMAVISD_DB_USER`                    | -         | Amavisd database user     |
-| `AMAVISD_DB_PASSWORD`                | -         | Amavisd database password |
-| `AMAVISD_REMOVE_QUARANTINED_IN_DAYS` | `7`       | Quarantine retention days |
-| `AMAVISD_REMOVE_MAILLOG_IN_DAYS`     | `7`       | Mail log retention days   |
+**iRedAPD** (throttle, greylisting, rDNS white/blacklist, SenderScore whitelist):
 
-### Fail2ban Integration (optional)
+| Variable              | Default   | Description             |
+|-----------------------|-----------|-------------------------|
+| `IREDAPD_ENABLED`     | `false`   | Enable the iRedAPD pages |
+| `IREDAPD_DB_HOST`     | -         | Database host           |
+| `IREDAPD_DB_PORT`     | see above | Database port           |
+| `IREDAPD_DB_NAME`     | `iredapd` | Database name           |
+| `IREDAPD_DB_USER`     | -         | Database user           |
+| `IREDAPD_DB_PASSWORD` | -         | Database password       |
+
+### Fail2ban (optional)
 
 | Variable           | Default                        | Description                   |
 |--------------------|--------------------------------|-------------------------------|
@@ -186,32 +211,13 @@ Enables quarantine viewer, mail log, spam policy management, and white/blacklist
 | `FAIL2BAN_SOCKET`  | -                              | Custom fail2ban-client socket |
 | `FAIL2BAN_JAILS`   | `dovecot,postfix,postfix-sasl` | Comma-separated jail names    |
 
-### iRedAPD Integration (optional)
-
-Enables throttle settings, greylisting, rDNS white/blacklist, and SenderScore whitelist.
-
-| Variable              | Default   | Description               |
-|-----------------------|-----------|---------------------------|
-| `IREDAPD_ENABLED`     | `false`   | Enable iRedAPD features   |
-| `IREDAPD_DB_HOST`     | -         | iRedAPD database host     |
-| `IREDAPD_DB_PORT`     | `3306`    | iRedAPD database port     |
-| `IREDAPD_DB_NAME`     | `iredapd` | iRedAPD database name     |
-| `IREDAPD_DB_USER`     | -         | iRedAPD database user     |
-| `IREDAPD_DB_PASSWORD` | -         | iRedAPD database password |
-
 ### Password Schemes
 
-Schemes with full hash generation support:
-
-`SSHA512`, `SHA512`, `SSHA`, `BCRYPT`, `MD5`, `PLAIN-MD5`, `PLAIN`
-
-Schemes that require the external `doveadm` command (falls back to SSHA if unavailable):
-
-`CRAM-MD5`, `NTLM`
-
-Schemes recognized for reading existing hashes but not available for generation:
-
-`SHA`, `CRYPT`, `SHA512-CRYPT`
+| Support | Schemes |
+|---------|---------|
+| Hash generation | `SSHA512`, `SHA512`, `SSHA`, `BCRYPT`, `MD5`, `PLAIN-MD5`, `PLAIN` |
+| Hash generation with the external `doveadm` command (falls back to `SSHA` when `doveadm` is missing) | `CRAM-MD5`, `NTLM` |
+| Verification of existing hashes only | `SHA`, `CRYPT`, `SHA512-CRYPT` |
 
 ## Running
 
@@ -221,29 +227,30 @@ Schemes recognized for reading existing hashes but not available for generation:
 php -S localhost:8080 -t public/
 ```
 
-Open `http://localhost:8080` in your browser. You will be redirected to the dashboard.
+Open `http://localhost:8080`. The panel redirects to the login page, then to the dashboard.
 
 ### Docker
 
-The `Dockerfile` builds a PHP 8.4 + Apache image with the `ldap`, `pdo_mysql`, and `pdo_pgsql` extensions, so one image serves every backend. It has two targets:
+The `Dockerfile` builds a PHP 8.4 + Apache image with the `ldap`, `pdo_mysql` and `pdo_pgsql` extensions, so one image serves every backend. It has two targets:
 
-| Target | Compose file | Host port | Code |
-| --- | --- | --- | --- |
-| `dev` | `docker-compose.dev.yml` | `127.0.0.1:8521` | Repository bind-mounted; reads `.env` and the host `vendor/` |
+| Target | Compose file              | Host port        | Code |
+|--------|---------------------------|------------------|------|
+| `dev`  | `docker-compose.dev.yml`  | `127.0.0.1:8521` | Repository bind-mounted; reads `.env` and the host `vendor/` |
 | `prod` | `docker-compose.prod.yml` | `127.0.0.1:8522` | Copied into the image with production Composer dependencies; reads `.env.prod` |
 
 ```bash
-php composer.phar install   # dev only: vendor/ comes from the host
-make dev-up                 # or: make prod-up
+php composer.phar install          # dev only: vendor/ comes from the host
+make dev-up                        # or: make prod-up
+make dev-up ENV=.env.other         # dev with another env file mounted as .env
 ```
 
-Both compose files join the external `iredpanel` network, which `make network` creates. The `docker-iredmail-*` development stacks join the same network, so the panel reaches a backend by container name and container port, for example `IREDPANEL_MYSQL_HOST=iredmail-mariadb` with port `3306`.
+Both compose files join the external `iredpanel` Docker network, which `make network` creates. A backend container on the same network is reachable by container name and container port, for example `IREDPANEL_MYSQL_HOST=iredmail-mariadb` with port `3306`.
 
-The panel serves plain HTTP. Put a TLS-terminating reverse proxy in front of the production container before you publish it beyond loopback.
+The panel serves plain HTTP. Put a TLS-terminating reverse proxy in front of the production container before you publish it beyond loopback. The session cookie gets the `secure` flag only when PHP sees HTTPS directly.
 
 ### Apache
 
-Point the document root to the `public/` directory. The included `.htaccess` handles URL rewriting.
+Point the document root to the `public/` directory. The included `.htaccess` rewrites the URLs.
 
 ```apache
 <VirtualHost *:80>
@@ -275,266 +282,260 @@ server {
 }
 ```
 
+## Web UI
+
+- **Layout**: black dark theme on Bootstrap 5.3 with a grouped left sidebar (General, Accounts, Security, System). On small screens the sidebar opens as an offcanvas menu. The menu shows only the pages that the admin role and the enabled integrations allow.
+- **Dialogs and messages**: every delete and bulk action asks for confirmation in a SweetAlert2 dialog. Results appear as toast messages.
+- **Account pickers**: address fields search the account list while you type (Tom Select) and still accept a free-text address. Multi-address fields: alias members and moderators, mailing list owners, moderators and subscribers, forwarding addresses, greylisting whitelisted senders. Single-address fields: domain and user BCC, catch-all target, admin creation, spam policy and white/blacklist accounts, mail log filter, alias quick add. The pickers call `GET /ajax/accounts`, a session endpoint that returns at most 20 active users, aliases and mailing lists, limited to the domains of a domain admin.
+- **Colored badges**: categorical values and counters use one color map (`App\BadgeTone`), so the same meaning has the same color on every page. Allowed or clean values are green, dangerous values are red, restricted values are orange or yellow, and plain information is blue, cyan or purple. This covers activity log events, admin type, access policy, mail content type, throttle kind, white/blacklist entries, domain ownership, setting source and item counters. An unknown value is gray.
+- **Branding**: panel name, logo, footer text and accent color (`BRAND_*`).
+- **Languages**: 40 UI languages with a switcher in the sidebar and on the login page.
+
 ## Features
 
-### Web UI
-- Black dark theme on Bootstrap 5.3 with a left sidebar; on small screens the sidebar opens as an offcanvas menu
-- SweetAlert2 dialogs for every delete and bulk confirmation, and toast messages for results
-- Address fields (members, owners, moderators, subscribers, forwarding, BCC, catch-all, admin, Amavisd and iRedAPD accounts) search the account list with Tom Select and still accept a free-text address
-- The pickers call `GET /ajax/accounts`, a session endpoint that returns active users, aliases and mailing lists, limited to the domains of a domain admin
-- `BRAND_PRIMARY_COLOR` sets the accent color
-
 ### Domain Management
-- Domain CRUD across all three backends (LDAP, MySQL, PostgreSQL)
+- Domain CRUD on all three backends
 - Domain settings: default user quota, password length rules, disclaimer text
-- Domain alias management (alias domain pointing to target domain)
-- Catch-all address configuration per domain
-- BCC settings (sender and recipient) per domain
-- Sender-dependent relay host per domain
-- Domain ownership verification via DNS TXT records
-- Enable/disable domains with bulk operations
-- Paginated domain list with status filter
+- Alias domains that point to a target domain
+- Catch-all address, sender and recipient BCC, and sender-dependent relay host per domain
+- Domain ownership verification with DNS TXT records
+- Enable, disable and delete in bulk; paginated list with status filter
 
 ### User Management
-- User CRUD with full profile editing (name, quota, phone, employee ID, etc.)
-- User creation on all three backends
-- Mail service toggles: SMTP, POP3, IMAP, ManageSieve, SOGo (+ TLS variants)
-- Email forwarding with keep-copy option
-- Per-user alias addresses (multiple emails for one mailbox)
-- Per-user BCC settings (sender and recipient)
-- Per-user relay host configuration
-- Email address rename with referential integrity across all tables
-- Used quota display (from Dovecot `used_quota` table)
-- Last login tracking (from Dovecot `last_login` table)
-- Bulk operations: enable, disable, delete multiple users
-- Alphabetic filtering and sortable columns
-- Paginated user list with random password generation
+- User CRUD with profile fields (name, quota, phone, employee ID and more)
+- Mail service toggles: SMTP, POP3, IMAP, ManageSieve, SOGo, and their TLS variants
+- Forwarding with a keep-copy option, per-user alias addresses, sender and recipient BCC, relay host
+- Address rename that updates every related table
+- Used quota and last login display (Dovecot `used_quota` and `last_login` data)
+- Bulk enable, disable and delete; alphabetic filter, sortable columns, random password generation
+- Domain limits (maximum mailboxes and quota) checked in the web form, the REST API and the CLI
 
 ### Mail Alias Management
-- Distribution list CRUD with member management
-- Alias moderator management (per-alias access control)
-- Access policies: public, domain, membersOnly, moderatorsOnly
-- Bulk operations: enable, disable, delete multiple aliases
-- Paginated alias list with domain filter
+- Alias CRUD with member and moderator management
+- Access policies: `public`, `domain`, `membersOnly`, `moderatorsOnly`
+- Bulk enable, disable and delete; paginated list with domain filter
 
 ### Mailing List Management (mlmmj)
-- Mailing list CRUD with automatic mlmmj transport configuration; the mlmmj list itself is managed through the mlmmjadmin API
-- List owner management
-- Subscriber management: list, add and remove subscribers (web UI and `GET/POST/DELETE /api/v1/mailing-lists/{address}/subscribers`)
-- Moderator management: the addresses that may post to a "Moderators Only" list (web UI and `GET/PUT /api/v1/mailing-lists/{address}/moderators`)
-- Access policy, max message size, and max members settings
-- Bulk operations: enable, disable, delete
+- Mailing list CRUD; the mlmmj list itself is managed through the mlmmjadmin API
+- Owner, moderator and subscriber management (web UI and REST API)
+- An empty owner or moderator list becomes `postmaster@<domain>`, the mlmmjadmin default
+- Access policy, maximum message size and newsletter settings
+- Bulk enable, disable and delete
 
 ### Admin Management
 - Standalone and mailbox-based admin accounts
-- Admin CRUD with password management
-- Domain assignment: assign/revoke domains per admin
-- Resource limits per admin: max domains, users, aliases, mailing lists, quota
-- Global admin promotion/revocation
+- Domain assignment per admin, and global admin promotion or revocation
+- Resource limits per admin: domains, users, aliases, mailing lists, quota
 
-### Spam Policy Management
-- Global, per-domain, and per-user spam thresholds (tag, tag2, kill levels)
-- Bypass controls: virus checks, spam checks
-- Delivery options: virus lover, spam lover, banned files lover
-- Subject tag customization
-- Policy overview listing all configured policies
+### Spam Policy and White/Blacklist (Amavisd)
+- Global, per-domain and per-user spam thresholds (tag, tag2 and kill levels)
+- Bypass and delivery options for virus, spam, banned files and bad headers
+- Inbound (sender) and outbound (recipient) white/blacklists per account
+- Quarantine viewer with release and delete, mail log, and configurable cleanup
 
-### White/Blacklist Management
-- Inbound whitelist/blacklist (sender-based)
-- Outbound whitelist/blacklist (recipient-based)
-- Per-account (global, domain, user) entry management
-- rDNS-based white/blacklist for iRedAPD
-- SenderScore IP permanent whitelisting
+### iRedAPD
+- Per-account throttle settings (inbound, outbound, external)
+- Greylisting toggle, whitelisted senders and tracking data
+- rDNS white/blacklist and SenderScore permanent whitelist
+
+### Fail2ban
+- Jail status, and ban or unban of IP addresses
+- Optional GeoIP country and city display (MaxMind GeoLite2)
+
+### Account Settings Cleanup
+- As in iRedAdmin-Pro, deleting a user, alias, mailing list or domain also deletes its Amavisd policy and white/blacklist and its iRedAPD throttle and greylisting settings. Renaming a user moves them to the new address. Only the enabled integrations are updated.
 
 ### Global Search
-- Full-text search across domains, users, aliases, mailing lists, and admins
-- Account type and status filtering
-- RBAC-aware: domain admins see only their managed domains
+- Search across domains, users, aliases, mailing lists and admins
+- Account type and status filters
+- Domain admins see only their managed domains
 
 ### Dashboard
-- Domain, user, and admin counts (total/active/disabled)
-- Quota allocation and usage statistics
-- System information (hostname, uptime, load, versions)
+- Domain, user and admin counts with active and disabled totals
+- Allocated and used quota, and stored message count
+- System information: hostname, uptime, load, iRedMail, PHP and panel versions
 - GitHub version check for updates
 
-### Activity Logging
-- Admin operation logging to `iredadmin.log` table
-- Log viewer with domain and event type filters
-- Log deletion (individual and bulk)
+### Activity Log
+- Admin operations are logged to the `log` table of the iRedAdmin database
+- Log viewer with domain and event filters and colored event badges
+- A failed login is marked as an error
+- Delete selected entries or all entries (global admin)
 
 ### Deferred Mailbox Deletion
-- MySQL and PostgreSQL: deleted user mailboxes recorded in the `vmail.deleted_mailboxes` table
-- LDAP: deleted user mailboxes recorded in the `iredadmin.deleted_mailboxes` table
-- Management UI: view, cancel, reschedule pending deletions
-
-### External Integrations
-- **Amavisd**: Quarantine viewer with release/delete, mail log, spam policy, white/blacklist, configurable cleanup
-- **Fail2ban**: Jail status, ban/unban IPs with optional GeoIP country/city display
-- **iRedAPD**: Per-account throttle settings, greylisting toggle, sender whitelist, greylisting tracking data, rDNS white/blacklist, SenderScore whitelist
-- As in iRedAdmin-Pro, deleting a user, alias, mailing list or domain also deletes its Amavisd policy and white/blacklist and its iRedAPD throttle and greylisting settings, and renaming a user moves them to the new address. Only the enabled integrations are updated.
+- A deleted mailbox is recorded with a scheduled deletion date (`vmail.deleted_mailboxes` for SQL, `iredadmin.deleted_mailboxes` for LDAP)
+- View, cancel and reschedule pending deletions
+- `cli/deleteExpiredMailboxes.php` removes the maildirs when the date is reached
 
 ### Export
-- Domain user export (CSV and JSON formats)
-- Admin statistics export (CSV and JSON formats)
+- Users of a domain as CSV or JSON
+- Admin statistics as CSV or JSON
+- Cells that start with a formula character are prefixed to prevent spreadsheet formula injection
 
 ### Newsletter Subscription
-- Public subscribe/unsubscribe pages at `/newsletters/{subscribe,unsubscribe}/<mlid>` for active lists with the Newsletter flag (SQL backends only)
-- Confirmation link sent by SMTP (`IREDPANEL_SMTP_*`), built from `IREDPANEL_PUBLIC_URL`, with configurable expiration
-- A confirmed request adds or removes the subscriber in mlmmj through mlmmjadmin
-- No authentication required (public-facing)
+- Public subscribe and unsubscribe pages at `/newsletters/{subscribe,unsubscribe}/<mlid>` for active lists with the newsletter flag (SQL backends only)
+- A confirmation link is sent by SMTP, built from `PUBLIC_URL`, and expires after `NEWSLETTER_EXPIRE_HOURS`
+- A confirmed request adds or removes the subscriber in mlmmj
 
-### Domain Ownership Verification
-- DNS TXT record verification for new domains
-- Verification code generation and tracking
-- Global admin force-verify option
+### Panel Settings
+- 30 settings editable at `/panel-settings` (global admin only)
+- Categories: Branding, Password Policy, Session & Security, Display & Behavior, Integrations, REST API
+- Stored in the `panel_settings` table of the iRedAdmin database
+- Priority: database value, then `.env` value, then built-in default
+- Falls back to `.env` when the iRedAdmin database is not configured
 
-### REST API
+### Security
+- CSRF token on every POST form, compared with `hash_equals()`
+- Session ID regeneration after login, session timeout, optional session IP check
+- Open redirect prevention on the login redirect target
+- `secure`, `httponly` and `samesite=Lax` session cookie (secure only over HTTPS)
+- Panel access restriction by CIDR ranges
+- Route parameters override form body values
+- Passwords are piped to external commands through stdin, never passed as arguments
+- API key comparison with `hash_equals()` and optional API IP restriction
+- Configurable LDAP TLS certificate verification
 
-Full CRUD REST API at `/api/v1/*` with API key authentication and IP whitelist.
+## REST API
 
-**Resources:** domains, users, aliases, mailing lists, admins, domain aliases, spam policy, white/blacklist, throttle, greylisting.
+The REST API lives at `/api/v1/*`. It is disabled by default (`API_ENABLED=false`). Every request sends an API key in the `X-API-Key` header.
 
-**Authentication:** `X-API-Key` header with optional IP restriction.
+**Keys**: the panel first looks up the key in the `panel_api_keys` table of the iRedAdmin database. A stored key has a role (global or domain-scoped), a domain list and a read-only flag. The `API_KEY` value from `.env` works as a global key with full access. `API_ALLOWED_IPS` applies to every key.
 
-**Example:**
+| Resource | Endpoints |
+|----------|-----------|
+| Domains | `GET, POST /domains`; `GET, PUT, DELETE /domains/{domain}` |
+| Users | `GET, POST /domains/{domain}/users`; `GET, PUT, DELETE /users/{email}` |
+| Aliases | `GET, POST /aliases`; `GET, PUT, DELETE /aliases/{address}` |
+| Mailing lists | `GET, POST /mailing-lists`; `GET, PUT, DELETE /mailing-lists/{address}` |
+| List subscribers | `GET, POST, DELETE /mailing-lists/{address}/subscribers` |
+| List moderators | `GET, PUT /mailing-lists/{address}/moderators` |
+| Admins | `GET, POST /admins`; `GET, PUT, DELETE /admins/{email}` |
+| Domain aliases | `GET, POST /domain-aliases`; `DELETE /domain-aliases/{aliasDomain}` |
+| Password check | `POST /verify-password/{accountType}/{email}` |
+| Spam policy | `GET, PUT /spam-policy/{account}` |
+| White/blacklist | `GET, POST, DELETE /wblist/{account}` |
+| Throttle | `GET, PUT /throttle/{account}` |
+| Greylisting | `GET, PUT /greylist/{account}` |
+
+Responses are JSON. An unknown API route returns a JSON 404, an unreachable backend a JSON 503, and any other error a logged JSON 500.
 
 ```bash
 # List domains
 curl -H "X-API-Key: your-key" http://localhost:8080/api/v1/domains
 
-# Create user
+# Create a user
 curl -X POST -H "X-API-Key: your-key" -H "Content-Type: application/json" \
   -d '{"uid":"john","password":"P@ss123","mailQuota":1024}' \
   http://localhost:8080/api/v1/domains/example.com/users
 
-# Verify password
+# Verify a password
 curl -X POST -H "X-API-Key: your-key" -H "Content-Type: application/json" \
   -d '{"password":"test"}' \
   http://localhost:8080/api/v1/verify-password/user/john@example.com
 ```
 
-### Panel Settings
-- 30 behavioral settings editable via web UI at `/panel-settings` (global admin only)
-- Categories: Branding, Password Policy, Session & Security, Display, Integrations, REST API
-- Stored in `panel_settings` table in iredadmin database (key-value)
-- Priority: database value > `.env` value > hardcoded default
-- Graceful fallback to `.env` when iRedAdmin database is not configured
-- Activity logging for all settings changes
+## CLI Tools
 
-### Branding
-- Configurable panel name, logo, footer text, and primary color
-- CSS custom property override via `BRAND_PRIMARY_COLOR`
-- Editable via Panel Settings UI or `.env`
-
-### Security
-- CSRF token validation on all POST forms
-- Session ID regeneration after login (session fixation prevention)
-- Open redirect prevention on login redirects
-- Secure cookie flag (conditional on HTTPS)
-- Configurable LDAP TLS certificate verification
-- Route parameter enforcement over form body values
-- Password piped via stdin to external commands (not CLI arguments)
-- Session timeout with configurable duration
-- Session IP change detection (configurable)
-- IP restriction via CIDR ranges
-- Role-based access control (global admin vs domain admin)
-- API key authentication with timing-safe comparison
-
-### CLI Tools
+The scripts in `cli/` load the environment through `cli/bootstrap.php` without a web session. The scripts that write accounts apply the same validation as the web form and the REST API.
 
 ```bash
-php cli/bulkPasswordUpdate.php --file=passwords.csv         # Bulk password update
-php cli/bulkQuotaUpdate.php --file=quotas.csv                # Bulk quota update
 php cli/importUsers.php /path/to/users.csv                   # Bulk user import from CSV
-php cli/deleteExpiredMailboxes.php [--dry-run]                # Cron: cleanup mailboxes
+php cli/bulkPasswordUpdate.php --file=passwords.csv          # Bulk password update
+php cli/bulkQuotaUpdate.php --file=quotas.csv                # Bulk quota update
 php cli/exportUsers.php --domain=example.com                 # Export users to CSV
 php cli/promoteToGlobalAdmin.php --email=admin@example.com   # Promote to global admin
+php cli/deleteExpiredMailboxes.php [--dry-run]               # Cron: delete expired mailboxes
 php cli/cleanupAmavisdDb.php [--quarantine-days=7]           # Cron: Amavisd cleanup
-php cli/dumpDisclaimer.php                                   # Dump domain disclaimers
-php cli/dumpQuarantinedMails.php                             # Export quarantined messages
-php cli/invalidateSessions.php                               # Invalidate all sessions
 php cli/notifyQuarantinedRecipients.php [--force-all]        # Cron: quarantine notifications
+php cli/dumpDisclaimer.php                                   # Write domain disclaimers to files
+php cli/dumpQuarantinedMails.php                             # Export quarantined messages
+php cli/invalidateSessions.php                               # End all active sessions
 ```
 
-### Internationalization
-- 40-language UI; `en_US` is the canonical base and every locale is kept at full key parity with it
-- Locale resolution order: session preference, `iredpanel_lang` cookie, then `DEFAULT_LANGUAGE`
-- Per-admin language preference persisted where the backend supports it (SQL `language` column, LDAP `preferredLanguage` attribute)
-- Language switcher in the UI; translations stored as flat-namespaced JSON under `locales/<code>.json`
-- Available locales are defined in `Translator::AVAILABLE` (code → native name); adding a language requires both the JSON file and an entry in that constant
+## Authentication and Access Control
 
-## Authentication
+**LDAP backend**: uses the iRedAdmin-Pro layout. A standalone admin is a `mailAdmin` entry `mail=<address>,o=domainAdmins,<root>`; a mailbox admin is a `mailUser` entry. The panel finds the admin entry with the service account, requires `accountStatus=active`, and binds with the admin DN and password. An admin with `domainGlobalAdmin=yes` is a global admin. An admin is a domain admin of every domain whose entry lists the address in `domainAdmin`. Creation limits are stored as `accountSetting` values.
 
-Authentication depends on the selected backend:
-
-**LDAP backend**: Uses the iRedAdmin-Pro layout. A standalone admin is a `mailAdmin` entry `mail=<address>,o=domainAdmins,<root>`; a mailbox admin is a `mailUser` entry. The panel finds the admin entry with the service account, requires `accountStatus=active`, and binds with the admin's DN and password. An admin is a global admin with `domainGlobalAdmin=yes`, and a domain admin of every domain whose entry lists the address in `domainAdmin`. Creation limits are stored as `accountSetting` values.
-
-**MySQL/PostgreSQL backend**: Verifies credentials against the `admin` table (standalone admins) or `mailbox` table (mailbox-based admins). Checks `domain_admins` for role assignment.
-
-### Role-Based Access Control
+**MySQL/PostgreSQL backend**: verifies the credentials against the `admin` table (standalone admins) or the `mailbox` table (mailbox admins), then reads the role from `domain_admins`. A `domain_admins` row with `domain='ALL'`, or `mailbox.isglobaladmin=1`, marks a global admin.
 
 | Role         | Access                                                |
 |--------------|-------------------------------------------------------|
-| Global admin | Full access to all domains, users, admins, and system |
-| Domain admin | Access only to assigned domains and their users       |
+| Global admin | All domains, users, admins and system pages           |
+| Domain admin | Only the assigned domains and their accounts          |
 
-Global admins are identified by `domain='ALL'` in `domain_admins` (MySQL/PostgreSQL) or `domainGlobalAdmin=yes` (LDAP). Domain admins are listed in `domain_admins` (MySQL/PostgreSQL) or in the `domainAdmin` attribute of the domain (LDAP). Domain admins see only their managed domains in the domain list and can only manage users within those domains.
-
-Session cookies are configured with `httponly=true`, `samesite=Lax`, and `secure=true` (when served over HTTPS). Session IDs are regenerated after successful login. Sessions expire after `SESSION_TIMEOUT` seconds of inactivity.
+The panel stores the language choice of an admin where the backend supports it (SQL `language` column, LDAP `preferredLanguage` attribute).
 
 ## Architecture
 
-The application uses a **Repository pattern** to abstract data access. Controllers interact with repository interfaces, and the `RepositoryFactory` returns the correct implementation based on `IREDPANEL_BACKEND`.
+```text
+public/index.php (front controller, route registration)
+  -> src/bootstrap.php (autoload, dotenv, session, extension checks)
+  -> Router::dispatch()
+    -> Middleware (session, CSRF, RBAC, timeout, IP restriction)
+    -> Controller static method (backend-agnostic)
+      -> RepositoryFactory::get*Repository()
+      -> TemplateEngine::render() (native PHP templates in templates/)
 
-```
-Controller → RepositoryInterface → LdapRepository  (when BACKEND=ldap)
-                                 → MysqlRepository  (when BACKEND=mysql)
-                                 → PgsqlRepository  (when BACKEND=pgsql)
+REST API: Router -> ApiMiddleware::authenticate() -> *ApiController -> ApiResponse
 ```
 
-External integrations (Amavisd, iRedAPD) connect to their own databases via dedicated PDO singletons. Fail2ban communicates via the `fail2ban-client` CLI. The REST API uses dedicated controllers under `App\Api\` namespace with API key middleware.
+Controllers depend on repository interfaces. `RepositoryFactory` returns the implementation for `IREDPANEL_BACKEND`:
+
+```text
+Controller -> RepositoryInterface -> Ldap implementation   (BACKEND=ldap)
+                                  -> Mysql implementation  (BACKEND=mysql)
+                                  -> Pgsql implementation  (BACKEND=pgsql)
+```
+
+There are 22 repository interfaces. MySQL and PostgreSQL implement all 22. LDAP implements 15; for the SQL-only data (Amavisd, iRedAPD, spam policy, white/blacklist, domain ownership, API keys, panel settings) an LDAP installation uses the MySQL implementations against its SQL databases.
+
+Mailing list writes go through `MailingListService`, which calls `MlmmjadminClient` and the repository. Outgoing mail goes through `App\Services\Mailer` (PHPMailer). Fail2ban is controlled through the `fail2ban-client` command. Quarantined mail is released through the Amavisd AM.PDP protocol.
 
 ### Database Connections
 
-| Connection                                         | Database    | Purpose                                                        |
-|----------------------------------------------------|-------------|----------------------------------------------------------------|
-| `MysqlConnection` / `PgsqlConnection`              | `vmail`     | Mail domains, users, admins, aliases, BCC, relay               |
-| `IredadminConnection` / `IredadminPgsqlConnection` | `iredadmin` | Activity logging, domain ownership, newsletter, panel settings |
-| `AmavisdConnection` / `AmavisdPgsqlConnection`     | `amavisd`   | Quarantine, mail log, spam policy, white/blacklist             |
-| `IredapdConnection` / `IredapdPgsqlConnection`     | `iredapd`   | Throttle, greylisting, rDNS, SenderScore                       |
+| Connection                                         | Database    | Purpose                                                          |
+|----------------------------------------------------|-------------|------------------------------------------------------------------|
+| `MysqlConnection` / `PgsqlConnection`              | `vmail`     | Mail domains, users, admins, aliases, BCC, relay                 |
+| `IredadminConnection` / `IredadminPgsqlConnection` | `iredadmin` | Activity log, domain ownership, newsletter, panel settings, API keys |
+| `AmavisdConnection` / `AmavisdPgsqlConnection`     | `amavisd`   | Quarantine, mail log, spam policy, white/blacklist               |
+| `IredapdConnection` / `IredapdPgsqlConnection`     | `iredapd`   | Throttle, greylisting, rDNS, SenderScore                         |
 
-Each integration selects the MySQL or PostgreSQL connection variant based on `IREDPANEL_BACKEND`. All connection classes are singletons.
+Each integration uses the MySQL or PostgreSQL connection that matches `IREDPANEL_BACKEND`. All connection classes are singletons.
 
 ### Repository Interfaces (22)
 
 | Interface                            | Purpose                              |
 |--------------------------------------|--------------------------------------|
-| `AuthRepositoryInterface`            | Authentication + RBAC                |
+| `AuthRepositoryInterface`            | Authentication, roles, language      |
 | `DomainRepositoryInterface`          | Domain CRUD                          |
-| `UserRepositoryInterface`            | User CRUD + rename                   |
-| `AdminRepositoryInterface`           | Admin CRUD + resource limits         |
-| `ForwardingRepositoryInterface`      | Email forwarding                     |
-| `QuotaRepositoryInterface`           | Used quota queries                   |
+| `UserRepositoryInterface`            | User CRUD and rename                 |
+| `AdminRepositoryInterface`           | Admin CRUD and resource limits       |
+| `ForwardingRepositoryInterface`      | Mail forwarding                      |
+| `QuotaRepositoryInterface`           | Used quota                           |
 | `DashboardRepositoryInterface`       | Dashboard statistics                 |
-| `DomainAliasRepositoryInterface`     | Domain alias CRUD                    |
+| `DomainAliasRepositoryInterface`     | Alias domains                        |
 | `DeletedMailboxRepositoryInterface`  | Deferred mailbox deletion            |
-| `AliasRepositoryInterface`           | Mail alias + catch-all + per-user    |
-| `BccRepositoryInterface`             | Domain/user BCC settings             |
+| `AliasRepositoryInterface`           | Mail aliases, catch-all, user aliases |
+| `BccRepositoryInterface`             | Domain and user BCC                  |
 | `RelayRepositoryInterface`           | Sender-dependent relay               |
-| `MailingListRepositoryInterface`     | Mailing list CRUD + owners           |
+| `MailingListRepositoryInterface`     | Mailing lists and owners             |
 | `SpamPolicyRepositoryInterface`      | Spam thresholds per account          |
-| `WhiteBlacklistRepositoryInterface`  | Inbound/outbound white/blacklist     |
-| `LastLoginRepositoryInterface`       | Dovecot last login tracking          |
-| `SearchRepositoryInterface`          | Global search                        |
+| `WhiteBlacklistRepositoryInterface`  | Inbound and outbound white/blacklist |
+| `LastLoginRepositoryInterface`       | Dovecot last login                   |
+| `SearchRepositoryInterface`          | Global search and account lookup     |
 | `DomainOwnershipRepositoryInterface` | DNS domain verification              |
 | `AmavisdRepositoryInterface`         | Quarantine and mail log              |
-| `IredapdRepositoryInterface`         | Throttle, greylist, rDNS, SS         |
-| `ApiKeyRepositoryInterface`          | DB-backed API key management         |
-| `PanelSettingsRepositoryInterface`   | DB-backed panel settings (key-value) |
+| `IredapdRepositoryInterface`         | Throttle, greylisting, rDNS, SenderScore |
+| `ApiKeyRepositoryInterface`          | Stored API keys                      |
+| `PanelSettingsRepositoryInterface`   | Stored panel settings                |
+
+`AmavisdRepositoryInterface` and `IredapdRepositoryInterface` extend `AccountSettingsStoreInterface`, which deletes and renames the settings of an account.
 
 ### Field Mapping (LDAP vs MySQL/PostgreSQL)
 
-| User Model Field    | LDAP Attribute      | MySQL/PgSQL Column      |
+`User::$mailQuota` is always in megabytes (`0` means unlimited). LDAP stores bytes, and the LDAP repository converts at the boundary.
+
+| User model field    | LDAP attribute      | MySQL/PostgreSQL column |
 |---------------------|---------------------|-------------------------|
 | `uid`               | `uid`               | `username` (before `@`) |
 | `accountStatus`     | `accountStatus`     | `active` (1/0)          |
@@ -550,125 +551,68 @@ Each integration selects the MySQL or PostgreSQL connection variant based on `IR
 
 ## Project Structure
 
-```
-composer.json                          Dependencies and PSR-4 autoloading
-phpunit.xml.dist                       PHPUnit configuration
-.env.example                           Environment variable template
-cli/
-  bootstrap.php                        CLI autoload (no session)
-  bulkPasswordUpdate.php               Bulk password update from CSV
-  bulkQuotaUpdate.php                  Bulk quota update from CSV
-  importUsers.php                      Bulk user import from CSV
-  deleteExpiredMailboxes.php           Cron: mailbox directory cleanup
-  exportUsers.php                      Export users to CSV
-  promoteToGlobalAdmin.php             Promote user to global admin
-  cleanupAmavisdDb.php                 Cron: Amavisd database cleanup
-  dumpDisclaimer.php                   Dump domain disclaimers to files
-  dumpQuarantinedMails.php             Export quarantined messages
-  invalidateSessions.php               Invalidate all active sessions
-  notifyQuarantinedRecipients.php      Cron: quarantine email notifications
+```text
+composer.json                  Dependencies, PSR-4 autoloading (App\ -> src/), version
+Makefile                       install, test, lint, locale-parity, Docker targets
+Dockerfile                     dev and prod images (PHP 8.4 + Apache)
+docker-compose.dev.yml         Development container (127.0.0.1:8521)
+docker-compose.prod.yml        Production container (127.0.0.1:8522)
+.env.example                   Environment variable template
+cli/                           CLI tools and cron scripts (cli/bootstrap.php loads the environment)
+docs/screenshots/              README images
+locales/                       40 locale files (en_US.json is the canonical base)
 public/
-  index.php                            Front controller (116 routes)
-  .htaccess                            Apache URL rewrite rules
-  static/                              Vendored UI libraries, dark theme styles, app.js, logo
+  index.php                    Front controller (116 routes)
+  .htaccess                    Apache URL rewrite rules
+  static/
+    styles.css                 Dark theme, sidebar, tone badges, picker styles
+    app.js                     Confirm dialogs, toasts, form helpers, account pickers
+    vendor/                    Bootstrap, Bootstrap Icons, SweetAlert2, Tom Select
+scripts/check_locale_parity.php  Locale key parity check
 src/
-  bootstrap.php                        Autoloading, dotenv, session, extension check
-  Router.php                           Regex-based URL router (GET/POST/PUT/DELETE)
-  Middleware.php                       Auth guard, RBAC, session timeout, IP restriction
-  CsrfProtection.php                  CSRF token generation and validation
-  TemplateEngine.php                   Layout inheritance, branding, feature flags
-  TemplateFilters.php                  localize() and asMegabytes() helpers
-  Navigation.php                       Sidebar menu groups and active item
-  I18n/
-    Translator.php                     JSON locale loader, placeholder substitution, AVAILABLE locale registry
-    LocaleResolver.php                 Locale resolution (session/cookie/default)
-  Exceptions/
-    BackendConnectionException.php     Shared base for backend connection errors
-  Models/
-    Settings.php                       Singleton config (env + DB overrides via panel_settings)
-    LdapConnection.php                 LDAP connection singleton (TLS/STARTTLS)
-    User.php                           Mail user data model (20+ fields, quota in MB)
-    UserPassword.php                   Password validation (7 rules)
-    Domain.php                         Domain data model
-    Admin.php                          Admin data model with resource limits
-    Alias.php                          Mail alias data model
-    MailingList.php                    Mailing list data model
-    SpamPolicy.php                    Spam policy data model
-    DomainAlias.php                    Domain alias data model
-    DomainSettings.php                 Per-domain settings (key:value format)
-    PaginatedResult.php                Pagination wrapper
-    DeletedMailbox.php                 Deferred deletion record
-    ApiKey.php                         API key data model (RBAC, domains)
-  Repositories/
-    22 interfaces                      Repository contracts
-    RepositoryFactory.php              Returns backend-specific implementations
-    Ldap/                              LDAP implementations
-    Mysql/                             MySQL implementations + connection singletons
-    Pgsql/                             PostgreSQL implementations + connection singletons
-  Api/
-    ApiMiddleware.php                  API key authentication + IP whitelist
-    ApiResponse.php                    JSON response helpers
-    DomainApiController.php            Domain API endpoints
-    UserApiController.php              User API + password verification
-    AliasApiController.php             Alias API endpoints
-    MailingListApiController.php       Mailing list API endpoints
-    AdminApiController.php             Admin API endpoints
-    DomainAliasApiController.php       Domain alias API endpoints
-    SpamPolicyApiController.php        Spam policy API endpoints
-    WhiteBlacklistApiController.php    White/blacklist API endpoints
-    ThrottleApiController.php          Throttle API endpoints
-    GreylistApiController.php          Greylist API endpoints
-  Services/
-    ActivityLogger.php                 Admin activity logging facade
-    Fail2banService.php                Fail2ban CLI wrapper
-    GeoIpService.php                   MaxMind GeoLite2 integration
-    ExportService.php                  CSV/JSON export service
-    VersionChecker.php                 GitHub version check (24h cache)
-  Controllers/
-    AuthController.php                 Login, logout, RBAC session setup
-    DashboardController.php            Dashboard statistics + system info
-    DomainController.php               Domain CRUD, catch-all, BCC, relay
-    AdminController.php                Admin CRUD, domain assignment, resource limits
-    UserController.php                 User CRUD, services, forwarding, aliases, BCC, relay, rename
-    AliasController.php                Mail alias CRUD, members, moderators
-    MailingListController.php          Mailing list CRUD, owners
-    SpamPolicyController.php           Spam policy management
-    WhiteBlacklistController.php       White/blacklist management
-    SearchController.php               Global search
-    AccountLookupController.php        JSON account lookup for form pickers
-    SystemSettingsController.php       System settings overview + last logins
-    ExportController.php               CSV/JSON export
-    NewsletterController.php           Public newsletter subscription
-    DomainAliasController.php          Domain alias CRUD
-    LogController.php                  Activity log viewer
-    DeletedMailboxController.php       Deferred deletion management
-    AmavisdController.php              Quarantine + mail log
-    Fail2banController.php             Ban/unban management + GeoIP
-    IredapdController.php              Throttle, greylisting, rDNS, SenderScore
-    PanelSettingsController.php        DB-backed panel settings editor
-    BaseController.php                 404 error page handler
-  Utils/
-    LdapUtils.php                      DN construction, LDAP modify helpers
-    PasswordUtils.php                  Password hashing (10+ schemes) + random generation
-    PasswordVerifier.php               Password verification utility
-    SystemInfo.php                     Hostname, uptime, load, version info
-templates/                             45 native PHP templates
-locales/                               40 locale files (en_US.json is the canonical base)
-tests/
-  bootstrap.php                        Test environment setup
-  Utils/PasswordUtilsTest.php          Password hashing scheme tests
-  Models/                              Model factory method tests
-  I18n/                                Translator + locale resolution tests
+  bootstrap.php                Autoloading, dotenv, session, extension checks
+  Router.php                   Regex URL router (GET/POST/PUT/DELETE)
+  Middleware.php               Login guard, RBAC, session timeout, IP restriction
+  CsrfProtection.php           CSRF token generation and validation
+  TemplateEngine.php           Layout, template helpers, branding, feature flags
+  TemplateFilters.php          Status icon and megabyte helpers
+  Navigation.php               Sidebar menu groups and active item
+  BadgeTone.php                Badge color map
+  Api/                         REST API controllers, ApiMiddleware, ApiResponse
+  Controllers/                 Web controllers (static methods), including AccountLookupController
+  Exceptions/                  Backend connection, CSRF, invalid input and mail delivery exceptions
+  I18n/                        Translator and LocaleResolver
+  Models/                      Settings singleton, LDAP connection and domain models
+  Repositories/                22 interfaces, RepositoryFactory, shared cleanup SQL
+    Ldap/                      LDAP implementations
+    Mysql/                     MySQL implementations and connection singletons
+    Pgsql/                     PostgreSQL implementations and connection singletons
+  Services/                    Activity log, account settings cleanup, mailing lists and mlmmjadmin,
+                               mailer, newsletter, domain ownership, Amavisd release, Fail2ban,
+                               GeoIP, export, version check
+  Utils/                       Password hashing and verification, LDAP helpers, input parsing,
+                               address and relay host validation, SQL LIKE escaping, system info
+templates/                     45 native PHP templates (base.php is the layout)
+tests/                         PHPUnit tests (tests/bootstrap.php)
 ```
 
-## Testing
+## Development and Testing
 
 ```bash
 php composer.phar install
-vendor/bin/phpunit --do-not-cache-result
+vendor/bin/phpunit --do-not-cache-result                 # all tests
+vendor/bin/phpunit --do-not-cache-result --filter Name   # one test class or method
+php scripts/check_locale_parity.php [locale]             # locale key parity with en_US
+find . -name "*.php" ! -path "./vendor/*" -exec php -l {} \;   # syntax check
 ```
 
-242 tests covering password hashing schemes, password validation rules, translation/locale resolution, model factory methods, navigation, the account lookup scope, and the Amavisd/iRedAPD cleanup SQL. PHPUnit 13 is used as the test framework.
+The `Makefile` wraps the same steps: `make install`, `make test`, `make lint`, `make locale-parity`.
+
+The suite has 247 PHPUnit 13 tests. They cover password hashing and validation, the models, translation and locale resolution, navigation, badge colors, the account lookup scope, address and input parsing, the mlmmjadmin client, the mailer, newsletter confirmations, Amavisd release, and the Amavisd and iRedAPD cleanup SQL (on in-memory SQLite). There are no integration tests against a live backend.
+
+CI (`.github/workflows/ci.yml`) runs `composer validate --strict`, `php -l` on every PHP file and PHPUnit on PHP 8.1 to 8.4 for every push and pull request to `main`. `.github/workflows/cleanup-artifacts.yml` deletes old build artifacts every day.
+
+Every locale file must keep full key parity with `locales/en_US.json`. A new UI language needs both `locales/<xx_YY>.json` and an entry in `Translator::AVAILABLE`.
 
 ## License
 

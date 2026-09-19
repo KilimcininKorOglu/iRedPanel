@@ -9,6 +9,16 @@ use App\Utils\AmavisdAddress;
 
 class MysqlWhiteBlacklistRepository implements WhiteBlacklistRepositoryInterface
 {
+    /**
+     * [account column, address column] per table. `wblist` stores the local recipient in
+     * `rid` (users.id) and the sender in `sid` (mailaddr.id); `outbound_wblist` stores the
+     * external recipient in `rid` (mailaddr.id) and the local sender in `sid` (users.id).
+     */
+    private const COLUMNS = [
+        'wblist' => ['rid', 'sid'],
+        'outbound_wblist' => ['sid', 'rid'],
+    ];
+
     public function getInboundList(string $account): array
     {
         return $this->getList($account, 'wblist');
@@ -83,15 +93,16 @@ class MysqlWhiteBlacklistRepository implements WhiteBlacklistRepositoryInterface
         if ($userId === null) {
             return [];
         }
+        [$accountColumn, $addressColumn] = self::COLUMNS[$table];
 
         $stmt = $pdo->prepare(
             "SELECT m.email AS sender, w.wb
              FROM {$table} w
-             JOIN mailaddr m ON w.sid = m.id
-             WHERE w.rid = :rid
+             JOIN mailaddr m ON w.{$addressColumn} = m.id
+             WHERE w.{$accountColumn} = :userId
              ORDER BY m.email"
         );
-        $stmt->execute(['rid' => $userId]);
+        $stmt->execute(['userId' => $userId]);
 
         $results = [];
         while ($row = $stmt->fetch()) {
@@ -108,18 +119,18 @@ class MysqlWhiteBlacklistRepository implements WhiteBlacklistRepositoryInterface
     {
         $pdo = AmavisdConnection::getInstance()->getPdo();
 
-        $rid = $this->getOrCreateUserId($account);
-        $sid = $this->getOrCreateMailaddrId($sender);
+        [$accountColumn, $addressColumn] = self::COLUMNS[$table];
+        $ids = [$accountColumn => $this->getOrCreateUserId($account), $addressColumn => $this->getOrCreateMailaddrId($sender)];
 
         $stmt = $pdo->prepare("SELECT 1 FROM {$table} WHERE rid = :rid AND sid = :sid LIMIT 1");
-        $stmt->execute(['rid' => $rid, 'sid' => $sid]);
+        $stmt->execute($ids);
 
         if ($stmt->fetch() !== false) {
             $pdo->prepare("UPDATE {$table} SET wb = :wb WHERE rid = :rid AND sid = :sid")
-                ->execute(['wb' => $wb, 'rid' => $rid, 'sid' => $sid]);
+                ->execute($ids + ['wb' => $wb]);
         } else {
             $pdo->prepare("INSERT INTO {$table} (rid, sid, wb) VALUES (:rid, :sid, :wb)")
-                ->execute(['rid' => $rid, 'sid' => $sid, 'wb' => $wb]);
+                ->execute($ids + ['wb' => $wb]);
         }
 
         return true;
@@ -130,10 +141,11 @@ class MysqlWhiteBlacklistRepository implements WhiteBlacklistRepositoryInterface
         $pdo = AmavisdConnection::getInstance()->getPdo();
 
         // users.email and mailaddr.email are unique, so each subquery returns at most one ID.
+        [$accountColumn, $addressColumn] = self::COLUMNS[$table];
         $stmt = $pdo->prepare(
             "DELETE FROM {$table}
-             WHERE rid = (SELECT id FROM users WHERE email = :account)
-               AND sid = (SELECT id FROM mailaddr WHERE email = :sender)"
+             WHERE {$accountColumn} = (SELECT id FROM users WHERE email = :account)
+               AND {$addressColumn} = (SELECT id FROM mailaddr WHERE email = :sender)"
         );
         $stmt->execute(['account' => $account, 'sender' => $sender]);
 

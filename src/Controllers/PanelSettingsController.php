@@ -141,6 +141,14 @@ class PanelSettingsController
 
     private const COLOR_PATTERN = '/^(#[0-9a-fA-F]{3,8}|[a-zA-Z]+|rgba?\(\s*[\d.,\s\/]+\)|hsla?\(\s*[\d.,%\s\/]+\))$/';
 
+    /** Patterns of the string settings that may also stay empty. */
+    private const OPTIONAL_PATTERNS = [
+        'fail2banSocket' => '#^(/[a-zA-Z0-9._/-]+)$#',
+        'brandPrimaryColor' => self::COLOR_PATTERN,
+        // An http(s) URL or a local path; "//host" and "/\host" would load from another host.
+        'brandLogoUrl' => '#^(https?://[^\s"\'<>]+|/(?![/\\\\])[^\s"\'<>]*)$#',
+    ];
+
     /**
      * Returns the value to store for a submitted setting, or null when the
      * submitted value is invalid.
@@ -168,10 +176,9 @@ class PanelSettingsController
             'defaultLanguage' => Translator::isSupported($value),
             'fail2banJails' => self::allMatch(self::splitList($value), '/^[a-zA-Z0-9_-]+$/'),
             'allowedIpRanges', 'apiAllowedIps' => self::allValidIpRanges(self::splitList($value)),
-            'fail2banSocket' => $value === '' || preg_match('#^(/[a-zA-Z0-9._/-]+)$#', $value) === 1,
-            'brandPrimaryColor' => $value === '' || preg_match(self::COLOR_PATTERN, $value) === 1,
             'geoIpDbPath' => $value === '' || (str_ends_with($value, '.mmdb') && !str_contains($value, '..')),
-            default => true,
+            default => !isset(self::OPTIONAL_PATTERNS[$key]) || $value === ''
+                || preg_match(self::OPTIONAL_PATTERNS[$key], $value) === 1,
         };
         if (!$valid) {
             return null;

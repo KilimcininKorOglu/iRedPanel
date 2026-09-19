@@ -115,7 +115,18 @@
     "unsubscribe_hint": "Adja meg e-mail-címét a levelezőlistáról való leiratkozáshoz.",
     "email_address": "E-mail-cím",
     "subscribe": "Feliratkozás",
-    "unsubscribe": "Leiratkozás"
+    "unsubscribe": "Leiratkozás",
+    "msg_list_not_found": "Ez a hírlevél nem létezik, vagy nem fogad feliratkozást.",
+    "msg_invalid_token": "A megerősítő hivatkozás érvénytelen vagy lejárt.",
+    "msg_send_failed": "A megerősítő e-mailt nem sikerült elküldeni. Próbálja újra később.",
+    "msg_subscribed": "Feliratkozott a(z) :list listára.",
+    "msg_unsubscribed": "Leiratkozott a(z) :list listáról.",
+    "confirm_subscribe_hint": "Kattintson az alábbi gombra a(z) :list feliratkozás megerősítéséhez.",
+    "confirm_unsubscribe_hint": "Kattintson az alábbi gombra annak megerősítéséhez, hogy leiratkozik a(z) :list listáról.",
+    "mail_subject_subscribe": "Erősítse meg a feliratkozást: :list",
+    "mail_subject_unsubscribe": "Erősítse meg a leiratkozást: :list",
+    "mail_body_subscribe": "Valaki, valószínűleg Ön, kérte a(z) :email cím feliratkoztatását a(z) :list levelezőlistára.\n\nA megerősítéshez nyissa meg ezt a hivatkozást, és kattintson a megerősítő gombra:\n:link\n\nA hivatkozás :hours óra múlva lejár. Ha nem Ön kérte, hagyja figyelmen kívül ezt az üzenetet.",
+    "mail_body_unsubscribe": "Valaki, valószínűleg Ön, kérte a(z) :email cím leiratkoztatását a(z) :list levelezőlistáról.\n\nA megerősítéshez nyissa meg ezt a hivatkozást, és kattintson a megerősítő gombra:\n:link\n\nA hivatkozás :hours óra múlva lejár. Ha nem Ön kérte, hagyja figyelmen kívül ezt az üzenetet."
   },
   "pagination": {
     "previous": "Előző",
@@ -332,7 +343,11 @@
     "subscribers_hint": "Feliratkozók e-mail-címei (soronként egy)",
     "remove_subscriber_confirm": "Eltávolítja :address címet a listáról?",
     "msg_subscribers_added": ":count feliratkozó hozzáadva.",
-    "msg_subscriber_removed": ":address eltávolítva a listáról."
+    "msg_subscriber_removed": ":address eltávolítva a listáról.",
+    "newsletter": "Hírlevél",
+    "newsletter_hint": "Bárki feliratkozhat vagy leiratkozhat egy nyilvános oldalon. Minden kérést e-mailben kell megerősíteni.",
+    "subscribe_page": "Feliratkozási oldal",
+    "unsubscribe_page": "Leiratkozási oldal"
   },
   "search": {
     "title": "Keresés",

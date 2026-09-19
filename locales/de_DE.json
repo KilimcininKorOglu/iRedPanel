@@ -115,7 +115,18 @@
     "unsubscribe_hint": "Geben Sie Ihre E-Mail-Adresse ein, um diese Mailingliste abzubestellen.",
     "email_address": "E-Mail-Adresse",
     "subscribe": "Abonnieren",
-    "unsubscribe": "Abbestellen"
+    "unsubscribe": "Abbestellen",
+    "msg_list_not_found": "Dieser Newsletter existiert nicht oder nimmt keine Abonnements an.",
+    "msg_invalid_token": "Der Bestätigungslink ist ungültig oder abgelaufen.",
+    "msg_send_failed": "Die Bestätigungs-E-Mail konnte nicht gesendet werden. Versuchen Sie es später erneut.",
+    "msg_subscribed": "Sie haben :list jetzt abonniert.",
+    "msg_unsubscribed": "Sie haben :list jetzt abbestellt.",
+    "confirm_subscribe_hint": "Klicken Sie auf die Schaltfläche unten, um Ihr Abonnement von :list zu bestätigen.",
+    "confirm_unsubscribe_hint": "Klicken Sie auf die Schaltfläche unten, um zu bestätigen, dass Sie :list abbestellen möchten.",
+    "mail_subject_subscribe": "Bestätigen Sie Ihr Abonnement von :list",
+    "mail_subject_unsubscribe": "Bestätigen Sie Ihre Abmeldung von :list",
+    "mail_body_subscribe": "Jemand, wahrscheinlich Sie, hat angefordert, :email in die Mailingliste :list einzutragen.\n\nÖffnen Sie zur Bestätigung diesen Link und klicken Sie auf die Bestätigungsschaltfläche:\n:link\n\nDer Link läuft in :hours Stunden ab. Wenn Sie dies nicht angefordert haben, ignorieren Sie diese Nachricht.",
+    "mail_body_unsubscribe": "Jemand, wahrscheinlich Sie, hat angefordert, :email aus der Mailingliste :list auszutragen.\n\nÖffnen Sie zur Bestätigung diesen Link und klicken Sie auf die Bestätigungsschaltfläche:\n:link\n\nDer Link läuft in :hours Stunden ab. Wenn Sie dies nicht angefordert haben, ignorieren Sie diese Nachricht."
   },
   "pagination": {
     "previous": "Zurück",
@@ -332,7 +343,11 @@
     "subscribers_hint": "E-Mail-Adressen der Abonnenten (eine pro Zeile)",
     "remove_subscriber_confirm": ":address aus dieser Liste entfernen?",
     "msg_subscribers_added": ":count Abonnent(en) hinzugefügt.",
-    "msg_subscriber_removed": ":address wurde aus der Liste entfernt."
+    "msg_subscriber_removed": ":address wurde aus der Liste entfernt.",
+    "newsletter": "Newsletter",
+    "newsletter_hint": "Jeder kann sich auf einer öffentlichen Seite an- oder abmelden. Jede Anfrage wird per E-Mail bestätigt.",
+    "subscribe_page": "Anmeldeseite",
+    "unsubscribe_page": "Abmeldeseite"
   },
   "search": {
     "title": "Suche",

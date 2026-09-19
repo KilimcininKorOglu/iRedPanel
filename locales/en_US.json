@@ -115,7 +115,18 @@
     "unsubscribe_hint": "Enter your email to unsubscribe from this mailing list.",
     "email_address": "Email Address",
     "subscribe": "Subscribe",
-    "unsubscribe": "Unsubscribe"
+    "unsubscribe": "Unsubscribe",
+    "msg_list_not_found": "This newsletter does not exist or does not accept subscriptions.",
+    "msg_invalid_token": "The confirmation link is invalid or has expired.",
+    "msg_send_failed": "The confirmation email could not be sent. Try again later.",
+    "msg_subscribed": "You are now subscribed to :list.",
+    "msg_unsubscribed": "You are now unsubscribed from :list.",
+    "confirm_subscribe_hint": "Click the button below to confirm your subscription to :list.",
+    "confirm_unsubscribe_hint": "Click the button below to confirm that you want to unsubscribe from :list.",
+    "mail_subject_subscribe": "Confirm your subscription to :list",
+    "mail_subject_unsubscribe": "Confirm your unsubscription from :list",
+    "mail_body_subscribe": "Someone, probably you, asked to subscribe :email to the mailing list :list.\n\nTo confirm, open this link and click the confirm button:\n:link\n\nThe link expires in :hours hours. If you did not ask for this, ignore this message.",
+    "mail_body_unsubscribe": "Someone, probably you, asked to unsubscribe :email from the mailing list :list.\n\nTo confirm, open this link and click the confirm button:\n:link\n\nThe link expires in :hours hours. If you did not ask for this, ignore this message."
   },
   "pagination": {
     "previous": "Previous",
@@ -332,7 +343,11 @@
     "subscribers_hint": "Subscriber email addresses (one per line)",
     "remove_subscriber_confirm": "Remove :address from this list?",
     "msg_subscribers_added": "Added :count subscriber(s).",
-    "msg_subscriber_removed": "Removed :address from the list."
+    "msg_subscriber_removed": "Removed :address from the list.",
+    "newsletter": "Newsletter",
+    "newsletter_hint": "Anyone can subscribe or unsubscribe on a public page. Every request is confirmed by email.",
+    "subscribe_page": "Subscribe page",
+    "unsubscribe_page": "Unsubscribe page"
   },
   "search": {
     "title": "Search",

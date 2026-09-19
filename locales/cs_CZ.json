@@ -115,7 +115,18 @@
     "unsubscribe_hint": "Zadejte svůj e-mail pro odhlášení z této poštovní konference.",
     "email_address": "E-mailová adresa",
     "subscribe": "Přihlásit se k odběru",
-    "unsubscribe": "Odhlásit se z odběru"
+    "unsubscribe": "Odhlásit se z odběru",
+    "msg_list_not_found": "Tento zpravodaj neexistuje nebo nepřijímá odběry.",
+    "msg_invalid_token": "Potvrzovací odkaz je neplatný nebo vypršel.",
+    "msg_send_failed": "Potvrzovací e-mail se nepodařilo odeslat. Zkuste to později.",
+    "msg_subscribed": "Nyní odebíráte :list.",
+    "msg_unsubscribed": "Odběr :list byl zrušen.",
+    "confirm_subscribe_hint": "Kliknutím na tlačítko níže potvrďte odběr :list.",
+    "confirm_unsubscribe_hint": "Kliknutím na tlačítko níže potvrďte zrušení odběru :list.",
+    "mail_subject_subscribe": "Potvrďte odběr :list",
+    "mail_subject_unsubscribe": "Potvrďte zrušení odběru :list",
+    "mail_body_subscribe": "Někdo, pravděpodobně vy, požádal o přihlášení :email do e-mailové konference :list.\n\nPro potvrzení otevřete tento odkaz a klikněte na potvrzovací tlačítko:\n:link\n\nOdkaz vyprší za :hours h. Pokud jste o to nežádali, tuto zprávu ignorujte.",
+    "mail_body_unsubscribe": "Někdo, pravděpodobně vy, požádal o odhlášení :email z e-mailové konference :list.\n\nPro potvrzení otevřete tento odkaz a klikněte na potvrzovací tlačítko:\n:link\n\nOdkaz vyprší za :hours h. Pokud jste o to nežádali, tuto zprávu ignorujte."
   },
   "pagination": {
     "previous": "Předchozí",
@@ -332,7 +343,11 @@
     "subscribers_hint": "E-mailové adresy odběratelů (jedna na řádek)",
     "remove_subscriber_confirm": "Odebrat :address z tohoto seznamu?",
     "msg_subscribers_added": "Přidáno odběratelů: :count.",
-    "msg_subscriber_removed": ":address byl odebrán ze seznamu."
+    "msg_subscriber_removed": ":address byl odebrán ze seznamu.",
+    "newsletter": "Zpravodaj",
+    "newsletter_hint": "Kdokoli se může přihlásit nebo odhlásit na veřejné stránce. Každá žádost se potvrzuje e-mailem.",
+    "subscribe_page": "Stránka přihlášení",
+    "unsubscribe_page": "Stránka odhlášení"
   },
   "search": {
     "title": "Hledat",

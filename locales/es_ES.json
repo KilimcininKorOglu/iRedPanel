@@ -115,7 +115,18 @@
     "unsubscribe_hint": "Introduzca su correo para cancelar la suscripción a esta lista de correo.",
     "email_address": "Dirección de correo electrónico",
     "subscribe": "Suscribirse",
-    "unsubscribe": "Cancelar suscripción"
+    "unsubscribe": "Cancelar suscripción",
+    "msg_list_not_found": "Este boletín no existe o no acepta suscripciones.",
+    "msg_invalid_token": "El enlace de confirmación no es válido o ha caducado.",
+    "msg_send_failed": "No se pudo enviar el correo de confirmación. Inténtelo de nuevo más tarde.",
+    "msg_subscribed": "Ahora está suscrito a :list.",
+    "msg_unsubscribed": "Ya no está suscrito a :list.",
+    "confirm_subscribe_hint": "Haga clic en el botón de abajo para confirmar su suscripción a :list.",
+    "confirm_unsubscribe_hint": "Haga clic en el botón de abajo para confirmar que desea darse de baja de :list.",
+    "mail_subject_subscribe": "Confirme su suscripción a :list",
+    "mail_subject_unsubscribe": "Confirme su baja de :list",
+    "mail_body_subscribe": "Alguien, probablemente usted, solicitó suscribir :email a la lista de correo :list.\n\nPara confirmar, abra este enlace y haga clic en el botón de confirmación:\n:link\n\nEl enlace caduca en :hours horas. Si no lo solicitó, ignore este mensaje.",
+    "mail_body_unsubscribe": "Alguien, probablemente usted, solicitó dar de baja :email de la lista de correo :list.\n\nPara confirmar, abra este enlace y haga clic en el botón de confirmación:\n:link\n\nEl enlace caduca en :hours horas. Si no lo solicitó, ignore este mensaje."
   },
   "pagination": {
     "previous": "Anterior",
@@ -332,7 +343,11 @@
     "subscribers_hint": "Direcciones de correo de los suscriptores (una por línea)",
     "remove_subscriber_confirm": "¿Quitar :address de esta lista?",
     "msg_subscribers_added": "Se añadieron :count suscriptor(es).",
-    "msg_subscriber_removed": "Se quitó :address de la lista."
+    "msg_subscriber_removed": "Se quitó :address de la lista.",
+    "newsletter": "Boletín",
+    "newsletter_hint": "Cualquiera puede suscribirse o darse de baja en una página pública. Cada solicitud se confirma por correo.",
+    "subscribe_page": "Página de suscripción",
+    "unsubscribe_page": "Página de baja"
   },
   "search": {
     "title": "Buscar",

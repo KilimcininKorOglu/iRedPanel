@@ -13,6 +13,18 @@ interface MailingListRepositoryInterface
 
     public function getMailingList(string $address): ?MailingList;
 
+    /**
+     * Finds a list by its server-wide ID (`mlid`), used in public newsletter URLs.
+     */
+    public function getMailingListById(string $mlid): ?MailingList;
+
+    /**
+     * Whether the backend stores the newsletter flag (public subscription pages).
+     */
+    public function supportsNewsletter(): bool;
+
+    public function setNewsletter(string $address, bool $enabled): void;
+
     public function createMailingList(string $address, string $domain, string $name,
                                      string $accessPolicy, int $maxMsgSize): bool;
 

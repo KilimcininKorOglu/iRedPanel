@@ -115,7 +115,18 @@
     "unsubscribe_hint": "Bu poçt siyahısından abunəlikdən çıxmaq üçün e-poçtunuzu daxil edin.",
     "email_address": "E-poçt ünvanı",
     "subscribe": "Abunə ol",
-    "unsubscribe": "Abunəlikdən çıx"
+    "unsubscribe": "Abunəlikdən çıx",
+    "msg_list_not_found": "Bu bülleten mövcud deyil və ya abunəlik qəbul etmir.",
+    "msg_invalid_token": "Təsdiq keçidi etibarsızdır və ya vaxtı bitib.",
+    "msg_send_failed": "Təsdiq e-poçtu göndərilə bilmədi. Sonra yenidən cəhd edin.",
+    "msg_subscribed": "Artıq :list siyahısına abunəsiniz.",
+    "msg_unsubscribed": ":list siyahısına abunəliyiniz ləğv edildi.",
+    "confirm_subscribe_hint": ":list abunəliyinizi təsdiqləmək üçün aşağıdakı düyməni basın.",
+    "confirm_unsubscribe_hint": ":list abunəliyinizi ləğv etmək istədiyinizi təsdiqləmək üçün aşağıdakı düyməni basın.",
+    "mail_subject_subscribe": ":list abunəliyinizi təsdiqləyin",
+    "mail_subject_unsubscribe": ":list abunəliyinin ləğvini təsdiqləyin",
+    "mail_body_subscribe": "Kimsə, çox güman ki, siz, :email ünvanının :list poçt siyahısına abunə edilməsini istədi.\n\nTəsdiqləmək üçün bu keçidi açın və təsdiq düyməsini basın:\n:link\n\nKeçidin vaxtı :hours saatdan sonra bitir. Bunu siz istəməmisinizsə, bu mesajı nəzərə almayın.",
+    "mail_body_unsubscribe": "Kimsə, çox güman ki, siz, :email ünvanının :list poçt siyahısından çıxarılmasını istədi.\n\nTəsdiqləmək üçün bu keçidi açın və təsdiq düyməsini basın:\n:link\n\nKeçidin vaxtı :hours saatdan sonra bitir. Bunu siz istəməmisinizsə, bu mesajı nəzərə almayın."
   },
   "pagination": {
     "previous": "Əvvəlki",
@@ -332,7 +343,11 @@
     "subscribers_hint": "Abunəçi e-poçt ünvanları (hər sətirdə bir)",
     "remove_subscriber_confirm": ":address bu siyahıdan çıxarılsın?",
     "msg_subscribers_added": ":count abunəçi əlavə edildi.",
-    "msg_subscriber_removed": ":address siyahıdan çıxarıldı."
+    "msg_subscriber_removed": ":address siyahıdan çıxarıldı.",
+    "newsletter": "Bülleten",
+    "newsletter_hint": "Hər kəs ictimai səhifədə abunə ola və ya abunəliyi ləğv edə bilər. Hər sorğu e-poçtla təsdiqlənir.",
+    "subscribe_page": "Abunəlik səhifəsi",
+    "unsubscribe_page": "Abunəliyin ləğvi səhifəsi"
   },
   "search": {
     "title": "Axtarış",

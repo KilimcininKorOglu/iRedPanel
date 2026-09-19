@@ -115,7 +115,18 @@
     "unsubscribe_hint": "Voer uw e-mailadres in om u van deze mailinglijst af te melden.",
     "email_address": "E-mailadres",
     "subscribe": "Abonneren",
-    "unsubscribe": "Afmelden"
+    "unsubscribe": "Afmelden",
+    "msg_list_not_found": "Deze nieuwsbrief bestaat niet of accepteert geen aanmeldingen.",
+    "msg_invalid_token": "De bevestigingslink is ongeldig of verlopen.",
+    "msg_send_failed": "De bevestigingsmail kon niet worden verzonden. Probeer het later opnieuw.",
+    "msg_subscribed": "U bent nu aangemeld voor :list.",
+    "msg_unsubscribed": "U bent nu afgemeld voor :list.",
+    "confirm_subscribe_hint": "Klik op de knop hieronder om uw aanmelding voor :list te bevestigen.",
+    "confirm_unsubscribe_hint": "Klik op de knop hieronder om te bevestigen dat u zich wilt afmelden voor :list.",
+    "mail_subject_subscribe": "Bevestig uw aanmelding voor :list",
+    "mail_subject_unsubscribe": "Bevestig uw afmelding voor :list",
+    "mail_body_subscribe": "Iemand, waarschijnlijk u, heeft gevraagd om :email aan te melden voor de mailinglijst :list.\n\nOpen deze link en klik op de bevestigingsknop om te bevestigen:\n:link\n\nDe link verloopt over :hours uur. Als u dit niet hebt gevraagd, negeer dan dit bericht.",
+    "mail_body_unsubscribe": "Iemand, waarschijnlijk u, heeft gevraagd om :email af te melden voor de mailinglijst :list.\n\nOpen deze link en klik op de bevestigingsknop om te bevestigen:\n:link\n\nDe link verloopt over :hours uur. Als u dit niet hebt gevraagd, negeer dan dit bericht."
   },
   "pagination": {
     "previous": "Vorige",
@@ -332,7 +343,11 @@
     "subscribers_hint": "E-mailadressen van abonnees (één per regel)",
     "remove_subscriber_confirm": ":address uit deze lijst verwijderen?",
     "msg_subscribers_added": ":count abonnee(s) toegevoegd.",
-    "msg_subscriber_removed": ":address is uit de lijst verwijderd."
+    "msg_subscriber_removed": ":address is uit de lijst verwijderd.",
+    "newsletter": "Nieuwsbrief",
+    "newsletter_hint": "Iedereen kan zich op een openbare pagina aan- of afmelden. Elk verzoek wordt per e-mail bevestigd.",
+    "subscribe_page": "Aanmeldpagina",
+    "unsubscribe_page": "Afmeldpagina"
   },
   "search": {
     "title": "Zoeken",

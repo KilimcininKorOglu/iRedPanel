@@ -115,7 +115,18 @@
     "unsubscribe_hint": "请输入您的电子邮件以退订此邮件列表。",
     "email_address": "电子邮件地址",
     "subscribe": "订阅",
-    "unsubscribe": "退订"
+    "unsubscribe": "退订",
+    "msg_list_not_found": "此新闻通讯不存在或不接受订阅。",
+    "msg_invalid_token": "确认链接无效或已过期。",
+    "msg_send_failed": "无法发送确认邮件。请稍后重试。",
+    "msg_subscribed": "您已订阅 :list。",
+    "msg_unsubscribed": "您已退订 :list。",
+    "confirm_subscribe_hint": "点击下面的按钮确认订阅 :list。",
+    "confirm_unsubscribe_hint": "点击下面的按钮确认退订 :list。",
+    "mail_subject_subscribe": "请确认订阅 :list",
+    "mail_subject_unsubscribe": "请确认退订 :list",
+    "mail_body_subscribe": "有人（可能是您）请求将 :email 订阅到邮件列表 :list。\n\n如需确认，请打开此链接并点击确认按钮：\n:link\n\n链接将在 :hours 小时后过期。如果这不是您的请求，请忽略此邮件。",
+    "mail_body_unsubscribe": "有人（可能是您）请求将 :email 从邮件列表 :list 退订。\n\n如需确认，请打开此链接并点击确认按钮：\n:link\n\n链接将在 :hours 小时后过期。如果这不是您的请求，请忽略此邮件。"
   },
   "pagination": {
     "previous": "上一页",
@@ -332,7 +343,11 @@
     "subscribers_hint": "订阅者的电子邮件地址（每行一个）",
     "remove_subscriber_confirm": "从此列表中移除 :address？",
     "msg_subscribers_added": "已添加 :count 个订阅者。",
-    "msg_subscriber_removed": "已从列表中移除 :address。"
+    "msg_subscriber_removed": "已从列表中移除 :address。",
+    "newsletter": "新闻通讯",
+    "newsletter_hint": "任何人都可以在公开页面上订阅或退订。每个请求都需要通过邮件确认。",
+    "subscribe_page": "订阅页面",
+    "unsubscribe_page": "退订页面"
   },
   "search": {
     "title": "搜索",

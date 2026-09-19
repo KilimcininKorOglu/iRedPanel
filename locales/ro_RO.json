@@ -115,7 +115,18 @@
     "unsubscribe_hint": "Introduceți email-ul pentru a vă dezabona de la această listă de corespondență.",
     "email_address": "Adresă de email",
     "subscribe": "Abonare",
-    "unsubscribe": "Dezabonare"
+    "unsubscribe": "Dezabonare",
+    "msg_list_not_found": "Acest buletin informativ nu există sau nu acceptă abonări.",
+    "msg_invalid_token": "Linkul de confirmare este invalid sau a expirat.",
+    "msg_send_failed": "Emailul de confirmare nu a putut fi trimis. Încercați din nou mai târziu.",
+    "msg_subscribed": "Acum sunteți abonat la :list.",
+    "msg_unsubscribed": "Abonarea la :list a fost anulată.",
+    "confirm_subscribe_hint": "Apăsați butonul de mai jos pentru a confirma abonarea la :list.",
+    "confirm_unsubscribe_hint": "Apăsați butonul de mai jos pentru a confirma dezabonarea de la :list.",
+    "mail_subject_subscribe": "Confirmați abonarea la :list",
+    "mail_subject_unsubscribe": "Confirmați dezabonarea de la :list",
+    "mail_body_subscribe": "Cineva, probabil dumneavoastră, a cerut abonarea adresei :email la lista de email :list.\n\nPentru confirmare, deschideți acest link și apăsați butonul de confirmare:\n:link\n\nLinkul expiră în :hours ore. Dacă nu ați cerut acest lucru, ignorați acest mesaj.",
+    "mail_body_unsubscribe": "Cineva, probabil dumneavoastră, a cerut dezabonarea adresei :email de la lista de email :list.\n\nPentru confirmare, deschideți acest link și apăsați butonul de confirmare:\n:link\n\nLinkul expiră în :hours ore. Dacă nu ați cerut acest lucru, ignorați acest mesaj."
   },
   "pagination": {
     "previous": "Anterior",
@@ -332,7 +343,11 @@
     "subscribers_hint": "Adresele de email ale abonaților (una pe linie)",
     "remove_subscriber_confirm": "Eliminați :address din această listă?",
     "msg_subscribers_added": "Au fost adăugați :count abonați.",
-    "msg_subscriber_removed": ":address a fost eliminat din listă."
+    "msg_subscriber_removed": ":address a fost eliminat din listă.",
+    "newsletter": "Buletin informativ",
+    "newsletter_hint": "Oricine se poate abona sau dezabona pe o pagină publică. Fiecare cerere este confirmată prin email.",
+    "subscribe_page": "Pagina de abonare",
+    "unsubscribe_page": "Pagina de dezabonare"
   },
   "search": {
     "title": "Căutare",

@@ -115,7 +115,18 @@
     "unsubscribe_hint": "Nhập email của bạn để hủy đăng ký danh sách gửi thư này.",
     "email_address": "Địa chỉ email",
     "subscribe": "Đăng ký",
-    "unsubscribe": "Hủy đăng ký"
+    "unsubscribe": "Hủy đăng ký",
+    "msg_list_not_found": "Bản tin này không tồn tại hoặc không nhận đăng ký.",
+    "msg_invalid_token": "Liên kết xác nhận không hợp lệ hoặc đã hết hạn.",
+    "msg_send_failed": "Không thể gửi email xác nhận. Vui lòng thử lại sau.",
+    "msg_subscribed": "Bạn đã đăng ký :list.",
+    "msg_unsubscribed": "Bạn đã hủy đăng ký :list.",
+    "confirm_subscribe_hint": "Nhấn nút bên dưới để xác nhận đăng ký :list.",
+    "confirm_unsubscribe_hint": "Nhấn nút bên dưới để xác nhận bạn muốn hủy đăng ký :list.",
+    "mail_subject_subscribe": "Xác nhận đăng ký :list",
+    "mail_subject_unsubscribe": "Xác nhận hủy đăng ký :list",
+    "mail_body_subscribe": "Ai đó, có thể là bạn, đã yêu cầu đăng ký :email vào danh sách thư :list.\n\nĐể xác nhận, hãy mở liên kết này và nhấn nút xác nhận:\n:link\n\nLiên kết hết hạn sau :hours giờ. Nếu bạn không yêu cầu, hãy bỏ qua thư này.",
+    "mail_body_unsubscribe": "Ai đó, có thể là bạn, đã yêu cầu hủy đăng ký :email khỏi danh sách thư :list.\n\nĐể xác nhận, hãy mở liên kết này và nhấn nút xác nhận:\n:link\n\nLiên kết hết hạn sau :hours giờ. Nếu bạn không yêu cầu, hãy bỏ qua thư này."
   },
   "pagination": {
     "previous": "Trước",
@@ -332,7 +343,11 @@
     "subscribers_hint": "Địa chỉ email của người đăng ký (mỗi dòng một địa chỉ)",
     "remove_subscriber_confirm": "Gỡ :address khỏi danh sách này?",
     "msg_subscribers_added": "Đã thêm :count người đăng ký.",
-    "msg_subscriber_removed": "Đã gỡ :address khỏi danh sách."
+    "msg_subscriber_removed": "Đã gỡ :address khỏi danh sách.",
+    "newsletter": "Bản tin",
+    "newsletter_hint": "Bất kỳ ai cũng có thể đăng ký hoặc hủy đăng ký trên một trang công khai. Mỗi yêu cầu được xác nhận qua email.",
+    "subscribe_page": "Trang đăng ký",
+    "unsubscribe_page": "Trang hủy đăng ký"
   },
   "search": {
     "title": "Tìm kiếm",

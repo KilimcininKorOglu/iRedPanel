@@ -13,6 +13,8 @@ use App\Utils\LdapUtils;
 
 class LdapMailingListRepository implements MailingListRepositoryInterface
 {
+    private const ATTRS = ['mail', 'cn', 'accountStatus', 'accessPolicy', 'transport', 'maxMessageSize', 'maxMembers', 'mailingListID'];
+
     public function getMailingListsPaginated(int $page, int $perPage, ?string $domain = null): PaginatedResult
     {
         $conn = LdapConnection::getInstance()->getConn();
@@ -25,9 +27,8 @@ class LdapMailingListRepository implements MailingListRepositoryInterface
         }
 
         $filter = '(&(objectClass=mailList)(enabledService=mlmmj))';
-        $attrs = ['mail', 'cn', 'accountStatus', 'accessPolicy', 'transport', 'maxMessageSize', 'maxMembers'];
 
-        $result = @ldap_search($conn, $baseDn, $filter, $attrs);
+        $result = @ldap_search($conn, $baseDn, $filter, self::ATTRS);
         if ($result === false) {
             return new PaginatedResult([], 0, $page, $perPage);
         }
@@ -53,8 +54,7 @@ class LdapMailingListRepository implements MailingListRepositoryInterface
         $conn = LdapConnection::getInstance()->getConn();
         $dn = $this->getMailingListDn($address);
 
-        $attrs = ['mail', 'cn', 'accountStatus', 'accessPolicy', 'transport', 'maxMessageSize', 'maxMembers'];
-        $result = @ldap_read($conn, $dn, '(&(objectClass=mailList)(enabledService=mlmmj))', $attrs);
+        $result = @ldap_read($conn, $dn, '(&(objectClass=mailList)(enabledService=mlmmj))', self::ATTRS);
         if ($result === false) {
             return null;
         }
@@ -65,6 +65,34 @@ class LdapMailingListRepository implements MailingListRepositoryInterface
         }
 
         return $this->entryToMailingList($entries[0]);
+    }
+
+    public function getMailingListById(string $mlid): ?MailingList
+    {
+        $conn = LdapConnection::getInstance()->getConn();
+        $baseDn = 'o=domains,' . Settings::getInstance()->ldapRootDn;
+        $filter = '(&(objectClass=mailList)(enabledService=mlmmj)(mailingListID=' . ldap_escape($mlid, '', LDAP_ESCAPE_FILTER) . '))';
+
+        $result = @ldap_search($conn, $baseDn, $filter, self::ATTRS);
+        if ($result === false) {
+            return null;
+        }
+        $entries = ldap_get_entries($conn, $result);
+
+        return ($entries['count'] ?? 0) > 0 ? $this->entryToMailingList($entries[0]) : null;
+    }
+
+    /**
+     * The iRedMail LDAP schema has no newsletter attribute.
+     */
+    public function supportsNewsletter(): bool
+    {
+        return false;
+    }
+
+    public function setNewsletter(string $address, bool $enabled): void
+    {
+        throw new \LogicException('The LDAP backend does not store the newsletter flag');
     }
 
     public function createMailingList(string $address, string $domain, string $name,
@@ -196,6 +224,7 @@ class LdapMailingListRepository implements MailingListRepositoryInterface
             transport: $entry['transport'][0] ?? '',
             maxMsgSize: (int) ($entry['maxmessagesize'][0] ?? 0),
             active: ($entry['accountstatus'][0] ?? 'active') === 'active',
+            mlid: $entry['mailinglistid'][0] ?? '',
         );
     }
 }

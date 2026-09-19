@@ -115,7 +115,18 @@
     "unsubscribe_hint": "このメーリングリストの購読を解除するにはメールアドレスを入力してください。",
     "email_address": "メールアドレス",
     "subscribe": "購読",
-    "unsubscribe": "購読解除"
+    "unsubscribe": "購読解除",
+    "msg_list_not_found": "このニュースレターは存在しないか、購読を受け付けていません。",
+    "msg_invalid_token": "確認リンクが無効か、有効期限が切れています。",
+    "msg_send_failed": "確認メールを送信できませんでした。後でもう一度お試しください。",
+    "msg_subscribed": ":list を購読しました。",
+    "msg_unsubscribed": ":list の購読を解除しました。",
+    "confirm_subscribe_hint": ":list の購読を確定するには、下のボタンをクリックしてください。",
+    "confirm_unsubscribe_hint": ":list の購読解除を確定するには、下のボタンをクリックしてください。",
+    "mail_subject_subscribe": ":list の購読を確認してください",
+    "mail_subject_unsubscribe": ":list の購読解除を確認してください",
+    "mail_body_subscribe": "どなたか (おそらくご本人) が :email をメーリングリスト :list に登録するよう依頼しました。\n\n確認するには、このリンクを開いて確認ボタンをクリックしてください:\n:link\n\nリンクの有効期限は :hours 時間です。心当たりがない場合は、このメッセージを無視してください。",
+    "mail_body_unsubscribe": "どなたか (おそらくご本人) が :email をメーリングリスト :list から解除するよう依頼しました。\n\n確認するには、このリンクを開いて確認ボタンをクリックしてください:\n:link\n\nリンクの有効期限は :hours 時間です。心当たりがない場合は、このメッセージを無視してください。"
   },
   "pagination": {
     "previous": "前へ",
@@ -332,7 +343,11 @@
     "subscribers_hint": "購読者のメールアドレス（1 行に 1 つ）",
     "remove_subscriber_confirm": ":address をこのリストから削除しますか?",
     "msg_subscribers_added": "購読者を :count 件追加しました。",
-    "msg_subscriber_removed": ":address をリストから削除しました。"
+    "msg_subscriber_removed": ":address をリストから削除しました。",
+    "newsletter": "ニュースレター",
+    "newsletter_hint": "誰でも公開ページで購読または購読解除できます。すべてのリクエストはメールで確認されます。",
+    "subscribe_page": "購読ページ",
+    "unsubscribe_page": "購読解除ページ"
   },
   "search": {
     "title": "検索",

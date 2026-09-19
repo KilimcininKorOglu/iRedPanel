@@ -115,7 +115,18 @@
     "unsubscribe_hint": "Sisestage oma e-post, et selle postiloendi tellimus tühistada.",
     "email_address": "E-posti aadress",
     "subscribe": "Telli",
-    "unsubscribe": "Tühista tellimus"
+    "unsubscribe": "Tühista tellimus",
+    "msg_list_not_found": "Seda uudiskirja pole olemas või see ei võta tellimusi vastu.",
+    "msg_invalid_token": "Kinnituslink on vigane või aegunud.",
+    "msg_send_failed": "Kinnituskirja ei õnnestunud saata. Proovige hiljem uuesti.",
+    "msg_subscribed": "Olete nüüd listi :list tellija.",
+    "msg_unsubscribed": "Listi :list tellimus on lõpetatud.",
+    "confirm_subscribe_hint": "Listi :list tellimuse kinnitamiseks klõpsake allolevat nuppu.",
+    "confirm_unsubscribe_hint": "Listi :list tellimuse lõpetamise kinnitamiseks klõpsake allolevat nuppu.",
+    "mail_subject_subscribe": "Kinnitage listi :list tellimus",
+    "mail_subject_unsubscribe": "Kinnitage listi :list tellimuse lõpetamine",
+    "mail_body_subscribe": "Keegi, tõenäoliselt teie, palus lisada aadressi :email meililisti :list.\n\nKinnitamiseks avage see link ja klõpsake kinnitusnuppu:\n:link\n\nLink aegub :hours tunni pärast. Kui te seda ei palunud, jätke see kiri tähelepanuta.",
+    "mail_body_unsubscribe": "Keegi, tõenäoliselt teie, palus eemaldada aadressi :email meililistist :list.\n\nKinnitamiseks avage see link ja klõpsake kinnitusnuppu:\n:link\n\nLink aegub :hours tunni pärast. Kui te seda ei palunud, jätke see kiri tähelepanuta."
   },
   "pagination": {
     "previous": "Eelmine",
@@ -332,7 +343,11 @@
     "subscribers_hint": "Tellijate e-posti aadressid (üks rea kohta)",
     "remove_subscriber_confirm": "Kas eemaldada :address sellest listist?",
     "msg_subscribers_added": "Lisatud tellijaid: :count.",
-    "msg_subscriber_removed": ":address eemaldati listist."
+    "msg_subscriber_removed": ":address eemaldati listist.",
+    "newsletter": "Uudiskiri",
+    "newsletter_hint": "Igaüks saab avalikul lehel tellida või tellimuse lõpetada. Iga taotlus kinnitatakse e-posti teel.",
+    "subscribe_page": "Tellimise leht",
+    "unsubscribe_page": "Tellimuse lõpetamise leht"
   },
   "search": {
     "title": "Otsing",

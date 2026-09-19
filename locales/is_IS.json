@@ -115,7 +115,18 @@
     "unsubscribe_hint": "Sláðu inn netfangið þitt til að segja upp áskrift að þessum póstlista.",
     "email_address": "Netfang",
     "subscribe": "Gerast áskrifandi",
-    "unsubscribe": "Segja upp áskrift"
+    "unsubscribe": "Segja upp áskrift",
+    "msg_list_not_found": "Þetta fréttabréf er ekki til eða tekur ekki við áskriftum.",
+    "msg_invalid_token": "Staðfestingartengillinn er ógildur eða útrunninn.",
+    "msg_send_failed": "Ekki tókst að senda staðfestingarpóstinn. Reyndu aftur síðar.",
+    "msg_subscribed": "Þú ert nú áskrifandi að :list.",
+    "msg_unsubscribed": "Áskrift þinni að :list hefur verið sagt upp.",
+    "confirm_subscribe_hint": "Smelltu á hnappinn hér fyrir neðan til að staðfesta áskrift að :list.",
+    "confirm_unsubscribe_hint": "Smelltu á hnappinn hér fyrir neðan til að staðfesta uppsögn áskriftar að :list.",
+    "mail_subject_subscribe": "Staðfestu áskrift að :list",
+    "mail_subject_unsubscribe": "Staðfestu uppsögn áskriftar að :list",
+    "mail_body_subscribe": "Einhver, líklega þú, bað um að skrá :email á póstlistann :list.\n\nTil að staðfesta skaltu opna þennan tengil og smella á staðfestingarhnappinn:\n:link\n\nTengillinn rennur út eftir :hours klst. Ef þú baðst ekki um þetta skaltu hunsa þessi skilaboð.",
+    "mail_body_unsubscribe": "Einhver, líklega þú, bað um að afskrá :email af póstlistanum :list.\n\nTil að staðfesta skaltu opna þennan tengil og smella á staðfestingarhnappinn:\n:link\n\nTengillinn rennur út eftir :hours klst. Ef þú baðst ekki um þetta skaltu hunsa þessi skilaboð."
   },
   "pagination": {
     "previous": "Fyrri",
@@ -332,7 +343,11 @@
     "subscribers_hint": "Netföng áskrifenda (eitt á línu)",
     "remove_subscriber_confirm": "Fjarlægja :address af þessum lista?",
     "msg_subscribers_added": "Áskrifendum bætt við: :count.",
-    "msg_subscriber_removed": ":address var fjarlægt af listanum."
+    "msg_subscriber_removed": ":address var fjarlægt af listanum.",
+    "newsletter": "Fréttabréf",
+    "newsletter_hint": "Hver sem er getur skráð sig eða afskráð á opinberri síðu. Hver beiðni er staðfest með tölvupósti.",
+    "subscribe_page": "Skráningarsíða",
+    "unsubscribe_page": "Afskráningarsíða"
   },
   "search": {
     "title": "Leita",

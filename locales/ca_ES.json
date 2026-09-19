@@ -115,7 +115,18 @@
     "unsubscribe_hint": "Introduïu el vostre correu per cancel·lar la subscripció d'aquesta llista de correu.",
     "email_address": "Adreça de correu electrònic",
     "subscribe": "Subscriure's",
-    "unsubscribe": "Cancel·lar subscripció"
+    "unsubscribe": "Cancel·lar subscripció",
+    "msg_list_not_found": "Aquest butlletí no existeix o no accepta subscripcions.",
+    "msg_invalid_token": "L'enllaç de confirmació no és vàlid o ha caducat.",
+    "msg_send_failed": "No s'ha pogut enviar el correu de confirmació. Torneu-ho a provar més tard.",
+    "msg_subscribed": "Ara esteu subscrit a :list.",
+    "msg_unsubscribed": "Ja no esteu subscrit a :list.",
+    "confirm_subscribe_hint": "Feu clic al botó de sota per confirmar la subscripció a :list.",
+    "confirm_unsubscribe_hint": "Feu clic al botó de sota per confirmar que voleu donar-vos de baixa de :list.",
+    "mail_subject_subscribe": "Confirmeu la subscripció a :list",
+    "mail_subject_unsubscribe": "Confirmeu la baixa de :list",
+    "mail_body_subscribe": "Algú, probablement vós, ha demanat subscriure :email a la llista de correu :list.\n\nPer confirmar-ho, obriu aquest enllaç i feu clic al botó de confirmació:\n:link\n\nL'enllaç caduca d'aquí a :hours hores. Si no ho heu demanat, ignoreu aquest missatge.",
+    "mail_body_unsubscribe": "Algú, probablement vós, ha demanat donar de baixa :email de la llista de correu :list.\n\nPer confirmar-ho, obriu aquest enllaç i feu clic al botó de confirmació:\n:link\n\nL'enllaç caduca d'aquí a :hours hores. Si no ho heu demanat, ignoreu aquest missatge."
   },
   "pagination": {
     "previous": "Anterior",
@@ -332,7 +343,11 @@
     "subscribers_hint": "Adreces de correu dels subscriptors (una per línia)",
     "remove_subscriber_confirm": "Voleu treure :address d'aquesta llista?",
     "msg_subscribers_added": "S'han afegit :count subscriptor(s).",
-    "msg_subscriber_removed": "S'ha tret :address de la llista."
+    "msg_subscriber_removed": "S'ha tret :address de la llista.",
+    "newsletter": "Butlletí",
+    "newsletter_hint": "Qualsevol persona pot subscriure's o donar-se de baixa en una pàgina pública. Cada sol·licitud es confirma per correu.",
+    "subscribe_page": "Pàgina de subscripció",
+    "unsubscribe_page": "Pàgina de baixa"
   },
   "search": {
     "title": "Cerca",

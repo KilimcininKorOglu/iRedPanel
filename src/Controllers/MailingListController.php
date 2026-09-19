@@ -147,6 +147,8 @@ class MailingListController
             'owners' => $repo->getOwners($address),
             'subscribers' => $subscribers,
             'subscribersError' => $subscribersError,
+            'supportsNewsletter' => $repo->supportsNewsletter(),
+            'newsletterBaseUrl' => Settings::getInstance()->publicUrl . '/newsletters',
             // Keep the typed addresses when adding them failed.
             'subscribersDraft' => $error !== null ? (string) ($_POST['subscribers'] ?? '') : '',
             'success' => $success,
@@ -169,6 +171,7 @@ class MailingListController
                     trim($_POST['accessPolicy'] ?? 'public'),
                     (int) ($_POST['maxMsgSize'] ?? 0),
                     isset($_POST['active']),
+                    RepositoryFactory::getMailingListRepository()->supportsNewsletter() ? isset($_POST['isNewsletter']) : null,
                 );
                 ActivityLogger::logUpdate($domain, '', "Updated mailing list: {$address}");
                 return Translator::translate('mlist.msg_updated');

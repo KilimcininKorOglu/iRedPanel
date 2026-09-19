@@ -115,7 +115,18 @@
     "unsubscribe_hint": "Ange din e-post för att avsluta prenumerationen på denna sändlista.",
     "email_address": "E-postadress",
     "subscribe": "Prenumerera",
-    "unsubscribe": "Avsluta prenumeration"
+    "unsubscribe": "Avsluta prenumeration",
+    "msg_list_not_found": "Det här nyhetsbrevet finns inte eller tar inte emot prenumerationer.",
+    "msg_invalid_token": "Bekräftelselänken är ogiltig eller har gått ut.",
+    "msg_send_failed": "Bekräftelsemejlet kunde inte skickas. Försök igen senare.",
+    "msg_subscribed": "Du prenumererar nu på :list.",
+    "msg_unsubscribed": "Din prenumeration på :list har avslutats.",
+    "confirm_subscribe_hint": "Klicka på knappen nedan för att bekräfta din prenumeration på :list.",
+    "confirm_unsubscribe_hint": "Klicka på knappen nedan för att bekräfta att du vill avsluta prenumerationen på :list.",
+    "mail_subject_subscribe": "Bekräfta din prenumeration på :list",
+    "mail_subject_unsubscribe": "Bekräfta avslutad prenumeration på :list",
+    "mail_body_subscribe": "Någon, troligen du, bad om att :email ska läggas till på e-postlistan :list.\n\nBekräfta genom att öppna den här länken och klicka på bekräftelseknappen:\n:link\n\nLänken slutar gälla om :hours timmar. Om du inte bad om detta kan du ignorera meddelandet.",
+    "mail_body_unsubscribe": "Någon, troligen du, bad om att :email ska tas bort från e-postlistan :list.\n\nBekräfta genom att öppna den här länken och klicka på bekräftelseknappen:\n:link\n\nLänken slutar gälla om :hours timmar. Om du inte bad om detta kan du ignorera meddelandet."
   },
   "pagination": {
     "previous": "Föregående",
@@ -332,7 +343,11 @@
     "subscribers_hint": "Prenumeranternas e-postadresser (en per rad)",
     "remove_subscriber_confirm": "Ta bort :address från den här listan?",
     "msg_subscribers_added": ":count prenumerant(er) har lagts till.",
-    "msg_subscriber_removed": ":address har tagits bort från listan."
+    "msg_subscriber_removed": ":address har tagits bort från listan.",
+    "newsletter": "Nyhetsbrev",
+    "newsletter_hint": "Vem som helst kan prenumerera eller avsluta prenumerationen på en offentlig sida. Varje begäran bekräftas via e-post.",
+    "subscribe_page": "Prenumerationssida",
+    "unsubscribe_page": "Avprenumerationssida"
   },
   "search": {
     "title": "Sök",

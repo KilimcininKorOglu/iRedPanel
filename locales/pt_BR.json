@@ -115,7 +115,18 @@
     "unsubscribe_hint": "Digite seu e-mail para cancelar a inscrição desta lista de distribuição.",
     "email_address": "Endereço de e-mail",
     "subscribe": "Inscrever-se",
-    "unsubscribe": "Cancelar inscrição"
+    "unsubscribe": "Cancelar inscrição",
+    "msg_list_not_found": "Este boletim não existe ou não aceita assinaturas.",
+    "msg_invalid_token": "O link de confirmação é inválido ou expirou.",
+    "msg_send_failed": "Não foi possível enviar o e-mail de confirmação. Tente novamente mais tarde.",
+    "msg_subscribed": "Agora você está inscrito em :list.",
+    "msg_unsubscribed": "Sua inscrição em :list foi cancelada.",
+    "confirm_subscribe_hint": "Clique no botão abaixo para confirmar sua inscrição em :list.",
+    "confirm_unsubscribe_hint": "Clique no botão abaixo para confirmar que deseja cancelar a inscrição em :list.",
+    "mail_subject_subscribe": "Confirme sua inscrição em :list",
+    "mail_subject_unsubscribe": "Confirme o cancelamento da inscrição em :list",
+    "mail_body_subscribe": "Alguém, provavelmente você, pediu para inscrever :email na lista de e-mail :list.\n\nPara confirmar, abra este link e clique no botão de confirmação:\n:link\n\nO link expira em :hours horas. Se você não pediu isso, ignore esta mensagem.",
+    "mail_body_unsubscribe": "Alguém, provavelmente você, pediu para remover :email da lista de e-mail :list.\n\nPara confirmar, abra este link e clique no botão de confirmação:\n:link\n\nO link expira em :hours horas. Se você não pediu isso, ignore esta mensagem."
   },
   "pagination": {
     "previous": "Anterior",
@@ -332,7 +343,11 @@
     "subscribers_hint": "Endereços de e-mail dos assinantes (um por linha)",
     "remove_subscriber_confirm": "Remover :address desta lista?",
     "msg_subscribers_added": ":count assinante(s) adicionado(s).",
-    "msg_subscriber_removed": ":address foi removido da lista."
+    "msg_subscriber_removed": ":address foi removido da lista.",
+    "newsletter": "Boletim",
+    "newsletter_hint": "Qualquer pessoa pode se inscrever ou cancelar a inscrição em uma página pública. Cada pedido é confirmado por e-mail.",
+    "subscribe_page": "Página de inscrição",
+    "unsubscribe_page": "Página de cancelamento"
   },
   "search": {
     "title": "Pesquisar",

@@ -37,6 +37,20 @@
             <?= $te('common.active') ?>
           </label>
 
+          <?php if ($supportsNewsletter): ?>
+          <label>
+            <input type="checkbox" name="isNewsletter" <?= $ml->isNewsletter ? 'checked' : '' ?> />
+            <?= $te('mlist.newsletter') ?>
+          </label>
+          <p class="text-light"><?= $te('mlist.newsletter_hint') ?></p>
+          <?php if ($ml->isNewsletter && $ml->mlid !== ''): ?>
+          <p>
+            <?= $te('mlist.subscribe_page') ?>: <a href="<?= $e($newsletterBaseUrl . '/subscribe/' . $ml->mlid) ?>"><?= $e($newsletterBaseUrl . '/subscribe/' . $ml->mlid) ?></a><br />
+            <?= $te('mlist.unsubscribe_page') ?>: <a href="<?= $e($newsletterBaseUrl . '/unsubscribe/' . $ml->mlid) ?>"><?= $e($newsletterBaseUrl . '/unsubscribe/' . $ml->mlid) ?></a>
+          </p>
+          <?php endif; ?>
+          <?php endif; ?>
+
           <p class="text-light"><?= $te('mlist.transport') ?>: <?= $e($ml->transport) ?></p>
         </fieldset>
 

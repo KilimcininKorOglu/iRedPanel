@@ -6,6 +6,7 @@
       <p><?= $e($message) ?></p>
       <?php if (!empty($showConfirmButton)): ?>
       <form method="POST">
+        <?= $csrfField ?>
         <button type="submit" class="button primary"><?= $te('common.confirm') ?></button>
       </form>
       <?php endif; ?>

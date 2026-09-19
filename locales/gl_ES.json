@@ -115,7 +115,18 @@
     "unsubscribe_hint": "Introduce o teu correo para cancelar a subscrición a esta lista de correo.",
     "email_address": "Enderezo de correo",
     "subscribe": "Subscribirse",
-    "unsubscribe": "Cancelar subscrición"
+    "unsubscribe": "Cancelar subscrición",
+    "msg_list_not_found": "Este boletín non existe ou non acepta subscricións.",
+    "msg_invalid_token": "A ligazón de confirmación non é válida ou caducou.",
+    "msg_send_failed": "Non se puido enviar o correo de confirmación. Ténteo de novo máis tarde.",
+    "msg_subscribed": "Agora está subscrito a :list.",
+    "msg_unsubscribed": "Xa non está subscrito a :list.",
+    "confirm_subscribe_hint": "Prema o botón de abaixo para confirmar a súa subscrición a :list.",
+    "confirm_unsubscribe_hint": "Prema o botón de abaixo para confirmar que quere darse de baixa de :list.",
+    "mail_subject_subscribe": "Confirme a súa subscrición a :list",
+    "mail_subject_unsubscribe": "Confirme a súa baixa de :list",
+    "mail_body_subscribe": "Alguén, probablemente vostede, pediu subscribir :email á lista de correo :list.\n\nPara confirmar, abra esta ligazón e prema o botón de confirmación:\n:link\n\nA ligazón caduca en :hours horas. Se non o pediu, ignore esta mensaxe.",
+    "mail_body_unsubscribe": "Alguén, probablemente vostede, pediu dar de baixa :email da lista de correo :list.\n\nPara confirmar, abra esta ligazón e prema o botón de confirmación:\n:link\n\nA ligazón caduca en :hours horas. Se non o pediu, ignore esta mensaxe."
   },
   "pagination": {
     "previous": "Anterior",
@@ -332,7 +343,11 @@
     "subscribers_hint": "Enderezos de correo dos subscritores (un por liña)",
     "remove_subscriber_confirm": "Quitar :address desta lista?",
     "msg_subscribers_added": "Engadíronse :count subscritor(es).",
-    "msg_subscriber_removed": "Quitouse :address da lista."
+    "msg_subscriber_removed": "Quitouse :address da lista.",
+    "newsletter": "Boletín",
+    "newsletter_hint": "Calquera pode subscribirse ou darse de baixa nunha páxina pública. Cada solicitude confírmase por correo.",
+    "subscribe_page": "Páxina de subscrición",
+    "unsubscribe_page": "Páxina de baixa"
   },
   "search": {
     "title": "Buscar",

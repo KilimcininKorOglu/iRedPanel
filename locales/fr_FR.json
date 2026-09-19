@@ -115,7 +115,18 @@
     "unsubscribe_hint": "Saisissez votre e-mail pour vous désabonner de cette liste de diffusion.",
     "email_address": "Adresse e-mail",
     "subscribe": "S'abonner",
-    "unsubscribe": "Se désabonner"
+    "unsubscribe": "Se désabonner",
+    "msg_list_not_found": "Cette newsletter n'existe pas ou n'accepte pas d'abonnements.",
+    "msg_invalid_token": "Le lien de confirmation est invalide ou a expiré.",
+    "msg_send_failed": "L'e-mail de confirmation n'a pas pu être envoyé. Réessayez plus tard.",
+    "msg_subscribed": "Vous êtes maintenant abonné à :list.",
+    "msg_unsubscribed": "Vous êtes maintenant désabonné de :list.",
+    "confirm_subscribe_hint": "Cliquez sur le bouton ci-dessous pour confirmer votre abonnement à :list.",
+    "confirm_unsubscribe_hint": "Cliquez sur le bouton ci-dessous pour confirmer que vous voulez vous désabonner de :list.",
+    "mail_subject_subscribe": "Confirmez votre abonnement à :list",
+    "mail_subject_unsubscribe": "Confirmez votre désabonnement de :list",
+    "mail_body_subscribe": "Quelqu'un, probablement vous, a demandé l'abonnement de :email à la liste de diffusion :list.\n\nPour confirmer, ouvrez ce lien et cliquez sur le bouton de confirmation :\n:link\n\nLe lien expire dans :hours heures. Si vous n'avez pas fait cette demande, ignorez ce message.",
+    "mail_body_unsubscribe": "Quelqu'un, probablement vous, a demandé le désabonnement de :email de la liste de diffusion :list.\n\nPour confirmer, ouvrez ce lien et cliquez sur le bouton de confirmation :\n:link\n\nLe lien expire dans :hours heures. Si vous n'avez pas fait cette demande, ignorez ce message."
   },
   "pagination": {
     "previous": "Précédent",
@@ -332,7 +343,11 @@
     "subscribers_hint": "Adresses e-mail des abonnés (une par ligne)",
     "remove_subscriber_confirm": "Retirer :address de cette liste ?",
     "msg_subscribers_added": ":count abonné(s) ajouté(s).",
-    "msg_subscriber_removed": ":address a été retiré de la liste."
+    "msg_subscriber_removed": ":address a été retiré de la liste.",
+    "newsletter": "Newsletter",
+    "newsletter_hint": "Tout le monde peut s'abonner ou se désabonner sur une page publique. Chaque demande est confirmée par e-mail.",
+    "subscribe_page": "Page d'abonnement",
+    "unsubscribe_page": "Page de désabonnement"
   },
   "search": {
     "title": "Rechercher",

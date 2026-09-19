@@ -115,7 +115,18 @@
     "unsubscribe_hint": "Zadajte svoj e-mail na odhlásenie sa z tohto distribučného zoznamu.",
     "email_address": "E-mailová adresa",
     "subscribe": "Prihlásiť sa na odber",
-    "unsubscribe": "Odhlásiť sa z odberu"
+    "unsubscribe": "Odhlásiť sa z odberu",
+    "msg_list_not_found": "Tento spravodaj neexistuje alebo neprijíma odbery.",
+    "msg_invalid_token": "Potvrdzovací odkaz je neplatný alebo vypršal.",
+    "msg_send_failed": "Potvrdzovací e-mail sa nepodarilo odoslať. Skúste to neskôr.",
+    "msg_subscribed": "Teraz odoberáte :list.",
+    "msg_unsubscribed": "Odber :list bol zrušený.",
+    "confirm_subscribe_hint": "Kliknutím na tlačidlo nižšie potvrďte odber :list.",
+    "confirm_unsubscribe_hint": "Kliknutím na tlačidlo nižšie potvrďte zrušenie odberu :list.",
+    "mail_subject_subscribe": "Potvrďte odber :list",
+    "mail_subject_unsubscribe": "Potvrďte zrušenie odberu :list",
+    "mail_body_subscribe": "Niekto, pravdepodobne vy, požiadal o prihlásenie :email do e-mailovej konferencie :list.\n\nNa potvrdenie otvorte tento odkaz a kliknite na potvrdzovacie tlačidlo:\n:link\n\nOdkaz vyprší o :hours h. Ak ste o to nežiadali, túto správu ignorujte.",
+    "mail_body_unsubscribe": "Niekto, pravdepodobne vy, požiadal o odhlásenie :email z e-mailovej konferencie :list.\n\nNa potvrdenie otvorte tento odkaz a kliknite na potvrdzovacie tlačidlo:\n:link\n\nOdkaz vyprší o :hours h. Ak ste o to nežiadali, túto správu ignorujte."
   },
   "pagination": {
     "previous": "Predchádzajúce",
@@ -332,7 +343,11 @@
     "subscribers_hint": "E-mailové adresy odberateľov (jedna na riadok)",
     "remove_subscriber_confirm": "Odstrániť :address z tohto zoznamu?",
     "msg_subscribers_added": "Pridaní odberatelia: :count.",
-    "msg_subscriber_removed": ":address bol odstránený zo zoznamu."
+    "msg_subscriber_removed": ":address bol odstránený zo zoznamu.",
+    "newsletter": "Spravodaj",
+    "newsletter_hint": "Ktokoľvek sa môže prihlásiť alebo odhlásiť na verejnej stránke. Každá žiadosť sa potvrdzuje e-mailom.",
+    "subscribe_page": "Stránka prihlásenia",
+    "unsubscribe_page": "Stránka odhlásenia"
   },
   "search": {
     "title": "Hľadať",

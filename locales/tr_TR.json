@@ -115,7 +115,18 @@
     "unsubscribe_hint": "Bu posta listesinden aboneliği iptal etmek için e-postanızı girin.",
     "email_address": "E-posta Adresi",
     "subscribe": "Abone Ol",
-    "unsubscribe": "Aboneliği İptal Et"
+    "unsubscribe": "Aboneliği İptal Et",
+    "msg_list_not_found": "Bu bülten yok veya abonelik kabul etmiyor.",
+    "msg_invalid_token": "Onay bağlantısı geçersiz veya süresi dolmuş.",
+    "msg_send_failed": "Onay e-postası gönderilemedi. Daha sonra tekrar deneyin.",
+    "msg_subscribed": ":list listesine abone oldunuz.",
+    "msg_unsubscribed": ":list listesinden aboneliğiniz kaldırıldı.",
+    "confirm_subscribe_hint": ":list aboneliğinizi onaylamak için aşağıdaki butona tıklayın.",
+    "confirm_unsubscribe_hint": ":list aboneliğinizi kaldırmak istediğinizi onaylamak için aşağıdaki butona tıklayın.",
+    "mail_subject_subscribe": ":list aboneliğinizi onaylayın",
+    "mail_subject_unsubscribe": ":list abonelik iptalinizi onaylayın",
+    "mail_body_subscribe": "Birisi, büyük olasılıkla siz, :email adresinin :list e-posta listesine abone edilmesini istedi.\n\nOnaylamak için bu bağlantıyı açın ve onay butonuna tıklayın:\n:link\n\nBağlantının süresi :hours saat sonra dolar. Bu isteği siz yapmadıysanız bu mesajı dikkate almayın.",
+    "mail_body_unsubscribe": "Birisi, büyük olasılıkla siz, :email adresinin :list e-posta listesinden çıkarılmasını istedi.\n\nOnaylamak için bu bağlantıyı açın ve onay butonuna tıklayın:\n:link\n\nBağlantının süresi :hours saat sonra dolar. Bu isteği siz yapmadıysanız bu mesajı dikkate almayın."
   },
   "pagination": {
     "previous": "Önceki",
@@ -332,7 +343,11 @@
     "subscribers_hint": "Abone e-posta adresleri (her satıra bir tane)",
     "remove_subscriber_confirm": ":address bu listeden çıkarılsın mı?",
     "msg_subscribers_added": ":count abone eklendi.",
-    "msg_subscriber_removed": ":address listeden çıkarıldı."
+    "msg_subscriber_removed": ":address listeden çıkarıldı.",
+    "newsletter": "Bülten",
+    "newsletter_hint": "Herkes herkese açık bir sayfadan abone olabilir veya aboneliğini kaldırabilir. Her istek e-posta ile onaylanır.",
+    "subscribe_page": "Abonelik sayfası",
+    "unsubscribe_page": "Abonelik iptal sayfası"
   },
   "search": {
     "title": "Ara",

@@ -4,207 +4,176 @@ declare(strict_types=1);
 
 namespace App\Controllers;
 
+use App\CsrfProtection;
+use App\Exceptions\MailDeliveryException;
 use App\I18n\Translator;
+use App\Models\MailingList;
 use App\Models\Settings;
 use App\Repositories\RepositoryFactory;
+use App\Services\Mailer;
+use App\Services\MailingListService;
+use App\Services\NewsletterConfirmations;
 use App\TemplateEngine;
 
+/**
+ * Public newsletter pages. A visitor asks to subscribe or unsubscribe, gets
+ * a confirmation link by mail, and the confirmation changes the mlmmj
+ * subscribers. Only active lists with the newsletter flag are served.
+ */
 class NewsletterController
 {
     public static function subscribe(TemplateEngine $tpl, string $mlid): void
     {
-        $ml = RepositoryFactory::getMailingListRepository()->getMailingList($mlid);
-        if ($ml === null) {
-            $tpl->render('newsletterError.php', ['message' => 'Mailing list not found.']);
-            return;
-        }
-
-        $success = null;
-        $error = null;
-
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $email = trim($_POST['email'] ?? '');
-
-            if ($email === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                $error = Translator::translate('newsletter.msg_invalid_email');
-            } else {
-                $token = bin2hex(random_bytes(16));
-                $expireHours = (int) (Settings::getInstance()->env('IREDPANEL_NEWSLETTER_EXPIRE_HOURS', '24') ?? 24);
-                $expired = time() + ($expireHours * 3600);
-
-                self::saveConfirmation($mlid, $ml->address, $email, 'subscribe', $token, $expired);
-                $success = Translator::translate('newsletter.msg_confirmation_sent');
-            }
-        }
-
-        $tpl->render('newsletterSubscribe.php', [
-            'ml' => $ml,
-            'action' => 'subscribe',
-            'success' => $success,
-            'error' => $error,
-        ]);
+        self::request($tpl, $mlid, 'subscribe');
     }
 
     public static function unsubscribe(TemplateEngine $tpl, string $mlid): void
     {
-        $ml = RepositoryFactory::getMailingListRepository()->getMailingList($mlid);
+        self::request($tpl, $mlid, 'unsubscribe');
+    }
+
+    public static function confirmSub(TemplateEngine $tpl, string $mlid, string $token): void
+    {
+        self::confirm($tpl, $mlid, $token, 'subscribe');
+    }
+
+    public static function confirmUnsub(TemplateEngine $tpl, string $mlid, string $token): void
+    {
+        self::confirm($tpl, $mlid, $token, 'unsubscribe');
+    }
+
+    private static function request(TemplateEngine $tpl, string $mlid, string $kind): void
+    {
+        $ml = self::newsletterList($mlid);
         if ($ml === null) {
-            $tpl->render('newsletterError.php', ['message' => 'Mailing list not found.']);
+            self::error($tpl, 404, 'newsletter.msg_list_not_found');
             return;
         }
 
         $success = null;
         $error = null;
-
+        $email = '';
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $email = trim($_POST['email'] ?? '');
-
-            if ($email === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                $error = Translator::translate('newsletter.msg_invalid_email');
-            } else {
-                $token = bin2hex(random_bytes(16));
-                $expireHours = (int) (Settings::getInstance()->env('IREDPANEL_NEWSLETTER_EXPIRE_HOURS', '24') ?? 24);
-                $expired = time() + ($expireHours * 3600);
-
-                self::saveConfirmation($mlid, $ml->address, $email, 'unsubscribe', $token, $expired);
-                $success = Translator::translate('newsletter.msg_confirmation_sent');
-            }
+            CsrfProtection::validateToken();
+            $email = strtolower(trim((string) ($_POST['email'] ?? '')));
+            [$success, $error] = self::handleRequest($ml, $kind, $email);
         }
 
         $tpl->render('newsletterSubscribe.php', [
             'ml' => $ml,
-            'action' => 'unsubscribe',
+            'action' => $kind,
             'success' => $success,
             'error' => $error,
+            'email' => $error !== null ? $email : '',
         ]);
     }
 
-    public static function confirmSub(TemplateEngine $tpl, string $mlid, string $token): void
+    /**
+     * Stores the request and mails the confirmation link.
+     *
+     * @return array{0: ?string, 1: ?string} success and error message
+     */
+    private static function handleRequest(MailingList $ml, string $kind, string $email): array
     {
-        $record = self::findConfirmation($mlid, $token, 'subscribe');
-
-        if ($record === null) {
-            $tpl->render('newsletterError.php', ['message' => 'Invalid or expired confirmation token.']);
-            return;
+        if (filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
+            return [null, Translator::translate('newsletter.msg_invalid_email')];
         }
 
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $aliasRepo = RepositoryFactory::getAliasRepository();
-            $aliasRepo->addAliasMember($record['mail'], $record['subscriber']);
-            self::deleteConfirmation($record['id']);
-
-            $tpl->render('newsletterConfirm.php', [
-                'message' => 'You have been successfully subscribed to ' . $record['mail'],
-            ]);
-            return;
-        }
-
-        $tpl->render('newsletterConfirm.php', [
-            'message' => 'Click the button below to confirm your subscription to ' . $record['mail'],
-            'showConfirmButton' => true,
-        ]);
-    }
-
-    public static function confirmUnsub(TemplateEngine $tpl, string $mlid, string $token): void
-    {
-        $record = self::findConfirmation($mlid, $token, 'unsubscribe');
-
-        if ($record === null) {
-            $tpl->render('newsletterError.php', ['message' => 'Invalid or expired confirmation token.']);
-            return;
-        }
-
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $aliasRepo = RepositoryFactory::getAliasRepository();
-            $aliasRepo->removeAliasMember($record['mail'], $record['subscriber']);
-            self::deleteConfirmation($record['id']);
-
-            $tpl->render('newsletterConfirm.php', [
-                'message' => 'You have been successfully unsubscribed from ' . $record['mail'],
-            ]);
-            return;
-        }
-
-        $tpl->render('newsletterConfirm.php', [
-            'message' => 'Click the button below to confirm your unsubscription from ' . $record['mail'],
-            'showConfirmButton' => true,
-        ]);
-    }
-
-    private static function saveConfirmation(string $mlid, string $mail, string $subscriber, string $kind, string $token, int $expired): void
-    {
-        $pdo = self::getPdo();
-        if ($pdo === null) {
-            return;
+        $settings = Settings::getInstance();
+        $token = NewsletterConfirmations::create($ml->mlid, $ml->address, $email, $kind, $settings->newsletterExpireHours);
+        if ($token === null) {
+            // The same request is pending and its mail was just sent.
+            return [Translator::translate('newsletter.msg_confirmation_sent'), null];
         }
 
         try {
-            // Remove existing pending tokens for this combination to prevent flooding
-            $delStmt = $pdo->prepare(
-                "DELETE FROM newsletter_subunsub_confirms WHERE mlid = :mlid AND subscriber = :subscriber AND kind = :kind"
-            );
-            $delStmt->execute(['mlid' => $mlid, 'subscriber' => $subscriber, 'kind' => $kind]);
-
-            $stmt = $pdo->prepare(
-                "INSERT INTO newsletter_subunsub_confirms (mlid, mail, subscriber, kind, token, expired)
-                 VALUES (:mlid, :mail, :subscriber, :kind, :token, :expired)"
-            );
-            $stmt->execute([
-                'mlid' => $mlid,
-                'mail' => $mail,
-                'subscriber' => $subscriber,
-                'kind' => $kind,
-                'token' => $token,
-                'expired' => $expired,
-            ]);
-        } catch (\PDOException $e) {
-            error_log("Newsletter confirmation save failed: " . $e->getMessage());
+            self::sendConfirmation($ml, $kind, $email, $token);
+        } catch (MailDeliveryException $e) {
+            error_log("Newsletter confirmation for {$email} to {$ml->address} failed: " . $e->getMessage());
+            NewsletterConfirmations::deleteToken($ml->mlid, $token);
+            return [null, Translator::translate('newsletter.msg_send_failed')];
         }
+
+        return [Translator::translate('newsletter.msg_confirmation_sent'), null];
     }
 
-    private static function findConfirmation(string $mlid, string $token, string $kind): ?array
-    {
-        $pdo = self::getPdo();
-        if ($pdo === null) {
-            return null;
-        }
-
-        try {
-            $stmt = $pdo->prepare(
-                "SELECT * FROM newsletter_subunsub_confirms
-                 WHERE mlid = :mlid AND token = :token AND kind = :kind AND expired > :now
-                 LIMIT 1"
-            );
-            $stmt->execute(['mlid' => $mlid, 'token' => $token, 'kind' => $kind, 'now' => time()]);
-            $row = $stmt->fetch(\PDO::FETCH_ASSOC);
-            return $row !== false ? $row : null;
-        } catch (\PDOException $e) {
-            return null;
-        }
-    }
-
-    private static function deleteConfirmation(int $id): void
-    {
-        $pdo = self::getPdo();
-        if ($pdo === null) {
-            return;
-        }
-
-        $pdo->prepare("DELETE FROM newsletter_subunsub_confirms WHERE id = :id")->execute(['id' => $id]);
-    }
-
-    private static function getPdo(): ?\PDO
+    /**
+     * @throws MailDeliveryException when the public URL or SMTP is not configured, or delivery fails
+     */
+    private static function sendConfirmation(MailingList $ml, string $kind, string $email, string $token): void
     {
         $settings = Settings::getInstance();
-        $backend = $settings->backend;
+        if ($settings->publicUrl === '') {
+            throw new MailDeliveryException('IREDPANEL_PUBLIC_URL is not set');
+        }
 
-        try {
-            if ($backend === 'pgsql') {
-                return \App\Repositories\Pgsql\IredadminPgsqlConnection::getInstance()->getPdo();
-            }
-            return \App\Repositories\Mysql\IredadminConnection::getInstance()->getPdo();
-        } catch (\Exception $e) {
+        $path = $kind === 'subscribe' ? 'confirm-sub' : 'confirm-unsub';
+        $params = [
+            'list' => self::listLabel($ml),
+            'email' => $email,
+            'link' => "{$settings->publicUrl}/newsletters/{$path}/{$ml->mlid}/{$token}",
+            'hours' => $settings->newsletterExpireHours,
+        ];
+
+        Mailer::fromSettings()->send(
+            $email,
+            Translator::translate("newsletter.mail_subject_{$kind}", $params),
+            Translator::translate("newsletter.mail_body_{$kind}", $params),
+        );
+    }
+
+    private static function confirm(TemplateEngine $tpl, string $mlid, string $token, string $kind): void
+    {
+        $ml = self::newsletterList($mlid);
+        $record = $ml !== null ? NewsletterConfirmations::find($mlid, $token, $kind) : null;
+        if ($ml === null || $record === null) {
+            self::error($tpl, 404, 'newsletter.msg_invalid_token');
+            return;
+        }
+
+        $label = self::listLabel($ml);
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+            $tpl->render('newsletterConfirm.php', [
+                'message' => Translator::translate("newsletter.confirm_{$kind}_hint", ['list' => $label]),
+                'showConfirmButton' => true,
+            ]);
+            return;
+        }
+
+        CsrfProtection::validateToken();
+        if ($kind === 'subscribe') {
+            MailingListService::addSubscribers($ml->address, [$record['subscriber']]);
+        } else {
+            MailingListService::removeSubscribers($ml->address, [$record['subscriber']]);
+        }
+        NewsletterConfirmations::delete($record['id']);
+
+        $tpl->render('newsletterConfirm.php', [
+            'message' => Translator::translate("newsletter.msg_{$kind}d", ['list' => $label]),
+        ]);
+    }
+
+    /**
+     * Returns the list only when it is active and open for newsletter subscription.
+     */
+    private static function newsletterList(string $mlid): ?MailingList
+    {
+        if ($mlid === '') {
             return null;
         }
+        $ml = RepositoryFactory::getMailingListRepository()->getMailingListById($mlid);
+
+        return $ml !== null && $ml->active && $ml->isNewsletter ? $ml : null;
+    }
+
+    private static function listLabel(MailingList $ml): string
+    {
+        return $ml->name !== '' ? "{$ml->name} <{$ml->address}>" : $ml->address;
+    }
+
+    private static function error(TemplateEngine $tpl, int $status, string $key): void
+    {
+        http_response_code($status);
+        $tpl->render('newsletterError.php', ['message' => Translator::translate($key)]);
     }
 }

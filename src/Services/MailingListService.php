@@ -33,15 +33,28 @@ class MailingListService
 
     /**
      * Writes mlmmj first, so a failed API call leaves the account unchanged.
+     *
+     * @param ?bool $newsletter the public subscription flag; null keeps it unchanged
      */
-    public static function update(string $address, string $name, string $accessPolicy, int $maxMsgSize, bool $active): void
+    public static function update(string $address, string $name, string $accessPolicy, int $maxMsgSize, bool $active, ?bool $newsletter = null): void
     {
         $repo = self::repo();
+        if ($newsletter !== null && !$repo->supportsNewsletter()) {
+            throw new \DomainException('The backend does not support newsletters');
+        }
 
-        MlmmjadminClient::fromSettings()->updateList($address, MlmmjadminClient::listParams(
+        $params = MlmmjadminClient::listParams(
             $name, $accessPolicy, $maxMsgSize, self::owners($address, $repo->getOwners($address))
-        ));
+        );
+        if ($newsletter !== null) {
+            $params['enable_newsletter_subscription'] = $newsletter ? 'yes' : 'no';
+        }
+
+        MlmmjadminClient::fromSettings()->updateList($address, $params);
         $repo->updateMailingList($address, $name, $accessPolicy, $maxMsgSize, $active);
+        if ($newsletter !== null) {
+            $repo->setNewsletter($address, $newsletter);
+        }
     }
 
     /**

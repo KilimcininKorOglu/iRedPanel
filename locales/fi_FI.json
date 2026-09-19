@@ -115,7 +115,18 @@
     "unsubscribe_hint": "Anna sähköpostisi peruuttaaksesi tämän postituslistan tilauksen.",
     "email_address": "Sähköpostiosoite",
     "subscribe": "Tilaa",
-    "unsubscribe": "Peruuta tilaus"
+    "unsubscribe": "Peruuta tilaus",
+    "msg_list_not_found": "Tätä uutiskirjettä ei ole tai se ei ota vastaan tilauksia.",
+    "msg_invalid_token": "Vahvistuslinkki on virheellinen tai vanhentunut.",
+    "msg_send_failed": "Vahvistussähköpostia ei voitu lähettää. Yritä myöhemmin uudelleen.",
+    "msg_subscribed": "Olet nyt tilannut listan :list.",
+    "msg_unsubscribed": "Listan :list tilaus on peruttu.",
+    "confirm_subscribe_hint": "Vahvista listan :list tilaus napsauttamalla alla olevaa painiketta.",
+    "confirm_unsubscribe_hint": "Vahvista listan :list tilauksen peruminen napsauttamalla alla olevaa painiketta.",
+    "mail_subject_subscribe": "Vahvista listan :list tilaus",
+    "mail_subject_unsubscribe": "Vahvista listan :list tilauksen peruminen",
+    "mail_body_subscribe": "Joku, luultavasti sinä, pyysi osoitteen :email liittämistä postituslistalle :list.\n\nVahvista avaamalla tämä linkki ja napsauttamalla vahvistuspainiketta:\n:link\n\nLinkki vanhenee :hours tunnin kuluttua. Jos et pyytänyt tätä, jätä viesti huomiotta.",
+    "mail_body_unsubscribe": "Joku, luultavasti sinä, pyysi osoitteen :email poistamista postituslistalta :list.\n\nVahvista avaamalla tämä linkki ja napsauttamalla vahvistuspainiketta:\n:link\n\nLinkki vanhenee :hours tunnin kuluttua. Jos et pyytänyt tätä, jätä viesti huomiotta."
   },
   "pagination": {
     "previous": "Edellinen",
@@ -332,7 +343,11 @@
     "subscribers_hint": "Tilaajien sähköpostiosoitteet (yksi riviä kohden)",
     "remove_subscriber_confirm": "Poistetaanko :address tältä listalta?",
     "msg_subscribers_added": "Tilaajia lisätty: :count.",
-    "msg_subscriber_removed": ":address poistettiin listalta."
+    "msg_subscriber_removed": ":address poistettiin listalta.",
+    "newsletter": "Uutiskirje",
+    "newsletter_hint": "Kuka tahansa voi tilata tai perua tilauksen julkisella sivulla. Jokainen pyyntö vahvistetaan sähköpostilla.",
+    "subscribe_page": "Tilaussivu",
+    "unsubscribe_page": "Tilauksen perumissivu"
   },
   "search": {
     "title": "Haku",

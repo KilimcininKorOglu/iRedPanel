@@ -115,7 +115,18 @@
     "unsubscribe_hint": "Sartu zure posta-helbidea posta-zerrenda honetatik baja emateko.",
     "email_address": "Posta-helbidea",
     "subscribe": "Harpidetu",
-    "unsubscribe": "Baja eman"
+    "unsubscribe": "Baja eman",
+    "msg_list_not_found": "Buletin hau ez dago edo ez du harpidetzarik onartzen.",
+    "msg_invalid_token": "Berrespen-esteka ez da baliozkoa edo iraungita dago.",
+    "msg_send_failed": "Ezin izan da berrespen-mezua bidali. Saiatu berriro geroago.",
+    "msg_subscribed": ":list zerrendara harpidetu zara.",
+    "msg_unsubscribed": ":list zerrendako harpidetza kendu da.",
+    "confirm_subscribe_hint": "Egin klik beheko botoian :list zerrendako harpidetza berresteko.",
+    "confirm_unsubscribe_hint": "Egin klik beheko botoian :list zerrendako harpidetza kendu nahi duzula berresteko.",
+    "mail_subject_subscribe": "Berretsi :list zerrendako harpidetza",
+    "mail_subject_unsubscribe": "Berretsi :list zerrendako harpidetzaren baja",
+    "mail_body_subscribe": "Norbaitek, seguruenik zuk, :email helbidea :list posta-zerrendara harpidetzeko eskatu du.\n\nBerresteko, ireki esteka hau eta egin klik berrespen-botoian:\n:link\n\nEsteka :hours ordu barru iraungiko da. Zuk eskatu ez baduzu, ez egin kasurik mezu honi.",
+    "mail_body_unsubscribe": "Norbaitek, seguruenik zuk, :email helbidea :list posta-zerrendatik kentzeko eskatu du.\n\nBerresteko, ireki esteka hau eta egin klik berrespen-botoian:\n:link\n\nEsteka :hours ordu barru iraungiko da. Zuk eskatu ez baduzu, ez egin kasurik mezu honi."
   },
   "pagination": {
     "previous": "Aurrekoa",
@@ -332,7 +343,11 @@
     "subscribers_hint": "Harpidedunen posta-helbideak (bat lerroko)",
     "remove_subscriber_confirm": "Kendu :address zerrenda honetatik?",
     "msg_subscribers_added": ":count harpidedun gehitu dira.",
-    "msg_subscriber_removed": ":address zerrendatik kendu da."
+    "msg_subscriber_removed": ":address zerrendatik kendu da.",
+    "newsletter": "Buletina",
+    "newsletter_hint": "Edonork harpidetu edo baja eman dezake orri publiko batean. Eskaera bakoitza posta bidez berresten da.",
+    "subscribe_page": "Harpidetza-orria",
+    "unsubscribe_page": "Baja-orria"
   },
   "search": {
     "title": "Bilatu",

@@ -27,7 +27,7 @@ class MysqlMailingListRepository implements MailingListRepositoryInterface
         $totalCount = (int) $countStmt->fetch()['total'];
 
         $stmt = $pdo->prepare(
-            "SELECT address, domain, name, transport, accesspolicy, maxmsgsize, active, created
+            "SELECT address, domain, name, transport, accesspolicy, maxmsgsize, active, created, mlid, is_newsletter
              FROM maillists {$where}
              ORDER BY address
              LIMIT :perPage OFFSET :offset"
@@ -49,16 +49,39 @@ class MysqlMailingListRepository implements MailingListRepositoryInterface
 
     public function getMailingList(string $address): ?MailingList
     {
-        $pdo = MysqlConnection::getInstance()->getPdo();
+        return $this->findOneBy('address', $address);
+    }
 
-        $stmt = $pdo->prepare(
-            "SELECT address, domain, name, transport, accesspolicy, maxmsgsize, active, created
-             FROM maillists WHERE address = :address LIMIT 1"
+    public function getMailingListById(string $mlid): ?MailingList
+    {
+        return $this->findOneBy('mlid', $mlid);
+    }
+
+    /**
+     * @param 'address'|'mlid' $column
+     */
+    private function findOneBy(string $column, string $value): ?MailingList
+    {
+        $stmt = MysqlConnection::getInstance()->getPdo()->prepare(
+            "SELECT address, domain, name, transport, accesspolicy, maxmsgsize, active, created, mlid, is_newsletter
+             FROM maillists WHERE {$column} = :value LIMIT 1"
         );
-        $stmt->execute(['address' => $address]);
+        $stmt->execute(['value' => $value]);
 
         $row = $stmt->fetch();
         return $row !== false ? $this->rowToMailingList($row) : null;
+    }
+
+    public function supportsNewsletter(): bool
+    {
+        return true;
+    }
+
+    public function setNewsletter(string $address, bool $enabled): void
+    {
+        MysqlConnection::getInstance()->getPdo()
+            ->prepare("UPDATE maillists SET is_newsletter = :enabled WHERE address = :address")
+            ->execute(['enabled' => $enabled ? 1 : 0, 'address' => $address]);
     }
 
     public function createMailingList(string $address, string $domain, string $name,
@@ -209,6 +232,8 @@ class MysqlMailingListRepository implements MailingListRepositoryInterface
             maxMsgSize: (int) ($row['maxmsgsize'] ?? 0),
             active: (bool) ($row['active'] ?? true),
             created: $row['created'] ?? null,
+            mlid: (string) ($row['mlid'] ?? ''),
+            isNewsletter: (bool) ($row['is_newsletter'] ?? false),
         );
     }
 }

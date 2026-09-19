@@ -115,7 +115,18 @@
     "unsubscribe_hint": "輸入您的電子郵件以取消訂閱此郵件清單。",
     "email_address": "電子郵件位址",
     "subscribe": "訂閱",
-    "unsubscribe": "取消訂閱"
+    "unsubscribe": "取消訂閱",
+    "msg_list_not_found": "此電子報不存在或不接受訂閱。",
+    "msg_invalid_token": "確認連結無效或已過期。",
+    "msg_send_failed": "無法寄送確認郵件。請稍後再試。",
+    "msg_subscribed": "您已訂閱 :list。",
+    "msg_unsubscribed": "您已取消訂閱 :list。",
+    "confirm_subscribe_hint": "點擊下方按鈕以確認訂閱 :list。",
+    "confirm_unsubscribe_hint": "點擊下方按鈕以確認取消訂閱 :list。",
+    "mail_subject_subscribe": "請確認訂閱 :list",
+    "mail_subject_unsubscribe": "請確認取消訂閱 :list",
+    "mail_body_subscribe": "有人（可能是您）要求將 :email 訂閱到郵件清單 :list。\n\n如要確認，請開啟此連結並點擊確認按鈕：\n:link\n\n連結將在 :hours 小時後過期。如果這不是您的要求，請忽略此郵件。",
+    "mail_body_unsubscribe": "有人（可能是您）要求將 :email 從郵件清單 :list 取消訂閱。\n\n如要確認，請開啟此連結並點擊確認按鈕：\n:link\n\n連結將在 :hours 小時後過期。如果這不是您的要求，請忽略此郵件。"
   },
   "pagination": {
     "previous": "上一頁",
@@ -332,7 +343,11 @@
     "subscribers_hint": "訂閱者電子郵件位址（每行一個）",
     "remove_subscriber_confirm": "要從此清單移除 :address 嗎？",
     "msg_subscribers_added": "已新增 :count 位訂閱者。",
-    "msg_subscriber_removed": "已從清單移除 :address。"
+    "msg_subscriber_removed": "已從清單移除 :address。",
+    "newsletter": "電子報",
+    "newsletter_hint": "任何人都可以在公開頁面訂閱或取消訂閱。每個要求都會以郵件確認。",
+    "subscribe_page": "訂閱頁面",
+    "unsubscribe_page": "取消訂閱頁面"
   },
   "search": {
     "title": "搜尋",

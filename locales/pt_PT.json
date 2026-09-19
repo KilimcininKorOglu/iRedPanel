@@ -115,7 +115,18 @@
     "unsubscribe_hint": "Introduza o seu e-mail para cancelar a subscrição desta lista de distribuição.",
     "email_address": "Endereço de e-mail",
     "subscribe": "Subscrever",
-    "unsubscribe": "Cancelar subscrição"
+    "unsubscribe": "Cancelar subscrição",
+    "msg_list_not_found": "Este boletim não existe ou não aceita subscrições.",
+    "msg_invalid_token": "A ligação de confirmação é inválida ou expirou.",
+    "msg_send_failed": "Não foi possível enviar o e-mail de confirmação. Tente novamente mais tarde.",
+    "msg_subscribed": "Subscreveu :list.",
+    "msg_unsubscribed": "Cancelou a subscrição de :list.",
+    "confirm_subscribe_hint": "Clique no botão abaixo para confirmar a subscrição de :list.",
+    "confirm_unsubscribe_hint": "Clique no botão abaixo para confirmar que pretende cancelar a subscrição de :list.",
+    "mail_subject_subscribe": "Confirme a subscrição de :list",
+    "mail_subject_unsubscribe": "Confirme o cancelamento da subscrição de :list",
+    "mail_body_subscribe": "Alguém, provavelmente o próprio, pediu para subscrever :email na lista de correio :list.\n\nPara confirmar, abra esta ligação e clique no botão de confirmação:\n:link\n\nA ligação expira dentro de :hours horas. Se não fez este pedido, ignore esta mensagem.",
+    "mail_body_unsubscribe": "Alguém, provavelmente o próprio, pediu para remover :email da lista de correio :list.\n\nPara confirmar, abra esta ligação e clique no botão de confirmação:\n:link\n\nA ligação expira dentro de :hours horas. Se não fez este pedido, ignore esta mensagem."
   },
   "pagination": {
     "previous": "Anterior",
@@ -332,7 +343,11 @@
     "subscribers_hint": "Endereços de e-mail dos subscritores (um por linha)",
     "remove_subscriber_confirm": "Remover :address desta lista?",
     "msg_subscribers_added": ":count subscritor(es) adicionado(s).",
-    "msg_subscriber_removed": ":address foi removido da lista."
+    "msg_subscriber_removed": ":address foi removido da lista.",
+    "newsletter": "Boletim",
+    "newsletter_hint": "Qualquer pessoa pode subscrever ou cancelar a subscrição numa página pública. Cada pedido é confirmado por e-mail.",
+    "subscribe_page": "Página de subscrição",
+    "unsubscribe_page": "Página de cancelamento"
   },
   "search": {
     "title": "Pesquisar",

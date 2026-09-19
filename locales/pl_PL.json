@@ -115,7 +115,18 @@
     "unsubscribe_hint": "Wprowadź swój e-mail, aby anulować subskrypcję tej listy mailingowej.",
     "email_address": "Adres e-mail",
     "subscribe": "Subskrybuj",
-    "unsubscribe": "Anuluj subskrypcję"
+    "unsubscribe": "Anuluj subskrypcję",
+    "msg_list_not_found": "Ten biuletyn nie istnieje lub nie przyjmuje subskrypcji.",
+    "msg_invalid_token": "Link potwierdzający jest nieprawidłowy lub wygasł.",
+    "msg_send_failed": "Nie udało się wysłać wiadomości potwierdzającej. Spróbuj ponownie później.",
+    "msg_subscribed": "Subskrybujesz teraz :list.",
+    "msg_unsubscribed": "Twoja subskrypcja :list została anulowana.",
+    "confirm_subscribe_hint": "Kliknij przycisk poniżej, aby potwierdzić subskrypcję :list.",
+    "confirm_unsubscribe_hint": "Kliknij przycisk poniżej, aby potwierdzić rezygnację z subskrypcji :list.",
+    "mail_subject_subscribe": "Potwierdź subskrypcję :list",
+    "mail_subject_unsubscribe": "Potwierdź rezygnację z subskrypcji :list",
+    "mail_body_subscribe": "Ktoś, prawdopodobnie Ty, poprosił o zapisanie :email na listę mailingową :list.\n\nAby potwierdzić, otwórz ten link i kliknij przycisk potwierdzenia:\n:link\n\nLink wygaśnie za :hours godz. Jeśli to nie Ty, zignoruj tę wiadomość.",
+    "mail_body_unsubscribe": "Ktoś, prawdopodobnie Ty, poprosił o wypisanie :email z listy mailingowej :list.\n\nAby potwierdzić, otwórz ten link i kliknij przycisk potwierdzenia:\n:link\n\nLink wygaśnie za :hours godz. Jeśli to nie Ty, zignoruj tę wiadomość."
   },
   "pagination": {
     "previous": "Poprzednia",
@@ -332,7 +343,11 @@
     "subscribers_hint": "Adresy e-mail subskrybentów (jeden w wierszu)",
     "remove_subscriber_confirm": "Usunąć :address z tej listy?",
     "msg_subscribers_added": "Dodano subskrybentów: :count.",
-    "msg_subscriber_removed": "Usunięto :address z listy."
+    "msg_subscriber_removed": "Usunięto :address z listy.",
+    "newsletter": "Biuletyn",
+    "newsletter_hint": "Każdy może zapisać się lub wypisać na publicznej stronie. Każde żądanie jest potwierdzane e-mailem.",
+    "subscribe_page": "Strona zapisu",
+    "unsubscribe_page": "Strona wypisu"
   },
   "search": {
     "title": "Szukaj",

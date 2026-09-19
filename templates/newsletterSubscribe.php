@@ -15,8 +15,9 @@
       <p><?= $action === 'subscribe' ? $te('newsletter.subscribe_hint') : $te('newsletter.unsubscribe_hint') ?></p>
 
       <form method="post">
+        <?= $csrfField ?>
         <label for="email"><?= $te('newsletter.email_address') ?></label>
-        <input type="email" id="email" name="email" required placeholder="your@email.com" />
+        <input type="email" id="email" name="email" required placeholder="your@email.com" value="<?= $e($email) ?>" />
 
         <button type="submit" class="button primary"><?= $action === 'subscribe' ? $te('newsletter.subscribe') : $te('newsletter.unsubscribe') ?></button>
       </form>

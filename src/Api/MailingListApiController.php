@@ -102,12 +102,18 @@ class MailingListApiController
         }
 
         $data = ApiMiddleware::getJsonBody();
+        $newsletter = array_key_exists('isNewsletter', $data) ? (bool) $data['isNewsletter'] : null;
+        if ($newsletter !== null && !$repo->supportsNewsletter()) {
+            ApiResponse::error('isNewsletter is not supported by this backend');
+            return;
+        }
         MailingListService::update(
             $address,
             $data['name'] ?? $ml->name,
             $data['accessPolicy'] ?? $ml->accessPolicy,
             (int) ($data['maxMsgSize'] ?? $ml->maxMsgSize),
             (bool) ($data['active'] ?? $ml->active),
+            $newsletter,
         );
         ApiResponse::success(['message' => 'Mailing list updated']);
     }

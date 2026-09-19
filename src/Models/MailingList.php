@@ -15,6 +15,8 @@ class MailingList
         public readonly int $maxMsgSize = 0,
         public readonly bool $active = true,
         public readonly ?string $created = null,
+        public readonly string $mlid = '',
+        public readonly bool $isNewsletter = false,
     ) {}
 
     /**

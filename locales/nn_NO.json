@@ -115,7 +115,18 @@
     "unsubscribe_hint": "Skriv inn e-posten din for å avslutte abonnementet på denne e-postlista.",
     "email_address": "E-postadresse",
     "subscribe": "Abonner",
-    "unsubscribe": "Avslutt abonnement"
+    "unsubscribe": "Avslutt abonnement",
+    "msg_list_not_found": "Dette nyheitsbrevet finst ikkje eller tek ikkje imot påmeldingar.",
+    "msg_invalid_token": "Stadfestingslenkja er ugyldig eller utgått.",
+    "msg_send_failed": "Stadfestingsmeldinga kunne ikkje sendast. Prøv igjen seinare.",
+    "msg_subscribed": "Du er no påmeld :list.",
+    "msg_unsubscribed": "Du er no avmeld :list.",
+    "confirm_subscribe_hint": "Klikk på knappen nedanfor for å stadfeste påmeldinga til :list.",
+    "confirm_unsubscribe_hint": "Klikk på knappen nedanfor for å stadfeste at du vil melde deg av :list.",
+    "mail_subject_subscribe": "Stadfest påmeldinga til :list",
+    "mail_subject_unsubscribe": "Stadfest avmeldinga frå :list",
+    "mail_body_subscribe": "Nokon, truleg du, bad om å melde :email på e-postlista :list.\n\nStadfest ved å opne denne lenkja og klikke på stadfestingsknappen:\n:link\n\nLenkja går ut om :hours timar. Viss du ikkje bad om dette, kan du sjå bort frå meldinga.",
+    "mail_body_unsubscribe": "Nokon, truleg du, bad om å melde :email av e-postlista :list.\n\nStadfest ved å opne denne lenkja og klikke på stadfestingsknappen:\n:link\n\nLenkja går ut om :hours timar. Viss du ikkje bad om dette, kan du sjå bort frå meldinga."
   },
   "pagination": {
     "previous": "Førre",
@@ -332,7 +343,11 @@
     "subscribers_hint": "E-postadresser til abonnentar (éi per linje)",
     "remove_subscriber_confirm": "Fjerne :address frå denne lista?",
     "msg_subscribers_added": ":count abonnent(ar) lagt til.",
-    "msg_subscriber_removed": ":address er fjerna frå lista."
+    "msg_subscriber_removed": ":address er fjerna frå lista.",
+    "newsletter": "Nyheitsbrev",
+    "newsletter_hint": "Kven som helst kan melde seg på eller av på ei offentleg side. Kvar førespurnad blir stadfesta via e-post.",
+    "subscribe_page": "Påmeldingsside",
+    "unsubscribe_page": "Avmeldingsside"
   },
   "search": {
     "title": "Søk",

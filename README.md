@@ -368,8 +368,9 @@ server {
 - Admin statistics export (CSV and JSON formats)
 
 ### Newsletter Subscription
-- Public subscribe/unsubscribe endpoints for mailing lists
-- Token-based email verification with configurable expiration
+- Public subscribe/unsubscribe pages at `/newsletters/{subscribe,unsubscribe}/<mlid>` for active lists with the Newsletter flag (SQL backends only)
+- Confirmation link sent by SMTP (`IREDPANEL_SMTP_*`), built from `IREDPANEL_PUBLIC_URL`, with configurable expiration
+- A confirmed request adds or removes the subscriber in mlmmj through mlmmjadmin
 - No authentication required (public-facing)
 
 ### Domain Ownership Verification

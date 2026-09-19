@@ -115,7 +115,18 @@
     "unsubscribe_hint": "Unesite svoju e-mail adresu da otkažete pretplatu na ovu mailing listu.",
     "email_address": "E-mail adresa",
     "subscribe": "Pretplati se",
-    "unsubscribe": "Otkaži pretplatu"
+    "unsubscribe": "Otkaži pretplatu",
+    "msg_list_not_found": "Ovaj bilten ne postoji ili ne prima pretplate.",
+    "msg_invalid_token": "Link za potvrdu nije važeći ili je istekao.",
+    "msg_send_failed": "E-mail za potvrdu nije moguće poslati. Pokušajte ponovo kasnije.",
+    "msg_subscribed": "Sada ste pretplaćeni na :list.",
+    "msg_unsubscribed": "Pretplata na :list je otkazana.",
+    "confirm_subscribe_hint": "Kliknite dugme ispod da potvrdite pretplatu na :list.",
+    "confirm_unsubscribe_hint": "Kliknite dugme ispod da potvrdite otkazivanje pretplate na :list.",
+    "mail_subject_subscribe": "Potvrdite pretplatu na :list",
+    "mail_subject_unsubscribe": "Potvrdite otkazivanje pretplate na :list",
+    "mail_body_subscribe": "Neko, vjerovatno vi, zatražio je prijavu adrese :email na e-mail listu :list.\n\nZa potvrdu otvorite ovaj link i kliknite dugme za potvrdu:\n:link\n\nLink ističe za :hours h. Ako to niste zatražili, zanemarite ovu poruku.",
+    "mail_body_unsubscribe": "Neko, vjerovatno vi, zatražio je odjavu adrese :email sa e-mail liste :list.\n\nZa potvrdu otvorite ovaj link i kliknite dugme za potvrdu:\n:link\n\nLink ističe za :hours h. Ako to niste zatražili, zanemarite ovu poruku."
   },
   "pagination": {
     "previous": "Prethodna",
@@ -332,7 +343,11 @@
     "subscribers_hint": "E-mail adrese pretplatnika (jedna po liniji)",
     "remove_subscriber_confirm": "Ukloniti :address sa ove liste?",
     "msg_subscribers_added": "Dodano pretplatnika: :count.",
-    "msg_subscriber_removed": ":address je uklonjen sa liste."
+    "msg_subscriber_removed": ":address je uklonjen sa liste.",
+    "newsletter": "Bilten",
+    "newsletter_hint": "Svako se može prijaviti ili odjaviti na javnoj stranici. Svaki zahtjev se potvrđuje e-mailom.",
+    "subscribe_page": "Stranica za prijavu",
+    "unsubscribe_page": "Stranica za odjavu"
   },
   "search": {
     "title": "Pretraga",

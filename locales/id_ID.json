@@ -115,7 +115,18 @@
     "unsubscribe_hint": "Masukkan email Anda untuk berhenti berlangganan milis ini.",
     "email_address": "Alamat email",
     "subscribe": "Berlangganan",
-    "unsubscribe": "Berhenti berlangganan"
+    "unsubscribe": "Berhenti berlangganan",
+    "msg_list_not_found": "Buletin ini tidak ada atau tidak menerima langganan.",
+    "msg_invalid_token": "Tautan konfirmasi tidak valid atau sudah kedaluwarsa.",
+    "msg_send_failed": "Email konfirmasi tidak dapat dikirim. Coba lagi nanti.",
+    "msg_subscribed": "Anda sekarang berlangganan :list.",
+    "msg_unsubscribed": "Langganan Anda ke :list telah dihentikan.",
+    "confirm_subscribe_hint": "Klik tombol di bawah untuk mengonfirmasi langganan Anda ke :list.",
+    "confirm_unsubscribe_hint": "Klik tombol di bawah untuk mengonfirmasi bahwa Anda ingin berhenti berlangganan :list.",
+    "mail_subject_subscribe": "Konfirmasi langganan Anda ke :list",
+    "mail_subject_unsubscribe": "Konfirmasi berhenti berlangganan :list",
+    "mail_body_subscribe": "Seseorang, mungkin Anda, meminta agar :email didaftarkan ke milis :list.\n\nUntuk mengonfirmasi, buka tautan ini dan klik tombol konfirmasi:\n:link\n\nTautan kedaluwarsa dalam :hours jam. Jika Anda tidak memintanya, abaikan pesan ini.",
+    "mail_body_unsubscribe": "Seseorang, mungkin Anda, meminta agar :email dihapus dari milis :list.\n\nUntuk mengonfirmasi, buka tautan ini dan klik tombol konfirmasi:\n:link\n\nTautan kedaluwarsa dalam :hours jam. Jika Anda tidak memintanya, abaikan pesan ini."
   },
   "pagination": {
     "previous": "Sebelumnya",
@@ -332,7 +343,11 @@
     "subscribers_hint": "Alamat email pelanggan (satu per baris)",
     "remove_subscriber_confirm": "Hapus :address dari daftar ini?",
     "msg_subscribers_added": ":count pelanggan ditambahkan.",
-    "msg_subscriber_removed": ":address dihapus dari daftar."
+    "msg_subscriber_removed": ":address dihapus dari daftar.",
+    "newsletter": "Buletin",
+    "newsletter_hint": "Siapa pun dapat berlangganan atau berhenti berlangganan di halaman publik. Setiap permintaan dikonfirmasi melalui email.",
+    "subscribe_page": "Halaman langganan",
+    "unsubscribe_page": "Halaman berhenti berlangganan"
   },
   "search": {
     "title": "Cari",

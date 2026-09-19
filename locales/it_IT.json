@@ -115,7 +115,18 @@
     "unsubscribe_hint": "Inserisci la tua e-mail per annullare l'iscrizione a questa lista di distribuzione.",
     "email_address": "Indirizzo e-mail",
     "subscribe": "Iscriviti",
-    "unsubscribe": "Annulla iscrizione"
+    "unsubscribe": "Annulla iscrizione",
+    "msg_list_not_found": "Questa newsletter non esiste o non accetta iscrizioni.",
+    "msg_invalid_token": "Il link di conferma non è valido o è scaduto.",
+    "msg_send_failed": "Impossibile inviare l'e-mail di conferma. Riprova più tardi.",
+    "msg_subscribed": "Ora sei iscritto a :list.",
+    "msg_unsubscribed": "Ora non sei più iscritto a :list.",
+    "confirm_subscribe_hint": "Fai clic sul pulsante qui sotto per confermare l'iscrizione a :list.",
+    "confirm_unsubscribe_hint": "Fai clic sul pulsante qui sotto per confermare che vuoi annullare l'iscrizione a :list.",
+    "mail_subject_subscribe": "Conferma l'iscrizione a :list",
+    "mail_subject_unsubscribe": "Conferma l'annullamento dell'iscrizione a :list",
+    "mail_body_subscribe": "Qualcuno, probabilmente tu, ha chiesto di iscrivere :email alla mailing list :list.\n\nPer confermare, apri questo link e fai clic sul pulsante di conferma:\n:link\n\nIl link scade tra :hours ore. Se non l'hai richiesto, ignora questo messaggio.",
+    "mail_body_unsubscribe": "Qualcuno, probabilmente tu, ha chiesto di rimuovere :email dalla mailing list :list.\n\nPer confermare, apri questo link e fai clic sul pulsante di conferma:\n:link\n\nIl link scade tra :hours ore. Se non l'hai richiesto, ignora questo messaggio."
   },
   "pagination": {
     "previous": "Precedente",
@@ -332,7 +343,11 @@
     "subscribers_hint": "Indirizzi e-mail degli iscritti (uno per riga)",
     "remove_subscriber_confirm": "Rimuovere :address da questa lista?",
     "msg_subscribers_added": ":count iscritto/i aggiunto/i.",
-    "msg_subscriber_removed": ":address è stato rimosso dalla lista."
+    "msg_subscriber_removed": ":address è stato rimosso dalla lista.",
+    "newsletter": "Newsletter",
+    "newsletter_hint": "Chiunque può iscriversi o annullare l'iscrizione da una pagina pubblica. Ogni richiesta è confermata via e-mail.",
+    "subscribe_page": "Pagina di iscrizione",
+    "unsubscribe_page": "Pagina di annullamento iscrizione"
   },
   "search": {
     "title": "Cerca",

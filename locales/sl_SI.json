@@ -115,7 +115,18 @@
     "unsubscribe_hint": "Vnesite svojo e-pošto za odjavo od tega poštnega seznama.",
     "email_address": "E-poštni naslov",
     "subscribe": "Naroči se",
-    "unsubscribe": "Odjavi se"
+    "unsubscribe": "Odjavi se",
+    "msg_list_not_found": "To glasilo ne obstaja ali ne sprejema naročnin.",
+    "msg_invalid_token": "Povezava za potrditev ni veljavna ali je potekla.",
+    "msg_send_failed": "E-pošte za potrditev ni bilo mogoče poslati. Poskusite znova pozneje.",
+    "msg_subscribed": "Zdaj ste naročeni na :list.",
+    "msg_unsubscribed": "Naročnina na :list je preklicana.",
+    "confirm_subscribe_hint": "Kliknite spodnji gumb, da potrdite naročnino na :list.",
+    "confirm_unsubscribe_hint": "Kliknite spodnji gumb, da potrdite preklic naročnine na :list.",
+    "mail_subject_subscribe": "Potrdite naročnino na :list",
+    "mail_subject_unsubscribe": "Potrdite preklic naročnine na :list",
+    "mail_body_subscribe": "Nekdo, verjetno vi, je zahteval prijavo :email na poštni seznam :list.\n\nZa potrditev odprite to povezavo in kliknite gumb za potrditev:\n:link\n\nPovezava poteče čez :hours ur. Če tega niste zahtevali, prezrite to sporočilo.",
+    "mail_body_unsubscribe": "Nekdo, verjetno vi, je zahteval odjavo :email s poštnega seznama :list.\n\nZa potrditev odprite to povezavo in kliknite gumb za potrditev:\n:link\n\nPovezava poteče čez :hours ur. Če tega niste zahtevali, prezrite to sporočilo."
   },
   "pagination": {
     "previous": "Prejšnja",
@@ -332,7 +343,11 @@
     "subscribers_hint": "E-poštni naslovi naročnikov (eden na vrstico)",
     "remove_subscriber_confirm": "Odstranim :address s tega seznama?",
     "msg_subscribers_added": "Dodanih naročnikov: :count.",
-    "msg_subscriber_removed": ":address je odstranjen s seznama."
+    "msg_subscriber_removed": ":address je odstranjen s seznama.",
+    "newsletter": "Glasilo",
+    "newsletter_hint": "Vsakdo se lahko prijavi ali odjavi na javni strani. Vsaka zahteva se potrdi po e-pošti.",
+    "subscribe_page": "Stran za prijavo",
+    "unsubscribe_page": "Stran za odjavo"
   },
   "search": {
     "title": "Iskanje",

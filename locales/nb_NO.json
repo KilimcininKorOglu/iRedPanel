@@ -115,7 +115,18 @@
     "unsubscribe_hint": "Skriv inn e-posten din for å melde av denne e-postlisten.",
     "email_address": "E-postadresse",
     "subscribe": "Abonner",
-    "unsubscribe": "Meld av"
+    "unsubscribe": "Meld av",
+    "msg_list_not_found": "Dette nyhetsbrevet finnes ikke eller tar ikke imot påmeldinger.",
+    "msg_invalid_token": "Bekreftelseslenken er ugyldig eller utløpt.",
+    "msg_send_failed": "Bekreftelsesmeldingen kunne ikke sendes. Prøv igjen senere.",
+    "msg_subscribed": "Du er nå påmeldt :list.",
+    "msg_unsubscribed": "Du er nå avmeldt :list.",
+    "confirm_subscribe_hint": "Klikk på knappen nedenfor for å bekrefte påmeldingen til :list.",
+    "confirm_unsubscribe_hint": "Klikk på knappen nedenfor for å bekrefte at du vil melde deg av :list.",
+    "mail_subject_subscribe": "Bekreft påmeldingen til :list",
+    "mail_subject_unsubscribe": "Bekreft avmeldingen fra :list",
+    "mail_body_subscribe": "Noen, sannsynligvis du, ba om å melde :email på e-postlisten :list.\n\nBekreft ved å åpne denne lenken og klikke på bekreftelsesknappen:\n:link\n\nLenken utløper om :hours timer. Hvis du ikke ba om dette, kan du se bort fra meldingen.",
+    "mail_body_unsubscribe": "Noen, sannsynligvis du, ba om å melde :email av e-postlisten :list.\n\nBekreft ved å åpne denne lenken og klikke på bekreftelsesknappen:\n:link\n\nLenken utløper om :hours timer. Hvis du ikke ba om dette, kan du se bort fra meldingen."
   },
   "pagination": {
     "previous": "Forrige",
@@ -332,7 +343,11 @@
     "subscribers_hint": "Abonnenters e-postadresser (én per linje)",
     "remove_subscriber_confirm": "Fjerne :address fra denne listen?",
     "msg_subscribers_added": ":count abonnent(er) lagt til.",
-    "msg_subscriber_removed": ":address er fjernet fra listen."
+    "msg_subscriber_removed": ":address er fjernet fra listen.",
+    "newsletter": "Nyhetsbrev",
+    "newsletter_hint": "Hvem som helst kan melde seg på eller av på en offentlig side. Hver forespørsel bekreftes via e-post.",
+    "subscribe_page": "Påmeldingsside",
+    "unsubscribe_page": "Avmeldingsside"
   },
   "search": {
     "title": "Søk",

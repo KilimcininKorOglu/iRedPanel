@@ -102,10 +102,25 @@ class LdapUserRepository implements UserRepositoryInterface
         }
 
         // Update enabledService as a separate mod_replace (multi-valued attribute)
-        $serviceList = $user->toLdapServiceList();
+        $serviceList = $user->toLdapServiceList(self::storedServices($conn, $dn));
         if (!@ldap_mod_replace($conn, $dn, ['enabledService' => $serviceList])) {
             throw new \RuntimeException('LDAP update failed: ' . ldap_error($conn));
         }
+    }
+
+    /**
+     * @return string[] the enabledService values of the entry
+     */
+    private static function storedServices(\LDAP\Connection $conn, string $dn): array
+    {
+        $result = @ldap_read($conn, $dn, '(objectClass=mailUser)', ['enabledService']);
+        if ($result === false) {
+            throw new \RuntimeException('LDAP read failed: ' . ldap_error($conn));
+        }
+        $values = ldap_get_entries($conn, $result)[0]['enabledservice'] ?? ['count' => 0];
+        unset($values['count']);
+
+        return array_values($values);
     }
 
     public function updateUserPassword(string $domain, string $userUid, string $passwordHash): void
@@ -134,7 +149,8 @@ class LdapUserRepository implements UserRepositoryInterface
             'accountStatus' => $user->accountStatus ? 'active' : 'disabled',
             'homeDirectory' => "{$settings->vmailPath}/{$domain}/{$user->uid}/",
             'amavisLocal' => 'TRUE',
-            'enabledService' => $user->toLdapServiceList(),
+            // The create form has no service toggles; a new mailbox starts with every service on.
+            'enabledService' => User::defaultLdapServices(),
             'storageBaseDirectory' => $settings->vmailPath,
             'mailMessageStore' => "{$domain}/{$user->uid}/",
         ];

@@ -14,6 +14,32 @@ use App\Utils\WholeNumber;
  */
 class User
 {
+    /**
+     * enabledService values of a mailbox that no toggle controls. Dovecot and Postfix
+     * accept a mailbox only with `mail`, and Dovecot checks `<service><secured|tls>` per login.
+     */
+    private const LDAP_BASE_SERVICES = [
+        'mail', 'deliver', 'lda', 'lmtp', 'forward', 'senderbcc', 'recipientbcc',
+        'internal', 'doveadm', 'lib-storage', 'indexer-worker', 'dsync',
+        'shadowaddress', 'displayedInGlobalAddressBook',
+    ];
+
+    /**
+     * enabledService values per toggle. A TLS login checks `*tls`, and ManageSieve logs in
+     * as the service `sieve`, so each toggle also covers these values.
+     */
+    private const LDAP_TOGGLE_SERVICES = [
+        'enableSmtp' => ['smtp'],
+        'enableSmtpSecured' => ['smtpsecured', 'smtptls'],
+        'enablePop3' => ['pop3'],
+        'enablePop3Secured' => ['pop3secured', 'pop3tls'],
+        'enableImap' => ['imap'],
+        'enableImapSecured' => ['imapsecured', 'imaptls'],
+        'enableManagesieve' => ['managesieve', 'sieve'],
+        'enableManagesieveSecured' => ['managesievesecured', 'sievesecured', 'sievetls'],
+        'enableSogo' => ['sogo'],
+    ];
+
     public function __construct(
         public string $uid,
         public bool $accountStatus = false,
@@ -103,7 +129,7 @@ class User
             $services = is_array($entry['enabledService']) ? $entry['enabledService'] : [$entry['enabledService']];
         }
 
-        return new self(
+        $user = new self(
             uid: $entry['uid'] ?? '',
             accountStatus: ($entry['accountStatus'] ?? '') === 'active',
             mailQuota: $quotaMb,
@@ -115,16 +141,10 @@ class User
             mobile: $entry['mobile'] ?? '',
             telephoneNumber: $entry['telephoneNumber'] ?? '',
             domainGlobalAdmin: ($entry['domainGlobalAdmin'] ?? '') === 'yes',
-            enableSmtp: in_array('smtp', $services, true) || empty($services),
-            enableSmtpSecured: in_array('smtpsecured', $services, true) || empty($services),
-            enablePop3: in_array('pop3', $services, true) || empty($services),
-            enablePop3Secured: in_array('pop3secured', $services, true) || empty($services),
-            enableImap: in_array('imap', $services, true) || empty($services),
-            enableImapSecured: in_array('imapsecured', $services, true) || empty($services),
-            enableManagesieve: in_array('managesieve', $services, true) || empty($services),
-            enableManagesieveSecured: in_array('managesievesecured', $services, true) || empty($services),
-            enableSogo: in_array('sogo', $services, true) || empty($services),
         );
+        $user->applyLdapServices($services);
+
+        return $user;
     }
 
     /**
@@ -171,26 +191,46 @@ class User
     }
 
     /**
-     * Returns the list of enabled LDAP service names for this user.
+     * Returns the enabledService values of this user: `mail`, the values of $current that no
+     * toggle controls, and the values of every enabled toggle.
+     *
+     * @param string[] $current the stored values, so values the panel does not manage are kept
+     * @return string[]
+     */
+    public function toLdapServiceList(array $current = self::LDAP_BASE_SERVICES): array
+    {
+        // Without `mail` Dovecot and Postfix ignore the mailbox; older panel versions omitted it.
+        $services = array_diff(['mail', ...$current], array_merge(...array_values(self::LDAP_TOGGLE_SERVICES)));
+        foreach (self::LDAP_TOGGLE_SERVICES as $toggle => $values) {
+            if ($this->$toggle) {
+                array_push($services, ...$values);
+            }
+        }
+
+        return array_values(array_unique($services));
+    }
+
+    /**
+     * The enabledService values of a new mailbox: every service on, as iRedMail creates it
+     * and as the SQL column defaults do.
      *
      * @return string[]
      */
-    public function toLdapServiceList(): array
+    public static function defaultLdapServices(): array
     {
-        $services = ['deliver', 'lda', 'lmtp', 'forward', 'senderbcc', 'recipientbcc',
-                     'internal', 'doveadm', 'lib-storage', 'indexer-worker', 'dsync',
-                     'sieve', 'sievesecured', 'displayedInGlobalAddressBook'];
+        return (new self(''))->toLdapServiceList();
+    }
 
-        if ($this->enableSmtp) $services[] = 'smtp';
-        if ($this->enableSmtpSecured) $services[] = 'smtpsecured';
-        if ($this->enablePop3) $services[] = 'pop3';
-        if ($this->enablePop3Secured) $services[] = 'pop3secured';
-        if ($this->enableImap) $services[] = 'imap';
-        if ($this->enableImapSecured) $services[] = 'imapsecured';
-        if ($this->enableManagesieve) $services[] = 'managesieve';
-        if ($this->enableManagesieveSecured) $services[] = 'managesievesecured';
-        if ($this->enableSogo) $services[] = 'sogo';
-
-        return $services;
+    /**
+     * Sets the toggles from enabledService values. A toggle is on when Dovecot or Postfix
+     * still accepts any of its values; an entry without values has every service on.
+     *
+     * @param string[] $services
+     */
+    private function applyLdapServices(array $services): void
+    {
+        foreach (self::LDAP_TOGGLE_SERVICES as $toggle => $values) {
+            $this->$toggle = $services === [] || array_intersect($values, $services) !== [];
+        }
     }
 }

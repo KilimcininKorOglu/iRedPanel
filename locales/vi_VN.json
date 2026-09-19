@@ -552,7 +552,8 @@
     "allow_domain_creation": "Cho phép tạo tên miền",
     "save_limits": "Lưu giới hạn",
     "msg_hosted_domain": "Quản trị viên độc lập không thể dùng tên miền được lưu trữ :domain. Thay vào đó, hãy đặt một hộp thư của tên miền này làm quản trị viên.",
-    "msg_cannot_remove_self": "Bạn không thể xóa hoặc vô hiệu hóa tài khoản quản trị của chính mình"
+    "msg_cannot_remove_self": "Bạn không thể xóa hoặc vô hiệu hóa tài khoản quản trị của chính mình",
+    "msg_invalid_limit": ":field: nhập -1 để không giới hạn hoặc một số nguyên từ 0 trở lên."
   },
   "alias": {
     "msg_updated": "Bí danh đã được cập nhật thành công!",

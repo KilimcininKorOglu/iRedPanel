@@ -552,7 +552,8 @@
     "allow_domain_creation": "Izinkan pembuatan domain",
     "save_limits": "Simpan batas",
     "msg_hosted_domain": "Admin mandiri tidak dapat memakai domain yang di-host :domain. Jadikan kotak surat dari domain ini sebagai admin.",
-    "msg_cannot_remove_self": "Anda tidak dapat menghapus atau menonaktifkan akun admin Anda sendiri"
+    "msg_cannot_remove_self": "Anda tidak dapat menghapus atau menonaktifkan akun admin Anda sendiri",
+    "msg_invalid_limit": ":field: masukkan -1 untuk tanpa batas atau bilangan bulat 0 atau lebih."
   },
   "alias": {
     "msg_updated": "Alias berhasil diperbarui!",

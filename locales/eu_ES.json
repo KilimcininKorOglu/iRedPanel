@@ -552,7 +552,8 @@
     "allow_domain_creation": "Baimendu domeinuak sortzea",
     "save_limits": "Gorde mugak",
     "msg_hosted_domain": "Administratzaile independente batek ezin du :domain domeinu ostatatua erabili. Horren ordez, egin domeinu honetako postontzi bat administratzaile.",
-    "msg_cannot_remove_self": "Ezin duzu zure administratzaile-kontua ezabatu edo desgaitu"
+    "msg_cannot_remove_self": "Ezin duzu zure administratzaile-kontua ezabatu edo desgaitu",
+    "msg_invalid_limit": ":field: idatzi -1 mugagabea izateko, edo 0 edo handiagoa den zenbaki oso bat."
   },
   "alias": {
     "msg_updated": "Aliasa eguneratu da!",

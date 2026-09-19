@@ -552,7 +552,8 @@
     "allow_domain_creation": "Domen yaratmağa icazə ver",
     "save_limits": "Limitləri yadda saxla",
     "msg_hosted_domain": "Müstəqil admin serverdəki :domain domenindən istifadə edə bilməz. Bunun əvəzinə bu domenin bir poçt qutusunu admin edin.",
-    "msg_cannot_remove_self": "Öz admin hesabınızı silə və ya deaktiv edə bilməzsiniz"
+    "msg_cannot_remove_self": "Öz admin hesabınızı silə və ya deaktiv edə bilməzsiniz",
+    "msg_invalid_limit": ":field: limitsiz üçün -1 və ya 0 və ya daha böyük tam ədəd daxil edin."
   },
   "alias": {
     "msg_updated": "Təxəllüs uğurla yeniləndi!",

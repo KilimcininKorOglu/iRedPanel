@@ -552,7 +552,8 @@
     "allow_domain_creation": "Domain-Erstellung erlauben",
     "save_limits": "Limits speichern",
     "msg_hosted_domain": "Ein eigenständiger Admin kann die gehostete Domain :domain nicht verwenden. Machen Sie stattdessen ein Postfach dieser Domain zum Admin.",
-    "msg_cannot_remove_self": "Sie können Ihr eigenes Administratorkonto nicht löschen oder deaktivieren"
+    "msg_cannot_remove_self": "Sie können Ihr eigenes Administratorkonto nicht löschen oder deaktivieren",
+    "msg_invalid_limit": ":field: Geben Sie -1 für unbegrenzt oder eine ganze Zahl von 0 oder mehr ein."
   },
   "alias": {
     "msg_updated": "Alias erfolgreich aktualisiert!",

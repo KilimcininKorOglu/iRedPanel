@@ -552,7 +552,8 @@
     "allow_domain_creation": "Tillad oprettelse af domæner",
     "save_limits": "Gem grænser",
     "msg_hosted_domain": "En selvstændig administrator kan ikke bruge det hostede domæne :domain. Gør i stedet en postkasse i domænet til administrator.",
-    "msg_cannot_remove_self": "Du kan ikke slette eller deaktivere din egen administratorkonto"
+    "msg_cannot_remove_self": "Du kan ikke slette eller deaktivere din egen administratorkonto",
+    "msg_invalid_limit": ":field: indtast -1 for ubegrænset eller et heltal på 0 eller mere."
   },
   "alias": {
     "msg_updated": "Alias opdateret!",

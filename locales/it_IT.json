@@ -552,7 +552,8 @@
     "allow_domain_creation": "Consenti la creazione di domini",
     "save_limits": "Salva limiti",
     "msg_hosted_domain": "Un amministratore autonomo non può usare il dominio ospitato :domain. Rendi invece amministratore una casella di questo dominio.",
-    "msg_cannot_remove_self": "Non puoi eliminare o disattivare il tuo account amministratore"
+    "msg_cannot_remove_self": "Non puoi eliminare o disattivare il tuo account amministratore",
+    "msg_invalid_limit": ":field: inserisci -1 per illimitato o un numero intero maggiore o uguale a 0."
   },
   "alias": {
     "msg_updated": "Alias aggiornato con successo!",

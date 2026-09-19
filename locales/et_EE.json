@@ -552,7 +552,8 @@
     "allow_domain_creation": "Luba domeenide loomine",
     "save_limits": "Salvesta piirangud",
     "msg_hosted_domain": "Eraldiseisev administraator ei saa kasutada majutatud domeeni :domain. Tehke selle asemel administraatoriks selle domeeni postkast.",
-    "msg_cannot_remove_self": "Te ei saa oma administraatorikontot kustutada ega keelata"
+    "msg_cannot_remove_self": "Te ei saa oma administraatorikontot kustutada ega keelata",
+    "msg_invalid_limit": ":field: sisestage piiramatu jaoks -1 või täisarv, mis on 0 või suurem."
   },
   "alias": {
     "msg_updated": "Alias edukalt uuendatud!",

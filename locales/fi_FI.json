@@ -552,7 +552,8 @@
     "allow_domain_creation": "Salli verkkotunnusten luonti",
     "save_limits": "Tallenna rajat",
     "msg_hosted_domain": "Erillinen ylläpitäjä ei voi käyttää palvelimen verkkotunnusta :domain. Tee sen sijaan tämän verkkotunnuksen postilaatikosta ylläpitäjä.",
-    "msg_cannot_remove_self": "Et voi poistaa tai poistaa käytöstä omaa ylläpitäjätiliäsi"
+    "msg_cannot_remove_self": "Et voi poistaa tai poistaa käytöstä omaa ylläpitäjätiliäsi",
+    "msg_invalid_limit": ":field: anna -1 rajoittamattomalle tai kokonaisluku, joka on 0 tai suurempi."
   },
   "alias": {
     "msg_updated": "Alias päivitetty onnistuneesti!",

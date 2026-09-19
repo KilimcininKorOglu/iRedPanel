@@ -552,7 +552,8 @@
     "allow_domain_creation": "Domain-létrehozás engedélyezése",
     "save_limits": "Korlátok mentése",
     "msg_hosted_domain": "Önálló adminisztrátor nem használhatja a kiszolgált :domain domaint. Ehelyett tegye adminisztrátorrá a domain egyik postafiókját.",
-    "msg_cannot_remove_self": "A saját rendszergazdai fiókját nem törölheti és nem tilthatja le"
+    "msg_cannot_remove_self": "A saját rendszergazdai fiókját nem törölheti és nem tilthatja le",
+    "msg_invalid_limit": ":field: adjon meg -1-et a korlátlanhoz, vagy egy 0 vagy nagyobb egész számot."
   },
   "alias": {
     "msg_updated": "Álnév sikeresen frissítve!",

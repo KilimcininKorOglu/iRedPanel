@@ -552,7 +552,8 @@
     "allow_domain_creation": "允許建立網域",
     "save_limits": "儲存限制",
     "msg_hosted_domain": "獨立管理員不能使用本伺服器託管的網域 :domain。請改為將該網域中的信箱設為管理員。",
-    "msg_cannot_remove_self": "無法刪除或停用您自己的管理員帳號"
+    "msg_cannot_remove_self": "無法刪除或停用您自己的管理員帳號",
+    "msg_invalid_limit": ":field：輸入 -1 表示不限制，或輸入大於或等於 0 的整數。"
   },
   "alias": {
     "msg_updated": "別名已成功更新！",

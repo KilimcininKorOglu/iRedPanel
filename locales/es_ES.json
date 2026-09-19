@@ -552,7 +552,8 @@
     "allow_domain_creation": "Permitir la creación de dominios",
     "save_limits": "Guardar límites",
     "msg_hosted_domain": "Un administrador independiente no puede usar el dominio alojado :domain. Convierta en administrador un buzón de este dominio.",
-    "msg_cannot_remove_self": "No puede eliminar ni desactivar su propia cuenta de administrador"
+    "msg_cannot_remove_self": "No puede eliminar ni desactivar su propia cuenta de administrador",
+    "msg_invalid_limit": ":field: introduzca -1 para ilimitado o un número entero igual o mayor que 0."
   },
   "alias": {
     "msg_updated": "¡Alias actualizado correctamente!",

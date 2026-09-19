@@ -552,7 +552,8 @@
     "allow_domain_creation": "允许创建域名",
     "save_limits": "保存限制",
     "msg_hosted_domain": "独立管理员不能使用本服务器托管的域 :domain。请改为将该域中的邮箱设为管理员。",
-    "msg_cannot_remove_self": "不能删除或禁用您自己的管理员账户"
+    "msg_cannot_remove_self": "不能删除或禁用您自己的管理员账户",
+    "msg_invalid_limit": ":field：输入 -1 表示不限制，或输入大于或等于 0 的整数。"
   },
   "alias": {
     "msg_updated": "别名更新成功！",

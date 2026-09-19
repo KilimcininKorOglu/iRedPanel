@@ -552,7 +552,8 @@
     "allow_domain_creation": "Allow domain creation",
     "save_limits": "Save Limits",
     "msg_hosted_domain": "A standalone admin cannot use the hosted domain :domain. Make a mailbox of this domain an admin instead.",
-    "msg_cannot_remove_self": "You cannot delete or disable your own admin account"
+    "msg_cannot_remove_self": "You cannot delete or disable your own admin account",
+    "msg_invalid_limit": ":field: enter -1 for unlimited or a whole number of 0 or more."
   },
   "alias": {
     "msg_updated": "Alias updated successfully!",

@@ -552,7 +552,8 @@
     "allow_domain_creation": "Tillat domeneoppretting",
     "save_limits": "Lagre grenser",
     "msg_hosted_domain": "Ein frittståande administrator kan ikkje bruke det hosta domenet :domain. Gjer i staden ein postboks i domenet til administrator.",
-    "msg_cannot_remove_self": "Du kan ikkje slette eller deaktivere din eigen administratorkonto"
+    "msg_cannot_remove_self": "Du kan ikkje slette eller deaktivere din eigen administratorkonto",
+    "msg_invalid_limit": ":field: skriv inn -1 for uavgrensa eller eit heiltal på 0 eller meir."
   },
   "alias": {
     "msg_updated": "Alias oppdatert!",

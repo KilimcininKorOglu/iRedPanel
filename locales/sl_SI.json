@@ -552,7 +552,8 @@
     "allow_domain_creation": "Dovoli ustvarjanje domen",
     "save_limits": "Shrani omejitve",
     "msg_hosted_domain": "Samostojni skrbnik ne more uporabljati gostujoče domene :domain. Namesto tega nastavite poštni predal te domene za skrbnika.",
-    "msg_cannot_remove_self": "Svojega skrbniškega računa ne morete izbrisati ali onemogočiti"
+    "msg_cannot_remove_self": "Svojega skrbniškega računa ne morete izbrisati ali onemogočiti",
+    "msg_invalid_limit": ":field: vnesite -1 za neomejeno ali celo število 0 ali več."
   },
   "alias": {
     "msg_updated": "Vzdevek uspešno posodobljen!",

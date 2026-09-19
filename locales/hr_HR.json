@@ -552,7 +552,8 @@
     "allow_domain_creation": "Dopusti stvaranje domena",
     "save_limits": "Spremi ograničenja",
     "msg_hosted_domain": "Samostalni administrator ne može koristiti hostanu domenu :domain. Umjesto toga postavite poštanski sandučić ove domene za administratora.",
-    "msg_cannot_remove_self": "Ne možete izbrisati ili onemogućiti vlastiti administratorski račun"
+    "msg_cannot_remove_self": "Ne možete izbrisati ili onemogućiti vlastiti administratorski račun",
+    "msg_invalid_limit": ":field: unesite -1 za neograničeno ili cijeli broj 0 ili veći."
   },
   "alias": {
     "msg_updated": "Alias uspješno ažuriran!",

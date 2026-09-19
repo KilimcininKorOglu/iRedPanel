@@ -552,7 +552,8 @@
     "allow_domain_creation": "Permitir a criação de domínios",
     "save_limits": "Guardar limites",
     "msg_hosted_domain": "Um administrador independente não pode usar o domínio alojado :domain. Torne antes administradora uma caixa de correio deste domínio.",
-    "msg_cannot_remove_self": "Não pode eliminar nem desativar a sua própria conta de administrador"
+    "msg_cannot_remove_self": "Não pode eliminar nem desativar a sua própria conta de administrador",
+    "msg_invalid_limit": ":field: introduza -1 para ilimitado ou um número inteiro igual ou superior a 0."
   },
   "alias": {
     "msg_updated": "Alias atualizado com sucesso!",

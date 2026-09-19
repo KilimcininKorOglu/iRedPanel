@@ -552,7 +552,8 @@
     "allow_domain_creation": "Leyfa lénssköpun",
     "save_limits": "Vista takmörk",
     "msg_hosted_domain": "Sjálfstæður stjórnandi getur ekki notað hýsta lénið :domain. Gerðu í staðinn pósthólf í þessu léni að stjórnanda.",
-    "msg_cannot_remove_self": "Þú getur ekki eytt eða gert óvirkan þinn eigin stjórnandaaðgang"
+    "msg_cannot_remove_self": "Þú getur ekki eytt eða gert óvirkan þinn eigin stjórnandaaðgang",
+    "msg_invalid_limit": ":field: sláðu inn -1 fyrir ótakmarkað eða heiltölu sem er 0 eða hærri."
   },
   "alias": {
     "msg_updated": "Samnefni uppfært!",

@@ -552,7 +552,8 @@
     "allow_domain_creation": "Zezwól na tworzenie domen",
     "save_limits": "Zapisz limity",
     "msg_hosted_domain": "Samodzielny administrator nie może używać hostowanej domeny :domain. Zamiast tego nadaj uprawnienia administratora skrzynce z tej domeny.",
-    "msg_cannot_remove_self": "Nie możesz usunąć ani wyłączyć własnego konta administratora"
+    "msg_cannot_remove_self": "Nie możesz usunąć ani wyłączyć własnego konta administratora",
+    "msg_invalid_limit": ":field: wpisz -1, aby nie ustawiać limitu, lub liczbę całkowitą równą 0 lub większą."
   },
   "alias": {
     "msg_updated": "Alias zaktualizowany pomyślnie!",

@@ -552,7 +552,8 @@
     "allow_domain_creation": "Povoliť vytváranie domén",
     "save_limits": "Uložiť limity",
     "msg_hosted_domain": "Samostatný správca nemôže používať hostovanú doménu :domain. Namiesto toho urobte správcom schránku tejto domény.",
-    "msg_cannot_remove_self": "Nemôžete odstrániť ani zakázať vlastný účet správcu"
+    "msg_cannot_remove_self": "Nemôžete odstrániť ani zakázať vlastný účet správcu",
+    "msg_invalid_limit": ":field: zadajte -1 pre neobmedzené alebo celé číslo 0 alebo väčšie."
   },
   "alias": {
     "msg_updated": "Alias úspešne aktualizovaný!",

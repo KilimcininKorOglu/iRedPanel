@@ -552,7 +552,8 @@
     "allow_domain_creation": "도메인 생성 허용",
     "save_limits": "한도 저장",
     "msg_hosted_domain": "독립 관리자는 호스팅된 도메인 :domain 을(를) 사용할 수 없습니다. 대신 이 도메인의 사서함을 관리자로 지정하세요.",
-    "msg_cannot_remove_self": "자신의 관리자 계정은 삭제하거나 비활성화할 수 없습니다"
+    "msg_cannot_remove_self": "자신의 관리자 계정은 삭제하거나 비활성화할 수 없습니다",
+    "msg_invalid_limit": ":field: 무제한은 -1을, 그 외에는 0 이상의 정수를 입력하세요."
   },
   "alias": {
     "msg_updated": "별칭이 성공적으로 업데이트되었습니다!",

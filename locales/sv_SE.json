@@ -552,7 +552,8 @@
     "allow_domain_creation": "Tillåt skapande av domäner",
     "save_limits": "Spara gränser",
     "msg_hosted_domain": "En fristående administratör kan inte använda den hostade domänen :domain. Gör i stället en brevlåda i domänen till administratör.",
-    "msg_cannot_remove_self": "Du kan inte ta bort eller inaktivera ditt eget administratörskonto"
+    "msg_cannot_remove_self": "Du kan inte ta bort eller inaktivera ditt eget administratörskonto",
+    "msg_invalid_limit": ":field: ange -1 för obegränsat eller ett heltal som är 0 eller större."
   },
   "alias": {
     "msg_updated": "Alias uppdaterat!",

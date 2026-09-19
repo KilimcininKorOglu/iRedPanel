@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Tests\Models;
 
+use App\Exceptions\InvalidInputException;
 use App\Models\Admin;
 use PHPUnit\Framework\TestCase;
 
@@ -114,5 +115,40 @@ class AdminTest extends TestCase
 
         $this->assertFalse($admin->active);
         $this->assertFalse($admin->isGlobalAdmin);
+    }
+
+    public function testApplyLimits(): void
+    {
+        $admin = new Admin(username: 'a@test.com');
+        $admin->applyLimits(['createMaxUsers' => '2', 'createMaxQuota' => '-1', 'createMaxAliases' => '']);
+
+        $this->assertSame(2, $admin->createMaxUsers);
+        $this->assertSame(-1, $admin->createMaxQuota);
+        $this->assertSame(-1, $admin->createMaxAliases);
+        $this->assertFalse($admin->createNewDomains);
+    }
+
+    /**
+     * Text used to become 0 (nothing may be created) and -5 used to become -1 (unlimited).
+     *
+     * @return array<string, array{string}>
+     */
+    public static function invalidLimits(): array
+    {
+        return ['text' => ['abc'], 'below -1' => ['-5'], 'fraction' => ['2.5']];
+    }
+
+    #[\PHPUnit\Framework\Attributes\DataProvider('invalidLimits')]
+    public function testInvalidLimitIsRejectedAndNothingChanges(string $value): void
+    {
+        $admin = new Admin(username: 'a@test.com', createMaxDomains: 3);
+
+        try {
+            $admin->applyLimits(['createMaxDomains' => '5', 'createMaxUsers' => $value]);
+            $this->fail("{$value} must be rejected");
+        } catch (InvalidInputException $e) {
+            $this->assertSame('admin.max_users', $e->fieldKey);
+        }
+        $this->assertSame(3, $admin->createMaxDomains);
     }
 }

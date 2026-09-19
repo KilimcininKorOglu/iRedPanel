@@ -552,7 +552,8 @@
     "allow_domain_creation": "Alan adı oluşturmaya izin ver",
     "save_limits": "Sınırları Kaydet",
     "msg_hosted_domain": "Bağımsız bir admin, sunucudaki :domain domain'ini kullanamaz. Bunun yerine bu domain'deki bir mailbox'ı admin yapın.",
-    "msg_cannot_remove_self": "Kendi admin hesabınızı silemez veya devre dışı bırakamazsınız"
+    "msg_cannot_remove_self": "Kendi admin hesabınızı silemez veya devre dışı bırakamazsınız",
+    "msg_invalid_limit": ":field: sınırsız için -1 veya 0 ya da daha büyük bir tam sayı girin."
   },
   "alias": {
     "msg_updated": "Takma ad başarıyla güncellendi!",

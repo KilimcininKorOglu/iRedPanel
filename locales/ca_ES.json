@@ -552,7 +552,8 @@
     "allow_domain_creation": "Permetre la creació de dominis",
     "save_limits": "Desar límits",
     "msg_hosted_domain": "Un administrador independent no pot utilitzar el domini allotjat :domain. En lloc d'això, feu administradora una bústia d'aquest domini.",
-    "msg_cannot_remove_self": "No podeu suprimir ni desactivar el vostre propi compte d'administrador"
+    "msg_cannot_remove_self": "No podeu suprimir ni desactivar el vostre propi compte d'administrador",
+    "msg_invalid_limit": ":field: introduïu -1 per a il·limitat o un nombre enter igual o superior a 0."
   },
   "alias": {
     "msg_updated": "Àlies actualitzat correctament!",

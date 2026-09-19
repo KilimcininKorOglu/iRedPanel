@@ -552,7 +552,8 @@
     "allow_domain_creation": "Domeinaanmaak toestaan",
     "save_limits": "Limieten opslaan",
     "msg_hosted_domain": "Een zelfstandige beheerder kan het gehoste domein :domain niet gebruiken. Maak in plaats daarvan een mailbox van dit domein beheerder.",
-    "msg_cannot_remove_self": "U kunt uw eigen beheerdersaccount niet verwijderen of uitschakelen"
+    "msg_cannot_remove_self": "U kunt uw eigen beheerdersaccount niet verwijderen of uitschakelen",
+    "msg_invalid_limit": ":field: voer -1 in voor onbeperkt of een geheel getal van 0 of meer."
   },
   "alias": {
     "msg_updated": "Alias succesvol bijgewerkt!",

@@ -552,7 +552,8 @@
     "allow_domain_creation": "Autoriser la création de domaines",
     "save_limits": "Enregistrer les limites",
     "msg_hosted_domain": "Un administrateur autonome ne peut pas utiliser le domaine hébergé :domain. Faites plutôt d'une boîte aux lettres de ce domaine un administrateur.",
-    "msg_cannot_remove_self": "Vous ne pouvez pas supprimer ni désactiver votre propre compte administrateur"
+    "msg_cannot_remove_self": "Vous ne pouvez pas supprimer ni désactiver votre propre compte administrateur",
+    "msg_invalid_limit": ":field : saisissez -1 pour illimité ou un nombre entier supérieur ou égal à 0."
   },
   "alias": {
     "msg_updated": "Alias mis à jour avec succès !",

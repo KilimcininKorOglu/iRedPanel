@@ -114,8 +114,10 @@ class PgsqlDomainRepository implements DomainRepositoryInterface
         $pdo = PgsqlConnection::getInstance()->getPdo();
 
         $stmt = $pdo->prepare(
-            "INSERT INTO domain (domain, description, active, maxquota, quota, mailboxes, aliases, transport, created)
-             VALUES (:domain, :description, :active, :maxquota, :quota, :mailboxes, :aliases, :transport, NOW())"
+            "INSERT INTO domain (domain, description, active, maxquota, quota, mailboxes, aliases, transport,
+                                 settings, disclaimer, created)
+             VALUES (:domain, :description, :active, :maxquota, :quota, :mailboxes, :aliases, :transport,
+                     :settings, :disclaimer, NOW())"
         );
         $stmt->execute([
             'domain' => $domain->domainName,
@@ -126,6 +128,8 @@ class PgsqlDomainRepository implements DomainRepositoryInterface
             'mailboxes' => $domain->mailboxes,
             'aliases' => $domain->aliases,
             'transport' => $domain->transport,
+            'settings' => $domain->settings,
+            'disclaimer' => $domain->disclaimer,
         ]);
     }
 

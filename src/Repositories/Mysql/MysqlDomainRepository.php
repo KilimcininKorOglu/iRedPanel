@@ -111,8 +111,10 @@ class MysqlDomainRepository implements DomainRepositoryInterface
         $pdo = MysqlConnection::getInstance()->getPdo();
 
         $stmt = $pdo->prepare(
-            "INSERT INTO domain (domain, description, active, maxquota, quota, mailboxes, aliases, transport, created)
-             VALUES (:domain, :description, :active, :maxquota, :quota, :mailboxes, :aliases, :transport, NOW())"
+            "INSERT INTO domain (domain, description, active, maxquota, quota, mailboxes, aliases, transport,
+                                 settings, disclaimer, created)
+             VALUES (:domain, :description, :active, :maxquota, :quota, :mailboxes, :aliases, :transport,
+                     :settings, :disclaimer, NOW())"
         );
         $stmt->execute([
             'domain' => $domain->domainName,
@@ -123,6 +125,8 @@ class MysqlDomainRepository implements DomainRepositoryInterface
             'mailboxes' => $domain->mailboxes,
             'aliases' => $domain->aliases,
             'transport' => $domain->transport,
+            'settings' => $domain->settings,
+            'disclaimer' => $domain->disclaimer,
         ]);
     }
 

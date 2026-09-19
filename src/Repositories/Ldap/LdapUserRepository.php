@@ -21,6 +21,12 @@ class LdapUserRepository implements UserRepositoryInterface
     ];
 
     /** Attributes that store a mail address and must follow a rename. */
+    /** iredadmin table and column pairs that hold a mailbox address on the LDAP backend. */
+    private const IREDADMIN_ADDRESS_COLUMNS = [
+        ['used_quota', 'username'], ['last_login', 'username'],
+        ['share_folder', 'from_user'], ['share_folder', 'to_user'], ['anyone_shares', 'from_user'],
+    ];
+
     private const ADDRESS_ATTRS = [
         'mailForwardingAddress', 'listModerator', 'listOwner',
         'userSenderBccAddress', 'userRecipientBccAddress', 'domainSenderBccAddress', 'domainRecipientBccAddress',
@@ -273,11 +279,21 @@ class LdapUserRepository implements UserRepositoryInterface
     public function deleteUser(string $domain, string $userUid, string $adminEmail): void
     {
         $conn = LdapConnection::getInstance()->getConn();
-        $dn = LdapUtils::getEmailDn("{$userUid}@{$domain}");
+        $email = "{$userUid}@{$domain}";
+        $dn = LdapUtils::getEmailDn($email);
+
+        $result = @ldap_read($conn, $dn, '(objectClass=mailUser)', ['homeDirectory']);
+        if ($result === false) {
+            throw new \RuntimeException("LDAP user deletion failed for '{$email}': " . ldap_error($conn));
+        }
+        $maildir = LdapUtils::allValues(ldap_get_entries($conn, $result)[0] ?? [], 'homeDirectory')[0] ?? '';
 
         if (!@ldap_delete($conn, $dn)) {
-            throw new \RuntimeException("LDAP user deletion failed for '{$userUid}@{$domain}': " . ldap_error($conn));
+            throw new \RuntimeException("LDAP user deletion failed for '{$email}': " . ldap_error($conn));
         }
+
+        self::replaceAddressReferences($conn, $email, null);
+        self::deleteIredadminRows($email, $domain, $maildir, $adminEmail);
     }
 
     public function renameUser(string $domain, string $oldUid, string $newUid): void
@@ -301,10 +317,11 @@ class LdapUserRepository implements UserRepositoryInterface
     }
 
     /**
-     * Replaces the old address in every entry attribute that stores an address, as the
-     * SQL backends do for their forwardings, moderator, owner and BCC columns.
+     * Replaces the old address in every entry attribute that stores an address, or removes it
+     * when $newEmail is null, as the SQL backends do for their forwardings, moderator, owner
+     * and BCC columns.
      */
-    private static function replaceAddressReferences(\LDAP\Connection $conn, string $oldEmail, string $newEmail): void
+    private static function replaceAddressReferences(\LDAP\Connection $conn, string $oldEmail, ?string $newEmail): void
     {
         $safeOld = ldap_escape($oldEmail, '', LDAP_ESCAPE_FILTER);
         $filter = '(|' . implode('', array_map(
@@ -326,16 +343,17 @@ class LdapUserRepository implements UserRepositoryInterface
     }
 
     /**
-     * @return array<string, string[]> the attributes of the entry that hold $oldEmail, with $newEmail instead
+     * @return array<string, string[]> the attributes of the entry that hold $oldEmail, with $newEmail
+     *         instead or without it. An empty list deletes the attribute.
      */
-    private static function replacedValues(array $entry, string $oldEmail, string $newEmail): array
+    private static function replacedValues(array $entry, string $oldEmail, ?string $newEmail): array
     {
         $changes = [];
         foreach (self::ADDRESS_ATTRS as $attr) {
             $values = LdapUtils::allValues($entry, $attr);
             $kept = array_filter($values, static fn (string $value): bool => strcasecmp($value, $oldEmail) !== 0);
             if (count($kept) !== count($values)) {
-                $changes[$attr] = array_values(array_unique([...$kept, $newEmail]));
+                $changes[$attr] = array_values(array_unique($newEmail === null ? $kept : [...$kept, $newEmail]));
             }
         }
 
@@ -352,9 +370,26 @@ class LdapUserRepository implements UserRepositoryInterface
         if ($pdo === null) {
             return;
         }
-        foreach ([['used_quota', 'username'], ['last_login', 'username'], ['share_folder', 'from_user'], ['share_folder', 'to_user'], ['anyone_shares', 'from_user']] as [$table, $column]) {
+        foreach (self::IREDADMIN_ADDRESS_COLUMNS as [$table, $column]) {
             $pdo->prepare("UPDATE {$table} SET {$column} = :new WHERE {$column} = :old")
                 ->execute(['new' => $newEmail, 'old' => $oldEmail]);
+        }
+    }
+
+    /**
+     * Records the maildir for deferred deletion and removes the quota, last login and shared
+     * folder rows, as the SQL backends do in the vmail database.
+     */
+    private static function deleteIredadminRows(string $email, string $domain, string $maildir, string $adminEmail): void
+    {
+        $pdo = IredadminConnection::getInstance()->getPdo();
+        if ($pdo === null) {
+            return;
+        }
+        $pdo->prepare("INSERT INTO deleted_mailboxes (username, maildir, domain, admin) VALUES (:username, :maildir, :domain, :admin)")
+            ->execute(['username' => $email, 'maildir' => rtrim($maildir, '/'), 'domain' => $domain, 'admin' => $adminEmail]);
+        foreach (self::IREDADMIN_ADDRESS_COLUMNS as [$table, $column]) {
+            $pdo->prepare("DELETE FROM {$table} WHERE {$column} = :email")->execute(['email' => $email]);
         }
     }
 }

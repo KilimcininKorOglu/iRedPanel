@@ -83,7 +83,9 @@
     "msg_bulk_failed": "Handlinga mislukkast for: :items",
     "msg_item_not_found": "ikkje funne",
     "msg_invalid_address": "Ugyldig adresse: :address",
-    "msg_item_deleted": ":item er sletta."
+    "msg_item_deleted": ":item er sletta.",
+    "msg_address_required": "Adressa og domenet må fyllast ut.",
+    "msg_alias_limit": "Aliasgrensa for domenet er nådd (:current/:max)."
   },
   "auth": {
     "title": "Autentisering",

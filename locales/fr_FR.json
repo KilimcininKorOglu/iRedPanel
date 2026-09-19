@@ -83,7 +83,9 @@
     "msg_bulk_failed": "L'action a échoué pour : :items",
     "msg_item_not_found": "introuvable",
     "msg_invalid_address": "Adresse invalide : :address",
-    "msg_item_deleted": ":item a été supprimé."
+    "msg_item_deleted": ":item a été supprimé.",
+    "msg_address_required": "L'adresse et le domaine sont obligatoires.",
+    "msg_alias_limit": "La limite d'alias du domaine est atteinte (:current/:max)."
   },
   "auth": {
     "title": "Authentification",

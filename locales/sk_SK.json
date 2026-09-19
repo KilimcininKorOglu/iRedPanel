@@ -83,7 +83,9 @@
     "msg_bulk_failed": "Akcia zlyhala pre: :items",
     "msg_item_not_found": "nenájdené",
     "msg_invalid_address": "Neplatná adresa: :address",
-    "msg_item_deleted": ":item bol odstránený."
+    "msg_item_deleted": ":item bol odstránený.",
+    "msg_address_required": "Adresa a doména sú povinné.",
+    "msg_alias_limit": "Bol dosiahnutý limit aliasov domény (:current/:max)."
   },
   "auth": {
     "title": "Overenie",

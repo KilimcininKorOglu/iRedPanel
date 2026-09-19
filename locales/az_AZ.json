@@ -83,7 +83,9 @@
     "msg_bulk_failed": "Əməliyyat bunlar üçün uğursuz oldu: :items",
     "msg_item_not_found": "tapılmadı",
     "msg_invalid_address": "Etibarsız ünvan: :address",
-    "msg_item_deleted": ":item silindi."
+    "msg_item_deleted": ":item silindi.",
+    "msg_address_required": "Ünvan və domain tələb olunur.",
+    "msg_alias_limit": "Domainin alias limitinə çatıldı (:current/:max)."
   },
   "auth": {
     "title": "Autentifikasiya",

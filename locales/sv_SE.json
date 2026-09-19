@@ -83,7 +83,9 @@
     "msg_bulk_failed": "Åtgärden misslyckades för: :items",
     "msg_item_not_found": "hittades inte",
     "msg_invalid_address": "Ogiltig adress: :address",
-    "msg_item_deleted": ":item har tagits bort."
+    "msg_item_deleted": ":item har tagits bort.",
+    "msg_address_required": "Adressen och domänen krävs.",
+    "msg_alias_limit": "Domänens aliasgräns har nåtts (:current/:max)."
   },
   "auth": {
     "title": "Autentisering",

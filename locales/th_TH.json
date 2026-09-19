@@ -83,7 +83,9 @@
     "msg_bulk_failed": "การดำเนินการล้มเหลวสำหรับ: :items",
     "msg_item_not_found": "ไม่พบ",
     "msg_invalid_address": "ที่อยู่ไม่ถูกต้อง: :address",
-    "msg_item_deleted": "ลบ :item แล้ว"
+    "msg_item_deleted": "ลบ :item แล้ว",
+    "msg_address_required": "ต้องระบุที่อยู่และโดเมน",
+    "msg_alias_limit": "ถึงขีดจำกัดนามแฝงของโดเมนแล้ว (:current/:max)"
   },
   "auth": {
     "title": "การยืนยันตัวตน",

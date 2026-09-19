@@ -83,7 +83,9 @@
     "msg_bulk_failed": "The action failed for: :items",
     "msg_item_not_found": "not found",
     "msg_invalid_address": "Invalid address: :address",
-    "msg_item_deleted": ":item was deleted."
+    "msg_item_deleted": ":item was deleted.",
+    "msg_address_required": "The address and the domain are required.",
+    "msg_alias_limit": "The domain alias limit is reached (:current/:max)."
   },
   "auth": {
     "title": "Authentication",

@@ -83,7 +83,9 @@
     "msg_bulk_failed": "Akcja nie powiodła się dla: :items",
     "msg_item_not_found": "nie znaleziono",
     "msg_invalid_address": "Nieprawidłowy adres: :address",
-    "msg_item_deleted": "Usunięto :item."
+    "msg_item_deleted": "Usunięto :item.",
+    "msg_address_required": "Adres i domena są wymagane.",
+    "msg_alias_limit": "Osiągnięto limit aliasów domeny (:current/:max)."
   },
   "auth": {
     "title": "Uwierzytelnianie",

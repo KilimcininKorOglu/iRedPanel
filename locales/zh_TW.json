@@ -83,7 +83,9 @@
     "msg_bulk_failed": "以下項目操作失敗: :items",
     "msg_item_not_found": "找不到",
     "msg_invalid_address": "無效的位址: :address",
-    "msg_item_deleted": "已刪除 :item。"
+    "msg_item_deleted": "已刪除 :item。",
+    "msg_address_required": "地址與網域為必填。",
+    "msg_alias_limit": "已達到網域的別名上限 (:current/:max)。"
   },
   "auth": {
     "title": "驗證",

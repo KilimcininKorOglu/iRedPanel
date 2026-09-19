@@ -83,7 +83,9 @@
     "msg_bulk_failed": "Радња није успела за: :items",
     "msg_item_not_found": "није пронађено",
     "msg_invalid_address": "Неважећа адреса: :address",
-    "msg_item_deleted": ":item је обрисан."
+    "msg_item_deleted": ":item је обрисан.",
+    "msg_address_required": "Адреса и домен су обавезни.",
+    "msg_alias_limit": "Достигнуто је ограничење алијаса домена (:current/:max)."
   },
   "auth": {
     "title": "Аутентификација",

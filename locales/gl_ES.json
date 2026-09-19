@@ -83,7 +83,9 @@
     "msg_bulk_failed": "A acción fallou para: :items",
     "msg_item_not_found": "non atopado",
     "msg_invalid_address": "Enderezo non válido: :address",
-    "msg_item_deleted": "Eliminouse :item."
+    "msg_item_deleted": "Eliminouse :item.",
+    "msg_address_required": "O enderezo e o dominio son obrigatorios.",
+    "msg_alias_limit": "Alcanzouse o límite de alias do dominio (:current/:max)."
   },
   "auth": {
     "title": "Autenticación",

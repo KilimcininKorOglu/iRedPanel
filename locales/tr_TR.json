@@ -83,7 +83,9 @@
     "msg_bulk_failed": "İşlem şunlar için başarısız oldu: :items",
     "msg_item_not_found": "bulunamadı",
     "msg_invalid_address": "Geçersiz adres: :address",
-    "msg_item_deleted": ":item silindi."
+    "msg_item_deleted": ":item silindi.",
+    "msg_address_required": "Adres ve domain zorunludur.",
+    "msg_alias_limit": "Domain alias sınırına ulaşıldı (:current/:max)."
   },
   "auth": {
     "title": "Kimlik Doğrulama",

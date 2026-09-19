@@ -83,7 +83,9 @@
     "msg_bulk_failed": "A művelet sikertelen volt: :items",
     "msg_item_not_found": "nem található",
     "msg_invalid_address": "Érvénytelen cím: :address",
-    "msg_item_deleted": ":item törölve."
+    "msg_item_deleted": ":item törölve.",
+    "msg_address_required": "A cím és a domain megadása kötelező.",
+    "msg_alias_limit": "Elérte a domain alias korlátját (:current/:max)."
   },
   "auth": {
     "title": "Hitelesítés",

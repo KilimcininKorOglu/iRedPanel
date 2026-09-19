@@ -71,7 +71,7 @@ class MailingListController
         $localPart = trim($_POST['localPart'] ?? '');
         $domain = trim($_POST['domain'] ?? '');
         if ($localPart === '' || $domain === '') {
-            throw new \RuntimeException('Email address and domain are required');
+            throw new \RuntimeException(Translator::translate('common.msg_address_required'));
         }
 
         $address = strtolower($localPart . '@' . $domain);
@@ -107,7 +107,10 @@ class MailingListController
 
         $aliasCount = RepositoryFactory::getAliasRepository()->countAliasesForDomain($domain);
         if ($aliasCount >= $domainObj->aliases) {
-            throw new \RuntimeException("Domain alias limit reached ({$aliasCount}/{$domainObj->aliases})");
+            throw new \RuntimeException(Translator::translate('common.msg_alias_limit', [
+                'current' => $aliasCount,
+                'max' => $domainObj->aliases,
+            ]));
         }
     }
 

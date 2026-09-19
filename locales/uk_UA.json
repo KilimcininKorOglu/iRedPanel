@@ -83,7 +83,9 @@
     "msg_bulk_failed": "Дію не виконано для: :items",
     "msg_item_not_found": "не знайдено",
     "msg_invalid_address": "Недійсна адреса: :address",
-    "msg_item_deleted": ":item видалено."
+    "msg_item_deleted": ":item видалено.",
+    "msg_address_required": "Адреса та домен обов'язкові.",
+    "msg_alias_limit": "Досягнуто ліміту псевдонімів домену (:current/:max)."
   },
   "auth": {
     "title": "Автентифікація",

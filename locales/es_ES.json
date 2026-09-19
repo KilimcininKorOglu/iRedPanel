@@ -83,7 +83,9 @@
     "msg_bulk_failed": "La acción falló para: :items",
     "msg_item_not_found": "no encontrado",
     "msg_invalid_address": "Dirección no válida: :address",
-    "msg_item_deleted": ":item se ha eliminado."
+    "msg_item_deleted": ":item se ha eliminado.",
+    "msg_address_required": "La dirección y el dominio son obligatorios.",
+    "msg_alias_limit": "Se alcanzó el límite de alias del dominio (:current/:max)."
   },
   "auth": {
     "title": "Autenticación",

@@ -83,7 +83,9 @@
     "msg_bulk_failed": "Toiming ebaõnnestus: :items",
     "msg_item_not_found": "ei leitud",
     "msg_invalid_address": "Vigane aadress: :address",
-    "msg_item_deleted": ":item kustutati."
+    "msg_item_deleted": ":item kustutati.",
+    "msg_address_required": "Aadress ja domeen on kohustuslikud.",
+    "msg_alias_limit": "Domeeni aliaste piirang on täis (:current/:max)."
   },
   "auth": {
     "title": "Autentimine",

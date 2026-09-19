@@ -83,7 +83,9 @@
     "msg_bulk_failed": "Die Aktion ist fehlgeschlagen für: :items",
     "msg_item_not_found": "nicht gefunden",
     "msg_invalid_address": "Ungültige Adresse: :address",
-    "msg_item_deleted": ":item wurde gelöscht."
+    "msg_item_deleted": ":item wurde gelöscht.",
+    "msg_address_required": "Adresse und Domain sind erforderlich.",
+    "msg_alias_limit": "Das Alias-Limit der Domain ist erreicht (:current/:max)."
   },
   "auth": {
     "title": "Authentifizierung",

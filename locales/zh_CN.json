@@ -83,7 +83,9 @@
     "msg_bulk_failed": "以下项目操作失败: :items",
     "msg_item_not_found": "未找到",
     "msg_invalid_address": "无效的地址: :address",
-    "msg_item_deleted": "已删除 :item。"
+    "msg_item_deleted": "已删除 :item。",
+    "msg_address_required": "地址和域名为必填项。",
+    "msg_alias_limit": "已达到域名的别名上限 (:current/:max)。"
   },
   "auth": {
     "title": "身份验证",

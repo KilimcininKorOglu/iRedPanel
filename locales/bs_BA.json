@@ -83,7 +83,9 @@
     "msg_bulk_failed": "Radnja nije uspjela za: :items",
     "msg_item_not_found": "nije pronađeno",
     "msg_invalid_address": "Nevažeća adresa: :address",
-    "msg_item_deleted": ":item je izbrisan."
+    "msg_item_deleted": ":item je izbrisan.",
+    "msg_address_required": "Adresa i domena su obavezne.",
+    "msg_alias_limit": "Dostignuto je ograničenje aliasa domene (:current/:max)."
   },
   "auth": {
     "title": "Autentifikacija",

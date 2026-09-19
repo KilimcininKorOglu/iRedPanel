@@ -83,7 +83,9 @@
     "msg_bulk_failed": "Dejanje ni uspelo za: :items",
     "msg_item_not_found": "ni najdeno",
     "msg_invalid_address": "Neveljaven naslov: :address",
-    "msg_item_deleted": ":item je izbrisan."
+    "msg_item_deleted": ":item je izbrisan.",
+    "msg_address_required": "Naslov in domena sta obvezna.",
+    "msg_alias_limit": "Dosežena je omejitev vzdevkov domene (:current/:max)."
   },
   "auth": {
     "title": "Preverjanje pristnosti",

@@ -83,7 +83,9 @@
     "msg_bulk_failed": "Tindakan gagal untuk: :items",
     "msg_item_not_found": "tidak ditemukan",
     "msg_invalid_address": "Alamat tidak valid: :address",
-    "msg_item_deleted": ":item telah dihapus."
+    "msg_item_deleted": ":item telah dihapus.",
+    "msg_address_required": "Alamat dan domain wajib diisi.",
+    "msg_alias_limit": "Batas alias domain telah tercapai (:current/:max)."
   },
   "auth": {
     "title": "Autentikasi",

@@ -83,7 +83,9 @@
     "msg_bulk_failed": "Η ενέργεια απέτυχε για: :items",
     "msg_item_not_found": "δεν βρέθηκε",
     "msg_invalid_address": "Μη έγκυρη διεύθυνση: :address",
-    "msg_item_deleted": "Το :item διαγράφηκε."
+    "msg_item_deleted": "Το :item διαγράφηκε.",
+    "msg_address_required": "Η διεύθυνση και ο τομέας είναι υποχρεωτικά.",
+    "msg_alias_limit": "Συμπληρώθηκε το όριο ψευδωνύμων του τομέα (:current/:max)."
   },
   "auth": {
     "title": "Έλεγχος ταυτότητας",

@@ -83,7 +83,9 @@
     "msg_bulk_failed": "Действие не выполнено для: :items",
     "msg_item_not_found": "не найдено",
     "msg_invalid_address": "Недопустимый адрес: :address",
-    "msg_item_deleted": ":item удалён."
+    "msg_item_deleted": ":item удалён.",
+    "msg_address_required": "Адрес и домен обязательны.",
+    "msg_alias_limit": "Достигнут лимит псевдонимов домена (:current/:max)."
   },
   "auth": {
     "title": "Аутентификация",

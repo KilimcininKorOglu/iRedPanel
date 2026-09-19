@@ -83,7 +83,9 @@
     "msg_bulk_failed": "Aðgerðin mistókst fyrir: :items",
     "msg_item_not_found": "fannst ekki",
     "msg_invalid_address": "Ógilt vistfang: :address",
-    "msg_item_deleted": ":item var eytt."
+    "msg_item_deleted": ":item var eytt.",
+    "msg_address_required": "Netfang og lén eru nauðsynleg.",
+    "msg_alias_limit": "Hámarki samnefna lénsins er náð (:current/:max)."
   },
   "auth": {
     "title": "Auðkenning",

@@ -83,7 +83,9 @@
     "msg_bulk_failed": "L'acció ha fallat per a: :items",
     "msg_item_not_found": "no trobat",
     "msg_invalid_address": "Adreça no vàlida: :address",
-    "msg_item_deleted": "S'ha suprimit :item."
+    "msg_item_deleted": "S'ha suprimit :item.",
+    "msg_address_required": "L'adreça i el domini són obligatoris.",
+    "msg_alias_limit": "S'ha assolit el límit d'àlies del domini (:current/:max)."
   },
   "auth": {
     "title": "Autenticació",

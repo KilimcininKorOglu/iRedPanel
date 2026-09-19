@@ -83,7 +83,9 @@
     "msg_bulk_failed": "Acțiunea a eșuat pentru: :items",
     "msg_item_not_found": "negăsit",
     "msg_invalid_address": "Adresă invalidă: :address",
-    "msg_item_deleted": ":item a fost șters."
+    "msg_item_deleted": ":item a fost șters.",
+    "msg_address_required": "Adresa și domeniul sunt obligatorii.",
+    "msg_alias_limit": "S-a atins limita de aliasuri a domeniului (:current/:max)."
   },
   "auth": {
     "title": "Autentificare",

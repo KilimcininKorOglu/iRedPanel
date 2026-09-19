@@ -83,7 +83,9 @@
     "msg_bulk_failed": "De actie is mislukt voor: :items",
     "msg_item_not_found": "niet gevonden",
     "msg_invalid_address": "Ongeldig adres: :address",
-    "msg_item_deleted": ":item is verwijderd."
+    "msg_item_deleted": ":item is verwijderd.",
+    "msg_address_required": "Het adres en het domein zijn verplicht.",
+    "msg_alias_limit": "De aliaslimiet van het domein is bereikt (:current/:max)."
   },
   "auth": {
     "title": "Authenticatie",

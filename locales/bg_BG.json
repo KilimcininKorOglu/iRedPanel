@@ -83,7 +83,9 @@
     "msg_bulk_failed": "Действието не успя за: :items",
     "msg_item_not_found": "не е намерен",
     "msg_invalid_address": "Невалиден адрес: :address",
-    "msg_item_deleted": ":item е изтрит."
+    "msg_item_deleted": ":item е изтрит.",
+    "msg_address_required": "Адресът и домейнът са задължителни.",
+    "msg_alias_limit": "Достигнат е лимитът на псевдоними за домейна (:current/:max)."
   },
   "auth": {
     "title": "Удостоверяване",

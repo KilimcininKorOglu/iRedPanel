@@ -83,7 +83,9 @@
     "msg_bulk_failed": "Toiminto epäonnistui kohteille: :items",
     "msg_item_not_found": "ei löytynyt",
     "msg_invalid_address": "Virheellinen osoite: :address",
-    "msg_item_deleted": ":item poistettiin."
+    "msg_item_deleted": ":item poistettiin.",
+    "msg_address_required": "Osoite ja verkkotunnus ovat pakollisia.",
+    "msg_alias_limit": "Verkkotunnuksen aliasraja on täynnä (:current/:max)."
   },
   "auth": {
     "title": "Todennus",

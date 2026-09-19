@@ -83,7 +83,9 @@
     "msg_bulk_failed": "Akce selhala pro: :items",
     "msg_item_not_found": "nenalezeno",
     "msg_invalid_address": "Neplatná adresa: :address",
-    "msg_item_deleted": ":item byl odstraněn."
+    "msg_item_deleted": ":item byl odstraněn.",
+    "msg_address_required": "Adresa a doména jsou povinné.",
+    "msg_alias_limit": "Byl dosažen limit aliasů domény (:current/:max)."
   },
   "auth": {
     "title": "Ověření",

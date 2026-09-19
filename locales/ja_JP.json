@@ -83,7 +83,9 @@
     "msg_bulk_failed": "次の項目で操作に失敗しました: :items",
     "msg_item_not_found": "見つかりません",
     "msg_invalid_address": "無効なアドレス: :address",
-    "msg_item_deleted": ":item を削除しました。"
+    "msg_item_deleted": ":item を削除しました。",
+    "msg_address_required": "アドレスとドメインは必須です。",
+    "msg_alias_limit": "ドメインのエイリアス上限に達しました (:current/:max)。"
   },
   "auth": {
     "title": "認証",

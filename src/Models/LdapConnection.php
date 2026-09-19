@@ -64,7 +64,8 @@ class LdapConnection
                 throw new \Exception("User {$email} is not an administrator!");
             }
         } else {
-            $bindDn = "cn={$safeEmail},{$settings->ldapRootDn}";
+            // A full DN (cn=vmailadmin,dc=example,dc=com) is used as is; a bare CN is placed under the root DN.
+            $bindDn = str_contains($email, '=') ? $email : "cn={$safeEmail},{$settings->ldapRootDn}";
             if (!@ldap_bind($conn, $bindDn, $password)) {
                 throw new \Exception("LDAP bind failed: " . ldap_error($conn));
             }
@@ -90,13 +91,23 @@ class LdapConnection
     }
 
     /**
-     * Returns the existing LDAP connection instance.
-     * Throws LdapConnectionException if not connected.
+     * Returns the LDAP connection of this request. Only the login request binds
+     * as the admin; every other request, and the CLI, binds with the service
+     * account IREDPANEL_LDAP_USER / IREDPANEL_LDAP_PASSWORD.
+     *
+     * @throws LdapConnectionException when the service account cannot bind
      */
     public static function getInstance(): self
     {
         if (self::$instance === null) {
-            throw new LdapConnectionException("User authentication has not been performed");
+            $settings = Settings::getInstance();
+            try {
+                self::$instance = new self($settings->ldapUser, $settings->ldapPassword);
+            } catch (LdapConnectionException $e) {
+                throw $e;
+            } catch (\Exception $e) {
+                throw new LdapConnectionException('LDAP service bind failed: ' . $e->getMessage(), 0, $e);
+            }
         }
         return self::$instance;
     }

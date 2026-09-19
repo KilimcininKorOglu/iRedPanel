@@ -63,8 +63,8 @@ IREDPANEL_BACKEND=ldap    # or "mysql" or "pgsql"
 |-------------------|---------|-------------------------------------------|----------------------------|
 | `LDAP_URI`        | -       | LDAP server URI (`ldap://` or `ldaps://`) | `ldaps://ldap.example.com` |
 | `LDAP_ROOT_DN`    | -       | LDAP root DN                              | `dc=example,dc=com`        |
-| `LDAP_USER`       | -       | Admin email or CN for LDAP bind           | `postmaster@example.com`   |
-| `LDAP_PASSWORD`   | -       | Admin password for LDAP bind              | `secret`                   |
+| `LDAP_USER`       | -       | Service bind: admin email, CN or full DN  | `postmaster@example.com`   |
+| `LDAP_PASSWORD`   | -       | Password of the service bind              | `secret`                   |
 | `LDAP_TLS_VERIFY` | `false` | Verify TLS certificate on LDAP connection | `true`                     |
 
 ### MySQL Settings (required when `BACKEND=mysql`)

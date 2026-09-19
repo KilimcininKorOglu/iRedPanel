@@ -58,11 +58,15 @@ class MailingListService
     }
 
     /**
+     * An empty owner list becomes the default owner on both sides, so the stored
+     * owners match mlmmj.
+     *
      * @param string[] $owners
      */
     public static function setOwners(string $address, array $owners): void
     {
-        MlmmjadminClient::fromSettings()->updateList($address, ['owner' => implode(',', self::owners($address, $owners))]);
+        $owners = self::owners($address, $owners);
+        MlmmjadminClient::fromSettings()->updateList($address, ['owner' => implode(',', $owners)]);
         self::repo()->setOwners($address, $owners);
     }
 

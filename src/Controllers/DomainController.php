@@ -83,7 +83,7 @@ class DomainController
 
                 if (empty($domain->domainName)) {
                     $validationErrors['domainName'] = Translator::translate('domain.msg_name_required');
-                } elseif (!preg_match('/^[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*\.[a-z]{2,}$/', $domain->domainName)) {
+                } elseif (!Domain::isValidName($domain->domainName)) {
                     $validationErrors['domainName'] = Translator::translate('common.msg_invalid_domain_format');
                 }
 

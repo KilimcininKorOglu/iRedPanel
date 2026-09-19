@@ -73,6 +73,16 @@ class DomainTest extends TestCase
         Domain::validLimit('abc', 'quota');
     }
 
+    public function testValidNames(): void
+    {
+        $this->assertTrue(Domain::isValidName('example.com'));
+        $this->assertTrue(Domain::isValidName('mail-1.example.co.uk'));
+        $this->assertFalse(Domain::isValidName('bad domain!'));
+        $this->assertFalse(Domain::isValidName('nodot'));
+        $this->assertFalse(Domain::isValidName('-lead.example.com'));
+        $this->assertFalse(Domain::isValidName('Example.com'));
+    }
+
     public function testFromMysqlRow(): void
     {
         $row = [

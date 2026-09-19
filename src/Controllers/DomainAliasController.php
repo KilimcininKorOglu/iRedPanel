@@ -7,6 +7,7 @@ namespace App\Controllers;
 use App\CsrfProtection;
 use App\I18n\Translator;
 use App\Middleware;
+use App\Models\Domain;
 use App\Models\DomainAlias;
 use App\Models\Settings;
 use App\Repositories\RepositoryFactory;
@@ -86,7 +87,7 @@ class DomainAliasController
         $errors = [];
         if (empty($alias->aliasDomain)) {
             $errors['aliasDomain'] = Translator::translate('domainalias.msg_alias_required');
-        } elseif (!preg_match('/^[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*\.[a-z]{2,}$/', $alias->aliasDomain)) {
+        } elseif (!Domain::isValidName($alias->aliasDomain)) {
             $errors['aliasDomain'] = Translator::translate('common.msg_invalid_domain_format');
         } elseif ($alias->aliasDomain === $alias->targetDomain) {
             $errors['aliasDomain'] = Translator::translate('domainalias.msg_same_as_target');

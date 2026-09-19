@@ -58,6 +58,10 @@ class DomainApiController
             ApiResponse::error('domainName is required');
             return;
         }
+        if (!Domain::isValidName($domain->domainName)) {
+            ApiResponse::error('domainName must be a valid domain name');
+            return;
+        }
 
         $repo = RepositoryFactory::getDomainRepository();
         if ($repo->getDomain($domain->domainName) !== null) {

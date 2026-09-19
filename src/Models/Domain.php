@@ -25,6 +25,17 @@ class Domain
         public int $currentQuotaUsed = 0,
     ) {}
 
+    /** A lowercase host name with at least one dot and an alphabetic top-level label. */
+    private const NAME_PATTERN = '/^[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*\.[a-z]{2,}$/';
+
+    /**
+     * Checks a lowercased domain or alias domain name.
+     */
+    public static function isValidName(string $name): bool
+    {
+        return preg_match(self::NAME_PATTERN, $name) === 1;
+    }
+
     /** Form label of each quota and count limit. */
     private const LIMIT_LABELS = [
         'maxQuota' => 'domain.max_quota',

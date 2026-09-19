@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Api;
 
+use App\Models\Domain;
 use App\Models\DomainAlias;
 use App\Repositories\RepositoryFactory;
 
@@ -36,8 +37,7 @@ class DomainAliasApiController
             ApiResponse::error('aliasDomain and targetDomain are required');
             return;
         }
-        if (!preg_match('/^[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*\.[a-z]{2,}$/', $aliasDomain)
-            || $aliasDomain === $targetDomain) {
+        if (!Domain::isValidName($aliasDomain) || $aliasDomain === $targetDomain) {
             ApiResponse::error('aliasDomain must be a valid domain name other than targetDomain');
             return;
         }

@@ -495,9 +495,6 @@
   "quarantine": {
     "title": "Karantæne",
     "heading": "Karantæneramte beskeder",
-    "filter_placeholder": "Filtrer efter domæne",
-    "filter": "Filtrer",
-    "clear": "Ryd",
     "cleanup": "Ryd op i gamle poster",
     "cleanup_confirm": "Ryd op i gamle karantæneramte beskeder og maillogfiler?",
     "date": "Dato",
@@ -628,6 +625,8 @@
     "max_lists": "Maks. mailinglister",
     "max_quota": "Maks. kvote (MB)",
     "allow_domain_creation": "Tillad oprettelse af domæner",
+    "disable_viewing_mail_log": "Tillad ikke visning af mailloggen",
+    "disable_managing_quarantined_mails": "Tillad ikke håndtering af mails i karantæne",
     "save_limits": "Gem grænser",
     "msg_hosted_domain": "En selvstændig administrator kan ikke bruge det hostede domæne :domain. Gør i stedet en postkasse i domænet til administrator.",
     "msg_cannot_remove_self": "Du kan ikke slette eller deaktivere din egen administratorkonto",

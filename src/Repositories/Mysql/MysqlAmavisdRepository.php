@@ -121,7 +121,7 @@ class MysqlAmavisdRepository implements AmavisdRepositoryInterface
         }
     }
 
-    public function getMailLog(int $page, int $perPage, ?string $email = null): PaginatedResult
+    public function getMailLog(int $page, int $perPage, ?string $email = null, ?string $domain = null): PaginatedResult
     {
         $conn = AmavisdConnection::getInstance();
         if (!$conn->isAvailable()) {
@@ -138,12 +138,18 @@ class MysqlAmavisdRepository implements AmavisdRepositoryInterface
             $params['email'] = '%' . SqlLike::escape($email) . '%';
             $params['email2'] = $params['email'];
         }
+        if ($domain !== null && $domain !== '') {
+            $where .= " AND (s.email LIKE :domainPattern " . SqlLike::ESCAPE . " OR r.email LIKE :domainPattern2 " . SqlLike::ESCAPE . ')';
+            $params['domainPattern'] = '%@' . SqlLike::escape($domain);
+            $params['domainPattern2'] = $params['domainPattern'];
+        }
 
         $countStmt = $pdo->prepare(
             "SELECT COUNT(*) AS total
              FROM msgs m
              JOIN msgrcpt mr ON m.mail_id = mr.mail_id
              JOIN maddr r ON mr.rid = r.id
+             LEFT JOIN maddr s ON m.sid = s.id
              WHERE {$where}"
         );
         $countStmt->execute($params);
@@ -155,6 +161,7 @@ class MysqlAmavisdRepository implements AmavisdRepositoryInterface
              FROM msgs m
              JOIN msgrcpt mr ON m.mail_id = mr.mail_id
              JOIN maddr r ON mr.rid = r.id
+             LEFT JOIN maddr s ON m.sid = s.id
              WHERE {$where}
              ORDER BY m.time_num DESC
              LIMIT :perPage OFFSET :offset"
@@ -274,6 +281,11 @@ class MysqlAmavisdRepository implements AmavisdRepositoryInterface
     public function deleteForRecipient(string $mailId, string $email): void
     {
         $this->recipientMail()->delete($mailId, $email);
+    }
+
+    public function pendingQuarantineRecipients(string $mailId, string $domain): array
+    {
+        return $this->recipientMail()->pendingRecipients($mailId, $domain);
     }
 
     private function recipientMail(): AmavisdRecipientMail

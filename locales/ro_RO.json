@@ -495,9 +495,6 @@
   "quarantine": {
     "title": "Carantină",
     "heading": "Mesaje în carantină",
-    "filter_placeholder": "Filtrează după domeniu",
-    "filter": "Filtrează",
-    "clear": "Șterge",
     "cleanup": "Curăță intrările vechi",
     "cleanup_confirm": "Curățați mesajele vechi din carantină și jurnalele de email?",
     "date": "Dată",
@@ -628,6 +625,8 @@
     "max_lists": "Max. liste de corespondență",
     "max_quota": "Cotă max. (MB)",
     "allow_domain_creation": "Permite crearea de domenii",
+    "disable_viewing_mail_log": "Nu permite vizualizarea jurnalului de e-mail",
+    "disable_managing_quarantined_mails": "Nu permite gestionarea e-mailurilor din carantină",
     "save_limits": "Salvează limitele",
     "msg_hosted_domain": "Un administrator independent nu poate folosi domeniul găzduit :domain. Faceți în schimb administrator o căsuță poștală din acest domeniu.",
     "msg_cannot_remove_self": "Nu vă puteți șterge sau dezactiva propriul cont de administrator",

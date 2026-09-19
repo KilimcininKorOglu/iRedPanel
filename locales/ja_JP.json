@@ -495,9 +495,6 @@
   "quarantine": {
     "title": "隔離",
     "heading": "隔離されたメッセージ",
-    "filter_placeholder": "ドメインで絞り込み",
-    "filter": "絞り込み",
-    "clear": "クリア",
     "cleanup": "古いレコードをクリーンアップ",
     "cleanup_confirm": "古い隔離メッセージとメールログをクリーンアップしますか？",
     "date": "日付",
@@ -628,6 +625,8 @@
     "max_lists": "最大メーリングリスト数",
     "max_quota": "最大クォータ（MB）",
     "allow_domain_creation": "ドメイン作成を許可",
+    "disable_viewing_mail_log": "メールログの閲覧を許可しない",
+    "disable_managing_quarantined_mails": "隔離されたメールの管理を許可しない",
     "save_limits": "制限を保存",
     "msg_hosted_domain": "独立した管理者はホストされているドメイン :domain を使用できません。代わりにこのドメインのメールボックスを管理者にしてください。",
     "msg_cannot_remove_self": "自分の管理者アカウントを削除または無効化することはできません",

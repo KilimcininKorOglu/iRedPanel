@@ -495,9 +495,6 @@
   "quarantine": {
     "title": "Quarantena",
     "heading": "Missatges en quarantena",
-    "filter_placeholder": "Filtrar per domini",
-    "filter": "Filtrar",
-    "clear": "Netejar",
     "cleanup": "Netejar registres antics",
     "cleanup_confirm": "Netejar missatges antics en quarantena i registres de correu?",
     "date": "Data",
@@ -628,6 +625,8 @@
     "max_lists": "Màxim de llistes de correu",
     "max_quota": "Quota màxima (MB)",
     "allow_domain_creation": "Permetre la creació de dominis",
+    "disable_viewing_mail_log": "No permetis veure el registre de correu",
+    "disable_managing_quarantined_mails": "No permetis gestionar els correus en quarantena",
     "save_limits": "Desar límits",
     "msg_hosted_domain": "Un administrador independent no pot utilitzar el domini allotjat :domain. En lloc d'això, feu administradora una bústia d'aquest domini.",
     "msg_cannot_remove_self": "No podeu suprimir ni desactivar el vostre propi compte d'administrador",

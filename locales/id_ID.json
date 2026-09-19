@@ -495,9 +495,6 @@
   "quarantine": {
     "title": "Karantina",
     "heading": "Pesan terkarantina",
-    "filter_placeholder": "Filter berdasarkan domain",
-    "filter": "Filter",
-    "clear": "Bersihkan",
     "cleanup": "Bersihkan item lama",
     "cleanup_confirm": "Bersihkan pesan karantina lama dan log email?",
     "date": "Tanggal",
@@ -628,6 +625,8 @@
     "max_lists": "Milis maksimum",
     "max_quota": "Kuota maksimum (MB)",
     "allow_domain_creation": "Izinkan pembuatan domain",
+    "disable_viewing_mail_log": "Jangan izinkan melihat log email",
+    "disable_managing_quarantined_mails": "Jangan izinkan mengelola email karantina",
     "save_limits": "Simpan batas",
     "msg_hosted_domain": "Admin mandiri tidak dapat memakai domain yang di-host :domain. Jadikan kotak surat dari domain ini sebagai admin.",
     "msg_cannot_remove_self": "Anda tidak dapat menghapus atau menonaktifkan akun admin Anda sendiri",

@@ -495,9 +495,6 @@
   "quarantine": {
     "title": "Quarantine",
     "heading": "Quarantined Messages",
-    "filter_placeholder": "Filter by domain",
-    "filter": "Filter",
-    "clear": "Clear",
     "cleanup": "Cleanup old records",
     "cleanup_confirm": "Clean up old quarantined messages and mail logs?",
     "date": "Date",
@@ -628,6 +625,8 @@
     "max_lists": "Max Mailing Lists",
     "max_quota": "Max Quota (MB)",
     "allow_domain_creation": "Allow domain creation",
+    "disable_viewing_mail_log": "Do not allow viewing the mail log",
+    "disable_managing_quarantined_mails": "Do not allow managing quarantined mails",
     "save_limits": "Save Limits",
     "msg_hosted_domain": "A standalone admin cannot use the hosted domain :domain. Make a mailbox of this domain an admin instead.",
     "msg_cannot_remove_self": "You cannot delete or disable your own admin account",

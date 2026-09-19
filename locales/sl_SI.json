@@ -495,9 +495,6 @@
   "quarantine": {
     "title": "Karantena",
     "heading": "Sporočila v karanteni",
-    "filter_placeholder": "Filtriraj po domeni",
-    "filter": "Filtriraj",
-    "clear": "Počisti",
     "cleanup": "Počisti stare zapise",
     "cleanup_confirm": "Počistim stara sporočila v karanteni in poštne dnevnike?",
     "date": "Datum",
@@ -628,6 +625,8 @@
     "max_lists": "Največ poštnih seznamov",
     "max_quota": "Največja kvota (MB)",
     "allow_domain_creation": "Dovoli ustvarjanje domen",
+    "disable_viewing_mail_log": "Ne dovoli ogleda dnevnika pošte",
+    "disable_managing_quarantined_mails": "Ne dovoli upravljanja pošte v karanteni",
     "save_limits": "Shrani omejitve",
     "msg_hosted_domain": "Samostojni skrbnik ne more uporabljati gostujoče domene :domain. Namesto tega nastavite poštni predal te domene za skrbnika.",
     "msg_cannot_remove_self": "Svojega skrbniškega računa ne morete izbrisati ali onemogočiti",

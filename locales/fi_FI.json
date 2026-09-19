@@ -495,9 +495,6 @@
   "quarantine": {
     "title": "Karanteeni",
     "heading": "Karanteeniin asetetut viestit",
-    "filter_placeholder": "Suodata verkkotunnuksen mukaan",
-    "filter": "Suodata",
-    "clear": "Tyhjennä",
     "cleanup": "Siivoa vanhat merkinnät",
     "cleanup_confirm": "Siivotaanko vanhat karanteeniviestit ja sähköpostilokit?",
     "date": "Päivämäärä",
@@ -628,6 +625,8 @@
     "max_lists": "Enimmäispostituslistat",
     "max_quota": "Enimmäiskiintiö (MB)",
     "allow_domain_creation": "Salli verkkotunnusten luonti",
+    "disable_viewing_mail_log": "Älä salli postilokin katselua",
+    "disable_managing_quarantined_mails": "Älä salli karanteenissa olevien viestien hallintaa",
     "save_limits": "Tallenna rajat",
     "msg_hosted_domain": "Erillinen ylläpitäjä ei voi käyttää palvelimen verkkotunnusta :domain. Tee sen sijaan tämän verkkotunnuksen postilaatikosta ylläpitäjä.",
     "msg_cannot_remove_self": "Et voi poistaa tai poistaa käytöstä omaa ylläpitäjätiliäsi",

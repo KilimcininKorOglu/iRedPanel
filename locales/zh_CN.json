@@ -495,9 +495,6 @@
   "quarantine": {
     "title": "隔离区",
     "heading": "已隔离的邮件",
-    "filter_placeholder": "按域名筛选",
-    "filter": "筛选",
-    "clear": "清除",
     "cleanup": "清理旧记录",
     "cleanup_confirm": "清理旧的隔离邮件和邮件日志？",
     "date": "日期",
@@ -628,6 +625,8 @@
     "max_lists": "最大邮件列表数",
     "max_quota": "最大配额（MB）",
     "allow_domain_creation": "允许创建域名",
+    "disable_viewing_mail_log": "不允许查看邮件日志",
+    "disable_managing_quarantined_mails": "不允许管理隔离邮件",
     "save_limits": "保存限制",
     "msg_hosted_domain": "独立管理员不能使用本服务器托管的域 :domain。请改为将该域中的邮箱设为管理员。",
     "msg_cannot_remove_self": "不能删除或禁用您自己的管理员账户",

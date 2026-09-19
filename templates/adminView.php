@@ -173,6 +173,12 @@ $limits = [
           <input type="checkbox" class="form-check-input" id="createNewDomains" name="createNewDomains" <?= $admin->createNewDomains ? 'checked' : '' ?> />
           <label class="form-check-label" for="createNewDomains"><?= $te('admin.allow_domain_creation') ?></label>
         </div>
+        <?php foreach (['disableViewingMailLog' => 'admin.disable_viewing_mail_log', 'disableManagingQuarantinedMails' => 'admin.disable_managing_quarantined_mails'] as $toggle => $labelKey): ?>
+        <div class="form-check form-switch">
+          <input type="checkbox" class="form-check-input" id="<?= $toggle ?>" name="<?= $toggle ?>" <?= $admin->{$toggle} ? 'checked' : '' ?> />
+          <label class="form-check-label" for="<?= $toggle ?>"><?= $te($labelKey) ?></label>
+        </div>
+        <?php endforeach; ?>
       </div>
       <div class="card-footer">
         <button type="submit" class="btn btn-primary"><?= $te('admin.save_limits') ?></button>

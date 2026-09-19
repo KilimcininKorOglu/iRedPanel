@@ -8,6 +8,14 @@ $contentTypes = ['C', 'S', 'Y', 'V', 'B', 'H', 'M', 'O', 'T', 'U'];
 </div>
 
 <form method="get" class="d-flex flex-wrap gap-2 mb-3">
+  <select name="domain" class="form-select w-auto" data-autosubmit aria-label="<?= $te('common.domain') ?>">
+    <?php if (!empty($session['isGlobalAdmin'])): ?>
+    <option value=""><?= $te('common.all_domains') ?></option>
+    <?php endif; ?>
+    <?php foreach ($domains as $d): ?>
+    <option value="<?= $e($d['domainName']) ?>"<?= ($filterDomain === $d['domainName']) ? ' selected' : '' ?>><?= $e($d['domainName']) ?></option>
+    <?php endforeach; ?>
+  </select>
   <input type="text" name="email" data-account-picker="single" class="form-control w-auto flex-grow-1" style="max-width: 420px" placeholder="<?= $te('maillog.filter_placeholder') ?>" value="<?= $e($filterEmail ?? '') ?>" aria-label="<?= $te('maillog.filter') ?>" />
   <button type="submit" class="btn btn-outline-secondary"><i class="bi bi-funnel me-1"></i><?= $te('maillog.filter') ?></button>
   <a href="/amavisd/maillog" class="btn btn-outline-secondary"><?= $te('maillog.clear') ?></a>

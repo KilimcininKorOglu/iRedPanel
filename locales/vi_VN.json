@@ -495,9 +495,6 @@
   "quarantine": {
     "title": "Cách ly",
     "heading": "Tin nhắn bị cách ly",
-    "filter_placeholder": "Lọc theo tên miền",
-    "filter": "Lọc",
-    "clear": "Xóa",
     "cleanup": "Dọn dẹp mục cũ",
     "cleanup_confirm": "Dọn dẹp các tin nhắn cách ly cũ và nhật ký email?",
     "date": "Ngày",
@@ -628,6 +625,8 @@
     "max_lists": "Số danh sách gửi thư tối đa",
     "max_quota": "Hạn ngạch tối đa (MB)",
     "allow_domain_creation": "Cho phép tạo tên miền",
+    "disable_viewing_mail_log": "Không cho phép xem nhật ký thư",
+    "disable_managing_quarantined_mails": "Không cho phép quản lý thư bị cách ly",
     "save_limits": "Lưu giới hạn",
     "msg_hosted_domain": "Quản trị viên độc lập không thể dùng tên miền được lưu trữ :domain. Thay vào đó, hãy đặt một hộp thư của tên miền này làm quản trị viên.",
     "msg_cannot_remove_self": "Bạn không thể xóa hoặc vô hiệu hóa tài khoản quản trị của chính mình",

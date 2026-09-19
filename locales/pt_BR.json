@@ -495,9 +495,6 @@
   "quarantine": {
     "title": "Quarentena",
     "heading": "Mensagens em quarentena",
-    "filter_placeholder": "Filtrar por domínio",
-    "filter": "Filtrar",
-    "clear": "Limpar",
     "cleanup": "Limpar entradas antigas",
     "cleanup_confirm": "Limpar mensagens em quarentena antigas e registros de e-mail?",
     "date": "Data",
@@ -628,6 +625,8 @@
     "max_lists": "Máx. listas de distribuição",
     "max_quota": "Cota máx. (MB)",
     "allow_domain_creation": "Permitir criação de domínios",
+    "disable_viewing_mail_log": "Não permitir visualizar o log de e-mails",
+    "disable_managing_quarantined_mails": "Não permitir gerenciar e-mails em quarentena",
     "save_limits": "Salvar limites",
     "msg_hosted_domain": "Um administrador independente não pode usar o domínio hospedado :domain. Em vez disso, torne administradora uma caixa de correio deste domínio.",
     "msg_cannot_remove_self": "Você não pode excluir nem desativar sua própria conta de administrador",

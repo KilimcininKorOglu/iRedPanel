@@ -495,9 +495,6 @@
   "quarantine": {
     "title": "Karantene",
     "heading": "Meldingar i karantene",
-    "filter_placeholder": "Filtrer etter domene",
-    "filter": "Filtrer",
-    "clear": "Tøm",
     "cleanup": "Rydd opp gamle oppføringar",
     "cleanup_confirm": "Rydde opp gamle karantenemeldingar og e-postloggar?",
     "date": "Dato",
@@ -628,6 +625,8 @@
     "max_lists": "Maks e-postlister",
     "max_quota": "Maks kvote (MB)",
     "allow_domain_creation": "Tillat domeneoppretting",
+    "disable_viewing_mail_log": "Ikkje tillat vising av e-postloggen",
+    "disable_managing_quarantined_mails": "Ikkje tillat handtering av e-post i karantene",
     "save_limits": "Lagre grenser",
     "msg_hosted_domain": "Ein frittståande administrator kan ikkje bruke det hosta domenet :domain. Gjer i staden ein postboks i domenet til administrator.",
     "msg_cannot_remove_self": "Du kan ikkje slette eller deaktivere din eigen administratorkonto",

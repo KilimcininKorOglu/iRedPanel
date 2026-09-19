@@ -495,9 +495,6 @@
   "quarantine": {
     "title": "Karanténa",
     "heading": "Správy v karanténe",
-    "filter_placeholder": "Filtrovať podľa domény",
-    "filter": "Filtrovať",
-    "clear": "Vymazať",
     "cleanup": "Vyčistiť staré položky",
     "cleanup_confirm": "Vyčistiť staré správy v karanténe a poštové záznamy?",
     "date": "Dátum",
@@ -628,6 +625,8 @@
     "max_lists": "Max. distribučných zoznamov",
     "max_quota": "Max. kvóta (MB)",
     "allow_domain_creation": "Povoliť vytváranie domén",
+    "disable_viewing_mail_log": "Nepovoliť zobrazenie denníka pošty",
+    "disable_managing_quarantined_mails": "Nepovoliť správu správ v karanténe",
     "save_limits": "Uložiť limity",
     "msg_hosted_domain": "Samostatný správca nemôže používať hostovanú doménu :domain. Namiesto toho urobte správcom schránku tejto domény.",
     "msg_cannot_remove_self": "Nemôžete odstrániť ani zakázať vlastný účet správcu",

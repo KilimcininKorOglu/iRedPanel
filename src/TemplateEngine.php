@@ -62,6 +62,7 @@ class TemplateEngine
         ];
         $features = [
             'amavisd' => $settings->amavisdEnabled,
+            ...self::amavisdPages($settings->amavisdEnabled),
             'fail2ban' => $settings->fail2banEnabled,
             'iredapd' => $settings->iredapdEnabled,
             'domainOwnership' => $settings->requireDomainOwnershipVerification,
@@ -99,5 +100,21 @@ class TemplateEngine
         unset($_SESSION['flash_error'], $_SESSION['flash_success']);
 
         include $this->templateDir . '/base.php';
+    }
+
+    /**
+     * The menu flags of the Amavisd pages that a domain admin may also open, unless a
+     * permission toggle of the admin closes them.
+     *
+     * @return array{quarantine: bool, mailLog: bool}
+     */
+    private static function amavisdPages(bool $enabled): array
+    {
+        $admin = $enabled && !empty($_SESSION['email']) && !Middleware::isSelfServiceUser();
+
+        return [
+            'quarantine' => $admin && \App\Services\AdminLimits::allows('disableManagingQuarantinedMails'),
+            'mailLog' => $admin && \App\Services\AdminLimits::allows('disableViewingMailLog'),
+        ];
     }
 }

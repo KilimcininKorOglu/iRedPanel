@@ -495,9 +495,6 @@
   "quarantine": {
     "title": "Karantiin",
     "heading": "Karantiinis olevad sõnumid",
-    "filter_placeholder": "Filtreeri domeeni järgi",
-    "filter": "Filtreeri",
-    "clear": "Tühjenda",
     "cleanup": "Puhasta vanad kirjed",
     "cleanup_confirm": "Kas puhastada vanad karantiinisõnumid ja e-posti logid?",
     "date": "Kuupäev",
@@ -628,6 +625,8 @@
     "max_lists": "Maks. postiloendeid",
     "max_quota": "Maks. kvoot (MB)",
     "allow_domain_creation": "Luba domeenide loomine",
+    "disable_viewing_mail_log": "Ära luba postilogi vaadata",
+    "disable_managing_quarantined_mails": "Ära luba karantiinis olevaid kirju hallata",
     "save_limits": "Salvesta piirangud",
     "msg_hosted_domain": "Eraldiseisev administraator ei saa kasutada majutatud domeeni :domain. Tehke selle asemel administraatoriks selle domeeni postkast.",
     "msg_cannot_remove_self": "Te ei saa oma administraatorikontot kustutada ega keelata",

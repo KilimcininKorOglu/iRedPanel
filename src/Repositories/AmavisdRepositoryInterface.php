@@ -11,7 +11,11 @@ interface AmavisdRepositoryInterface extends AccountSettingsStoreInterface
     public function getQuarantinedMessages(int $page, int $perPage, ?string $domain = null): PaginatedResult;
     public function releaseMessage(string $mailId, string $requestedBy): void;
     public function deleteQuarantinedMessage(string $mailId): void;
-    public function getMailLog(int $page, int $perPage, ?string $email = null): PaginatedResult;
+    /**
+     * Mail log rows, newest first. $email matches a part of the sender or the recipient;
+     * $domain keeps the rows whose envelope sender or recipient is in the domain.
+     */
+    public function getMailLog(int $page, int $perPage, ?string $email = null, ?string $domain = null): PaginatedResult;
     public function cleanupQuarantined(int $olderThanDays): int;
     public function cleanupMailLog(int $olderThanDays): int;
 
@@ -51,4 +55,11 @@ interface AmavisdRepositoryInterface extends AccountSettingsStoreInterface
      * @throws \RuntimeException when the message is not in the quarantine of $email
      */
     public function deleteForRecipient(string $mailId, string $email): void;
+
+    /**
+     * The recipients in the domain that still wait for a quarantined message.
+     *
+     * @return list<string>
+     */
+    public function pendingQuarantineRecipients(string $mailId, string $domain): array;
 }

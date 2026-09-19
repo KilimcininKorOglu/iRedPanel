@@ -29,8 +29,8 @@ class Navigation
             ['href' => '/deleted-mailboxes', 'label' => 'nav.deleted_mailboxes', 'icon' => 'trash3', 'requires' => ['global'], 'match' => ['/deleted-mailboxes']],
         ],
         'nav.group_security' => [
-            ['href' => '/amavisd/quarantine', 'label' => 'nav.quarantine', 'icon' => 'shield-exclamation', 'requires' => ['global', 'amavisd'], 'match' => ['/amavisd/quarantine']],
-            ['href' => '/amavisd/maillog', 'label' => 'maillog.title', 'icon' => 'envelope-paper', 'requires' => ['global', 'amavisd'], 'match' => ['/amavisd/maillog']],
+            ['href' => '/amavisd/quarantine', 'label' => 'nav.quarantine', 'icon' => 'shield-exclamation', 'requires' => ['quarantine'], 'match' => ['/amavisd/quarantine']],
+            ['href' => '/amavisd/maillog', 'label' => 'maillog.title', 'icon' => 'envelope-paper', 'requires' => ['mailLog'], 'match' => ['/amavisd/maillog']],
             ['href' => '/amavisd/spam-policy', 'label' => 'nav.spam_policy', 'icon' => 'funnel', 'requires' => ['global', 'amavisd'], 'match' => ['/amavisd/spam-policy']],
             ['href' => '/amavisd/wblist', 'label' => 'nav.wblist', 'icon' => 'list-check', 'requires' => ['global', 'amavisd'], 'match' => ['/amavisd/wblist']],
             ['href' => '/fail2ban', 'label' => 'nav.fail2ban', 'icon' => 'shield-lock', 'requires' => ['global', 'fail2ban'], 'match' => ['/fail2ban']],

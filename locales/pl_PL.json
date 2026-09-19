@@ -495,9 +495,6 @@
   "quarantine": {
     "title": "Kwarantanna",
     "heading": "Wiadomości w kwarantannie",
-    "filter_placeholder": "Filtruj według domeny",
-    "filter": "Filtruj",
-    "clear": "Wyczyść",
     "cleanup": "Wyczyść stare rekordy",
     "cleanup_confirm": "Wyczyścić stare wiadomości w kwarantannie i dzienniki poczty?",
     "date": "Data",
@@ -628,6 +625,8 @@
     "max_lists": "Maks. list mailingowych",
     "max_quota": "Maks. limit (MB)",
     "allow_domain_creation": "Zezwól na tworzenie domen",
+    "disable_viewing_mail_log": "Nie zezwalaj na przeglądanie dziennika poczty",
+    "disable_managing_quarantined_mails": "Nie zezwalaj na zarządzanie wiadomościami w kwarantannie",
     "save_limits": "Zapisz limity",
     "msg_hosted_domain": "Samodzielny administrator nie może używać hostowanej domeny :domain. Zamiast tego nadaj uprawnienia administratora skrzynce z tej domeny.",
     "msg_cannot_remove_self": "Nie możesz usunąć ani wyłączyć własnego konta administratora",

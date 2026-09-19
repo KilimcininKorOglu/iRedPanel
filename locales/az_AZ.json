@@ -495,9 +495,6 @@
   "quarantine": {
     "title": "Karantin",
     "heading": "Karantində olan mesajlar",
-    "filter_placeholder": "Domenə görə filtrlə",
-    "filter": "Filtrlə",
-    "clear": "Təmizlə",
     "cleanup": "Köhnə qeydləri təmizlə",
     "cleanup_confirm": "Köhnə karantin mesajlarını və poçt jurnallarını təmizləmək?",
     "date": "Tarix",
@@ -628,6 +625,8 @@
     "max_lists": "Maks. poçt siyahısı",
     "max_quota": "Maks. kvota (MB)",
     "allow_domain_creation": "Domen yaratmağa icazə ver",
+    "disable_viewing_mail_log": "Poçt jurnalına baxmağa icazə vermə",
+    "disable_managing_quarantined_mails": "Karantindəki məktubları idarə etməyə icazə vermə",
     "save_limits": "Limitləri yadda saxla",
     "msg_hosted_domain": "Müstəqil admin serverdəki :domain domenindən istifadə edə bilməz. Bunun əvəzinə bu domenin bir poçt qutusunu admin edin.",
     "msg_cannot_remove_self": "Öz admin hesabınızı silə və ya deaktiv edə bilməzsiniz",

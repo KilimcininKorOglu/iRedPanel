@@ -495,9 +495,6 @@
   "quarantine": {
     "title": "Karantina",
     "heading": "Karantinaya Alınan İletiler",
-    "filter_placeholder": "Alan adına göre filtrele",
-    "filter": "Filtrele",
-    "clear": "Temizle",
     "cleanup": "Eski kayıtları temizle",
     "cleanup_confirm": "Eski karantina iletileri ve posta günlükleri temizlensin mi?",
     "date": "Tarih",
@@ -628,6 +625,8 @@
     "max_lists": "Maks. Posta Listesi",
     "max_quota": "Maks. Kota (MB)",
     "allow_domain_creation": "Alan adı oluşturmaya izin ver",
+    "disable_viewing_mail_log": "Posta günlüğünü görüntülemeye izin verme",
+    "disable_managing_quarantined_mails": "Karantinadaki postaları yönetmeye izin verme",
     "save_limits": "Sınırları Kaydet",
     "msg_hosted_domain": "Bağımsız bir admin, sunucudaki :domain domain'ini kullanamaz. Bunun yerine bu domain'deki bir mailbox'ı admin yapın.",
     "msg_cannot_remove_self": "Kendi admin hesabınızı silemez veya devre dışı bırakamazsınız",

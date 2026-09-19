@@ -495,9 +495,6 @@
   "quarantine": {
     "title": "Quarantäne",
     "heading": "Nachrichten in Quarantäne",
-    "filter_placeholder": "Nach Domain filtern",
-    "filter": "Filtern",
-    "clear": "Zurücksetzen",
     "cleanup": "Alte Datensätze bereinigen",
     "cleanup_confirm": "Alte Quarantäne-Nachrichten und Mail-Protokolle bereinigen?",
     "date": "Datum",
@@ -628,6 +625,8 @@
     "max_lists": "Max. Mailinglisten",
     "max_quota": "Max. Kontingent (MB)",
     "allow_domain_creation": "Domain-Erstellung erlauben",
+    "disable_viewing_mail_log": "Einsicht in das Mail-Protokoll nicht erlauben",
+    "disable_managing_quarantined_mails": "Verwaltung von Mails in Quarantäne nicht erlauben",
     "save_limits": "Limits speichern",
     "msg_hosted_domain": "Ein eigenständiger Admin kann die gehostete Domain :domain nicht verwenden. Machen Sie stattdessen ein Postfach dieser Domain zum Admin.",
     "msg_cannot_remove_self": "Sie können Ihr eigenes Administratorkonto nicht löschen oder deaktivieren",

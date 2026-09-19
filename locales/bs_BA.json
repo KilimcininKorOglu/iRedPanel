@@ -495,9 +495,6 @@
   "quarantine": {
     "title": "Karantin",
     "heading": "Poruke u karantinu",
-    "filter_placeholder": "Filtriraj po domeni",
-    "filter": "Filtriraj",
-    "clear": "Očisti",
     "cleanup": "Očisti stare unose",
     "cleanup_confirm": "Očistiti stare poruke iz karantina i e-mail zapise?",
     "date": "Datum",
@@ -628,6 +625,8 @@
     "max_lists": "Maks. mailing lista",
     "max_quota": "Maks. kvota (MB)",
     "allow_domain_creation": "Dozvoli kreiranje domena",
+    "disable_viewing_mail_log": "Zabrani pregled e-mail zapisa",
+    "disable_managing_quarantined_mails": "Zabrani upravljanje porukama u karantinu",
     "save_limits": "Sačuvaj ograničenja",
     "msg_hosted_domain": "Samostalni administrator ne može koristiti hostanu domenu :domain. Umjesto toga postavite poštanski sandučić ove domene za administratora.",
     "msg_cannot_remove_self": "Ne možete obrisati ili onemogućiti vlastiti administratorski račun",

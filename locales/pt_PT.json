@@ -495,9 +495,6 @@
   "quarantine": {
     "title": "Quarentena",
     "heading": "Mensagens em quarentena",
-    "filter_placeholder": "Filtrar por domínio",
-    "filter": "Filtrar",
-    "clear": "Limpar",
     "cleanup": "Limpar registos antigos",
     "cleanup_confirm": "Limpar mensagens em quarentena e registos de correio antigos?",
     "date": "Data",
@@ -628,6 +625,8 @@
     "max_lists": "Máx. listas de distribuição",
     "max_quota": "Quota máx. (MB)",
     "allow_domain_creation": "Permitir a criação de domínios",
+    "disable_viewing_mail_log": "Não permitir ver o registo de correio",
+    "disable_managing_quarantined_mails": "Não permitir gerir o correio em quarentena",
     "save_limits": "Guardar limites",
     "msg_hosted_domain": "Um administrador independente não pode usar o domínio alojado :domain. Torne antes administradora uma caixa de correio deste domínio.",
     "msg_cannot_remove_self": "Não pode eliminar nem desativar a sua própria conta de administrador",

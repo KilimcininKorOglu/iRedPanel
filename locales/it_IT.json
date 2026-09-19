@@ -495,9 +495,6 @@
   "quarantine": {
     "title": "Quarantena",
     "heading": "Messaggi in quarantena",
-    "filter_placeholder": "Filtra per dominio",
-    "filter": "Filtra",
-    "clear": "Cancella",
     "cleanup": "Pulisci vecchi record",
     "cleanup_confirm": "Pulire i vecchi messaggi in quarantena e i registri di posta?",
     "date": "Data",
@@ -628,6 +625,8 @@
     "max_lists": "Max liste di distribuzione",
     "max_quota": "Quota max (MB)",
     "allow_domain_creation": "Consenti la creazione di domini",
+    "disable_viewing_mail_log": "Non consentire la visualizzazione del registro della posta",
+    "disable_managing_quarantined_mails": "Non consentire la gestione della posta in quarantena",
     "save_limits": "Salva limiti",
     "msg_hosted_domain": "Un amministratore autonomo non può usare il dominio ospitato :domain. Rendi invece amministratore una casella di questo dominio.",
     "msg_cannot_remove_self": "Non puoi eliminare o disattivare il tuo account amministratore",

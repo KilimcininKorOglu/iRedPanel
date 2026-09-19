@@ -495,9 +495,6 @@
   "quarantine": {
     "title": "Karantén",
     "heading": "Karanténba helyezett üzenetek",
-    "filter_placeholder": "Szűrés domain szerint",
-    "filter": "Szűrés",
-    "clear": "Törlés",
     "cleanup": "Régi bejegyzések tisztítása",
     "cleanup_confirm": "Kitisztítja a régi karanténüzeneteket és levelezési naplókat?",
     "date": "Dátum",
@@ -628,6 +625,8 @@
     "max_lists": "Max. levelezőlisták",
     "max_quota": "Max. kvóta (MB)",
     "allow_domain_creation": "Domain-létrehozás engedélyezése",
+    "disable_viewing_mail_log": "A levélnapló megtekintésének tiltása",
+    "disable_managing_quarantined_mails": "A karanténba helyezett levelek kezelésének tiltása",
     "save_limits": "Korlátok mentése",
     "msg_hosted_domain": "Önálló adminisztrátor nem használhatja a kiszolgált :domain domaint. Ehelyett tegye adminisztrátorrá a domain egyik postafiókját.",
     "msg_cannot_remove_self": "A saját rendszergazdai fiókját nem törölheti és nem tilthatja le",

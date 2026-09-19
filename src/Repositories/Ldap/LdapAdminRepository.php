@@ -22,7 +22,7 @@ class LdapAdminRepository implements AdminRepositoryInterface
 {
     private const DOMAIN_ADMIN_SERVICE = 'domainadmin';
 
-    private const ADMIN_ATTRS = ['mail', 'cn', 'accountStatus', 'domainGlobalAdmin', 'accountSetting', 'objectClass', 'preferredLanguage'];
+    private const ADMIN_ATTRS = ['mail', 'cn', 'accountStatus', 'domainGlobalAdmin', 'accountSetting', 'objectClass', 'preferredLanguage', 'disabledService'];
 
     public function getAdmins(): array
     {
@@ -73,6 +73,9 @@ class LdapAdminRepository implements AdminRepositoryInterface
         }
         if ($admin->language !== '') {
             $entry['preferredLanguage'] = $admin->language;
+        }
+        if ($admin->ldapDisabledServices() !== []) {
+            $entry['disabledService'] = $admin->ldapDisabledServices();
         }
 
         if (!@ldap_add($conn, self::standaloneDn($admin->username), $entry)) {
@@ -179,7 +182,8 @@ class LdapAdminRepository implements AdminRepositoryInterface
     }
 
     /**
-     * Stores the creation limits as accountSetting values and keeps the other values.
+     * Stores the creation limits as accountSetting values and the permission toggles as
+     * disabledService values, and keeps the other values of both attributes.
      */
     public function updateAdminSettings(Admin $admin): void
     {
@@ -192,7 +196,12 @@ class LdapAdminRepository implements AdminRepositoryInterface
             static fn (string $value): bool => !in_array(explode(':', $value, 2)[0], Admin::SETTING_KEYS, true)
         );
 
-        LdapUtils::replaceValues($conn, $entry['dn'], ['accountSetting' => [...array_values($kept), ...$admin->toLdapAccountSetting()]]);
+        $keptServices = array_diff(LdapUtils::allValues($entry, 'disabledService'), array_column(Admin::PERMISSIONS, 1));
+
+        LdapUtils::replaceValues($conn, $entry['dn'], [
+            'accountSetting' => [...array_values($kept), ...$admin->toLdapAccountSetting()],
+            'disabledService' => [...array_values($keptServices), ...$admin->ldapDisabledServices()],
+        ]);
     }
 
     public function getAdminsPaginated(int $page, int $perPage): PaginatedResult
@@ -307,6 +316,7 @@ class LdapAdminRepository implements AdminRepositoryInterface
     {
         $normalized = LdapUtils::normalizeEntry($entry, self::ADMIN_ATTRS);
         $normalized['accountSetting'] = implode(';', LdapUtils::allValues($entry, 'accountSetting'));
+        $normalized['disabledService'] = implode(';', LdapUtils::allValues($entry, 'disabledService'));
 
         return Admin::fromLdapEntry($normalized, !self::isStandalone($entry));
     }

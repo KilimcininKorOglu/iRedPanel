@@ -27,11 +27,11 @@ class AmavisdRecipientMailTest extends TestCase
             "CREATE TABLE msgs (mail_id TEXT, secret_id TEXT, from_addr TEXT, subject TEXT, time_num INTEGER, spam_level REAL, content TEXT, quar_type TEXT)",
             "CREATE TABLE msgrcpt (mail_id TEXT, rid INTEGER, rs TEXT DEFAULT '')",
             'CREATE TABLE quarantine (mail_id TEXT, chunk_ind INTEGER, mail_text TEXT)',
-            "INSERT INTO maddr VALUES (1, 'a@x.test'), (2, 'b@x.test')",
+            "INSERT INTO maddr VALUES (1, 'a@x.test'), (2, 'b@x.test'), (3, 'c@other.test')",
             "INSERT INTO msgs VALUES ('shared', 's1', 'spam@y.test', 'Both', 200, 9.1, 'S', 'Q'),
                                      ('only-a', 's2', 'spam@y.test', 'A only', 100, 8.0, 'S', 'Q'),
                                      ('clean', 's3', 'friend@y.test', 'Hello', 300, 0.1, 'C', '')",
-            "INSERT INTO msgrcpt (mail_id, rid) VALUES ('shared', 1), ('shared', 2), ('only-a', 1), ('clean', 1)",
+            "INSERT INTO msgrcpt (mail_id, rid) VALUES ('shared', 1), ('shared', 2), ('shared', 3), ('only-a', 1), ('clean', 1)",
             "INSERT INTO quarantine VALUES ('shared', 1, 'x'), ('only-a', 1, 'y')",
         ] as $sql) {
             $this->pdo->exec($sql);
@@ -59,6 +59,7 @@ class AmavisdRecipientMailTest extends TestCase
         $this->assertSame(1, (int) $this->pdo->query("SELECT COUNT(*) FROM quarantine WHERE mail_id = 'shared'")->fetchColumn());
 
         $this->mail->delete('shared', 'b@x.test');
+        $this->mail->delete('shared', 'c@other.test');
         $this->assertSame(0, (int) $this->pdo->query("SELECT COUNT(*) FROM quarantine WHERE mail_id = 'shared'")->fetchColumn());
     }
 
@@ -74,5 +75,20 @@ class AmavisdRecipientMailTest extends TestCase
 
         $this->expectException(\RuntimeException::class);
         $this->mail->release('only-a', 'a@x.test', static function (): void {});
+    }
+
+    /**
+     * A domain admin handles the copies of its own domain only; a handled copy does not wait.
+     */
+    public function testPendingRecipientsOfADomain(): void
+    {
+        $this->assertSame(['a@x.test', 'b@x.test'], $this->mail->pendingRecipients('shared', 'x.test'));
+        $this->assertSame(['c@other.test'], $this->mail->pendingRecipients('shared', 'other.test'));
+        $this->assertSame([], $this->mail->pendingRecipients('clean', 'x.test'));
+
+        $this->mail->delete('shared', 'a@x.test');
+        $this->assertSame(['b@x.test'], $this->mail->pendingRecipients('shared', 'x.test'));
+        // A domain name is not a pattern: another domain that ends with it does not match.
+        $this->assertSame([], $this->mail->pendingRecipients('shared', 'her.test'));
     }
 }

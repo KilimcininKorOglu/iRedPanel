@@ -27,7 +27,18 @@ class Admin
         public bool $createNewDomains = false,
         /** Preferred UI language (xx_YY); '' uses the default language. */
         public string $language = '',
+        public bool $disableViewingMailLog = false,
+        public bool $disableManagingQuarantinedMails = false,
     ) {}
+
+    /**
+     * Permission toggle => SQL settings key and LDAP disabledService value, as in iRedAdmin.
+     * A toggle closes an Amavisd page for a domain admin; it never binds a global admin.
+     */
+    public const PERMISSIONS = [
+        'disableViewingMailLog' => ['disable_viewing_mail_log', 'view_mail_log'],
+        'disableManagingQuarantinedMails' => ['disable_managing_quarantined_mails', 'manage_quarantined_mails'],
+    ];
 
     /** Form label of each resource limit. */
     private const LIMIT_LABELS = [
@@ -58,7 +69,7 @@ class Admin
     }
 
     /**
-     * Sets the resource limits from the limits form.
+     * Sets the resource limits and the permission toggles from the limits form.
      *
      * @throws InvalidInputException when a limit is invalid; no limit changes then
      */
@@ -71,7 +82,9 @@ class Admin
 
         [$this->createMaxDomains, $this->createMaxUsers, $this->createMaxAliases, $this->createMaxLists, $this->createMaxQuota]
             = array_values($limits);
-        $this->createNewDomains = isset($post['createNewDomains']);
+        foreach (['createNewDomains', ...array_keys(self::PERMISSIONS)] as $toggle) {
+            $this->{$toggle} = isset($post[$toggle]);
+        }
     }
 
     /**
@@ -82,8 +95,8 @@ class Admin
      */
     public function applyLimitsFromJson(array $data): bool
     {
-        $fields = [...array_keys(self::LIMIT_LABELS), 'createNewDomains'];
-        if (array_intersect($fields, array_keys($data)) === []) {
+        $toggles = ['createNewDomains', ...array_keys(self::PERMISSIONS)];
+        if (array_intersect([...array_keys(self::LIMIT_LABELS), ...$toggles], array_keys($data)) === []) {
             return false;
         }
 
@@ -91,8 +104,10 @@ class Admin
         foreach (array_keys(self::LIMIT_LABELS) as $field) {
             $post[$field] = $data[$field] ?? $this->{$field};
         }
-        if ((bool) ($data['createNewDomains'] ?? $this->createNewDomains)) {
-            $post['createNewDomains'] = 'on';
+        foreach ($toggles as $toggle) {
+            if ((bool) ($data[$toggle] ?? $this->{$toggle})) {
+                $post[$toggle] = 'on';
+            }
         }
         $this->applyLimits($post);
 
@@ -129,7 +144,7 @@ class Admin
 
     /**
      * @param array<string, string> $entry first values by attribute name; `accountSetting`
-     *        holds all "key:value" values joined with ';'
+     *        holds all "key:value" values and `disabledService` all values, joined with ';'
      */
     public static function fromLdapEntry(array $entry, bool $isMailboxAdmin = false): self
     {
@@ -142,6 +157,11 @@ class Admin
             language: $entry['preferredLanguage'] ?? '',
         );
         $admin->applySettings(self::parseSettings($entry['accountSetting'] ?? ''));
+        // LDAP keeps the permission toggles as disabledService values, not as accountSetting.
+        $disabledServices = explode(';', $entry['disabledService'] ?? '');
+        foreach (self::PERMISSIONS as $toggle => [, $service]) {
+            $admin->{$toggle} = in_array($service, $disabledServices, true);
+        }
 
         return $admin;
     }
@@ -149,11 +169,11 @@ class Admin
     /** Keys of the admin settings that the panel writes; every other stored key stays. */
     public const SETTING_KEYS = [
         'create_max_domains', 'create_max_users', 'create_max_aliases', 'create_max_lists', 'create_max_quota',
-        'create_new_domains',
+        'create_new_domains', 'disable_viewing_mail_log', 'disable_managing_quarantined_mails',
     ];
 
     /**
-     * Returns the settings in the iRedAdmin form. An unlimited (-1) limit is not written,
+     * Returns the SQL settings in the iRedAdmin form. An unlimited (-1) limit is not written,
      * because iRedAdmin reads -1 as "not allowed". iRedAdmin reads create_new_domains
      * from the presence of the key, so it is written only when domain creation is allowed.
      *
@@ -170,6 +190,11 @@ class Admin
         if ($this->createNewDomains) {
             $values['create_new_domains'] = 'yes';
         }
+        foreach (self::PERMISSIONS as $toggle => [$key]) {
+            if ($this->{$toggle}) {
+                $values[$key] = 'yes';
+            }
+        }
 
         return $values;
     }
@@ -182,11 +207,31 @@ class Admin
     public function toLdapAccountSetting(): array
     {
         $values = [];
+        $permissionKeys = array_column(self::PERMISSIONS, 0);
         foreach ($this->settingValues() as $key => $value) {
-            $values[] = "{$key}:{$value}";
+            if (!in_array($key, $permissionKeys, true)) {
+                $values[] = "{$key}:{$value}";
+            }
         }
 
         return $values;
+    }
+
+    /**
+     * Returns the LDAP disabledService values of the permission toggles that are on.
+     *
+     * @return list<string>
+     */
+    public function ldapDisabledServices(): array
+    {
+        $services = [];
+        foreach (self::PERMISSIONS as $toggle => [, $service]) {
+            if ($this->{$toggle}) {
+                $services[] = $service;
+            }
+        }
+
+        return $services;
     }
 
     /**
@@ -215,6 +260,9 @@ class Admin
         // iRedAdmin allows domain creation when the key is present; an older panel version
         // also wrote "no" or false, which filter_var() reads as false.
         $this->createNewDomains = filter_var($settings['create_new_domains'] ?? false, FILTER_VALIDATE_BOOLEAN);
+        foreach (self::PERMISSIONS as $toggle => [$key]) {
+            $this->{$toggle} = ($settings[$key] ?? '') === 'yes';
+        }
     }
 
     /**

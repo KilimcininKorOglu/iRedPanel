@@ -495,9 +495,6 @@
   "quarantine": {
     "title": "Quarantaine",
     "heading": "Berichten in quarantaine",
-    "filter_placeholder": "Filteren op domein",
-    "filter": "Filteren",
-    "clear": "Wissen",
     "cleanup": "Oude records opschonen",
     "cleanup_confirm": "Oude berichten in quarantaine en maillogboeken opschonen?",
     "date": "Datum",
@@ -628,6 +625,8 @@
     "max_lists": "Max. mailinglijsten",
     "max_quota": "Max. quota (MB)",
     "allow_domain_creation": "Domeinaanmaak toestaan",
+    "disable_viewing_mail_log": "Bekijken van het e-maillogboek niet toestaan",
+    "disable_managing_quarantined_mails": "Beheren van e-mails in quarantaine niet toestaan",
     "save_limits": "Limieten opslaan",
     "msg_hosted_domain": "Een zelfstandige beheerder kan het gehoste domein :domain niet gebruiken. Maak in plaats daarvan een mailbox van dit domein beheerder.",
     "msg_cannot_remove_self": "U kunt uw eigen beheerdersaccount niet verwijderen of uitschakelen",

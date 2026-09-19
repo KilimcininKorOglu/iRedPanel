@@ -221,9 +221,9 @@ class AdminTest extends TestCase
     public function testMergedSettingsKeepOtherKeys(): void
     {
         $admin = new Admin(username: 'a@test.com', createMaxUsers: 5);
-        $stored = 'create_max_domains:3;disable_viewing_mail_log:yes;create_new_domains:yes;';
+        $stored = 'create_max_domains:3;other_key:1;create_new_domains:yes;disable_viewing_mail_log:yes;';
 
-        $this->assertSame('disable_viewing_mail_log:yes;create_max_users:5;', $admin->mergedSettings($stored));
+        $this->assertSame('other_key:1;create_max_users:5;', $admin->mergedSettings($stored));
     }
 
     /**
@@ -246,5 +246,36 @@ class AdminTest extends TestCase
         $this->assertFalse(Admin::fromMysqlRow(['username' => 'a@test.com', 'settings' => ''])->createNewDomains);
         $this->assertTrue(Admin::fromMysqlRow(['username' => 'a@test.com', 'settings' => 'create_new_domains:yes;'])->createNewDomains);
         $this->assertFalse(Admin::fromLdapEntry(['mail' => 'a@test.com', 'accountSetting' => 'create_new_domains:no'])->createNewDomains);
+    }
+
+    /**
+     * iRedAdmin reads the toggles from the SQL settings ("yes") and from the LDAP
+     * disabledService values; LDAP keeps them out of accountSetting.
+     */
+    public function testPermissionTogglesFollowTheBackendForm(): void
+    {
+        $sql = Admin::fromMysqlRow(['username' => 'a@test.com', 'settings' => 'disable_viewing_mail_log:yes;disable_managing_quarantined_mails:no;']);
+        $this->assertTrue($sql->disableViewingMailLog);
+        $this->assertFalse($sql->disableManagingQuarantinedMails);
+
+        $ldap = Admin::fromLdapEntry(['mail' => 'a@test.com', 'disabledService' => 'smtp;manage_quarantined_mails']);
+        $this->assertFalse($ldap->disableViewingMailLog);
+        $this->assertTrue($ldap->disableManagingQuarantinedMails);
+
+        $admin = new Admin(username: 'a@test.com', createMaxUsers: 2);
+        $admin->applyLimits(['createMaxUsers' => '2', 'disableViewingMailLog' => 'on']);
+        $this->assertSame(['create_max_users' => '2', 'disable_viewing_mail_log' => 'yes'], $admin->settingValues());
+        $this->assertSame(['create_max_users:2'], $admin->toLdapAccountSetting());
+        $this->assertSame(['view_mail_log'], $admin->ldapDisabledServices());
+    }
+
+    public function testPermissionTogglesFromJsonKeepTheOtherValues(): void
+    {
+        $admin = new Admin(username: 'a@test.com', createMaxUsers: 7, disableViewingMailLog: true);
+
+        $this->assertTrue($admin->applyLimitsFromJson(['disableManagingQuarantinedMails' => true]));
+        $this->assertTrue($admin->disableViewingMailLog);
+        $this->assertTrue($admin->disableManagingQuarantinedMails);
+        $this->assertSame(7, $admin->createMaxUsers);
     }
 }

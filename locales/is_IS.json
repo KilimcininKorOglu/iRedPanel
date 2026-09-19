@@ -495,9 +495,6 @@
   "quarantine": {
     "title": "Sóttkví",
     "heading": "Skilaboð í sóttkví",
-    "filter_placeholder": "Sía eftir léni",
-    "filter": "Sía",
-    "clear": "Hreinsa",
     "cleanup": "Hreinsa gamlar færslur",
     "cleanup_confirm": "Hreinsa gömul skilaboð í sóttkví og póstannála?",
     "date": "Dagsetning",
@@ -628,6 +625,8 @@
     "max_lists": "Hámark póstlista",
     "max_quota": "Hámarkskvóti (MB)",
     "allow_domain_creation": "Leyfa lénssköpun",
+    "disable_viewing_mail_log": "Leyfa ekki skoðun póstskrár",
+    "disable_managing_quarantined_mails": "Leyfa ekki umsjón með pósti í sóttkví",
     "save_limits": "Vista takmörk",
     "msg_hosted_domain": "Sjálfstæður stjórnandi getur ekki notað hýsta lénið :domain. Gerðu í staðinn pósthólf í þessu léni að stjórnanda.",
     "msg_cannot_remove_self": "Þú getur ekki eytt eða gert óvirkan þinn eigin stjórnandaaðgang",

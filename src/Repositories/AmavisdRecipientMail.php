@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Repositories;
 
 use App\Models\PaginatedResult;
+use App\Utils\SqlLike;
 
 /**
  * The Amavisd mail of one recipient, as a self-service user sees it: the received mail
@@ -64,6 +65,26 @@ final class AmavisdRecipientMail
     {
         $this->pendingSecretId($mailId, $email);
         $this->finish($mailId, $email, 'D');
+    }
+
+    /**
+     * The recipients in the domain that still wait for the quarantined message; a domain
+     * admin releases or deletes only these copies.
+     *
+     * @return list<string>
+     */
+    public function pendingRecipients(string $mailId, string $domain): array
+    {
+        $stmt = $this->pdo->prepare(
+            'SELECT ' . sprintf($this->text, 'a.email') . ' AS email
+             FROM msgrcpt mr JOIN maddr a ON a.id = mr.rid
+             WHERE mr.mail_id = ' . sprintf($this->bytes, ':mailId') . ' AND a.email LIKE ' . sprintf($this->bytes, ':pattern') . ' ' . SqlLike::ESCAPE . '
+               AND ' . self::PENDING . ' AND EXISTS (SELECT 1 FROM quarantine q WHERE q.mail_id = mr.mail_id)
+             ORDER BY 1'
+        );
+        $stmt->execute(['mailId' => $mailId, 'pattern' => '%@' . SqlLike::escape($domain)]);
+
+        return array_map('strval', $stmt->fetchAll(\PDO::FETCH_COLUMN));
     }
 
     private function recipient(): string

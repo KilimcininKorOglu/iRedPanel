@@ -91,6 +91,20 @@ final class AdminLimits
         return Middleware::isGlobalAdmin() || self::sessionAdmin()?->createNewDomains === true;
     }
 
+    /**
+     * Whether the logged-in admin may open the Amavisd page that a permission toggle of
+     * Admin::PERMISSIONS closes. A global admin always may.
+     */
+    public static function allows(string $permission): bool
+    {
+        if (Middleware::isGlobalAdmin()) {
+            return true;
+        }
+        $admin = self::sessionAdmin();
+
+        return $admin !== null && !$admin->{$permission};
+    }
+
     private static function throwIf(?InvalidInputException $error): void
     {
         if ($error !== null) {

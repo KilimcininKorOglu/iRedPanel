@@ -495,9 +495,6 @@
   "quarantine": {
     "title": "격리",
     "heading": "격리된 메시지",
-    "filter_placeholder": "도메인으로 필터링",
-    "filter": "필터",
-    "clear": "지우기",
     "cleanup": "오래된 항목 정리",
     "cleanup_confirm": "오래된 격리 메시지와 메일 로그를 정리하시겠습니까?",
     "date": "날짜",
@@ -628,6 +625,8 @@
     "max_lists": "최대 메일링 리스트 수",
     "max_quota": "최대 할당량 (MB)",
     "allow_domain_creation": "도메인 생성 허용",
+    "disable_viewing_mail_log": "메일 로그 보기 허용 안 함",
+    "disable_managing_quarantined_mails": "격리된 메일 관리 허용 안 함",
     "save_limits": "한도 저장",
     "msg_hosted_domain": "독립 관리자는 호스팅된 도메인 :domain 을(를) 사용할 수 없습니다. 대신 이 도메인의 사서함을 관리자로 지정하세요.",
     "msg_cannot_remove_self": "자신의 관리자 계정은 삭제하거나 비활성화할 수 없습니다",

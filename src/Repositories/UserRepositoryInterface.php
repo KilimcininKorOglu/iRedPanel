@@ -50,8 +50,10 @@ interface UserRepositoryInterface
 
     /**
      * Deletes a user and records the mailbox for deferred deletion.
+     *
+     * @param string|null $deleteDate the day (Y-m-d) the mailbox is removed from disk, null to keep it
      */
-    public function deleteUser(string $domain, string $userUid, string $adminEmail): void;
+    public function deleteUser(string $domain, string $userUid, string $adminEmail, ?string $deleteDate = null): void;
 
     /**
      * Verifies a user's current password.

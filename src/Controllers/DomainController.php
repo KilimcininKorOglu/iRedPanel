@@ -363,12 +363,13 @@ class DomainController
             exit;
         }
 
+        $deleteDate = $action === 'delete' ? BaseController::postedDeleteDate('/domains') : null;
         $domainRepo = RepositoryFactory::getDomainRepository();
-        $done = BaseController::runBulk($selectedDomains, function (string $domainName) use ($domainRepo, $action, $adminEmail): void {
+        $done = BaseController::runBulk($selectedDomains, function (string $domainName) use ($domainRepo, $action, $adminEmail, $deleteDate): void {
             $domainRepo->getDomain($domainName) ?? throw BaseController::itemNotFound();
             if ($action === 'delete') {
                 MailingListService::deleteDomainLists($domainName);
-                $domainRepo->deleteDomain($domainName, $adminEmail);
+                $domainRepo->deleteDomain($domainName, $adminEmail, $deleteDate);
                 AccountSettingsService::deleteDomain($domainName);
             } else {
                 $domainRepo->enableDisableDomain($domainName, $action === 'enable');
@@ -389,13 +390,14 @@ class DomainController
     {
         Middleware::globalAdminRequired();
         CsrfProtection::validateToken();
+        $deleteDate = BaseController::postedDeleteDate('/domains');
 
         try {
             $adminEmail = $_SESSION['email'] ?? '';
             $domainRepo = RepositoryFactory::getDomainRepository();
             $domainRepo->getDomain($domainName) ?? throw BaseController::itemNotFound();
             MailingListService::deleteDomainLists($domainName);
-            $domainRepo->deleteDomain($domainName, $adminEmail);
+            $domainRepo->deleteDomain($domainName, $adminEmail, $deleteDate);
             AccountSettingsService::deleteDomain($domainName);
             ActivityLogger::logDelete($domainName, '', "Domain deleted: {$domainName}");
             BaseController::flashDeleted($domainName);

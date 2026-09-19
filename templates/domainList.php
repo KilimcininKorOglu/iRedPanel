@@ -64,6 +64,7 @@
       <option value="disable"><?= $te('common.disable_selected') ?></option>
       <option value="delete"><?= $te('common.delete_selected') ?></option>
     </select>
+    <?php include __DIR__ . '/keepMailboxDays.php'; ?>
     <button type="submit" class="btn btn-sm btn-outline-secondary" data-bulk-confirm="<?= $e(json_encode(['delete' => $t('domain.bulk_delete_confirm')])) ?>"><?= $te('common.apply') ?></button>
   </div>
   <?php endif; ?>

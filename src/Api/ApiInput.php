@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Api;
 
+use App\Exceptions\InvalidInputException;
+use App\Models\KeepMailboxDays;
 use App\Utils\AddressList;
 use App\Utils\Relayhost;
 
@@ -73,6 +75,23 @@ final class ApiInput
             throw new \InvalidArgumentException("Invalid {$field}");
         }
         return trim($value);
+    }
+
+    /**
+     * The delete_date of the mailboxes of a DELETE request, from the query parameter
+     * `keepMailboxDays` (iRedAdmin-Pro `keep_mailbox_days`). Without it the mailboxes are
+     * kept forever; a domain key chooses from the days of a domain admin.
+     *
+     * @throws InvalidInputException when the key may not choose the value
+     */
+    public static function deleteDate(): ?string
+    {
+        $value = $_GET['keepMailboxDays'] ?? null;
+        if ($value === null) {
+            return null;
+        }
+
+        return KeepMailboxDays::deleteDate(KeepMailboxDays::parse($value, ApiMiddleware::getCurrentKey()?->isGlobal() === true));
     }
 
     /**

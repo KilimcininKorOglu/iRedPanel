@@ -298,6 +298,12 @@ class DomainApiController
     {
         ApiMiddleware::requireGlobalKey();
         ApiMiddleware::requireWriteAccess();
+        try {
+            $deleteDate = ApiInput::deleteDate();
+        } catch (InvalidInputException $e) {
+            ApiResponse::invalidInput($e);
+            return;
+        }
         $repo = RepositoryFactory::getDomainRepository();
         if ($repo->getDomain($domain) === null) {
             ApiResponse::error('Domain not found', 404);
@@ -305,7 +311,7 @@ class DomainApiController
         }
 
         MailingListService::deleteDomainLists($domain);
-        $repo->deleteDomain($domain, 'api');
+        $repo->deleteDomain($domain, 'api', $deleteDate);
         AccountSettingsService::deleteDomain($domain);
         ApiResponse::deleted();
     }

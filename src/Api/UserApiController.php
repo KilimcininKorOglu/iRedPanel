@@ -344,6 +344,12 @@ class UserApiController
             return;
         }
         ApiMiddleware::requireDomainAccess($domain);
+        try {
+            $deleteDate = ApiInput::deleteDate();
+        } catch (InvalidInputException $e) {
+            ApiResponse::invalidInput($e);
+            return;
+        }
 
         $repo = RepositoryFactory::getUserRepository();
         if ($repo->getUser($domain, $uid) === null) {
@@ -351,7 +357,7 @@ class UserApiController
             return;
         }
 
-        $repo->deleteUser($domain, $uid, 'api');
+        $repo->deleteUser($domain, $uid, 'api', $deleteDate);
         AccountSettingsService::deleteAccounts(["{$uid}@{$domain}"]);
         ApiResponse::deleted();
     }

@@ -257,7 +257,7 @@ class LdapUserRepository implements UserRepositoryInterface
         return $result;
     }
 
-    public function deleteUser(string $domain, string $userUid, string $adminEmail): void
+    public function deleteUser(string $domain, string $userUid, string $adminEmail, ?string $deleteDate = null): void
     {
         $conn = LdapConnection::getInstance()->getConn();
         $email = "{$userUid}@{$domain}";
@@ -274,7 +274,7 @@ class LdapUserRepository implements UserRepositoryInterface
         }
 
         LdapUtils::replaceAddressReferences($conn, $email, null);
-        self::deleteIredadminRows($email, $domain, $maildir, $adminEmail);
+        self::deleteIredadminRows($email, $domain, $maildir, $adminEmail, $deleteDate);
     }
 
     public function renameUser(string $domain, string $oldUid, string $newUid): void
@@ -307,14 +307,14 @@ class LdapUserRepository implements UserRepositoryInterface
      * folder rows, as the SQL backends do in the vmail database. Domain deletion calls it
      * for every mailbox of the domain.
      */
-    public static function deleteIredadminRows(string $email, string $domain, string $maildir, string $adminEmail): void
+    public static function deleteIredadminRows(string $email, string $domain, string $maildir, string $adminEmail, ?string $deleteDate = null): void
     {
         $pdo = IredadminConnection::getInstance()->getPdo();
         if ($pdo === null) {
             return;
         }
-        $pdo->prepare("INSERT INTO deleted_mailboxes (username, maildir, domain, admin) VALUES (:username, :maildir, :domain, :admin)")
-            ->execute(['username' => $email, 'maildir' => rtrim($maildir, '/'), 'domain' => $domain, 'admin' => $adminEmail]);
+        $pdo->prepare("INSERT INTO deleted_mailboxes (username, maildir, domain, admin, delete_date) VALUES (:username, :maildir, :domain, :admin, :deleteDate)")
+            ->execute(['username' => $email, 'maildir' => rtrim($maildir, '/'), 'domain' => $domain, 'admin' => $adminEmail, 'deleteDate' => $deleteDate]);
         foreach (self::IREDADMIN_ADDRESS_COLUMNS as [$table, $column]) {
             $pdo->prepare("DELETE FROM {$table} WHERE {$column} = :email")->execute(['email' => $email]);
         }

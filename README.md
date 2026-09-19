@@ -406,6 +406,7 @@ server {
 
 ### Deferred Mailbox Deletion
 - A deleted mailbox is recorded with a scheduled deletion date (`vmail.deleted_mailboxes` for SQL, `iredadmin.deleted_mailboxes` for LDAP)
+- The admin chooses how long the mailbox stays on disk when a user or a domain is deleted, as in iRedAdmin: a domain admin 1 to 365 days, a global admin also 730 or 1095 days or forever. The REST API reads the query parameter `keepMailboxDays` of `DELETE /api/v1/users/{email}` and `DELETE /api/v1/domains/{domain}`; without it the mailbox is kept forever
 - View, cancel and reschedule pending deletions
 - `cli/deleteExpiredMailboxes.php` removes the maildirs when the date is reached
 

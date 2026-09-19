@@ -220,7 +220,7 @@ class LdapDomainRepository implements DomainRepositoryInterface
      * When another domain lists this domain as its alias domain, that alias domain and its
      * shadow addresses are removed first.
      */
-    public function deleteDomain(string $domainName, string $adminEmail): void
+    public function deleteDomain(string $domainName, string $adminEmail, ?string $deleteDate = null): void
     {
         $conn = LdapConnection::getInstance()->getConn();
         $dn = LdapUtils::getDomainDn($domainName);
@@ -238,7 +238,8 @@ class LdapDomainRepository implements DomainRepositoryInterface
                 LdapUtils::allValues($entry, 'mail')[0] ?? '',
                 $domainName,
                 LdapUtils::allValues($entry, 'homeDirectory')[0] ?? '',
-                $adminEmail
+                $adminEmail,
+                $deleteDate
             );
         }
     }

@@ -337,7 +337,7 @@ class MysqlUserRepository implements UserRepositoryInterface
         return new PaginatedResult($items, $totalCount, $page, $perPage);
     }
 
-    public function deleteUser(string $domain, string $userUid, string $adminEmail): void
+    public function deleteUser(string $domain, string $userUid, string $adminEmail, ?string $deleteDate = null): void
     {
         $pdo = MysqlConnection::getInstance()->getPdo();
         $username = "{$userUid}@{$domain}";
@@ -346,14 +346,14 @@ class MysqlUserRepository implements UserRepositoryInterface
         try {
             // Record mailbox for deferred deletion
             $stmt = $pdo->prepare(
-                "INSERT INTO deleted_mailboxes (username, maildir, domain, admin)
+                "INSERT INTO deleted_mailboxes (username, maildir, domain, admin, delete_date)
                  SELECT username,
                         CONCAT(storagebasedirectory, '/', storagenode, '/', maildir),
-                        domain, :admin
+                        domain, :admin, :deleteDate
                  FROM mailbox
                  WHERE username = :username AND domain = :domain"
             );
-            $stmt->execute(['admin' => $adminEmail, 'username' => $username, 'domain' => $domain]);
+            $stmt->execute(['admin' => $adminEmail, 'deleteDate' => $deleteDate, 'username' => $username, 'domain' => $domain]);
 
             // Delete every row that holds the address, as iRedAdmin delete_users() does
             foreach (self::ADDRESS_COLUMNS_ON_DELETE as $table => $columns) {

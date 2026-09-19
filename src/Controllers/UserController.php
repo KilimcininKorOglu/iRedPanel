@@ -320,11 +320,12 @@ class UserController
             exit;
         }
 
+        $deleteDate = $action === 'delete' ? BaseController::postedDeleteDate("/{$domain}/users") : null;
         $userRepo = RepositoryFactory::getUserRepository();
-        $done = BaseController::runBulk($selectedUsers, function (string $uid) use ($userRepo, $domain, $action, $adminEmail): void {
+        $done = BaseController::runBulk($selectedUsers, function (string $uid) use ($userRepo, $domain, $action, $adminEmail, $deleteDate): void {
             $user = $userRepo->getUser($domain, $uid) ?? throw BaseController::itemNotFound();
             if ($action === 'delete') {
-                $userRepo->deleteUser($domain, $uid, $adminEmail);
+                $userRepo->deleteUser($domain, $uid, $adminEmail, $deleteDate);
                 AccountSettingsService::deleteAccounts(["{$uid}@{$domain}"]);
                 return;
             }
@@ -349,12 +350,13 @@ class UserController
     {
         Middleware::domainAdminRequired($domain);
         CsrfProtection::validateToken();
+        $deleteDate = BaseController::postedDeleteDate("/{$domain}/users");
 
         try {
             $adminEmail = $_SESSION['email'] ?? '';
             $userRepo = RepositoryFactory::getUserRepository();
             $userRepo->getUser($domain, $userUid) ?? throw BaseController::itemNotFound();
-            $userRepo->deleteUser($domain, $userUid, $adminEmail);
+            $userRepo->deleteUser($domain, $userUid, $adminEmail, $deleteDate);
             AccountSettingsService::deleteAccounts(["{$userUid}@{$domain}"]);
             ActivityLogger::logDelete($domain, $userUid, "User deleted");
             BaseController::flashDeleted("{$userUid}@{$domain}");

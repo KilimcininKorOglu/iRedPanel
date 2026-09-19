@@ -9,6 +9,7 @@ use App\Exceptions\InvalidInputException;
 use App\I18n\Translator;
 use App\Middleware;
 use App\Models\Alias;
+use App\Models\KeepMailboxDays;
 use App\Repositories\RepositoryFactory;
 use App\TemplateEngine;
 use App\Utils\AddressList;
@@ -33,6 +34,23 @@ class BaseController
     public static function flashSuccess(string $message): void
     {
         $_SESSION['flash_success'] = $message;
+    }
+
+    /**
+     * The delete_date of the mailboxes of a posted delete form (`keepMailboxDays`), or
+     * null to keep them. Redirects back with an error when the admin may not choose the value.
+     */
+    public static function postedDeleteDate(string $backUrl): ?string
+    {
+        try {
+            $days = KeepMailboxDays::parse($_POST['keepMailboxDays'] ?? null, Middleware::isGlobalAdmin());
+        } catch (InvalidInputException $e) {
+            self::flashError(self::errorMessage($e));
+            header('Location: ' . $backUrl);
+            exit;
+        }
+
+        return KeepMailboxDays::deleteDate($days);
     }
 
     /**

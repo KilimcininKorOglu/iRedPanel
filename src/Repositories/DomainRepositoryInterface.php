@@ -38,8 +38,10 @@ interface DomainRepositoryInterface
 
     /**
      * Deletes a domain and records mailboxes for deferred deletion.
+     *
+     * @param string|null $deleteDate the day (Y-m-d) the mailboxes are removed from disk, null to keep them
      */
-    public function deleteDomain(string $domainName, string $adminEmail): void;
+    public function deleteDomain(string $domainName, string $adminEmail, ?string $deleteDate = null): void;
 
     /**
      * Enables or disables a domain.

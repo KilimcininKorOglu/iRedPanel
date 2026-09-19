@@ -172,7 +172,7 @@ class MysqlDomainRepository implements DomainRepositoryInterface
         }
     }
 
-    public function deleteDomain(string $domainName, string $adminEmail): void
+    public function deleteDomain(string $domainName, string $adminEmail, ?string $deleteDate = null): void
     {
         $pdo = MysqlConnection::getInstance()->getPdo();
 
@@ -180,14 +180,14 @@ class MysqlDomainRepository implements DomainRepositoryInterface
         try {
             // Record mailboxes for deferred deletion
             $stmt = $pdo->prepare(
-                "INSERT INTO deleted_mailboxes (username, maildir, domain, admin)
+                "INSERT INTO deleted_mailboxes (username, maildir, domain, admin, delete_date)
                  SELECT username,
                         CONCAT(storagebasedirectory, '/', storagenode, '/', maildir),
-                        domain, :admin
+                        domain, :admin, :deleteDate
                  FROM mailbox
                  WHERE domain = :domain"
             );
-            $stmt->execute(['admin' => $adminEmail, 'domain' => $domainName]);
+            $stmt->execute(['admin' => $adminEmail, 'deleteDate' => $deleteDate, 'domain' => $domainName]);
 
             // Delete from every table with a domain column, as iRedAdmin delete_domains() does
             foreach (self::DOMAIN_TABLES_ON_DELETE as $table) {

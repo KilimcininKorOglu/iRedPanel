@@ -664,3 +664,14 @@ vendor/bin/phpunit --do-not-cache-result
 ## License
 
 This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
+
+### Third-party assets
+
+`public/static/vendor/` ships these front-end libraries unchanged, except for removed source map comments. Each directory holds the library license.
+
+| Library         | Version  | License    |
+|-----------------|----------|------------|
+| Bootstrap       | 5.3.8    | MIT        |
+| Bootstrap Icons | 1.13.1   | MIT        |
+| SweetAlert2     | 11.26.25 | MIT        |
+| Tom Select      | 2.6.2    | Apache-2.0 |

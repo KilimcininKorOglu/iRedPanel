@@ -46,7 +46,7 @@ class UserApiController
             return;
         }
 
-        ApiResponse::success((array) $user);
+        ApiResponse::success((array) $user + self::routing("{$uid}@{$domain}"));
     }
 
     public static function create(string $domain): void
@@ -138,6 +138,10 @@ class UserApiController
         if ($user === null) {
             return;
         }
+        $routing = self::routingFromBody($data, "{$uid}@{$domain}");
+        if ($routing === null) {
+            return;
+        }
         $user->uid = $uid;
 
         $locked = ReplicatedAccountGuard::changedUserFields("{$uid}@{$domain}", $user, $existing);
@@ -146,18 +150,8 @@ class UserApiController
             return;
         }
 
-        if (isset($data['password'])) {
-            $domainSettings = DomainSettings::fromSettingsString(
-                RepositoryFactory::getDomainRepository()->getDomain($domain)?->settings ?? ''
-            );
-            $validationErrors = \App\Models\UserPassword::validate($data['password'], $data['password'], $domainSettings);
-            if (!empty($validationErrors)) {
-                // The API has no repeat field, so every policy error is under the password key.
-                ApiResponse::error('Password policy violation: ' . $validationErrors['password']);
-                return;
-            }
-            $passwordHash = PasswordUtils::generatePasswordHash($data['password']);
-            $repo->updateUserPassword($domain, $uid, $passwordHash);
+        if (isset($data['password']) && !self::changePassword($domain, $uid, (string) $data['password'])) {
+            return;
         }
 
         $limitError = RepositoryFactory::getDomainRepository()->getDomain($domain)
@@ -168,7 +162,100 @@ class UserApiController
         }
 
         $repo->updateUser($domain, $user);
+        self::writeRouting("{$uid}@{$domain}", $domain, $routing);
         ApiResponse::success(['message' => 'User updated']);
+    }
+
+    /**
+     * Sets a new password after the password policy of the domain accepts it.
+     *
+     * @return bool false after the error response
+     */
+    private static function changePassword(string $domain, string $uid, string $password): bool
+    {
+        $domainSettings = DomainSettings::fromSettingsString(
+            RepositoryFactory::getDomainRepository()->getDomain($domain)?->settings ?? ''
+        );
+        $validationErrors = \App\Models\UserPassword::validate($password, $password, $domainSettings);
+        if (!empty($validationErrors)) {
+            // The API has no repeat field, so every policy error is under the password key.
+            ApiResponse::error('Password policy violation: ' . $validationErrors['password']);
+            return false;
+        }
+        RepositoryFactory::getUserRepository()->updateUserPassword($domain, $uid, PasswordUtils::generatePasswordHash($password));
+        return true;
+    }
+
+    /**
+     * Returns the forwarding, BCC and relay settings of a mailbox.
+     */
+    private static function routing(string $email): array
+    {
+        $forwarding = RepositoryFactory::getForwardingRepository();
+        $bcc = RepositoryFactory::getBccRepository();
+        return [
+            'forwardings' => $forwarding->getForwardings($email),
+            'keepCopy' => $forwarding->getKeepCopy($email),
+            'senderBcc' => $bcc->getUserSenderBcc($email),
+            'recipientBcc' => $bcc->getUserRecipientBcc($email),
+            'relayhost' => RepositoryFactory::getRelayRepository()->getRelayhost($email),
+        ];
+    }
+
+    /**
+     * Reads the forwarding, BCC and relay fields that the body sets, and answers 400
+     * when one is invalid. `forwardings` replaces the list; `addForwardings` and
+     * `removeForwardings` change it.
+     *
+     * @return ?array<string, mixed> null after the error response
+     */
+    private static function routingFromBody(array $data, string $email): ?array
+    {
+        try {
+            $routing = [];
+            $forwardings = ApiInput::listChange(
+                $data,
+                ['forwardings', 'addForwardings', 'removeForwardings'],
+                RepositoryFactory::getForwardingRepository()->getForwardings($email),
+                ApiInput::addresses(...),
+            );
+            if ($forwardings !== null) {
+                $routing['forwardings'] = $forwardings;
+            }
+            if (array_key_exists('keepCopy', $data)) {
+                $routing['keepCopy'] = ApiInput::bool($data, 'keepCopy', true);
+            }
+            foreach (['senderBcc', 'recipientBcc'] as $field) {
+                if (array_key_exists($field, $data)) {
+                    $routing[$field] = ApiInput::address($data, $field);
+                }
+            }
+            if (array_key_exists('relayhost', $data)) {
+                $routing['relayhost'] = ApiInput::relayhost($data, 'relayhost');
+            }
+            return $routing;
+        } catch (\InvalidArgumentException $e) {
+            ApiResponse::error($e->getMessage());
+            return null;
+        }
+    }
+
+    /**
+     * @param array<string, mixed> $routing from routingFromBody()
+     */
+    private static function writeRouting(string $email, string $domain, array $routing): void
+    {
+        $forwarding = RepositoryFactory::getForwardingRepository();
+        $bcc = RepositoryFactory::getBccRepository();
+        foreach ($routing as $field => $value) {
+            match ($field) {
+                'forwardings' => $forwarding->setForwardings($email, $domain, $value),
+                'keepCopy' => $forwarding->setKeepCopy($email, $domain, $value),
+                'senderBcc' => $bcc->setUserSenderBcc($email, $value),
+                'recipientBcc' => $bcc->setUserRecipientBcc($email, $value),
+                'relayhost' => RepositoryFactory::getRelayRepository()->setRelayhost($email, $value),
+            };
+        }
     }
 
     public static function verifyPassword(string $accountType, string $email): void
@@ -234,6 +321,18 @@ class UserApiController
         ApiResponse::deleted();
     }
 
+    /** Body fields that are not on the user page 'general' => their user page. */
+    private const FIELD_PAGES = [
+        'password' => 'password',
+        'forwardings' => 'forwarding',
+        'addForwardings' => 'forwarding',
+        'removeForwardings' => 'forwarding',
+        'keepCopy' => 'forwarding',
+        'senderBcc' => 'bcc',
+        'recipientBcc' => 'bcc',
+        'relayhost' => 'relay',
+    ];
+
     /**
      * Returns why a domain key may not send $data, or null when it may. The global admin can
      * close user pages for the domain admins of a domain, and a domain key acts as a domain admin.
@@ -246,13 +345,9 @@ class UserApiController
         $settings = DomainSettings::fromSettingsString(
             RepositoryFactory::getDomainRepository()->getDomain($domain)?->settings ?? ''
         );
-        $serviceFields = array_values(User::SERVICE_TOGGLES);
+        $servicePages = array_fill_keys(array_values(User::SERVICE_TOGGLES), 'services');
         foreach (array_keys($data) as $field) {
-            $page = match (true) {
-                $field === 'password' => 'password',
-                in_array($field, $serviceFields, true) => 'services',
-                default => 'general',
-            };
+            $page = self::FIELD_PAGES[$field] ?? $servicePages[$field] ?? 'general';
             if (!ProfileToggles::userPageOpen($settings, false, $page)) {
                 return "{$field} is on the user page '{$page}', which is disabled for domain admins";
             }

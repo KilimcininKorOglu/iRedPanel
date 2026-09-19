@@ -138,6 +138,8 @@ class LdapUserRepository implements UserRepositoryInterface
         $settings = \App\Models\Settings::getInstance();
         $email = "{$user->uid}@{$domain}";
         $dn = LdapUtils::getEmailDn($email);
+        // Same layout as the SQL backends: <vmail path>/<storage node>/<domain>/<uid>/
+        $maildir = "{$settings->storageNode}/{$domain}/{$user->uid}/";
 
         $entry = [
             'objectClass' => ['inetOrgPerson', 'mailUser', 'shadowAccount', 'amavisAccount'],
@@ -147,12 +149,12 @@ class LdapUserRepository implements UserRepositoryInterface
             'sn' => $user->sn ?: $user->uid,
             'userPassword' => $passwordHash,
             'accountStatus' => $user->accountStatus ? 'active' : 'disabled',
-            'homeDirectory' => "{$settings->vmailPath}/{$domain}/{$user->uid}/",
+            'homeDirectory' => "{$settings->vmailPath}/{$maildir}",
             'amavisLocal' => 'TRUE',
             // The create form has no service toggles; a new mailbox starts with every service on.
             'enabledService' => User::defaultLdapServices(),
             'storageBaseDirectory' => $settings->vmailPath,
-            'mailMessageStore' => "{$domain}/{$user->uid}/",
+            'mailMessageStore' => $maildir,
         ];
 
         if ($user->mailQuota > 0) {

@@ -41,7 +41,60 @@ class DomainApiController
             ApiResponse::error('Domain not found', 404);
             return;
         }
-        ApiResponse::success((array) $d);
+        ApiResponse::success((array) $d + self::routing($domain));
+    }
+
+    /** Body fields that hold one email address; null or '' removes the address. */
+    private const ADDRESS_FIELDS = ['catchall', 'senderBcc', 'recipientBcc'];
+
+    /**
+     * Returns the catch-all, BCC and relay settings of a domain.
+     */
+    private static function routing(string $domain): array
+    {
+        $bcc = RepositoryFactory::getBccRepository();
+        return [
+            'catchall' => RepositoryFactory::getAliasRepository()->getCatchall($domain),
+            'senderBcc' => $bcc->getDomainSenderBcc($domain),
+            'recipientBcc' => $bcc->getDomainRecipientBcc($domain),
+            'relayhost' => RepositoryFactory::getRelayRepository()->getRelayhost('@' . $domain),
+        ];
+    }
+
+    /**
+     * Reads the catch-all, BCC and relay fields that the body sets.
+     *
+     * @return array<string, ?string>
+     * @throws \InvalidArgumentException for an invalid address or relay host
+     */
+    private static function routingFromBody(array $data): array
+    {
+        $routing = [];
+        foreach (self::ADDRESS_FIELDS as $field) {
+            if (array_key_exists($field, $data)) {
+                $routing[$field] = ApiInput::address($data, $field);
+            }
+        }
+        if (array_key_exists('relayhost', $data)) {
+            $routing['relayhost'] = ApiInput::relayhost($data, 'relayhost');
+        }
+        return $routing;
+    }
+
+    /**
+     * @param array<string, ?string> $routing from routingFromBody()
+     */
+    private static function writeRouting(string $domain, array $routing): void
+    {
+        $bcc = RepositoryFactory::getBccRepository();
+        foreach ($routing as $field => $value) {
+            match ($field) {
+                'catchall' => RepositoryFactory::getAliasRepository()->setCatchall($domain, $value),
+                'senderBcc' => $bcc->setDomainSenderBcc($domain, $value),
+                'recipientBcc' => $bcc->setDomainRecipientBcc($domain, $value),
+                'relayhost' => RepositoryFactory::getRelayRepository()->setRelayhost('@' . $domain, $value),
+            };
+        }
     }
 
     public static function create(): void
@@ -117,6 +170,7 @@ class DomainApiController
                 'aliases' => $existing->aliases,
                 'transport' => $existing->transport,
             ]);
+            $routing = self::routingFromBody($data);
         } catch (\InvalidArgumentException $e) {
             ApiResponse::error($e->getMessage());
             return;
@@ -125,6 +179,7 @@ class DomainApiController
         // updateDomain() writes every column; the settings string and the disclaimer stay as stored.
         $existing->applyProfile($form);
         $repo->updateDomain($existing);
+        self::writeRouting($domain, $routing);
         ApiResponse::success(['message' => 'Domain updated']);
     }
 

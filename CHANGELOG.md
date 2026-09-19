@@ -15,6 +15,7 @@ All notable changes to this project will be documented in this file.
 - `cli/replicateAccounts.php [--resource=ID] [--force] [--dry-run] [--allow-mass-disable]` runs the due resources from cron every minute
 - Replicated accounts show an "Active Directory" badge; the directory-owned fields are read-only in the web UI and the REST API answers 409 when a request changes them
 - `App\Utils\SecretBox` encrypts secrets that the panel reads back (libsodium, key derived from `IREDPANEL_SECRET_KEY`)
+- REST API: `GET /api/v1/domains/{domain}` returns and `PUT` sets `catchall`, `senderBcc`, `recipientBcc` and `relayhost` (null removes the value)
 
 ### Changed
 - The dashboard reads new releases from `compatibility.json` on GitHub (24-hour cache) and falls back to the bundled copy; this replaces the GitHub release check

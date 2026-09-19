@@ -22,7 +22,7 @@ class LdapAdminRepository implements AdminRepositoryInterface
 {
     private const DOMAIN_ADMIN_SERVICE = 'domainadmin';
 
-    private const ADMIN_ATTRS = ['mail', 'cn', 'accountStatus', 'domainGlobalAdmin', 'accountSetting', 'objectClass'];
+    private const ADMIN_ATTRS = ['mail', 'cn', 'accountStatus', 'domainGlobalAdmin', 'accountSetting', 'objectClass', 'preferredLanguage'];
 
     public function getAdmins(): array
     {

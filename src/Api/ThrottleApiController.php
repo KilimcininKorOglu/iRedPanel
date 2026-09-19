@@ -13,7 +13,7 @@ class ThrottleApiController
     public static function get(string $account): void
     {
         ApiMiddleware::requireGlobalKey();
-        if (!IredapdAccount::isValid($account)) {
+        if (!IredapdAccount::isThrottleAccount($account)) {
             ApiResponse::error('Invalid account');
             return;
         }
@@ -26,7 +26,7 @@ class ThrottleApiController
         ApiMiddleware::requireGlobalKey();
         ApiMiddleware::requireWriteAccess();
         $data = ApiMiddleware::getJsonBody();
-        if (!IredapdAccount::isValid($account)) {
+        if (!IredapdAccount::isThrottleAccount($account)) {
             ApiResponse::error('Invalid account');
             return;
         }

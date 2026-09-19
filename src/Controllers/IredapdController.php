@@ -30,7 +30,7 @@ class IredapdController
     {
         Middleware::globalAdminRequired();
         self::requireEnabled();
-        if (!IredapdAccount::isValid($account)) {
+        if (!IredapdAccount::isThrottleAccount($account)) {
             BaseController::page404($tpl);
             return;
         }

@@ -61,6 +61,20 @@ class MysqlIredapdRepository implements IredapdRepositoryInterface
         ]);
     }
 
+    public function getThrottleAccounts(): array
+    {
+        return $this->pdo()->query("SELECT DISTINCT account FROM throttle ORDER BY account")
+            ->fetchAll(\PDO::FETCH_COLUMN);
+    }
+
+    public function deleteThrottleSettings(string $account): int
+    {
+        $stmt = $this->pdo()->prepare("DELETE FROM throttle WHERE account = :account");
+        $stmt->execute(['account' => $account]);
+
+        return $stmt->rowCount();
+    }
+
     public function getGreylistSettings(string $account): array
     {
         $stmt = $this->pdo()->prepare(

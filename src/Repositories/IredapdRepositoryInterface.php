@@ -8,6 +8,12 @@ interface IredapdRepositoryInterface extends AccountSettingsStoreInterface
 {
     public function getThrottleSettings(string $account): array;
     public function setThrottleSettings(string $account, string $kind, int $period, int $maxMsgs, int $maxQuota, int $msgSize): void;
+
+    /** @return string[] Every account that has at least one throttle row */
+    public function getThrottleAccounts(): array;
+
+    /** Deletes every throttle row of the account and returns the number of deleted rows. */
+    public function deleteThrottleSettings(string $account): int;
     public function getGreylistSettings(string $account): array;
     public function setGreylistEnabled(string $account, bool $enabled): void;
 

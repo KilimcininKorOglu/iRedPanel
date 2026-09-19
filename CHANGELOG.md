@@ -10,6 +10,7 @@ All notable changes to this project will be documented in this file.
 - `compatibility.json` lists the iRedMail versions that each iRedPanel release is compatible with (1.0.2: iRedMail 1.7.4, 1.8.0, 1.8.1, 1.8.2, 1.8.3, 1.8.4, 1.8.5, 1.8.6, 1.8.7, 1.8.8)
 - **System > iRedMail Compatibility** page (`/compatibility`) lists every release from `compatibility.json`; the dashboard shows the compatible iRedMail versions of the installed release and a newer release with its iRedMail versions
 - Installation guides for the OpenLDAP, MariaDB/MySQL and PostgreSQL backends in English and Turkish (`docs/install/`), each with a native and a Docker method
+- `cli/deleteUnmatchedThrottles.php [--dry-run]` deletes the iRedAPD throttle rows of CIDR and `user@*` accounts
 
 ### Changed
 - The dashboard reads new releases from `compatibility.json` on GitHub (24-hour cache) and falls back to the bundled copy; this replaces the GitHub release check
@@ -22,6 +23,7 @@ All notable changes to this project will be documented in this file.
 ### Fixed
 - `composer install` failed on PHP 8.1 to 8.3, because PHPUnit 13 needs PHP 8.4.1 and `composer.lock` is not tracked; PHPUnit 10.5 to 13 is now accepted
 - CI failed in `composer validate --strict` on the intentional `version` field
+- The throttle page and `/api/v1/throttle/{account}` accepted CIDR networks and `user@*` addresses, which the iRedAPD throttle plugin never matches; these accounts are now rejected
 
 ## [1.0.2] - 2026-07-26
 

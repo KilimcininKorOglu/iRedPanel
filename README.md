@@ -363,6 +363,7 @@ server {
 
 ### iRedAPD
 - Per-account throttle settings (inbound, outbound, external)
+- A throttle account must be a form that iRedAPD looks up: an email address, a domain, a subdomain or top-level domain (`@.example.com`, `@.com`), the catch-all `@.`, an IP address or an IPv4 wildcard. A CIDR network or `user@*` is rejected, because the iRedAPD throttle plugin never matches it
 - Greylisting toggle, whitelisted senders and tracking data
 - rDNS white/blacklist and SenderScore permanent whitelist
 
@@ -474,6 +475,7 @@ php cli/exportUsers.php --domain=example.com                 # Export users to C
 php cli/promoteToGlobalAdmin.php --email=admin@example.com   # Promote to global admin
 php cli/deleteExpiredMailboxes.php [--dry-run]               # Cron: delete expired mailboxes
 php cli/cleanupAmavisdDb.php [--quarantine-days=7]           # Cron: Amavisd cleanup
+php cli/deleteUnmatchedThrottles.php [--dry-run]            # Delete throttle rows iRedAPD never applies
 php cli/notifyQuarantinedRecipients.php [--force-all]        # Cron: quarantine notifications
 php cli/dumpDisclaimer.php                                   # Write domain disclaimers to files
 php cli/dumpQuarantinedMails.php                             # Export quarantined messages

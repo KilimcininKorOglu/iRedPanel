@@ -82,7 +82,8 @@
     "msg_bulk_done": "Радња је примењена на :count ставки.",
     "msg_bulk_failed": "Радња није успела за: :items",
     "msg_item_not_found": "није пронађено",
-    "msg_invalid_address": "Неважећа адреса: :address"
+    "msg_invalid_address": "Неважећа адреса: :address",
+    "msg_item_deleted": ":item је обрисан."
   },
   "auth": {
     "title": "Аутентификација",

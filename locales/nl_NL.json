@@ -82,7 +82,8 @@
     "msg_bulk_done": "De actie is toegepast op :count item(s).",
     "msg_bulk_failed": "De actie is mislukt voor: :items",
     "msg_item_not_found": "niet gevonden",
-    "msg_invalid_address": "Ongeldig adres: :address"
+    "msg_invalid_address": "Ongeldig adres: :address",
+    "msg_item_deleted": ":item is verwijderd."
   },
   "auth": {
     "title": "Authenticatie",

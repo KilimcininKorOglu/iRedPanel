@@ -82,7 +82,8 @@
     "msg_bulk_done": "İşlem :count öğeye uygulandı.",
     "msg_bulk_failed": "İşlem şunlar için başarısız oldu: :items",
     "msg_item_not_found": "bulunamadı",
-    "msg_invalid_address": "Geçersiz adres: :address"
+    "msg_invalid_address": "Geçersiz adres: :address",
+    "msg_item_deleted": ":item silindi."
   },
   "auth": {
     "title": "Kimlik Doğrulama",

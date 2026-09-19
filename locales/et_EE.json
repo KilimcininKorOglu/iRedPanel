@@ -82,7 +82,8 @@
     "msg_bulk_done": "Toimingut rakendati :count elemendile.",
     "msg_bulk_failed": "Toiming ebaõnnestus: :items",
     "msg_item_not_found": "ei leitud",
-    "msg_invalid_address": "Vigane aadress: :address"
+    "msg_invalid_address": "Vigane aadress: :address",
+    "msg_item_deleted": ":item kustutati."
   },
   "auth": {
     "title": "Autentimine",

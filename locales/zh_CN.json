@@ -82,7 +82,8 @@
     "msg_bulk_done": "操作已应用于 :count 个项目。",
     "msg_bulk_failed": "以下项目操作失败: :items",
     "msg_item_not_found": "未找到",
-    "msg_invalid_address": "无效的地址: :address"
+    "msg_invalid_address": "无效的地址: :address",
+    "msg_item_deleted": "已删除 :item。"
   },
   "auth": {
     "title": "身份验证",

@@ -30,6 +30,14 @@ class BaseController
     }
 
     /**
+     * Stores the success message for a deleted item.
+     */
+    public static function flashDeleted(string $item): void
+    {
+        self::flashSuccess(Translator::translate('common.msg_item_deleted', ['item' => $item]));
+    }
+
+    /**
      * Applies $apply to every selected item and stores the outcome as flash
      * messages. $apply throws to report a failure for one item; the other
      * items still run.

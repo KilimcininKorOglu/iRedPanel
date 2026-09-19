@@ -174,6 +174,7 @@ class AliasController
             $alias = $repo->getAlias($address) ?? throw BaseController::itemNotFound();
             $repo->deleteAlias($address);
             ActivityLogger::logDelete($alias->domain, '', "Deleted mail alias: {$address}");
+            BaseController::flashDeleted($address);
         } catch (\Exception $e) {
             BaseController::flashItemError($address, $e);
         }

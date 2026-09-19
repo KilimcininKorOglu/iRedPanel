@@ -233,6 +233,7 @@ class MailingListController
             $ml = $repo->getMailingList($address) ?? throw BaseController::itemNotFound();
             MailingListService::delete($address);
             ActivityLogger::logDelete($ml->domain, '', "Deleted mailing list: {$address}");
+            BaseController::flashDeleted($address);
         } catch (\Exception $e) {
             BaseController::flashItemError($address, $e);
         }

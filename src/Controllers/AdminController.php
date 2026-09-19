@@ -293,6 +293,7 @@ class AdminController
             $adminRepo->getAdmin($adminEmail) ?? throw BaseController::itemNotFound();
             $adminRepo->deleteAdmin($adminEmail);
             ActivityLogger::logDelete('', '', "Admin deleted: {$adminEmail}");
+            BaseController::flashDeleted($adminEmail);
         } catch (\Exception $e) {
             BaseController::flashItemError($adminEmail, $e);
         }

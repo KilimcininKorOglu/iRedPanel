@@ -313,6 +313,7 @@ class DomainController
             $domainRepo->getDomain($domainName) ?? throw BaseController::itemNotFound();
             $domainRepo->deleteDomain($domainName, $adminEmail);
             ActivityLogger::logDelete($domainName, '', "Domain deleted: {$domainName}");
+            BaseController::flashDeleted($domainName);
         } catch (\Exception $e) {
             BaseController::flashItemError($domainName, $e);
         }

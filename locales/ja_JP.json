@@ -82,7 +82,8 @@
     "msg_bulk_done": ":count 件に操作を適用しました。",
     "msg_bulk_failed": "次の項目で操作に失敗しました: :items",
     "msg_item_not_found": "見つかりません",
-    "msg_invalid_address": "無効なアドレス: :address"
+    "msg_invalid_address": "無効なアドレス: :address",
+    "msg_item_deleted": ":item を削除しました。"
   },
   "auth": {
     "title": "認証",

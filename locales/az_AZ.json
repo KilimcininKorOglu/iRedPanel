@@ -82,7 +82,8 @@
     "msg_bulk_done": "Əməliyyat :count elementə tətbiq edildi.",
     "msg_bulk_failed": "Əməliyyat bunlar üçün uğursuz oldu: :items",
     "msg_item_not_found": "tapılmadı",
-    "msg_invalid_address": "Etibarsız ünvan: :address"
+    "msg_invalid_address": "Etibarsız ünvan: :address",
+    "msg_item_deleted": ":item silindi."
   },
   "auth": {
     "title": "Autentifikasiya",

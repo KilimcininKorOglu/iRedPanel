@@ -82,7 +82,8 @@
     "msg_bulk_done": ":count개 항목에 작업을 적용했습니다.",
     "msg_bulk_failed": "다음 항목에서 작업이 실패했습니다: :items",
     "msg_item_not_found": "찾을 수 없음",
-    "msg_invalid_address": "잘못된 주소: :address"
+    "msg_invalid_address": "잘못된 주소: :address",
+    "msg_item_deleted": ":item을(를) 삭제했습니다."
   },
   "auth": {
     "title": "인증",

@@ -82,7 +82,8 @@
     "msg_bulk_done": "Dejanje je bilo uporabljeno za :count elementov.",
     "msg_bulk_failed": "Dejanje ni uspelo za: :items",
     "msg_item_not_found": "ni najdeno",
-    "msg_invalid_address": "Neveljaven naslov: :address"
+    "msg_invalid_address": "Neveljaven naslov: :address",
+    "msg_item_deleted": ":item je izbrisan."
   },
   "auth": {
     "title": "Preverjanje pristnosti",

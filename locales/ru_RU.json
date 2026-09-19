@@ -82,7 +82,8 @@
     "msg_bulk_done": "Действие применено к элементам: :count.",
     "msg_bulk_failed": "Действие не выполнено для: :items",
     "msg_item_not_found": "не найдено",
-    "msg_invalid_address": "Недопустимый адрес: :address"
+    "msg_invalid_address": "Недопустимый адрес: :address",
+    "msg_item_deleted": ":item удалён."
   },
   "auth": {
     "title": "Аутентификация",

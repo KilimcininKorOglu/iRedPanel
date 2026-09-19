@@ -82,7 +82,8 @@
     "msg_bulk_done": "Akce byla použita na :count položek.",
     "msg_bulk_failed": "Akce selhala pro: :items",
     "msg_item_not_found": "nenalezeno",
-    "msg_invalid_address": "Neplatná adresa: :address"
+    "msg_invalid_address": "Neplatná adresa: :address",
+    "msg_item_deleted": ":item byl odstraněn."
   },
   "auth": {
     "title": "Ověření",

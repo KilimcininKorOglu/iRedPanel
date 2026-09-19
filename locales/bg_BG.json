@@ -82,7 +82,8 @@
     "msg_bulk_done": "Действието е приложено към :count елемент(а).",
     "msg_bulk_failed": "Действието не успя за: :items",
     "msg_item_not_found": "не е намерен",
-    "msg_invalid_address": "Невалиден адрес: :address"
+    "msg_invalid_address": "Невалиден адрес: :address",
+    "msg_item_deleted": ":item е изтрит."
   },
   "auth": {
     "title": "Удостоверяване",

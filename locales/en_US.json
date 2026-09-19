@@ -82,7 +82,8 @@
     "msg_bulk_done": "The action was applied to :count item(s).",
     "msg_bulk_failed": "The action failed for: :items",
     "msg_item_not_found": "not found",
-    "msg_invalid_address": "Invalid address: :address"
+    "msg_invalid_address": "Invalid address: :address",
+    "msg_item_deleted": ":item was deleted."
   },
   "auth": {
     "title": "Authentication",

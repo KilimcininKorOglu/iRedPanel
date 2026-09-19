@@ -82,7 +82,8 @@
     "msg_bulk_done": "Åtgärden tillämpades på :count objekt.",
     "msg_bulk_failed": "Åtgärden misslyckades för: :items",
     "msg_item_not_found": "hittades inte",
-    "msg_invalid_address": "Ogiltig adress: :address"
+    "msg_invalid_address": "Ogiltig adress: :address",
+    "msg_item_deleted": ":item har tagits bort."
   },
   "auth": {
     "title": "Autentisering",

@@ -82,7 +82,8 @@
     "msg_bulk_done": "A művelet :count elemre lett alkalmazva.",
     "msg_bulk_failed": "A művelet sikertelen volt: :items",
     "msg_item_not_found": "nem található",
-    "msg_invalid_address": "Érvénytelen cím: :address"
+    "msg_invalid_address": "Érvénytelen cím: :address",
+    "msg_item_deleted": ":item törölve."
   },
   "auth": {
     "title": "Hitelesítés",

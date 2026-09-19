@@ -82,7 +82,8 @@
     "msg_bulk_done": "Acțiunea a fost aplicată pentru :count element(e).",
     "msg_bulk_failed": "Acțiunea a eșuat pentru: :items",
     "msg_item_not_found": "negăsit",
-    "msg_invalid_address": "Adresă invalidă: :address"
+    "msg_invalid_address": "Adresă invalidă: :address",
+    "msg_item_deleted": ":item a fost șters."
   },
   "auth": {
     "title": "Autentificare",

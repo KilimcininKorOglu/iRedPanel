@@ -82,7 +82,8 @@
     "msg_bulk_done": "Handlingen ble utført på :count element(er).",
     "msg_bulk_failed": "Handlingen mislyktes for: :items",
     "msg_item_not_found": "ikke funnet",
-    "msg_invalid_address": "Ugyldig adresse: :address"
+    "msg_invalid_address": "Ugyldig adresse: :address",
+    "msg_item_deleted": ":item er slettet."
   },
   "auth": {
     "title": "Autentisering",

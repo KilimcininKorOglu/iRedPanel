@@ -82,7 +82,8 @@
     "msg_bulk_done": "Η ενέργεια εφαρμόστηκε σε :count στοιχεία.",
     "msg_bulk_failed": "Η ενέργεια απέτυχε για: :items",
     "msg_item_not_found": "δεν βρέθηκε",
-    "msg_invalid_address": "Μη έγκυρη διεύθυνση: :address"
+    "msg_invalid_address": "Μη έγκυρη διεύθυνση: :address",
+    "msg_item_deleted": "Το :item διαγράφηκε."
   },
   "auth": {
     "title": "Έλεγχος ταυτότητας",

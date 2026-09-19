@@ -82,7 +82,8 @@
     "msg_bulk_done": "Ekintza :count elementutan aplikatu da.",
     "msg_bulk_failed": "Ekintzak huts egin du hauetan: :items",
     "msg_item_not_found": "ez da aurkitu",
-    "msg_invalid_address": "Helbide baliogabea: :address"
+    "msg_invalid_address": "Helbide baliogabea: :address",
+    "msg_item_deleted": ":item ezabatu da."
   },
   "auth": {
     "title": "Autentifikazioa",

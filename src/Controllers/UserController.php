@@ -342,6 +342,7 @@ class UserController
             $userRepo->getUser($domain, $userUid) ?? throw BaseController::itemNotFound();
             $userRepo->deleteUser($domain, $userUid, $adminEmail);
             ActivityLogger::logDelete($domain, $userUid, "User deleted");
+            BaseController::flashDeleted("{$userUid}@{$domain}");
         } catch (\Exception $e) {
             BaseController::flashItemError("{$userUid}@{$domain}", $e);
         }

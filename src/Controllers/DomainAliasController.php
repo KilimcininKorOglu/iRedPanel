@@ -123,6 +123,7 @@ class DomainAliasController
             $aliasRepo->getAlias($aliasDomain) ?? throw BaseController::itemNotFound();
             $aliasRepo->deleteAlias($aliasDomain);
             ActivityLogger::logDelete('', '', "Domain alias deleted: {$aliasDomain}");
+            BaseController::flashDeleted($aliasDomain);
         } catch (\Exception $e) {
             BaseController::flashItemError($aliasDomain, $e);
         }

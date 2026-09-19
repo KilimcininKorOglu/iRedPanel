@@ -82,7 +82,8 @@
     "msg_bulk_done": "Tindakan diterapkan pada :count item.",
     "msg_bulk_failed": "Tindakan gagal untuk: :items",
     "msg_item_not_found": "tidak ditemukan",
-    "msg_invalid_address": "Alamat tidak valid: :address"
+    "msg_invalid_address": "Alamat tidak valid: :address",
+    "msg_item_deleted": ":item telah dihapus."
   },
   "auth": {
     "title": "Autentikasi",

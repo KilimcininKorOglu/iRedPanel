@@ -82,7 +82,8 @@
     "msg_bulk_done": "Дію застосовано до елементів: :count.",
     "msg_bulk_failed": "Дію не виконано для: :items",
     "msg_item_not_found": "не знайдено",
-    "msg_invalid_address": "Недійсна адреса: :address"
+    "msg_invalid_address": "Недійсна адреса: :address",
+    "msg_item_deleted": ":item видалено."
   },
   "auth": {
     "title": "Автентифікація",

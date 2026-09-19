@@ -20,6 +20,14 @@ if ($dryRun) {
     echo "DRY RUN — no files will be deleted.\n\n";
 }
 
+// Without the mail storage, every maildir looks missing and every record would be dropped.
+$vmailPath = \App\Models\Settings::getInstance()->vmailPath;
+$vmailBase = realpath($vmailPath);
+if ($vmailBase === false || !is_dir($vmailBase)) {
+    fwrite(STDERR, "Error: vmail base directory {$vmailPath} not found. Run this script on the mail server or set IREDPANEL_VMAIL_PATH.\n");
+    exit(1);
+}
+
 $repo = RepositoryFactory::getDeletedMailboxRepository();
 
 $processed = 0;
@@ -42,9 +50,8 @@ foreach ($repo->getExpiredDeletions() as $deletion) {
     }
 
     // Safety: verify the directory is within the vmail base path
-    $vmailBase = realpath(\App\Models\Settings::getInstance()->vmailPath);
     $resolvedMaildir = realpath($maildir);
-    if ($vmailBase === false || $resolvedMaildir === false
+    if ($resolvedMaildir === false
         || !str_starts_with($resolvedMaildir, $vmailBase . DIRECTORY_SEPARATOR)) {
         echo "  Path outside vmail base directory, skipping.\n";
         $errors++;

@@ -117,7 +117,8 @@
     "picker_load_failed": "Iskanje računov ni uspelo. Naslov lahko še vedno vnesete.",
     "type_user": "Uporabnik",
     "type_alias": "Vzdevek",
-    "type_ml": "Poštni seznam"
+    "type_ml": "Poštni seznam",
+    "msg_invalid_domain": "Neveljavna domena: :domain"
   },
   "auth": {
     "title": "Preverjanje pristnosti",
@@ -854,7 +855,19 @@
     "state_inherit": "Uporabi nastavitev domene ali globalno",
     "state_enabled": "Vklopljeno",
     "state_disabled": "Izklopljeno",
-    "msg_inherited": "Lastna nastavitev greylistinga odstranjena. Velja nastavitev domene ali globalna."
+    "msg_inherited": "Lastna nastavitev greylistinga odstranjena. Velja nastavitev domene ali globalna.",
+    "accounts_heading": "Računi z lastno nastavitvijo",
+    "no_accounts": "Noben račun nima lastne nastavitve greylisting.",
+    "remove_settings": "Odstrani",
+    "remove_settings_confirm": "Odstranim nastavitev greylisting in dovoljene pošiljatelje tega računa?",
+    "msg_settings_removed": "Nastavitev greylisting računa :account je odstranjena.",
+    "domains_title": "Dovoljene domene",
+    "domains_intro": "Job iRedAPD pretvori zapise SPF teh domen v dovoljene pošiljatelje.",
+    "domains_heading": "Domene",
+    "domains_label": "Ena domena na vrstico",
+    "msg_domains_updated": "Dovoljene domene shranjene.",
+    "spf_heading": "Pošiljatelji iz zapisov SPF",
+    "no_spf_senders": "Job še ni razrešil nobenega pošiljatelja."
   },
   "resource": {
     "title": "Viri računov",

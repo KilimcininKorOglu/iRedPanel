@@ -117,7 +117,8 @@
     "picker_load_failed": "Pencarian akun gagal. Anda tetap dapat mengetik alamat.",
     "type_user": "Pengguna",
     "type_alias": "Alias",
-    "type_ml": "Milis"
+    "type_ml": "Milis",
+    "msg_invalid_domain": "Domain tidak valid: :domain"
   },
   "auth": {
     "title": "Autentikasi",
@@ -854,7 +855,19 @@
     "state_inherit": "Gunakan pengaturan domain atau global",
     "state_enabled": "Aktif",
     "state_disabled": "Nonaktif",
-    "msg_inherited": "Pengaturan greylisting sendiri dihapus. Pengaturan domain atau global berlaku."
+    "msg_inherited": "Pengaturan greylisting sendiri dihapus. Pengaturan domain atau global berlaku.",
+    "accounts_heading": "Akun dengan pengaturan sendiri",
+    "no_accounts": "Tidak ada akun yang punya pengaturan greylisting sendiri.",
+    "remove_settings": "Hapus",
+    "remove_settings_confirm": "Hapus pengaturan greylisting dan sender yang diizinkan pada akun ini?",
+    "msg_settings_removed": "Pengaturan greylisting akun :account dihapus.",
+    "domains_title": "Domain yang diizinkan",
+    "domains_intro": "Job iRedAPD mengubah record SPF domain ini menjadi sender yang diizinkan.",
+    "domains_heading": "Domain",
+    "domains_label": "Satu domain per baris",
+    "msg_domains_updated": "Domain yang diizinkan disimpan.",
+    "spf_heading": "Sender dari record SPF",
+    "no_spf_senders": "Job belum menemukan sender apa pun."
   },
   "resource": {
     "title": "Sumber Akun",

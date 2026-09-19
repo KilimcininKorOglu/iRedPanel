@@ -117,7 +117,8 @@
     "picker_load_failed": "การค้นหาบัญชีล้มเหลว คุณยังพิมพ์ที่อยู่เองได้",
     "type_user": "ผู้ใช้",
     "type_alias": "นามแฝง",
-    "type_ml": "รายชื่อผู้รับจดหมาย"
+    "type_ml": "รายชื่อผู้รับจดหมาย",
+    "msg_invalid_domain": "โดเมนไม่ถูกต้อง: :domain"
   },
   "auth": {
     "title": "การยืนยันตัวตน",
@@ -854,7 +855,19 @@
     "state_inherit": "ใช้ค่าของโดเมนหรือค่าส่วนกลาง",
     "state_enabled": "เปิด",
     "state_disabled": "ปิด",
-    "msg_inherited": "ลบการตั้งค่า greylisting ของบัญชีแล้ว ระบบใช้ค่าของโดเมนหรือค่าส่วนกลาง"
+    "msg_inherited": "ลบการตั้งค่า greylisting ของบัญชีแล้ว ระบบใช้ค่าของโดเมนหรือค่าส่วนกลาง",
+    "accounts_heading": "บัญชีที่มีการตั้งค่าของตัวเอง",
+    "no_accounts": "ไม่มีบัญชีใดมีการตั้งค่า greylisting ของตัวเอง",
+    "remove_settings": "ลบ",
+    "remove_settings_confirm": "ลบการตั้งค่า greylisting และ sender ที่อนุญาตของบัญชีนี้หรือไม่",
+    "msg_settings_removed": "ลบการตั้งค่า greylisting ของ :account แล้ว",
+    "domains_title": "โดเมนที่อนุญาต",
+    "domains_intro": "job ของ iRedAPD แปลงเรคคอร์ด SPF ของโดเมนเหล่านี้เป็น sender ที่อนุญาต",
+    "domains_heading": "โดเมน",
+    "domains_label": "หนึ่งโดเมนต่อบรรทัด",
+    "msg_domains_updated": "บันทึกโดเมนที่อนุญาตแล้ว",
+    "spf_heading": "sender จากเรคคอร์ด SPF",
+    "no_spf_senders": "job ยังไม่พบ sender ใด"
   },
   "resource": {
     "title": "แหล่งบัญชี",

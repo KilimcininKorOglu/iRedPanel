@@ -117,7 +117,8 @@
     "picker_load_failed": "Zoeken naar accounts is mislukt. U kunt nog steeds een adres typen.",
     "type_user": "Gebruiker",
     "type_alias": "Alias",
-    "type_ml": "Mailinglijst"
+    "type_ml": "Mailinglijst",
+    "msg_invalid_domain": "Ongeldig domein: :domain"
   },
   "auth": {
     "title": "Authenticatie",
@@ -854,7 +855,19 @@
     "state_inherit": "Domein- of globale instelling gebruiken",
     "state_enabled": "Ingeschakeld",
     "state_disabled": "Uitgeschakeld",
-    "msg_inherited": "Eigen greylisting-instelling verwijderd. De domein- of globale instelling geldt."
+    "msg_inherited": "Eigen greylisting-instelling verwijderd. De domein- of globale instelling geldt.",
+    "accounts_heading": "Accounts met een eigen instelling",
+    "no_accounts": "Geen account heeft een eigen greylisting-instelling.",
+    "remove_settings": "Verwijderen",
+    "remove_settings_confirm": "De greylisting-instelling en de toegestane senders van dit account verwijderen?",
+    "msg_settings_removed": "Greylisting-instelling van :account verwijderd.",
+    "domains_title": "Toegestane domeinen",
+    "domains_intro": "De iRedAPD-job zet de SPF-records van deze domeinen om in toegestane senders.",
+    "domains_heading": "Domeinen",
+    "domains_label": "Eén domein per regel",
+    "msg_domains_updated": "Toegestane domeinen opgeslagen.",
+    "spf_heading": "Senders uit de SPF-records",
+    "no_spf_senders": "De job heeft nog geen sender opgelost."
   },
   "resource": {
     "title": "Accountbronnen",

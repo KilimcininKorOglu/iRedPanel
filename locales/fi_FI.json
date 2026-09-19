@@ -117,7 +117,8 @@
     "picker_load_failed": "Tilihaku epäonnistui. Voit silti kirjoittaa osoitteen.",
     "type_user": "Käyttäjä",
     "type_alias": "Alias",
-    "type_ml": "Postituslista"
+    "type_ml": "Postituslista",
+    "msg_invalid_domain": "Virheellinen domain: :domain"
   },
   "auth": {
     "title": "Todennus",
@@ -854,7 +855,19 @@
     "state_inherit": "Käytä domainin tai yleistä asetusta",
     "state_enabled": "Käytössä",
     "state_disabled": "Pois käytöstä",
-    "msg_inherited": "Oma greylisting-asetus poistettu. Domainin tai yleinen asetus on voimassa."
+    "msg_inherited": "Oma greylisting-asetus poistettu. Domainin tai yleinen asetus on voimassa.",
+    "accounts_heading": "Tilit, joilla on oma asetus",
+    "no_accounts": "Millään tilillä ei ole omaa greylisting-asetusta.",
+    "remove_settings": "Poista",
+    "remove_settings_confirm": "Poistetaanko tämän tilin greylisting-asetus ja sallitut lähettäjät?",
+    "msg_settings_removed": "Tilin :account greylisting-asetus poistettiin.",
+    "domains_title": "Sallitut domainit",
+    "domains_intro": "iRedAPD:n job muuttaa näiden domainien SPF-tietueet sallituiksi lähettäjiksi.",
+    "domains_heading": "Domainit",
+    "domains_label": "Yksi domain riviä kohden",
+    "msg_domains_updated": "Sallitut domainit tallennettiin.",
+    "spf_heading": "Lähettäjät SPF-tietueista",
+    "no_spf_senders": "Job ei ole vielä selvittänyt yhtään lähettäjää."
   },
   "resource": {
     "title": "Tililähteet",

@@ -117,7 +117,8 @@
     "picker_load_failed": "La cerca de comptes ha fallat. Encara podeu escriure una adreça.",
     "type_user": "Usuari",
     "type_alias": "Àlies",
-    "type_ml": "Llista de correu"
+    "type_ml": "Llista de correu",
+    "msg_invalid_domain": "Domini no vàlid: :domain"
   },
   "auth": {
     "title": "Autenticació",
@@ -854,7 +855,19 @@
     "state_inherit": "Utilitza la configuració del domini o global",
     "state_enabled": "Activat",
     "state_disabled": "Desactivat",
-    "msg_inherited": "S'ha eliminat la configuració pròpia de greylisting. S'aplica la del domini o la global."
+    "msg_inherited": "S'ha eliminat la configuració pròpia de greylisting. S'aplica la del domini o la global.",
+    "accounts_heading": "Comptes amb un ajust propi",
+    "no_accounts": "Cap compte té un ajust propi de greylisting.",
+    "remove_settings": "Elimina",
+    "remove_settings_confirm": "Voleu eliminar l'ajust de greylisting i els remitents permesos d'aquest compte?",
+    "msg_settings_removed": "S'ha eliminat l'ajust de greylisting de :account.",
+    "domains_title": "Dominis permesos",
+    "domains_intro": "El job de l'iRedAPD converteix els registres SPF d'aquests dominis en remitents permesos.",
+    "domains_heading": "Dominis",
+    "domains_label": "Un domini per línia",
+    "msg_domains_updated": "Dominis permesos desats.",
+    "spf_heading": "Remitents dels registres SPF",
+    "no_spf_senders": "El job encara no ha resolt cap remitent."
   },
   "resource": {
     "title": "Orígens de comptes",

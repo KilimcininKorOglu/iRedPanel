@@ -22,10 +22,53 @@ interface IredapdRepositoryInterface extends AccountSettingsStoreInterface
      * setting of the domain or the global '@.' account.
      */
     public function removeGreylistSetting(string $account): void;
+
+    /**
+     * Every account that has an own greylisting setting.
+     *
+     * @return list<array{account: string, active: bool}>
+     */
+    public function getGreylistAccounts(): array;
+
+    /**
+     * Removes the greylisting setting of the account and its whitelisted senders,
+     * and returns the number of removed rows.
+     */
+    public function deleteGreylistSettings(string $account): int;
+
     /** @return string[] */
     public function getWhitelistedSenders(string $account): array;
     /** @param string[] $senders */
     public function setWhitelistedSenders(string $account, array $senders): void;
+
+    /**
+     * @param list<string> $senders
+     * @return int the number of senders that the account did not have yet
+     */
+    public function addWhitelistedSenders(string $account, array $senders): int;
+
+    /**
+     * @param list<string> $senders
+     * @return int the number of removed rows
+     */
+    public function removeWhitelistedSenders(string $account, array $senders): int;
+
+    /**
+     * The domains whose SPF records the iRedAPD job resolves into whitelisted senders.
+     *
+     * @return list<string>
+     */
+    public function getGreylistWhitelistDomains(): array;
+
+    /** @param list<string> $domains */
+    public function setGreylistWhitelistDomains(array $domains): void;
+
+    /**
+     * The resolved SPF senders, keyed by the domain they come from.
+     *
+     * @return array<string, list<string>>
+     */
+    public function getGreylistSpfSenders(): array;
 
     public function getGreylistTrackingPaginated(int $page, int $perPage): \App\Models\PaginatedResult;
 

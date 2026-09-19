@@ -117,7 +117,8 @@
     "picker_load_failed": "帳號搜尋失敗。您仍然可以手動輸入地址。",
     "type_user": "使用者",
     "type_alias": "別名",
-    "type_ml": "郵寄清單"
+    "type_ml": "郵寄清單",
+    "msg_invalid_domain": "無效的網域：:domain"
   },
   "auth": {
     "title": "驗證",
@@ -854,7 +855,19 @@
     "state_inherit": "使用網域或全域設定",
     "state_enabled": "啟用",
     "state_disabled": "停用",
-    "msg_inherited": "已刪除帳號自身的 Greylisting 設定。現在使用網域或全域設定。"
+    "msg_inherited": "已刪除帳號自身的 Greylisting 設定。現在使用網域或全域設定。",
+    "accounts_heading": "有自己設定的帳戶",
+    "no_accounts": "沒有帳戶有自己的 greylisting 設定。",
+    "remove_settings": "刪除",
+    "remove_settings_confirm": "刪除此帳戶的 greylisting 設定和允許的 sender？",
+    "msg_settings_removed": "已刪除 :account 的 greylisting 設定。",
+    "domains_title": "允許的網域",
+    "domains_intro": "iRedAPD 的 job 會把這些網域的 SPF 記錄轉換為允許的 sender。",
+    "domains_heading": "網域",
+    "domains_label": "每行一個網域",
+    "msg_domains_updated": "已儲存允許的網域。",
+    "spf_heading": "來自 SPF 記錄的 sender",
+    "no_spf_senders": "job 還沒有解析出任何 sender。"
   },
   "resource": {
     "title": "帳戶來源",

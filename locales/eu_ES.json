@@ -117,7 +117,8 @@
     "picker_load_failed": "Kontuen bilaketak huts egin du. Helbide bat idatz dezakezu oraindik.",
     "type_user": "Erabiltzailea",
     "type_alias": "Aliasa",
-    "type_ml": "Posta-zerrenda"
+    "type_ml": "Posta-zerrenda",
+    "msg_invalid_domain": "Domeinu baliogabea: :domain"
   },
   "auth": {
     "title": "Autentifikazioa",
@@ -854,7 +855,19 @@
     "state_inherit": "Erabili domeinuaren edo ezarpen orokorra",
     "state_enabled": "Gaituta",
     "state_disabled": "Desgaituta",
-    "msg_inherited": "Greylisting ezarpen propioa kendu da. Domeinuaren edo ezarpen orokorra aplikatzen da."
+    "msg_inherited": "Greylisting ezarpen propioa kendu da. Domeinuaren edo ezarpen orokorra aplikatzen da.",
+    "accounts_heading": "Ezarpen propioa duten kontuak",
+    "no_accounts": "Kontu batek ere ez du greylisting ezarpen propiorik.",
+    "remove_settings": "Kendu",
+    "remove_settings_confirm": "Kontu honen greylisting ezarpena eta baimendutako sender-ak kendu?",
+    "msg_settings_removed": ":account kontuaren greylisting ezarpena kendu da.",
+    "domains_title": "Baimendutako domeinuak",
+    "domains_intro": "iRedAPD job-ak domeinu hauen SPF erregistroak baimendutako sender bihurtzen ditu.",
+    "domains_heading": "Domeinuak",
+    "domains_label": "Lerro bakoitzean domeinu bat",
+    "msg_domains_updated": "Baimendutako domeinuak gorde dira.",
+    "spf_heading": "SPF erregistroetako sender-ak",
+    "no_spf_senders": "Job-ak ez du oraindik sender bat ere ebatzi."
   },
   "resource": {
     "title": "Kontu-iturburuak",

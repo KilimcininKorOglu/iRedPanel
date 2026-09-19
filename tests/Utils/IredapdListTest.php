@@ -48,6 +48,19 @@ class IredapdListTest extends TestCase
         IredapdList::greylistSenders(['@example.org', 'not an address']);
     }
 
+    /**
+     * greylisting_whitelist_domains holds a bare domain name, without the '@'
+     * that an Amavisd domain address carries.
+     */
+    public function testDomainsTakeTheBareNameOnly(): void
+    {
+        $this->assertSame(['example.com', 'mail.example.org'], IredapdList::domains(['Example.com', ' mail.example.org ', 'example.com']));
+
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage('@example.com');
+        IredapdList::domains(['@example.com']);
+    }
+
     public function testIpAddressesUseTheFormThatPostfixSends(): void
     {
         // iRedAPD looks up the client address exactly as Postfix reports it.

@@ -117,7 +117,8 @@
     "picker_load_failed": "Kontode otsing ebaõnnestus. Aadressi saate siiski sisestada.",
     "type_user": "Kasutaja",
     "type_alias": "Alias",
-    "type_ml": "Meililist"
+    "type_ml": "Meililist",
+    "msg_invalid_domain": "Vigane domeen: :domain"
   },
   "auth": {
     "title": "Autentimine",
@@ -854,7 +855,19 @@
     "state_inherit": "Kasuta domeeni või globaalset sätet",
     "state_enabled": "Sees",
     "state_disabled": "Väljas",
-    "msg_inherited": "Oma greylisting säte eemaldatud. Kehtib domeeni või globaalne säte."
+    "msg_inherited": "Oma greylisting säte eemaldatud. Kehtib domeeni või globaalne säte.",
+    "accounts_heading": "Oma seadistusega kontod",
+    "no_accounts": "Ühelgi kontol pole oma greylisting-seadistust.",
+    "remove_settings": "Eemalda",
+    "remove_settings_confirm": "Kas eemaldada selle konto greylisting-seadistus ja lubatud saatjad?",
+    "msg_settings_removed": "Konto :account greylisting-seadistus eemaldati.",
+    "domains_title": "Lubatud domeenid",
+    "domains_intro": "iRedAPD job muudab nende domeenide SPF-kirjed lubatud saatjateks.",
+    "domains_heading": "Domeenid",
+    "domains_label": "Üks domeen rea kohta",
+    "msg_domains_updated": "Lubatud domeenid salvestatud.",
+    "spf_heading": "Saatjad SPF-kirjetest",
+    "no_spf_senders": "Job pole veel ühtegi saatjat leidnud."
   },
   "resource": {
     "title": "Kontoallikad",

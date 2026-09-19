@@ -117,7 +117,8 @@
     "picker_load_failed": "Wyszukiwanie kont nie powiodło się. Nadal możesz wpisać adres.",
     "type_user": "Użytkownik",
     "type_alias": "Alias",
-    "type_ml": "Lista mailingowa"
+    "type_ml": "Lista mailingowa",
+    "msg_invalid_domain": "Nieprawidłowa domena: :domain"
   },
   "auth": {
     "title": "Uwierzytelnianie",
@@ -854,7 +855,19 @@
     "state_inherit": "Użyj ustawienia domeny lub globalnego",
     "state_enabled": "Włączony",
     "state_disabled": "Wyłączony",
-    "msg_inherited": "Usunięto własne ustawienie greylistingu. Obowiązuje ustawienie domeny lub globalne."
+    "msg_inherited": "Usunięto własne ustawienie greylistingu. Obowiązuje ustawienie domeny lub globalne.",
+    "accounts_heading": "Konta z własnym ustawieniem",
+    "no_accounts": "Żadne konto nie ma własnego ustawienia greylisting.",
+    "remove_settings": "Usuń",
+    "remove_settings_confirm": "Usunąć ustawienie greylisting i dozwolonych nadawców tego konta?",
+    "msg_settings_removed": "Ustawienie greylisting konta :account zostało usunięte.",
+    "domains_title": "Dozwolone domeny",
+    "domains_intro": "Job iRedAPD zamienia rekordy SPF tych domen na dozwolonych nadawców.",
+    "domains_heading": "Domeny",
+    "domains_label": "Jedna domena w wierszu",
+    "msg_domains_updated": "Dozwolone domeny zapisane.",
+    "spf_heading": "Nadawcy z rekordów SPF",
+    "no_spf_senders": "Job nie rozwiązał jeszcze żadnego nadawcy."
   },
   "resource": {
     "title": "Źródła kont",

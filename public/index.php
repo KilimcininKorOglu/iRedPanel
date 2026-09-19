@@ -433,6 +433,10 @@ $router->addRoute(['GET', 'POST'], '/iredapd/greylist/{account}', function (stri
     IredapdController::greylistView($tpl, $account);
 });
 
+$router->addRoute(['GET', 'POST'], '/iredapd/greylist-domains', function () use ($tpl) {
+    IredapdController::greylistDomains($tpl);
+});
+
 $router->addRoute('GET', '/iredapd/greylist-tracking', function () use ($tpl) {
     IredapdController::greylistTracking($tpl);
 });
@@ -627,6 +631,18 @@ $router->addRoute('PUT', '/api/v1/throttle/{account}', function (string $account
 });
 
 // Greylist API
+$router->addRoute('GET', '/api/v1/greylist', function () use ($apiAuth) {
+    $apiAuth(); GreylistApiController::listAccounts();
+});
+$router->addRoute('GET', '/api/v1/greylist-whitelist-domains', function () use ($apiAuth) {
+    $apiAuth(); GreylistApiController::getDomains();
+});
+$router->addRoute('PUT', '/api/v1/greylist-whitelist-domains', function () use ($apiAuth) {
+    $apiAuth(); GreylistApiController::updateDomains();
+});
+$router->addRoute('DELETE', '/api/v1/greylist/{account}', function (string $account) use ($apiAuth) {
+    $apiAuth(); GreylistApiController::delete($account);
+});
 $router->addRoute('GET', '/api/v1/greylist/{account}', function (string $account) use ($apiAuth) {
     $apiAuth(); GreylistApiController::get($account);
 });

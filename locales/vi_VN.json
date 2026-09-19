@@ -117,7 +117,8 @@
     "picker_load_failed": "Tìm kiếm tài khoản thất bại. Bạn vẫn có thể nhập địa chỉ.",
     "type_user": "Người dùng",
     "type_alias": "Bí danh",
-    "type_ml": "Danh sách thư"
+    "type_ml": "Danh sách thư",
+    "msg_invalid_domain": "Domain không hợp lệ: :domain"
   },
   "auth": {
     "title": "Xác thực",
@@ -854,7 +855,19 @@
     "state_inherit": "Dùng cài đặt của tên miền hoặc toàn cục",
     "state_enabled": "Bật",
     "state_disabled": "Tắt",
-    "msg_inherited": "Đã xóa cài đặt greylisting riêng. Cài đặt của tên miền hoặc toàn cục được áp dụng."
+    "msg_inherited": "Đã xóa cài đặt greylisting riêng. Cài đặt của tên miền hoặc toàn cục được áp dụng.",
+    "accounts_heading": "Tài khoản có thiết lập riêng",
+    "no_accounts": "Không tài khoản nào có thiết lập greylisting riêng.",
+    "remove_settings": "Xóa",
+    "remove_settings_confirm": "Xóa thiết lập greylisting và các sender được phép của tài khoản này?",
+    "msg_settings_removed": "Đã xóa thiết lập greylisting của :account.",
+    "domains_title": "Domain được phép",
+    "domains_intro": "Job của iRedAPD chuyển bản ghi SPF của các domain này thành sender được phép.",
+    "domains_heading": "Domain",
+    "domains_label": "Mỗi dòng một domain",
+    "msg_domains_updated": "Đã lưu domain được phép.",
+    "spf_heading": "Sender từ bản ghi SPF",
+    "no_spf_senders": "Job chưa phân giải sender nào."
   },
   "resource": {
     "title": "Nguồn tài khoản",

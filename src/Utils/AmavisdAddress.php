@@ -54,6 +54,15 @@ class AmavisdAddress
         return self::type($address) !== null;
     }
 
+    /**
+     * Whether the value is a bare domain name, as the greylisting whitelist
+     * domains hold it (without the '@' that an Amavisd domain address carries).
+     */
+    public static function isDomainName(string $name): bool
+    {
+        return self::domainType($name) === 'domain';
+    }
+
     public static function isValidWblistAddress(string $address): bool
     {
         return in_array(self::type($address), self::WBLIST_TYPES, true);

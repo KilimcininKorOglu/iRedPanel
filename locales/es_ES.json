@@ -117,7 +117,8 @@
     "picker_load_failed": "La búsqueda de cuentas ha fallado. Todavía puede escribir una dirección.",
     "type_user": "Usuario",
     "type_alias": "Alias",
-    "type_ml": "Lista de correo"
+    "type_ml": "Lista de correo",
+    "msg_invalid_domain": "Dominio no válido: :domain"
   },
   "auth": {
     "title": "Autenticación",
@@ -854,7 +855,19 @@
     "state_inherit": "Usar la configuración del dominio o global",
     "state_enabled": "Activado",
     "state_disabled": "Desactivado",
-    "msg_inherited": "Configuración propia de greylisting eliminada. Se aplica la del dominio o la global."
+    "msg_inherited": "Configuración propia de greylisting eliminada. Se aplica la del dominio o la global.",
+    "accounts_heading": "Cuentas con un ajuste propio",
+    "no_accounts": "Ninguna cuenta tiene un ajuste propio de greylisting.",
+    "remove_settings": "Eliminar",
+    "remove_settings_confirm": "¿Eliminar el ajuste de greylisting y los remitentes permitidos de esta cuenta?",
+    "msg_settings_removed": "Ajuste de greylisting de :account eliminado.",
+    "domains_title": "Dominios permitidos",
+    "domains_intro": "El job de iRedAPD convierte los registros SPF de estos dominios en remitentes permitidos.",
+    "domains_heading": "Dominios",
+    "domains_label": "Un dominio por línea",
+    "msg_domains_updated": "Dominios permitidos guardados.",
+    "spf_heading": "Remitentes de los registros SPF",
+    "no_spf_senders": "El job todavía no ha resuelto ningún remitente."
   },
   "resource": {
     "title": "Orígenes de cuentas",

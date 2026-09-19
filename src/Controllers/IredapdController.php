@@ -86,16 +86,7 @@ class IredapdController
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             CsrfProtection::validateToken();
             try {
-                $action = $_POST['action'] ?? '';
-
-                if ($action === 'state') {
-                    $success = self::applyGreylistState($account, (string) ($_POST['state'] ?? ''));
-                } elseif ($action === 'whitelist') {
-                    $senders = IredapdList::greylistSenders(explode("\n", $_POST['whitelistedSenders'] ?? ''));
-                    $repo->setWhitelistedSenders($account, $senders);
-                    ActivityLogger::logUpdate('', $account, "Greylist whitelist updated for {$account}");
-                    $success = Translator::translate('greylist.msg_whitelist_updated');
-                }
+                $success = self::applyGreylistAction($account, (string) ($_POST['action'] ?? ''));
             } catch (\InvalidArgumentException $e) {
                 $error = Translator::translate('common.msg_invalid_address', ['address' => $e->getMessage()]);
             } catch (\Exception $e) {
@@ -110,6 +101,68 @@ class IredapdController
             'greylistState' => self::greylistState($account, $repo->getGreylistSettings($account)),
             'canInherit' => $account !== '@.',
             'whitelistedSenders' => $whitelistedSenders,
+            'greylistAccounts' => $repo->getGreylistAccounts(),
+            'success' => $success,
+            'error' => $error,
+        ]);
+    }
+
+    /**
+     * Runs one POST action of the greylisting page.
+     *
+     * @return ?string the success message, or null when the action is unknown
+     */
+    private static function applyGreylistAction(string $account, string $action): ?string
+    {
+        $repo = RepositoryFactory::getIredapdRepository();
+        if ($action === 'state') {
+            return self::applyGreylistState($account, (string) ($_POST['state'] ?? ''));
+        }
+        if ($action === 'whitelist') {
+            $senders = IredapdList::greylistSenders(explode("\n", $_POST['whitelistedSenders'] ?? ''));
+            $repo->setWhitelistedSenders($account, $senders);
+            ActivityLogger::logUpdate('', $account, "Greylist whitelist updated for {$account}");
+
+            return Translator::translate('greylist.msg_whitelist_updated');
+        }
+        if ($action === 'deleteSettings') {
+            $target = (string) ($_POST['target'] ?? '');
+            if (!IredapdAccount::isValid($target)) {
+                throw new \InvalidArgumentException($target);
+            }
+            $repo->deleteGreylistSettings($target);
+            ActivityLogger::logDelete('', $target, "Greylisting settings removed for {$target}");
+
+            return Translator::translate('greylist.msg_settings_removed', ['account' => $target]);
+        }
+
+        return null;
+    }
+
+    /**
+     * The domains whose SPF records the iRedAPD job resolves into whitelisted senders.
+     */
+    public static function greylistDomains(TemplateEngine $tpl): void
+    {
+        Middleware::globalAdminRequired();
+        self::requireEnabled();
+
+        $repo = RepositoryFactory::getIredapdRepository();
+        [$success, $error] = self::listPost(
+            static function () use ($repo): void {
+                $repo->setGreylistWhitelistDomains(IredapdList::domains(explode("\n", $_POST['domains'] ?? '')));
+                ActivityLogger::logUpdate('', '@.', 'Greylisting whitelist domains updated');
+            },
+            'greylist.msg_domains_updated',
+            static fn (\InvalidArgumentException $e): string => Translator::translate(
+                'common.msg_invalid_domain',
+                ['domain' => $e->getMessage()],
+            ),
+        );
+
+        $tpl->render('greylistDomains.php', [
+            'domains' => $repo->getGreylistWhitelistDomains(),
+            'spfSenders' => $repo->getGreylistSpfSenders(),
             'success' => $success,
             'error' => $error,
         ]);
@@ -178,21 +231,17 @@ class IredapdController
         self::requireEnabled();
 
         $repo = RepositoryFactory::getIredapdRepository();
-        $success = null;
-        $error = null;
-
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            CsrfProtection::validateToken();
-            try {
+        [$success, $error] = self::listPost(
+            static function () use ($repo): void {
                 $repo->setSenderScoreWhitelist(IredapdList::ipAddresses(explode("\n", $_POST['ips'] ?? '')));
                 ActivityLogger::log('update', '', '', 'Updated SenderScore whitelist');
-                $success = Translator::translate('wblist.msg_senderscore_updated');
-            } catch (\InvalidArgumentException $e) {
-                $error = Translator::translate('wblist.msg_invalid_ip', ['ip' => $e->getMessage()]);
-            } catch (\Exception $e) {
-                $error = BaseController::errorMessage($e);
-            }
-        }
+            },
+            'wblist.msg_senderscore_updated',
+            static fn (\InvalidArgumentException $e): string => Translator::translate(
+                'wblist.msg_invalid_ip',
+                ['ip' => $e->getMessage()],
+            ),
+        );
 
         $ips = $repo->getSenderScoreWhitelist();
 
@@ -252,6 +301,31 @@ class IredapdController
             return BaseController::errorMessage($e);
         }
         return Translator::translate('throttle.msg_invalid_value', ['field' => Translator::translate($labelKey)]);
+    }
+
+    /**
+     * Runs the POST of a page that saves one list, and returns the flash pair.
+     *
+     * @param callable(): void $save
+     * @param callable(\InvalidArgumentException): string $invalidValue names the rejected entry
+     * @return array{0: ?string, 1: ?string} the success and the error message
+     */
+    private static function listPost(callable $save, string $successKey, callable $invalidValue): array
+    {
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+            return [null, null];
+        }
+
+        CsrfProtection::validateToken();
+        try {
+            $save();
+
+            return [Translator::translate($successKey), null];
+        } catch (\InvalidArgumentException $e) {
+            return [null, $invalidValue($e)];
+        } catch (\Exception $e) {
+            return [null, BaseController::errorMessage($e)];
+        }
     }
 
     private static function requireEnabled(): void

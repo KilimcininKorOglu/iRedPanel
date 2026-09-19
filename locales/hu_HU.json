@@ -117,7 +117,8 @@
     "picker_load_failed": "A fiókkeresés nem sikerült. A címet továbbra is beírhatja.",
     "type_user": "Felhasználó",
     "type_alias": "Álnév",
-    "type_ml": "Levelezőlista"
+    "type_ml": "Levelezőlista",
+    "msg_invalid_domain": "Érvénytelen domain: :domain"
   },
   "auth": {
     "title": "Hitelesítés",
@@ -854,7 +855,19 @@
     "state_inherit": "A domain vagy a globális beállítás használata",
     "state_enabled": "Bekapcsolva",
     "state_disabled": "Kikapcsolva",
-    "msg_inherited": "A saját greylisting beállítás törölve. A domain vagy a globális beállítás érvényes."
+    "msg_inherited": "A saját greylisting beállítás törölve. A domain vagy a globális beállítás érvényes.",
+    "accounts_heading": "Saját beállítással rendelkező fiókok",
+    "no_accounts": "Egyetlen fióknak sincs saját greylisting beállítása.",
+    "remove_settings": "Eltávolítás",
+    "remove_settings_confirm": "Eltávolítja a fiók greylisting beállítását és engedélyezett feladóit?",
+    "msg_settings_removed": ":account greylisting beállítása eltávolítva.",
+    "domains_title": "Engedélyezett domainek",
+    "domains_intro": "Az iRedAPD job ezeknek a domaineknek az SPF rekordjait engedélyezett feladókká alakítja.",
+    "domains_heading": "Domainek",
+    "domains_label": "Soronként egy domain",
+    "msg_domains_updated": "Engedélyezett domainek elmentve.",
+    "spf_heading": "Feladók az SPF rekordokból",
+    "no_spf_senders": "A job még egyetlen feladót sem oldott fel."
   },
   "resource": {
     "title": "Fiókforrások",

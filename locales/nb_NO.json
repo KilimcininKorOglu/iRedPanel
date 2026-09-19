@@ -117,7 +117,8 @@
     "picker_load_failed": "Kontosøket mislyktes. Du kan fortsatt skrive en adresse.",
     "type_user": "Bruker",
     "type_alias": "Alias",
-    "type_ml": "E-postliste"
+    "type_ml": "E-postliste",
+    "msg_invalid_domain": "Ugyldig domene: :domain"
   },
   "auth": {
     "title": "Autentisering",
@@ -854,7 +855,19 @@
     "state_inherit": "Bruk domenets eller den globale innstillingen",
     "state_enabled": "Aktivert",
     "state_disabled": "Deaktivert",
-    "msg_inherited": "Egen greylisting-innstilling fjernet. Domenets eller den globale innstillingen gjelder."
+    "msg_inherited": "Egen greylisting-innstilling fjernet. Domenets eller den globale innstillingen gjelder.",
+    "accounts_heading": "Kontoer med egen innstilling",
+    "no_accounts": "Ingen konto har en egen greylisting-innstilling.",
+    "remove_settings": "Fjern",
+    "remove_settings_confirm": "Fjerne greylisting-innstillingen og de tillatte avsenderne til denne kontoen?",
+    "msg_settings_removed": "Greylisting-innstillingen til :account er fjernet.",
+    "domains_title": "Tillatte domener",
+    "domains_intro": "iRedAPD-jobben gjør SPF-postene til disse domenene om til tillatte avsendere.",
+    "domains_heading": "Domener",
+    "domains_label": "Ett domene per linje",
+    "msg_domains_updated": "Tillatte domener lagret.",
+    "spf_heading": "Avsendere fra SPF-postene",
+    "no_spf_senders": "Jobben har ennå ikke funnet noen avsender."
   },
   "resource": {
     "title": "Kontokilder",

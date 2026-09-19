@@ -37,6 +37,18 @@ class IredapdList
     }
 
     /**
+     * Domain names whose SPF records the greylisting whitelist job resolves.
+     *
+     * @param string[] $lines
+     * @return string[]
+     * @throws \InvalidArgumentException with the invalid entry as message
+     */
+    public static function domains(array $lines): array
+    {
+        return self::normalize($lines, [AmavisdAddress::class, 'isDomainName']);
+    }
+
+    /**
      * @param string[] $lines
      * @return string[]
      * @throws \InvalidArgumentException with the invalid entry as message

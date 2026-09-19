@@ -117,7 +117,8 @@
     "picker_load_failed": "Hledání účtů selhalo. Adresu můžete stále zadat ručně.",
     "type_user": "Uživatel",
     "type_alias": "Alias",
-    "type_ml": "E-mailová konference"
+    "type_ml": "E-mailová konference",
+    "msg_invalid_domain": "Neplatná doména: :domain"
   },
   "auth": {
     "title": "Ověření",
@@ -854,7 +855,19 @@
     "state_inherit": "Použít nastavení domény nebo globální",
     "state_enabled": "Zapnuto",
     "state_disabled": "Vypnuto",
-    "msg_inherited": "Vlastní nastavení greylistingu odstraněno. Platí nastavení domény nebo globální."
+    "msg_inherited": "Vlastní nastavení greylistingu odstraněno. Platí nastavení domény nebo globální.",
+    "accounts_heading": "Účty s vlastním nastavením",
+    "no_accounts": "Žádný účet nemá vlastní nastavení greylisting.",
+    "remove_settings": "Odebrat",
+    "remove_settings_confirm": "Odebrat nastavení greylisting a povolené odesílatele tohoto účtu?",
+    "msg_settings_removed": "Nastavení greylisting účtu :account bylo odebráno.",
+    "domains_title": "Povolené domény",
+    "domains_intro": "Job iRedAPD převádí SPF záznamy těchto domén na povolené odesílatele.",
+    "domains_heading": "Domény",
+    "domains_label": "Jedna doména na řádek",
+    "msg_domains_updated": "Povolené domény uloženy.",
+    "spf_heading": "Odesílatelé ze SPF záznamů",
+    "no_spf_senders": "Job zatím nevyhodnotil žádného odesílatele."
   },
   "resource": {
     "title": "Zdroje účtů",

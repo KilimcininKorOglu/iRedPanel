@@ -117,7 +117,8 @@
     "picker_load_failed": "Не вдалося виконати пошук облікових записів. Адресу можна ввести вручну.",
     "type_user": "Користувач",
     "type_alias": "Псевдонім",
-    "type_ml": "Список розсилки"
+    "type_ml": "Список розсилки",
+    "msg_invalid_domain": "Недопустимий домен: :domain"
   },
   "auth": {
     "title": "Автентифікація",
@@ -854,7 +855,19 @@
     "state_inherit": "Використовувати налаштування домену або глобальне",
     "state_enabled": "Увімкнено",
     "state_disabled": "Вимкнено",
-    "msg_inherited": "Власне налаштування greylisting видалено. Діє налаштування домену або глобальне."
+    "msg_inherited": "Власне налаштування greylisting видалено. Діє налаштування домену або глобальне.",
+    "accounts_heading": "Акаунти з власним налаштуванням",
+    "no_accounts": "Жоден акаунт не має власного налаштування greylisting.",
+    "remove_settings": "Видалити",
+    "remove_settings_confirm": "Видалити налаштування greylisting і дозволених відправників цього акаунта?",
+    "msg_settings_removed": "Налаштування greylisting акаунта :account видалено.",
+    "domains_title": "Дозволені домени",
+    "domains_intro": "Job iRedAPD перетворює SPF-записи цих доменів на дозволених відправників.",
+    "domains_heading": "Домени",
+    "domains_label": "По одному домену в рядку",
+    "msg_domains_updated": "Дозволені домени збережено.",
+    "spf_heading": "Відправники із SPF-записів",
+    "no_spf_senders": "Job ще не визначив жодного відправника."
   },
   "resource": {
     "title": "Джерела облікових записів",

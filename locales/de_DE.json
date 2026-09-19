@@ -117,7 +117,8 @@
     "picker_load_failed": "Die Kontosuche ist fehlgeschlagen. Sie können trotzdem eine Adresse eingeben.",
     "type_user": "Benutzer",
     "type_alias": "Alias",
-    "type_ml": "Mailingliste"
+    "type_ml": "Mailingliste",
+    "msg_invalid_domain": "Ungültige Domain: :domain"
   },
   "auth": {
     "title": "Authentifizierung",
@@ -854,7 +855,19 @@
     "state_inherit": "Domain- oder globale Einstellung verwenden",
     "state_enabled": "Aktiviert",
     "state_disabled": "Deaktiviert",
-    "msg_inherited": "Eigene Greylisting-Einstellung entfernt. Die Domain- oder globale Einstellung gilt."
+    "msg_inherited": "Eigene Greylisting-Einstellung entfernt. Die Domain- oder globale Einstellung gilt.",
+    "accounts_heading": "Konten mit eigener Einstellung",
+    "no_accounts": "Kein Konto hat eine eigene Greylisting-Einstellung.",
+    "remove_settings": "Entfernen",
+    "remove_settings_confirm": "Die Greylisting-Einstellung und die freigegebenen Sender dieses Kontos entfernen?",
+    "msg_settings_removed": "Greylisting-Einstellung von :account entfernt.",
+    "domains_title": "Freigegebene Domains",
+    "domains_intro": "Der iRedAPD-Job wandelt die SPF-Records dieser Domains in freigegebene Sender um.",
+    "domains_heading": "Domains",
+    "domains_label": "Eine Domain pro Zeile",
+    "msg_domains_updated": "Freigegebene Domains gespeichert.",
+    "spf_heading": "Sender aus den SPF-Records",
+    "no_spf_senders": "Der Job hat noch keinen Sender aufgelöst."
   },
   "resource": {
     "title": "Kontoquellen",

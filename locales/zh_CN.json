@@ -117,7 +117,8 @@
     "picker_load_failed": "账户搜索失败。您仍然可以手动输入地址。",
     "type_user": "用户",
     "type_alias": "别名",
-    "type_ml": "邮件列表"
+    "type_ml": "邮件列表",
+    "msg_invalid_domain": "无效的域名：:domain"
   },
   "auth": {
     "title": "身份验证",
@@ -854,7 +855,19 @@
     "state_inherit": "使用域名或全局设置",
     "state_enabled": "启用",
     "state_disabled": "禁用",
-    "msg_inherited": "已删除账户自身的 Greylisting 设置。现在使用域名或全局设置。"
+    "msg_inherited": "已删除账户自身的 Greylisting 设置。现在使用域名或全局设置。",
+    "accounts_heading": "有自己设置的账户",
+    "no_accounts": "没有账户有自己的 greylisting 设置。",
+    "remove_settings": "删除",
+    "remove_settings_confirm": "删除此账户的 greylisting 设置和允许的 sender？",
+    "msg_settings_removed": "已删除 :account 的 greylisting 设置。",
+    "domains_title": "允许的域名",
+    "domains_intro": "iRedAPD 的 job 把这些域名的 SPF 记录转换为允许的 sender。",
+    "domains_heading": "域名",
+    "domains_label": "每行一个域名",
+    "msg_domains_updated": "已保存允许的域名。",
+    "spf_heading": "来自 SPF 记录的 sender",
+    "no_spf_senders": "job 还没有解析出任何 sender。"
   },
   "resource": {
     "title": "账户源",

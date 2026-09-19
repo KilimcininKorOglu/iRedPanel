@@ -117,7 +117,8 @@
     "picker_load_failed": "Account search failed. You can still type an address.",
     "type_user": "User",
     "type_alias": "Alias",
-    "type_ml": "Mailing list"
+    "type_ml": "Mailing list",
+    "msg_invalid_domain": "Invalid domain: :domain"
   },
   "auth": {
     "title": "Authentication",
@@ -854,7 +855,19 @@
     "state_inherit": "Use the domain or global setting",
     "state_enabled": "Enabled",
     "state_disabled": "Disabled",
-    "msg_inherited": "Own greylisting setting removed. The domain or global setting applies."
+    "msg_inherited": "Own greylisting setting removed. The domain or global setting applies.",
+    "accounts_heading": "Accounts with an own setting",
+    "no_accounts": "No account has an own greylisting setting.",
+    "remove_settings": "Remove",
+    "remove_settings_confirm": "Remove the greylisting setting and the whitelisted senders of this account?",
+    "msg_settings_removed": "Greylisting setting of :account removed.",
+    "domains_title": "Whitelisted domains",
+    "domains_intro": "The iRedAPD job resolves the SPF records of these domains into whitelisted senders.",
+    "domains_heading": "Domains",
+    "domains_label": "One domain per line",
+    "msg_domains_updated": "Whitelisted domains saved.",
+    "spf_heading": "Senders from the SPF records",
+    "no_spf_senders": "The job has not resolved a sender yet."
   },
   "resource": {
     "title": "Account Resources",

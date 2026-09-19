@@ -117,7 +117,8 @@
     "picker_load_failed": "Căutarea conturilor a eșuat. Puteți introduce în continuare o adresă.",
     "type_user": "Utilizator",
     "type_alias": "Alias",
-    "type_ml": "Listă de corespondență"
+    "type_ml": "Listă de corespondență",
+    "msg_invalid_domain": "Domeniu nevalid: :domain"
   },
   "auth": {
     "title": "Autentificare",
@@ -854,7 +855,19 @@
     "state_inherit": "Folosește setarea domeniului sau globală",
     "state_enabled": "Activat",
     "state_disabled": "Dezactivat",
-    "msg_inherited": "Setarea proprie de greylisting a fost eliminată. Se aplică setarea domeniului sau cea globală."
+    "msg_inherited": "Setarea proprie de greylisting a fost eliminată. Se aplică setarea domeniului sau cea globală.",
+    "accounts_heading": "Conturi cu o setare proprie",
+    "no_accounts": "Niciun cont nu are o setare proprie de greylisting.",
+    "remove_settings": "Elimină",
+    "remove_settings_confirm": "Elimini setarea de greylisting și expeditorii permiși ai acestui cont?",
+    "msg_settings_removed": "Setarea de greylisting a contului :account a fost eliminată.",
+    "domains_title": "Domenii permise",
+    "domains_intro": "Job-ul iRedAPD transformă înregistrările SPF ale acestor domenii în expeditori permiși.",
+    "domains_heading": "Domenii",
+    "domains_label": "Un domeniu pe linie",
+    "msg_domains_updated": "Domenii permise salvate.",
+    "spf_heading": "Expeditori din înregistrările SPF",
+    "no_spf_senders": "Job-ul nu a rezolvat încă niciun expeditor."
   },
   "resource": {
     "title": "Resurse de conturi",

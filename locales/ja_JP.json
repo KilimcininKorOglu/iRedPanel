@@ -117,7 +117,8 @@
     "picker_load_failed": "アカウント検索に失敗しました。アドレスは手入力できます。",
     "type_user": "ユーザー",
     "type_alias": "エイリアス",
-    "type_ml": "メーリングリスト"
+    "type_ml": "メーリングリスト",
+    "msg_invalid_domain": "無効なドメイン: :domain"
   },
   "auth": {
     "title": "認証",
@@ -854,7 +855,19 @@
     "state_inherit": "ドメインまたはグローバル設定を使用",
     "state_enabled": "有効",
     "state_disabled": "無効",
-    "msg_inherited": "独自の Greylisting 設定を削除しました。ドメインまたはグローバル設定が適用されます。"
+    "msg_inherited": "独自の Greylisting 設定を削除しました。ドメインまたはグローバル設定が適用されます。",
+    "accounts_heading": "独自の設定があるアカウント",
+    "no_accounts": "独自の greylisting 設定を持つアカウントはありません。",
+    "remove_settings": "削除",
+    "remove_settings_confirm": "このアカウントの greylisting 設定と許可された sender を削除しますか？",
+    "msg_settings_removed": ":account の greylisting 設定を削除しました。",
+    "domains_title": "許可するドメイン",
+    "domains_intro": "iRedAPD の job がこれらのドメインの SPF レコードを許可する sender に変換します。",
+    "domains_heading": "ドメイン",
+    "domains_label": "1 行に 1 ドメイン",
+    "msg_domains_updated": "許可するドメインを保存しました。",
+    "spf_heading": "SPF レコードからの sender",
+    "no_spf_senders": "job はまだ sender を解決していません。"
   },
   "resource": {
     "title": "アカウントリソース",

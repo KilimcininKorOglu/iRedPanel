@@ -117,7 +117,8 @@
     "picker_load_failed": "La recherche de comptes a échoué. Vous pouvez toujours saisir une adresse.",
     "type_user": "Utilisateur",
     "type_alias": "Alias",
-    "type_ml": "Liste de diffusion"
+    "type_ml": "Liste de diffusion",
+    "msg_invalid_domain": "Domaine non valide : :domain"
   },
   "auth": {
     "title": "Authentification",
@@ -854,7 +855,19 @@
     "state_inherit": "Utiliser le réglage du domaine ou global",
     "state_enabled": "Activé",
     "state_disabled": "Désactivé",
-    "msg_inherited": "Réglage de greylisting propre supprimé. Le réglage du domaine ou global s'applique."
+    "msg_inherited": "Réglage de greylisting propre supprimé. Le réglage du domaine ou global s'applique.",
+    "accounts_heading": "Comptes avec un réglage propre",
+    "no_accounts": "Aucun compte n'a de réglage de greylisting propre.",
+    "remove_settings": "Supprimer",
+    "remove_settings_confirm": "Supprimer le réglage de greylisting et les expéditeurs autorisés de ce compte ?",
+    "msg_settings_removed": "Réglage de greylisting de :account supprimé.",
+    "domains_title": "Domaines autorisés",
+    "domains_intro": "Le job iRedAPD transforme les enregistrements SPF de ces domaines en expéditeurs autorisés.",
+    "domains_heading": "Domaines",
+    "domains_label": "Un domaine par ligne",
+    "msg_domains_updated": "Domaines autorisés enregistrés.",
+    "spf_heading": "Expéditeurs issus des enregistrements SPF",
+    "no_spf_senders": "Le job n'a encore résolu aucun expéditeur."
   },
   "resource": {
     "title": "Sources de comptes",

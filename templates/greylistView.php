@@ -48,5 +48,40 @@
         <button type="submit" class="btn btn-primary"><?= $te('greylist.save_whitelist') ?></button>
       </div>
     </form>
+
+    <div class="card">
+      <div class="card-header"><?= $te('greylist.accounts_heading') ?></div>
+      <?php if (!empty($greylistAccounts)): ?>
+      <div class="table-responsive">
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th><?= $te('spampolicy.account') ?></th>
+              <th><?= $te('common.status') ?></th>
+              <th class="text-end"><?= $te('common.actions') ?></th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php foreach ($greylistAccounts as $row): ?>
+            <tr>
+              <td><a href="/iredapd/greylist/<?= $e(rawurlencode($row['account'])) ?>"><?= $e($row['account']) ?></a></td>
+              <td><?= $te($row['active'] ? 'greylist.state_enabled' : 'greylist.state_disabled') ?></td>
+              <td>
+                <form method="post" class="table-actions" data-confirm="<?= $te('greylist.remove_settings_confirm') ?>">
+                  <?= $csrfField ?>
+                  <input type="hidden" name="action" value="deleteSettings" />
+                  <input type="hidden" name="target" value="<?= $e($row['account']) ?>" />
+                  <button type="submit" class="btn btn-sm btn-outline-danger"><i class="bi bi-x-lg me-1"></i><?= $te('greylist.remove_settings') ?></button>
+                </form>
+              </td>
+            </tr>
+            <?php endforeach; ?>
+          </tbody>
+        </table>
+      </div>
+      <?php else: ?>
+      <div class="card-body text-body-secondary"><?= $te('greylist.no_accounts') ?></div>
+      <?php endif; ?>
+    </div>
   </div>
 </div>

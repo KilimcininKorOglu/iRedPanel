@@ -117,7 +117,8 @@
     "picker_load_failed": "Η αναζήτηση λογαριασμών απέτυχε. Μπορείτε ακόμη να πληκτρολογήσετε μια διεύθυνση.",
     "type_user": "Χρήστης",
     "type_alias": "Ψευδώνυμο",
-    "type_ml": "Λίστα αλληλογραφίας"
+    "type_ml": "Λίστα αλληλογραφίας",
+    "msg_invalid_domain": "Μη έγκυρο domain: :domain"
   },
   "auth": {
     "title": "Έλεγχος ταυτότητας",
@@ -854,7 +855,19 @@
     "state_inherit": "Χρήση της ρύθμισης του domain ή της καθολικής",
     "state_enabled": "Ενεργό",
     "state_disabled": "Ανενεργό",
-    "msg_inherited": "Η δική του ρύθμιση greylisting αφαιρέθηκε. Ισχύει η ρύθμιση του domain ή η καθολική."
+    "msg_inherited": "Η δική του ρύθμιση greylisting αφαιρέθηκε. Ισχύει η ρύθμιση του domain ή η καθολική.",
+    "accounts_heading": "Λογαριασμοί με δική τους ρύθμιση",
+    "no_accounts": "Κανένας λογαριασμός δεν έχει δική του ρύθμιση greylisting.",
+    "remove_settings": "Αφαίρεση",
+    "remove_settings_confirm": "Να αφαιρεθεί η ρύθμιση greylisting και οι επιτρεπόμενοι αποστολείς αυτού του λογαριασμού;",
+    "msg_settings_removed": "Η ρύθμιση greylisting του :account αφαιρέθηκε.",
+    "domains_title": "Επιτρεπόμενα domain",
+    "domains_intro": "Το job του iRedAPD μετατρέπει τις εγγραφές SPF αυτών των domain σε επιτρεπόμενους αποστολείς.",
+    "domains_heading": "Domain",
+    "domains_label": "Ένα domain ανά γραμμή",
+    "msg_domains_updated": "Τα επιτρεπόμενα domain αποθηκεύτηκαν.",
+    "spf_heading": "Αποστολείς από τις εγγραφές SPF",
+    "no_spf_senders": "Το job δεν έχει βρει ακόμη κανέναν αποστολέα."
   },
   "resource": {
     "title": "Πηγές λογαριασμών",

@@ -117,7 +117,8 @@
     "picker_load_failed": "Hesab axtarışı alınmadı. Ünvanı yenə də yaza bilərsiniz.",
     "type_user": "İstifadəçi",
     "type_alias": "Alias",
-    "type_ml": "Poçt siyahısı"
+    "type_ml": "Poçt siyahısı",
+    "msg_invalid_domain": "Yanlış domain: :domain"
   },
   "auth": {
     "title": "Autentifikasiya",
@@ -854,7 +855,19 @@
     "state_inherit": "Domen və ya qlobal ayardan istifadə et",
     "state_enabled": "Aktiv",
     "state_disabled": "Deaktiv",
-    "msg_inherited": "Hesabın öz greylisting ayarı silindi. Domen və ya qlobal ayar tətbiq olunur."
+    "msg_inherited": "Hesabın öz greylisting ayarı silindi. Domen və ya qlobal ayar tətbiq olunur.",
+    "accounts_heading": "Öz ayarı olan hesablar",
+    "no_accounts": "Heç bir hesabın öz greylisting ayarı yoxdur.",
+    "remove_settings": "Sil",
+    "remove_settings_confirm": "Bu hesabın greylisting ayarı və icazəli sender'ləri silinsin?",
+    "msg_settings_removed": ":account hesabının greylisting ayarı silindi.",
+    "domains_title": "İcazəli domainlər",
+    "domains_intro": "iRedAPD job bu domainlərin SPF qeydlərini icazəli sender'lərə çevirir.",
+    "domains_heading": "Domainlər",
+    "domains_label": "Hər sətirdə bir domain",
+    "msg_domains_updated": "İcazəli domainlər yadda saxlanıldı.",
+    "spf_heading": "SPF qeydlərindən gələn sender'lər",
+    "no_spf_senders": "Job hələ heç bir sender tapmayıb."
   },
   "resource": {
     "title": "Hesab mənbələri",

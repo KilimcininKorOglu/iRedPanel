@@ -117,7 +117,8 @@
     "picker_load_failed": "Hesap araması başarısız oldu. Adresi yine de yazabilirsiniz.",
     "type_user": "Kullanıcı",
     "type_alias": "Alias",
-    "type_ml": "Mailing list"
+    "type_ml": "Mailing list",
+    "msg_invalid_domain": "Geçersiz domain: :domain"
   },
   "auth": {
     "title": "Kimlik Doğrulama",
@@ -854,7 +855,19 @@
     "state_inherit": "Domain veya global ayarı kullan",
     "state_enabled": "Açık",
     "state_disabled": "Kapalı",
-    "msg_inherited": "Hesabın kendi greylisting ayarı kaldırıldı. Domain veya global ayar geçerli."
+    "msg_inherited": "Hesabın kendi greylisting ayarı kaldırıldı. Domain veya global ayar geçerli.",
+    "accounts_heading": "Kendi ayarı olan hesaplar",
+    "no_accounts": "Hiçbir hesabın kendi greylisting ayarı yok.",
+    "remove_settings": "Kaldır",
+    "remove_settings_confirm": "Bu hesabın greylisting ayarı ve whitelist sender'ları kaldırılsın mı?",
+    "msg_settings_removed": ":account hesabının greylisting ayarı kaldırıldı.",
+    "domains_title": "Whitelist domain'leri",
+    "domains_intro": "iRedAPD job'ı bu domain'lerin SPF kayıtlarını whitelist sender'larına çevirir.",
+    "domains_heading": "Domain'ler",
+    "domains_label": "Her satıra bir domain",
+    "msg_domains_updated": "Whitelist domain'leri kaydedildi.",
+    "spf_heading": "SPF kayıtlarından gelen sender'lar",
+    "no_spf_senders": "Job henüz bir sender çözmedi."
   },
   "resource": {
     "title": "Hesap Kaynakları",

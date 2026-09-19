@@ -9,6 +9,7 @@ use App\Models\PaginatedResult;
 use App\Repositories\AccountMatch;
 use App\Repositories\IredapdAccountSettings;
 use App\Repositories\IredapdRepositoryInterface;
+use App\Repositories\SqlGreylisting;
 use App\Utils\IredapdAccount;
 
 class MysqlIredapdRepository implements IredapdRepositoryInterface
@@ -152,6 +153,46 @@ class MysqlIredapdRepository implements IredapdRepositoryInterface
                 }
             }
         });
+    }
+
+    public function getGreylistAccounts(): array
+    {
+        return $this->greylisting()->accounts();
+    }
+
+    public function deleteGreylistSettings(string $account): int
+    {
+        return $this->greylisting()->deleteSettings($account);
+    }
+
+    public function addWhitelistedSenders(string $account, array $senders): int
+    {
+        return $this->greylisting()->addWhitelistedSenders($account, $senders);
+    }
+
+    public function removeWhitelistedSenders(string $account, array $senders): int
+    {
+        return $this->greylisting()->removeWhitelistedSenders($account, $senders);
+    }
+
+    public function getGreylistWhitelistDomains(): array
+    {
+        return $this->greylisting()->whitelistDomains();
+    }
+
+    public function setGreylistWhitelistDomains(array $domains): void
+    {
+        $this->greylisting()->setWhitelistDomains($domains);
+    }
+
+    public function getGreylistSpfSenders(): array
+    {
+        return $this->greylisting()->spfSenders();
+    }
+
+    private function greylisting(): SqlGreylisting
+    {
+        return new SqlGreylisting($this->pdo());
     }
 
     public function getGreylistTrackingPaginated(int $page, int $perPage): PaginatedResult

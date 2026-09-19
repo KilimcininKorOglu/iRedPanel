@@ -117,7 +117,8 @@
     "picker_load_failed": "Търсенето на акаунти е неуспешно. Все пак можете да въведете адрес.",
     "type_user": "Потребител",
     "type_alias": "Псевдоним",
-    "type_ml": "Пощенски списък"
+    "type_ml": "Пощенски списък",
+    "msg_invalid_domain": "Невалиден домейн: :domain"
   },
   "auth": {
     "title": "Удостоверяване",
@@ -854,7 +855,19 @@
     "state_inherit": "Използвай настройката на домейна или глобалната",
     "state_enabled": "Включено",
     "state_disabled": "Изключено",
-    "msg_inherited": "Собствената greylisting настройка е премахната. Важи настройката на домейна или глобалната."
+    "msg_inherited": "Собствената greylisting настройка е премахната. Важи настройката на домейна или глобалната.",
+    "accounts_heading": "Акаунти със собствена настройка",
+    "no_accounts": "Нито един акаунт няма собствена настройка за greylisting.",
+    "remove_settings": "Премахни",
+    "remove_settings_confirm": "Да се премахне ли настройката за greylisting и разрешените податели на този акаунт?",
+    "msg_settings_removed": "Настройката за greylisting на :account е премахната.",
+    "domains_title": "Разрешени домейни",
+    "domains_intro": "Job-ът на iRedAPD превръща SPF записите на тези домейни в разрешени податели.",
+    "domains_heading": "Домейни",
+    "domains_label": "По един домейн на ред",
+    "msg_domains_updated": "Разрешените домейни са запазени.",
+    "spf_heading": "Податели от SPF записите",
+    "no_spf_senders": "Job-ът още не е определил нито един подател."
   },
   "resource": {
     "title": "Източници на акаунти",

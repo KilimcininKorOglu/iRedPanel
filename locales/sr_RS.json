@@ -117,7 +117,8 @@
     "picker_load_failed": "Претрага налога није успела. И даље можете унети адресу.",
     "type_user": "Корисник",
     "type_alias": "Алијас",
-    "type_ml": "Мејлинг листа"
+    "type_ml": "Мејлинг листа",
+    "msg_invalid_domain": "Nevažeći domen: :domain"
   },
   "auth": {
     "title": "Аутентификација",
@@ -854,7 +855,19 @@
     "state_inherit": "Користи подешавање домена или глобално",
     "state_enabled": "Укључено",
     "state_disabled": "Искључено",
-    "msg_inherited": "Сопствено greylisting подешавање уклоњено. Важи подешавање домена или глобално."
+    "msg_inherited": "Сопствено greylisting подешавање уклоњено. Важи подешавање домена или глобално.",
+    "accounts_heading": "Nalozi sa sopstvenom postavkom",
+    "no_accounts": "Nijedan nalog nema sopstvenu greylisting postavku.",
+    "remove_settings": "Ukloni",
+    "remove_settings_confirm": "Ukloniti greylisting postavku i dozvoljene pošiljaoce ovog naloga?",
+    "msg_settings_removed": "Greylisting postavka naloga :account je uklonjena.",
+    "domains_title": "Dozvoljeni domeni",
+    "domains_intro": "iRedAPD job pretvara SPF zapise ovih domena u dozvoljene pošiljaoce.",
+    "domains_heading": "Domeni",
+    "domains_label": "Jedan domen po redu",
+    "msg_domains_updated": "Dozvoljeni domeni sačuvani.",
+    "spf_heading": "Pošiljaoci iz SPF zapisa",
+    "no_spf_senders": "Job još nije razrešio nijednog pošiljaoca."
   },
   "resource": {
     "title": "Извори налога",

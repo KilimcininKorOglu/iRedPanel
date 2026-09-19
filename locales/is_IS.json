@@ -117,7 +117,8 @@
     "picker_load_failed": "Leit að reikningum mistókst. Þú getur samt slegið inn netfang.",
     "type_user": "Notandi",
     "type_alias": "Samnefni",
-    "type_ml": "Póstlisti"
+    "type_ml": "Póstlisti",
+    "msg_invalid_domain": "Ógilt lén: :domain"
   },
   "auth": {
     "title": "Auðkenning",
@@ -854,7 +855,19 @@
     "state_inherit": "Nota stillingu léns eða altæka stillingu",
     "state_enabled": "Virkt",
     "state_disabled": "Óvirkt",
-    "msg_inherited": "Eigin greylisting-stilling fjarlægð. Stilling léns eða altæk stilling gildir."
+    "msg_inherited": "Eigin greylisting-stilling fjarlægð. Stilling léns eða altæk stilling gildir.",
+    "accounts_heading": "Reikningar með eigin stillingu",
+    "no_accounts": "Enginn reikningur er með eigin greylisting-stillingu.",
+    "remove_settings": "Fjarlægja",
+    "remove_settings_confirm": "Fjarlægja greylisting-stillingu og leyfða sendendur þessa reiknings?",
+    "msg_settings_removed": "Greylisting-stilling reikningsins :account var fjarlægð.",
+    "domains_title": "Leyfð lén",
+    "domains_intro": "iRedAPD job breytir SPF-færslum þessara léna í leyfða sendendur.",
+    "domains_heading": "Lén",
+    "domains_label": "Eitt lén í hverri línu",
+    "msg_domains_updated": "Leyfð lén vistuð.",
+    "spf_heading": "Sendendur úr SPF-færslunum",
+    "no_spf_senders": "Job hefur ekki fundið neinn sendanda enn."
   },
   "resource": {
     "title": "Aðgangsuppsprettur",

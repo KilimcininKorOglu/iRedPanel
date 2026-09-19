@@ -567,7 +567,8 @@
     "save_moderators": "Moderatorları yadda saxla",
     "delete_confirm_perm": ":address təxəllüsünü daimi silmək?",
     "delete_button": "Təxəllüsü sil",
-    "back": "Təxəllüslərə qayıt"
+    "back": "Təxəllüslərə qayıt",
+    "msg_invalid_access_policy": "Yanlış giriş siyasəti: :policy"
   },
   "domainalias": {
     "msg_alias_required": "Təxəllüs domen adı tələb olunur",

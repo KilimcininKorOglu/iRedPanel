@@ -567,7 +567,8 @@
     "save_moderators": "Сачувај модераторе",
     "delete_confirm_perm": "Трајно обрисати алијас :address?",
     "delete_button": "Обриши алијас",
-    "back": "Назад на алијасе"
+    "back": "Назад на алијасе",
+    "msg_invalid_access_policy": "Неважећа правила приступа: :policy"
   },
   "domainalias": {
     "msg_alias_required": "Назив алијаса домена је обавезан",

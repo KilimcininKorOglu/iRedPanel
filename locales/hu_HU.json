@@ -567,7 +567,8 @@
     "save_moderators": "Moderátorok mentése",
     "delete_confirm_perm": "Véglegesen törli a(z) :address álnevet?",
     "delete_button": "Álnév törlése",
-    "back": "Vissza az álnevekhez"
+    "back": "Vissza az álnevekhez",
+    "msg_invalid_access_policy": "Érvénytelen hozzáférési szabályzat: :policy"
   },
   "domainalias": {
     "msg_alias_required": "Az álnév-domain nevének megadása kötelező",

@@ -567,7 +567,8 @@
     "save_moderators": "Moderators opslaan",
     "delete_confirm_perm": "Alias :address permanent verwijderen?",
     "delete_button": "Alias verwijderen",
-    "back": "Terug naar aliassen"
+    "back": "Terug naar aliassen",
+    "msg_invalid_access_policy": "Ongeldig toegangsbeleid: :policy"
   },
   "domainalias": {
     "msg_alias_required": "De naam van het aliasdomein is verplicht",

@@ -567,7 +567,8 @@
     "save_moderators": "Зберегти модераторів",
     "delete_confirm_perm": "Остаточно видалити псевдонім :address?",
     "delete_button": "Видалити псевдонім",
-    "back": "Назад до псевдонімів"
+    "back": "Назад до псевдонімів",
+    "msg_invalid_access_policy": "Недійсна політика доступу: :policy"
   },
   "domainalias": {
     "msg_alias_required": "Ім'я домену псевдоніма обов'язкове",

@@ -567,7 +567,8 @@
     "save_moderators": "Spremi moderatore",
     "delete_confirm_perm": "Trajno izbrisati alias :address?",
     "delete_button": "Izbriši alias",
-    "back": "Natrag na aliase"
+    "back": "Natrag na aliase",
+    "msg_invalid_access_policy": "Nevažeća pravila pristupa: :policy"
   },
   "domainalias": {
     "msg_alias_required": "Naziv aliasa domene je obavezan",

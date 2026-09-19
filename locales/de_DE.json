@@ -567,7 +567,8 @@
     "save_moderators": "Moderatoren speichern",
     "delete_confirm_perm": "Alias :address dauerhaft löschen?",
     "delete_button": "Alias löschen",
-    "back": "Zurück zu den Aliasen"
+    "back": "Zurück zu den Aliasen",
+    "msg_invalid_access_policy": "Ungültige Zugriffsrichtlinie: :policy"
   },
   "domainalias": {
     "msg_alias_required": "Der Name der Alias-Domain ist erforderlich",

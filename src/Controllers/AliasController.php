@@ -51,7 +51,7 @@ class AliasController
                 $localPart = trim($_POST['localPart'] ?? '');
                 $domain = trim($_POST['domain'] ?? '');
                 $name = trim($_POST['name'] ?? '');
-                $accessPolicy = trim($_POST['accessPolicy'] ?? 'public');
+                $accessPolicy = BaseController::postedAccessPolicy();
 
                 if ($localPart === '' || $domain === '') {
                     throw new \RuntimeException(Translator::translate('common.msg_address_required'));
@@ -134,7 +134,7 @@ class AliasController
                     }
                 } elseif ($action === 'updateSettings') {
                     $name = trim($_POST['name'] ?? '');
-                    $accessPolicy = trim($_POST['accessPolicy'] ?? 'public');
+                    $accessPolicy = BaseController::postedAccessPolicy();
                     $active = isset($_POST['active']);
                     $updatedMembers = BaseController::postedAddresses('members');
 

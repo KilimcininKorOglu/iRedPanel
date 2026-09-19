@@ -567,7 +567,8 @@
     "save_moderators": "Gardar moderadores",
     "delete_confirm_perm": "Eliminar permanentemente o alias :address?",
     "delete_button": "Eliminar alias",
-    "back": "Volver aos alias"
+    "back": "Volver aos alias",
+    "msg_invalid_access_policy": "Política de acceso non válida: :policy"
   },
   "domainalias": {
     "msg_alias_required": "O nome do alias de dominio é obrigatorio",

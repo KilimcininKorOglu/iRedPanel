@@ -6,6 +6,7 @@ namespace App\Controllers;
 
 use App\Exceptions\BackendConnectionException;
 use App\I18n\Translator;
+use App\Models\Alias;
 use App\TemplateEngine;
 use App\Utils\AddressList;
 use App\Utils\Relayhost;
@@ -60,6 +61,21 @@ class BaseController
             return AddressList::parse((string) ($_POST[$field] ?? ''));
         } catch (\InvalidArgumentException $e) {
             throw self::invalidAddress($e->getMessage());
+        }
+    }
+
+    /**
+     * Reads the posted alias or mailing list access policy.
+     *
+     * @throws \RuntimeException when iRedAPD does not know the policy
+     */
+    public static function postedAccessPolicy(): string
+    {
+        $policy = trim((string) ($_POST['accessPolicy'] ?? 'public'));
+        try {
+            return Alias::validAccessPolicy($policy);
+        } catch (\InvalidArgumentException) {
+            throw new \RuntimeException(Translator::translate('alias.msg_invalid_access_policy', ['policy' => $policy]));
         }
     }
 

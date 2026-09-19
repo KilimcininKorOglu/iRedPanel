@@ -567,7 +567,8 @@
     "save_moderators": "Moderatörleri Kaydet",
     "delete_confirm_perm": ":address takma adı kalıcı olarak silinsin mi?",
     "delete_button": "Takma Adı Sil",
-    "back": "Takma adlara dön"
+    "back": "Takma adlara dön",
+    "msg_invalid_access_policy": "Geçersiz erişim politikası: :policy"
   },
   "domainalias": {
     "msg_alias_required": "Takma alan adı gerekli",

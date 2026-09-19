@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Api;
 
+use App\Models\Alias;
 use App\Models\MailingList;
 use App\Repositories\RepositoryFactory;
 use App\Services\MailingListService;
@@ -82,10 +83,17 @@ class MailingListApiController
             }
         }
 
+        try {
+            $accessPolicy = Alias::validAccessPolicy($data['accessPolicy'] ?? 'public');
+        } catch (\InvalidArgumentException $e) {
+            ApiResponse::error($e->getMessage());
+            return;
+        }
+
         MailingListService::create(
             $address, $domain,
             $data['name'] ?? '',
-            $data['accessPolicy'] ?? 'public',
+            $accessPolicy,
             (int) ($data['maxMsgSize'] ?? 0),
         );
         ApiResponse::created(['address' => $address]);
@@ -108,10 +116,16 @@ class MailingListApiController
             ApiResponse::error('isNewsletter is not supported by this backend');
             return;
         }
+        try {
+            $accessPolicy = Alias::validAccessPolicy($data['accessPolicy'] ?? $ml->accessPolicy);
+        } catch (\InvalidArgumentException $e) {
+            ApiResponse::error($e->getMessage());
+            return;
+        }
         MailingListService::update(
             $address,
             $data['name'] ?? $ml->name,
-            $data['accessPolicy'] ?? $ml->accessPolicy,
+            $accessPolicy,
             (int) ($data['maxMsgSize'] ?? $ml->maxMsgSize),
             (bool) ($data['active'] ?? $ml->active),
             $newsletter,

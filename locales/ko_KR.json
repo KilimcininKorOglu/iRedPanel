@@ -567,7 +567,8 @@
     "save_moderators": "중재자 저장",
     "delete_confirm_perm": "별칭 :address를 영구적으로 삭제하시겠습니까?",
     "delete_button": "별칭 삭제",
-    "back": "별칭으로 돌아가기"
+    "back": "별칭으로 돌아가기",
+    "msg_invalid_access_policy": "잘못된 접근 정책: :policy"
   },
   "domainalias": {
     "msg_alias_required": "별칭 도메인 이름이 필요합니다",

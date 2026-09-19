@@ -567,7 +567,8 @@
     "save_moderators": "Tallenna moderaattorit",
     "delete_confirm_perm": "Poistetaanko alias :address pysyvästi?",
     "delete_button": "Poista alias",
-    "back": "Takaisin aliaksiin"
+    "back": "Takaisin aliaksiin",
+    "msg_invalid_access_policy": "Virheellinen käyttöoikeuskäytäntö: :policy"
   },
   "domainalias": {
     "msg_alias_required": "Aliasverkkotunnuksen nimi vaaditaan",

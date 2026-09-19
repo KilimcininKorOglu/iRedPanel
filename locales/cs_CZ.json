@@ -567,7 +567,8 @@
     "save_moderators": "Uložit moderátory",
     "delete_confirm_perm": "Trvale smazat alias :address?",
     "delete_button": "Smazat alias",
-    "back": "Zpět na aliasy"
+    "back": "Zpět na aliasy",
+    "msg_invalid_access_policy": "Neplatné zásady přístupu: :policy"
   },
   "domainalias": {
     "msg_alias_required": "Název domény aliasu je povinný",

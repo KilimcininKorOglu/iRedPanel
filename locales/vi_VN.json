@@ -567,7 +567,8 @@
     "save_moderators": "Lưu người kiểm duyệt",
     "delete_confirm_perm": "Xóa vĩnh viễn bí danh :address?",
     "delete_button": "Xóa bí danh",
-    "back": "Quay lại bí danh"
+    "back": "Quay lại bí danh",
+    "msg_invalid_access_policy": "Chính sách truy cập không hợp lệ: :policy"
   },
   "domainalias": {
     "msg_alias_required": "Tên miền bí danh là bắt buộc",

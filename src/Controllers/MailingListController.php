@@ -88,7 +88,7 @@ class MailingListController
             $address,
             $domain,
             trim($_POST['name'] ?? ''),
-            trim($_POST['accessPolicy'] ?? 'public'),
+            BaseController::postedAccessPolicy(),
             (int) ($_POST['maxMsgSize'] ?? 0),
         );
         ActivityLogger::logCreate($domain, '', "Created mailing list: {$address}");
@@ -172,7 +172,7 @@ class MailingListController
                 MailingListService::update(
                     $address,
                     trim($_POST['name'] ?? ''),
-                    trim($_POST['accessPolicy'] ?? 'public'),
+                    BaseController::postedAccessPolicy(),
                     (int) ($_POST['maxMsgSize'] ?? 0),
                     isset($_POST['active']),
                     RepositoryFactory::getMailingListRepository()->supportsNewsletter() ? isset($_POST['isNewsletter']) : null,

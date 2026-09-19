@@ -567,7 +567,8 @@
     "save_moderators": "儲存審核者",
     "delete_confirm_perm": "要永久刪除別名 :address 嗎？",
     "delete_button": "刪除別名",
-    "back": "返回別名"
+    "back": "返回別名",
+    "msg_invalid_access_policy": "無效的存取政策：:policy"
   },
   "domainalias": {
     "msg_alias_required": "別名網域名稱為必填",

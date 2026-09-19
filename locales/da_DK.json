@@ -567,7 +567,8 @@
     "save_moderators": "Gem moderatorer",
     "delete_confirm_perm": "Slet alias :address permanent?",
     "delete_button": "Slet alias",
-    "back": "Tilbage til aliasser"
+    "back": "Tilbage til aliasser",
+    "msg_invalid_access_policy": "Ugyldig adgangspolitik: :policy"
   },
   "domainalias": {
     "msg_alias_required": "Aliasdomænenavn er påkrævet",

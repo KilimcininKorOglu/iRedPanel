@@ -567,7 +567,8 @@
     "save_moderators": "Shrani moderatorje",
     "delete_confirm_perm": "Trajno izbrišem vzdevek :address?",
     "delete_button": "Izbriši vzdevek",
-    "back": "Nazaj na vzdevke"
+    "back": "Nazaj na vzdevke",
+    "msg_invalid_access_policy": "Neveljaven pravilnik dostopa: :policy"
   },
   "domainalias": {
     "msg_alias_required": "Ime domene vzdevka je obvezno",

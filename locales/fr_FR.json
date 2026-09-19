@@ -567,7 +567,8 @@
     "save_moderators": "Enregistrer les modérateurs",
     "delete_confirm_perm": "Supprimer définitivement l'alias :address ?",
     "delete_button": "Supprimer l'alias",
-    "back": "Retour aux alias"
+    "back": "Retour aux alias",
+    "msg_invalid_access_policy": "Politique d'accès invalide : :policy"
   },
   "domainalias": {
     "msg_alias_required": "Le nom du domaine d'alias est obligatoire",

@@ -567,7 +567,8 @@
     "save_moderators": "Spara moderatorer",
     "delete_confirm_perm": "Ta bort alias :address permanent?",
     "delete_button": "Ta bort alias",
-    "back": "Tillbaka till alias"
+    "back": "Tillbaka till alias",
+    "msg_invalid_access_policy": "Ogiltig åtkomstpolicy: :policy"
   },
   "domainalias": {
     "msg_alias_required": "Aliasdomännamn krävs",

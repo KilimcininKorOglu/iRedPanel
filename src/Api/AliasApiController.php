@@ -60,7 +60,6 @@ class AliasApiController
         $address = $data['address'] ?? '';
         $domain = $data['domain'] ?? '';
         $name = $data['name'] ?? '';
-        $accessPolicy = $data['accessPolicy'] ?? 'public';
 
         if ($address === '' || $domain === '') {
             ApiResponse::error('address and domain are required');
@@ -69,6 +68,7 @@ class AliasApiController
 
         try {
             $members = self::members($data['members'] ?? []);
+            $accessPolicy = Alias::validAccessPolicy($data['accessPolicy'] ?? 'public');
         } catch (\InvalidArgumentException $e) {
             ApiResponse::error($e->getMessage());
             return;
@@ -113,6 +113,7 @@ class AliasApiController
         $data = ApiMiddleware::getJsonBody();
         try {
             $members = array_key_exists('members', $data) ? self::members($data['members']) : $repo->getAliasMembers($address);
+            $accessPolicy = Alias::validAccessPolicy($data['accessPolicy'] ?? $alias->accessPolicy);
         } catch (\InvalidArgumentException $e) {
             ApiResponse::error($e->getMessage());
             return;
@@ -122,7 +123,7 @@ class AliasApiController
             $address,
             $data['name'] ?? $alias->name,
             $members,
-            $data['accessPolicy'] ?? $alias->accessPolicy,
+            $accessPolicy,
             $data['active'] ?? $alias->active,
         );
         ApiResponse::success(['message' => 'Alias updated']);

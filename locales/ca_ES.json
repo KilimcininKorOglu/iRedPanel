@@ -567,7 +567,8 @@
     "save_moderators": "Desar moderadors",
     "delete_confirm_perm": "Eliminar permanentment l'àlies :address?",
     "delete_button": "Eliminar àlies",
-    "back": "Tornar als àlies"
+    "back": "Tornar als àlies",
+    "msg_invalid_access_policy": "Política d'accés no vàlida: :policy"
   },
   "domainalias": {
     "msg_alias_required": "El nom del domini d'àlies és obligatori",

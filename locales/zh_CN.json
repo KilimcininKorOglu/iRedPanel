@@ -567,7 +567,8 @@
     "save_moderators": "保存审核员",
     "delete_confirm_perm": "永久删除别名 :address？",
     "delete_button": "删除别名",
-    "back": "返回别名"
+    "back": "返回别名",
+    "msg_invalid_access_policy": "无效的访问策略：:policy"
   },
   "domainalias": {
     "msg_alias_required": "别名域名为必填项",

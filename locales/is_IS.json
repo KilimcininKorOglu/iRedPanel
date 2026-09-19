@@ -567,7 +567,8 @@
     "save_moderators": "Vista umsjónarmenn",
     "delete_confirm_perm": "Eyða samnefni :address varanlega?",
     "delete_button": "Eyða samnefni",
-    "back": "Til baka í samnefni"
+    "back": "Til baka í samnefni",
+    "msg_invalid_access_policy": "Ógild aðgangsstefna: :policy"
   },
   "domainalias": {
     "msg_alias_required": "Samnefnislénsheiti er nauðsynlegt",

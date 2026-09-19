@@ -567,7 +567,8 @@
     "save_moderators": "Gorde moderatzaileak",
     "delete_confirm_perm": ":address aliasa betiko ezabatu?",
     "delete_button": "Ezabatu aliasa",
-    "back": "Itzuli aliasetara"
+    "back": "Itzuli aliasetara",
+    "msg_invalid_access_policy": "Sarbide politika baliogabea: :policy"
   },
   "domainalias": {
     "msg_alias_required": "Domeinu-aliasaren izena beharrezkoa da",

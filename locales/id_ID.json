@@ -567,7 +567,8 @@
     "save_moderators": "Simpan moderator",
     "delete_confirm_perm": "Hapus alias :address secara permanen?",
     "delete_button": "Hapus alias",
-    "back": "Kembali ke alias"
+    "back": "Kembali ke alias",
+    "msg_invalid_access_policy": "Kebijakan akses tidak valid: :policy"
   },
   "domainalias": {
     "msg_alias_required": "Nama domain alias wajib diisi",

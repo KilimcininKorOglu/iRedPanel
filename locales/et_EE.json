@@ -567,7 +567,8 @@
     "save_moderators": "Salvesta moderaatorid",
     "delete_confirm_perm": "Kas kustutada alias :address jäädavalt?",
     "delete_button": "Kustuta alias",
-    "back": "Tagasi aliastesse"
+    "back": "Tagasi aliastesse",
+    "msg_invalid_access_policy": "Vigane juurdepääsupoliitika: :policy"
   },
   "domainalias": {
     "msg_alias_required": "Domeeni aliase nimi on kohustuslik",

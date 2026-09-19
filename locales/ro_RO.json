@@ -567,7 +567,8 @@
     "save_moderators": "Salvează moderatorii",
     "delete_confirm_perm": "Ștergeți permanent alias-ul :address?",
     "delete_button": "Șterge alias-ul",
-    "back": "Înapoi la alias-uri"
+    "back": "Înapoi la alias-uri",
+    "msg_invalid_access_policy": "Politică de acces nevalidă: :policy"
   },
   "domainalias": {
     "msg_alias_required": "Numele domeniului alias este obligatoriu",

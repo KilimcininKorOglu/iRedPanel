@@ -102,24 +102,24 @@ class DomainApiController
 
         $data = ApiMiddleware::getJsonBody();
         try {
-            $updated = new Domain(
-                domainName: $domain,
-                description: $data['description'] ?? $existing->description,
-                active: $data['active'] ?? $existing->active,
-                maxQuota: Domain::validLimit($data['maxQuota'] ?? $existing->maxQuota, 'maxQuota'),
-                quota: Domain::validLimit($data['quota'] ?? $existing->quota, 'quota'),
-                mailboxes: Domain::validLimit($data['mailboxes'] ?? $existing->mailboxes, 'mailboxes'),
-                aliases: Domain::validLimit($data['aliases'] ?? $existing->aliases, 'aliases'),
-                transport: $data['transport'] ?? $existing->transport,
-                // updateDomain() writes every column; the API does not edit the settings string.
-                settings: $existing->settings,
-            );
+            // Fields missing from the body keep their stored values.
+            $form = Domain::fromFormData($data + [
+                'description' => $existing->description,
+                'active' => $existing->active,
+                'maxQuota' => $existing->maxQuota,
+                'quota' => $existing->quota,
+                'mailboxes' => $existing->mailboxes,
+                'aliases' => $existing->aliases,
+                'transport' => $existing->transport,
+            ]);
         } catch (\InvalidArgumentException $e) {
             ApiResponse::error($e->getMessage());
             return;
         }
 
-        $repo->updateDomain($updated);
+        // updateDomain() writes every column; the settings string and the disclaimer stay as stored.
+        $existing->applyProfile($form);
+        $repo->updateDomain($existing);
         ApiResponse::success(['message' => 'Domain updated']);
     }
 

@@ -14,7 +14,7 @@ use App\Utils\LdapUtils;
 class LdapDomainRepository implements DomainRepositoryInterface
 {
     private const DOMAIN_ATTRS = ['domainName', 'accountStatus', 'domainCurrentUserNumber'];
-    private const DOMAIN_DETAIL_ATTRS = ['domainName', 'accountStatus', 'domainCurrentUserNumber', 'cn', 'description', 'mtaTransport'];
+    private const DOMAIN_DETAIL_ATTRS = ['domainName', 'accountStatus', 'domainCurrentUserNumber', 'cn', 'description', 'mtaTransport', 'disclaimer'];
 
     public function getDomains(): array
     {
@@ -137,6 +137,12 @@ class LdapDomainRepository implements DomainRepositoryInterface
 
         if (!ldap_modify_batch($conn, $dn, $mods)) {
             throw new \RuntimeException('LDAP domain update failed: ' . ldap_error($conn));
+        }
+
+        // A remove-all fails with "No such attribute" when no disclaimer is set; an empty replace does not.
+        $disclaimer = $domain->disclaimer !== '' ? [$domain->disclaimer] : [];
+        if (!ldap_mod_replace($conn, $dn, ['disclaimer' => $disclaimer])) {
+            throw new \RuntimeException('LDAP domain disclaimer update failed: ' . ldap_error($conn));
         }
     }
 

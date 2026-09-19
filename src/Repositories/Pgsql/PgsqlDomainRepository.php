@@ -89,14 +89,14 @@ class PgsqlDomainRepository implements DomainRepositoryInterface
 
         $stmt = $pdo->prepare(
             "SELECT d.domain, d.description, d.active, d.maxquota, d.quota,
-                    d.mailboxes, d.aliases, d.transport, d.settings, d.created, d.modified,
+                    d.mailboxes, d.aliases, d.transport, d.settings, d.disclaimer, d.created, d.modified,
                     COUNT(m.username) AS \"userCount\",
                     COALESCE(SUM(m.quota), 0) AS \"quotaUsed\"
              FROM domain d
              LEFT JOIN mailbox m ON m.domain = d.domain
              WHERE d.domain = :domain
              GROUP BY d.domain, d.description, d.active, d.maxquota, d.quota,
-                      d.mailboxes, d.aliases, d.transport, d.settings, d.created, d.modified
+                      d.mailboxes, d.aliases, d.transport, d.settings, d.disclaimer, d.created, d.modified
              LIMIT 1"
         );
         $stmt->execute(['domain' => $domainName]);
@@ -143,6 +143,7 @@ class PgsqlDomainRepository implements DomainRepositoryInterface
                 aliases = :aliases,
                 transport = :transport,
                 settings = :settings,
+                disclaimer = :disclaimer,
                 modified = NOW()
              WHERE domain = :domain"
         );
@@ -155,6 +156,7 @@ class PgsqlDomainRepository implements DomainRepositoryInterface
             'aliases' => $domain->aliases,
             'transport' => $domain->transport,
             'settings' => $domain->settings,
+            'disclaimer' => $domain->disclaimer,
             'domain' => $domain->domainName,
         ]);
 

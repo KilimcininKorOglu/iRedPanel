@@ -115,6 +115,40 @@ class DomainTest extends TestCase
         $this->assertSame(500, $domain->currentQuotaUsed);
     }
 
+    /**
+     * The settings string splits on ';' and ':', so a disclaimer stored there came back truncated.
+     */
+    public function testDisclaimerColumnKeepsSeparators(): void
+    {
+        $text = 'Part one; part two: max_passwd_length:3';
+        $domain = Domain::fromMysqlRow(['domain' => 'd.test', 'disclaimer' => $text, 'settings' => 'disclaimer:old;']);
+
+        $this->assertSame($text, $domain->disclaimer);
+    }
+
+    public function testLegacyDisclaimerIsReadFromSettings(): void
+    {
+        $domain = Domain::fromMysqlRow(['domain' => 'd.test', 'disclaimer' => null, 'settings' => 'disclaimer:Legacy text;']);
+
+        $this->assertSame('Legacy text', $domain->disclaimer);
+    }
+
+    /**
+     * Saving the general tab used to erase the settings string.
+     */
+    public function testApplyProfileKeepsSettingsAndDisclaimer(): void
+    {
+        $stored = new Domain(domainName: 'd.test', settings: 'default_user_quota:128;', disclaimer: 'Kept');
+        $form = Domain::fromFormData(['domainName' => 'd.test', 'description' => 'New', 'active' => '1', 'mailboxes' => '7']);
+
+        $stored->applyProfile($form);
+
+        $this->assertSame('New', $stored->description);
+        $this->assertSame(7, $stored->mailboxes);
+        $this->assertSame('default_user_quota:128;', $stored->settings);
+        $this->assertSame('Kept', $stored->disclaimer);
+    }
+
     public function testFromMysqlRowInactive(): void
     {
         $row = ['domain' => 'off.test', 'active' => 0];

@@ -23,6 +23,17 @@ class DomainSettingsTest extends TestCase
     }
 
     /**
+     * The disclaimer lives in its own column, because ';' and ':' in the text break the settings string.
+     */
+    public function testDisclaimerIsNotWrittenToTheSettingsString(): void
+    {
+        $settings = DomainSettings::fromFormData(['disclaimer' => 'a; b: c']);
+
+        $this->assertSame('a; b: c', $settings->disclaimer);
+        $this->assertStringNotContainsString('disclaimer', $settings->toSettingsString());
+    }
+
+    /**
      * 0 means "use the global value" or "unlimited", so an invalid value used to remove the limit.
      */
     public function testNegativeNumberIsRejectedWithItsFieldLabel(): void

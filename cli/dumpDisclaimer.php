@@ -9,7 +9,6 @@ if (php_sapi_name() !== 'cli') {
 
 require_once __DIR__ . '/bootstrap.php';
 
-use App\Models\DomainSettings;
 use App\Repositories\RepositoryFactory;
 
 $options = getopt('', ['output:']);
@@ -17,7 +16,7 @@ $options = getopt('', ['output:']);
 if (empty($options['output'])) {
     echo "Usage: php cli/dumpDisclaimer.php --output=/etc/postfix/disclaimer/\n";
     echo "\nExports domain disclaimer text to files for Postfix integration.\n";
-    echo "Creates {domain}.txt and {domain}.html for each domain with a disclaimer.\n";
+    echo "Creates {domain}.txt and {domain}.html for each domain and alias domain with a disclaimer.\n";
     exit(1);
 }
 
@@ -27,44 +26,56 @@ if (!is_dir($outputDir)) {
     exit(1);
 }
 
-$domainRepo = RepositoryFactory::getDomainRepository();
-$domains = $domainRepo->getDomains();
-$count = 0;
-
-foreach ($domains as $domainInfo) {
-    $domainName = $domainInfo['domainName'];
-    $domain = $domainRepo->getDomain($domainName);
-    if ($domain === null) {
-        continue;
-    }
-
-    $settings = DomainSettings::fromSettingsString($domain->settings);
-    $disclaimer = $settings->disclaimer;
-
-    $txtFile = "{$outputDir}/{$domainName}.txt";
-    $htmlFile = "{$outputDir}/{$domainName}.html";
+/**
+ * Writes the disclaimer files of one mail domain, or removes them when the text is empty.
+ *
+ * @return bool true when files were written
+ */
+function writeDisclaimerFiles(string $outputDir, string $mailDomain, string $disclaimer): bool
+{
+    $txtFile = "{$outputDir}/{$mailDomain}.txt";
+    $htmlFile = "{$outputDir}/{$mailDomain}.html";
 
     if ($disclaimer === '') {
-        // Remove old disclaimer files if no disclaimer is set
         foreach ([$txtFile, $htmlFile] as $file) {
             if (file_exists($file)) {
                 unlink($file);
                 echo "  - Removed {$file}\n";
             }
         }
+        return false;
+    }
+
+    $html = '<div id="disclaimer_separator"><p>----------</p></div>'
+        . '<div id="disclaimer_text"><p>' . nl2br(htmlspecialchars($disclaimer, ENT_QUOTES, 'UTF-8')) . '</p></div>';
+    if (file_put_contents($txtFile, "\n---------\n" . $disclaimer . "\n") === false
+        || file_put_contents($htmlFile, "\n" . $html . "\n") === false) {
+        throw new RuntimeException("Cannot write the disclaimer files of {$mailDomain} in {$outputDir}");
+    }
+    echo "  + {$mailDomain}\n";
+
+    return true;
+}
+
+$domainRepo = RepositoryFactory::getDomainRepository();
+$aliasRepo = RepositoryFactory::getDomainAliasRepository();
+$count = 0;
+
+foreach ($domainRepo->getDomains() as $domainInfo) {
+    $domain = $domainRepo->getDomain($domainInfo['domainName']);
+    if ($domain === null) {
         continue;
     }
 
-    // Write text version
-    file_put_contents($txtFile, "\n---------\n" . $disclaimer . "\n");
+    // Postfix sees the alias domain in the sender address, so it needs its own copy, as in dump_disclaimer.py.
+    $mailDomains = [$domain->domainName];
+    foreach ($aliasRepo->getAliasesForDomain($domain->domainName) as $alias) {
+        $mailDomains[] = $alias->aliasDomain;
+    }
 
-    // Write HTML version
-    $htmlContent = '<div id="disclaimer_separator"><p>----------</p></div>';
-    $htmlContent .= '<div id="disclaimer_text"><p>' . nl2br(htmlspecialchars($disclaimer, ENT_QUOTES, 'UTF-8')) . '</p></div>';
-    file_put_contents($htmlFile, "\n" . $htmlContent . "\n");
-
-    $count++;
-    echo "  + {$domainName}\n";
+    foreach ($mailDomains as $mailDomain) {
+        $count += writeDisclaimerFiles($outputDir, $mailDomain, $domain->disclaimer) ? 1 : 0;
+    }
 }
 
 echo "Done. {$count} disclaimer(s) exported to {$outputDir}\n";

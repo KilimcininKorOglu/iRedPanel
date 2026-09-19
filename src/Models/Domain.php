@@ -24,7 +24,37 @@ class Domain
         public ?string $modified = null,
         public int $currentUserCount = 0,
         public int $currentQuotaUsed = 0,
+        // iRedMail's own column (SQL `domain.disclaimer`, LDAP `disclaimer`), read by dump_disclaimer.py.
+        public string $disclaimer = '',
     ) {}
+
+    /**
+     * Copies the fields of the profile form (general tab) from $form.
+     * The settings string and the disclaimer belong to the settings tab and stay unchanged.
+     */
+    public function applyProfile(self $form): void
+    {
+        $this->description = $form->description;
+        $this->active = $form->active;
+        $this->maxQuota = $form->maxQuota;
+        $this->quota = $form->quota;
+        $this->mailboxes = $form->mailboxes;
+        $this->aliases = $form->aliases;
+        $this->transport = $form->transport;
+    }
+
+    /**
+     * Returns the stored disclaimer. Older panel versions kept it in the settings
+     * string, which is read until the next settings save moves it to the column.
+     */
+    private static function storedDisclaimer(?string $column, string $settings): string
+    {
+        if ($column !== null && $column !== '') {
+            return $column;
+        }
+
+        return DomainSettings::fromSettingsString($settings)->disclaimer;
+    }
 
     /** A lowercase host name with at least one dot and an alphabetic top-level label. */
     private const NAME_PATTERN = '/^[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*\.[a-z]{2,}$/';
@@ -94,6 +124,7 @@ class Domain
             modified: $row['modified'] ?? null,
             currentUserCount: (int) ($row['userCount'] ?? 0),
             currentQuotaUsed: (int) ($row['quotaUsed'] ?? 0),
+            disclaimer: self::storedDisclaimer($row['disclaimer'] ?? null, $row['settings'] ?? ''),
         );
     }
 
@@ -104,6 +135,7 @@ class Domain
             description: $entry['cn'] ?? $entry['description'] ?? '',
             active: ($entry['accountStatus'] ?? 'active') === 'active',
             currentUserCount: (int) ($entry['domainCurrentUserNumber'] ?? 0),
+            disclaimer: $entry['disclaimer'] ?? '',
         );
     }
 }

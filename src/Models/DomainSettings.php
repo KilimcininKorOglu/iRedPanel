@@ -72,9 +72,7 @@ class DomainSettings
         if ($this->maxPasswordLength > 0) {
             $parts[] = "max_passwd_length:{$this->maxPasswordLength}";
         }
-        if ($this->disclaimer !== '') {
-            $parts[] = "disclaimer:{$this->disclaimer}";
-        }
+        // The disclaimer lives in Domain::$disclaimer; a ';' in its text would split this format.
         if (!empty($this->disabledMailServices)) {
             $parts[] = "disabled_mail_services:" . implode(',', $this->disabledMailServices);
         }
@@ -153,9 +151,7 @@ class DomainSettings
         if ($this->maxPasswordLength > 0) {
             $parts[] = "max_passwd_length:{$this->maxPasswordLength}";
         }
-        if ($this->disclaimer !== '') {
-            $parts[] = "disclaimer:{$this->disclaimer}";
-        }
+        // The disclaimer lives in the LDAP `disclaimer` attribute, see Domain::$disclaimer.
         if (!empty($this->disabledMailServices)) {
             $parts[] = "disabled_mail_services:" . implode(',', $this->disabledMailServices);
         }

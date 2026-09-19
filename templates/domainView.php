@@ -141,7 +141,7 @@
 
         <p>
           <label for="disclaimer"><?= $te('domain.disclaimer_text') ?></label>
-          <textarea id="disclaimer" name="disclaimer" rows="5"><?= $e($domainSettings->disclaimer ?? '') ?></textarea>
+          <textarea id="disclaimer" name="disclaimer" rows="5"><?= $e($domain->disclaimer) ?></textarea>
         </p>
 
         <button type="submit" class="button primary"><?= $te('mlist.save_settings') ?></button>

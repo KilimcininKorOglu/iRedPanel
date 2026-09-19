@@ -175,18 +175,12 @@ class DomainController
             try {
                 if ($editMode === 'general') {
                     $formDomain = Domain::fromFormData($_POST);
-                    // updateDomain() writes every column, so the settings tab values must be carried over.
-                    $domain = new Domain(
-                        domainName: $domainName,
-                        description: $formDomain->description,
-                        active: $formDomain->active,
-                        maxQuota: $formDomain->maxQuota,
-                        quota: $formDomain->quota,
-                        mailboxes: $formDomain->mailboxes,
-                        aliases: $formDomain->aliases,
-                        transport: $formDomain->transport,
-                        settings: $repo->getDomain($domainName)?->settings ?? '',
+                    // updateDomain() writes every column, so start from the stored domain and change
+                    // only the profile fields; the settings tab values and the disclaimer stay.
+                    $domain = $repo->getDomain($domainName) ?? throw new \RuntimeException(
+                        Translator::translate('common.msg_domain_not_found', ['domain' => $domainName])
                     );
+                    $domain->applyProfile($formDomain);
                     $repo->updateDomain($domain);
                     ActivityLogger::logUpdate($domainName, '', "Domain updated: {$domainName}");
                     $success = Translator::translate('domain.msg_updated');
@@ -195,6 +189,7 @@ class DomainController
                     $currentDomain = $repo->getDomain($domainName);
                     if ($currentDomain !== null) {
                         $currentDomain->settings = $domainSettings->toSettingsString();
+                        $currentDomain->disclaimer = $domainSettings->disclaimer;
                         $repo->updateDomain($currentDomain);
                         ActivityLogger::logUpdate($domainName, '', "Domain settings updated: {$domainName}");
                         $success = Translator::translate('domain.msg_settings_updated');

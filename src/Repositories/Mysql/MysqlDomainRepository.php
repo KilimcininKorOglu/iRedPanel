@@ -87,7 +87,7 @@ class MysqlDomainRepository implements DomainRepositoryInterface
 
         $stmt = $pdo->prepare(
             "SELECT d.domain, d.description, d.active, d.maxquota, d.quota,
-                    d.mailboxes, d.aliases, d.transport, d.settings, d.created, d.modified,
+                    d.mailboxes, d.aliases, d.transport, d.settings, d.disclaimer, d.created, d.modified,
                     COUNT(m.username) AS userCount,
                     COALESCE(SUM(m.quota), 0) AS quotaUsed
              FROM domain d
@@ -140,6 +140,7 @@ class MysqlDomainRepository implements DomainRepositoryInterface
                 aliases = :aliases,
                 transport = :transport,
                 settings = :settings,
+                disclaimer = :disclaimer,
                 modified = NOW()
              WHERE domain = :domain"
         );
@@ -152,6 +153,7 @@ class MysqlDomainRepository implements DomainRepositoryInterface
             'aliases' => $domain->aliases,
             'transport' => $domain->transport,
             'settings' => $domain->settings,
+            'disclaimer' => $domain->disclaimer,
             'domain' => $domain->domainName,
         ]);
 

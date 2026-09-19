@@ -84,17 +84,9 @@ class UserApiController
             return;
         }
 
-        // Enforce domain limits
-        if ($domainObj->mailboxes > 0 && $domainObj->currentUserCount >= $domainObj->mailboxes) {
-            ApiResponse::error("Domain mailbox limit reached ({$domainObj->currentUserCount}/{$domainObj->mailboxes})", 403);
-            return;
-        }
-        if ($domainObj->maxQuota > 0 && $user->mailQuota > $domainObj->maxQuota) {
-            ApiResponse::error("User quota exceeds domain maximum ({$domainObj->maxQuota} MB)", 403);
-            return;
-        }
-        if ($domainObj->quota > 0 && ($domainObj->currentQuotaUsed + $user->mailQuota) > $domainObj->quota) {
-            ApiResponse::error("Total domain quota would be exceeded", 403);
+        $limitError = $domainObj->newMailboxError($user->mailQuota);
+        if ($limitError !== null) {
+            ApiResponse::error($limitError->getMessage(), 403);
             return;
         }
 

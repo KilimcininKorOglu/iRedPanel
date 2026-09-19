@@ -398,25 +398,16 @@ class UserController
                         }
 
                         // Enforce domain mailbox count and quota limits
-                        $domainObj = RepositoryFactory::getDomainRepository()->getDomain($domain);
-                        if ($domainObj !== null) {
-                            if ($domainObj->mailboxes > 0 && $domainObj->currentUserCount >= $domainObj->mailboxes) {
-                                $error = Translator::translate('user.msg_mailbox_limit', ['current' => $domainObj->currentUserCount, 'max' => $domainObj->mailboxes]);
-                            } elseif ($domainObj->maxQuota > 0 && $user->mailQuota > $domainObj->maxQuota) {
-                                $error = Translator::translate('user.msg_quota_exceeds_max', ['quota' => $user->mailQuota, 'max' => $domainObj->maxQuota]);
-                            } elseif ($domainObj->quota > 0 && ($domainObj->currentQuotaUsed + $user->mailQuota) > $domainObj->quota) {
-                                $error = Translator::translate('user.msg_total_quota_exceeded_detail', ['used' => $domainObj->currentQuotaUsed, 'quota' => $user->mailQuota, 'max' => $domainObj->quota]);
-                            }
-
-                            if ($error !== null) {
-                                $tpl->render('userCreate.php', [
-                                    'domain' => $domain,
-                                    'validationErrors' => $validationErrors,
-                                    'error' => $error,
-                                    'user' => $user,
-                                ]);
-                                return;
-                            }
+                        $limitError = RepositoryFactory::getDomainRepository()->getDomain($domain)
+                            ?->newMailboxError($user->mailQuota);
+                        if ($limitError !== null) {
+                            $tpl->render('userCreate.php', [
+                                'domain' => $domain,
+                                'validationErrors' => $validationErrors,
+                                'error' => Translator::translate($limitError->translationKey, $limitError->params),
+                                'user' => $user,
+                            ]);
+                            return;
                         }
 
                         $passwordHash = PasswordUtils::generatePasswordHash($password);

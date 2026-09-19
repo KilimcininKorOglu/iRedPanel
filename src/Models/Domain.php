@@ -67,6 +67,39 @@ class Domain
         return preg_match(self::NAME_PATTERN, $name) === 1;
     }
 
+    /**
+     * Checks the mailbox count and quota limits of this domain for one more mailbox.
+     *
+     * @param int $mailQuota the quota of the new mailbox in MB
+     * @return ?InvalidInputException the violated limit, or null when the mailbox fits
+     */
+    public function newMailboxError(int $mailQuota): ?InvalidInputException
+    {
+        if ($this->mailboxes > 0 && $this->currentUserCount >= $this->mailboxes) {
+            return new InvalidInputException(
+                "Domain mailbox limit reached ({$this->currentUserCount}/{$this->mailboxes})",
+                'user.msg_mailbox_limit',
+                ['current' => $this->currentUserCount, 'max' => $this->mailboxes],
+            );
+        }
+        if ($this->maxQuota > 0 && $mailQuota > $this->maxQuota) {
+            return new InvalidInputException(
+                "User quota exceeds domain maximum ({$this->maxQuota} MB)",
+                'user.msg_quota_exceeds_max',
+                ['quota' => $mailQuota, 'max' => $this->maxQuota],
+            );
+        }
+        if ($this->quota > 0 && ($this->currentQuotaUsed + $mailQuota) > $this->quota) {
+            return new InvalidInputException(
+                'Total domain quota would be exceeded',
+                'user.msg_total_quota_exceeded_detail',
+                ['used' => $this->currentQuotaUsed, 'quota' => $mailQuota, 'max' => $this->quota],
+            );
+        }
+
+        return null;
+    }
+
     /** Form label of each quota and count limit. */
     private const LIMIT_LABELS = [
         'maxQuota' => 'domain.max_quota',

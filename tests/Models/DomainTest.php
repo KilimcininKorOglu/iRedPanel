@@ -188,4 +188,39 @@ class DomainTest extends TestCase
 
         $this->assertFalse($domain->active);
     }
+
+    public function testNewMailboxFitsUnlimitedDomain(): void
+    {
+        $this->assertNull((new Domain(domainName: 'x.test', currentUserCount: 50))->newMailboxError(1024));
+    }
+
+    /**
+     * The web form, the REST API and the CLI import refuse a mailbox that breaks a domain limit.
+     *
+     * @return array<string, array{Domain, int, string}>
+     */
+    public static function brokenLimits(): array
+    {
+        return [
+            'mailbox count' => [new Domain(domainName: 'x.test', mailboxes: 3, currentUserCount: 3), 10, 'user.msg_mailbox_limit'],
+            'user quota' => [new Domain(domainName: 'x.test', maxQuota: 100), 101, 'user.msg_quota_exceeds_max'],
+            'domain quota' => [new Domain(domainName: 'x.test', quota: 500, currentQuotaUsed: 450), 60, 'user.msg_total_quota_exceeded_detail'],
+        ];
+    }
+
+    #[\PHPUnit\Framework\Attributes\DataProvider('brokenLimits')]
+    public function testNewMailboxBreakingALimitIsRefused(Domain $domain, int $mailQuota, string $translationKey): void
+    {
+        $error = $domain->newMailboxError($mailQuota);
+
+        $this->assertInstanceOf(InvalidInputException::class, $error);
+        $this->assertSame($translationKey, $error->translationKey);
+    }
+
+    public function testNewMailboxAtTheLimitsFits(): void
+    {
+        $domain = new Domain(domainName: 'x.test', maxQuota: 100, quota: 500, mailboxes: 3, currentUserCount: 2, currentQuotaUsed: 400);
+
+        $this->assertNull($domain->newMailboxError(100));
+    }
 }

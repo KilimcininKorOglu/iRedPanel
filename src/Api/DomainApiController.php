@@ -94,7 +94,9 @@ class DomainApiController
 
     public static function update(string $domain): void
     {
-        ApiMiddleware::requireDomainAccess($domain);
+        // The limits and the status bound the domain admin, so only a global key changes
+        // them, as only a global admin edits a domain in the web panel.
+        ApiMiddleware::requireGlobalKey();
         ApiMiddleware::requireWriteAccess();
         $repo = RepositoryFactory::getDomainRepository();
         $existing = $repo->getDomain($domain);

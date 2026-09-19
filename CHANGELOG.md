@@ -29,6 +29,9 @@ All notable changes to this project will be documented in this file.
 - CI failed in `composer validate --strict` on the intentional `version` field
 - The throttle page and `/api/v1/throttle/{account}` accepted CIDR networks and `user@*` addresses, which the iRedAPD throttle plugin never matches; these accounts are now rejected
 
+### Security
+- `PUT /api/v1/domains/{domain}` accepted a domain-scoped API key, so that key could raise the mailbox, alias and quota limits of its own domain; the endpoint now requires a global key, as the web panel lets only a global admin edit a domain
+
 ## [1.0.2] - 2026-07-26
 
 ### Added

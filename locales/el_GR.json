@@ -203,7 +203,13 @@
     "back": "Πίσω στην καραντίνα",
     "msg_invalid_rdns": "Μη έγκυρο όνομα rDNS: :name",
     "msg_rdns_in_both": "Το :name βρίσκεται και στη λευκή και στη μαύρη λίστα.",
-    "msg_invalid_ip": "Μη έγκυρη διεύθυνση IP: :ip"
+    "msg_invalid_ip": "Μη έγκυρη διεύθυνση IP: :ip",
+    "remove_all": "Αφαίρεση όλων",
+    "remove_all_confirm": "Να αφαιρεθεί κάθε εγγραφή που δείχνει αυτή η λίστα;",
+    "msg_entries_added": "Προστέθηκαν :count εγγραφές.",
+    "msg_entries_removed": "Αφαιρέθηκαν :count εγγραφές.",
+    "msg_invalid_kind": "Ο τύπος πρέπει να είναι W ή B.",
+    "msg_sender_required": "Δώσε τουλάχιστον μία διεύθυνση."
   },
   "spampolicy": {
     "msg_deleted": "Η πολιτική ανεπιθύμητων διαγράφηκε!",

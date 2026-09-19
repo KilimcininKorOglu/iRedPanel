@@ -203,7 +203,13 @@
     "back": "Vissza a karanténba",
     "msg_invalid_rdns": "Érvénytelen rDNS név: :name",
     "msg_rdns_in_both": ":name a fehérlistán és a feketelistán is szerepel.",
-    "msg_invalid_ip": "Érvénytelen IP-cím: :ip"
+    "msg_invalid_ip": "Érvénytelen IP-cím: :ip",
+    "remove_all": "Összes eltávolítása",
+    "remove_all_confirm": "Eltávolítja a listában látható összes bejegyzést?",
+    "msg_entries_added": "Hozzáadott bejegyzések: :count.",
+    "msg_entries_removed": "Eltávolított bejegyzések: :count.",
+    "msg_invalid_kind": "A típus csak W vagy B lehet.",
+    "msg_sender_required": "Adjon meg legalább egy címet."
   },
   "spampolicy": {
     "msg_deleted": "Spamszabályzat törölve!",

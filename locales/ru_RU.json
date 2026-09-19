@@ -203,7 +203,13 @@
     "back": "Назад к карантину",
     "msg_invalid_rdns": "Недопустимое имя rDNS: :name",
     "msg_rdns_in_both": ":name находится и в белом, и в чёрном списке.",
-    "msg_invalid_ip": "Недопустимый IP-адрес: :ip"
+    "msg_invalid_ip": "Недопустимый IP-адрес: :ip",
+    "remove_all": "Удалить все",
+    "remove_all_confirm": "Удалить каждую запись, показанную в этом списке?",
+    "msg_entries_added": "Добавлено записей: :count.",
+    "msg_entries_removed": "Удалено записей: :count.",
+    "msg_invalid_kind": "Тип должен быть W или B.",
+    "msg_sender_required": "Введите хотя бы один адрес."
   },
   "spampolicy": {
     "msg_deleted": "Политика спама удалена!",

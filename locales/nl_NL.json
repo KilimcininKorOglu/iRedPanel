@@ -203,7 +203,13 @@
     "back": "Terug naar quarantaine",
     "msg_invalid_rdns": "Ongeldige rDNS-naam: :name",
     "msg_rdns_in_both": ":name staat zowel op de whitelist als op de blacklist.",
-    "msg_invalid_ip": "Ongeldig IP-adres: :ip"
+    "msg_invalid_ip": "Ongeldig IP-adres: :ip",
+    "remove_all": "Alles verwijderen",
+    "remove_all_confirm": "Elke regel verwijderen die deze lijst toont?",
+    "msg_entries_added": ":count regels toegevoegd.",
+    "msg_entries_removed": ":count regels verwijderd.",
+    "msg_invalid_kind": "Het type moet W of B zijn.",
+    "msg_sender_required": "Voer minstens één adres in."
   },
   "spampolicy": {
     "msg_deleted": "Spambeleid verwijderd!",

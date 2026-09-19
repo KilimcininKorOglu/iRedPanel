@@ -10,8 +10,8 @@ use App\Middleware;
 use App\Models\Settings;
 use App\Repositories\RepositoryFactory;
 use App\Services\ActivityLogger;
+use App\Services\WhiteBlacklistService;
 use App\TemplateEngine;
-use App\Utils\AmavisdAddress;
 
 class WhiteBlacklistController
 {
@@ -33,61 +33,80 @@ class WhiteBlacklistController
             CsrfProtection::validateToken();
 
             try {
-                $action = $_POST['action'] ?? '';
-                $direction = $_POST['direction'] ?? 'inbound';
-
-                if ($action === 'add') {
-                    $sender = trim((string) ($_POST['sender'] ?? ''));
-                    $wb = ($_POST['wb'] ?? 'W') === 'B' ? 'B' : 'W';
-                    self::assertValidEntry($account, $sender);
-
-                    if ($direction === 'outbound') {
-                        $repo->addOutboundEntry($account, $sender, $wb);
-                    } else {
-                        $repo->addInboundEntry($account, $sender, $wb);
-                    }
-                    ActivityLogger::logUpdate('', $account, "Added {$wb} entry for {$sender} ({$direction})");
-                    $success = Translator::translate('wblist.msg_entry_added');
-                } elseif ($action === 'remove') {
-                    $sender = (string) ($_POST['sender'] ?? '');
-
-                    $removed = $direction === 'outbound'
-                        ? $repo->removeOutboundEntry($account, $sender)
-                        : $repo->removeInboundEntry($account, $sender);
-                    if (!$removed) {
-                        throw new \RuntimeException(BaseController::itemError($sender, BaseController::itemNotFound()));
-                    }
-                    ActivityLogger::logDelete('', $account, "Removed entry for {$sender} ({$direction})");
-                    $success = Translator::translate('wblist.msg_entry_removed');
-                }
+                $success = self::applyAction($account, $_POST['action'] ?? '', self::postedDirection());
             } catch (\Exception $e) {
                 $error = BaseController::errorMessage($e);
             }
         }
 
-        $inboundList = $repo->getInboundList($account);
-        $outboundList = $repo->getOutboundList($account);
-
+        $filter = self::filterKind();
         $tpl->render('whiteBlacklistList.php', [
             'account' => $account,
-            'inboundList' => $inboundList,
-            'outboundList' => $outboundList,
+            'inboundList' => WhiteBlacklistService::filtered($repo->getInboundList($account), $filter),
+            'outboundList' => WhiteBlacklistService::filtered($repo->getOutboundList($account), $filter),
+            'wbFilter' => $filter ?? '',
             'success' => $success,
             'error' => $error,
         ]);
     }
 
     /**
-     * Rejects addresses that Amavisd and iRedAPD cannot match, as iRedAdmin does.
+     * Runs one POST action of the page.
+     *
+     * @return ?string the success message, or null when the action is unknown
      */
-    private static function assertValidEntry(string $account, string $sender): void
+    private static function applyAction(string $account, string $action, string $direction): ?string
     {
-        if (!AmavisdAddress::isValidAccount($account)) {
-            throw new \RuntimeException(Translator::translate('common.msg_invalid_address', ['address' => $account]));
+        return match ($action) {
+            'add' => self::addEntries($account, $direction),
+            'remove' => self::removeEntries($account, $direction),
+            'removeAll' => self::removeAllEntries($account, $direction),
+            default => null,
+        };
+    }
+
+    private static function addEntries(string $account, string $direction): string
+    {
+        $wb = WhiteBlacklistService::kind($_POST['wb'] ?? 'W');
+        $senders = BaseController::postedAddresses('sender');
+        $count = WhiteBlacklistService::add($account, $senders, $wb, $direction);
+        ActivityLogger::logUpdate('', $account, "Added {$count} {$wb} entries ({$direction})");
+
+        return Translator::translate('wblist.msg_entries_added', ['count' => $count]);
+    }
+
+    private static function removeEntries(string $account, string $direction): string
+    {
+        $count = WhiteBlacklistService::remove($account, [(string) ($_POST['sender'] ?? '')], $direction);
+        if ($count === 0) {
+            throw new \RuntimeException(BaseController::itemError((string) ($_POST['sender'] ?? ''), BaseController::itemNotFound()));
         }
-        if (!AmavisdAddress::isValidWblistAddress($sender)) {
-            throw new \RuntimeException(Translator::translate('common.msg_invalid_address', ['address' => $sender]));
-        }
+        ActivityLogger::logDelete('', $account, "Removed entry for {$_POST['sender']} ({$direction})");
+
+        return Translator::translate('wblist.msg_entry_removed');
+    }
+
+    private static function removeAllEntries(string $account, string $direction): string
+    {
+        $count = WhiteBlacklistService::removeAll($account, $direction, self::filterKind());
+        ActivityLogger::logDelete('', $account, "Removed {$count} entries ({$direction})");
+
+        return Translator::translate('wblist.msg_entries_removed', ['count' => $count]);
+    }
+
+    private static function postedDirection(): string
+    {
+        return ($_POST['direction'] ?? '') === 'outbound' ? 'outbound' : 'inbound';
+    }
+
+    /**
+     * The white/blacklist kind that the page shows, from `?wb=W` or `?wb=B`.
+     */
+    private static function filterKind(): ?string
+    {
+        $value = $_GET['wb'] ?? null;
+
+        return in_array($value, ['W', 'B'], true) ? $value : null;
     }
 
     private static function requireEnabled(): void

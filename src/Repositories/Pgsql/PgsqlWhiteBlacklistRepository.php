@@ -49,6 +49,16 @@ class PgsqlWhiteBlacklistRepository implements WhiteBlacklistRepositoryInterface
         return $this->removeEntry($account, $recipient, 'outbound_wblist');
     }
 
+    public function removeAllInboundEntries(string $account, ?string $wb = null): int
+    {
+        return $this->removeAll($account, 'wblist', $wb);
+    }
+
+    public function removeAllOutboundEntries(string $account, ?string $wb = null): int
+    {
+        return $this->removeAll($account, 'outbound_wblist', $wb);
+    }
+
     public function getOrCreateUserId(string $email): int
     {
         return $this->getOrCreateAddressId('users', $email);
@@ -151,6 +161,28 @@ class PgsqlWhiteBlacklistRepository implements WhiteBlacklistRepositoryInterface
         $stmt->execute(['account' => $account, 'sender' => $sender]);
 
         return $stmt->rowCount() > 0;
+    }
+
+    /**
+     * @param ?string $wb W or B to remove only that kind, null for every entry
+     * @return int the number of removed entries
+     */
+    private function removeAll(string $account, string $table, ?string $wb): int
+    {
+        $pdo = AmavisdPgsqlConnection::getInstance()->getPdo();
+
+        [$accountColumn] = self::COLUMNS[$table];
+        $sql = "DELETE FROM {$table} WHERE {$accountColumn} = (SELECT id FROM users WHERE email = :account)";
+        $params = ['account' => $account];
+        if ($wb !== null) {
+            $sql .= " AND wb = :wb";
+            $params['wb'] = $wb;
+        }
+
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute($params);
+
+        return $stmt->rowCount();
     }
 
     private function getUserId(string $email): ?int

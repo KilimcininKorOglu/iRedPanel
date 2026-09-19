@@ -203,7 +203,13 @@
     "back": "Back to quarantine",
     "msg_invalid_rdns": "Invalid rDNS name: :name",
     "msg_rdns_in_both": ":name is in both the whitelist and the blacklist.",
-    "msg_invalid_ip": "Invalid IP address: :ip"
+    "msg_invalid_ip": "Invalid IP address: :ip",
+    "remove_all": "Remove all",
+    "remove_all_confirm": "Remove every entry that this list shows?",
+    "msg_entries_added": "Entries added: :count",
+    "msg_entries_removed": "Entries removed: :count",
+    "msg_invalid_kind": "The type must be W or B.",
+    "msg_sender_required": "Enter at least one address."
   },
   "spampolicy": {
     "msg_deleted": "Spam policy deleted!",

@@ -203,7 +203,13 @@
     "back": "Nazaj na karanteno",
     "msg_invalid_rdns": "Neveljavno ime rDNS: :name",
     "msg_rdns_in_both": ":name je na beli in na črni listi.",
-    "msg_invalid_ip": "Neveljaven naslov IP: :ip"
+    "msg_invalid_ip": "Neveljaven naslov IP: :ip",
+    "remove_all": "Odstrani vse",
+    "remove_all_confirm": "Odstranim vsak vnos, ki ga prikazuje ta seznam?",
+    "msg_entries_added": "Dodanih vnosov: :count.",
+    "msg_entries_removed": "Odstranjenih vnosov: :count.",
+    "msg_invalid_kind": "Vrsta mora biti W ali B.",
+    "msg_sender_required": "Vnesite vsaj en naslov."
   },
   "spampolicy": {
     "msg_deleted": "Pravilnik o neželeni pošti izbrisan!",

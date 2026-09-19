@@ -203,7 +203,13 @@
     "back": "Назад до карантину",
     "msg_invalid_rdns": "Неприпустиме ім'я rDNS: :name",
     "msg_rdns_in_both": ":name є і в білому, і в чорному списку.",
-    "msg_invalid_ip": "Неприпустима IP-адреса: :ip"
+    "msg_invalid_ip": "Неприпустима IP-адреса: :ip",
+    "remove_all": "Видалити всі",
+    "remove_all_confirm": "Видалити кожен запис, показаний у цьому списку?",
+    "msg_entries_added": "Додано записів: :count.",
+    "msg_entries_removed": "Видалено записів: :count.",
+    "msg_invalid_kind": "Тип має бути W або B.",
+    "msg_sender_required": "Введіть хоча б одну адресу."
   },
   "spampolicy": {
     "msg_deleted": "Політику спаму видалено!",

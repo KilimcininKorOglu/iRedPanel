@@ -203,7 +203,13 @@
     "back": "격리로 돌아가기",
     "msg_invalid_rdns": "잘못된 rDNS 이름: :name",
     "msg_rdns_in_both": ":name이(가) 화이트리스트와 블랙리스트에 모두 있습니다.",
-    "msg_invalid_ip": "잘못된 IP 주소: :ip"
+    "msg_invalid_ip": "잘못된 IP 주소: :ip",
+    "remove_all": "모두 제거",
+    "remove_all_confirm": "이 목록에 보이는 모든 항목을 제거할까요?",
+    "msg_entries_added": ":count개 항목을 추가했습니다.",
+    "msg_entries_removed": ":count개 항목을 제거했습니다.",
+    "msg_invalid_kind": "종류는 W 또는 B여야 합니다.",
+    "msg_sender_required": "주소를 하나 이상 입력하세요."
   },
   "spampolicy": {
     "msg_deleted": "스팸 정책이 삭제되었습니다!",

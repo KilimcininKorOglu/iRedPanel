@@ -203,7 +203,13 @@
     "back": "隔離に戻る",
     "msg_invalid_rdns": "無効な rDNS 名: :name",
     "msg_rdns_in_both": ":name はホワイトリストとブラックリストの両方にあります。",
-    "msg_invalid_ip": "無効な IP アドレス: :ip"
+    "msg_invalid_ip": "無効な IP アドレス: :ip",
+    "remove_all": "すべて削除",
+    "remove_all_confirm": "このリストに表示されているすべての項目を削除しますか？",
+    "msg_entries_added": ":count 件を追加しました。",
+    "msg_entries_removed": ":count 件を削除しました。",
+    "msg_invalid_kind": "種類は W または B にしてください。",
+    "msg_sender_required": "アドレスを 1 つ以上入力してください。"
   },
   "spampolicy": {
     "msg_deleted": "スパムポリシーを削除しました！",

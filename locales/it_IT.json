@@ -203,7 +203,13 @@
     "back": "Torna alla quarantena",
     "msg_invalid_rdns": "Nome rDNS non valido: :name",
     "msg_rdns_in_both": ":name è sia nella whitelist sia nella blacklist.",
-    "msg_invalid_ip": "Indirizzo IP non valido: :ip"
+    "msg_invalid_ip": "Indirizzo IP non valido: :ip",
+    "remove_all": "Rimuovi tutto",
+    "remove_all_confirm": "Rimuovere ogni voce mostrata in questo elenco?",
+    "msg_entries_added": "Aggiunte :count voci.",
+    "msg_entries_removed": "Rimosse :count voci.",
+    "msg_invalid_kind": "Il tipo deve essere W o B.",
+    "msg_sender_required": "Inserisci almeno un indirizzo."
   },
   "spampolicy": {
     "msg_deleted": "Politica antispam eliminata!",

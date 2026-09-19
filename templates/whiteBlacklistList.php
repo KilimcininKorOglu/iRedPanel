@@ -1,6 +1,8 @@
 <?php
 $pageTitle = $t('wblist.view_title', ['account' => $account ?? '']);
 $wbLabel = fn(string $wb): string => $wb === 'W' ? $t('wblist.whitelist') : $t('wblist.blacklist');
+$baseUrl = $account === '@.' ? '/amavisd/wblist' : '/amavisd/wblist/' . rawurlencode($account);
+$filterUrl = fn(string $wb): string => $baseUrl . ($wb === '' ? '' : '?wb=' . $wb);
 $sections = [
     'inbound' => ['wblist.inbound_title', 'wblist.sender', 'wblist.no_inbound', $inboundList],
     'outbound' => ['wblist.outbound_title', 'wblist.recipient', 'wblist.no_outbound', $outboundList],
@@ -25,6 +27,12 @@ $sections = [
 
 <div class="row">
   <div class="col-xl-8">
+    <ul class="nav nav-pills mb-3">
+      <li class="nav-item"><a class="nav-link<?= ($wbFilter ?? '') === '' ? ' active' : '' ?>" href="<?= $e($filterUrl('')) ?>"><?= $te('common.all') ?></a></li>
+      <li class="nav-item"><a class="nav-link<?= ($wbFilter ?? '') === 'W' ? ' active' : '' ?>" href="<?= $e($filterUrl('W')) ?>"><?= $te('wblist.whitelist') ?></a></li>
+      <li class="nav-item"><a class="nav-link<?= ($wbFilter ?? '') === 'B' ? ' active' : '' ?>" href="<?= $e($filterUrl('B')) ?>"><?= $te('wblist.blacklist') ?></a></li>
+    </ul>
+
     <form method="get" action="/amavisd/wblist" class="d-flex flex-wrap gap-2 mb-4">
       <input type="text" name="account" data-account-picker="single" data-types="user" class="form-control flex-grow-1 w-auto" value="<?= $e($account !== '@.' ? $account : '') ?>" placeholder="<?= $te('spampolicy.account_placeholder') ?>" aria-label="<?= $te('spampolicy.account') ?>" />
       <button type="submit" class="btn btn-outline-secondary"><?= $te('wblist.load_list') ?></button>
@@ -34,16 +42,18 @@ $sections = [
     <div class="card">
       <div class="card-header"><?= $te($titleKey) ?></div>
       <div class="card-body">
-        <form method="post" class="d-flex flex-wrap gap-2">
+        <form method="post">
           <?= $csrfField ?>
           <input type="hidden" name="action" value="add" />
           <input type="hidden" name="direction" value="<?= $direction ?>" />
-          <input type="text" name="sender" data-account-picker="single" class="form-control flex-grow-1 w-auto" placeholder="<?= $te('wblist.sender_placeholder') ?>" required aria-label="<?= $te($columnKey) ?>" />
-          <select name="wb" class="form-select w-auto" aria-label="<?= $te('common.type') ?>">
-            <option value="W"><?= $te('wblist.whitelist') ?></option>
-            <option value="B"><?= $te('wblist.blacklist') ?></option>
-          </select>
-          <button type="submit" class="btn btn-primary"><i class="bi bi-plus-lg me-1"></i><?= $te('wblist.add') ?></button>
+          <textarea name="sender" data-account-picker="multi" rows="3" class="form-control mb-2" placeholder="<?= $te('wblist.sender_placeholder') ?>" required aria-label="<?= $te($columnKey) ?>"></textarea>
+          <div class="d-flex flex-wrap gap-2">
+            <select name="wb" class="form-select w-auto" aria-label="<?= $te('common.type') ?>">
+              <option value="W"><?= $te('wblist.whitelist') ?></option>
+              <option value="B"><?= $te('wblist.blacklist') ?></option>
+            </select>
+            <button type="submit" class="btn btn-primary"><i class="bi bi-plus-lg me-1"></i><?= $te('wblist.add') ?></button>
+          </div>
         </form>
       </div>
       <?php if (!empty($entries)): ?>
@@ -74,6 +84,14 @@ $sections = [
             <?php endforeach; ?>
           </tbody>
         </table>
+      </div>
+      <div class="card-footer">
+        <form method="post" data-confirm="<?= $te('wblist.remove_all_confirm') ?>">
+          <?= $csrfField ?>
+          <input type="hidden" name="action" value="removeAll" />
+          <input type="hidden" name="direction" value="<?= $direction ?>" />
+          <button type="submit" class="btn btn-sm btn-outline-danger"><i class="bi bi-trash3 me-1"></i><?= $te('wblist.remove_all') ?></button>
+        </form>
       </div>
       <?php else: ?>
       <div class="card-body pt-0 text-body-secondary"><?= $te($emptyKey) ?></div>

@@ -203,7 +203,13 @@
     "back": "Karantinə qayıt",
     "msg_invalid_rdns": "Yanlış rDNS adı: :name",
     "msg_rdns_in_both": ":name həm ağ, həm də qara siyahıdadır.",
-    "msg_invalid_ip": "Yanlış IP ünvanı: :ip"
+    "msg_invalid_ip": "Yanlış IP ünvanı: :ip",
+    "remove_all": "Hamısını sil",
+    "remove_all_confirm": "Bu siyahıda görünən hər qeyd silinsin?",
+    "msg_entries_added": ":count qeyd əlavə edildi.",
+    "msg_entries_removed": ":count qeyd silindi.",
+    "msg_invalid_kind": "Növ W və ya B olmalıdır.",
+    "msg_sender_required": "Ən azı bir ünvan daxil edin."
   },
   "spampolicy": {
     "msg_deleted": "Spam siyasəti silindi!",

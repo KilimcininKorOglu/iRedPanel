@@ -203,7 +203,13 @@
     "back": "Voltar à quarentena",
     "msg_invalid_rdns": "Nome rDNS inválido: :name",
     "msg_rdns_in_both": ":name está na lista branca e na lista negra.",
-    "msg_invalid_ip": "Endereço IP inválido: :ip"
+    "msg_invalid_ip": "Endereço IP inválido: :ip",
+    "remove_all": "Remover tudo",
+    "remove_all_confirm": "Remover cada entrada que esta lista mostra?",
+    "msg_entries_added": "Foram adicionadas :count entradas.",
+    "msg_entries_removed": "Foram removidas :count entradas.",
+    "msg_invalid_kind": "O tipo precisa ser W ou B.",
+    "msg_sender_required": "Informe pelo menos um endereço."
   },
   "spampolicy": {
     "msg_deleted": "Política de spam excluída!",

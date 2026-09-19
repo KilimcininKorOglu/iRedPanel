@@ -203,7 +203,13 @@
     "back": "Zpět na karanténu",
     "msg_invalid_rdns": "Neplatný název rDNS: :name",
     "msg_rdns_in_both": ":name je na bílé i na černé listině.",
-    "msg_invalid_ip": "Neplatná IP adresa: :ip"
+    "msg_invalid_ip": "Neplatná IP adresa: :ip",
+    "remove_all": "Odebrat vše",
+    "remove_all_confirm": "Odebrat každý záznam, který tento seznam ukazuje?",
+    "msg_entries_added": "Přidané záznamy: :count.",
+    "msg_entries_removed": "Odebrané záznamy: :count.",
+    "msg_invalid_kind": "Typ musí být W nebo B.",
+    "msg_sender_required": "Zadejte alespoň jednu adresu."
   },
   "spampolicy": {
     "msg_deleted": "Zásady spamu smazány!",

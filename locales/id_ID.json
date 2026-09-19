@@ -203,7 +203,13 @@
     "back": "Kembali ke karantina",
     "msg_invalid_rdns": "Nama rDNS tidak valid: :name",
     "msg_rdns_in_both": ":name ada di whitelist dan blacklist sekaligus.",
-    "msg_invalid_ip": "Alamat IP tidak valid: :ip"
+    "msg_invalid_ip": "Alamat IP tidak valid: :ip",
+    "remove_all": "Hapus semua",
+    "remove_all_confirm": "Hapus setiap entri yang ditampilkan daftar ini?",
+    "msg_entries_added": ":count entri ditambahkan.",
+    "msg_entries_removed": ":count entri dihapus.",
+    "msg_invalid_kind": "Tipe harus W atau B.",
+    "msg_sender_required": "Masukkan setidaknya satu alamat."
   },
   "spampolicy": {
     "msg_deleted": "Kebijakan spam dihapus!",

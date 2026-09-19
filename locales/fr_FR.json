@@ -203,7 +203,13 @@
     "back": "Retour à la quarantaine",
     "msg_invalid_rdns": "Nom rDNS invalide : :name",
     "msg_rdns_in_both": ":name figure à la fois dans la liste blanche et dans la liste noire.",
-    "msg_invalid_ip": "Adresse IP invalide : :ip"
+    "msg_invalid_ip": "Adresse IP invalide : :ip",
+    "remove_all": "Tout supprimer",
+    "remove_all_confirm": "Supprimer chaque entrée affichée dans cette liste ?",
+    "msg_entries_added": ":count entrées ajoutées.",
+    "msg_entries_removed": ":count entrées supprimées.",
+    "msg_invalid_kind": "Le type doit être W ou B.",
+    "msg_sender_required": "Saisissez au moins une adresse."
   },
   "spampolicy": {
     "msg_deleted": "Politique antispam supprimée !",

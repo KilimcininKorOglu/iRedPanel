@@ -203,7 +203,13 @@
     "back": "Itzuli berrogeialdira",
     "msg_invalid_rdns": "rDNS izen baliogabea: :name",
     "msg_rdns_in_both": ":name zerrenda zurian eta zerrenda beltzean dago.",
-    "msg_invalid_ip": "IP helbide baliogabea: :ip"
+    "msg_invalid_ip": "IP helbide baliogabea: :ip",
+    "remove_all": "Kendu guztiak",
+    "remove_all_confirm": "Zerrenda honek erakusten duen sarrera bakoitza kendu?",
+    "msg_entries_added": ":count sarrera gehitu dira.",
+    "msg_entries_removed": ":count sarrera kendu dira.",
+    "msg_invalid_kind": "Mota W edo B izan behar da.",
+    "msg_sender_required": "Sartu gutxienez helbide bat."
   },
   "spampolicy": {
     "msg_deleted": "Spam politika ezabatu da!",

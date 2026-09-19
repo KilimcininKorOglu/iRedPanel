@@ -203,7 +203,13 @@
     "back": "返回隔离区",
     "msg_invalid_rdns": "无效的 rDNS 名称：:name",
     "msg_rdns_in_both": ":name 同时位于白名单和黑名单中。",
-    "msg_invalid_ip": "无效的 IP 地址：:ip"
+    "msg_invalid_ip": "无效的 IP 地址：:ip",
+    "remove_all": "全部删除",
+    "remove_all_confirm": "删除此列表显示的每一条记录？",
+    "msg_entries_added": "已添加 :count 条记录。",
+    "msg_entries_removed": "已删除 :count 条记录。",
+    "msg_invalid_kind": "类型必须是 W 或 B。",
+    "msg_sender_required": "请至少输入一个地址。"
   },
   "spampolicy": {
     "msg_deleted": "垃圾邮件策略已删除！",

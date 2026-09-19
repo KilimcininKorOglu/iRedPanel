@@ -203,7 +203,13 @@
     "back": "Quay lại cách ly",
     "msg_invalid_rdns": "Tên rDNS không hợp lệ: :name",
     "msg_rdns_in_both": ":name nằm trong cả danh sách trắng và danh sách đen.",
-    "msg_invalid_ip": "Địa chỉ IP không hợp lệ: :ip"
+    "msg_invalid_ip": "Địa chỉ IP không hợp lệ: :ip",
+    "remove_all": "Xóa tất cả",
+    "remove_all_confirm": "Xóa mọi mục mà danh sách này hiển thị?",
+    "msg_entries_added": "Đã thêm :count mục.",
+    "msg_entries_removed": "Đã xóa :count mục.",
+    "msg_invalid_kind": "Loại phải là W hoặc B.",
+    "msg_sender_required": "Nhập ít nhất một địa chỉ."
   },
   "spampolicy": {
     "msg_deleted": "Chính sách thư rác đã được xóa!",

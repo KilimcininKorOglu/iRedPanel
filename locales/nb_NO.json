@@ -203,7 +203,13 @@
     "back": "Tilbake til karantene",
     "msg_invalid_rdns": "Ugyldig rDNS-navn: :name",
     "msg_rdns_in_both": ":name står både på hvitelisten og på svartelisten.",
-    "msg_invalid_ip": "Ugyldig IP-adresse: :ip"
+    "msg_invalid_ip": "Ugyldig IP-adresse: :ip",
+    "remove_all": "Fjern alle",
+    "remove_all_confirm": "Fjerne hver post som denne listen viser?",
+    "msg_entries_added": ":count poster lagt til.",
+    "msg_entries_removed": ":count poster fjernet.",
+    "msg_invalid_kind": "Typen må være W eller B.",
+    "msg_sender_required": "Oppgi minst én adresse."
   },
   "spampolicy": {
     "msg_deleted": "Spampolicy slettet!",

@@ -203,7 +203,13 @@
     "back": "กลับไปที่การกักกัน",
     "msg_invalid_rdns": "ชื่อ rDNS ไม่ถูกต้อง: :name",
     "msg_rdns_in_both": ":name อยู่ทั้งในรายการอนุญาตและรายการปิดกั้น",
-    "msg_invalid_ip": "ที่อยู่ IP ไม่ถูกต้อง: :ip"
+    "msg_invalid_ip": "ที่อยู่ IP ไม่ถูกต้อง: :ip",
+    "remove_all": "ลบทั้งหมด",
+    "remove_all_confirm": "ลบทุกรายการที่แสดงในรายการนี้หรือไม่",
+    "msg_entries_added": "เพิ่มแล้ว :count รายการ",
+    "msg_entries_removed": "ลบแล้ว :count รายการ",
+    "msg_invalid_kind": "ชนิดต้องเป็น W หรือ B",
+    "msg_sender_required": "ใส่อย่างน้อยหนึ่งที่อยู่"
   },
   "spampolicy": {
     "msg_deleted": "ลบนโยบายสแปมแล้ว!",

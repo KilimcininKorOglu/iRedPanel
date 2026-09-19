@@ -203,7 +203,13 @@
     "back": "Karantinaya dön",
     "msg_invalid_rdns": "Geçersiz rDNS adı: :name",
     "msg_rdns_in_both": ":name hem whitelist hem blacklist içinde.",
-    "msg_invalid_ip": "Geçersiz IP adresi: :ip"
+    "msg_invalid_ip": "Geçersiz IP adresi: :ip",
+    "remove_all": "Hepsini kaldır",
+    "remove_all_confirm": "Bu listede görünen her kayıt kaldırılsın mı?",
+    "msg_entries_added": ":count kayıt eklendi.",
+    "msg_entries_removed": ":count kayıt kaldırıldı.",
+    "msg_invalid_kind": "Tür W veya B olmalı.",
+    "msg_sender_required": "En az bir adres girin."
   },
   "spampolicy": {
     "msg_deleted": "Spam politikası silindi!",

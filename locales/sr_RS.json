@@ -203,7 +203,13 @@
     "back": "Назад на карантин",
     "msg_invalid_rdns": "Неисправан rDNS назив: :name",
     "msg_rdns_in_both": ":name је и на белој и на црној листи.",
-    "msg_invalid_ip": "Неисправна IP адреса: :ip"
+    "msg_invalid_ip": "Неисправна IP адреса: :ip",
+    "remove_all": "Ukloni sve",
+    "remove_all_confirm": "Ukloniti svaki unos koji ovaj spisak prikazuje?",
+    "msg_entries_added": "Dodato unosa: :count.",
+    "msg_entries_removed": "Uklonjeno unosa: :count.",
+    "msg_invalid_kind": "Vrsta mora biti W ili B.",
+    "msg_sender_required": "Unesite bar jednu adresu."
   },
   "spampolicy": {
     "msg_deleted": "Правила за нежељену пошту обрисана!",

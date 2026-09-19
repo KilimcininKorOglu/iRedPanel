@@ -203,7 +203,13 @@
     "back": "Tagasi karantiini",
     "msg_invalid_rdns": "Vigane rDNS nimi: :name",
     "msg_rdns_in_both": ":name on nii lubatud kui ka keelatud nimekirjas.",
-    "msg_invalid_ip": "Vigane IP-aadress: :ip"
+    "msg_invalid_ip": "Vigane IP-aadress: :ip",
+    "remove_all": "Eemalda kõik",
+    "remove_all_confirm": "Kas eemaldada iga kirje, mida see nimekiri näitab?",
+    "msg_entries_added": "Lisati :count kirjet.",
+    "msg_entries_removed": "Eemaldati :count kirjet.",
+    "msg_invalid_kind": "Tüüp peab olema W või B.",
+    "msg_sender_required": "Sisesta vähemalt üks aadress."
   },
   "spampolicy": {
     "msg_deleted": "Rämpsposti poliitika kustutatud!",

@@ -203,7 +203,13 @@
     "back": "Til baka í sóttkví",
     "msg_invalid_rdns": "Ógilt rDNS-nafn: :name",
     "msg_rdns_in_both": ":name er bæði á hvítlista og svartlista.",
-    "msg_invalid_ip": "Ógilt IP-vistfang: :ip"
+    "msg_invalid_ip": "Ógilt IP-vistfang: :ip",
+    "remove_all": "Fjarlægja allt",
+    "remove_all_confirm": "Fjarlægja hverja færslu sem þessi listi sýnir?",
+    "msg_entries_added": "Bætti við :count færslum.",
+    "msg_entries_removed": "Fjarlægði :count færslur.",
+    "msg_invalid_kind": "Gerðin verður að vera W eða B.",
+    "msg_sender_required": "Sláðu inn að minnsta kosti eitt netfang."
   },
   "spampolicy": {
     "msg_deleted": "Ruslpóststefnu eytt!",

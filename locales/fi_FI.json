@@ -203,7 +203,13 @@
     "back": "Takaisin karanteeniin",
     "msg_invalid_rdns": "Virheellinen rDNS-nimi: :name",
     "msg_rdns_in_both": ":name on sekä sallittujen että estettyjen listalla.",
-    "msg_invalid_ip": "Virheellinen IP-osoite: :ip"
+    "msg_invalid_ip": "Virheellinen IP-osoite: :ip",
+    "remove_all": "Poista kaikki",
+    "remove_all_confirm": "Poistetaanko jokainen tässä listassa näkyvä merkintä?",
+    "msg_entries_added": "Lisättiin :count merkintää.",
+    "msg_entries_removed": "Poistettiin :count merkintää.",
+    "msg_invalid_kind": "Tyypin on oltava W tai B.",
+    "msg_sender_required": "Anna vähintään yksi osoite."
   },
   "spampolicy": {
     "msg_deleted": "Roskapostikäytäntö poistettu!",

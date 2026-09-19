@@ -203,7 +203,13 @@
     "back": "返回隔離區",
     "msg_invalid_rdns": "無效的 rDNS 名稱：:name",
     "msg_rdns_in_both": ":name 同時位於白名單與黑名單中。",
-    "msg_invalid_ip": "無效的 IP 位址：:ip"
+    "msg_invalid_ip": "無效的 IP 位址：:ip",
+    "remove_all": "全部刪除",
+    "remove_all_confirm": "刪除此清單顯示的每一筆記錄？",
+    "msg_entries_added": "已新增 :count 筆記錄。",
+    "msg_entries_removed": "已刪除 :count 筆記錄。",
+    "msg_invalid_kind": "類型必須是 W 或 B。",
+    "msg_sender_required": "請至少輸入一個位址。"
   },
   "spampolicy": {
     "msg_deleted": "垃圾郵件政策已刪除！",

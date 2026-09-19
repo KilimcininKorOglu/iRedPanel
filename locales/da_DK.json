@@ -388,7 +388,10 @@
     "msg_invalid_mailbox_folder": "Postkassemappen skal være 1 til 20 bogstaver eller cifre.",
     "msg_maildir_global_only": "Kun en global administrator kan angive maildir-stien.",
     "msg_invalid_maildir": "Maildir-stien skal være en absolut sti med mindst fire mapper: små bogstaver, cifre og . _ @ + -.",
-    "msg_maildir_in_use": "Maildir-stien tilhører en anden postkasse."
+    "msg_maildir_in_use": "Maildir-stien tilhører en anden postkasse.",
+    "transport": "Transport",
+    "transport_hint": "Postfix transport for denne postkasse, f.eks. dovecot. Tom bruger domænets transport.",
+    "msg_invalid_transport": "Transport må kun indeholde bogstaver, cifre og . _ / : [ ] @ + -."
   },
   "mlist": {
     "msg_updated": "Mailingliste opdateret!",

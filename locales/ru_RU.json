@@ -388,7 +388,10 @@
     "msg_invalid_mailbox_folder": "Папка почтового ящика должна содержать от 1 до 20 букв или цифр.",
     "msg_maildir_global_only": "Задать путь maildir может только глобальный администратор.",
     "msg_invalid_maildir": "Путь maildir должен быть абсолютным и содержать не менее четырёх каталогов: строчные буквы, цифры и . _ @ + -.",
-    "msg_maildir_in_use": "Путь maildir принадлежит другому почтовому ящику."
+    "msg_maildir_in_use": "Путь maildir принадлежит другому почтовому ящику.",
+    "transport": "Transport",
+    "transport_hint": "Postfix transport этого почтового ящика, например dovecot. Пустое поле использует transport домена.",
+    "msg_invalid_transport": "Transport может содержать только буквы, цифры и . _ / : [ ] @ + -."
   },
   "mlist": {
     "msg_updated": "Список рассылки обновлён!",

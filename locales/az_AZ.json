@@ -388,7 +388,10 @@
     "msg_invalid_mailbox_folder": "Poçt qutusu qovluğu 1-20 hərf və ya rəqəmdən ibarət olmalıdır.",
     "msg_maildir_global_only": "Maildir yolunu yalnız qlobal admin təyin edə bilər.",
     "msg_invalid_maildir": "Maildir yolu ən azı dörd qovluqdan ibarət mütləq yol olmalıdır: kiçik hərflər, rəqəmlər və . _ @ + -.",
-    "msg_maildir_in_use": "Maildir yolu başqa poçt qutusuna aiddir."
+    "msg_maildir_in_use": "Maildir yolu başqa poçt qutusuna aiddir.",
+    "transport": "Transport",
+    "transport_hint": "Bu poçt qutusunun Postfix transport-u, məsələn dovecot. Boş qalsa domainin transport-u işləyir.",
+    "msg_invalid_transport": "Transport yalnız hərf, rəqəm və . _ / : [ ] @ + - simvollarından ibarət ola bilər."
   },
   "mlist": {
     "msg_updated": "Poçt siyahısı yeniləndi!",

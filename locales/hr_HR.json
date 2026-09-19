@@ -388,7 +388,10 @@
     "msg_invalid_mailbox_folder": "Mapa sandučića mora imati 1 do 20 slova ili znamenki.",
     "msg_maildir_global_only": "Samo globalni administrator može postaviti putanju maildira.",
     "msg_invalid_maildir": "Putanja maildira mora biti apsolutna putanja od najmanje četiri direktorija: mala slova, znamenke i . _ @ + -.",
-    "msg_maildir_in_use": "Putanja maildira pripada drugom sandučiću."
+    "msg_maildir_in_use": "Putanja maildira pripada drugom sandučiću.",
+    "transport": "Transport",
+    "transport_hint": "Postfix transport ovog sandučića, npr. dovecot. Prazno koristi transport domene.",
+    "msg_invalid_transport": "Transport smije sadržavati samo slova, znamenke i . _ / : [ ] @ + -."
   },
   "mlist": {
     "msg_updated": "Mailing lista ažurirana!",

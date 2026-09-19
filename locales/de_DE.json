@@ -388,7 +388,10 @@
     "msg_invalid_mailbox_folder": "Der Postfachordner muss aus 1 bis 20 Buchstaben oder Ziffern bestehen.",
     "msg_maildir_global_only": "Nur ein globaler Administrator kann den Maildir-Pfad festlegen.",
     "msg_invalid_maildir": "Der Maildir-Pfad muss ein absoluter Pfad aus mindestens vier Verzeichnissen sein: Kleinbuchstaben, Ziffern und . _ @ + -.",
-    "msg_maildir_in_use": "Der Maildir-Pfad gehört zu einem anderen Postfach."
+    "msg_maildir_in_use": "Der Maildir-Pfad gehört zu einem anderen Postfach.",
+    "transport": "Transport",
+    "transport_hint": "Postfix-Transport dieses Postfachs, z. B. dovecot. Leer verwendet den Transport der Domain.",
+    "msg_invalid_transport": "Der Transport darf nur Buchstaben, Ziffern und . _ / : [ ] @ + - enthalten."
   },
   "mlist": {
     "msg_updated": "Mailingliste aktualisiert!",

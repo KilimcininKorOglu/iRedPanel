@@ -388,7 +388,10 @@
     "msg_invalid_mailbox_folder": "메일함 폴더는 1~20자의 영문자 또는 숫자여야 합니다.",
     "msg_maildir_global_only": "전역 관리자만 Maildir 경로를 설정할 수 있습니다.",
     "msg_invalid_maildir": "Maildir 경로는 4개 이상의 디렉터리로 된 절대 경로여야 합니다: 소문자, 숫자 및 . _ @ + -.",
-    "msg_maildir_in_use": "이 Maildir 경로는 다른 메일함에 속합니다."
+    "msg_maildir_in_use": "이 Maildir 경로는 다른 메일함에 속합니다.",
+    "transport": "Transport",
+    "transport_hint": "이 메일함의 Postfix transport (예: dovecot). 비워 두면 도메인의 transport를 사용합니다.",
+    "msg_invalid_transport": "transport에는 영문자, 숫자와 . _ / : [ ] @ + - 만 사용할 수 있습니다."
   },
   "mlist": {
     "msg_updated": "메일링 리스트가 업데이트되었습니다!",

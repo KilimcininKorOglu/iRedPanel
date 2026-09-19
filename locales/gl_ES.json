@@ -388,7 +388,10 @@
     "msg_invalid_mailbox_folder": "O cartafol da caixa debe ter de 1 a 20 letras ou díxitos.",
     "msg_maildir_global_only": "Só un administrador global pode definir a ruta do maildir.",
     "msg_invalid_maildir": "A ruta do maildir debe ser unha ruta absoluta de polo menos catro directorios: minúsculas, díxitos e . _ @ + -.",
-    "msg_maildir_in_use": "A ruta do maildir pertence a outra caixa de correo."
+    "msg_maildir_in_use": "A ruta do maildir pertence a outra caixa de correo.",
+    "transport": "Transport",
+    "transport_hint": "Transport de Postfix desta caixa de correo, por exemplo dovecot. Baleiro usa o transport do dominio.",
+    "msg_invalid_transport": "O transport só pode conter letras, díxitos e . _ / : [ ] @ + -."
   },
   "mlist": {
     "msg_updated": "Lista de correo actualizada!",

@@ -388,7 +388,10 @@
     "msg_invalid_mailbox_folder": "Тека поштової скриньки повинна мати від 1 до 20 літер або цифр.",
     "msg_maildir_global_only": "Шлях maildir може задати лише глобальний адміністратор.",
     "msg_invalid_maildir": "Шлях maildir має бути абсолютним і містити щонайменше чотири каталоги: малі літери, цифри та . _ @ + -.",
-    "msg_maildir_in_use": "Шлях maildir належить іншій поштовій скриньці."
+    "msg_maildir_in_use": "Шлях maildir належить іншій поштовій скриньці.",
+    "transport": "Transport",
+    "transport_hint": "Postfix transport цієї скриньки, наприклад dovecot. Порожнє поле використовує transport домену.",
+    "msg_invalid_transport": "Transport може містити лише літери, цифри та . _ / : [ ] @ + -."
   },
   "mlist": {
     "msg_updated": "Список розсилки оновлено!",

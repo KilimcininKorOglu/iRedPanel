@@ -158,6 +158,24 @@ class MysqlUserRepository implements UserRepositoryInterface
         }
     }
 
+    public function getTransport(string $domain, string $userUid): ?string
+    {
+        $stmt = MysqlConnection::getInstance()->getPdo()
+            ->prepare("SELECT transport FROM mailbox WHERE username = :username LIMIT 1");
+        $stmt->execute(['username' => "{$userUid}@{$domain}"]);
+        $row = $stmt->fetch();
+
+        return $row === false || $row['transport'] === '' ? null : (string) $row['transport'];
+    }
+
+    public function setTransport(string $domain, string $userUid, ?string $transport): void
+    {
+        // The column is NOT NULL, so the domain transport is the empty string, as in iRedAdmin.
+        $stmt = MysqlConnection::getInstance()->getPdo()
+            ->prepare("UPDATE mailbox SET transport = :transport WHERE username = :username AND domain = :domain");
+        $stmt->execute(['transport' => $transport ?? '', 'username' => "{$userUid}@{$domain}", 'domain' => $domain]);
+    }
+
     public function updateUserPassword(string $domain, string $userUid, string $passwordHash): void
     {
         $pdo = MysqlConnection::getInstance()->getPdo();

@@ -388,7 +388,10 @@
     "msg_invalid_mailbox_folder": "Složka schránky musí mít 1 až 20 písmen nebo číslic.",
     "msg_maildir_global_only": "Cestu maildiru může nastavit jen globální administrátor.",
     "msg_invalid_maildir": "Cesta maildiru musí být absolutní cesta s alespoň čtyřmi adresáři: malá písmena, číslice a . _ @ + -.",
-    "msg_maildir_in_use": "Cesta maildiru patří jiné schránce."
+    "msg_maildir_in_use": "Cesta maildiru patří jiné schránce.",
+    "transport": "Transport",
+    "transport_hint": "Postfix transport této schránky, např. dovecot. Prázdné pole použije transport domény.",
+    "msg_invalid_transport": "Transport smí obsahovat jen písmena, číslice a . _ / : [ ] @ + -."
   },
   "mlist": {
     "msg_updated": "Poštovní konference aktualizována!",

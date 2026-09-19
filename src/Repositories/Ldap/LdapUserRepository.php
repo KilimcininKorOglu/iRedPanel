@@ -140,6 +140,23 @@ class LdapUserRepository implements UserRepositoryInterface
         return array_values($values);
     }
 
+    public function getTransport(string $domain, string $userUid): ?string
+    {
+        $conn = LdapConnection::getInstance()->getConn();
+        $entry = LdapUtils::readEntry($conn, LdapUtils::getEmailDn("{$userUid}@{$domain}"), '(objectClass=mailUser)', ['mtaTransport']);
+
+        return $entry === null ? null : (($entry['mtatransport'][0] ?? '') ?: null);
+    }
+
+    public function setTransport(string $domain, string $userUid, ?string $transport): void
+    {
+        $conn = LdapConnection::getInstance()->getConn();
+        $dn = LdapUtils::getEmailDn("{$userUid}@{$domain}");
+        if (!LdapUtils::modifyBatch($conn, $dn, [LdapUtils::modReplace('mtaTransport', $transport)])) {
+            throw new \RuntimeException('LDAP transport update failed: ' . ldap_error($conn));
+        }
+    }
+
     public function updateUserPassword(string $domain, string $userUid, string $passwordHash): void
     {
         $conn = LdapConnection::getInstance()->getConn();

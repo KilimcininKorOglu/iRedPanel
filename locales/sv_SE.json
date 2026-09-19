@@ -388,7 +388,10 @@
     "msg_invalid_mailbox_folder": "Brevlådemappen måste vara 1 till 20 bokstäver eller siffror.",
     "msg_maildir_global_only": "Endast en global administratör kan ange maildir-sökvägen.",
     "msg_invalid_maildir": "Maildir-sökvägen måste vara en absolut sökväg med minst fyra kataloger: gemener, siffror och . _ @ + -.",
-    "msg_maildir_in_use": "Maildir-sökvägen tillhör en annan brevlåda."
+    "msg_maildir_in_use": "Maildir-sökvägen tillhör en annan brevlåda.",
+    "transport": "Transport",
+    "transport_hint": "Postfix transport för den här brevlådan, t.ex. dovecot. Tomt använder domänens transport.",
+    "msg_invalid_transport": "Transport får bara innehålla bokstäver, siffror och . _ / : [ ] @ + -."
   },
   "mlist": {
     "msg_updated": "Sändlista uppdaterad!",

@@ -388,7 +388,10 @@
     "msg_invalid_mailbox_folder": "A postafiók mappája 1–20 betű vagy számjegy lehet.",
     "msg_maildir_global_only": "Csak globális adminisztrátor állíthatja be a maildir elérési útját.",
     "msg_invalid_maildir": "A maildir útvonalnak legalább négy könyvtárból álló abszolút útnak kell lennie: kisbetűk, számjegyek és . _ @ + -.",
-    "msg_maildir_in_use": "A maildir útvonal egy másik postafiókhoz tartozik."
+    "msg_maildir_in_use": "A maildir útvonal egy másik postafiókhoz tartozik.",
+    "transport": "Transport",
+    "transport_hint": "A postafiók Postfix transport értéke, például dovecot. Üresen a tartomány transport értékét használja.",
+    "msg_invalid_transport": "A transport csak betűket, számjegyeket és . _ / : [ ] @ + - jeleket tartalmazhat."
   },
   "mlist": {
     "msg_updated": "Levelezőlista frissítve!",

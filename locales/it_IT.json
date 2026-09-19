@@ -388,7 +388,10 @@
     "msg_invalid_mailbox_folder": "La cartella della casella deve avere da 1 a 20 lettere o cifre.",
     "msg_maildir_global_only": "Solo un amministratore globale può impostare il percorso del maildir.",
     "msg_invalid_maildir": "Il percorso del maildir deve essere assoluto con almeno quattro directory: minuscole, cifre e . _ @ + -.",
-    "msg_maildir_in_use": "Il percorso del maildir appartiene a un'altra casella."
+    "msg_maildir_in_use": "Il percorso del maildir appartiene a un'altra casella.",
+    "transport": "Transport",
+    "transport_hint": "Transport Postfix di questa casella, ad esempio dovecot. Vuoto usa il transport del dominio.",
+    "msg_invalid_transport": "Il transport può contenere solo lettere, cifre e . _ / : [ ] @ + -."
   },
   "mlist": {
     "msg_updated": "Lista di distribuzione aggiornata!",

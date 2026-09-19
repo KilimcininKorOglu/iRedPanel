@@ -388,7 +388,10 @@
     "msg_invalid_mailbox_folder": "Folder skrzynki musi mieć od 1 do 20 liter lub cyfr.",
     "msg_maildir_global_only": "Tylko administrator globalny może ustawić ścieżkę maildir.",
     "msg_invalid_maildir": "Ścieżka maildir musi być ścieżką bezwzględną z co najmniej czterema katalogami: małe litery, cyfry i . _ @ + -.",
-    "msg_maildir_in_use": "Ścieżka maildir należy do innej skrzynki."
+    "msg_maildir_in_use": "Ścieżka maildir należy do innej skrzynki.",
+    "transport": "Transport",
+    "transport_hint": "Postfix transport tej skrzynki, np. dovecot. Puste pole używa transport domeny.",
+    "msg_invalid_transport": "Transport może zawierać tylko litery, cyfry i . _ / : [ ] @ + -."
   },
   "mlist": {
     "msg_updated": "Lista mailingowa zaktualizowana!",

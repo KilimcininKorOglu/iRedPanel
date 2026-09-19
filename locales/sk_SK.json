@@ -388,7 +388,10 @@
     "msg_invalid_mailbox_folder": "Priečinok schránky musí mať 1 až 20 písmen alebo číslic.",
     "msg_maildir_global_only": "Cestu maildiru môže nastaviť iba globálny administrátor.",
     "msg_invalid_maildir": "Cesta maildiru musí byť absolútna cesta s aspoň štyrmi adresármi: malé písmená, číslice a . _ @ + -.",
-    "msg_maildir_in_use": "Cesta maildiru patrí inej schránke."
+    "msg_maildir_in_use": "Cesta maildiru patrí inej schránke.",
+    "transport": "Transport",
+    "transport_hint": "Postfix transport tejto schránky, napr. dovecot. Prázdne pole použije transport domény.",
+    "msg_invalid_transport": "Transport smie obsahovať len písmená, číslice a . _ / : [ ] @ + -."
   },
   "mlist": {
     "msg_updated": "Distribučný zoznam aktualizovaný!",

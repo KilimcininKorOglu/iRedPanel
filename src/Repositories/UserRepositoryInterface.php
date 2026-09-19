@@ -70,6 +70,16 @@ interface UserRepositoryInterface
     public function verifyUserPassword(string $domain, string $userUid, string $password): bool;
 
     /**
+     * The Postfix transport of one mailbox, or null when the domain transport applies.
+     */
+    public function getTransport(string $domain, string $userUid): ?string;
+
+    /**
+     * Sets the Postfix transport of one mailbox; null restores the domain transport.
+     */
+    public function setTransport(string $domain, string $userUid, ?string $transport): void;
+
+    /**
      * Renames a user email address, updating all related records.
      */
     public function renameUser(string $domain, string $oldUid, string $newUid): void;

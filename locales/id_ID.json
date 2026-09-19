@@ -388,7 +388,10 @@
     "msg_invalid_mailbox_folder": "Folder kotak surat harus 1 sampai 20 huruf atau angka.",
     "msg_maildir_global_only": "Hanya admin global yang dapat mengatur path maildir.",
     "msg_invalid_maildir": "Path maildir harus path absolut dengan minimal empat direktori: huruf kecil, angka dan . _ @ + -.",
-    "msg_maildir_in_use": "Path maildir milik kotak surat lain."
+    "msg_maildir_in_use": "Path maildir milik kotak surat lain.",
+    "transport": "Transport",
+    "transport_hint": "Postfix transport kotak surat ini, misalnya dovecot. Kosong memakai transport domain.",
+    "msg_invalid_transport": "Transport hanya boleh berisi huruf, angka dan . _ / : [ ] @ + -."
   },
   "mlist": {
     "msg_updated": "Milis diperbarui!",

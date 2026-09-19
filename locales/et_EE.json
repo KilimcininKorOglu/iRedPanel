@@ -388,7 +388,10 @@
     "msg_invalid_mailbox_folder": "Postkasti kaust peab olema 1 kuni 20 tähte või numbrit.",
     "msg_maildir_global_only": "Maildiri teed saab määrata ainult globaalne administraator.",
     "msg_invalid_maildir": "Maildiri tee peab olema vähemalt nelja kataloogiga absoluutne tee: väiketähed, numbrid ja . _ @ + -.",
-    "msg_maildir_in_use": "Maildiri tee kuulub teisele postkastile."
+    "msg_maildir_in_use": "Maildiri tee kuulub teisele postkastile.",
+    "transport": "Transport",
+    "transport_hint": "Selle postkasti Postfix transport, nt dovecot. Tühi kasutab domeeni transporti.",
+    "msg_invalid_transport": "Transport tohib sisaldada ainult tähti, numbreid ja . _ / : [ ] @ + -."
   },
   "mlist": {
     "msg_updated": "Postiloend uuendatud!",

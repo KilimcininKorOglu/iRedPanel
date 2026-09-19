@@ -7,6 +7,7 @@ namespace App\Api;
 use App\Exceptions\InvalidInputException;
 use App\Models\DomainSettings;
 use App\Models\MailboxStorage;
+use App\Models\MailTransport;
 use App\Models\ProfileToggles;
 use App\Models\User;
 use App\Models\UserPassword;
@@ -239,7 +240,9 @@ class UserApiController
     {
         $forwarding = RepositoryFactory::getForwardingRepository();
         $bcc = RepositoryFactory::getBccRepository();
+        [$uid, $domain] = self::parseEmail($email);
         return [
+            'transport' => RepositoryFactory::getUserRepository()->getTransport((string) $domain, (string) $uid),
             'forwardings' => $forwarding->getForwardings($email),
             'keepCopy' => $forwarding->getKeepCopy($email),
             'aliases' => RepositoryFactory::getAliasRepository()->getUserAliases($email),
@@ -294,6 +297,11 @@ class UserApiController
             if (array_key_exists('relayhost', $data)) {
                 $routing['relayhost'] = ApiInput::relayhost($data, 'relayhost');
             }
+            if (array_key_exists('transport', $data)) {
+                // A wrong transport loses mail, so only a global key sets it.
+                ApiMiddleware::requireGlobalKey();
+                $routing['transport'] = MailTransport::valid($data['transport']);
+            }
             return $routing;
         } catch (InvalidInputException $e) {
             ApiResponse::invalidInput($e);
@@ -319,6 +327,8 @@ class UserApiController
                 'senderBcc' => $bcc->setUserSenderBcc($email, $value),
                 'recipientBcc' => $bcc->setUserRecipientBcc($email, $value),
                 'relayhost' => RepositoryFactory::getRelayRepository()->setRelayhost($email, $value),
+                'transport' => RepositoryFactory::getUserRepository()
+                    ->setTransport($domain, explode('@', $email, 2)[0], $value),
             };
         }
     }
@@ -441,6 +451,7 @@ class UserApiController
         'senderBcc' => 'bcc',
         'recipientBcc' => 'bcc',
         'relayhost' => 'relay',
+        'transport' => 'relay',
     ];
 
     /**

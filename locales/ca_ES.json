@@ -388,7 +388,10 @@
     "msg_invalid_mailbox_folder": "La carpeta de la bústia ha de tenir d'1 a 20 lletres o xifres.",
     "msg_maildir_global_only": "Només un administrador global pot definir la ruta del maildir.",
     "msg_invalid_maildir": "La ruta del maildir ha de ser una ruta absoluta d'almenys quatre directoris: minúscules, xifres i . _ @ + -.",
-    "msg_maildir_in_use": "La ruta del maildir pertany a una altra bústia."
+    "msg_maildir_in_use": "La ruta del maildir pertany a una altra bústia.",
+    "transport": "Transport",
+    "transport_hint": "El transport de Postfix d'aquesta bústia, per exemple dovecot. Buit fa servir el transport del domini.",
+    "msg_invalid_transport": "El transport només pot contenir lletres, xifres i . _ / : [ ] @ + -."
   },
   "mlist": {
     "msg_updated": "Llista de correu actualitzada!",

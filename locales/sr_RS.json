@@ -388,7 +388,10 @@
     "msg_invalid_mailbox_folder": "Фасцикла сандучета мора имати од 1 до 20 слова или цифара.",
     "msg_maildir_global_only": "Само глобални администратор може да постави путању maildir-а.",
     "msg_invalid_maildir": "Путања maildir-а мора бити апсолутна путања од најмање четири директоријума: мала слова, цифре и . _ @ + -.",
-    "msg_maildir_in_use": "Путања maildir-а припада другом сандучету."
+    "msg_maildir_in_use": "Путања maildir-а припада другом сандучету.",
+    "transport": "Transport",
+    "transport_hint": "Postfix transport овог сандучета, нпр. dovecot. Празно користи transport домена.",
+    "msg_invalid_transport": "Transport сме да садржи само слова, цифре и . _ / : [ ] @ + -."
   },
   "mlist": {
     "msg_updated": "Мејлинг листа ажурирана!",

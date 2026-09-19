@@ -388,7 +388,10 @@
     "msg_invalid_mailbox_folder": "Le dossier de la boîte aux lettres doit comporter de 1 à 20 lettres ou chiffres.",
     "msg_maildir_global_only": "Seul un administrateur global peut définir le chemin du maildir.",
     "msg_invalid_maildir": "Le chemin du maildir doit être un chemin absolu d'au moins quatre répertoires : minuscules, chiffres et . _ @ + -.",
-    "msg_maildir_in_use": "Le chemin du maildir appartient à une autre boîte aux lettres."
+    "msg_maildir_in_use": "Le chemin du maildir appartient à une autre boîte aux lettres.",
+    "transport": "Transport",
+    "transport_hint": "Transport Postfix de cette boîte aux lettres, par exemple dovecot. Vide utilise le transport du domaine.",
+    "msg_invalid_transport": "Le transport ne peut contenir que des lettres, des chiffres et . _ / : [ ] @ + -."
   },
   "mlist": {
     "msg_updated": "Liste de diffusion mise à jour !",

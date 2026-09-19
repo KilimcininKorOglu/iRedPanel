@@ -388,7 +388,10 @@
     "msg_invalid_mailbox_folder": "The mailbox folder must be 1 to 20 letters or digits.",
     "msg_maildir_global_only": "Only a global admin can set the maildir path.",
     "msg_invalid_maildir": "The maildir path must be an absolute path of at least four directories: lowercase letters, digits and . _ @ + -.",
-    "msg_maildir_in_use": "The maildir path belongs to another mailbox."
+    "msg_maildir_in_use": "The maildir path belongs to another mailbox.",
+    "transport": "Transport",
+    "transport_hint": "Postfix transport of this mailbox, for example dovecot. Empty uses the transport of the domain.",
+    "msg_invalid_transport": "The transport may contain only letters, digits and . _ / : [ ] @ + -."
   },
   "mlist": {
     "msg_updated": "Mailing list updated!",

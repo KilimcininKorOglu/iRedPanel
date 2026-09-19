@@ -10,6 +10,7 @@ use App\I18n\Translator;
 use App\Middleware;
 use App\Models\DomainSettings;
 use App\Models\MailboxStorage;
+use App\Models\MailTransport;
 use App\Models\ProfileToggles;
 use App\Models\Settings;
 use App\Models\User;
@@ -207,6 +208,11 @@ class UserController
                     $email = "{$userUid}@{$domain}";
                     $relayRepo = RepositoryFactory::getRelayRepository();
                     $relayRepo->setRelayhost($email, BaseController::postedRelayhost());
+                    // A wrong transport loses mail, so only a global admin sets it.
+                    if (array_key_exists('transport', $_POST)) {
+                        Middleware::globalAdminRequired();
+                        $userRepo->setTransport($domain, $userUid, MailTransport::valid(FormValue::text($_POST, 'transport')));
+                    }
                     ActivityLogger::logUpdate($domain, $userUid, "Relay settings updated");
                     $success = Translator::translate('common.msg_relay_updated');
                 }
@@ -251,9 +257,11 @@ class UserController
 
         // Fetch relay data if on relay tab
         $userRelayhost = null;
+        $userTransport = null;
         if ($editMode === 'relay') {
             $email = "{$userUid}@{$domain}";
             $userRelayhost = RepositoryFactory::getRelayRepository()->getRelayhost($email);
+            $userTransport = $userRepo->getTransport($domain, $userUid);
         }
 
         $tpl->render('userView.php', [
@@ -269,6 +277,7 @@ class UserController
             'userSenderBcc' => $userSenderBcc,
             'userRecipientBcc' => $userRecipientBcc,
             'userRelayhost' => $userRelayhost,
+            'userTransport' => $userTransport,
             'requireOldPassword' => Settings::getInstance()->requireOldPasswordOnChange,
             'openPages' => $openPages,
             'managedBy' => ReplicatedAccountGuard::owner("{$userUid}@{$domain}"),

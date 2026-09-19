@@ -333,7 +333,7 @@ server {
 ### User Management
 - User CRUD with profile fields (name, quota, phone, employee ID and more)
 - Mail service toggles: SMTP, POP3, IMAP, ManageSieve, SOGo, and their TLS variants
-- Forwarding with a keep-copy option, per-user alias addresses, sender and recipient BCC, relay host
+- Forwarding with a keep-copy option, per-user alias addresses, sender and recipient BCC, relay host, and a per-user Postfix transport (global admin only)
 - Address rename that updates every related table
 - Used quota and last login display (Dovecot `used_quota` and `last_login` data)
 - Bulk enable, disable and delete; alphabetic filter, sortable columns, random password generation

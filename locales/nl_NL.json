@@ -388,7 +388,10 @@
     "msg_invalid_mailbox_folder": "De mailboxmap moet 1 tot 20 letters of cijfers bevatten.",
     "msg_maildir_global_only": "Alleen een globale beheerder kan het maildir-pad instellen.",
     "msg_invalid_maildir": "Het maildir-pad moet een absoluut pad van minstens vier mappen zijn: kleine letters, cijfers en . _ @ + -.",
-    "msg_maildir_in_use": "Het maildir-pad hoort bij een andere mailbox."
+    "msg_maildir_in_use": "Het maildir-pad hoort bij een andere mailbox.",
+    "transport": "Transport",
+    "transport_hint": "Postfix transport van deze mailbox, bijvoorbeeld dovecot. Leeg gebruikt het transport van het domein.",
+    "msg_invalid_transport": "Het transport mag alleen letters, cijfers en . _ / : [ ] @ + - bevatten."
   },
   "mlist": {
     "msg_updated": "Mailinglijst bijgewerkt!",

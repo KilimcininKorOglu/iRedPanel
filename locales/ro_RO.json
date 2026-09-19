@@ -388,7 +388,10 @@
     "msg_invalid_mailbox_folder": "Dosarul căsuței trebuie să aibă între 1 și 20 de litere sau cifre.",
     "msg_maildir_global_only": "Doar un administrator global poate seta calea maildir.",
     "msg_invalid_maildir": "Calea maildir trebuie să fie o cale absolută de cel puțin patru directoare: litere mici, cifre și . _ @ + -.",
-    "msg_maildir_in_use": "Calea maildir aparține altei căsuțe poștale."
+    "msg_maildir_in_use": "Calea maildir aparține altei căsuțe poștale.",
+    "transport": "Transport",
+    "transport_hint": "Transport Postfix al acestei căsuțe, de ex. dovecot. Gol folosește transport-ul domeniului.",
+    "msg_invalid_transport": "Transport-ul poate conține doar litere, cifre și . _ / : [ ] @ + -."
   },
   "mlist": {
     "msg_updated": "Lista de corespondență a fost actualizată!",

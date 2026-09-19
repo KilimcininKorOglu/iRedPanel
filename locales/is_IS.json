@@ -388,7 +388,10 @@
     "msg_invalid_mailbox_folder": "Mappa pósthólfs verður að vera 1 til 20 stafir eða tölustafir.",
     "msg_maildir_global_only": "Aðeins altækur stjórnandi getur stillt slóð maildir.",
     "msg_invalid_maildir": "Slóð maildir verður að vera algild slóð með minnst fjórum möppum: lágstafir, tölustafir og . _ @ + -.",
-    "msg_maildir_in_use": "Slóð maildir tilheyrir öðru pósthólfi."
+    "msg_maildir_in_use": "Slóð maildir tilheyrir öðru pósthólfi.",
+    "transport": "Transport",
+    "transport_hint": "Postfix transport þessa pósthólfs, t.d. dovecot. Tómt notar transport lénsins.",
+    "msg_invalid_transport": "Transport má aðeins innihalda stafi, tölustafi og . _ / : [ ] @ + -."
   },
   "mlist": {
     "msg_updated": "Póstlisti uppfærður!",

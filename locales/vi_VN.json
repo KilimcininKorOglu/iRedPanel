@@ -388,7 +388,10 @@
     "msg_invalid_mailbox_folder": "Thư mục hộp thư phải gồm 1 đến 20 chữ cái hoặc chữ số.",
     "msg_maildir_global_only": "Chỉ quản trị viên toàn cục mới đặt được đường dẫn maildir.",
     "msg_invalid_maildir": "Đường dẫn maildir phải là đường dẫn tuyệt đối có ít nhất bốn thư mục: chữ thường, chữ số và . _ @ + -.",
-    "msg_maildir_in_use": "Đường dẫn maildir thuộc về hộp thư khác."
+    "msg_maildir_in_use": "Đường dẫn maildir thuộc về hộp thư khác.",
+    "transport": "Transport",
+    "transport_hint": "Postfix transport của hộp thư này, ví dụ dovecot. Để trống sẽ dùng transport của domain.",
+    "msg_invalid_transport": "Transport chỉ được chứa chữ cái, chữ số và . _ / : [ ] @ + -."
   },
   "mlist": {
     "msg_updated": "Danh sách gửi thư đã được cập nhật!",

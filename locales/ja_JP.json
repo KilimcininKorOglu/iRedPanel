@@ -388,7 +388,10 @@
     "msg_invalid_mailbox_folder": "メールボックスフォルダーは 1〜20 文字の英数字である必要があります。",
     "msg_maildir_global_only": "Maildir パスを設定できるのはグローバル管理者のみです。",
     "msg_invalid_maildir": "Maildir パスは 4 階層以上の絶対パスで、小文字、数字、. _ @ + - のみ使用できます。",
-    "msg_maildir_in_use": "この Maildir パスは他のメールボックスのものです。"
+    "msg_maildir_in_use": "この Maildir パスは他のメールボックスのものです。",
+    "transport": "Transport",
+    "transport_hint": "このメールボックスの Postfix transport (例: dovecot)。空欄の場合はドメインの transport を使用します。",
+    "msg_invalid_transport": "transport には英数字と . _ / : [ ] @ + - のみ使用できます。"
   },
   "mlist": {
     "msg_updated": "メーリングリストを更新しました！",

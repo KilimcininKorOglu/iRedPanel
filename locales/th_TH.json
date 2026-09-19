@@ -388,7 +388,10 @@
     "msg_invalid_mailbox_folder": "โฟลเดอร์กล่องจดหมายต้องเป็นตัวอักษรหรือตัวเลข 1 ถึง 20 ตัว",
     "msg_maildir_global_only": "เฉพาะผู้ดูแลระบบส่วนกลางเท่านั้นที่ตั้งค่าพาธ maildir ได้",
     "msg_invalid_maildir": "พาธ maildir ต้องเป็นพาธแบบสมบูรณ์อย่างน้อยสี่ไดเรกทอรี: ตัวพิมพ์เล็ก ตัวเลข และ . _ @ + -",
-    "msg_maildir_in_use": "พาธ maildir เป็นของกล่องจดหมายอื่น"
+    "msg_maildir_in_use": "พาธ maildir เป็นของกล่องจดหมายอื่น",
+    "transport": "Transport",
+    "transport_hint": "Postfix transport ของกล่องจดหมายนี้ เช่น dovecot ว่างไว้เพื่อใช้ transport ของโดเมน",
+    "msg_invalid_transport": "transport ใช้ได้เฉพาะตัวอักษร ตัวเลข และ . _ / : [ ] @ + - เท่านั้น"
   },
   "mlist": {
     "msg_updated": "อัปเดตรายชื่อเมลแล้ว!",

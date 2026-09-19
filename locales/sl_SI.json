@@ -388,7 +388,10 @@
     "msg_invalid_mailbox_folder": "Mapa predala mora imeti od 1 do 20 črk ali števk.",
     "msg_maildir_global_only": "Pot maildir lahko nastavi le globalni skrbnik.",
     "msg_invalid_maildir": "Pot maildir mora biti absolutna pot z vsaj štirimi imeniki: male črke, števke in . _ @ + -.",
-    "msg_maildir_in_use": "Pot maildir pripada drugemu poštnemu predalu."
+    "msg_maildir_in_use": "Pot maildir pripada drugemu poštnemu predalu.",
+    "transport": "Transport",
+    "transport_hint": "Postfix transport tega predala, npr. dovecot. Prazno uporabi transport domene.",
+    "msg_invalid_transport": "Transport lahko vsebuje samo črke, števke in . _ / : [ ] @ + -."
   },
   "mlist": {
     "msg_updated": "Poštni seznam posodobljen!",

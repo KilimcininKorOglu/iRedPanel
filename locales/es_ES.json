@@ -388,7 +388,10 @@
     "msg_invalid_mailbox_folder": "La carpeta del buzón debe tener de 1 a 20 letras o dígitos.",
     "msg_maildir_global_only": "Solo un administrador global puede definir la ruta del maildir.",
     "msg_invalid_maildir": "La ruta del maildir debe ser una ruta absoluta de al menos cuatro directorios: minúsculas, dígitos y . _ @ + -.",
-    "msg_maildir_in_use": "La ruta del maildir pertenece a otro buzón."
+    "msg_maildir_in_use": "La ruta del maildir pertenece a otro buzón.",
+    "transport": "Transport",
+    "transport_hint": "Transport de Postfix de este buzón, por ejemplo dovecot. Vacío usa el transport del dominio.",
+    "msg_invalid_transport": "El transport solo puede contener letras, dígitos y . _ / : [ ] @ + -."
   },
   "mlist": {
     "msg_updated": "¡Lista de correo actualizada!",

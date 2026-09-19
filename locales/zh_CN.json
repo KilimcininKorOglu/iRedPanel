@@ -388,7 +388,10 @@
     "msg_invalid_mailbox_folder": "邮箱文件夹必须由 1 到 20 个字母或数字组成。",
     "msg_maildir_global_only": "只有全局管理员可以设置 Maildir 路径。",
     "msg_invalid_maildir": "Maildir 路径必须是至少包含四级目录的绝对路径：小写字母、数字以及 . _ @ + -。",
-    "msg_maildir_in_use": "该 Maildir 路径属于其他邮箱。"
+    "msg_maildir_in_use": "该 Maildir 路径属于其他邮箱。",
+    "transport": "Transport",
+    "transport_hint": "此邮箱的 Postfix transport，例如 dovecot。留空则使用域的 transport。",
+    "msg_invalid_transport": "transport 只能包含字母、数字以及 . _ / : [ ] @ + -。"
   },
   "mlist": {
     "msg_updated": "邮件列表已更新！",

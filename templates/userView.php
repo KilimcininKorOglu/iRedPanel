@@ -286,6 +286,13 @@ $services = \App\Models\User::SERVICE_LABELS;
           value="<?= $e($userRelayhost ?? '') ?>"
           placeholder="[smtp.relay.com]:587" />
         <div class="form-text"><?= $t('domain.relay_format') ?></div>
+        <?php if (!empty($session['isGlobalAdmin'])): ?>
+        <label for="transport" class="form-label mt-3"><?= $te('user.transport') ?></label>
+        <input id="transport" type="text" name="transport" class="form-control font-monospace"
+          value="<?= $e($userTransport ?? '') ?>"
+          placeholder="dovecot" />
+        <div class="form-text"><?= $te('user.transport_hint') ?></div>
+        <?php endif; ?>
       </div>
       <div class="card-footer">
         <button type="submit" class="btn btn-primary"><?= $te('domain.save_relay') ?></button>

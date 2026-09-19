@@ -388,7 +388,10 @@
     "msg_invalid_mailbox_folder": "Ο φάκελος θυρίδας πρέπει να έχει 1 έως 20 γράμματα ή ψηφία.",
     "msg_maildir_global_only": "Μόνο ένας γενικός διαχειριστής μπορεί να ορίσει τη διαδρομή maildir.",
     "msg_invalid_maildir": "Η διαδρομή maildir πρέπει να είναι απόλυτη με τουλάχιστον τέσσερις καταλόγους: πεζά, ψηφία και . _ @ + -.",
-    "msg_maildir_in_use": "Η διαδρομή maildir ανήκει σε άλλη θυρίδα."
+    "msg_maildir_in_use": "Η διαδρομή maildir ανήκει σε άλλη θυρίδα.",
+    "transport": "Transport",
+    "transport_hint": "Το Postfix transport αυτής της θυρίδας, π.χ. dovecot. Κενό χρησιμοποιεί το transport του τομέα.",
+    "msg_invalid_transport": "Το transport επιτρέπεται να έχει μόνο γράμματα, ψηφία και . _ / : [ ] @ + -."
   },
   "mlist": {
     "msg_updated": "Η λίστα αλληλογραφίας ενημερώθηκε!",

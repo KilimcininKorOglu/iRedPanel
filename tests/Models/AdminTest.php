@@ -151,4 +151,38 @@ class AdminTest extends TestCase
         }
         $this->assertSame(3, $admin->createMaxDomains);
     }
+
+    /**
+     * A partial JSON body must keep the limits it does not name; the form semantics
+     * of applyLimits() would reset them to unlimited and clear createNewDomains.
+     */
+    public function testApplyLimitsFromJsonKeepsUnnamedLimits(): void
+    {
+        $admin = new Admin(username: 'a@test.com', createMaxDomains: 3, createMaxUsers: 7, createNewDomains: true);
+
+        $this->assertTrue($admin->applyLimitsFromJson(['createMaxUsers' => 2]));
+        $this->assertSame(2, $admin->createMaxUsers);
+        $this->assertSame(3, $admin->createMaxDomains);
+        $this->assertTrue($admin->createNewDomains);
+
+        $this->assertTrue($admin->applyLimitsFromJson(['createNewDomains' => false]));
+        $this->assertFalse($admin->createNewDomains);
+        $this->assertSame(2, $admin->createMaxUsers);
+    }
+
+    public function testApplyLimitsFromJsonWithoutLimits(): void
+    {
+        $admin = new Admin(username: 'a@test.com', createMaxUsers: 7);
+
+        $this->assertFalse($admin->applyLimitsFromJson(['name' => 'x', 'active' => false]));
+        $this->assertSame(7, $admin->createMaxUsers);
+    }
+
+    public function testApplyLimitsFromJsonRejectsInvalidLimit(): void
+    {
+        $admin = new Admin(username: 'a@test.com', createMaxUsers: 7);
+
+        $this->expectException(InvalidInputException::class);
+        $admin->applyLimitsFromJson(['createMaxUsers' => 'abc']);
+    }
 }

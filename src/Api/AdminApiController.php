@@ -7,6 +7,7 @@ namespace App\Api;
 use App\Controllers\AdminController;
 use App\Models\Admin;
 use App\Repositories\RepositoryFactory;
+use App\Utils\FormValue;
 use App\Utils\PasswordUtils;
 
 class AdminApiController
@@ -88,35 +89,58 @@ class AdminApiController
         ApiMiddleware::requireGlobalKey();
         ApiMiddleware::requireWriteAccess();
         $repo = RepositoryFactory::getAdminRepository();
-        $admin = $repo->getAdmin($email);
-        if ($admin === null) {
+        $existing = $repo->getAdmin($email);
+        if ($existing === null) {
             ApiResponse::error('Admin not found', 404);
             return;
         }
 
+        // Every field GET returns and the web pages can change: name, active, isGlobalAdmin,
+        // the limits, and the password. The whole body is validated before the first write.
         $data = ApiMiddleware::getJsonBody();
+        $admin = clone $existing;
+        try {
+            $admin->name = FormValue::text($data, 'name', $existing->name);
+            $admin->active = (bool) ($data['active'] ?? $existing->active);
+            $admin->isGlobalAdmin = (bool) ($data['isGlobalAdmin'] ?? $existing->isGlobalAdmin);
+            $limitsChanged = $admin->applyLimitsFromJson($data);
+            $passwordHash = self::passwordHashFromBody($data);
+        } catch (\InvalidArgumentException $e) {
+            ApiResponse::error($e->getMessage());
+            return;
+        }
+        if ($existing->isGlobalAdmin && (!$admin->isGlobalAdmin || !$admin->active) && $repo->countGlobalAdmins() <= 1) {
+            ApiResponse::error('Cannot disable or demote the last global admin', 403);
+            return;
+        }
 
-        if (isset($data['password'])) {
-            $validationErrors = \App\Models\UserPassword::validate($data['password'], $data['password']);
-            if (!empty($validationErrors)) {
-                // The API has no repeat field, so every policy error is under the password key.
-                ApiResponse::error('Password policy violation: ' . $validationErrors['password']);
-                return;
-            }
-            $passwordHash = PasswordUtils::generatePasswordHash($data['password']);
+        $repo->updateAdmin($admin);
+        if ($limitsChanged) {
+            $repo->updateAdminSettings($email, $admin->toSettingsJson());
+        }
+        if ($passwordHash !== null) {
             $repo->updateAdminPassword($email, $passwordHash);
         }
+        ApiResponse::success(['message' => 'Admin updated']);
+    }
 
-        if (isset($data['active'])) {
-            // Prevent disabling the last global admin
-            if (!$data['active'] && $admin->isGlobalAdmin && $repo->countGlobalAdmins() <= 1) {
-                ApiResponse::error('Cannot disable the last global admin', 403);
-                return;
-            }
-            $repo->enableDisableAdmin($email, (bool) $data['active']);
+    /**
+     * @return string|null the hash of the new password, or null when the body sets none
+     * @throws \InvalidArgumentException when the password breaks the policy
+     */
+    private static function passwordHashFromBody(array $data): ?string
+    {
+        if (!isset($data['password'])) {
+            return null;
+        }
+        $password = FormValue::text($data, 'password');
+        $validationErrors = \App\Models\UserPassword::validate($password, $password);
+        if (!empty($validationErrors)) {
+            // The API has no repeat field, so every policy error is under the password key.
+            throw new \InvalidArgumentException('Password policy violation: ' . $validationErrors['password']);
         }
 
-        ApiResponse::success(['message' => 'Admin updated']);
+        return PasswordUtils::generatePasswordHash($password);
     }
 
     public static function delete(string $email): void

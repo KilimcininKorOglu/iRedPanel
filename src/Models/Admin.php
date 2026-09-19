@@ -71,6 +71,31 @@ class Admin
         $this->createNewDomains = isset($post['createNewDomains']);
     }
 
+    /**
+     * Sets the limits that a JSON body contains; the other limits keep their value.
+     *
+     * @return bool whether the body contains a limit
+     * @throws InvalidInputException when a limit is invalid; no limit changes then
+     */
+    public function applyLimitsFromJson(array $data): bool
+    {
+        $fields = [...array_keys(self::LIMIT_LABELS), 'createNewDomains'];
+        if (array_intersect($fields, array_keys($data)) === []) {
+            return false;
+        }
+
+        $post = [];
+        foreach (array_keys(self::LIMIT_LABELS) as $field) {
+            $post[$field] = $data[$field] ?? $this->{$field};
+        }
+        if ((bool) ($data['createNewDomains'] ?? $this->createNewDomains)) {
+            $post['createNewDomains'] = 'on';
+        }
+        $this->applyLimits($post);
+
+        return true;
+    }
+
     public static function fromFormData(array $post): self
     {
         return new self(

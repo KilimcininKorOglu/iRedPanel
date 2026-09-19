@@ -319,6 +319,8 @@
     "msg_alias_domain_mismatch": "别名地址必须属于域名 :domain",
     "msg_exists": "标识符为 :uid 的用户已存在",
     "msg_creation_limit": "已达到用户创建上限（:limit）",
+    "msg_admin_quota_limit": "已达到您管理员账户的配额上限：已分配 :used / :max MB。",
+    "msg_admin_quota_unlimited": "您的管理员账户有配额上限，因此邮箱需要设置非无限 (0) 的配额。",
     "msg_mailbox_limit": "已达到域名邮箱上限（:current/:max）",
     "list_title": "用户",
     "create": "创建用户",
@@ -412,7 +414,8 @@
     "moderators_desc": "当访问策略为“仅审核员”时，只有审核员可以向列表发信。留空时将设置为域名的 postmaster。",
     "save_moderators": "保存审核员",
     "msg_moderators_updated": "审核员已更新！",
-    "msg_list_limit": "已达到域的邮件列表上限 (:current/:max)"
+    "msg_list_limit": "已达到域的邮件列表上限 (:current/:max)",
+    "msg_creation_limit": "已达到邮件列表创建上限 (:limit)"
   },
   "search": {
     "title": "搜索",
@@ -669,7 +672,8 @@
     "rename_confirm": "重命名别名地址?",
     "new_local_part": "new-alias",
     "rename": "重命名",
-    "msg_renamed": "别名已重命名为 :address"
+    "msg_renamed": "别名已重命名为 :address",
+    "msg_creation_limit": "已达到别名创建上限 (:limit)"
   },
   "domainalias": {
     "msg_alias_required": "别名域名为必填项",

@@ -1,7 +1,7 @@
 <?php $pageTitle = $t('domain.list_title'); ?>
 <div class="page-header">
   <h1><?= $te('domain.list_title') ?></h1>
-  <?php if ($isGlobalAdmin): ?>
+  <?php if ($canCreateDomain): ?>
   <div class="page-actions">
     <a href="/domains/create" class="btn btn-primary"><i class="bi bi-plus-lg me-1"></i><?= $te('domain.create') ?></a>
   </div>

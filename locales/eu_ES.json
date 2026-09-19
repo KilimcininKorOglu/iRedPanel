@@ -319,6 +319,8 @@
     "msg_alias_domain_mismatch": "Alias helbideak :domain domeinuan egon behar du",
     "msg_exists": ":uid identifikatzailea duen erabiltzailea jada existitzen da",
     "msg_creation_limit": "Erabiltzaileak sortzeko muga iritsi da (:limit)",
+    "msg_admin_quota_limit": "Zure administratzaile-kontuaren kuota-muga gainditu da: :max MB-tik :used MB esleituta daude.",
+    "msg_admin_quota_unlimited": "Zure administratzaile-kontuak kuota-muga du, beraz postontziak mugagabea (0) ez den kuota behar du.",
     "msg_mailbox_limit": "Domeinuaren postontzi muga iritsi da (:current/:max)",
     "list_title": "Erabiltzaileak",
     "create": "Sortu erabiltzailea",
@@ -412,7 +414,8 @@
     "moderators_desc": "Sarbide-politika \"Moderatzaileak soilik\" denean, moderatzaileek soilik bidal dezakete zerrendara. Zerrenda hutsak domeinuaren postmaster ezartzen du.",
     "save_moderators": "Gorde moderatzaileak",
     "msg_moderators_updated": "Moderatzaileak eguneratu dira!",
-    "msg_list_limit": "Domeinuaren posta-zerrenden muga iritsi da (:current/:max)"
+    "msg_list_limit": "Domeinuaren posta-zerrenden muga iritsi da (:current/:max)",
+    "msg_creation_limit": "Posta-zerrendak sortzeko muga gainditu da (:limit)"
   },
   "search": {
     "title": "Bilatu",
@@ -669,7 +672,8 @@
     "rename_confirm": "Aliasaren helbidearen izena aldatu?",
     "new_local_part": "alias-berria",
     "rename": "Berrizendatu",
-    "msg_renamed": "Aliasaren izena :address da orain"
+    "msg_renamed": "Aliasaren izena :address da orain",
+    "msg_creation_limit": "Aliasak sortzeko muga gainditu da (:limit)"
   },
   "domainalias": {
     "msg_alias_required": "Domeinu-aliasaren izena beharrezkoa da",

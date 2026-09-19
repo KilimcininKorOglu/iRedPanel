@@ -11,6 +11,7 @@ use App\Models\MailingList;
 use App\Models\Settings;
 use App\Repositories\RepositoryFactory;
 use App\Services\ActivityLogger;
+use App\Services\AdminLimits;
 use App\Services\MailingListService;
 use App\TemplateEngine;
 
@@ -70,6 +71,7 @@ class MailingListController
     private static function createFromPost(): string
     {
         [$address, $domain] = BaseController::postedNewAliasAddress();
+        AdminLimits::assertCanCreate('lists');
 
         MailingListService::create(
             $address,

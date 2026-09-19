@@ -319,6 +319,8 @@
     "msg_alias_domain_mismatch": "The alias address must be in the domain :domain",
     "msg_exists": "User with identifier :uid already exists",
     "msg_creation_limit": "User creation limit reached (:limit)",
+    "msg_admin_quota_limit": "The quota limit of your admin account is reached: :used of :max MB is assigned.",
+    "msg_admin_quota_unlimited": "Your admin account has a quota limit, so the mailbox needs a quota other than unlimited (0).",
     "msg_mailbox_limit": "Domain mailbox limit reached (:current/:max)",
     "list_title": "Users",
     "create": "Create user",
@@ -412,7 +414,8 @@
     "moderators_desc": "When the access policy is \"Moderators Only\", only moderators can post to the list. An empty list sets the postmaster of the domain.",
     "save_moderators": "Save Moderators",
     "msg_moderators_updated": "Moderators updated!",
-    "msg_list_limit": "Domain mailing list limit reached (:current/:max)"
+    "msg_list_limit": "Domain mailing list limit reached (:current/:max)",
+    "msg_creation_limit": "Mailing list creation limit reached (:limit)"
   },
   "search": {
     "title": "Search",
@@ -669,7 +672,8 @@
     "rename_confirm": "Rename alias address?",
     "new_local_part": "new-alias",
     "rename": "Rename",
-    "msg_renamed": "The alias was renamed to :address"
+    "msg_renamed": "The alias was renamed to :address",
+    "msg_creation_limit": "Alias creation limit reached (:limit)"
   },
   "domainalias": {
     "msg_alias_required": "Alias domain name is required",

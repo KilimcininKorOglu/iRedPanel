@@ -319,6 +319,8 @@
     "msg_alias_domain_mismatch": "エイリアスアドレスはドメイン :domain 内である必要があります",
     "msg_exists": "識別子 :uid のユーザーは既に存在します",
     "msg_creation_limit": "ユーザー作成の上限に達しました（:limit）",
+    "msg_admin_quota_limit": "管理者アカウントのクォータ上限に達しました: :max MB のうち :used MB が割り当て済みです。",
+    "msg_admin_quota_unlimited": "管理者アカウントにクォータ上限があるため、メールボックスには無制限 (0) 以外のクォータが必要です。",
     "msg_mailbox_limit": "ドメインのメールボックス上限に達しました（:current/:max）",
     "list_title": "ユーザー",
     "create": "ユーザーを作成",
@@ -412,7 +414,8 @@
     "moderators_desc": "アクセスポリシーが「モデレーターのみ」の場合、リストに投稿できるのはモデレーターだけです。空にするとドメインの postmaster が設定されます。",
     "save_moderators": "モデレーターを保存",
     "msg_moderators_updated": "モデレーターを更新しました！",
-    "msg_list_limit": "ドメインのメーリングリスト上限に達しました (:current/:max)"
+    "msg_list_limit": "ドメインのメーリングリスト上限に達しました (:current/:max)",
+    "msg_creation_limit": "メーリングリストの作成上限に達しました (:limit)"
   },
   "search": {
     "title": "検索",
@@ -669,7 +672,8 @@
     "rename_confirm": "エイリアスのアドレスを変更しますか?",
     "new_local_part": "new-alias",
     "rename": "名前を変更",
-    "msg_renamed": "エイリアスを :address に変更しました"
+    "msg_renamed": "エイリアスを :address に変更しました",
+    "msg_creation_limit": "エイリアスの作成上限に達しました (:limit)"
   },
   "domainalias": {
     "msg_alias_required": "エイリアスドメイン名は必須です",

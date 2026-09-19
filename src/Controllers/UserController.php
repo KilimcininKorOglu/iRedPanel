@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controllers;
 
 use App\CsrfProtection;
+use App\Exceptions\InvalidInputException;
 use App\I18n\Translator;
 use App\Middleware;
 use App\Models\DomainSettings;
@@ -16,6 +17,7 @@ use App\Repositories\RepositoryFactory;
 use App\Services\AccountRenameService;
 use App\Services\AccountSettingsService;
 use App\Services\ActivityLogger;
+use App\Services\AdminLimits;
 use App\Services\Replication\ReplicatedAccountGuard;
 use App\TemplateEngine;
 use App\Utils\PasswordUtils;
@@ -117,11 +119,7 @@ class UserController
                         $user->domainGlobalAdmin = $existingUser ? $existingUser->domainGlobalAdmin : false;
                     }
 
-                    $limitError = RepositoryFactory::getDomainRepository()->getDomain($domain)
-                        ?->quotaChangeError($existingUser?->mailQuota ?? $user->mailQuota, $user->mailQuota);
-                    if ($limitError !== null) {
-                        $error = Translator::translate($limitError->translationKey, $limitError->params);
-                    }
+                    $error = self::quotaChangeError($domain, $existingUser?->mailQuota ?? $user->mailQuota, $user->mailQuota) ?? $error;
 
                     if ($error === null) {
                         $userRepo->updateUser($domain, $user);
@@ -368,6 +366,24 @@ class UserController
     }
 
     /**
+     * Returns why a mailbox quota must not change, from the domain limits or the limits of
+     * the logged-in domain admin, or null.
+     */
+    private static function quotaChangeError(string $domain, int $oldMb, int $newMb): ?string
+    {
+        $limitError = RepositoryFactory::getDomainRepository()->getDomain($domain)?->quotaChangeError($oldMb, $newMb);
+        if ($limitError === null && $oldMb !== $newMb) {
+            try {
+                AdminLimits::assertQuota($oldMb, $newMb);
+            } catch (InvalidInputException $e) {
+                $limitError = $e;
+            }
+        }
+
+        return $limitError === null ? null : Translator::translate($limitError->translationKey, $limitError->params);
+    }
+
+    /**
      * Displays the user creation page.
      */
     public static function userCreateView(TemplateEngine $tpl, string $domain): void
@@ -396,23 +412,9 @@ class UserController
                     $validationErrors = UserPassword::validateLocalized($password, $passwordRepeat, $domainSettings);
 
                     if (empty($validationErrors)) {
-                        // Enforce admin resource limits
-                        $adminEmail = $_SESSION['email'] ?? '';
-                        $adminRepo = RepositoryFactory::getAdminRepository();
-                        $admin = $adminRepo->getAdmin($adminEmail);
-                        if ($admin !== null && $admin->createMaxUsers >= 0) {
-                            $counts = $adminRepo->getAdminResourceCounts($adminEmail);
-                            if ($counts['users'] >= $admin->createMaxUsers) {
-                                $error = Translator::translate('user.msg_creation_limit', ['limit' => $admin->createMaxUsers]);
-                                $tpl->render('userCreate.php', [
-                                    'domain' => $domain,
-                                    'validationErrors' => $validationErrors,
-                                    'error' => $error,
-                                    'user' => $user,
-                                ]);
-                                return;
-                            }
-                        }
+                        // The creation limits of a domain admin
+                        AdminLimits::assertCanCreate('users');
+                        AdminLimits::assertQuota(0, $user->mailQuota);
 
                         // Enforce domain mailbox count and quota limits
                         $limitError = RepositoryFactory::getDomainRepository()->getDomain($domain)

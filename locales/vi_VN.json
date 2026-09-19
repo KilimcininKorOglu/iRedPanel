@@ -319,6 +319,8 @@
     "msg_alias_domain_mismatch": "Địa chỉ bí danh phải thuộc tên miền :domain",
     "msg_exists": "Người dùng có định danh :uid đã tồn tại",
     "msg_creation_limit": "Đã đạt giới hạn tạo người dùng (:limit)",
+    "msg_admin_quota_limit": "Đã đạt giới hạn hạn mức của tài khoản quản trị: đã cấp :used trên :max MB.",
+    "msg_admin_quota_unlimited": "Tài khoản quản trị của bạn có giới hạn hạn mức, nên hộp thư cần hạn mức khác không giới hạn (0).",
     "msg_mailbox_limit": "Đã đạt giới hạn hộp thư của tên miền (:current/:max)",
     "list_title": "Người dùng",
     "create": "Tạo người dùng",
@@ -412,7 +414,8 @@
     "moderators_desc": "Khi chính sách truy cập là \"Chỉ người kiểm duyệt\", chỉ người kiểm duyệt mới được gửi tới danh sách. Danh sách trống sẽ đặt postmaster của tên miền.",
     "save_moderators": "Lưu người kiểm duyệt",
     "msg_moderators_updated": "Người kiểm duyệt đã được cập nhật!",
-    "msg_list_limit": "Đã đạt giới hạn danh sách thư của domain (:current/:max)"
+    "msg_list_limit": "Đã đạt giới hạn danh sách thư của domain (:current/:max)",
+    "msg_creation_limit": "Đã đạt giới hạn tạo danh sách thư (:limit)"
   },
   "search": {
     "title": "Tìm kiếm",
@@ -669,7 +672,8 @@
     "rename_confirm": "Đổi tên địa chỉ alias?",
     "new_local_part": "alias-moi",
     "rename": "Đổi tên",
-    "msg_renamed": "Alias đã được đổi tên thành :address"
+    "msg_renamed": "Alias đã được đổi tên thành :address",
+    "msg_creation_limit": "Đã đạt giới hạn tạo bí danh (:limit)"
   },
   "domainalias": {
     "msg_alias_required": "Tên miền bí danh là bắt buộc",

@@ -319,6 +319,8 @@
     "msg_alias_domain_mismatch": "Het aliasadres moet in het domein :domain liggen",
     "msg_exists": "Er bestaat al een gebruiker met identifier :uid",
     "msg_creation_limit": "Limiet voor gebruikersaanmaak bereikt (:limit)",
+    "msg_admin_quota_limit": "De quotumlimiet van uw beheerdersaccount is bereikt: :used van :max MB is toegewezen.",
+    "msg_admin_quota_unlimited": "Uw beheerdersaccount heeft een quotumlimiet, dus de mailbox heeft een ander quotum nodig dan onbeperkt (0).",
     "msg_mailbox_limit": "Mailboxlimiet van het domein bereikt (:current/:max)",
     "list_title": "Gebruikers",
     "create": "Gebruiker aanmaken",
@@ -412,7 +414,8 @@
     "moderators_desc": "Als het toegangsbeleid \"Alleen moderators\" is, kunnen alleen moderators naar de lijst sturen. Een lege lijst stelt de postmaster van het domein in.",
     "save_moderators": "Moderators opslaan",
     "msg_moderators_updated": "Moderators bijgewerkt!",
-    "msg_list_limit": "Limiet voor mailinglijsten van het domein bereikt (:current/:max)"
+    "msg_list_limit": "Limiet voor mailinglijsten van het domein bereikt (:current/:max)",
+    "msg_creation_limit": "Limiet voor het aanmaken van mailinglijsten bereikt (:limit)"
   },
   "search": {
     "title": "Zoeken",
@@ -669,7 +672,8 @@
     "rename_confirm": "Aliasadres hernoemen?",
     "new_local_part": "nieuwe-alias",
     "rename": "Hernoemen",
-    "msg_renamed": "De alias is hernoemd naar :address"
+    "msg_renamed": "De alias is hernoemd naar :address",
+    "msg_creation_limit": "Limiet voor het aanmaken van aliassen bereikt (:limit)"
   },
   "domainalias": {
     "msg_alias_required": "De naam van het aliasdomein is verplicht",

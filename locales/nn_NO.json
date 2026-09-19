@@ -319,6 +319,8 @@
     "msg_alias_domain_mismatch": "Aliasadressa må vere i domenet :domain",
     "msg_exists": "Brukar med identifikatoren :uid finst allereie",
     "msg_creation_limit": "Grense for brukaroppretting nådd (:limit)",
+    "msg_admin_quota_limit": "Kvotegrensa for administratorkontoen din er nådd: :used av :max MB er tildelt.",
+    "msg_admin_quota_unlimited": "Administratorkontoen din har ei kvotegrense, så postkassa treng ein annan kvote enn ubegrensa (0).",
     "msg_mailbox_limit": "Grense for postkasser i domenet nådd (:current/:max)",
     "list_title": "Brukarar",
     "create": "Opprett brukar",
@@ -412,7 +414,8 @@
     "moderators_desc": "Når tilgangspolicyen er «Berre moderatorar», kan berre moderatorar sende til lista. Ei tom liste set postmaster for domenet.",
     "save_moderators": "Lagre moderatorar",
     "msg_moderators_updated": "Moderatorar oppdaterte!",
-    "msg_list_limit": "Domenet si grense for e-postlister er nådd (:current/:max)"
+    "msg_list_limit": "Domenet si grense for e-postlister er nådd (:current/:max)",
+    "msg_creation_limit": "Grensa for oppretting av e-postlister er nådd (:limit)"
   },
   "search": {
     "title": "Søk",
@@ -669,7 +672,8 @@
     "rename_confirm": "Gi alias-adressa nytt namn?",
     "new_local_part": "nytt-alias",
     "rename": "Gi nytt namn",
-    "msg_renamed": "Aliaset fekk det nye namnet :address"
+    "msg_renamed": "Aliaset fekk det nye namnet :address",
+    "msg_creation_limit": "Grensa for oppretting av aliasar er nådd (:limit)"
   },
   "domainalias": {
     "msg_alias_required": "Aliasdomenenamn er påkravd",

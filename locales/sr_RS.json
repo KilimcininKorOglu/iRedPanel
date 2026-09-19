@@ -319,6 +319,8 @@
     "msg_alias_domain_mismatch": "Адреса алијаса мора бити у домену :domain",
     "msg_exists": "Корисник са идентификатором :uid већ постоји",
     "msg_creation_limit": "Достигнуто ограничење креирања корисника (:limit)",
+    "msg_admin_quota_limit": "Достигнуто је ограничење квоте вашег администраторског налога: додељено је :used од :max MB.",
+    "msg_admin_quota_unlimited": "Ваш администраторски налог има ограничење квоте, па поштанском сандучету треба квота различита од неограничене (0).",
     "msg_mailbox_limit": "Достигнуто ограничење сандучића домена (:current/:max)",
     "list_title": "Корисници",
     "create": "Креирај корисника",
@@ -412,7 +414,8 @@
     "moderators_desc": "Када је правило приступа „Само модератори”, само модератори могу да шаљу на листу. Празна листа поставља postmaster домена.",
     "save_moderators": "Сачувај модераторе",
     "msg_moderators_updated": "Модератори ажурирани!",
-    "msg_list_limit": "Dostignut je limit mejling lista domena (:current/:max)"
+    "msg_list_limit": "Dostignut je limit mejling lista domena (:current/:max)",
+    "msg_creation_limit": "Достигнуто је ограничење за креирање мејлинг листа (:limit)"
   },
   "search": {
     "title": "Претрага",
@@ -669,7 +672,8 @@
     "rename_confirm": "Преименовати адресу alias-а?",
     "new_local_part": "novi-alias",
     "rename": "Преименуј",
-    "msg_renamed": "Alias је преименован у :address"
+    "msg_renamed": "Alias је преименован у :address",
+    "msg_creation_limit": "Достигнуто је ограничење за креирање алијаса (:limit)"
   },
   "domainalias": {
     "msg_alias_required": "Назив алијаса домена је обавезан",

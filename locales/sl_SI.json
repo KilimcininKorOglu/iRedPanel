@@ -319,6 +319,8 @@
     "msg_alias_domain_mismatch": "Naslov vzdevka mora biti v domeni :domain",
     "msg_exists": "Uporabnik z identifikatorjem :uid že obstaja",
     "msg_creation_limit": "Dosežena omejitev ustvarjanja uporabnikov (:limit)",
+    "msg_admin_quota_limit": "Dosežena je omejitev kvote vašega skrbniškega računa: dodeljenih je :used od :max MB.",
+    "msg_admin_quota_unlimited": "Vaš skrbniški račun ima omejitev kvote, zato nabiralnik potrebuje kvoto, ki ni neomejena (0).",
     "msg_mailbox_limit": "Dosežena omejitev poštnih predalov domene (:current/:max)",
     "list_title": "Uporabniki",
     "create": "Ustvari uporabnika",
@@ -412,7 +414,8 @@
     "moderators_desc": "Ko je pravilnik dostopa »Samo moderatorji«, lahko na seznam pošiljajo samo moderatorji. Prazen seznam nastavi postmaster domene.",
     "save_moderators": "Shrani moderatorje",
     "msg_moderators_updated": "Moderatorji posodobljeni!",
-    "msg_list_limit": "Dosežena je omejitev poštnih seznamov domene (:current/:max)"
+    "msg_list_limit": "Dosežena je omejitev poštnih seznamov domene (:current/:max)",
+    "msg_creation_limit": "Dosežena je omejitev ustvarjanja poštnih seznamov (:limit)"
   },
   "search": {
     "title": "Iskanje",
@@ -669,7 +672,8 @@
     "rename_confirm": "Preimenujem naslov vzdevka?",
     "new_local_part": "nov-vzdevek",
     "rename": "Preimenuj",
-    "msg_renamed": "Vzdevek je preimenovan v :address"
+    "msg_renamed": "Vzdevek je preimenovan v :address",
+    "msg_creation_limit": "Dosežena je omejitev ustvarjanja vzdevkov (:limit)"
   },
   "domainalias": {
     "msg_alias_required": "Ime domene vzdevka je obvezno",

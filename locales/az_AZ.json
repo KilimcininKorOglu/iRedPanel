@@ -319,6 +319,8 @@
     "msg_alias_domain_mismatch": "Alias ünvanı :domain domenində olmalıdır",
     "msg_exists": ":uid identifikatorlu istifadəçi artıq mövcuddur",
     "msg_creation_limit": "İstifadəçi yaratma limitinə çatıldı (:limit)",
+    "msg_admin_quota_limit": "Admin hesabınızın kvota limitinə çatılıb: :max MB-dan :used MB təyin edilib.",
+    "msg_admin_quota_unlimited": "Admin hesabınızın kvota limiti var, ona görə poçt qutusu üçün limitsiz (0) olmayan kvota lazımdır.",
     "msg_mailbox_limit": "Domen poçt qutusu limitinə çatıldı (:current/:max)",
     "list_title": "İstifadəçilər",
     "create": "İstifadəçi yarat",
@@ -412,7 +414,8 @@
     "moderators_desc": "Giriş siyasəti \"Yalnız moderatorlar\" olduqda siyahıya yalnız moderatorlar yaza bilər. Boş siyahı domenin postmaster ünvanını təyin edir.",
     "save_moderators": "Moderatorları yadda saxla",
     "msg_moderators_updated": "Moderatorlar yeniləndi!",
-    "msg_list_limit": "Domain poçt siyahısı limitinə çatıldı (:current/:max)"
+    "msg_list_limit": "Domain poçt siyahısı limitinə çatıldı (:current/:max)",
+    "msg_creation_limit": "Poçt siyahısı yaratma limitinə çatıldı (:limit)"
   },
   "search": {
     "title": "Axtarış",
@@ -669,7 +672,8 @@
     "rename_confirm": "Alias ünvanının adı dəyişdirilsin?",
     "new_local_part": "yeni-alias",
     "rename": "Yenidən adlandır",
-    "msg_renamed": "Alias :address olaraq adlandırıldı"
+    "msg_renamed": "Alias :address olaraq adlandırıldı",
+    "msg_creation_limit": "Alias yaratma limitinə çatıldı (:limit)"
   },
   "domainalias": {
     "msg_alias_required": "Təxəllüs domen adı tələb olunur",

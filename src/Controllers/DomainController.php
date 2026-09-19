@@ -15,6 +15,7 @@ use App\Models\Settings;
 use App\Repositories\RepositoryFactory;
 use App\Services\AccountSettingsService;
 use App\Services\ActivityLogger;
+use App\Services\AdminLimits;
 use App\Services\DomainAdminService;
 use App\Services\DomainOwnershipService;
 use App\Services\MailingListService;
@@ -50,6 +51,7 @@ class DomainController
             'domains' => $paginatedResult->items,
             'statusFilter' => $statusFilter,
             'isGlobalAdmin' => $isGlobalAdmin,
+            'canCreateDomain' => AdminLimits::canCreateDomain(),
         ]);
     }
 
@@ -76,7 +78,12 @@ class DomainController
      */
     public static function domainCreate(TemplateEngine $tpl): void
     {
-        Middleware::globalAdminRequired();
+        Middleware::loginRequired();
+        if (!AdminLimits::canCreateDomain()) {
+            http_response_code(403);
+            echo 'Access denied: domain creation not allowed';
+            exit;
+        }
 
         $error = null;
         $validationErrors = [];
@@ -84,68 +91,17 @@ class DomainController
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             try {
-                $domain = Domain::fromFormData($_POST);
-
-                if (empty($domain->domainName)) {
-                    $validationErrors['domainName'] = Translator::translate('domain.msg_name_required');
-                } elseif (!Domain::isValidName($domain->domainName)) {
-                    $validationErrors['domainName'] = Translator::translate('common.msg_invalid_domain_format');
-                }
-
-                if (empty($validationErrors)) {
-                    $repo = RepositoryFactory::getDomainRepository();
-
-                    // Check for duplicate
-                    if ($repo->getDomain($domain->domainName) !== null) {
-                        $validationErrors['domainName'] = Translator::translate('domain.msg_exists', ['domain' => $domain->domainName]);
-                    } elseif (RepositoryFactory::getDomainAliasRepository()->getAlias($domain->domainName) !== null) {
-                        $validationErrors['domainName'] = Translator::translate('domain.msg_is_alias_domain', ['domain' => $domain->domainName]);
-                    } elseif (Settings::getInstance()->requireDomainOwnershipVerification) {
-                        $ownershipRepo = RepositoryFactory::getDomainOwnershipRepository();
-                        if (!$ownershipRepo->isVerified($domain->domainName)) {
-                            $code = DomainOwnershipService::pendingCode($ownershipRepo, $domain->domainName, $_SESSION['email'] ?? '');
-                            $validationErrors['domainName'] = Translator::translate('domain.msg_ownership_required', ['domain' => $domain->domainName, 'code' => $code]);
-                        }
-                    }
-
-                    // Enforce admin domain creation limit with transaction to prevent TOCTOU
-                    if (empty($validationErrors)) {
-                        $pdo = self::getBackendPdo();
-                        if ($pdo !== null) {
-                            $pdo->beginTransaction();
-                        }
-                        try {
-                            $adminEmail = $_SESSION['email'] ?? '';
-                            $adminRepo = RepositoryFactory::getAdminRepository();
-                            $admin = $adminRepo->getAdmin($adminEmail);
-                            if ($admin !== null && $admin->createMaxDomains >= 0) {
-                                $counts = $adminRepo->getAdminResourceCounts($adminEmail);
-                                if ($counts['domains'] >= $admin->createMaxDomains) {
-                                    $validationErrors['domainName'] = Translator::translate('domain.msg_creation_limit', ['limit' => $admin->createMaxDomains]);
-                                }
-                            }
-
-                            if (empty($validationErrors)) {
-                                $repo->createDomain($domain);
-                                if ($pdo !== null) {
-                                    $pdo->commit();
-                                }
-                                ActivityLogger::logCreate($domain->domainName, '', "Domain created: {$domain->domainName}");
-                                BaseController::flashCreated($domain->domainName);
-                                header("Location: /domains");
-                                exit;
-                            }
-
-                            if ($pdo !== null && $pdo->inTransaction()) {
-                                $pdo->rollBack();
-                            }
-                        } catch (\Throwable $e) {
-                            if ($pdo !== null && $pdo->inTransaction()) {
-                                $pdo->rollBack();
-                            }
-                            throw $e;
-                        }
-                    }
+                // The domain limits are global admin settings, as on the General tab.
+                $domain = Domain::fromFormData(Middleware::isGlobalAdmin() ? $_POST : array_intersect_key($_POST, array_flip(['domainName', 'description', 'active'])));
+                $validationErrors = self::newDomainErrors($domain->domainName);
+                if ($validationErrors === []) {
+                    AdminLimits::assertCanCreate('domains');
+                    RepositoryFactory::getDomainRepository()->createDomain($domain);
+                    self::assignToCreator($domain->domainName);
+                    ActivityLogger::logCreate($domain->domainName, '', "Domain created: {$domain->domainName}");
+                    BaseController::flashCreated($domain->domainName);
+                    header("Location: /domains");
+                    exit;
                 }
             } catch (\Exception $e) {
                 $error = BaseController::errorMessage($e);
@@ -157,6 +113,48 @@ class DomainController
             'error' => $error,
             'validationErrors' => $validationErrors,
         ]);
+    }
+
+    /**
+     * Returns the errors of a new domain name: format, an existing domain or alias
+     * domain, and the ownership verification when the panel requires it.
+     *
+     * @return array<string, string> field => message; empty when the name is usable
+     */
+    private static function newDomainErrors(string $name): array
+    {
+        if ($name === '') {
+            return ['domainName' => Translator::translate('domain.msg_name_required')];
+        }
+        if (!Domain::isValidName($name)) {
+            return ['domainName' => Translator::translate('common.msg_invalid_domain_format')];
+        }
+        if (RepositoryFactory::getDomainRepository()->getDomain($name) !== null) {
+            return ['domainName' => Translator::translate('domain.msg_exists', ['domain' => $name])];
+        }
+        if (RepositoryFactory::getDomainAliasRepository()->getAlias($name) !== null) {
+            return ['domainName' => Translator::translate('domain.msg_is_alias_domain', ['domain' => $name])];
+        }
+        $ownershipRepo = RepositoryFactory::getDomainOwnershipRepository();
+        if (Settings::getInstance()->requireDomainOwnershipVerification && !$ownershipRepo->isVerified($name)) {
+            $code = DomainOwnershipService::pendingCode($ownershipRepo, $name, $_SESSION['email'] ?? '');
+
+            return ['domainName' => Translator::translate('domain.msg_ownership_required', ['domain' => $name, 'code' => $code])];
+        }
+
+        return [];
+    }
+
+    /**
+     * A domain admin that creates a domain becomes its admin, as in iRedAdmin-Pro.
+     */
+    private static function assignToCreator(string $domain): void
+    {
+        if (Middleware::isGlobalAdmin()) {
+            return;
+        }
+        RepositoryFactory::getAdminRepository()->assignDomainToAdmin((string) $_SESSION['email'], $domain);
+        $_SESSION['managedDomains'][] = $domain;
     }
 
     /**
@@ -406,14 +404,5 @@ class DomainController
         }
         header("Location: /domains");
         exit;
-    }
-
-    private static function getBackendPdo(): ?\PDO
-    {
-        return match (Settings::getInstance()->backend) {
-            'mysql' => \App\Repositories\Mysql\MysqlConnection::getInstance()->getPdo(),
-            'pgsql' => \App\Repositories\Pgsql\PgsqlConnection::getInstance()->getPdo(),
-            default => null,
-        };
     }
 }

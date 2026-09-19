@@ -13,6 +13,7 @@ use App\Repositories\RepositoryFactory;
 use App\Services\AccountRenameService;
 use App\Services\AccountSettingsService;
 use App\Services\ActivityLogger;
+use App\Services\AdminLimits;
 use App\Services\Replication\ReplicatedAccountGuard;
 use App\TemplateEngine;
 use App\Utils\FormValue;
@@ -55,6 +56,7 @@ class AliasController
                 $name = trim($_POST['name'] ?? '');
                 $accessPolicy = BaseController::postedAccessPolicy();
                 [$address, $domain] = BaseController::postedNewAliasAddress();
+                AdminLimits::assertCanCreate('aliases');
                 $members = BaseController::postedAddresses('members');
 
                 RepositoryFactory::getAliasRepository()->createAlias($address, $domain, $name, $members, $accessPolicy);

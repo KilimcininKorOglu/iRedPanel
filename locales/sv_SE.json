@@ -319,6 +319,8 @@
     "msg_alias_domain_mismatch": "Aliasadressen måste ligga i domänen :domain",
     "msg_exists": "Användare med identifierare :uid finns redan",
     "msg_creation_limit": "Gräns för att skapa användare nådd (:limit)",
+    "msg_admin_quota_limit": "Kvotgränsen för ditt administratörskonto har nåtts: :used av :max MB är tilldelade.",
+    "msg_admin_quota_unlimited": "Ditt administratörskonto har en kvotgräns, så brevlådan behöver en annan kvot än obegränsad (0).",
     "msg_mailbox_limit": "Domänens brevlådegräns nådd (:current/:max)",
     "list_title": "Användare",
     "create": "Skapa användare",
@@ -412,7 +414,8 @@
     "moderators_desc": "När åtkomstpolicyn är \"Endast moderatorer\" kan bara moderatorer skicka till listan. En tom lista anger domänens postmaster.",
     "save_moderators": "Spara moderatorer",
     "msg_moderators_updated": "Moderatorer uppdaterade!",
-    "msg_list_limit": "Domänens gräns för e-postlistor är nådd (:current/:max)"
+    "msg_list_limit": "Domänens gräns för e-postlistor är nådd (:current/:max)",
+    "msg_creation_limit": "Gränsen för att skapa e-postlistor har nåtts (:limit)"
   },
   "search": {
     "title": "Sök",
@@ -669,7 +672,8 @@
     "rename_confirm": "Byta namn på aliasadressen?",
     "new_local_part": "nytt-alias",
     "rename": "Byt namn",
-    "msg_renamed": "Aliaset har bytt namn till :address"
+    "msg_renamed": "Aliaset har bytt namn till :address",
+    "msg_creation_limit": "Gränsen för att skapa alias har nåtts (:limit)"
   },
   "domainalias": {
     "msg_alias_required": "Aliasdomännamn krävs",

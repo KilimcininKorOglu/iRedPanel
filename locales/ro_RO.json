@@ -319,6 +319,8 @@
     "msg_alias_domain_mismatch": "Adresa alias trebuie să fie în domeniul :domain",
     "msg_exists": "Utilizatorul cu identificatorul :uid există deja",
     "msg_creation_limit": "Limita de creare a utilizatorilor a fost atinsă (:limit)",
+    "msg_admin_quota_limit": "Limita de cotă a contului dvs. de administrator a fost atinsă: sunt alocați :used din :max MB.",
+    "msg_admin_quota_unlimited": "Contul dvs. de administrator are o limită de cotă, deci căsuța poștală are nevoie de o cotă diferită de nelimitată (0).",
     "msg_mailbox_limit": "Limita de cutii poștale a domeniului a fost atinsă (:current/:max)",
     "list_title": "Utilizatori",
     "create": "Creează utilizator",
@@ -412,7 +414,8 @@
     "moderators_desc": "Când politica de acces este „Doar moderatori”, doar moderatorii pot trimite pe listă. O listă goală setează postmaster-ul domeniului.",
     "save_moderators": "Salvează moderatorii",
     "msg_moderators_updated": "Moderatorii au fost actualizați!",
-    "msg_list_limit": "S-a atins limita de liste de e-mail a domain-ului (:current/:max)"
+    "msg_list_limit": "S-a atins limita de liste de e-mail a domain-ului (:current/:max)",
+    "msg_creation_limit": "Limita de creare a listelor de corespondență a fost atinsă (:limit)"
   },
   "search": {
     "title": "Căutare",
@@ -669,7 +672,8 @@
     "rename_confirm": "Redenumiți adresa aliasului?",
     "new_local_part": "alias-nou",
     "rename": "Redenumește",
-    "msg_renamed": "Aliasul a fost redenumit în :address"
+    "msg_renamed": "Aliasul a fost redenumit în :address",
+    "msg_creation_limit": "Limita de creare a aliasurilor a fost atinsă (:limit)"
   },
   "domainalias": {
     "msg_alias_required": "Numele domeniului alias este obligatoriu",

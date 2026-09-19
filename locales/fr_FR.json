@@ -319,6 +319,8 @@
     "msg_alias_domain_mismatch": "L'adresse d'alias doit appartenir au domaine :domain",
     "msg_exists": "Un utilisateur avec l'identifiant :uid existe déjà",
     "msg_creation_limit": "Limite de création d'utilisateurs atteinte (:limit)",
+    "msg_admin_quota_limit": "La limite de quota de votre compte administrateur est atteinte : :used sur :max Mo sont attribués.",
+    "msg_admin_quota_unlimited": "Votre compte administrateur a une limite de quota, la boîte aux lettres doit donc avoir un quota autre qu'illimité (0).",
     "msg_mailbox_limit": "Limite de boîtes du domaine atteinte (:current/:max)",
     "list_title": "Utilisateurs",
     "create": "Créer un utilisateur",
@@ -412,7 +414,8 @@
     "moderators_desc": "Lorsque la politique d'accès est « Modérateurs uniquement », seuls les modérateurs peuvent écrire à la liste. Une liste vide définit le postmaster du domaine.",
     "save_moderators": "Enregistrer les modérateurs",
     "msg_moderators_updated": "Modérateurs mis à jour !",
-    "msg_list_limit": "Limite de listes de diffusion du domaine atteinte (:current/:max)"
+    "msg_list_limit": "Limite de listes de diffusion du domaine atteinte (:current/:max)",
+    "msg_creation_limit": "Limite de création de listes de diffusion atteinte (:limit)"
   },
   "search": {
     "title": "Rechercher",
@@ -669,7 +672,8 @@
     "rename_confirm": "Renommer l'adresse de l'alias ?",
     "new_local_part": "nouvel-alias",
     "rename": "Renommer",
-    "msg_renamed": "L'alias a été renommé en :address"
+    "msg_renamed": "L'alias a été renommé en :address",
+    "msg_creation_limit": "Limite de création d'alias atteinte (:limit)"
   },
   "domainalias": {
     "msg_alias_required": "Le nom du domaine d'alias est obligatoire",

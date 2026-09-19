@@ -319,6 +319,8 @@
     "msg_alias_domain_mismatch": "Aliasosoitteen on oltava domainissa :domain",
     "msg_exists": "Käyttäjä tunnisteella :uid on jo olemassa",
     "msg_creation_limit": "Käyttäjien luontiraja saavutettu (:limit)",
+    "msg_admin_quota_limit": "Ylläpitäjätilisi kiintiöraja on saavutettu: :max Mt:stä on jaettu :used Mt.",
+    "msg_admin_quota_unlimited": "Ylläpitäjätililläsi on kiintiöraja, joten postilaatikko tarvitsee muun kiintiön kuin rajoittamaton (0).",
     "msg_mailbox_limit": "Verkkotunnuksen postilaatikkoraja saavutettu (:current/:max)",
     "list_title": "Käyttäjät",
     "create": "Luo käyttäjä",
@@ -412,7 +414,8 @@
     "moderators_desc": "Kun käyttöoikeuskäytäntö on \"Vain moderaattorit\", vain moderaattorit voivat lähettää listalle. Tyhjä luettelo asettaa verkkotunnuksen postmasterin.",
     "save_moderators": "Tallenna moderaattorit",
     "msg_moderators_updated": "Moderaattorit päivitetty!",
-    "msg_list_limit": "Domainin postituslistarajoitus täynnä (:current/:max)"
+    "msg_list_limit": "Domainin postituslistarajoitus täynnä (:current/:max)",
+    "msg_creation_limit": "Postituslistojen luontiraja saavutettu (:limit)"
   },
   "search": {
     "title": "Haku",
@@ -669,7 +672,8 @@
     "rename_confirm": "Nimetäänkö aliaksen osoite uudelleen?",
     "new_local_part": "uusi-alias",
     "rename": "Nimeä uudelleen",
-    "msg_renamed": "Alias nimettiin uudelleen: :address"
+    "msg_renamed": "Alias nimettiin uudelleen: :address",
+    "msg_creation_limit": "Aliasten luontiraja saavutettu (:limit)"
   },
   "domainalias": {
     "msg_alias_required": "Aliasverkkotunnuksen nimi vaaditaan",

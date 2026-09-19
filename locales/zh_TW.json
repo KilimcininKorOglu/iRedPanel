@@ -319,6 +319,8 @@
     "msg_alias_domain_mismatch": "別名地址必須屬於網域 :domain",
     "msg_exists": "識別碼為 :uid 的使用者已存在",
     "msg_creation_limit": "已達使用者建立上限（:limit）",
+    "msg_admin_quota_limit": "已達到您管理員帳戶的配額上限：已分配 :used / :max MB。",
+    "msg_admin_quota_unlimited": "您的管理員帳戶有配額上限，因此信箱需要設定非無限 (0) 的配額。",
     "msg_mailbox_limit": "已達網域信箱上限（:current/:max）",
     "list_title": "使用者",
     "create": "建立使用者",
@@ -412,7 +414,8 @@
     "moderators_desc": "當存取原則為「僅限審核者」時，只有審核者可以寄信到清單。留空時會設定為網域的 postmaster。",
     "save_moderators": "儲存審核者",
     "msg_moderators_updated": "審核者已更新！",
-    "msg_list_limit": "已達到網域的郵件列表上限 (:current/:max)"
+    "msg_list_limit": "已達到網域的郵件列表上限 (:current/:max)",
+    "msg_creation_limit": "已達到郵寄清單建立上限 (:limit)"
   },
   "search": {
     "title": "搜尋",
@@ -669,7 +672,8 @@
     "rename_confirm": "重新命名別名位址?",
     "new_local_part": "new-alias",
     "rename": "重新命名",
-    "msg_renamed": "別名已重新命名為 :address"
+    "msg_renamed": "別名已重新命名為 :address",
+    "msg_creation_limit": "已達到別名建立上限 (:limit)"
   },
   "domainalias": {
     "msg_alias_required": "別名網域名稱為必填",

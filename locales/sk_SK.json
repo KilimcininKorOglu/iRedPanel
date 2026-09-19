@@ -319,6 +319,8 @@
     "msg_alias_domain_mismatch": "Adresa aliasu musí byť v doméne :domain",
     "msg_exists": "Používateľ s identifikátorom :uid už existuje",
     "msg_creation_limit": "Dosiahnutý limit vytvárania používateľov (:limit)",
+    "msg_admin_quota_limit": "Dosiahol sa limit kvóty vášho správcovského účtu: pridelených je :used z :max MB.",
+    "msg_admin_quota_unlimited": "Váš správcovský účet má limit kvóty, preto schránka potrebuje inú kvótu ako neobmedzenú (0).",
     "msg_mailbox_limit": "Dosiahnutý limit schránok domény (:current/:max)",
     "list_title": "Používatelia",
     "create": "Vytvoriť používateľa",
@@ -412,7 +414,8 @@
     "moderators_desc": "Keď je pravidlo prístupu „Iba moderátori“, do zoznamu môžu písať iba moderátori. Prázdny zoznam nastaví postmaster domény.",
     "save_moderators": "Uložiť moderátorov",
     "msg_moderators_updated": "Moderátori aktualizovaní!",
-    "msg_list_limit": "Dosiahnutý limit poštových konferencií domény (:current/:max)"
+    "msg_list_limit": "Dosiahnutý limit poštových konferencií domény (:current/:max)",
+    "msg_creation_limit": "Dosiahol sa limit na vytváranie e-mailových konferencií (:limit)"
   },
   "search": {
     "title": "Hľadať",
@@ -669,7 +672,8 @@
     "rename_confirm": "Premenovať adresu aliasu?",
     "new_local_part": "novy-alias",
     "rename": "Premenovať",
-    "msg_renamed": "Alias bol premenovaný na :address"
+    "msg_renamed": "Alias bol premenovaný na :address",
+    "msg_creation_limit": "Dosiahol sa limit na vytváranie aliasov (:limit)"
   },
   "domainalias": {
     "msg_alias_required": "Názov aliasovej domény je povinný",

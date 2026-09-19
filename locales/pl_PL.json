@@ -319,6 +319,8 @@
     "msg_alias_domain_mismatch": "Adres aliasu musi należeć do domeny :domain",
     "msg_exists": "Użytkownik o identyfikatorze :uid już istnieje",
     "msg_creation_limit": "Osiągnięto limit tworzenia użytkowników (:limit)",
+    "msg_admin_quota_limit": "Osiągnięto limit przydziału konta administratora: przydzielono :used z :max MB.",
+    "msg_admin_quota_unlimited": "Twoje konto administratora ma limit przydziału, więc skrzynka wymaga przydziału innego niż nieograniczony (0).",
     "msg_mailbox_limit": "Osiągnięto limit skrzynek domeny (:current/:max)",
     "list_title": "Użytkownicy",
     "create": "Utwórz użytkownika",
@@ -412,7 +414,8 @@
     "moderators_desc": "Gdy zasada dostępu to „Tylko moderatorzy”, tylko moderatorzy mogą wysyłać na listę. Pusta lista ustawia postmastera domeny.",
     "save_moderators": "Zapisz moderatorów",
     "msg_moderators_updated": "Moderatorzy zaktualizowani!",
-    "msg_list_limit": "Osiągnięto limit list mailingowych domeny (:current/:max)"
+    "msg_list_limit": "Osiągnięto limit list mailingowych domeny (:current/:max)",
+    "msg_creation_limit": "Osiągnięto limit tworzenia list mailingowych (:limit)"
   },
   "search": {
     "title": "Szukaj",
@@ -669,7 +672,8 @@
     "rename_confirm": "Zmienić nazwę adresu aliasu?",
     "new_local_part": "nowy-alias",
     "rename": "Zmień nazwę",
-    "msg_renamed": "Nazwa aliasu została zmieniona na :address"
+    "msg_renamed": "Nazwa aliasu została zmieniona na :address",
+    "msg_creation_limit": "Osiągnięto limit tworzenia aliasów (:limit)"
   },
   "domainalias": {
     "msg_alias_required": "Nazwa domeny aliasu jest wymagana",

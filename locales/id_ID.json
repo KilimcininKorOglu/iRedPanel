@@ -319,6 +319,8 @@
     "msg_alias_domain_mismatch": "Alamat alias harus berada di domain :domain",
     "msg_exists": "Pengguna dengan pengenal :uid sudah ada",
     "msg_creation_limit": "Batas pembuatan pengguna tercapai (:limit)",
+    "msg_admin_quota_limit": "Batas kuota akun admin Anda tercapai: :used dari :max MB sudah dialokasikan.",
+    "msg_admin_quota_unlimited": "Akun admin Anda memiliki batas kuota, jadi kotak surat memerlukan kuota selain tak terbatas (0).",
     "msg_mailbox_limit": "Batas kotak surat domain tercapai (:current/:max)",
     "list_title": "Pengguna",
     "create": "Buat Pengguna",
@@ -412,7 +414,8 @@
     "moderators_desc": "Jika kebijakan akses adalah \"Hanya moderator\", hanya moderator yang dapat mengirim ke milis. Daftar kosong menetapkan postmaster domain.",
     "save_moderators": "Simpan moderator",
     "msg_moderators_updated": "Moderator diperbarui!",
-    "msg_list_limit": "Batas milis domain tercapai (:current/:max)"
+    "msg_list_limit": "Batas milis domain tercapai (:current/:max)",
+    "msg_creation_limit": "Batas pembuatan milis tercapai (:limit)"
   },
   "search": {
     "title": "Cari",
@@ -669,7 +672,8 @@
     "rename_confirm": "Ganti nama alamat alias?",
     "new_local_part": "alias-baru",
     "rename": "Ganti nama",
-    "msg_renamed": "Alias diganti namanya menjadi :address"
+    "msg_renamed": "Alias diganti namanya menjadi :address",
+    "msg_creation_limit": "Batas pembuatan alias tercapai (:limit)"
   },
   "domainalias": {
     "msg_alias_required": "Nama domain alias wajib diisi",

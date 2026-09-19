@@ -319,6 +319,8 @@
     "msg_alias_domain_mismatch": "별칭 주소는 :domain 도메인에 있어야 합니다",
     "msg_exists": "식별자 :uid의 사용자가 이미 존재합니다",
     "msg_creation_limit": "사용자 생성 한도에 도달했습니다 (:limit)",
+    "msg_admin_quota_limit": "관리자 계정의 할당량 한도에 도달했습니다: :max MB 중 :used MB가 할당되었습니다.",
+    "msg_admin_quota_unlimited": "관리자 계정에 할당량 한도가 있으므로 메일함에는 무제한(0)이 아닌 할당량이 필요합니다.",
     "msg_mailbox_limit": "도메인 메일박스 한도에 도달했습니다 (:current/:max)",
     "list_title": "사용자",
     "create": "사용자 생성",
@@ -412,7 +414,8 @@
     "moderators_desc": "접근 정책이 \"중재자 전용\"이면 중재자만 리스트에 게시할 수 있습니다. 비워 두면 도메인의 postmaster가 설정됩니다.",
     "save_moderators": "중재자 저장",
     "msg_moderators_updated": "중재자가 업데이트되었습니다!",
-    "msg_list_limit": "도메인 메일링 리스트 한도에 도달했습니다 (:current/:max)"
+    "msg_list_limit": "도메인 메일링 리스트 한도에 도달했습니다 (:current/:max)",
+    "msg_creation_limit": "메일링 리스트 생성 한도에 도달했습니다 (:limit)"
   },
   "search": {
     "title": "검색",
@@ -669,7 +672,8 @@
     "rename_confirm": "별칭 주소의 이름을 변경하시겠습니까?",
     "new_local_part": "new-alias",
     "rename": "이름 변경",
-    "msg_renamed": "별칭의 이름이 :address(으)로 변경되었습니다"
+    "msg_renamed": "별칭의 이름이 :address(으)로 변경되었습니다",
+    "msg_creation_limit": "별칭 생성 한도에 도달했습니다 (:limit)"
   },
   "domainalias": {
     "msg_alias_required": "별칭 도메인 이름이 필요합니다",

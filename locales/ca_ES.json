@@ -319,6 +319,8 @@
     "msg_alias_domain_mismatch": "L'adreça d'àlies ha d'estar al domini :domain",
     "msg_exists": "Ja existeix un usuari amb l'identificador :uid",
     "msg_creation_limit": "S'ha assolit el límit de creació d'usuaris (:limit)",
+    "msg_admin_quota_limit": "S'ha arribat al límit de quota del vostre compte d'administrador: hi ha :used de :max MB assignats.",
+    "msg_admin_quota_unlimited": "El vostre compte d'administrador té un límit de quota, així que la bústia necessita una quota diferent d'il·limitada (0).",
     "msg_mailbox_limit": "S'ha assolit el límit de bústies del domini (:current/:max)",
     "list_title": "Usuaris",
     "create": "Crear usuari",
@@ -412,7 +414,8 @@
     "moderators_desc": "Quan la política d'accés és \"Només moderadors\", només els moderadors poden enviar a la llista. Una llista buida estableix el postmaster del domini.",
     "save_moderators": "Desar moderadors",
     "msg_moderators_updated": "Moderadors actualitzats!",
-    "msg_list_limit": "S'ha assolit el límit de llistes de correu del domini (:current/:max)"
+    "msg_list_limit": "S'ha assolit el límit de llistes de correu del domini (:current/:max)",
+    "msg_creation_limit": "S'ha arribat al límit de creació de llistes de correu (:limit)"
   },
   "search": {
     "title": "Cerca",
@@ -669,7 +672,8 @@
     "rename_confirm": "Voleu canviar el nom de l'adreça de l'àlies?",
     "new_local_part": "nou-alies",
     "rename": "Reanomenar",
-    "msg_renamed": "L'àlies s'ha canviat a :address"
+    "msg_renamed": "L'àlies s'ha canviat a :address",
+    "msg_creation_limit": "S'ha arribat al límit de creació d'àlies (:limit)"
   },
   "domainalias": {
     "msg_alias_required": "El nom del domini d'àlies és obligatori",

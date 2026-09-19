@@ -319,6 +319,8 @@
     "msg_alias_domain_mismatch": "Samheitisnetfangið verður að vera í léninu :domain",
     "msg_exists": "Notandi með auðkennið :uid er þegar til",
     "msg_creation_limit": "Hámarki notendasköpunar náð (:limit)",
+    "msg_admin_quota_limit": "Kvótahámarki stjórnandaaðgangsins er náð: :used af :max MB er úthlutað.",
+    "msg_admin_quota_unlimited": "Stjórnandaaðgangurinn þinn hefur kvótahámark, svo pósthólfið þarf annan kvóta en ótakmarkaðan (0).",
     "msg_mailbox_limit": "Hámarki pósthólfa léns náð (:current/:max)",
     "list_title": "Notendur",
     "create": "Búa til notanda",
@@ -412,7 +414,8 @@
     "moderators_desc": "Þegar aðgangsstefnan er „Aðeins umsjónarmenn“ geta aðeins umsjónarmenn sent á listann. Tómur listi setur postmaster lénsins.",
     "save_moderators": "Vista umsjónarmenn",
     "msg_moderators_updated": "Umsjónarmenn uppfærðir!",
-    "msg_list_limit": "Hámarksfjölda póstlista lénsins er náð (:current/:max)"
+    "msg_list_limit": "Hámarksfjölda póstlista lénsins er náð (:current/:max)",
+    "msg_creation_limit": "Hámarki stofnunar póstlista er náð (:limit)"
   },
   "search": {
     "title": "Leita",
@@ -669,7 +672,8 @@
     "rename_confirm": "Endurnefna netfang alias?",
     "new_local_part": "nytt-alias",
     "rename": "Endurnefna",
-    "msg_renamed": "Alias var endurnefnt í :address"
+    "msg_renamed": "Alias var endurnefnt í :address",
+    "msg_creation_limit": "Hámarki stofnunar samnefna er náð (:limit)"
   },
   "domainalias": {
     "msg_alias_required": "Samnefnislénsheiti er nauðsynlegt",

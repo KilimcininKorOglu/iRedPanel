@@ -35,6 +35,8 @@
           <input id="description" type="text" name="description" class="form-control" value="<?= $e($domain?->description ?? '') ?>" />
         </div>
 
+        <?php /* The domain limits are on the General tab, which only a global admin edits. */ ?>
+        <?php if (!empty($session['isGlobalAdmin'])): ?>
         <div class="row g-3 mb-3">
           <div class="col-md-6">
             <label for="maxQuota" class="form-label"><?= $te('domain.max_quota') ?></label>
@@ -45,6 +47,7 @@
             <input id="mailboxes" type="number" name="mailboxes" min="0" class="form-control" value="<?= $e($domain?->mailboxes ?? 0) ?>" />
           </div>
         </div>
+        <?php endif; ?>
 
         <div class="form-check form-switch">
           <input type="checkbox" class="form-check-input" id="active" name="active" <?php if ($domain === null || $domain->active): ?>checked<?php endif; ?> />

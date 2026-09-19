@@ -319,6 +319,8 @@
     "msg_alias_domain_mismatch": "ที่อยู่นามแฝงต้องอยู่ในโดเมน :domain",
     "msg_exists": "ผู้ใช้ที่มีตัวระบุ :uid มีอยู่แล้ว",
     "msg_creation_limit": "ถึงขีดจำกัดการสร้างผู้ใช้แล้ว (:limit)",
+    "msg_admin_quota_limit": "ถึงขีดจำกัดโควตาของบัญชีผู้ดูแลของคุณแล้ว: จัดสรรแล้ว :used จาก :max MB",
+    "msg_admin_quota_unlimited": "บัญชีผู้ดูแลของคุณมีขีดจำกัดโควตา กล่องจดหมายจึงต้องมีโควตาที่ไม่ใช่ไม่จำกัด (0)",
     "msg_mailbox_limit": "ถึงขีดจำกัดกล่องจดหมายของโดเมนแล้ว (:current/:max)",
     "list_title": "ผู้ใช้",
     "create": "สร้างผู้ใช้",
@@ -412,7 +414,8 @@
     "moderators_desc": "เมื่อนโยบายการเข้าถึงเป็น \"เฉพาะผู้ดูแล\" จะมีเฉพาะผู้ดูแลที่ส่งเมลถึงรายการได้ รายการว่างจะตั้งค่า postmaster ของโดเมน",
     "save_moderators": "บันทึกผู้ดูแล",
     "msg_moderators_updated": "อัปเดตผู้ดูแลแล้ว!",
-    "msg_list_limit": "ถึงขีดจำกัดเมลลิ่งลิสต์ของโดเมนแล้ว (:current/:max)"
+    "msg_list_limit": "ถึงขีดจำกัดเมลลิ่งลิสต์ของโดเมนแล้ว (:current/:max)",
+    "msg_creation_limit": "ถึงขีดจำกัดการสร้างรายชื่ออีเมลแล้ว (:limit)"
   },
   "search": {
     "title": "ค้นหา",
@@ -669,7 +672,8 @@
     "rename_confirm": "เปลี่ยนชื่อที่อยู่ alias หรือไม่?",
     "new_local_part": "new-alias",
     "rename": "เปลี่ยนชื่อ",
-    "msg_renamed": "เปลี่ยนชื่อ alias เป็น :address แล้ว"
+    "msg_renamed": "เปลี่ยนชื่อ alias เป็น :address แล้ว",
+    "msg_creation_limit": "ถึงขีดจำกัดการสร้างนามแฝงแล้ว (:limit)"
   },
   "domainalias": {
     "msg_alias_required": "จำเป็นต้องมีชื่อโดเมนนามแฝง",

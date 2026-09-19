@@ -319,6 +319,8 @@
     "msg_alias_domain_mismatch": "L'indirizzo alias deve appartenere al dominio :domain",
     "msg_exists": "Esiste già un utente con l'identificatore :uid",
     "msg_creation_limit": "Limite di creazione utenti raggiunto (:limit)",
+    "msg_admin_quota_limit": "Il limite di quota del tuo account amministratore è stato raggiunto: sono assegnati :used di :max MB.",
+    "msg_admin_quota_unlimited": "Il tuo account amministratore ha un limite di quota, quindi la casella necessita di una quota diversa da illimitata (0).",
     "msg_mailbox_limit": "Limite di caselle del dominio raggiunto (:current/:max)",
     "list_title": "Utenti",
     "create": "Crea utente",
@@ -412,7 +414,8 @@
     "moderators_desc": "Quando la politica di accesso è \"Solo moderatori\", solo i moderatori possono scrivere alla lista. Una lista vuota imposta il postmaster del dominio.",
     "save_moderators": "Salva moderatori",
     "msg_moderators_updated": "Moderatori aggiornati!",
-    "msg_list_limit": "Raggiunto il limite di mailing list del dominio (:current/:max)"
+    "msg_list_limit": "Raggiunto il limite di mailing list del dominio (:current/:max)",
+    "msg_creation_limit": "Limite di creazione delle mailing list raggiunto (:limit)"
   },
   "search": {
     "title": "Cerca",
@@ -669,7 +672,8 @@
     "rename_confirm": "Rinominare l'indirizzo dell'alias?",
     "new_local_part": "nuovo-alias",
     "rename": "Rinomina",
-    "msg_renamed": "L'alias è stato rinominato in :address"
+    "msg_renamed": "L'alias è stato rinominato in :address",
+    "msg_creation_limit": "Limite di creazione degli alias raggiunto (:limit)"
   },
   "domainalias": {
     "msg_alias_required": "Il nome del dominio alias è obbligatorio",

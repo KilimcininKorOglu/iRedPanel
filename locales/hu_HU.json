@@ -319,6 +319,8 @@
     "msg_alias_domain_mismatch": "Az alias címnek a(z) :domain domainben kell lennie",
     "msg_exists": "A(z) :uid azonosítójú felhasználó már létezik",
     "msg_creation_limit": "Elérte a felhasználó-létrehozási korlátot (:limit)",
+    "msg_admin_quota_limit": "Elérte az adminisztrátori fiókja kvótakorlátját: :max MB-ból :used MB van kiosztva.",
+    "msg_admin_quota_unlimited": "Az adminisztrátori fiókjának kvótakorlátja van, ezért a postafióknak a korlátlantól (0) eltérő kvóta kell.",
     "msg_mailbox_limit": "Elérte a domain postafiók-korlátját (:current/:max)",
     "list_title": "Felhasználók",
     "create": "Felhasználó létrehozása",
@@ -412,7 +414,8 @@
     "moderators_desc": "Ha a hozzáférési szabály „Csak moderátorok”, csak a moderátorok küldhetnek a listára. Üres lista esetén a domain postmaster címe lesz beállítva.",
     "save_moderators": "Moderátorok mentése",
     "msg_moderators_updated": "Moderátorok frissítve!",
-    "msg_list_limit": "Elérte a domain levelezőlista-korlátját (:current/:max)"
+    "msg_list_limit": "Elérte a domain levelezőlista-korlátját (:current/:max)",
+    "msg_creation_limit": "Elérte a levelezőlista-létrehozási korlátot (:limit)"
   },
   "search": {
     "title": "Keresés",
@@ -669,7 +672,8 @@
     "rename_confirm": "Átnevezi az alias címét?",
     "new_local_part": "uj-alias",
     "rename": "Átnevezés",
-    "msg_renamed": "Az alias új címe: :address"
+    "msg_renamed": "Az alias új címe: :address",
+    "msg_creation_limit": "Elérte az alias-létrehozási korlátot (:limit)"
   },
   "domainalias": {
     "msg_alias_required": "Az álnév-domain nevének megadása kötelező",

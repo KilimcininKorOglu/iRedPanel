@@ -107,6 +107,30 @@ final class ApiInput
     }
 
     /**
+     * Reads a query flag such as `?disabledOnly=yes`. A missing flag is false.
+     *
+     * @throws \InvalidArgumentException when the value is not a yes/no value
+     */
+    public static function queryFlag(string $name): bool
+    {
+        $value = $_GET[$name] ?? 'no';
+        if (!is_string($value) || !in_array(strtolower($value), ['yes', 'no', 'true', 'false', '1', '0', ''], true)) {
+            throw new \InvalidArgumentException("{$name} must be yes or no");
+        }
+
+        return in_array(strtolower($value), ['yes', 'true', '1'], true);
+    }
+
+    /**
+     * The `activeOnly` argument of a list repository: false when `?disabledOnly=yes`
+     * asks for the disabled accounts only, null otherwise.
+     */
+    public static function disabledOnly(): ?bool
+    {
+        return self::queryFlag('disabledOnly') ? false : null;
+    }
+
+    /**
      * Applies a list change of the body to $current. The body either replaces the
      * list with $keys[0] or adds and removes items with $keys[1] and $keys[2].
      *

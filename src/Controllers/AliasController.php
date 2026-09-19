@@ -28,8 +28,10 @@ class AliasController
         $page = max(1, (int) ($_GET['page'] ?? 1));
         $perPage = $settings->paginationPerPage;
 
+        [$statusFilter, $activeOnly] = BaseController::statusFilter();
+
         $repo = RepositoryFactory::getAliasRepository();
-        $paginatedResult = $repo->getAliasesPaginated($page, $perPage, $domainFilter);
+        $paginatedResult = $repo->getAliasesPaginated($page, $perPage, $domainFilter, $activeOnly);
 
         $domains = BaseController::managedDomainRows();
 
@@ -38,6 +40,7 @@ class AliasController
             'paginatedResult' => $paginatedResult,
             'domains' => $domains,
             'filterDomain' => $domainFilter ?? '',
+            'statusFilter' => $statusFilter,
         ]);
     }
 

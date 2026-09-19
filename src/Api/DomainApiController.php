@@ -24,8 +24,16 @@ class DomainApiController
         $page = max(1, (int) ($_GET['page'] ?? 1));
         $perPage = (int) ($_GET['perPage'] ?? 50);
 
-        $result = $repo->getDomainsPaginated($page, $perPage);
-        ApiResponse::paginated($result, fn(Domain $d) => [
+        try {
+            $activeOnly = ApiInput::disabledOnly();
+            $nameOnly = ApiInput::queryFlag('nameOnly');
+        } catch (\InvalidArgumentException $e) {
+            ApiResponse::error($e->getMessage());
+            return;
+        }
+
+        $result = $repo->getDomainsPaginated($page, $perPage, $activeOnly);
+        ApiResponse::paginated($result, fn(Domain $d) => $nameOnly ? $d->domainName : [
             'domainName' => $d->domainName,
             'description' => $d->description,
             'active' => $d->active,

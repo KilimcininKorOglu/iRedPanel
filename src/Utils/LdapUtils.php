@@ -158,6 +158,19 @@ class LdapUtils
     }
 
     /**
+     * The accountStatus filter part: active entries for true, disabled ones for false,
+     * nothing for null.
+     */
+    public static function statusFilter(?bool $activeOnly): string
+    {
+        return match ($activeOnly) {
+            true => '(accountStatus=active)',
+            false => '(accountStatus=disabled)',
+            null => '',
+        };
+    }
+
+    /**
      * Searches below $baseDn. A missing base DN gives no entries; any other error throws.
      *
      * @param string[] $attrs

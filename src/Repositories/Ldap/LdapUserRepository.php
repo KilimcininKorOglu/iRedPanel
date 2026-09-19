@@ -228,9 +228,7 @@ class LdapUserRepository implements UserRepositoryInterface
         if ($startsWith !== null && $startsWith !== '') {
             $filter .= '(uid=' . ldap_escape($startsWith, '', LDAP_ESCAPE_FILTER) . '*)';
         }
-        if ($activeOnly !== null) {
-            $filter .= $activeOnly ? '(accountStatus=active)' : '(accountStatus=disabled)';
-        }
+        $filter .= LdapUtils::statusFilter($activeOnly);
 
         $allUsers = self::listUsers($domain, $filter);
 

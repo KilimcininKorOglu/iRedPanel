@@ -34,12 +34,7 @@ class DomainController
         $settings = Settings::getInstance();
         $page = max(1, (int) ($_GET['page'] ?? 1));
         $perPage = $settings->paginationPerPage;
-        $statusFilter = $_GET['status'] ?? null;
-        $activeOnly = match ($statusFilter) {
-            'active' => true,
-            'disabled' => false,
-            default => null,
-        };
+        [$statusFilter, $activeOnly] = BaseController::statusFilter();
 
         $isGlobalAdmin = !empty($_SESSION['isGlobalAdmin']);
         $paginatedResult = $isGlobalAdmin

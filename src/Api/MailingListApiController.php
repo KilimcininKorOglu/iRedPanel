@@ -21,8 +21,16 @@ class MailingListApiController
         $perPage = (int) ($_GET['perPage'] ?? 50);
         $domain = $_GET['domain'] ?? null;
 
-        $result = $repo->getMailingListsPaginated($page, $perPage, $domain);
-        ApiResponse::paginated($result, fn(MailingList $ml) => [
+        try {
+            $activeOnly = ApiInput::disabledOnly();
+            $emailOnly = ApiInput::queryFlag('emailOnly');
+        } catch (\InvalidArgumentException $e) {
+            ApiResponse::error($e->getMessage());
+            return;
+        }
+
+        $result = $repo->getMailingListsPaginated($page, $perPage, $domain, $activeOnly);
+        ApiResponse::paginated($result, fn(MailingList $ml) => $emailOnly ? $ml->address : [
             'address' => $ml->address,
             'domain' => $ml->domain,
             'name' => $ml->name,

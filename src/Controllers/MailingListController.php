@@ -25,8 +25,10 @@ class MailingListController
         $page = max(1, (int) ($_GET['page'] ?? 1));
         $perPage = $settings->paginationPerPage;
 
+        [$statusFilter, $activeOnly] = BaseController::statusFilter();
+
         $repo = RepositoryFactory::getMailingListRepository();
-        $paginatedResult = $repo->getMailingListsPaginated($page, $perPage, $domainFilter);
+        $paginatedResult = $repo->getMailingListsPaginated($page, $perPage, $domainFilter, $activeOnly);
         $domains = BaseController::managedDomainRows();
 
         $tpl->render('mailingListList.php', [
@@ -34,6 +36,7 @@ class MailingListController
             'paginatedResult' => $paginatedResult,
             'domains' => $domains,
             'filterDomain' => $domainFilter ?? '',
+            'statusFilter' => $statusFilter,
         ]);
     }
 

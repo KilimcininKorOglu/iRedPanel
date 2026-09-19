@@ -16,17 +16,22 @@ use App\Repositories\SqlAliasRename;
  */
 class PgsqlAliasRepository implements AliasRepositoryInterface
 {
-    public function getAliasesPaginated(int $page, int $perPage, ?string $domain = null): PaginatedResult
+    public function getAliasesPaginated(int $page, int $perPage, ?string $domain = null, ?bool $activeOnly = null): PaginatedResult
     {
         $pdo = PgsqlConnection::getInstance()->getPdo();
         $offset = ($page - 1) * $perPage;
 
-        $where = "";
+        $conditions = [];
         $params = [];
         if ($domain !== null) {
-            $where = "WHERE domain = :domain";
+            $conditions[] = 'domain = :domain';
             $params['domain'] = $domain;
         }
+        if ($activeOnly !== null) {
+            $conditions[] = 'active = :active';
+            $params['active'] = $activeOnly ? 1 : 0;
+        }
+        $where = $conditions === [] ? '' : 'WHERE ' . implode(' AND ', $conditions);
 
         $countStmt = $pdo->prepare("SELECT COUNT(*) AS total FROM alias {$where}");
         $countStmt->execute($params);

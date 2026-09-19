@@ -10,17 +10,22 @@ use App\Repositories\MailingListRepositoryInterface;
 
 class MysqlMailingListRepository implements MailingListRepositoryInterface
 {
-    public function getMailingListsPaginated(int $page, int $perPage, ?string $domain = null): PaginatedResult
+    public function getMailingListsPaginated(int $page, int $perPage, ?string $domain = null, ?bool $activeOnly = null): PaginatedResult
     {
         $pdo = MysqlConnection::getInstance()->getPdo();
         $offset = ($page - 1) * $perPage;
 
-        $where = "";
+        $conditions = [];
         $params = [];
         if ($domain !== null) {
-            $where = "WHERE domain = :domain";
+            $conditions[] = 'domain = :domain';
             $params['domain'] = $domain;
         }
+        if ($activeOnly !== null) {
+            $conditions[] = 'active = :active';
+            $params['active'] = $activeOnly ? 1 : 0;
+        }
+        $where = $conditions === [] ? '' : 'WHERE ' . implode(' AND ', $conditions);
 
         $countStmt = $pdo->prepare("SELECT COUNT(*) AS total FROM maillists {$where}");
         $countStmt->execute($params);

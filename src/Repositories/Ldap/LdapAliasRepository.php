@@ -21,7 +21,7 @@ class LdapAliasRepository implements AliasRepositoryInterface
 {
     private const ALIAS_ATTRS = ['mail', 'cn', 'accountStatus', 'accessPolicy'];
 
-    public function getAliasesPaginated(int $page, int $perPage, ?string $domain = null): PaginatedResult
+    public function getAliasesPaginated(int $page, int $perPage, ?string $domain = null, ?bool $activeOnly = null): PaginatedResult
     {
         $baseDn = $domain !== null
             ? 'ou=Aliases,' . LdapUtils::getDomainDn($domain)
@@ -29,7 +29,7 @@ class LdapAliasRepository implements AliasRepositoryInterface
 
         $items = array_map(
             static fn (array $entry): Alias => self::toAlias($entry),
-            self::searchEntries($baseDn, '(objectClass=mailAlias)', self::ALIAS_ATTRS)
+            self::searchEntries($baseDn, '(&(objectClass=mailAlias)' . LdapUtils::statusFilter($activeOnly) . ')', self::ALIAS_ATTRS)
         );
         usort($items, static fn (Alias $a, Alias $b): int => strcmp($a->address, $b->address));
 

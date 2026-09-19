@@ -9,7 +9,10 @@ use App\Models\PaginatedResult;
 
 interface AliasRepositoryInterface
 {
-    public function getAliasesPaginated(int $page, int $perPage, ?string $domain = null): PaginatedResult;
+    /**
+     * @param ?bool $activeOnly true for the active aliases, false for the disabled ones, null for all
+     */
+    public function getAliasesPaginated(int $page, int $perPage, ?string $domain = null, ?bool $activeOnly = null): PaginatedResult;
 
     public function getAlias(string $address): ?Alias;
 

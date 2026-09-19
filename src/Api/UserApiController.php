@@ -26,8 +26,16 @@ class UserApiController
         $page = max(1, (int) ($_GET['page'] ?? 1));
         $perPage = (int) ($_GET['perPage'] ?? 50);
 
-        $result = $repo->getUsersPaginated($domain, $page, $perPage);
-        ApiResponse::paginated($result, fn(User $u) => [
+        try {
+            $activeOnly = ApiInput::disabledOnly();
+            $emailOnly = ApiInput::queryFlag('emailOnly');
+        } catch (\InvalidArgumentException $e) {
+            ApiResponse::error($e->getMessage());
+            return;
+        }
+
+        $result = $repo->getUsersPaginated($domain, $page, $perPage, null, $activeOnly);
+        ApiResponse::paginated($result, fn(User $u) => $emailOnly ? "{$u->uid}@{$domain}" : [
             'uid' => $u->uid,
             'email' => $u->uid . '@' . $domain,
             'name' => $u->cn,

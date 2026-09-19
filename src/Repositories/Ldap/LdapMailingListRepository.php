@@ -24,7 +24,7 @@ class LdapMailingListRepository implements MailingListRepositoryInterface
 
     private const LIST_FILTER = '(&(objectClass=mailList)(enabledService=mlmmj))';
 
-    public function getMailingListsPaginated(int $page, int $perPage, ?string $domain = null): PaginatedResult
+    public function getMailingListsPaginated(int $page, int $perPage, ?string $domain = null, ?bool $activeOnly = null): PaginatedResult
     {
         $baseDn = $domain !== null
             ? 'ou=Groups,' . LdapUtils::getDomainDn($domain)
@@ -32,7 +32,7 @@ class LdapMailingListRepository implements MailingListRepositoryInterface
 
         $items = array_map(
             static fn (array $entry): MailingList => self::toMailingList($entry),
-            LdapUtils::searchEntries(self::conn(), $baseDn, self::LIST_FILTER, self::ATTRS)
+            LdapUtils::searchEntries(self::conn(), $baseDn, '(&' . self::LIST_FILTER . LdapUtils::statusFilter($activeOnly) . ')', self::ATTRS)
         );
         usort($items, static fn (MailingList $a, MailingList $b): int => strcmp($a->address, $b->address));
 

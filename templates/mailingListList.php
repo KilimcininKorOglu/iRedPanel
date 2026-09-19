@@ -2,7 +2,8 @@
 <div class="page-header">
   <h1><?= $te('mlist.list_title') ?></h1>
   <div class="page-actions">
-    <form method="get" action="/mailing-lists">
+    <form method="get" action="/mailing-lists" class="d-flex gap-2">
+      <?php include __DIR__ . '/statusSelect.php'; ?>
       <select name="domain" class="form-select" data-autosubmit aria-label="<?= $te('common.domain') ?>">
         <?php if (!empty($session['isGlobalAdmin'])): ?>
         <option value=""><?= $te('common.all_domains') ?></option>

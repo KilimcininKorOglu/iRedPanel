@@ -9,7 +9,10 @@ use App\Models\PaginatedResult;
 
 interface MailingListRepositoryInterface
 {
-    public function getMailingListsPaginated(int $page, int $perPage, ?string $domain = null): PaginatedResult;
+    /**
+     * @param ?bool $activeOnly true for the active lists, false for the disabled ones, null for all
+     */
+    public function getMailingListsPaginated(int $page, int $perPage, ?string $domain = null, ?bool $activeOnly = null): PaginatedResult;
 
     public function getMailingList(string $address): ?MailingList;
 

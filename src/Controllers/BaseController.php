@@ -143,6 +143,20 @@ class BaseController
     }
 
     /**
+     * The status filter of a list page (`?status=active` or `?status=disabled`).
+     *
+     * @return array{0: string, 1: ?bool} the filter value ('' for all) and the activeOnly argument of the repository
+     */
+    public static function statusFilter(): array
+    {
+        return match ($_GET['status'] ?? '') {
+            'active' => ['active', true],
+            'disabled' => ['disabled', false],
+            default => ['', null],
+        };
+    }
+
+    /**
      * The list page URL, with the domain filter of the posted list form.
      */
     public static function listUrl(string $path): string

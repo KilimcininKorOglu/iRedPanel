@@ -22,8 +22,16 @@ class AliasApiController
         $perPage = (int) ($_GET['perPage'] ?? 50);
         $domain = $_GET['domain'] ?? null;
 
-        $result = $repo->getAliasesPaginated($page, $perPage, $domain);
-        ApiResponse::paginated($result, fn(Alias $a) => [
+        try {
+            $activeOnly = ApiInput::disabledOnly();
+            $emailOnly = ApiInput::queryFlag('emailOnly');
+        } catch (\InvalidArgumentException $e) {
+            ApiResponse::error($e->getMessage());
+            return;
+        }
+
+        $result = $repo->getAliasesPaginated($page, $perPage, $domain, $activeOnly);
+        ApiResponse::paginated($result, fn(Alias $a) => $emailOnly ? $a->address : [
             'address' => $a->address,
             'domain' => $a->domain,
             'name' => $a->name,

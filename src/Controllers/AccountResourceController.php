@@ -105,6 +105,10 @@ class AccountResourceController
             BaseController::flashError(Translator::translate('resource.msg_running'));
         } elseif ($result->status() === AccountResource::STATUS_FAILED) {
             BaseController::flashError(Translator::translate('resource.msg_run_failed', ['reason' => $result->message()]));
+        } elseif ($result->heldBack > 0) {
+            BaseController::flashError(Translator::translate('resource.held_back', ['count' => $result->heldBack]));
+        } elseif ($result->status() === AccountResource::STATUS_PARTIAL) {
+            BaseController::flashError(Translator::translate('resource.msg_run_done', ['summary' => self::summary($result->counts)]));
         } else {
             BaseController::flashSuccess(Translator::translate('resource.msg_run_done', ['summary' => self::summary($result->counts)]));
         }

@@ -8,6 +8,7 @@ use App\Models\Domain;
 use App\Models\Settings;
 use App\Repositories\RepositoryFactory;
 use App\Services\DomainOwnershipService;
+use App\Services\MailingListService;
 
 class DomainApiController
 {
@@ -133,6 +134,7 @@ class DomainApiController
             return;
         }
 
+        MailingListService::deleteDomainLists($domain);
         $repo->deleteDomain($domain, 'api');
         ApiResponse::deleted();
     }

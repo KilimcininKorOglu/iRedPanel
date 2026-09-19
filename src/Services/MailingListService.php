@@ -77,6 +77,17 @@ class MailingListService
     }
 
     /**
+     * Deletes every list of a domain through delete(). Domain deletion calls it first,
+     * because the domain repository removes only the accounts and not the mlmmj spool.
+     */
+    public static function deleteDomainLists(string $domain): void
+    {
+        foreach (self::repo()->getMailingListsPaginated(1, PHP_INT_MAX, $domain)->items as $list) {
+            self::delete($list->address);
+        }
+    }
+
+    /**
      * @return string[]
      */
     public static function subscribers(string $address): array

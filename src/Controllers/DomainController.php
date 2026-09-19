@@ -14,6 +14,7 @@ use App\Models\Settings;
 use App\Repositories\RepositoryFactory;
 use App\Services\ActivityLogger;
 use App\Services\DomainOwnershipService;
+use App\Services\MailingListService;
 use App\TemplateEngine;
 
 class DomainController
@@ -283,6 +284,7 @@ class DomainController
         $done = BaseController::runBulk($selectedDomains, function (string $domainName) use ($domainRepo, $action, $adminEmail): void {
             $domainRepo->getDomain($domainName) ?? throw BaseController::itemNotFound();
             if ($action === 'delete') {
+                MailingListService::deleteDomainLists($domainName);
                 $domainRepo->deleteDomain($domainName, $adminEmail);
             } else {
                 $domainRepo->enableDisableDomain($domainName, $action === 'enable');
@@ -308,6 +310,7 @@ class DomainController
             $adminEmail = $_SESSION['email'] ?? '';
             $domainRepo = RepositoryFactory::getDomainRepository();
             $domainRepo->getDomain($domainName) ?? throw BaseController::itemNotFound();
+            MailingListService::deleteDomainLists($domainName);
             $domainRepo->deleteDomain($domainName, $adminEmail);
             ActivityLogger::logDelete($domainName, '', "Domain deleted: {$domainName}");
             BaseController::flashDeleted($domainName);

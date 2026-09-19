@@ -8,6 +8,7 @@ use App\Models\PaginatedResult;
 use App\Models\User;
 use App\Repositories\UserRepositoryInterface;
 use App\Utils\PasswordVerifier;
+use App\Utils\SqlLike;
 
 class MysqlUserRepository implements UserRepositoryInterface
 {
@@ -274,8 +275,8 @@ class MysqlUserRepository implements UserRepositoryInterface
         $params = ['domain' => $domain];
 
         if ($startsWith !== null && $startsWith !== '') {
-            $where .= " AND username LIKE :startsWith";
-            $params['startsWith'] = strtolower($startsWith) . "%@{$domain}";
+            $where .= " AND username LIKE :startsWith " . SqlLike::ESCAPE;
+            $params['startsWith'] = SqlLike::escape(strtolower($startsWith)) . '%@' . SqlLike::escape($domain);
         }
 
         if ($activeOnly === true) {

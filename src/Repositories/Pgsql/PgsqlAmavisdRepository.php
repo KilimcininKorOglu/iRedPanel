@@ -8,6 +8,7 @@ use App\Models\PaginatedResult;
 use App\Models\Settings;
 use App\Repositories\AmavisdRepositoryInterface;
 use App\Services\AmavisdReleaseClient;
+use App\Utils\SqlLike;
 
 class PgsqlAmavisdRepository implements AmavisdRepositoryInterface
 {
@@ -24,8 +25,9 @@ class PgsqlAmavisdRepository implements AmavisdRepositoryInterface
         $where = '1=1';
         $params = [];
         if ($domain !== null && $domain !== '') {
-            $where .= ' AND r.email LIKE :pattern';
-            $params['pattern'] = "%@{$domain}";
+            // The columns are bytea; convert_to keeps a backslash in the input a plain byte.
+            $where .= " AND r.email LIKE convert_to(:pattern, 'UTF8') " . SqlLike::ESCAPE;
+            $params['pattern'] = '%@' . SqlLike::escape($domain);
         }
 
         $countStmt = $pdo->prepare(
@@ -160,9 +162,10 @@ class PgsqlAmavisdRepository implements AmavisdRepositoryInterface
         $where = '1=1';
         $params = [];
         if ($email !== null && $email !== '') {
-            $where .= ' AND (m.from_addr LIKE :email OR r.email LIKE :email2)';
-            $params['email'] = "%{$email}%";
-            $params['email2'] = "%{$email}%";
+            $where .= " AND (m.from_addr LIKE convert_to(:email, 'UTF8') " . SqlLike::ESCAPE
+                . " OR r.email LIKE convert_to(:email2, 'UTF8') " . SqlLike::ESCAPE . ')';
+            $params['email'] = '%' . SqlLike::escape($email) . '%';
+            $params['email2'] = $params['email'];
         }
 
         $countStmt = $pdo->prepare(

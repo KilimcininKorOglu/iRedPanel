@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Repositories\Pgsql;
 
 use App\Repositories\SearchRepositoryInterface;
+use App\Utils\SqlLike;
 
 class PgsqlSearchRepository implements SearchRepositoryInterface
 {
@@ -15,7 +16,7 @@ class PgsqlSearchRepository implements SearchRepositoryInterface
     public function search(string $query, array $accountTypes = [], array $statusFilter = [], array $managedDomains = []): array
     {
         $pdo = PgsqlConnection::getInstance()->getPdo();
-        $likeQuery = '%' . $query . '%';
+        $likeQuery = '%' . SqlLike::escape($query) . '%';
         $searchAll = empty($accountTypes);
 
         $domainFilter = '';
@@ -70,7 +71,7 @@ class PgsqlSearchRepository implements SearchRepositoryInterface
         $conditions = [];
         $params = $domainParams;
         foreach ($searchCols as $i => $col) {
-            $conditions[] = "{$col} ILIKE :q{$i}";
+            $conditions[] = "{$col} ILIKE :q{$i} " . SqlLike::ESCAPE;
             $params["q{$i}"] = $like;
         }
         $where = '(' . implode(' OR ', $conditions) . ')' . $domainFilter;

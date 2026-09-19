@@ -254,13 +254,13 @@
     "hostname": "主机名",
     "uptime": "运行时间",
     "load": "负载",
-    "update_available": "iRedPanel v:version 已发布。已在 iRedMail :iredmail 上测试。",
+    "update_available": "iRedPanel v:version 已发布。兼容 iRedMail :iredmail。",
     "compat_view_all": "查看兼容性列表"
   },
   "compat": {
     "title": "iRedMail 兼容性",
     "installed": "已安装的 iRedPanel",
-    "tested": "已测试的 iRedMail 版本",
+    "compatible": "兼容的 iRedMail 版本",
     "backends": "后端",
     "not_listed": "兼容性列表中没有此 iRedPanel 版本的条目。",
     "released": "发布日期",
@@ -269,7 +269,7 @@
     "source_offline": "无法读取 GitHub。显示此 iRedPanel 版本附带的列表。",
     "source_local": "更新检查已关闭。显示此 iRedPanel 版本附带的列表。",
     "unavailable": "无法读取兼容性列表。请查看服务器日志。",
-    "intro": "每个 iRedPanel 版本经过测试的 iRedMail 版本。",
+    "intro": "每个 iRedPanel 版本兼容的 iRedMail 版本。",
     "installed_badge": "已安装"
   },
   "fail2ban": {

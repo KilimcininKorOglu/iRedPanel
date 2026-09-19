@@ -254,13 +254,13 @@
     "hostname": "Vélarnafn",
     "uptime": "Uppitími",
     "load": "Álag",
-    "update_available": "iRedPanel v:version er fáanlegt. Prófað með iRedMail :iredmail.",
+    "update_available": "iRedPanel v:version er fáanlegt. Samhæft við iRedMail :iredmail.",
     "compat_view_all": "Skoða samhæfnilistann"
   },
   "compat": {
     "title": "Samhæfni við iRedMail",
     "installed": "Uppsett iRedPanel",
-    "tested": "Prófaðar iRedMail-útgáfur",
+    "compatible": "Samhæfðar iRedMail-útgáfur",
     "backends": "Bakendar",
     "not_listed": "Samhæfnilistinn hefur enga færslu fyrir þessa iRedPanel-útgáfu.",
     "released": "Gefin út",
@@ -269,7 +269,7 @@
     "source_offline": "Ekki tókst að lesa GitHub. Listinn sem fylgir þessari iRedPanel-útgáfu er sýndur.",
     "source_local": "Slökkt er á uppfærsluathugun. Listinn sem fylgir þessari iRedPanel-útgáfu er sýndur.",
     "unavailable": "Ekki tókst að lesa samhæfnilistann. Sjá annál þjónsins.",
-    "intro": "iRedMail-útgáfurnar sem hver iRedPanel-útgáfa var prófuð með.",
+    "intro": "iRedMail-útgáfurnar sem hver iRedPanel-útgáfa er samhæfð við.",
     "installed_badge": "Uppsett"
   },
   "fail2ban": {

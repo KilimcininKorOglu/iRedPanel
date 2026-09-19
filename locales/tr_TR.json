@@ -254,13 +254,13 @@
     "hostname": "Ana Bilgisayar Adı",
     "uptime": "Çalışma Süresi",
     "load": "Yük",
-    "update_available": "iRedPanel v:version yayında. iRedMail :iredmail ile test edildi.",
+    "update_available": "iRedPanel v:version yayında. Uyumlu iRedMail sürümleri: :iredmail.",
     "compat_view_all": "Uyumluluk listesini görüntüle"
   },
   "compat": {
     "title": "iRedMail Uyumluluğu",
     "installed": "Kurulu iRedPanel",
-    "tested": "Test edilen iRedMail sürümleri",
+    "compatible": "Uyumlu iRedMail sürümleri",
     "backends": "Backend'ler",
     "not_listed": "Uyumluluk listesinde bu iRedPanel sürümü için kayıt yok.",
     "released": "Yayın tarihi",
@@ -269,7 +269,7 @@
     "source_offline": "GitHub okunamadı. Bu iRedPanel sürümüyle gelen liste gösteriliyor.",
     "source_local": "Güncelleme kontrolü kapalı. Bu iRedPanel sürümüyle gelen liste gösteriliyor.",
     "unavailable": "Uyumluluk listesi okunamadı. Sunucu log'una bakın.",
-    "intro": "Her iRedPanel sürümünün test edildiği iRedMail sürümleri.",
+    "intro": "Her iRedPanel sürümünün uyumlu olduğu iRedMail sürümleri.",
     "installed_badge": "Kurulu"
   },
   "fail2ban": {

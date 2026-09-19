@@ -254,13 +254,13 @@
     "hostname": "ชื่อโฮสต์",
     "uptime": "เวลาทำงาน",
     "load": "โหลด",
-    "update_available": "มี iRedPanel v:version แล้ว ทดสอบกับ iRedMail :iredmail",
+    "update_available": "มี iRedPanel v:version แล้ว เข้ากันได้กับ iRedMail :iredmail",
     "compat_view_all": "ดูรายการความเข้ากันได้"
   },
   "compat": {
     "title": "ความเข้ากันได้กับ iRedMail",
     "installed": "iRedPanel ที่ติดตั้ง",
-    "tested": "เวอร์ชัน iRedMail ที่ทดสอบแล้ว",
+    "compatible": "เวอร์ชัน iRedMail ที่เข้ากันได้",
     "backends": "Backend",
     "not_listed": "รายการความเข้ากันได้ไม่มีข้อมูลสำหรับ iRedPanel เวอร์ชันนี้",
     "released": "วันที่เผยแพร่",
@@ -269,7 +269,7 @@
     "source_offline": "อ่าน GitHub ไม่ได้ แสดงรายการที่มากับ iRedPanel เวอร์ชันนี้",
     "source_local": "ปิดการตรวจสอบอัปเดตอยู่ แสดงรายการที่มากับ iRedPanel เวอร์ชันนี้",
     "unavailable": "อ่านรายการความเข้ากันได้ไม่ได้ ดู log ของเซิร์ฟเวอร์",
-    "intro": "เวอร์ชัน iRedMail ที่ใช้ทดสอบ iRedPanel แต่ละเวอร์ชัน",
+    "intro": "เวอร์ชัน iRedMail ที่เข้ากันได้กับ iRedPanel แต่ละเวอร์ชัน",
     "installed_badge": "ติดตั้งแล้ว"
   },
   "fail2ban": {

@@ -12,7 +12,7 @@ use App\Utils\SystemInfo;
 class CompatibilityController
 {
     /**
-     * Lists every iRedPanel release with the iRedMail versions it was tested with.
+     * Lists every iRedPanel release with the iRedMail versions it is compatible with.
      */
     public static function view(TemplateEngine $tpl): void
     {

@@ -7,8 +7,8 @@ All notable changes to this project will be documented in this file.
 ### Added
 - Account pickers (Tom Select) on address fields: alias members and moderators, mailing list owners, moderators and subscribers, forwarding, BCC, catch-all, admin creation, and the Amavisd and iRedAPD account fields
 - `GET /ajax/accounts` session endpoint for the pickers, limited to the domains of a domain admin
-- `compatibility.json` lists the iRedMail versions that each iRedPanel release was tested with (1.0.2: iRedMail 1.7.4)
-- **System > iRedMail Compatibility** page (`/compatibility`) lists every release from `compatibility.json`; the dashboard shows the tested iRedMail versions of the installed release and a newer release with its iRedMail versions
+- `compatibility.json` lists the iRedMail versions that each iRedPanel release is compatible with (1.0.2: iRedMail 1.7.4, 1.8.0, 1.8.1, 1.8.2, 1.8.3, 1.8.4, 1.8.5, 1.8.6, 1.8.7, 1.8.8)
+- **System > iRedMail Compatibility** page (`/compatibility`) lists every release from `compatibility.json`; the dashboard shows the compatible iRedMail versions of the installed release and a newer release with its iRedMail versions
 - Installation guides for the OpenLDAP, MariaDB/MySQL and PostgreSQL backends in English and Turkish (`docs/install/`), each with a native and a Docker method
 
 ### Changed

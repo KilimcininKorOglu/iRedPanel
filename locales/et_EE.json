@@ -254,13 +254,13 @@
     "hostname": "Hostinimi",
     "uptime": "Tööaeg",
     "load": "Koormus",
-    "update_available": "Saadaval on iRedPanel v:version. Testitud iRedMail :iredmail versiooniga.",
+    "update_available": "Saadaval on iRedPanel v:version. Ühildub iRedMail :iredmail versiooniga.",
     "compat_view_all": "Kuva ühilduvusloend"
   },
   "compat": {
     "title": "iRedMaili ühilduvus",
     "installed": "Paigaldatud iRedPanel",
-    "tested": "Testitud iRedMaili versioonid",
+    "compatible": "Ühilduvad iRedMaili versioonid",
     "backends": "Taustsüsteemid",
     "not_listed": "Ühilduvusloendis pole selle iRedPaneli versiooni kirjet.",
     "released": "Avaldatud",
@@ -269,7 +269,7 @@
     "source_offline": "GitHubi ei õnnestunud lugeda. Näidatakse selle iRedPaneli versiooniga kaasas olevat loendit.",
     "source_local": "Uuenduste kontroll on välja lülitatud. Näidatakse selle iRedPaneli versiooniga kaasas olevat loendit.",
     "unavailable": "Ühilduvusloendit ei õnnestunud lugeda. Vaadake serveri logi.",
-    "intro": "iRedMaili versioonid, millega iga iRedPaneli versiooni on testitud.",
+    "intro": "iRedMaili versioonid, millega iga iRedPaneli versioon ühildub.",
     "installed_badge": "Paigaldatud"
   },
   "fail2ban": {

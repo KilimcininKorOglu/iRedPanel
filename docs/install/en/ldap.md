@@ -6,9 +6,9 @@ Other backends: [MariaDB/MySQL](mariadb.md), [PostgreSQL](postgresql.md). Turkis
 
 ## Compatibility
 
-| iRedPanel | Tested iRedMail version | Tested edition   |
-|-----------|-------------------------|------------------|
-| 1.0.2     | 1.7.4                   | OPENLDAP edition |
+| iRedPanel | Compatible iRedMail versions |
+|-----------|------------------------------|
+| 1.0.2     | 1.7.4, 1.8.0, 1.8.1, 1.8.2, 1.8.3, 1.8.4, 1.8.5, 1.8.6, 1.8.7, 1.8.8 |
 
 [`compatibility.json`](../../../compatibility.json) in the repository is the authoritative list. The dashboard and the **System > iRedMail Compatibility** page read it. Check the iRedMail version of your server:
 
@@ -298,7 +298,7 @@ Allow TCP from the panel address to ports `389`, `3306`, `7790` and `9998` in th
 
 ## First Login
 
-Open the panel URL and log in as a global admin. The iRedMail installer creates `postmaster@<first domain>` with `domainGlobalAdmin=yes`. The dashboard shows the domain, user and admin counts. **System > iRedMail Compatibility** shows the tested iRedMail versions of the installed release.
+Open the panel URL and log in as a global admin. The iRedMail installer creates `postmaster@<first domain>` with `domainGlobalAdmin=yes`. The dashboard shows the domain, user and admin counts. **System > iRedMail Compatibility** shows the compatible iRedMail versions of the installed release.
 
 If the page shows "Configuration error. Check server logs.", a required variable is missing or the `ldap` extension is not loaded. The PHP error log names the cause. If the page shows the backend error page, the panel cannot reach OpenLDAP.
 

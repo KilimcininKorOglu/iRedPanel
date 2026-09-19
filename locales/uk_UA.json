@@ -254,13 +254,13 @@
     "hostname": "Ім'я хоста",
     "uptime": "Час роботи",
     "load": "Навантаження",
-    "update_available": "Доступна iRedPanel v:version. Протестовано з iRedMail :iredmail.",
+    "update_available": "Доступна iRedPanel v:version. Сумісна з iRedMail :iredmail.",
     "compat_view_all": "Відкрити список сумісності"
   },
   "compat": {
     "title": "Сумісність з iRedMail",
     "installed": "Встановлена iRedPanel",
-    "tested": "Протестовані версії iRedMail",
+    "compatible": "Сумісні версії iRedMail",
     "backends": "Бекенди",
     "not_listed": "У списку сумісності немає запису для цієї версії iRedPanel.",
     "released": "Дата випуску",
@@ -269,7 +269,7 @@
     "source_offline": "Не вдалося прочитати GitHub. Показано список, що постачається з цією версією iRedPanel.",
     "source_local": "Перевірку оновлень вимкнено. Показано список, що постачається з цією версією iRedPanel.",
     "unavailable": "Не вдалося прочитати список сумісності. Дивіться журнал сервера.",
-    "intro": "Версії iRedMail, з якими протестовано кожен випуск iRedPanel.",
+    "intro": "Версії iRedMail, сумісні з кожним випуском iRedPanel.",
     "installed_badge": "Встановлена"
   },
   "fail2ban": {

@@ -254,13 +254,13 @@
     "hostname": "ホスト名",
     "uptime": "稼働時間",
     "load": "負荷",
-    "update_available": "iRedPanel v:version が利用可能です。iRedMail :iredmail でテスト済みです。",
+    "update_available": "iRedPanel v:version が利用可能です。iRedMail :iredmail と互換性があります。",
     "compat_view_all": "互換性リストを表示"
   },
   "compat": {
     "title": "iRedMail 互換性",
     "installed": "インストール済みの iRedPanel",
-    "tested": "テスト済みの iRedMail バージョン",
+    "compatible": "互換性のある iRedMail バージョン",
     "backends": "バックエンド",
     "not_listed": "互換性リストにこの iRedPanel バージョンの項目はありません。",
     "released": "リリース日",
@@ -269,7 +269,7 @@
     "source_offline": "GitHub を読み込めませんでした。この iRedPanel バージョンに同梱のリストを表示しています。",
     "source_local": "更新チェックは無効です。この iRedPanel バージョンに同梱のリストを表示しています。",
     "unavailable": "互換性リストを読み込めませんでした。サーバーログを確認してください。",
-    "intro": "各 iRedPanel リリースがテストされた iRedMail バージョンです。",
+    "intro": "各 iRedPanel リリースと互換性のある iRedMail バージョンです。",
     "installed_badge": "インストール済み"
   },
   "fail2ban": {

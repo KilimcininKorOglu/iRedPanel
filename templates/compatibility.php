@@ -22,7 +22,7 @@ $backendNames = ['ldap' => 'LDAP', 'mysql' => 'MySQL/MariaDB', 'pgsql' => 'Postg
       <thead>
         <tr>
           <th>iRedPanel</th>
-          <th><?= $te('compat.tested') ?></th>
+          <th><?= $te('compat.compatible') ?></th>
           <th><?= $te('compat.backends') ?></th>
           <th><?= $te('compat.released') ?></th>
         </tr>

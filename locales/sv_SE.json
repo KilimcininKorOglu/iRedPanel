@@ -254,13 +254,13 @@
     "hostname": "Värdnamn",
     "uptime": "Drifttid",
     "load": "Belastning",
-    "update_available": "iRedPanel v:version finns tillgänglig. Testad med iRedMail :iredmail.",
+    "update_available": "iRedPanel v:version finns tillgänglig. Kompatibel med iRedMail :iredmail.",
     "compat_view_all": "Visa kompatibilitetslistan"
   },
   "compat": {
     "title": "iRedMail-kompatibilitet",
     "installed": "Installerad iRedPanel",
-    "tested": "Testade iRedMail-versioner",
+    "compatible": "Kompatibla iRedMail-versioner",
     "backends": "Backends",
     "not_listed": "Kompatibilitetslistan har ingen post för denna iRedPanel-version.",
     "released": "Släppt",
@@ -269,7 +269,7 @@
     "source_offline": "GitHub kunde inte läsas. Listan som följer med denna iRedPanel-version visas.",
     "source_local": "Uppdateringskontrollen är avstängd. Listan som följer med denna iRedPanel-version visas.",
     "unavailable": "Kompatibilitetslistan kunde inte läsas. Se serverloggen.",
-    "intro": "De iRedMail-versioner som varje iRedPanel-version har testats med.",
+    "intro": "De iRedMail-versioner som varje iRedPanel-version är kompatibel med.",
     "installed_badge": "Installerad"
   },
   "fail2ban": {

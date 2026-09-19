@@ -254,13 +254,13 @@
     "hostname": "Nume gazdă",
     "uptime": "Timp de funcționare",
     "load": "Încărcare",
-    "update_available": "iRedPanel v:version este disponibil. Testat cu iRedMail :iredmail.",
+    "update_available": "iRedPanel v:version este disponibil. Compatibil cu iRedMail :iredmail.",
     "compat_view_all": "Vezi lista de compatibilitate"
   },
   "compat": {
     "title": "Compatibilitate iRedMail",
     "installed": "iRedPanel instalat",
-    "tested": "Versiuni iRedMail testate",
+    "compatible": "Versiuni iRedMail compatibile",
     "backends": "Backend-uri",
     "not_listed": "Lista de compatibilitate nu are nicio intrare pentru această versiune iRedPanel.",
     "released": "Lansată",
@@ -269,7 +269,7 @@
     "source_offline": "GitHub nu a putut fi citit. Este afișată lista livrată cu această versiune iRedPanel.",
     "source_local": "Verificarea actualizărilor este dezactivată. Este afișată lista livrată cu această versiune iRedPanel.",
     "unavailable": "Lista de compatibilitate nu a putut fi citită. Consultați log-ul serverului.",
-    "intro": "Versiunile iRedMail cu care a fost testată fiecare versiune iRedPanel.",
+    "intro": "Versiunile iRedMail compatibile cu fiecare versiune iRedPanel.",
     "installed_badge": "Instalată"
   },
   "fail2ban": {

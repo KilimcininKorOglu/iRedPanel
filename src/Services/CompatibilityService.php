@@ -7,7 +7,7 @@ namespace App\Services;
 use App\Models\Settings;
 
 /**
- * The iRedMail versions each iRedPanel release was tested with.
+ * The iRedMail versions each iRedPanel release is compatible with.
  *
  * The list is compatibility.json in the repository root. The dashboard reads the
  * copy on the main branch of GitHub, so an installed panel also sees releases that

@@ -254,13 +254,13 @@
     "hostname": "Όνομα κεντρικού υπολογιστή",
     "uptime": "Χρόνος λειτουργίας",
     "load": "Φόρτος",
-    "update_available": "Το iRedPanel v:version είναι διαθέσιμο. Δοκιμασμένο με iRedMail :iredmail.",
+    "update_available": "Το iRedPanel v:version είναι διαθέσιμο. Συμβατό με iRedMail :iredmail.",
     "compat_view_all": "Προβολή λίστας συμβατότητας"
   },
   "compat": {
     "title": "Συμβατότητα με iRedMail",
     "installed": "Εγκατεστημένο iRedPanel",
-    "tested": "Δοκιμασμένες εκδόσεις iRedMail",
+    "compatible": "Συμβατές εκδόσεις iRedMail",
     "backends": "Backends",
     "not_listed": "Η λίστα συμβατότητας δεν έχει εγγραφή για αυτή την έκδοση του iRedPanel.",
     "released": "Κυκλοφορία",
@@ -269,7 +269,7 @@
     "source_offline": "Δεν ήταν δυνατή η ανάγνωση του GitHub. Εμφανίζεται η λίστα που συνοδεύει αυτή την έκδοση του iRedPanel.",
     "source_local": "Ο έλεγχος ενημερώσεων είναι απενεργοποιημένος. Εμφανίζεται η λίστα που συνοδεύει αυτή την έκδοση του iRedPanel.",
     "unavailable": "Δεν ήταν δυνατή η ανάγνωση της λίστας συμβατότητας. Δείτε το log του διακομιστή.",
-    "intro": "Οι εκδόσεις iRedMail με τις οποίες δοκιμάστηκε κάθε έκδοση του iRedPanel.",
+    "intro": "Οι εκδόσεις iRedMail που είναι συμβατές με κάθε έκδοση του iRedPanel.",
     "installed_badge": "Εγκατεστημένη"
   },
   "fail2ban": {

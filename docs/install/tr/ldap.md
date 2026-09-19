@@ -6,9 +6,9 @@ Diğer backend'ler: [MariaDB/MySQL](mariadb.md), [PostgreSQL](postgresql.md). İ
 
 ## Uyumluluk
 
-| iRedPanel | Test edilen iRedMail sürümü | Test edilen sürüm türü |
-|-----------|-----------------------------|------------------------|
-| 1.0.2     | 1.7.4                       | OPENLDAP edition       |
+| iRedPanel | Uyumlu iRedMail sürümleri |
+|-----------|---------------------------|
+| 1.0.2     | 1.7.4, 1.8.0, 1.8.1, 1.8.2, 1.8.3, 1.8.4, 1.8.5, 1.8.6, 1.8.7, 1.8.8 |
 
 Geçerli liste, repodaki [`compatibility.json`](../../../compatibility.json) dosyasıdır. Dashboard ve **System > iRedMail Compatibility** sayfası bu dosyayı okur. Sunucunuzdaki iRedMail sürümünü kontrol edin:
 
@@ -298,7 +298,7 @@ Mail sunucusunun firewall'unda, panel adresinden `389`, `3306`, `7790` ve `9998`
 
 ## İlk Giriş
 
-Panel URL'ini açın ve bir global admin ile giriş yapın. iRedMail installer, `postmaster@<ilk domain>` hesabını `domainGlobalAdmin=yes` ile oluşturur. Dashboard domain, kullanıcı ve admin sayılarını gösterir. **System > iRedMail Compatibility** sayfası, kurulu sürümün test edildiği iRedMail sürümlerini gösterir.
+Panel URL'ini açın ve bir global admin ile giriş yapın. iRedMail installer, `postmaster@<ilk domain>` hesabını `domainGlobalAdmin=yes` ile oluşturur. Dashboard domain, kullanıcı ve admin sayılarını gösterir. **System > iRedMail Compatibility** sayfası, kurulu sürümün uyumlu olduğu iRedMail sürümlerini gösterir.
 
 Sayfa "Configuration error. Check server logs." mesajını gösterirse, gerekli bir değişken eksiktir veya `ldap` extension'ı yüklü değildir. Nedeni PHP error log'unda yazar. Sayfa backend hata sayfasını gösterirse, panel OpenLDAP'a bağlanamıyordur.
 

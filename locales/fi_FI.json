@@ -254,13 +254,13 @@
     "hostname": "Palvelimen nimi",
     "uptime": "Käyttöaika",
     "load": "Kuormitus",
-    "update_available": "iRedPanel v:version on saatavilla. Testattu iRedMail-versiolla :iredmail.",
+    "update_available": "iRedPanel v:version on saatavilla. Yhteensopiva iRedMail-version :iredmail kanssa.",
     "compat_view_all": "Näytä yhteensopivuuslista"
   },
   "compat": {
     "title": "iRedMail-yhteensopivuus",
     "installed": "Asennettu iRedPanel",
-    "tested": "Testatut iRedMail-versiot",
+    "compatible": "Yhteensopivat iRedMail-versiot",
     "backends": "Taustajärjestelmät",
     "not_listed": "Yhteensopivuuslistassa ei ole merkintää tälle iRedPanel-versiolle.",
     "released": "Julkaistu",
@@ -269,7 +269,7 @@
     "source_offline": "GitHubia ei voitu lukea. Näytetään tämän iRedPanel-version mukana tullut lista.",
     "source_local": "Päivitysten tarkistus on pois käytöstä. Näytetään tämän iRedPanel-version mukana tullut lista.",
     "unavailable": "Yhteensopivuuslistaa ei voitu lukea. Katso palvelimen loki.",
-    "intro": "iRedMail-versiot, joilla kukin iRedPanel-versio on testattu.",
+    "intro": "iRedMail-versiot, joiden kanssa kukin iRedPanel-versio on yhteensopiva.",
     "installed_badge": "Asennettu"
   },
   "fail2ban": {

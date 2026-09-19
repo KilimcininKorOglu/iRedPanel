@@ -11,7 +11,7 @@ $current = $compatibility['current'] ?? null;
     <dl class="row mb-0">
       <dt class="col-md-4 text-body-secondary fw-normal"><?= $te('compat.installed') ?></dt>
       <dd class="col-md-8">v<?= $e($systemInfo['iredpanelVersion']) ?></dd>
-      <dt class="col-md-4 text-body-secondary fw-normal"><?= $te('compat.tested') ?></dt>
+      <dt class="col-md-4 text-body-secondary fw-normal"><?= $te('compat.compatible') ?></dt>
       <dd class="col-md-8 mb-0">
         <?php if ($current !== null): ?>
         <?php foreach ($current['iredmail'] as $version): ?>

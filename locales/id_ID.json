@@ -254,13 +254,13 @@
     "hostname": "Nama host",
     "uptime": "Waktu aktif",
     "load": "Beban",
-    "update_available": "iRedPanel v:version tersedia. Diuji dengan iRedMail :iredmail.",
+    "update_available": "iRedPanel v:version tersedia. Kompatibel dengan iRedMail :iredmail.",
     "compat_view_all": "Lihat daftar kompatibilitas"
   },
   "compat": {
     "title": "Kompatibilitas iRedMail",
     "installed": "iRedPanel terpasang",
-    "tested": "Versi iRedMail yang diuji",
+    "compatible": "Versi iRedMail yang kompatibel",
     "backends": "Backend",
     "not_listed": "Daftar kompatibilitas tidak memiliki entri untuk versi iRedPanel ini.",
     "released": "Dirilis",
@@ -269,7 +269,7 @@
     "source_offline": "GitHub tidak dapat dibaca. Daftar yang disertakan dengan versi iRedPanel ini ditampilkan.",
     "source_local": "Pemeriksaan pembaruan dinonaktifkan. Daftar yang disertakan dengan versi iRedPanel ini ditampilkan.",
     "unavailable": "Daftar kompatibilitas tidak dapat dibaca. Lihat log server.",
-    "intro": "Versi iRedMail yang digunakan untuk menguji setiap versi iRedPanel.",
+    "intro": "Versi iRedMail yang kompatibel dengan setiap versi iRedPanel.",
     "installed_badge": "Terpasang"
   },
   "fail2ban": {

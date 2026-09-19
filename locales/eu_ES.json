@@ -254,13 +254,13 @@
     "hostname": "Ostalari-izena",
     "uptime": "Martxan denbora",
     "load": "Karga",
-    "update_available": "iRedPanel v:version eskuragarri dago. iRedMail :iredmail bertsioarekin probatua.",
+    "update_available": "iRedPanel v:version eskuragarri dago. iRedMail :iredmail bertsioarekin bateragarria.",
     "compat_view_all": "Ikusi bateragarritasun zerrenda"
   },
   "compat": {
     "title": "iRedMail bateragarritasuna",
     "installed": "Instalatutako iRedPanel",
-    "tested": "Probatutako iRedMail bertsioak",
+    "compatible": "iRedMail bertsio bateragarriak",
     "backends": "Backendak",
     "not_listed": "Bateragarritasun zerrendak ez du sarrerarik iRedPanel bertsio honetarako.",
     "released": "Argitaratua",
@@ -269,7 +269,7 @@
     "source_offline": "Ezin izan da GitHub irakurri. iRedPanel bertsio honekin datorren zerrenda erakusten da.",
     "source_local": "Eguneratzeen egiaztapena desgaituta dago. iRedPanel bertsio honekin datorren zerrenda erakusten da.",
     "unavailable": "Ezin izan da bateragarritasun zerrenda irakurri. Ikusi zerbitzariaren loga.",
-    "intro": "iRedPanel bertsio bakoitza probatu den iRedMail bertsioak.",
+    "intro": "iRedPanel bertsio bakoitzarekin bateragarriak diren iRedMail bertsioak.",
     "installed_badge": "Instalatua"
   },
   "fail2ban": {

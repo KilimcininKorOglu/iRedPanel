@@ -10,7 +10,7 @@ The application is vanilla PHP 8.1+ with no framework, no ORM and no template en
 |------------|------------------------------------------------------|
 | Package    | `kilimcininkoroglu/iredpanel`                        |
 | Version    | `1.0.2`                                              |
-| iRedMail   | Tested with `1.7.4`                                  |
+| iRedMail   | Compatible with `1.7.4` and `1.8.0` to `1.8.8`       |
 | Repository | `https://github.com/KilimcininKorOglu/iRedPanel.git` |
 | License    | MIT                                                  |
 
@@ -44,14 +44,14 @@ With the LDAP backend, mail accounts live in LDAP, and the iRedAdmin, Amavisd an
 
 ## iRedMail Compatibility
 
-| iRedPanel | Tested iRedMail versions | Backends                         | Released   |
-|-----------|--------------------------|----------------------------------|------------|
-| 1.0.2     | 1.7.4                    | OpenLDAP, MySQL/MariaDB, PostgreSQL | 2026-07-26 |
+| iRedPanel | Compatible iRedMail versions | Backends | Released |
+|-----------|------------------------------|----------|----------|
+| 1.0.2     | 1.7.4, 1.8.0, 1.8.1, 1.8.2, 1.8.3, 1.8.4, 1.8.5, 1.8.6, 1.8.7, 1.8.8 | OpenLDAP, MySQL/MariaDB, PostgreSQL | 2026-07-26 |
 
-[`compatibility.json`](compatibility.json) is the source of this table. It maps every iRedPanel release to the iRedMail versions that the project tested it with. A version enters the list only after a test.
+[`compatibility.json`](compatibility.json) is the source of this table. It maps every iRedPanel release to the iRedMail versions that it is compatible with. The panel runs on the iRedMail 1.7.4 test stacks. A later iRedMail version enters the list after its ChangeLog, its upgrade guide on docs.iredmail.org and its schema files (`vmail`, `iredadmin`, `amavisd`, `iredapd` and the LDAP schema), including the bundled iRedAdmin, iRedAPD and mlmmjadmin releases, show no change that the panel depends on. The first iRedMail version with such a change needs a new iRedPanel release.
 
 - The panel reads the copy on the `main` branch of GitHub, so an installed panel also sees newer releases. It caches the download for 24 hours. When GitHub cannot be read, or `CHECK_UPDATES=false`, it uses the copy bundled with the installed version.
-- **System > iRedMail Compatibility** (`/compatibility`, global admin) lists every release and marks the installed one. The dashboard shows the tested iRedMail versions of the installed release, and an alert when a newer release exists.
+- **System > iRedMail Compatibility** (`/compatibility`, global admin) lists every release and marks the installed one. The dashboard shows the compatible iRedMail versions of the installed release, and an alert when a newer release exists.
 - The panel does not detect the iRedMail version of the server. Compare it with the list yourself (`cat /etc/iredmail-release` on the mail server).
 - Upgrade order: upgrade iRedMail first, then install the iRedPanel release that lists the new iRedMail version.
 
@@ -382,7 +382,7 @@ server {
 - Domain, user and admin counts with active and disabled totals
 - Allocated and used quota, and stored message count
 - System information: hostname, uptime, load, PHP and panel versions
-- Tested iRedMail versions of the installed release, and an alert for a newer release (see [iRedMail Compatibility](#iredmail-compatibility))
+- Compatible iRedMail versions of the installed release, and an alert for a newer release (see [iRedMail Compatibility](#iredmail-compatibility))
 
 ### Activity Log
 - Admin operations are logged to the `log` table of the iRedAdmin database
@@ -586,7 +586,7 @@ Dockerfile                     dev and prod images (PHP 8.4 + Apache)
 docker-compose.dev.yml         Development container (127.0.0.1:8521)
 docker-compose.prod.yml        Production container (127.0.0.1:8522)
 .env.example                   Environment variable template
-compatibility.json             Tested iRedMail versions per iRedPanel release
+compatibility.json             Compatible iRedMail versions per iRedPanel release
 cli/                           CLI tools and cron scripts (cli/bootstrap.php loads the environment)
 docs/install/                  Installation guides per backend (en, tr)
 docs/screenshots/              README images

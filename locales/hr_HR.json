@@ -254,13 +254,13 @@
     "hostname": "Naziv računala",
     "uptime": "Vrijeme rada",
     "load": "Opterećenje",
-    "update_available": "Dostupan je iRedPanel v:version. Testirano s iRedMail :iredmail.",
+    "update_available": "Dostupan je iRedPanel v:version. Kompatibilno s iRedMail :iredmail.",
     "compat_view_all": "Prikaži popis kompatibilnosti"
   },
   "compat": {
     "title": "Kompatibilnost s iRedMail",
     "installed": "Instalirani iRedPanel",
-    "tested": "Testirane verzije iRedMail",
+    "compatible": "Kompatibilne verzije iRedMail",
     "backends": "Backendi",
     "not_listed": "Popis kompatibilnosti nema zapis za ovu verziju iRedPanel.",
     "released": "Objavljeno",
@@ -269,7 +269,7 @@
     "source_offline": "GitHub nije moguće pročitati. Prikazan je popis isporučen s ovom verzijom iRedPanel.",
     "source_local": "Provjera ažuriranja je isključena. Prikazan je popis isporučen s ovom verzijom iRedPanel.",
     "unavailable": "Popis kompatibilnosti nije moguće pročitati. Pogledajte zapisnik poslužitelja.",
-    "intro": "Verzije iRedMail s kojima je testirana svaka verzija iRedPanel.",
+    "intro": "Verzije iRedMail s kojima je kompatibilna svaka verzija iRedPanel.",
     "installed_badge": "Instalirano"
   },
   "fail2ban": {

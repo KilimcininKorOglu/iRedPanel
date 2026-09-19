@@ -254,13 +254,13 @@
     "hostname": "Gazdanév",
     "uptime": "Üzemidő",
     "load": "Terhelés",
-    "update_available": "Elérhető az iRedPanel v:version. Tesztelve: iRedMail :iredmail.",
+    "update_available": "Elérhető az iRedPanel v:version. Kompatibilis: iRedMail :iredmail.",
     "compat_view_all": "Kompatibilitási lista megtekintése"
   },
   "compat": {
     "title": "iRedMail-kompatibilitás",
     "installed": "Telepített iRedPanel",
-    "tested": "Tesztelt iRedMail-verziók",
+    "compatible": "Kompatibilis iRedMail-verziók",
     "backends": "Backendek",
     "not_listed": "A kompatibilitási listában nincs bejegyzés ehhez az iRedPanel-verzióhoz.",
     "released": "Kiadva",
@@ -269,7 +269,7 @@
     "source_offline": "A GitHub nem olvasható. Az ezzel az iRedPanel-verzióval szállított lista látható.",
     "source_local": "A frissítés-ellenőrzés ki van kapcsolva. Az ezzel az iRedPanel-verzióval szállított lista látható.",
     "unavailable": "A kompatibilitási lista nem olvasható. Lásd a szerver naplóját.",
-    "intro": "Az iRedMail-verziók, amelyekkel az egyes iRedPanel-verziókat tesztelték.",
+    "intro": "Az iRedMail-verziók, amelyekkel az egyes iRedPanel-verziók kompatibilisek.",
     "installed_badge": "Telepítve"
   },
   "fail2ban": {

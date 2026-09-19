@@ -254,13 +254,13 @@
     "hostname": "Hostname",
     "uptime": "Betriebszeit",
     "load": "Auslastung",
-    "update_available": "iRedPanel v:version ist verfügbar. Getestet mit iRedMail :iredmail.",
+    "update_available": "iRedPanel v:version ist verfügbar. Kompatibel mit iRedMail :iredmail.",
     "compat_view_all": "Kompatibilitätsliste anzeigen"
   },
   "compat": {
     "title": "iRedMail-Kompatibilität",
     "installed": "Installiertes iRedPanel",
-    "tested": "Getestete iRedMail-Versionen",
+    "compatible": "Kompatible iRedMail-Versionen",
     "backends": "Backends",
     "not_listed": "Die Kompatibilitätsliste enthält keinen Eintrag für diese iRedPanel-Version.",
     "released": "Veröffentlicht",
@@ -269,7 +269,7 @@
     "source_offline": "GitHub konnte nicht gelesen werden. Die mit dieser iRedPanel-Version gelieferte Liste wird angezeigt.",
     "source_local": "Die Update-Prüfung ist deaktiviert. Die mit dieser iRedPanel-Version gelieferte Liste wird angezeigt.",
     "unavailable": "Die Kompatibilitätsliste konnte nicht gelesen werden. Siehe Server-Log.",
-    "intro": "Die iRedMail-Versionen, mit denen jede iRedPanel-Version getestet wurde.",
+    "intro": "Die iRedMail-Versionen, mit denen jede iRedPanel-Version kompatibel ist.",
     "installed_badge": "Installiert"
   },
   "fail2ban": {

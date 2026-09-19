@@ -254,13 +254,13 @@
     "hostname": "Název hostitele",
     "uptime": "Doba provozu",
     "load": "Zatížení",
-    "update_available": "K dispozici je iRedPanel v:version. Testováno s iRedMail :iredmail.",
+    "update_available": "K dispozici je iRedPanel v:version. Kompatibilní s iRedMail :iredmail.",
     "compat_view_all": "Zobrazit seznam kompatibility"
   },
   "compat": {
     "title": "Kompatibilita s iRedMail",
     "installed": "Nainstalovaný iRedPanel",
-    "tested": "Testované verze iRedMail",
+    "compatible": "Kompatibilní verze iRedMail",
     "backends": "Backendy",
     "not_listed": "Seznam kompatibility nemá záznam pro tuto verzi iRedPanel.",
     "released": "Vydáno",
@@ -269,7 +269,7 @@
     "source_offline": "GitHub nelze načíst. Zobrazuje se seznam dodaný s touto verzí iRedPanel.",
     "source_local": "Kontrola aktualizací je vypnutá. Zobrazuje se seznam dodaný s touto verzí iRedPanel.",
     "unavailable": "Seznam kompatibility nelze načíst. Viz log serveru.",
-    "intro": "Verze iRedMail, se kterými byla testována každá verze iRedPanel.",
+    "intro": "Verze iRedMail, se kterými je každá verze iRedPanel kompatibilní.",
     "installed_badge": "Nainstalováno"
   },
   "fail2ban": {

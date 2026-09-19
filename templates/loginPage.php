@@ -1,34 +1,35 @@
-<?php $pageTitle = $t('auth.title'); ?>
-<div class="login_form__container">
-  <div class="card login_form__form">
-    <header>
-      <h4><?= $te('auth.title') ?></h4>
-    </header>
-    <form method="post">
-      <?= $csrfField ?>
+<?php
+$pageTitle = $t('auth.title');
+$fieldClass = !empty($error) ? 'form-control is-invalid' : 'form-control';
+?>
+<div class="guest-card">
+  <div class="app-brand"><img src="<?= $e($brand['logoUrl'] ?? '/static/logo-iredmail.png') ?>" alt="" /> <?= $e($brand['name'] ?? 'iRedPanel') ?></div>
+  <div class="card">
+    <div class="card-body p-4">
+      <h1 class="h4 mb-4"><?= $te('auth.title') ?></h1>
       <?php if (!empty($error)): ?>
-      <p class="text-error"><?= $e($error) ?></p>
+      <div class="alert alert-danger"><?= $e($error) ?></div>
       <?php endif; ?>
       <?php if (!empty($notice)): ?>
-      <p class="text-grey"><?= $e($notice) ?></p>
+      <div class="alert alert-secondary"><?= $e($notice) ?></div>
       <?php endif; ?>
       <?php if (($failedAttempts ?? 0) > 0): ?>
-      <p class="text-error"><?= $te('auth.failed_attempts', ['count' => (int) $failedAttempts]) ?></p>
+      <div class="alert alert-warning"><?= $te('auth.failed_attempts', ['count' => (int) $failedAttempts]) ?></div>
       <?php endif; ?>
 
-      <input type="hidden" name="next" value="<?= $e($next) ?>" />
-
-      <p>
-        <label for="input__text"><?= $te('auth.email') ?></label>
-        <input id="input__text" type="text" name="email" value="<?= $e($email ?? '') ?>"
-          <?php if (!empty($error)): ?>class="error"<?php endif; ?> placeholder="<?= $te('auth.email_placeholder') ?>" />
-      </p>
-      <p>
-        <label for="input__password"><?= $te('auth.password') ?></label>
-        <input id="input__password" type="password" name="password"
-          <?php if (!empty($error)): ?>class="error"<?php endif; ?> placeholder="<?= $te('auth.password_placeholder') ?>" />
-      </p>
-      <p><button type="submit"><?= $te('auth.sign_in') ?></button></p>
-    </form>
+      <form method="post">
+        <?= $csrfField ?>
+        <input type="hidden" name="next" value="<?= $e($next) ?>" />
+        <div class="mb-3">
+          <label for="input__text" class="form-label"><?= $te('auth.email') ?></label>
+          <input id="input__text" type="text" name="email" class="<?= $fieldClass ?>" value="<?= $e($email ?? '') ?>" placeholder="<?= $te('auth.email_placeholder') ?>" autocomplete="username" autofocus />
+        </div>
+        <div class="mb-4">
+          <label for="input__password" class="form-label"><?= $te('auth.password') ?></label>
+          <input id="input__password" type="password" name="password" class="<?= $fieldClass ?>" placeholder="<?= $te('auth.password_placeholder') ?>" autocomplete="current-password" />
+        </div>
+        <button type="submit" class="btn btn-primary w-100"><i class="bi bi-box-arrow-in-right me-1"></i><?= $te('auth.sign_in') ?></button>
+      </form>
+    </div>
   </div>
 </div>

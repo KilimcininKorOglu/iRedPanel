@@ -2,7 +2,7 @@
 
 A full-featured PHP web application for managing [iRedMail](https://www.iredmail.org/) mail servers. Supports OpenLDAP, MySQL/MariaDB, and PostgreSQL backends with optional Amavisd, Fail2ban, and iRedAPD integrations. Includes a REST API, mail alias and mailing list management, spam policy control, a 40-language UI, and role-based admin access.
 
-Built with vanilla PHP 8.1+ -- no framework, no ORM, no template engine dependency. Uses `vlucas/phpdotenv` for environment configuration and the Chota CSS framework for UI.
+Built with vanilla PHP 8.1+ -- no framework, no ORM, no template engine dependency. Uses `vlucas/phpdotenv` for environment configuration and vendored Bootstrap 5.3, Bootstrap Icons, SweetAlert2 and Tom Select for the UI.
 
 | Project    | Value                                                |
 |------------|------------------------------------------------------|
@@ -563,7 +563,7 @@ cli/
 public/
   index.php                            Front controller (110 routes)
   .htaccess                            Apache URL rewrite rules
-  static/                              Chota CSS framework, custom styles, logo
+  static/                              Vendored UI libraries, dark theme styles, app.js, logo
 src/
   bootstrap.php                        Autoloading, dotenv, session, extension check
   Router.php                           Regex-based URL router (GET/POST/PUT/DELETE)

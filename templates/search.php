@@ -1,128 +1,148 @@
-<?php $pageTitle = $t('search.title'); ?>
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <h1><?= $te('search.title') ?></h1>
+<?php
+$pageTitle = $t('search.title');
+$typeOptions = [
+    'domain' => $t('domain.list_title'),
+    'user' => $t('user.list_title'),
+    'alias' => $t('search.type_aliases'),
+    'ml' => $t('mlist.list_title'),
+    'admin' => $t('admin.list_title'),
+];
+$status = fn (array $row): string => $localize(($row['active'] ?? 1) ? 'active' : 'disabled');
+?>
+<div class="page-header">
+  <h1><?= $te('search.title') ?></h1>
+</div>
 
-      <form method="get" action="/search">
-        <div class="row">
-          <div class="col-6">
-            <input type="text" name="q" value="<?= $e($query) ?>" placeholder="<?= $te('search.placeholder') ?>" autofocus />
-          </div>
-          <div class="col-3">
-            <select name="accountType[]" multiple>
-              <option value=""><?= $te('search.all_types') ?></option>
-              <option value="domain" <?= in_array('domain', $accountTypes) ? 'selected' : '' ?>><?= $te('domain.list_title') ?></option>
-              <option value="user" <?= in_array('user', $accountTypes) ? 'selected' : '' ?>><?= $te('user.list_title') ?></option>
-              <option value="alias" <?= in_array('alias', $accountTypes) ? 'selected' : '' ?>><?= $te('search.type_aliases') ?></option>
-              <option value="ml" <?= in_array('ml', $accountTypes) ? 'selected' : '' ?>><?= $te('mlist.list_title') ?></option>
-              <option value="admin" <?= in_array('admin', $accountTypes) ? 'selected' : '' ?>><?= $te('admin.list_title') ?></option>
-            </select>
-          </div>
-          <div class="col-3">
-            <button type="submit" class="button primary"><?= $te('search.title') ?></button>
-          </div>
-        </div>
-      </form>
-
-      <?php if ($results !== null): ?>
-
-      <?php
-        $totalResults = count($results['domains'] ?? []) + count($results['users'] ?? [])
-          + count($results['aliases'] ?? []) + count($results['mailingLists'] ?? [])
-          + count($results['admins'] ?? []);
-      ?>
-      <p class="text-light"><?= $te('search.results_for', ['count' => $totalResults, 'query' => $query]) ?></p>
-
-      <?php if (!empty($results['domains'])): ?>
-      <h3><?= $te('domain.list_title') ?> (<?= count($results['domains']) ?>)</h3>
-      <table class="striped">
-        <thead><tr><th><?= $te('common.domain') ?></th><th><?= $te('common.description') ?></th><th><?= $te('common.status') ?></th></tr></thead>
-        <tbody>
-          <?php foreach ($results['domains'] as $d): ?>
-          <tr>
-            <td><a href="/domains/<?= $e($d['domain']) ?>/edit"><?= $e($d['domain']) ?></a></td>
-            <td><?= $e($d['description'] ?? '') ?></td>
-            <td><?= $localize(($d['active'] ?? 1) ? 'active' : 'disabled') ?></td>
-          </tr>
-          <?php endforeach; ?>
-        </tbody>
-      </table>
-      <?php endif; ?>
-
-      <?php if (!empty($results['users'])): ?>
-      <h3><?= $te('user.list_title') ?> (<?= count($results['users']) ?>)</h3>
-      <table class="striped">
-        <thead><tr><th><?= $te('common.email') ?></th><th><?= $te('common.name') ?></th><th><?= $te('common.domain') ?></th><th><?= $te('common.status') ?></th></tr></thead>
-        <tbody>
-          <?php foreach ($results['users'] as $u): ?>
-          <?php $uid = str_contains($u['username'], '@') ? explode('@', $u['username'])[0] : $u['username']; ?>
-          <tr>
-            <td><a href="/<?= $e($u['domain']) ?>/users/<?= $e($uid) ?>/general"><?= $e($u['username']) ?></a></td>
-            <td><?= $e($u['name'] ?? '') ?></td>
-            <td><?= $e($u['domain'] ?? '') ?></td>
-            <td><?= $localize(($u['active'] ?? 1) ? 'active' : 'disabled') ?></td>
-          </tr>
-          <?php endforeach; ?>
-        </tbody>
-      </table>
-      <?php endif; ?>
-
-      <?php if (!empty($results['aliases'])): ?>
-      <h3><?= $te('search.type_aliases') ?> (<?= count($results['aliases']) ?>)</h3>
-      <table class="striped">
-        <thead><tr><th><?= $te('common.address') ?></th><th><?= $te('common.name') ?></th><th><?= $te('common.domain') ?></th><th><?= $te('common.status') ?></th></tr></thead>
-        <tbody>
-          <?php foreach ($results['aliases'] as $a): ?>
-          <tr>
-            <td><a href="/aliases/<?= $e($a['address']) ?>"><?= $e($a['address']) ?></a></td>
-            <td><?= $e($a['name'] ?? '') ?></td>
-            <td><?= $e($a['domain'] ?? '') ?></td>
-            <td><?= $localize(($a['active'] ?? 1) ? 'active' : 'disabled') ?></td>
-          </tr>
-          <?php endforeach; ?>
-        </tbody>
-      </table>
-      <?php endif; ?>
-
-      <?php if (!empty($results['mailingLists'])): ?>
-      <h3><?= $te('mlist.list_title') ?> (<?= count($results['mailingLists']) ?>)</h3>
-      <table class="striped">
-        <thead><tr><th><?= $te('common.address') ?></th><th><?= $te('common.name') ?></th><th><?= $te('common.domain') ?></th><th><?= $te('common.status') ?></th></tr></thead>
-        <tbody>
-          <?php foreach ($results['mailingLists'] as $ml): ?>
-          <tr>
-            <td><a href="/mailing-lists/<?= $e($ml['address']) ?>"><?= $e($ml['address']) ?></a></td>
-            <td><?= $e($ml['name'] ?? '') ?></td>
-            <td><?= $e($ml['domain'] ?? '') ?></td>
-            <td><?= $localize(($ml['active'] ?? 1) ? 'active' : 'disabled') ?></td>
-          </tr>
-          <?php endforeach; ?>
-        </tbody>
-      </table>
-      <?php endif; ?>
-
-      <?php if (!empty($results['admins'])): ?>
-      <h3><?= $te('admin.list_title') ?> (<?= count($results['admins']) ?>)</h3>
-      <table class="striped">
-        <thead><tr><th><?= $te('common.email') ?></th><th><?= $te('common.name') ?></th><th><?= $te('common.status') ?></th></tr></thead>
-        <tbody>
-          <?php foreach ($results['admins'] as $adm): ?>
-          <tr>
-            <td><a href="/admins/<?= $e($adm['username']) ?>/general"><?= $e($adm['username']) ?></a></td>
-            <td><?= $e($adm['name'] ?? '') ?></td>
-            <td><?= $localize(($adm['active'] ?? 1) ? 'active' : 'disabled') ?></td>
-          </tr>
-          <?php endforeach; ?>
-        </tbody>
-      </table>
-      <?php endif; ?>
-
-      <?php if ($totalResults === 0): ?>
-      <p class="text-light"><?= $te('common.no_results') ?></p>
-      <?php endif; ?>
-
-      <?php endif; ?>
+<form method="get" action="/search" class="card">
+  <div class="card-body">
+    <div class="input-group mb-3">
+      <span class="input-group-text"><i class="bi bi-search"></i></span>
+      <input type="text" name="q" class="form-control" value="<?= $e($query) ?>" placeholder="<?= $te('search.placeholder') ?>" autofocus aria-label="<?= $te('search.title') ?>" />
+      <button type="submit" class="btn btn-primary"><?= $te('search.title') ?></button>
+    </div>
+    <div class="d-flex flex-wrap gap-2 align-items-center">
+      <span class="small text-body-secondary me-1" title="<?= $te('search.all_types') ?>"><?= $te('common.type') ?>:</span>
+      <?php foreach ($typeOptions as $value => $label): ?>
+      <input type="checkbox" class="btn-check" name="accountType[]" value="<?= $value ?>" id="type-<?= $value ?>" autocomplete="off"<?= in_array($value, $accountTypes, true) ? ' checked' : '' ?> />
+      <label class="btn btn-sm btn-outline-secondary" for="type-<?= $value ?>"><?= $e($label) ?></label>
+      <?php endforeach; ?>
     </div>
   </div>
+</form>
+
+<?php if ($results !== null): ?>
+<?php
+  $totalResults = count($results['domains'] ?? []) + count($results['users'] ?? [])
+    + count($results['aliases'] ?? []) + count($results['mailingLists'] ?? [])
+    + count($results['admins'] ?? []);
+?>
+<p class="text-body-secondary"><?= $te('search.results_for', ['count' => $totalResults, 'query' => $query]) ?></p>
+
+<?php if (!empty($results['domains'])): ?>
+<div class="card">
+  <div class="card-header"><?= $te('domain.list_title') ?> <span class="badge text-bg-secondary"><?= count($results['domains']) ?></span></div>
+  <div class="table-responsive">
+    <table class="table table-striped table-hover">
+      <thead><tr><th><?= $te('common.domain') ?></th><th><?= $te('common.description') ?></th><th><?= $te('common.status') ?></th></tr></thead>
+      <tbody>
+        <?php foreach ($results['domains'] as $d): ?>
+        <tr>
+          <td><a href="/domains/<?= $e($d['domain']) ?>/edit" class="fw-medium"><?= $e($d['domain']) ?></a></td>
+          <td><?= $e($d['description'] ?? '') ?></td>
+          <td><?= $status($d) ?></td>
+        </tr>
+        <?php endforeach; ?>
+      </tbody>
+    </table>
+  </div>
 </div>
+<?php endif; ?>
+
+<?php if (!empty($results['users'])): ?>
+<div class="card">
+  <div class="card-header"><?= $te('user.list_title') ?> <span class="badge text-bg-secondary"><?= count($results['users']) ?></span></div>
+  <div class="table-responsive">
+    <table class="table table-striped table-hover">
+      <thead><tr><th><?= $te('common.email') ?></th><th><?= $te('common.name') ?></th><th><?= $te('common.domain') ?></th><th><?= $te('common.status') ?></th></tr></thead>
+      <tbody>
+        <?php foreach ($results['users'] as $u): ?>
+        <?php $uid = str_contains($u['username'], '@') ? explode('@', $u['username'])[0] : $u['username']; ?>
+        <tr>
+          <td><a href="/<?= $e($u['domain']) ?>/users/<?= $e($uid) ?>/general" class="fw-medium"><?= $e($u['username']) ?></a></td>
+          <td><?= $e($u['name'] ?? '') ?></td>
+          <td><?= $e($u['domain'] ?? '') ?></td>
+          <td><?= $status($u) ?></td>
+        </tr>
+        <?php endforeach; ?>
+      </tbody>
+    </table>
+  </div>
+</div>
+<?php endif; ?>
+
+<?php if (!empty($results['aliases'])): ?>
+<div class="card">
+  <div class="card-header"><?= $te('search.type_aliases') ?> <span class="badge text-bg-secondary"><?= count($results['aliases']) ?></span></div>
+  <div class="table-responsive">
+    <table class="table table-striped table-hover">
+      <thead><tr><th><?= $te('common.address') ?></th><th><?= $te('common.name') ?></th><th><?= $te('common.domain') ?></th><th><?= $te('common.status') ?></th></tr></thead>
+      <tbody>
+        <?php foreach ($results['aliases'] as $a): ?>
+        <tr>
+          <td><a href="/aliases/<?= $e($a['address']) ?>" class="fw-medium"><?= $e($a['address']) ?></a></td>
+          <td><?= $e($a['name'] ?? '') ?></td>
+          <td><?= $e($a['domain'] ?? '') ?></td>
+          <td><?= $status($a) ?></td>
+        </tr>
+        <?php endforeach; ?>
+      </tbody>
+    </table>
+  </div>
+</div>
+<?php endif; ?>
+
+<?php if (!empty($results['mailingLists'])): ?>
+<div class="card">
+  <div class="card-header"><?= $te('mlist.list_title') ?> <span class="badge text-bg-secondary"><?= count($results['mailingLists']) ?></span></div>
+  <div class="table-responsive">
+    <table class="table table-striped table-hover">
+      <thead><tr><th><?= $te('common.address') ?></th><th><?= $te('common.name') ?></th><th><?= $te('common.domain') ?></th><th><?= $te('common.status') ?></th></tr></thead>
+      <tbody>
+        <?php foreach ($results['mailingLists'] as $ml): ?>
+        <tr>
+          <td><a href="/mailing-lists/<?= $e($ml['address']) ?>" class="fw-medium"><?= $e($ml['address']) ?></a></td>
+          <td><?= $e($ml['name'] ?? '') ?></td>
+          <td><?= $e($ml['domain'] ?? '') ?></td>
+          <td><?= $status($ml) ?></td>
+        </tr>
+        <?php endforeach; ?>
+      </tbody>
+    </table>
+  </div>
+</div>
+<?php endif; ?>
+
+<?php if (!empty($results['admins'])): ?>
+<div class="card">
+  <div class="card-header"><?= $te('admin.list_title') ?> <span class="badge text-bg-secondary"><?= count($results['admins']) ?></span></div>
+  <div class="table-responsive">
+    <table class="table table-striped table-hover">
+      <thead><tr><th><?= $te('common.email') ?></th><th><?= $te('common.name') ?></th><th><?= $te('common.status') ?></th></tr></thead>
+      <tbody>
+        <?php foreach ($results['admins'] as $adm): ?>
+        <tr>
+          <td><a href="/admins/<?= $e($adm['username']) ?>/general" class="fw-medium"><?= $e($adm['username']) ?></a></td>
+          <td><?= $e($adm['name'] ?? '') ?></td>
+          <td><?= $status($adm) ?></td>
+        </tr>
+        <?php endforeach; ?>
+      </tbody>
+    </table>
+  </div>
+</div>
+<?php endif; ?>
+
+<?php if ($totalResults === 0): ?>
+<div class="card"><div class="card-body text-center text-body-secondary py-4"><?= $te('common.no_results') ?></div></div>
+<?php endif; ?>
+<?php endif; ?>

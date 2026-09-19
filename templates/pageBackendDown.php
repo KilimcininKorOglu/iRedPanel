@@ -1,9 +1,10 @@
 <?php $pageTitle = $t('misc.error'); ?>
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <h1><?= $te('misc.backend_down_title') ?></h1>
-      <p><?= $te('misc.backend_down_body') ?></p>
+<div class="guest-card">
+  <div class="card">
+    <div class="card-body p-4 text-center">
+      <i class="bi bi-database-x display-5 text-danger"></i>
+      <h1 class="h4 mt-3"><?= $te('misc.backend_down_title') ?></h1>
+      <p class="text-body-secondary mb-0"><?= $te('misc.backend_down_body') ?></p>
     </div>
   </div>
 </div>

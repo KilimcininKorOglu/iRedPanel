@@ -237,7 +237,7 @@ class AdminController
                     $admin = $adminRepo->getAdmin($adminEmail);
                     if ($admin !== null) {
                         $admin->applyLimits($_POST);
-                        $adminRepo->updateAdminSettings($adminEmail, $admin->toSettingsJson());
+                        $adminRepo->updateAdminSettings($admin);
                         ActivityLogger::logUpdate('', $adminEmail, "Admin resource limits updated");
                         $success = Translator::translate('admin.msg_limits_updated');
                     }

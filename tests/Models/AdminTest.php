@@ -185,4 +185,51 @@ class AdminTest extends TestCase
         $this->expectException(InvalidInputException::class);
         $admin->applyLimitsFromJson(['createMaxUsers' => 'abc']);
     }
+
+    /**
+     * iRedAdmin reads -1 as "not allowed" and allows domain creation when the key is
+     * present, so an unlimited limit and a forbidden domain creation are not written.
+     */
+    public function testSettingValuesUseTheIredadminForm(): void
+    {
+        $admin = new Admin(username: 'a@test.com', createMaxDomains: 0, createMaxUsers: 20);
+        $this->assertSame(['create_max_domains' => '0', 'create_max_users' => '20'], $admin->settingValues());
+
+        $admin->createNewDomains = true;
+        $this->assertSame(['create_max_domains:0', 'create_max_users:20', 'create_new_domains:yes'], $admin->toLdapAccountSetting());
+    }
+
+    /**
+     * A save keeps the keys that iRedAdmin wrote and replaces the panel keys, also the
+     * ones that are unlimited now.
+     */
+    public function testMergedSettingsKeepOtherKeys(): void
+    {
+        $admin = new Admin(username: 'a@test.com', createMaxUsers: 5);
+        $stored = 'create_max_domains:3;disable_viewing_mail_log:yes;create_new_domains:yes;';
+
+        $this->assertSame('disable_viewing_mail_log:yes;create_max_users:5;', $admin->mergedSettings($stored));
+    }
+
+    /**
+     * An older panel version stored JSON, which iRedAdmin cannot parse.
+     */
+    public function testMergedSettingsConvertsLegacyJson(): void
+    {
+        $admin = Admin::fromMysqlRow(['username' => 'a@test.com', 'settings' => '{"create_max_users":4,"create_new_domains":false}']);
+        $this->assertSame(4, $admin->createMaxUsers);
+        $this->assertFalse($admin->createNewDomains);
+
+        $this->assertSame('create_max_users:4;', $admin->mergedSettings('{"create_max_users":4,"create_new_domains":false}'));
+    }
+
+    /**
+     * iRedAdmin writes create_new_domains:yes; an older panel version also wrote "no".
+     */
+    public function testDomainCreationFollowsTheStoredKey(): void
+    {
+        $this->assertFalse(Admin::fromMysqlRow(['username' => 'a@test.com', 'settings' => ''])->createNewDomains);
+        $this->assertTrue(Admin::fromMysqlRow(['username' => 'a@test.com', 'settings' => 'create_new_domains:yes;'])->createNewDomains);
+        $this->assertFalse(Admin::fromLdapEntry(['mail' => 'a@test.com', 'accountSetting' => 'create_new_domains:no'])->createNewDomains);
+    }
 }

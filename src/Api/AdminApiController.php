@@ -116,7 +116,7 @@ class AdminApiController
 
         $repo->updateAdmin($admin);
         if ($limitsChanged) {
-            $repo->updateAdminSettings($email, $admin->toSettingsJson());
+            $repo->updateAdminSettings($admin);
         }
         if ($passwordHash !== null) {
             $repo->updateAdminPassword($email, $passwordHash);

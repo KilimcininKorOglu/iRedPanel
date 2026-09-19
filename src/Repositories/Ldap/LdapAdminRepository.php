@@ -174,17 +174,15 @@ class LdapAdminRepository implements AdminRepositoryInterface
     /**
      * Stores the creation limits as accountSetting values and keeps the other values.
      */
-    public function updateAdminSettings(string $username, string $settingsJson): void
+    public function updateAdminSettings(Admin $admin): void
     {
         $conn = self::conn();
-        $entry = self::findAdminEntry($conn, $username)
-            ?? throw new \RuntimeException("Admin '{$username}' not found");
+        $entry = self::findAdminEntry($conn, $admin->username)
+            ?? throw new \RuntimeException("Admin '{$admin->username}' not found");
 
-        $admin = Admin::fromLdapEntry(['mail' => $username, 'accountSetting' => $settingsJson]);
-        $limitKeys = array_map(static fn (string $value): string => explode(':', $value, 2)[0], $admin->toLdapAccountSetting());
         $kept = array_filter(
             LdapUtils::allValues($entry, 'accountSetting'),
-            static fn (string $value): bool => !in_array(explode(':', $value, 2)[0], $limitKeys, true)
+            static fn (string $value): bool => !in_array(explode(':', $value, 2)[0], Admin::SETTING_KEYS, true)
         );
 
         LdapUtils::replaceValues($conn, $entry['dn'], ['accountSetting' => [...array_values($kept), ...$admin->toLdapAccountSetting()]]);

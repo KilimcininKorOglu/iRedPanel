@@ -6,6 +6,7 @@ namespace App\Models;
 
 use App\Exceptions\InvalidInputException;
 use App\Utils\FormValue;
+use App\Utils\SettingsString;
 use App\Utils\WholeNumber;
 
 class Admin
@@ -23,7 +24,7 @@ class Admin
         public int $createMaxAliases = -1,
         public int $createMaxLists = -1,
         public int $createMaxQuota = -1,
-        public bool $createNewDomains = true,
+        public bool $createNewDomains = false,
     ) {}
 
     /** Form label of each resource limit. */
@@ -140,31 +141,62 @@ class Admin
         return $admin;
     }
 
+    /** Keys of the admin settings that the panel writes; every other stored key stays. */
+    public const SETTING_KEYS = [
+        'create_max_domains', 'create_max_users', 'create_max_aliases', 'create_max_lists', 'create_max_quota',
+        'create_new_domains',
+    ];
+
     /**
-     * Returns the limits as LDAP accountSetting values in the iRedAdmin-Pro "key:value" form.
+     * Returns the settings in the iRedAdmin form. An unlimited (-1) limit is not written,
+     * because iRedAdmin reads -1 as "not allowed". iRedAdmin reads create_new_domains
+     * from the presence of the key, so it is written only when domain creation is allowed.
+     *
+     * @return array<string, string>
+     */
+    public function settingValues(): array
+    {
+        $values = [];
+        foreach (array_keys(self::LIMIT_LABELS) as $field) {
+            if ($this->{$field} >= 0) {
+                $values[self::settingKey($field)] = (string) $this->{$field};
+            }
+        }
+        if ($this->createNewDomains) {
+            $values['create_new_domains'] = 'yes';
+        }
+
+        return $values;
+    }
+
+    /**
+     * Returns the settings as LDAP accountSetting values in the iRedAdmin "key:value" form.
      *
      * @return string[]
      */
     public function toLdapAccountSetting(): array
     {
         $values = [];
-        foreach (json_decode($this->toSettingsJson(), true) as $key => $value) {
-            $values[] = $key . ':' . (is_bool($value) ? ($value ? 'yes' : 'no') : $value);
+        foreach ($this->settingValues() as $key => $value) {
+            $values[] = "{$key}:{$value}";
         }
 
         return $values;
     }
 
-    public function toSettingsJson(): string
+    /**
+     * Returns the settings column of the admin with the panel keys written over the stored
+     * value. A JSON value that an older panel version wrote becomes the iRedAdmin form.
+     */
+    public function mergedSettings(string $stored): string
     {
-        return json_encode([
-            'create_max_domains' => $this->createMaxDomains,
-            'create_max_users' => $this->createMaxUsers,
-            'create_max_aliases' => $this->createMaxAliases,
-            'create_max_lists' => $this->createMaxLists,
-            'create_max_quota' => $this->createMaxQuota,
-            'create_new_domains' => $this->createNewDomains,
-        ]);
+        return SettingsString::merge(self::parseSettings($stored), $this->settingValues(), self::SETTING_KEYS);
+    }
+
+    /** createMaxDomains => create_max_domains */
+    private static function settingKey(string $field): string
+    {
+        return strtolower((string) preg_replace('/[A-Z]/', '_$0', $field));
     }
 
     /**
@@ -172,35 +204,22 @@ class Admin
      */
     private function applySettings(array $settings): void
     {
-        $this->createMaxDomains = (int) ($settings['create_max_domains'] ?? -1);
-        $this->createMaxUsers = (int) ($settings['create_max_users'] ?? -1);
-        $this->createMaxAliases = (int) ($settings['create_max_aliases'] ?? -1);
-        $this->createMaxLists = (int) ($settings['create_max_lists'] ?? -1);
-        $this->createMaxQuota = (int) ($settings['create_max_quota'] ?? -1);
-        // The key:value form stores "yes"/"no", which a (bool) cast reads as true.
-        $this->createNewDomains = filter_var($settings['create_new_domains'] ?? true, FILTER_VALIDATE_BOOLEAN);
+        foreach (array_keys(self::LIMIT_LABELS) as $field) {
+            $this->{$field} = (int) ($settings[self::settingKey($field)] ?? -1);
+        }
+        // iRedAdmin allows domain creation when the key is present; an older panel version
+        // also wrote "no" or false, which filter_var() reads as false.
+        $this->createNewDomains = filter_var($settings['create_new_domains'] ?? false, FILTER_VALIDATE_BOOLEAN);
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     private static function parseSettings(string $settings): array
     {
-        if ($settings === '') {
-            return [];
-        }
-
+        // An older panel version stored JSON in the SQL settings column.
         $decoded = json_decode($settings, true);
-        if (is_array($decoded)) {
-            return $decoded;
-        }
 
-        // iRedAdmin-Pro uses key:value;key:value format
-        $result = [];
-        foreach (explode(';', $settings) as $pair) {
-            $pair = trim($pair);
-            if (str_contains($pair, ':')) {
-                [$key, $value] = explode(':', $pair, 2);
-                $result[trim($key)] = trim($value);
-            }
-        }
-        return $result;
+        return is_array($decoded) ? $decoded : SettingsString::parse($settings);
     }
 }

@@ -72,9 +72,10 @@ interface AdminRepositoryInterface
     public function enableDisableAdmin(string $username, bool $active): void;
 
     /**
-     * Updates admin resource limits stored in settings JSON.
+     * Writes the resource limits of the admin in the iRedAdmin form: SQL admin.settings or,
+     * for a mailbox admin, mailbox.settings; LDAP accountSetting. The other stored keys stay.
      */
-    public function updateAdminSettings(string $username, string $settingsJson): void;
+    public function updateAdminSettings(Admin $admin): void;
 
     /**
      * Returns paginated admin list.

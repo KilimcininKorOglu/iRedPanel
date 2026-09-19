@@ -6,6 +6,7 @@ namespace App\Repositories\Pgsql;
 
 use App\Models\Admin;
 use App\Repositories\AdminRepositoryInterface;
+use App\Repositories\SqlAdminSettings;
 use App\Repositories\SqlDomainAdmins;
 
 class PgsqlAdminRepository implements AdminRepositoryInterface
@@ -70,7 +71,7 @@ class PgsqlAdminRepository implements AdminRepositoryInterface
         if ($row === false) {
             // Check mailbox-based admins
             $stmt = $pdo->prepare(
-                "SELECT m.username, m.name, m.active, m.created, m.passwordlastchange,
+                "SELECT m.username, m.name, m.active, m.created, m.passwordlastchange, m.settings,
                         m.isglobaladmin AS \"isGlobalAdmin\"
                  FROM mailbox m
                  WHERE m.username = :username AND (m.isadmin = 1 OR m.isglobaladmin = 1)
@@ -296,12 +297,9 @@ class PgsqlAdminRepository implements AdminRepositoryInterface
         $stmt->execute(['active' => $active ? 1 : 0, 'username' => $username]);
     }
 
-    public function updateAdminSettings(string $username, string $settingsJson): void
+    public function updateAdminSettings(Admin $admin): void
     {
-        $pdo = PgsqlConnection::getInstance()->getPdo();
-
-        $stmt = $pdo->prepare("UPDATE admin SET settings = :settings WHERE username = :username");
-        $stmt->execute(['settings' => $settingsJson, 'username' => $username]);
+        SqlAdminSettings::write(PgsqlConnection::getInstance()->getPdo(), $admin);
     }
 
     public function getAdminsPaginated(int $page, int $perPage): \App\Models\PaginatedResult

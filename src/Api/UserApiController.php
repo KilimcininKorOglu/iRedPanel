@@ -84,6 +84,7 @@ class UserApiController
         if ($user === null) {
             return;
         }
+        $user->setNewMailboxServices($domainSettings->disabledMailServices);
 
         $limitError = $domainObj->newMailboxError($user->mailQuota);
         if ($limitError !== null) {

@@ -181,13 +181,10 @@
     "rdns_title": "rDNS 화이트/블랙리스트",
     "rdns_intro": "iRedAPD의 역방향 DNS 기반 화이트/블랙리스트를 관리합니다.",
     "rdns_whitelist_legend": "화이트리스트 rDNS 도메인",
-    "rdns_whitelist_hint": "한 줄에 하나의 도메인. 일치하는 rDNS를 가진 서버의 이메일은 그레이리스트를 우회합니다.",
     "rdns_blacklist_legend": "블랙리스트 rDNS 도메인",
-    "rdns_blacklist_hint": "한 줄에 하나의 도메인. 일치하는 rDNS를 가진 서버의 이메일은 거부됩니다.",
     "senderscore_title": "SenderScore 화이트리스트",
     "senderscore_intro": "SenderScore 검사를 우회하도록 IP 주소를 영구적으로 화이트리스트에 추가합니다.",
     "senderscore_legend": "화이트리스트 IP 주소",
-    "senderscore_hint": "한 줄에 하나의 IP 주소 (IPv4 또는 IPv6). 이 IP는 SenderScore 검사를 영구적으로 우회합니다.",
     "view_title": "화이트/블랙리스트: :account",
     "title": "화이트/블랙리스트",
     "global": "전역",
@@ -212,7 +209,10 @@
     "msg_entries_added": ":count개 항목을 추가했습니다.",
     "msg_entries_removed": ":count개 항목을 제거했습니다.",
     "msg_invalid_kind": "종류는 W 또는 B여야 합니다.",
-    "msg_sender_required": "주소를 하나 이상 입력하세요."
+    "msg_sender_required": "주소를 하나 이상 입력하세요.",
+    "rdns_whitelist_legend_help": "한 줄에 도메인 하나입니다. 역방향 DNS가 일치하는 서버에서 온 메일은 greylisting을 건너뜁니다.",
+    "rdns_blacklist_legend_help": "한 줄에 도메인 하나입니다. 역방향 DNS가 일치하는 서버에서 온 메일은 거부됩니다.",
+    "senderscore_legend_help": "한 줄에 IP 주소 하나(IPv4 또는 IPv6)입니다. 이 주소들은 항상 SenderScore 검사를 건너뜁니다."
   },
   "spampolicy": {
     "msg_deleted": "스팸 정책이 삭제되었습니다!",
@@ -344,8 +344,12 @@
     "inbound": "수신",
     "save": "제한 저장",
     "external": "외부 (다른 서버에서 수신)",
-    "limit_hint": "-1은 도메인 또는 전역 설정을 상속합니다. 0은 무제한입니다. 할당량과 메시지 크기의 단위는 바이트입니다.",
-    "msg_invalid_value": "잘못된 값: :field"
+    "msg_invalid_value": "잘못된 값: :field",
+    "kind_help": "제한이 세는 트래픽입니다. outbound는 계정이 보내는 메일, inbound는 받는 메일, external은 서비스 도메인 밖의 발신자를 셉니다.",
+    "period_seconds_help": "계수 구간의 길이입니다. 이 초가 지나면 카운터가 다시 시작합니다. 3600은 시간당, 86400은 하루당 계산합니다.",
+    "max_messages_help": "한 구간에 계정이 보낼 수 있는 메시지 수입니다. -1은 도메인 또는 전역 설정을 따르고, 0은 무제한을 뜻합니다.",
+    "max_quota_bytes_help": "한 구간에 계정이 보낼 수 있는 총 바이트 수입니다. -1은 도메인 또는 전역 설정을 따르고, 0은 무제한을 뜻합니다.",
+    "max_message_size_help": "한 통의 최대 크기(바이트)입니다. 더 큰 메시지는 거부됩니다. -1은 도메인 또는 전역 설정을 따르고, 0은 무제한을 뜻합니다."
   },
   "user": {
     "msg_quota_exceeds_max": "사용자 할당량 (:quota MB)이 도메인 최대값 (:max MB)을 초과합니다",
@@ -886,7 +890,10 @@
     "domains_label": "한 줄에 도메인 하나",
     "msg_domains_updated": "허용 도메인을 저장했습니다.",
     "spf_heading": "SPF 레코드에서 온 sender",
-    "no_spf_senders": "job이 아직 sender를 확인하지 못했습니다."
+    "no_spf_senders": "job이 아직 sender를 확인하지 못했습니다.",
+    "state_for_help": "greylisting은 모르는 발신자의 첫 전달 시도를 거부하고 재시도를 받아들입니다. 스팸을 많이 막지만 새 발신자의 첫 메일이 몇 분 늦어집니다.",
+    "senders_label_help": "greylisting을 건너뛰는 발신자를 한 줄에 하나씩 적습니다. user@example.com, 도메인 전체는 @example.com, 또는 IP 주소입니다.",
+    "domains_label_help": "한 줄에 도메인 하나입니다. iRedAPD 작업이 각 도메인의 SPF 레코드를 읽고 찾은 발신 서버를 화이트리스트에 넣습니다. 도메인을 지우면 그 도메인에서 온 발신자도 사라집니다."
   },
   "resource": {
     "title": "계정 리소스",

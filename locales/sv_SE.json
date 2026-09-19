@@ -181,13 +181,10 @@
     "rdns_title": "rDNS vit/svartlista",
     "rdns_intro": "Hantera vit/svartlista baserad på omvänd DNS för iRedAPD.",
     "rdns_whitelist_legend": "Vitlistade rDNS-domäner",
-    "rdns_whitelist_hint": "En domän per rad. E-post från servrar med matchande rDNS kringgår gråslistan.",
     "rdns_blacklist_legend": "Svartlistade rDNS-domäner",
-    "rdns_blacklist_hint": "En domän per rad. E-post från servrar med matchande rDNS avvisas.",
     "senderscore_title": "SenderScore-vitlista",
     "senderscore_intro": "Vitlista IP-adresser permanent för att kringgå SenderScore-kontroller.",
     "senderscore_legend": "Vitlistade IP-adresser",
-    "senderscore_hint": "En IP-adress per rad (IPv4 eller IPv6). Dessa IP-adresser kringgår permanent SenderScore-kontroller.",
     "view_title": "Vit/svartlista: :account",
     "title": "Vit/svartlista",
     "global": "Global",
@@ -212,7 +209,10 @@
     "msg_entries_added": ":count poster tillagda.",
     "msg_entries_removed": ":count poster borttagna.",
     "msg_invalid_kind": "Typen måste vara W eller B.",
-    "msg_sender_required": "Ange minst en adress."
+    "msg_sender_required": "Ange minst en adress.",
+    "rdns_whitelist_legend_help": "En domän per rad. Post från en server med matchande omvänd DNS hoppar över greylisting.",
+    "rdns_blacklist_legend_help": "En domän per rad. Post från en server med matchande omvänd DNS avvisas.",
+    "senderscore_legend_help": "En IP-adress per rad, IPv4 eller IPv6. Dessa adresser hoppar alltid över SenderScore-kontrollen."
   },
   "spampolicy": {
     "msg_deleted": "Skräppostpolicy borttagen!",
@@ -344,8 +344,12 @@
     "inbound": "Inkommande",
     "save": "Spara begränsningar",
     "external": "Extern (inkommande från andra servrar)",
-    "limit_hint": "-1 ärver domänens eller den globala inställningen. 0 betyder obegränsat. Kvot och meddelandestorlek anges i byte.",
-    "msg_invalid_value": "Ogiltigt värde: :field"
+    "msg_invalid_value": "Ogiltigt värde: :field",
+    "kind_help": "Vilken trafik gränsen räknar: outbound är post som kontot skickar, inbound post som det tar emot, external räknar en avsändare utanför de betjänade domänerna.",
+    "period_seconds_help": "Längden på räknefönstret. Räknarna börjar om efter så här många sekunder: 3600 räknar per timme, 86400 per dygn.",
+    "max_messages_help": "Hur många meddelanden kontot får skicka under en period. -1 tar domänens eller den globala inställningen, 0 betyder obegränsat.",
+    "max_quota_bytes_help": "Hur många byte totalt kontot får skicka under en period. -1 tar domänens eller den globala inställningen, 0 betyder obegränsat.",
+    "max_message_size_help": "Det största enskilda meddelandet i byte. Ett större meddelande avvisas. -1 tar domänens eller den globala inställningen, 0 betyder obegränsat."
   },
   "user": {
     "msg_quota_exceeds_max": "Användarens kvot (:quota MB) överskrider domänens maximum (:max MB)",
@@ -886,7 +890,10 @@
     "domains_label": "En domän per rad",
     "msg_domains_updated": "Tillåtna domäner sparade.",
     "spf_heading": "Avsändare från SPF-posterna",
-    "no_spf_senders": "Jobbet har inte löst upp någon avsändare ännu."
+    "no_spf_senders": "Jobbet har inte löst upp någon avsändare ännu.",
+    "state_for_help": "Greylisting avvisar det första leveransförsöket från en okänd avsändare och tar emot omförsöket. Det stoppar mycket skräppost och fördröjer den första posten från en ny avsändare några minuter.",
+    "senders_label_help": "Avsändare som hoppar över greylisting, en per rad: user@example.com, @example.com för en hel domän, eller en IP-adress.",
+    "domains_label_help": "En domän per rad. iRedAPD-jobbet läser SPF-posten för varje domän och vitlistar de sändande servrar det hittar. Tas en domän bort försvinner även avsändarna som kom därifrån."
   },
   "resource": {
     "title": "Kontokällor",

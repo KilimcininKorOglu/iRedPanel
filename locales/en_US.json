@@ -181,13 +181,10 @@
     "rdns_title": "rDNS White/Blacklist",
     "rdns_intro": "Manage reverse DNS based white/blacklist for iRedAPD.",
     "rdns_whitelist_legend": "Whitelisted rDNS Domains",
-    "rdns_whitelist_hint": "One domain per line. Emails from servers with matching rDNS will bypass greylisting.",
     "rdns_blacklist_legend": "Blacklisted rDNS Domains",
-    "rdns_blacklist_hint": "One domain per line. Emails from servers with matching rDNS will be rejected.",
     "senderscore_title": "SenderScore Whitelist",
     "senderscore_intro": "Permanently whitelist IP addresses to bypass SenderScore checks.",
     "senderscore_legend": "Whitelisted IP Addresses",
-    "senderscore_hint": "One IP address per line (IPv4 or IPv6). These IPs will permanently bypass SenderScore checks.",
     "view_title": "White/Blacklist: :account",
     "title": "White/Blacklist",
     "global": "Global",
@@ -212,7 +209,10 @@
     "msg_entries_added": "Entries added: :count",
     "msg_entries_removed": "Entries removed: :count",
     "msg_invalid_kind": "The type must be W or B.",
-    "msg_sender_required": "Enter at least one address."
+    "msg_sender_required": "Enter at least one address.",
+    "rdns_whitelist_legend_help": "One domain per line. Mail from a server whose reverse DNS matches skips greylisting.",
+    "rdns_blacklist_legend_help": "One domain per line. Mail from a server whose reverse DNS matches is refused.",
+    "senderscore_legend_help": "One IP address per line, IPv4 or IPv6. These addresses always skip the SenderScore check."
   },
   "spampolicy": {
     "msg_deleted": "Spam policy deleted!",
@@ -344,8 +344,12 @@
     "inbound": "Inbound",
     "save": "Save throttle",
     "external": "External (inbound from other servers)",
-    "limit_hint": "-1 inherits the domain or global setting. 0 means unlimited. Quota and message size are in bytes.",
-    "msg_invalid_value": "Invalid value: :field"
+    "msg_invalid_value": "Invalid value: :field",
+    "kind_help": "Which traffic the limit counts: outbound is mail the account sends, inbound is mail it receives, external counts a sender outside the served domains.",
+    "period_seconds_help": "The length of the counting window. The counters start again after this many seconds: 3600 counts per hour, 86400 per day.",
+    "max_messages_help": "How many messages the account may send in one period. -1 takes the domain or global setting, 0 means unlimited.",
+    "max_quota_bytes_help": "How many bytes in total the account may send in one period. -1 takes the domain or global setting, 0 means unlimited.",
+    "max_message_size_help": "The largest single message in bytes. A bigger message is refused. -1 takes the domain or global setting, 0 means unlimited."
   },
   "user": {
     "msg_quota_exceeds_max": "User quota (:quota MB) exceeds domain maximum (:max MB)",
@@ -886,7 +890,10 @@
     "domains_label": "One domain per line",
     "msg_domains_updated": "Whitelisted domains saved.",
     "spf_heading": "Senders from the SPF records",
-    "no_spf_senders": "The job has not resolved a sender yet."
+    "no_spf_senders": "The job has not resolved a sender yet.",
+    "state_for_help": "Greylisting refuses the first delivery attempt of an unknown sender and accepts the retry. It stops much spam and delays the first mail of a new sender by a few minutes.",
+    "senders_label_help": "Senders that skip greylisting, one per line: user@example.com, @example.com for a whole domain, or an IP address.",
+    "domains_label_help": "One domain per line. The iRedAPD job reads the SPF record of each domain and whitelists the sending servers it finds. Removing a domain also drops the senders that came from it."
   },
   "resource": {
     "title": "Account Resources",

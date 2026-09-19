@@ -181,13 +181,10 @@
     "rdns_title": "rDNS-wit-/zwarte lijst",
     "rdns_intro": "Beheer de op omgekeerde DNS gebaseerde wit-/zwarte lijst voor iRedAPD.",
     "rdns_whitelist_legend": "rDNS-domeinen op witte lijst",
-    "rdns_whitelist_hint": "Eén domein per regel. E-mails van servers met overeenkomende rDNS omzeilen greylisting.",
     "rdns_blacklist_legend": "rDNS-domeinen op zwarte lijst",
-    "rdns_blacklist_hint": "Eén domein per regel. E-mails van servers met overeenkomende rDNS worden geweigerd.",
     "senderscore_title": "SenderScore-witte lijst",
     "senderscore_intro": "Voeg IP-adressen permanent toe aan de witte lijst om SenderScore-controles te omzeilen.",
     "senderscore_legend": "IP-adressen op witte lijst",
-    "senderscore_hint": "Eén IP-adres per regel (IPv4 of IPv6). Deze IP's omzeilen permanent SenderScore-controles.",
     "view_title": "Wit-/zwarte lijst: :account",
     "title": "Wit-/zwarte lijst",
     "global": "Globaal",
@@ -212,7 +209,10 @@
     "msg_entries_added": ":count regels toegevoegd.",
     "msg_entries_removed": ":count regels verwijderd.",
     "msg_invalid_kind": "Het type moet W of B zijn.",
-    "msg_sender_required": "Voer minstens één adres in."
+    "msg_sender_required": "Voer minstens één adres in.",
+    "rdns_whitelist_legend_help": "Eén domein per regel. Mail van een server met een overeenkomende reverse DNS slaat greylisting over.",
+    "rdns_blacklist_legend_help": "Eén domein per regel. Mail van een server met een overeenkomende reverse DNS wordt geweigerd.",
+    "senderscore_legend_help": "Eén IP-adres per regel, IPv4 of IPv6. Deze adressen slaan de SenderScore-controle altijd over."
   },
   "spampolicy": {
     "msg_deleted": "Spambeleid verwijderd!",
@@ -344,8 +344,12 @@
     "inbound": "Inkomend",
     "save": "Beperking opslaan",
     "external": "Extern (inkomend van andere servers)",
-    "limit_hint": "-1 neemt de domein- of globale instelling over. 0 betekent onbeperkt. Quota en berichtgrootte zijn in bytes.",
-    "msg_invalid_value": "Ongeldige waarde: :field"
+    "msg_invalid_value": "Ongeldige waarde: :field",
+    "kind_help": "Welk verkeer de limiet telt: outbound is mail die het account verstuurt, inbound is mail die het ontvangt, external telt een afzender buiten de bediende domeinen.",
+    "period_seconds_help": "De lengte van het telvenster. De tellers beginnen opnieuw na zoveel seconden: 3600 telt per uur, 86400 per dag.",
+    "max_messages_help": "Hoeveel berichten het account in één periode mag versturen. -1 neemt de domein- of de algemene instelling over, 0 betekent onbeperkt.",
+    "max_quota_bytes_help": "Hoeveel bytes in totaal het account in één periode mag versturen. -1 neemt de domein- of de algemene instelling over, 0 betekent onbeperkt.",
+    "max_message_size_help": "Het grootste losse bericht in bytes. Een groter bericht wordt geweigerd. -1 neemt de domein- of de algemene instelling over, 0 betekent onbeperkt."
   },
   "user": {
     "msg_quota_exceeds_max": "De quota van de gebruiker (:quota MB) overschrijdt het domeinmaximum (:max MB)",
@@ -886,7 +890,10 @@
     "domains_label": "Eén domein per regel",
     "msg_domains_updated": "Toegestane domeinen opgeslagen.",
     "spf_heading": "Senders uit de SPF-records",
-    "no_spf_senders": "De job heeft nog geen sender opgelost."
+    "no_spf_senders": "De job heeft nog geen sender opgelost.",
+    "state_for_help": "Greylisting weigert de eerste bezorgpoging van een onbekende afzender en accepteert de herhaling. Het houdt veel spam tegen en vertraagt de eerste mail van een nieuwe afzender een paar minuten.",
+    "senders_label_help": "Afzenders die greylisting overslaan, één per regel: user@example.com, @example.com voor een heel domein, of een IP-adres.",
+    "domains_label_help": "Eén domein per regel. De iRedAPD-taak leest het SPF-record van elk domein en zet de gevonden verzendservers op de witte lijst. Een domein verwijderen verwijdert ook de afzenders die eruit kwamen."
   },
   "resource": {
     "title": "Accountbronnen",

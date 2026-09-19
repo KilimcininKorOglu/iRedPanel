@@ -181,13 +181,10 @@
     "rdns_title": "Listă albă/neagră rDNS",
     "rdns_intro": "Gestionați lista albă/neagră bazată pe DNS invers pentru iRedAPD.",
     "rdns_whitelist_legend": "Domenii rDNS pe lista albă",
-    "rdns_whitelist_hint": "Un domeniu pe linie. Email-urile de la servere cu rDNS corespunzător ocolesc lista gri.",
     "rdns_blacklist_legend": "Domenii rDNS pe lista neagră",
-    "rdns_blacklist_hint": "Un domeniu pe linie. Email-urile de la servere cu rDNS corespunzător sunt respinse.",
     "senderscore_title": "Listă albă SenderScore",
     "senderscore_intro": "Adăugați permanent adrese IP pe lista albă pentru a ocoli verificările SenderScore.",
     "senderscore_legend": "Adrese IP pe lista albă",
-    "senderscore_hint": "O adresă IP pe linie (IPv4 sau IPv6). Aceste IP-uri ocolesc permanent verificările SenderScore.",
     "view_title": "Listă albă/neagră: :account",
     "title": "Listă albă/neagră",
     "global": "Global",
@@ -212,7 +209,10 @@
     "msg_entries_added": "Intrări adăugate: :count.",
     "msg_entries_removed": "Intrări eliminate: :count.",
     "msg_invalid_kind": "Tipul trebuie să fie W sau B.",
-    "msg_sender_required": "Introdu cel puțin o adresă."
+    "msg_sender_required": "Introdu cel puțin o adresă.",
+    "rdns_whitelist_legend_help": "Un domeniu pe linie. Mailul de la un server cu DNS invers care se potrivește sare peste greylisting.",
+    "rdns_blacklist_legend_help": "Un domeniu pe linie. Mailul de la un server cu DNS invers care se potrivește este refuzat.",
+    "senderscore_legend_help": "O adresă IP pe linie, IPv4 sau IPv6. Aceste adrese sar întotdeauna peste verificarea SenderScore."
   },
   "spampolicy": {
     "msg_deleted": "Politica spam a fost ștearsă!",
@@ -344,8 +344,12 @@
     "inbound": "Intrare",
     "save": "Salvează limitările",
     "external": "Extern (primit de la alte servere)",
-    "limit_hint": "-1 moștenește setarea domeniului sau setarea globală. 0 înseamnă nelimitat. Cota și dimensiunea mesajului sunt în octeți.",
-    "msg_invalid_value": "Valoare invalidă: :field"
+    "msg_invalid_value": "Valoare invalidă: :field",
+    "kind_help": "Ce trafic numără limita: outbound este mailul pe care contul îl trimite, inbound cel pe care îl primește, external numără un expeditor din afara domeniilor deservite.",
+    "period_seconds_help": "Durata ferestrei de numărare. Contoarele o iau de la capăt după atâtea secunde: 3600 numără pe oră, 86400 pe zi.",
+    "max_messages_help": "Câte mesaje poate trimite contul într-o perioadă. -1 preia setarea domeniului sau pe cea globală, 0 înseamnă nelimitat.",
+    "max_quota_bytes_help": "Câți octeți în total poate trimite contul într-o perioadă. -1 preia setarea domeniului sau pe cea globală, 0 înseamnă nelimitat.",
+    "max_message_size_help": "Cel mai mare mesaj individual în octeți. Un mesaj mai mare este refuzat. -1 preia setarea domeniului sau pe cea globală, 0 înseamnă nelimitat."
   },
   "user": {
     "msg_quota_exceeds_max": "Cota utilizatorului (:quota MB) depășește maximul domeniului (:max MB)",
@@ -886,7 +890,10 @@
     "domains_label": "Un domeniu pe linie",
     "msg_domains_updated": "Domenii permise salvate.",
     "spf_heading": "Expeditori din înregistrările SPF",
-    "no_spf_senders": "Job-ul nu a rezolvat încă niciun expeditor."
+    "no_spf_senders": "Job-ul nu a rezolvat încă niciun expeditor.",
+    "state_for_help": "Greylisting refuză prima încercare de livrare a unui expeditor necunoscut și acceptă reîncercarea. Oprește mult spam și întârzie cu câteva minute primul mail al unui expeditor nou.",
+    "senders_label_help": "Expeditori care sar peste greylisting, unul pe linie: user@example.com, @example.com pentru un domeniu întreg, sau o adresă IP.",
+    "domains_label_help": "Un domeniu pe linie. Sarcina iRedAPD citește înregistrarea SPF a fiecărui domeniu și pune pe lista albă serverele de trimitere găsite. Ștergerea unui domeniu șterge și expeditorii veniți din el."
   },
   "resource": {
     "title": "Resurse de conturi",

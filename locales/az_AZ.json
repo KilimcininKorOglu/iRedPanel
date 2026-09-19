@@ -181,13 +181,10 @@
     "rdns_title": "rDNS Ağ/Qara siyahı",
     "rdns_intro": "iRedAPD üçün əks DNS əsaslı ağ/qara siyahını idarə edin.",
     "rdns_whitelist_legend": "Ağ siyahıdakı rDNS domenləri",
-    "rdns_whitelist_hint": "Hər sətirdə bir domen. Uyğun rDNS-li serverlərdən gələn e-poçtlar boz siyahını keçəcək.",
     "rdns_blacklist_legend": "Qara siyahıdakı rDNS domenləri",
-    "rdns_blacklist_hint": "Hər sətirdə bir domen. Uyğun rDNS-li serverlərdən gələn e-poçtlar rədd ediləcək.",
     "senderscore_title": "SenderScore ağ siyahısı",
     "senderscore_intro": "SenderScore yoxlamalarını keçmək üçün IP ünvanlarını daimi ağ siyahıya alın.",
     "senderscore_legend": "Ağ siyahıdakı IP ünvanları",
-    "senderscore_hint": "Hər sətirdə bir IP ünvanı (IPv4 və ya IPv6). Bu IP-lər SenderScore yoxlamalarını daimi keçəcək.",
     "view_title": "Ağ/Qara siyahı: :account",
     "title": "Ağ/Qara siyahı",
     "global": "Qlobal",
@@ -212,7 +209,10 @@
     "msg_entries_added": ":count qeyd əlavə edildi.",
     "msg_entries_removed": ":count qeyd silindi.",
     "msg_invalid_kind": "Növ W və ya B olmalıdır.",
-    "msg_sender_required": "Ən azı bir ünvan daxil edin."
+    "msg_sender_required": "Ən azı bir ünvan daxil edin.",
+    "rdns_whitelist_legend_help": "Hər sətirdə bir domen. Tərs DNS-i uyğun gələn serverdən gələn mail greylisting-i keçir.",
+    "rdns_blacklist_legend_help": "Hər sətirdə bir domen. Tərs DNS-i uyğun gələn serverdən gələn mail rədd edilir.",
+    "senderscore_legend_help": "Hər sətirdə bir IP ünvanı, IPv4 və ya IPv6. Bu ünvanlar həmişə SenderScore yoxlamasını keçir."
   },
   "spampolicy": {
     "msg_deleted": "Spam siyasəti silindi!",
@@ -344,8 +344,12 @@
     "inbound": "Gələn",
     "save": "Sürət limitini yadda saxla",
     "external": "Xarici (digər serverlərdən gələn)",
-    "limit_hint": "-1 domen və ya qlobal ayarı miras alır. 0 limitsiz deməkdir. Kvota və məktub ölçüsü bayt ilə göstərilir.",
-    "msg_invalid_value": "Yanlış dəyər: :field"
+    "msg_invalid_value": "Yanlış dəyər: :field",
+    "kind_help": "Limitin hansı trafiki saydığı: outbound hesabın göndərdiyi mail, inbound aldığı mail, external isə xidmət edilən domenlərdən kənar göndərəndir.",
+    "period_seconds_help": "Sayma pəncərəsinin uzunluğu. Sayğaclar bu qədər saniyədən sonra yenidən başlayır: 3600 saatda bir, 86400 gündə bir.",
+    "max_messages_help": "Hesabın bir dövrdə göndərə biləcəyi mesaj sayı. -1 domen və ya qlobal parametri götürür, 0 limitsiz deməkdir.",
+    "max_quota_bytes_help": "Hesabın bir dövrdə göndərə biləcəyi ümumi bayt həcmi. -1 domen və ya qlobal parametri götürür, 0 limitsiz deməkdir.",
+    "max_message_size_help": "Bayt ilə ən böyük tək mesaj. Daha böyük mesaj rədd edilir. -1 domen və ya qlobal parametri götürür, 0 limitsiz deməkdir."
   },
   "user": {
     "msg_quota_exceeds_max": "İstifadəçi kvotası (:quota MB) domen maksimumunu (:max MB) aşır",
@@ -886,7 +890,10 @@
     "domains_label": "Hər sətirdə bir domain",
     "msg_domains_updated": "İcazəli domainlər yadda saxlanıldı.",
     "spf_heading": "SPF qeydlərindən gələn sender'lər",
-    "no_spf_senders": "Job hələ heç bir sender tapmayıb."
+    "no_spf_senders": "Job hələ heç bir sender tapmayıb.",
+    "state_for_help": "Greylisting naməlum göndərənin ilk cəhdini rədd edir, təkrar cəhdi qəbul edir. Çox spamı dayandırır və yeni göndərənin ilk mailini bir neçə dəqiqə gecikdirir.",
+    "senders_label_help": "Greylisting-i keçən göndərənlər, hər sətirdə bir: user@example.com, bütün domen üçün @example.com və ya IP ünvanı.",
+    "domains_label_help": "Hər sətirdə bir domen. iRedAPD işi hər domenin SPF qeydini oxuyur və tapdığı göndərən serverləri ağ siyahıya salır. Domeni silmək ondan gələn göndərənləri də silir."
   },
   "resource": {
     "title": "Hesab mənbələri",

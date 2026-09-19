@@ -181,13 +181,10 @@
     "rdns_title": "rDNS 白/黑名单",
     "rdns_intro": "为 iRedAPD 管理基于反向 DNS 的白/黑名单。",
     "rdns_whitelist_legend": "白名单 rDNS 域名",
-    "rdns_whitelist_hint": "每行一个域名。来自匹配 rDNS 的服务器的邮件将绕过灰名单。",
     "rdns_blacklist_legend": "黑名单 rDNS 域名",
-    "rdns_blacklist_hint": "每行一个域名。来自匹配 rDNS 的服务器的邮件将被拒绝。",
     "senderscore_title": "SenderScore 白名单",
     "senderscore_intro": "将 IP 地址永久加入白名单以绕过 SenderScore 检查。",
     "senderscore_legend": "白名单 IP 地址",
-    "senderscore_hint": "每行一个 IP 地址（IPv4 或 IPv6）。这些 IP 将永久绕过 SenderScore 检查。",
     "view_title": "白/黑名单：:account",
     "title": "白/黑名单",
     "global": "全局",
@@ -212,7 +209,10 @@
     "msg_entries_added": "已添加 :count 条记录。",
     "msg_entries_removed": "已删除 :count 条记录。",
     "msg_invalid_kind": "类型必须是 W 或 B。",
-    "msg_sender_required": "请至少输入一个地址。"
+    "msg_sender_required": "请至少输入一个地址。",
+    "rdns_whitelist_legend_help": "每行一个域名。反向 DNS 匹配的服务器发来的邮件跳过 greylisting。",
+    "rdns_blacklist_legend_help": "每行一个域名。反向 DNS 匹配的服务器发来的邮件被拒收。",
+    "senderscore_legend_help": "每行一个 IP 地址，IPv4 或 IPv6。这些地址始终跳过 SenderScore 检查。"
   },
   "spampolicy": {
     "msg_deleted": "垃圾邮件策略已删除！",
@@ -344,8 +344,12 @@
     "inbound": "入站",
     "save": "保存限流",
     "external": "外部（来自其他服务器的入站）",
-    "limit_hint": "-1 继承域名或全局设置。0 表示不限制。配额和邮件大小的单位为字节。",
-    "msg_invalid_value": "无效的值：:field"
+    "msg_invalid_value": "无效的值：:field",
+    "kind_help": "该限制统计哪类流量：outbound 是账户发出的邮件，inbound 是收到的邮件，external 统计所辖域名之外的发件人。",
+    "period_seconds_help": "计数窗口的长度。计数器在这么多秒后重新开始：3600 按小时计，86400 按天计。",
+    "max_messages_help": "账户在一个周期内可发送的邮件数。-1 沿用域名或全局设置，0 表示不限。",
+    "max_quota_bytes_help": "账户在一个周期内可发送的总字节数。-1 沿用域名或全局设置，0 表示不限。",
+    "max_message_size_help": "单封邮件的最大字节数。超过则拒收。-1 沿用域名或全局设置，0 表示不限。"
   },
   "user": {
     "msg_quota_exceeds_max": "用户配额（:quota MB）超过域名上限（:max MB）",
@@ -886,7 +890,10 @@
     "domains_label": "每行一个域名",
     "msg_domains_updated": "已保存允许的域名。",
     "spf_heading": "来自 SPF 记录的 sender",
-    "no_spf_senders": "job 还没有解析出任何 sender。"
+    "no_spf_senders": "job 还没有解析出任何 sender。",
+    "state_for_help": "greylisting 拒绝陌生发件人的首次投递，接受其重试。它能挡下大量垃圾邮件，但会让新发件人的第一封邮件延迟几分钟。",
+    "senders_label_help": "跳过 greylisting 的发件人，每行一个：user@example.com、代表整个域名的 @example.com，或一个 IP 地址。",
+    "domains_label_help": "每行一个域名。iRedAPD 任务读取每个域名的 SPF 记录，并把找到的发送服务器加入白名单。删除某个域名时，来自它的发件人也一并删除。"
   },
   "resource": {
     "title": "账户源",

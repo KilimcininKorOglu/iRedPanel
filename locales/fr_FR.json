@@ -181,13 +181,10 @@
     "rdns_title": "Liste blanche/noire rDNS",
     "rdns_intro": "Gérez la liste blanche/noire basée sur le DNS inverse pour iRedAPD.",
     "rdns_whitelist_legend": "Domaines rDNS en liste blanche",
-    "rdns_whitelist_hint": "Un domaine par ligne. Les e-mails des serveurs au rDNS correspondant contourneront le greylisting.",
     "rdns_blacklist_legend": "Domaines rDNS en liste noire",
-    "rdns_blacklist_hint": "Un domaine par ligne. Les e-mails des serveurs au rDNS correspondant seront rejetés.",
     "senderscore_title": "Liste blanche SenderScore",
     "senderscore_intro": "Ajoutez définitivement des adresses IP en liste blanche pour contourner les contrôles SenderScore.",
     "senderscore_legend": "Adresses IP en liste blanche",
-    "senderscore_hint": "Une adresse IP par ligne (IPv4 ou IPv6). Ces IP contourneront définitivement les contrôles SenderScore.",
     "view_title": "Liste blanche/noire : :account",
     "title": "Liste blanche/noire",
     "global": "Global",
@@ -212,7 +209,10 @@
     "msg_entries_added": ":count entrées ajoutées.",
     "msg_entries_removed": ":count entrées supprimées.",
     "msg_invalid_kind": "Le type doit être W ou B.",
-    "msg_sender_required": "Saisissez au moins une adresse."
+    "msg_sender_required": "Saisissez au moins une adresse.",
+    "rdns_whitelist_legend_help": "Un domaine par ligne. Le courrier d'un serveur dont le DNS inverse correspond contourne le greylisting.",
+    "rdns_blacklist_legend_help": "Un domaine par ligne. Le courrier d'un serveur dont le DNS inverse correspond est refusé.",
+    "senderscore_legend_help": "Une adresse IP par ligne, IPv4 ou IPv6. Ces adresses contournent toujours le contrôle SenderScore."
   },
   "spampolicy": {
     "msg_deleted": "Politique antispam supprimée !",
@@ -344,8 +344,12 @@
     "inbound": "Entrant",
     "save": "Enregistrer la limitation",
     "external": "Externe (entrant depuis d'autres serveurs)",
-    "limit_hint": "-1 hérite du réglage du domaine ou global. 0 signifie illimité. Le quota et la taille des messages sont en octets.",
-    "msg_invalid_value": "Valeur invalide : :field"
+    "msg_invalid_value": "Valeur invalide : :field",
+    "kind_help": "Quel trafic la limite compte : outbound est le courrier que le compte envoie, inbound celui qu'il reçoit, external compte un expéditeur hors des domaines servis.",
+    "period_seconds_help": "La durée de la fenêtre de comptage. Les compteurs repartent après ce nombre de secondes : 3600 compte par heure, 86400 par jour.",
+    "max_messages_help": "Combien de messages le compte peut envoyer sur une période. -1 reprend le réglage du domaine ou le réglage global, 0 signifie sans limite.",
+    "max_quota_bytes_help": "Combien d'octets au total le compte peut envoyer sur une période. -1 reprend le réglage du domaine ou le réglage global, 0 signifie sans limite.",
+    "max_message_size_help": "Le plus gros message unique en octets. Un message plus gros est refusé. -1 reprend le réglage du domaine ou le réglage global, 0 signifie sans limite."
   },
   "user": {
     "msg_quota_exceeds_max": "Le quota de l'utilisateur (:quota Mo) dépasse le maximum du domaine (:max Mo)",
@@ -886,7 +890,10 @@
     "domains_label": "Un domaine par ligne",
     "msg_domains_updated": "Domaines autorisés enregistrés.",
     "spf_heading": "Expéditeurs issus des enregistrements SPF",
-    "no_spf_senders": "Le job n'a encore résolu aucun expéditeur."
+    "no_spf_senders": "Le job n'a encore résolu aucun expéditeur.",
+    "state_for_help": "Le greylisting refuse la première tentative de remise d'un expéditeur inconnu et accepte la reprise. Il arrête beaucoup de spam et retarde de quelques minutes le premier message d'un nouvel expéditeur.",
+    "senders_label_help": "Expéditeurs qui contournent le greylisting, un par ligne : user@example.com, @example.com pour tout un domaine, ou une adresse IP.",
+    "domains_label_help": "Un domaine par ligne. La tâche iRedAPD lit l'enregistrement SPF de chaque domaine et autorise les serveurs d'envoi qu'elle y trouve. Retirer un domaine retire aussi ses expéditeurs."
   },
   "resource": {
     "title": "Sources de comptes",

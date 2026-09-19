@@ -181,13 +181,10 @@
     "rdns_title": "Lista blanca/negra de rDNS",
     "rdns_intro": "Gestione la lista blanca/negra basada en DNS inverso para iRedAPD.",
     "rdns_whitelist_legend": "Dominios rDNS en lista blanca",
-    "rdns_whitelist_hint": "Un dominio por línea. Los correos de servidores con rDNS coincidente omitirán el greylisting.",
     "rdns_blacklist_legend": "Dominios rDNS en lista negra",
-    "rdns_blacklist_hint": "Un dominio por línea. Los correos de servidores con rDNS coincidente serán rechazados.",
     "senderscore_title": "Lista blanca de SenderScore",
     "senderscore_intro": "Añada permanentemente direcciones IP a la lista blanca para omitir las comprobaciones de SenderScore.",
     "senderscore_legend": "Direcciones IP en lista blanca",
-    "senderscore_hint": "Una dirección IP por línea (IPv4 o IPv6). Estas IP omitirán permanentemente las comprobaciones de SenderScore.",
     "view_title": "Lista blanca/negra: :account",
     "title": "Lista blanca/negra",
     "global": "Global",
@@ -212,7 +209,10 @@
     "msg_entries_added": "Se han añadido :count entradas.",
     "msg_entries_removed": "Se han eliminado :count entradas.",
     "msg_invalid_kind": "El tipo debe ser W o B.",
-    "msg_sender_required": "Introduzca al menos una dirección."
+    "msg_sender_required": "Introduzca al menos una dirección.",
+    "rdns_whitelist_legend_help": "Un dominio por línea. El correo de un servidor con DNS inverso coincidente se salta el greylisting.",
+    "rdns_blacklist_legend_help": "Un dominio por línea. El correo de un servidor con DNS inverso coincidente se rechaza.",
+    "senderscore_legend_help": "Una dirección IP por línea, IPv4 o IPv6. Estas direcciones se saltan siempre la comprobación de SenderScore."
   },
   "spampolicy": {
     "msg_deleted": "¡Política antispam eliminada!",
@@ -344,8 +344,12 @@
     "inbound": "Entrada",
     "save": "Guardar limitación",
     "external": "Externo (entrante desde otros servidores)",
-    "limit_hint": "-1 hereda la configuración del dominio o global. 0 significa ilimitado. La cuota y el tamaño del mensaje están en bytes.",
-    "msg_invalid_value": "Valor no válido: :field"
+    "msg_invalid_value": "Valor no válido: :field",
+    "kind_help": "Qué tráfico cuenta el límite: outbound es el correo que envía la cuenta, inbound el que recibe, external cuenta un remitente fuera de los dominios servidos.",
+    "period_seconds_help": "La duración de la ventana de recuento. Los contadores empiezan de nuevo tras estos segundos: 3600 cuenta por hora, 86400 por día.",
+    "max_messages_help": "Cuántos mensajes puede enviar la cuenta en un periodo. -1 toma la configuración del dominio o la global, 0 significa sin límite.",
+    "max_quota_bytes_help": "Cuántos bytes en total puede enviar la cuenta en un periodo. -1 toma la configuración del dominio o la global, 0 significa sin límite.",
+    "max_message_size_help": "El mensaje individual más grande en bytes. Un mensaje mayor se rechaza. -1 toma la configuración del dominio o la global, 0 significa sin límite."
   },
   "user": {
     "msg_quota_exceeds_max": "La cuota del usuario (:quota MB) supera el máximo del dominio (:max MB)",
@@ -886,7 +890,10 @@
     "domains_label": "Un dominio por línea",
     "msg_domains_updated": "Dominios permitidos guardados.",
     "spf_heading": "Remitentes de los registros SPF",
-    "no_spf_senders": "El job todavía no ha resuelto ningún remitente."
+    "no_spf_senders": "El job todavía no ha resuelto ningún remitente.",
+    "state_for_help": "El greylisting rechaza el primer intento de entrega de un remitente desconocido y acepta el reintento. Detiene mucho spam y retrasa unos minutos el primer correo de un remitente nuevo.",
+    "senders_label_help": "Remitentes que se saltan el greylisting, uno por línea: user@example.com, @example.com para todo un dominio, o una dirección IP.",
+    "domains_label_help": "Un dominio por línea. La tarea de iRedAPD lee el registro SPF de cada dominio y añade a la lista blanca los servidores que encuentra. Quitar un dominio también quita sus remitentes."
   },
   "resource": {
     "title": "Orígenes de cuentas",

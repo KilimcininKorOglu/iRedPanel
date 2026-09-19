@@ -181,13 +181,10 @@
     "rdns_title": "Lista bianca/nera rDNS",
     "rdns_intro": "Gestisci la lista bianca/nera basata sul DNS inverso per iRedAPD.",
     "rdns_whitelist_legend": "Domini rDNS in lista bianca",
-    "rdns_whitelist_hint": "Un dominio per riga. Le e-mail dai server con rDNS corrispondente ignoreranno il greylisting.",
     "rdns_blacklist_legend": "Domini rDNS in lista nera",
-    "rdns_blacklist_hint": "Un dominio per riga. Le e-mail dai server con rDNS corrispondente verranno rifiutate.",
     "senderscore_title": "Lista bianca SenderScore",
     "senderscore_intro": "Aggiungi permanentemente gli indirizzi IP alla lista bianca per ignorare i controlli SenderScore.",
     "senderscore_legend": "Indirizzi IP in lista bianca",
-    "senderscore_hint": "Un indirizzo IP per riga (IPv4 o IPv6). Questi IP ignoreranno permanentemente i controlli SenderScore.",
     "view_title": "Lista bianca/nera: :account",
     "title": "Lista bianca/nera",
     "global": "Globale",
@@ -212,7 +209,10 @@
     "msg_entries_added": "Aggiunte :count voci.",
     "msg_entries_removed": "Rimosse :count voci.",
     "msg_invalid_kind": "Il tipo deve essere W o B.",
-    "msg_sender_required": "Inserisci almeno un indirizzo."
+    "msg_sender_required": "Inserisci almeno un indirizzo.",
+    "rdns_whitelist_legend_help": "Un dominio per riga. La posta da un server con DNS inverso corrispondente salta il greylisting.",
+    "rdns_blacklist_legend_help": "Un dominio per riga. La posta da un server con DNS inverso corrispondente viene rifiutata.",
+    "senderscore_legend_help": "Un indirizzo IP per riga, IPv4 o IPv6. Questi indirizzi saltano sempre il controllo SenderScore."
   },
   "spampolicy": {
     "msg_deleted": "Politica antispam eliminata!",
@@ -344,8 +344,12 @@
     "inbound": "In entrata",
     "save": "Salva limitazione",
     "external": "Esterno (in arrivo da altri server)",
-    "limit_hint": "-1 eredita l'impostazione del dominio o globale. 0 significa illimitato. Quota e dimensione del messaggio sono in byte.",
-    "msg_invalid_value": "Valore non valido: :field"
+    "msg_invalid_value": "Valore non valido: :field",
+    "kind_help": "Quale traffico conta il limite: outbound è la posta che l'account invia, inbound quella che riceve, external conta un mittente fuori dai domini serviti.",
+    "period_seconds_help": "La durata della finestra di conteggio. I contatori ripartono dopo questi secondi: 3600 conta all'ora, 86400 al giorno.",
+    "max_messages_help": "Quanti messaggi può inviare l'account in un periodo. -1 prende l'impostazione del dominio o quella globale, 0 significa senza limite.",
+    "max_quota_bytes_help": "Quanti byte in totale può inviare l'account in un periodo. -1 prende l'impostazione del dominio o quella globale, 0 significa senza limite.",
+    "max_message_size_help": "Il messaggio singolo più grande in byte. Un messaggio più grande viene rifiutato. -1 prende l'impostazione del dominio o quella globale, 0 significa senza limite."
   },
   "user": {
     "msg_quota_exceeds_max": "La quota dell'utente (:quota MB) supera il massimo del dominio (:max MB)",
@@ -886,7 +890,10 @@
     "domains_label": "Un dominio per riga",
     "msg_domains_updated": "Domini autorizzati salvati.",
     "spf_heading": "Mittenti dai record SPF",
-    "no_spf_senders": "Il job non ha ancora risolto alcun mittente."
+    "no_spf_senders": "Il job non ha ancora risolto alcun mittente.",
+    "state_for_help": "Il greylisting rifiuta il primo tentativo di consegna di un mittente sconosciuto e accetta il secondo. Ferma molto spam e ritarda di qualche minuto la prima posta di un mittente nuovo.",
+    "senders_label_help": "Mittenti che saltano il greylisting, uno per riga: user@example.com, @example.com per un intero dominio, o un indirizzo IP.",
+    "domains_label_help": "Un dominio per riga. Il job iRedAPD legge il record SPF di ogni dominio e mette in lista bianca i server di invio che trova. Togliere un dominio toglie anche i suoi mittenti."
   },
   "resource": {
     "title": "Origini account",

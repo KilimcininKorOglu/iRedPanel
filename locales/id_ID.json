@@ -181,13 +181,10 @@
     "rdns_title": "Daftar Putih/Hitam rDNS",
     "rdns_intro": "Kelola daftar putih/hitam berbasis DNS terbalik untuk iRedAPD.",
     "rdns_whitelist_legend": "Domain rDNS daftar putih",
-    "rdns_whitelist_hint": "Satu domain per baris. Email dari server dengan rDNS yang cocok akan melewati daftar abu-abu.",
     "rdns_blacklist_legend": "Domain rDNS daftar hitam",
-    "rdns_blacklist_hint": "Satu domain per baris. Email dari server dengan rDNS yang cocok akan ditolak.",
     "senderscore_title": "Daftar Putih SenderScore",
     "senderscore_intro": "Masukkan alamat IP ke daftar putih secara permanen untuk melewati pemeriksaan SenderScore.",
     "senderscore_legend": "Alamat IP daftar putih",
-    "senderscore_hint": "Satu alamat IP per baris (IPv4 atau IPv6). IP ini akan melewati pemeriksaan SenderScore secara permanen.",
     "view_title": "Daftar Putih/Hitam: :account",
     "title": "Daftar Putih/Hitam",
     "global": "Global",
@@ -212,7 +209,10 @@
     "msg_entries_added": ":count entri ditambahkan.",
     "msg_entries_removed": ":count entri dihapus.",
     "msg_invalid_kind": "Tipe harus W atau B.",
-    "msg_sender_required": "Masukkan setidaknya satu alamat."
+    "msg_sender_required": "Masukkan setidaknya satu alamat.",
+    "rdns_whitelist_legend_help": "Satu domain per baris. Mail dari server dengan DNS balik yang cocok melewati greylisting.",
+    "rdns_blacklist_legend_help": "Satu domain per baris. Mail dari server dengan DNS balik yang cocok ditolak.",
+    "senderscore_legend_help": "Satu alamat IP per baris, IPv4 atau IPv6. Alamat ini selalu melewati pemeriksaan SenderScore."
   },
   "spampolicy": {
     "msg_deleted": "Kebijakan spam dihapus!",
@@ -344,8 +344,12 @@
     "inbound": "Masuk",
     "save": "Simpan pembatasan",
     "external": "Eksternal (masuk dari server lain)",
-    "limit_hint": "-1 mewarisi pengaturan domain atau global. 0 berarti tidak terbatas. Kuota dan ukuran pesan dalam byte.",
-    "msg_invalid_value": "Nilai tidak valid: :field"
+    "msg_invalid_value": "Nilai tidak valid: :field",
+    "kind_help": "Lalu lintas mana yang dihitung batas ini: outbound adalah mail yang dikirim akun, inbound mail yang diterima, external menghitung pengirim di luar domain yang dilayani.",
+    "period_seconds_help": "Panjang jendela penghitungan. Penghitung mulai lagi setelah sekian detik: 3600 menghitung per jam, 86400 per hari.",
+    "max_messages_help": "Berapa pesan yang boleh dikirim akun dalam satu periode. -1 memakai pengaturan domain atau global, 0 berarti tanpa batas.",
+    "max_quota_bytes_help": "Berapa byte total yang boleh dikirim akun dalam satu periode. -1 memakai pengaturan domain atau global, 0 berarti tanpa batas.",
+    "max_message_size_help": "Pesan tunggal terbesar dalam byte. Pesan lebih besar ditolak. -1 memakai pengaturan domain atau global, 0 berarti tanpa batas."
   },
   "user": {
     "msg_quota_exceeds_max": "Kuota pengguna (:quota MB) melebihi maksimum domain (:max MB)",
@@ -886,7 +890,10 @@
     "domains_label": "Satu domain per baris",
     "msg_domains_updated": "Domain yang diizinkan disimpan.",
     "spf_heading": "Sender dari record SPF",
-    "no_spf_senders": "Job belum menemukan sender apa pun."
+    "no_spf_senders": "Job belum menemukan sender apa pun.",
+    "state_for_help": "Greylisting menolak percobaan pengiriman pertama dari pengirim tak dikenal dan menerima percobaan ulang. Ini menahan banyak spam dan menunda mail pertama pengirim baru beberapa menit.",
+    "senders_label_help": "Pengirim yang melewati greylisting, satu per baris: user@example.com, @example.com untuk satu domain penuh, atau alamat IP.",
+    "domains_label_help": "Satu domain per baris. Tugas iRedAPD membaca rekaman SPF tiap domain dan memasukkan server pengirim yang ditemukan ke daftar putih. Menghapus domain juga menghapus pengirimnya."
   },
   "resource": {
     "title": "Sumber Akun",

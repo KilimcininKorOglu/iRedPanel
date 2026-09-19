@@ -181,13 +181,10 @@
     "rdns_title": "rDNS ホワイト/ブラックリスト",
     "rdns_intro": "iRedAPD 用の逆引き DNS ベースのホワイト/ブラックリストを管理します。",
     "rdns_whitelist_legend": "ホワイトリスト rDNS ドメイン",
-    "rdns_whitelist_hint": "1 行に 1 ドメイン。一致する rDNS を持つサーバーからのメールはグレーリストをバイパスします。",
     "rdns_blacklist_legend": "ブラックリスト rDNS ドメイン",
-    "rdns_blacklist_hint": "1 行に 1 ドメイン。一致する rDNS を持つサーバーからのメールは拒否されます。",
     "senderscore_title": "SenderScore ホワイトリスト",
     "senderscore_intro": "SenderScore チェックをバイパスするために IP アドレスを永続的にホワイトリストに登録します。",
     "senderscore_legend": "ホワイトリスト IP アドレス",
-    "senderscore_hint": "1 行に 1 つの IP アドレス（IPv4 または IPv6）。これらの IP は SenderScore チェックを永続的にバイパスします。",
     "view_title": "ホワイト/ブラックリスト：:account",
     "title": "ホワイト/ブラックリスト",
     "global": "グローバル",
@@ -212,7 +209,10 @@
     "msg_entries_added": ":count 件を追加しました。",
     "msg_entries_removed": ":count 件を削除しました。",
     "msg_invalid_kind": "種類は W または B にしてください。",
-    "msg_sender_required": "アドレスを 1 つ以上入力してください。"
+    "msg_sender_required": "アドレスを 1 つ以上入力してください。",
+    "rdns_whitelist_legend_help": "1 行に 1 ドメインです。逆引き DNS が一致するサーバーからのメールは greylisting を回避します。",
+    "rdns_blacklist_legend_help": "1 行に 1 ドメインです。逆引き DNS が一致するサーバーからのメールは拒否されます。",
+    "senderscore_legend_help": "1 行に 1 つの IP アドレス (IPv4 または IPv6) です。これらのアドレスは常に SenderScore の確認を回避します。"
   },
   "spampolicy": {
     "msg_deleted": "スパムポリシーを削除しました！",
@@ -344,8 +344,12 @@
     "inbound": "受信",
     "save": "スロットルを保存",
     "external": "外部 (他サーバーからの受信)",
-    "limit_hint": "-1 はドメインまたはグローバル設定を継承します。0 は無制限です。クォータとメッセージサイズの単位はバイトです。",
-    "msg_invalid_value": "無効な値: :field"
+    "msg_invalid_value": "無効な値: :field",
+    "kind_help": "制限が数える通信の種類です。outbound はアカウントが送信するメール、inbound は受信するメール、external は対象ドメイン外の送信者を数えます。",
+    "period_seconds_help": "カウント期間の長さです。この秒数が過ぎるとカウンターは最初から数え直します。3600 は 1 時間ごと、86400 は 1 日ごとです。",
+    "max_messages_help": "1 期間にアカウントが送信できるメッセージ数です。-1 はドメインまたは全体の設定を引き継ぎ、0 は無制限を意味します。",
+    "max_quota_bytes_help": "1 期間にアカウントが送信できる合計バイト数です。-1 はドメインまたは全体の設定を引き継ぎ、0 は無制限を意味します。",
+    "max_message_size_help": "1 通あたりの最大サイズ (バイト) です。これより大きいメッセージは拒否されます。-1 はドメインまたは全体の設定を引き継ぎ、0 は無制限を意味します。"
   },
   "user": {
     "msg_quota_exceeds_max": "ユーザークォータ（:quota MB）がドメインの上限（:max MB）を超えています",
@@ -886,7 +890,10 @@
     "domains_label": "1 行に 1 ドメイン",
     "msg_domains_updated": "許可するドメインを保存しました。",
     "spf_heading": "SPF レコードからの sender",
-    "no_spf_senders": "job はまだ sender を解決していません。"
+    "no_spf_senders": "job はまだ sender を解決していません。",
+    "state_for_help": "greylisting は未知の送信者の最初の配送を拒否し、再送を受け入れます。多くの迷惑メールを止めますが、新しい送信者の最初のメールが数分遅れます。",
+    "senders_label_help": "greylisting を回避する送信者を 1 行に 1 つ書きます。user@example.com、ドメイン全体には @example.com、または IP アドレスです。",
+    "domains_label_help": "1 行に 1 ドメインです。iRedAPD のジョブが各ドメインの SPF レコードを読み、見つけた送信サーバーをホワイトリストに入れます。ドメインを削除すると、そこから来た送信者も消えます。"
   },
   "resource": {
     "title": "アカウントリソース",

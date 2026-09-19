@@ -181,13 +181,10 @@
     "rdns_title": "rDNS-White-/Blacklist",
     "rdns_intro": "Verwalten Sie die auf Reverse-DNS basierende White-/Blacklist für iRedAPD.",
     "rdns_whitelist_legend": "Zugelassene rDNS-Domains",
-    "rdns_whitelist_hint": "Eine Domain pro Zeile. E-Mails von Servern mit passendem rDNS umgehen das Greylisting.",
     "rdns_blacklist_legend": "Gesperrte rDNS-Domains",
-    "rdns_blacklist_hint": "Eine Domain pro Zeile. E-Mails von Servern mit passendem rDNS werden abgewiesen.",
     "senderscore_title": "SenderScore-Whitelist",
     "senderscore_intro": "IP-Adressen dauerhaft freigeben, um SenderScore-Prüfungen zu umgehen.",
     "senderscore_legend": "Zugelassene IP-Adressen",
-    "senderscore_hint": "Eine IP-Adresse pro Zeile (IPv4 oder IPv6). Diese IPs umgehen SenderScore-Prüfungen dauerhaft.",
     "view_title": "White-/Blacklist: :account",
     "title": "White-/Blacklist",
     "global": "Global",
@@ -212,7 +209,10 @@
     "msg_entries_added": ":count Einträge hinzugefügt.",
     "msg_entries_removed": ":count Einträge entfernt.",
     "msg_invalid_kind": "Der Typ muss W oder B sein.",
-    "msg_sender_required": "Geben Sie mindestens eine Adresse ein."
+    "msg_sender_required": "Geben Sie mindestens eine Adresse ein.",
+    "rdns_whitelist_legend_help": "Eine Domain pro Zeile. Mail von einem Server mit passendem Reverse-DNS überspringt Greylisting.",
+    "rdns_blacklist_legend_help": "Eine Domain pro Zeile. Mail von einem Server mit passendem Reverse-DNS wird abgewiesen.",
+    "senderscore_legend_help": "Eine IP-Adresse pro Zeile, IPv4 oder IPv6. Diese Adressen überspringen die SenderScore-Prüfung immer."
   },
   "spampolicy": {
     "msg_deleted": "Spam-Richtlinie gelöscht!",
@@ -344,8 +344,12 @@
     "inbound": "Eingehend",
     "save": "Drosselung speichern",
     "external": "Extern (eingehend von anderen Servern)",
-    "limit_hint": "-1 übernimmt die Domain- oder globale Einstellung. 0 bedeutet unbegrenzt. Kontingent und Nachrichtengröße sind in Bytes.",
-    "msg_invalid_value": "Ungültiger Wert: :field"
+    "msg_invalid_value": "Ungültiger Wert: :field",
+    "kind_help": "Welchen Verkehr die Grenze zählt: outbound ist Mail, die das Konto sendet, inbound Mail, die es empfängt, external zählt einen Absender außerhalb der bedienten Domains.",
+    "period_seconds_help": "Die Länge des Zählfensters. Die Zähler beginnen nach so vielen Sekunden neu: 3600 zählt pro Stunde, 86400 pro Tag.",
+    "max_messages_help": "Wie viele Nachrichten das Konto in einer Periode senden darf. -1 übernimmt die Domain- oder die globale Einstellung, 0 bedeutet unbegrenzt.",
+    "max_quota_bytes_help": "Wie viele Bytes insgesamt das Konto in einer Periode senden darf. -1 übernimmt die Domain- oder die globale Einstellung, 0 bedeutet unbegrenzt.",
+    "max_message_size_help": "Die größte einzelne Nachricht in Bytes. Eine größere Nachricht wird abgewiesen. -1 übernimmt die Domain- oder die globale Einstellung, 0 bedeutet unbegrenzt."
   },
   "user": {
     "msg_quota_exceeds_max": "Benutzerkontingent (:quota MB) überschreitet das Domain-Maximum (:max MB)",
@@ -886,7 +890,10 @@
     "domains_label": "Eine Domain pro Zeile",
     "msg_domains_updated": "Freigegebene Domains gespeichert.",
     "spf_heading": "Sender aus den SPF-Records",
-    "no_spf_senders": "Der Job hat noch keinen Sender aufgelöst."
+    "no_spf_senders": "Der Job hat noch keinen Sender aufgelöst.",
+    "state_for_help": "Greylisting weist den ersten Zustellversuch eines unbekannten Absenders ab und nimmt den Wiederholungsversuch an. Das stoppt viel Spam und verzögert die erste Mail eines neuen Absenders um einige Minuten.",
+    "senders_label_help": "Absender, die Greylisting überspringen, einer pro Zeile: user@example.com, @example.com für eine ganze Domain oder eine IP-Adresse.",
+    "domains_label_help": "Eine Domain pro Zeile. Der iRedAPD-Job liest den SPF-Eintrag jeder Domain und trägt die gefundenen Sendeserver ein. Wird eine Domain entfernt, gehen auch ihre Absender."
   },
   "resource": {
     "title": "Kontoquellen",

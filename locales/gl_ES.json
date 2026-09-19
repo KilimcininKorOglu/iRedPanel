@@ -181,13 +181,10 @@
     "rdns_title": "Lista branca/negra rDNS",
     "rdns_intro": "Xestiona a lista branca/negra baseada en DNS inverso para iRedAPD.",
     "rdns_whitelist_legend": "Dominios rDNS na lista branca",
-    "rdns_whitelist_hint": "Un dominio por liña. O correo de servidores con rDNS coincidente omite a lista gris.",
     "rdns_blacklist_legend": "Dominios rDNS na lista negra",
-    "rdns_blacklist_hint": "Un dominio por liña. O correo de servidores con rDNS coincidente será rexeitado.",
     "senderscore_title": "Lista branca SenderScore",
     "senderscore_intro": "Engade enderezos IP á lista branca de forma permanente para omitir as comprobacións de SenderScore.",
     "senderscore_legend": "Enderezos IP na lista branca",
-    "senderscore_hint": "Un enderezo IP por liña (IPv4 ou IPv6). Estas IP omiten permanentemente as comprobacións de SenderScore.",
     "view_title": "Lista branca/negra: :account",
     "title": "Lista branca/negra",
     "global": "Global",
@@ -212,7 +209,10 @@
     "msg_entries_added": "Engadíronse :count entradas.",
     "msg_entries_removed": "Elimináronse :count entradas.",
     "msg_invalid_kind": "O tipo debe ser W ou B.",
-    "msg_sender_required": "Introduce polo menos un enderezo."
+    "msg_sender_required": "Introduce polo menos un enderezo.",
+    "rdns_whitelist_legend_help": "Un dominio por liña. O correo dun servidor con DNS inverso coincidente salta o greylisting.",
+    "rdns_blacklist_legend_help": "Un dominio por liña. O correo dun servidor con DNS inverso coincidente rexéitase.",
+    "senderscore_legend_help": "Un enderezo IP por liña, IPv4 ou IPv6. Estes enderezos saltan sempre a comprobación de SenderScore."
   },
   "spampolicy": {
     "msg_deleted": "Política de spam eliminada!",
@@ -344,8 +344,12 @@
     "inbound": "Entrante",
     "save": "Gardar limitación",
     "external": "Externo (entrante doutros servidores)",
-    "limit_hint": "-1 herda a configuración do dominio ou global. 0 significa ilimitado. A cota e o tamaño da mensaxe están en bytes.",
-    "msg_invalid_value": "Valor non válido: :field"
+    "msg_invalid_value": "Valor non válido: :field",
+    "kind_help": "Que tráfico conta o límite: outbound é o correo que envía a conta, inbound o que recibe, external conta un remitente fóra dos dominios servidos.",
+    "period_seconds_help": "A duración da xanela de reconto. Os contadores comezan de novo tras estes segundos: 3600 conta por hora, 86400 por día.",
+    "max_messages_help": "Cantas mensaxes pode enviar a conta nun período. -1 colle a configuración do dominio ou a global, 0 significa sen límite.",
+    "max_quota_bytes_help": "Cantos bytes en total pode enviar a conta nun período. -1 colle a configuración do dominio ou a global, 0 significa sen límite.",
+    "max_message_size_help": "A mensaxe individual máis grande en bytes. Unha mensaxe maior rexéitase. -1 colle a configuración do dominio ou a global, 0 significa sen límite."
   },
   "user": {
     "msg_quota_exceeds_max": "A cota do usuario (:quota MB) supera o máximo do dominio (:max MB)",
@@ -886,7 +890,10 @@
     "domains_label": "Un dominio por liña",
     "msg_domains_updated": "Dominios permitidos gardados.",
     "spf_heading": "Remitentes dos rexistros SPF",
-    "no_spf_senders": "O job aínda non resolveu ningún remitente."
+    "no_spf_senders": "O job aínda non resolveu ningún remitente.",
+    "state_for_help": "O greylisting rexeita o primeiro intento de entrega dun remitente descoñecido e acepta o segundo. Detén moito spam e atrasa uns minutos o primeiro correo dun remitente novo.",
+    "senders_label_help": "Remitentes que saltan o greylisting, un por liña: user@example.com, @example.com para todo un dominio, ou un enderezo IP.",
+    "domains_label_help": "Un dominio por liña. A tarefa de iRedAPD le o rexistro SPF de cada dominio e engade á lista branca os servidores que atopa. Quitar un dominio quita tamén os seus remitentes."
   },
   "resource": {
     "title": "Recursos de contas",

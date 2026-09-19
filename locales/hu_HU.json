@@ -181,13 +181,10 @@
     "rdns_title": "rDNS fehér-/feketelista",
     "rdns_intro": "Fordított DNS-alapú fehér-/feketelista kezelése az iRedAPD számára.",
     "rdns_whitelist_legend": "Fehérlistázott rDNS-domainek",
-    "rdns_whitelist_hint": "Soronként egy domain. Az egyező rDNS-sel rendelkező szerverekről érkező e-mailek megkerülik a greylistinget.",
     "rdns_blacklist_legend": "Feketelistázott rDNS-domainek",
-    "rdns_blacklist_hint": "Soronként egy domain. Az egyező rDNS-sel rendelkező szerverekről érkező e-maileket elutasítjuk.",
     "senderscore_title": "SenderScore-fehérlista",
     "senderscore_intro": "IP-címek végleges fehérlistázása a SenderScore-ellenőrzések megkerüléséhez.",
     "senderscore_legend": "Fehérlistázott IP-címek",
-    "senderscore_hint": "Soronként egy IP-cím (IPv4 vagy IPv6). Ezek az IP-k véglegesen megkerülik a SenderScore-ellenőrzéseket.",
     "view_title": "Fehér-/feketelista: :account",
     "title": "Fehér-/feketelista",
     "global": "Globális",
@@ -212,7 +209,10 @@
     "msg_entries_added": "Hozzáadott bejegyzések: :count.",
     "msg_entries_removed": "Eltávolított bejegyzések: :count.",
     "msg_invalid_kind": "A típus csak W vagy B lehet.",
-    "msg_sender_required": "Adjon meg legalább egy címet."
+    "msg_sender_required": "Adjon meg legalább egy címet.",
+    "rdns_whitelist_legend_help": "Soronként egy tartomány. Az egyező fordított DNS-ű szerverről érkező levél kihagyja a greylistinget.",
+    "rdns_blacklist_legend_help": "Soronként egy tartomány. Az egyező fordított DNS-ű szerverről érkező levelet elutasítja.",
+    "senderscore_legend_help": "Soronként egy IP-cím, IPv4 vagy IPv6. Ezek a címek mindig kihagyják a SenderScore ellenőrzést."
   },
   "spampolicy": {
     "msg_deleted": "Spamszabályzat törölve!",
@@ -344,8 +344,12 @@
     "inbound": "Bejövő",
     "save": "Korlátozás mentése",
     "external": "Külső (más szerverekről érkező)",
-    "limit_hint": "A -1 a domain vagy a globális beállítást örökli. A 0 korlátlant jelent. A kvóta és az üzenetméret bájtban értendő.",
-    "msg_invalid_value": "Érvénytelen érték: :field"
+    "msg_invalid_value": "Érvénytelen érték: :field",
+    "kind_help": "Melyik forgalmat számolja a korlát: outbound a fiók által küldött levél, inbound a kapott levél, external a kiszolgált tartományokon kívüli feladót számolja.",
+    "period_seconds_help": "A számlálási ablak hossza. A számlálók ennyi másodperc után indulnak újra: 3600 óránként, 86400 naponta számol.",
+    "max_messages_help": "Hány üzenetet küldhet a fiók egy időszakban. A -1 a tartomány vagy a globális beállítást veszi át, a 0 korlátlant jelent.",
+    "max_quota_bytes_help": "Összesen hány bájtot küldhet a fiók egy időszakban. A -1 a tartomány vagy a globális beállítást veszi át, a 0 korlátlant jelent.",
+    "max_message_size_help": "A legnagyobb egyedi üzenet bájtban. A nagyobb üzenetet elutasítja. A -1 a tartomány vagy a globális beállítást veszi át, a 0 korlátlant jelent."
   },
   "user": {
     "msg_quota_exceeds_max": "A felhasználói kvóta (:quota MB) meghaladja a domain maximumát (:max MB)",
@@ -886,7 +890,10 @@
     "domains_label": "Soronként egy domain",
     "msg_domains_updated": "Engedélyezett domainek elmentve.",
     "spf_heading": "Feladók az SPF rekordokból",
-    "no_spf_senders": "A job még egyetlen feladót sem oldott fel."
+    "no_spf_senders": "A job még egyetlen feladót sem oldott fel.",
+    "state_for_help": "A greylisting elutasítja az ismeretlen feladó első kézbesítési kísérletét, és elfogadja az ismétlést. Sok spamet megállít, és néhány perccel késlelteti az új feladó első levelét.",
+    "senders_label_help": "A greylistinget kihagyó feladók, soronként egy: user@example.com, @example.com egy egész tartományhoz, vagy egy IP-cím.",
+    "domains_label_help": "Soronként egy tartomány. Az iRedAPD feladat beolvassa minden tartomány SPF rekordját, és engedélyezi a talált küldő szervereket. Egy tartomány eltávolítása a hozzá tartozó feladókat is törli."
   },
   "resource": {
     "title": "Fiókforrások",

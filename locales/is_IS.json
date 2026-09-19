@@ -181,13 +181,10 @@
     "rdns_title": "rDNS hvít/svartur listi",
     "rdns_intro": "Stjórnaðu hvítum/svörtum lista byggðum á öfugu DNS fyrir iRedAPD.",
     "rdns_whitelist_legend": "rDNS lén á hvítum lista",
-    "rdns_whitelist_hint": "Eitt lén á línu. Póstur frá netþjónum með samsvarandi rDNS sleppur fram hjá gráum lista.",
     "rdns_blacklist_legend": "rDNS lén á svörtum lista",
-    "rdns_blacklist_hint": "Eitt lén á línu. Pósti frá netþjónum með samsvarandi rDNS verður hafnað.",
     "senderscore_title": "SenderScore hvítur listi",
     "senderscore_intro": "Settu IP-vistföng varanlega á hvítan lista til að sleppa fram hjá SenderScore-athugunum.",
     "senderscore_legend": "IP-vistföng á hvítum lista",
-    "senderscore_hint": "Eitt IP-vistfang á línu (IPv4 eða IPv6). Þessi IP sleppa varanlega fram hjá SenderScore-athugunum.",
     "view_title": "Hvít/svartur listi: :account",
     "title": "Hvít/svartur listi",
     "global": "Altækt",
@@ -212,7 +209,10 @@
     "msg_entries_added": "Bætti við :count færslum.",
     "msg_entries_removed": "Fjarlægði :count færslur.",
     "msg_invalid_kind": "Gerðin verður að vera W eða B.",
-    "msg_sender_required": "Sláðu inn að minnsta kosti eitt netfang."
+    "msg_sender_required": "Sláðu inn að minnsta kosti eitt netfang.",
+    "rdns_whitelist_legend_help": "Eitt lén í línu. Póstur frá þjóni með samsvarandi öfugt DNS sleppur við greylisting.",
+    "rdns_blacklist_legend_help": "Eitt lén í línu. Pósti frá þjóni með samsvarandi öfugt DNS er hafnað.",
+    "senderscore_legend_help": "Ein IP-tala í línu, IPv4 eða IPv6. Þessar tölur sleppa alltaf við SenderScore athugun."
   },
   "spampolicy": {
     "msg_deleted": "Ruslpóststefnu eytt!",
@@ -344,8 +344,12 @@
     "inbound": "Móttaka",
     "save": "Vista takmörkun",
     "external": "Ytri (móttekið frá öðrum þjónum)",
-    "limit_hint": "-1 erfir stillingu léns eða altæka stillingu. 0 þýðir ótakmarkað. Kvóti og stærð skilaboða eru í bætum.",
-    "msg_invalid_value": "Ógilt gildi: :field"
+    "msg_invalid_value": "Ógilt gildi: :field",
+    "kind_help": "Hvaða umferð mörkin telja: outbound er póstur sem reikningurinn sendir, inbound póstur sem hann fær, external telur sendanda utan þjónaðra léna.",
+    "period_seconds_help": "Lengd talningargluggans. Teljararnir byrja aftur eftir svona margar sekúndur: 3600 telur á klukkustund, 86400 á dag.",
+    "max_messages_help": "Hve mörg skeyti reikningurinn má senda á einu tímabili. -1 tekur stillingu lénsins eða þá almennu, 0 þýðir ótakmarkað.",
+    "max_quota_bytes_help": "Hve mörg bæti alls reikningurinn má senda á einu tímabili. -1 tekur stillingu lénsins eða þá almennu, 0 þýðir ótakmarkað.",
+    "max_message_size_help": "Stærsta staka skeyti í bætum. Stærra skeyti er hafnað. -1 tekur stillingu lénsins eða þá almennu, 0 þýðir ótakmarkað."
   },
   "user": {
     "msg_quota_exceeds_max": "Notandakvóti (:quota MB) fer yfir hámark léns (:max MB)",
@@ -886,7 +890,10 @@
     "domains_label": "Eitt lén í hverri línu",
     "msg_domains_updated": "Leyfð lén vistuð.",
     "spf_heading": "Sendendur úr SPF-færslunum",
-    "no_spf_senders": "Job hefur ekki fundið neinn sendanda enn."
+    "no_spf_senders": "Job hefur ekki fundið neinn sendanda enn.",
+    "state_for_help": "Greylisting hafnar fyrstu sendingartilraun óþekkts sendanda og tekur við endurtekningunni. Það stöðvar mikinn ruslpóst og seinkar fyrsta pósti nýs sendanda um nokkrar mínútur.",
+    "senders_label_help": "Sendendur sem sleppa greylisting, einn í línu: user@example.com, @example.com fyrir heilt lén, eða IP-tala.",
+    "domains_label_help": "Eitt lén í línu. iRedAPD verkið les SPF færslu hvers léns og hvítlistar þá sendiþjóna sem það finnur. Ef lén er fjarlægt hverfa líka sendendur þess."
   },
   "resource": {
     "title": "Aðgangsuppsprettur",

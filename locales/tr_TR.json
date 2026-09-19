@@ -181,13 +181,10 @@
     "rdns_title": "rDNS Beyaz/Kara Liste",
     "rdns_intro": "iRedAPD için ters DNS tabanlı beyaz/kara listeyi yönetin.",
     "rdns_whitelist_legend": "Beyaz Listedeki rDNS Alan Adları",
-    "rdns_whitelist_hint": "Her satıra bir alan adı. rDNS'i eşleşen sunuculardan gelen e-postalar gri listeyi atlar.",
     "rdns_blacklist_legend": "Kara Listedeki rDNS Alan Adları",
-    "rdns_blacklist_hint": "Her satıra bir alan adı. rDNS'i eşleşen sunuculardan gelen e-postalar reddedilir.",
     "senderscore_title": "SenderScore Beyaz Listesi",
     "senderscore_intro": "SenderScore denetimlerini atlamak için IP adreslerini kalıcı olarak beyaz listeye alın.",
     "senderscore_legend": "Beyaz Listedeki IP Adresleri",
-    "senderscore_hint": "Her satıra bir IP adresi (IPv4 veya IPv6). Bu IP'ler SenderScore denetimlerini kalıcı olarak atlar.",
     "view_title": "Beyaz/Kara Liste: :account",
     "title": "Beyaz/Kara Liste",
     "global": "Genel",
@@ -212,7 +209,10 @@
     "msg_entries_added": ":count kayıt eklendi.",
     "msg_entries_removed": ":count kayıt kaldırıldı.",
     "msg_invalid_kind": "Tür W veya B olmalı.",
-    "msg_sender_required": "En az bir adres girin."
+    "msg_sender_required": "En az bir adres girin.",
+    "rdns_whitelist_legend_help": "Her satıra bir domain. Reverse DNS'i eşleşen sunucudan gelen mail greylisting'i atlar.",
+    "rdns_blacklist_legend_help": "Her satıra bir domain. Reverse DNS'i eşleşen sunucudan gelen mail reddedilir.",
+    "senderscore_legend_help": "Her satıra bir IP adresi, IPv4 veya IPv6. Bu adresler SenderScore kontrolünü her zaman atlar."
   },
   "spampolicy": {
     "msg_deleted": "Spam politikası silindi!",
@@ -344,8 +344,12 @@
     "inbound": "Gelen",
     "save": "Sınırlamayı kaydet",
     "external": "Harici (diğer sunuculardan gelen)",
-    "limit_hint": "-1 domain veya global ayarı devralır. 0 sınırsız demektir. Kota ve ileti boyutu byte cinsindendir.",
-    "msg_invalid_value": "Geçersiz değer: :field"
+    "msg_invalid_value": "Geçersiz değer: :field",
+    "kind_help": "Limitin hangi trafiği saydığı: outbound hesabın gönderdiği mail, inbound aldığı mail, external ise hizmet verilen domainlerin dışındaki göndericidir.",
+    "period_seconds_help": "Sayma penceresinin uzunluğu. Sayaçlar bu kadar saniye sonra yeniden başlar: 3600 saatte bir, 86400 günde bir sayar.",
+    "max_messages_help": "Hesabın bir dönemde gönderebileceği mesaj sayısı. -1 domain veya genel ayarı alır, 0 sınırsız demektir.",
+    "max_quota_bytes_help": "Hesabın bir dönemde gönderebileceği toplam byte. -1 domain veya genel ayarı alır, 0 sınırsız demektir.",
+    "max_message_size_help": "Tek bir mesajın byte cinsinden en büyük boyutu. Daha büyük mesaj reddedilir. -1 domain veya genel ayarı alır, 0 sınırsız demektir."
   },
   "user": {
     "msg_quota_exceeds_max": "Kullanıcı kotası (:quota MB) alan adı maksimumunu (:max MB) aşıyor",
@@ -886,7 +890,10 @@
     "domains_label": "Her satıra bir domain",
     "msg_domains_updated": "Whitelist domain'leri kaydedildi.",
     "spf_heading": "SPF kayıtlarından gelen sender'lar",
-    "no_spf_senders": "Job henüz bir sender çözmedi."
+    "no_spf_senders": "Job henüz bir sender çözmedi.",
+    "state_for_help": "Greylisting, tanınmayan bir göndericinin ilk teslim denemesini reddeder ve tekrar denemesini kabul eder. Çok sayıda spam'i durdurur, yeni bir göndericinin ilk mailini birkaç dakika geciktirir.",
+    "senders_label_help": "Greylisting'i atlayan göndericiler, her satıra bir tane: user@example.com, domainin tamamı için @example.com veya bir IP adresi.",
+    "domains_label_help": "Her satıra bir domain. iRedAPD görevi her domainin SPF kaydını okur ve bulduğu gönderici sunucuları beyaz listeye ekler. Bir domaini kaldırmak, ondan gelen göndericileri de siler."
   },
   "resource": {
     "title": "Hesap Kaynakları",

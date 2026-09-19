@@ -181,13 +181,10 @@
     "rdns_title": "Biała/czarna lista rDNS",
     "rdns_intro": "Zarządzaj białą/czarną listą opartą na odwrotnym DNS dla iRedAPD.",
     "rdns_whitelist_legend": "Domeny rDNS na białej liście",
-    "rdns_whitelist_hint": "Jedna domena w wierszu. E-maile z serwerów o pasującym rDNS pominą szarą listę.",
     "rdns_blacklist_legend": "Domeny rDNS na czarnej liście",
-    "rdns_blacklist_hint": "Jedna domena w wierszu. E-maile z serwerów o pasującym rDNS zostaną odrzucone.",
     "senderscore_title": "Biała lista SenderScore",
     "senderscore_intro": "Dodaj adresy IP na stałe do białej listy, aby pominąć kontrole SenderScore.",
     "senderscore_legend": "Adresy IP na białej liście",
-    "senderscore_hint": "Jeden adres IP w wierszu (IPv4 lub IPv6). Te adresy IP na stałe pominą kontrole SenderScore.",
     "view_title": "Biała/czarna lista: :account",
     "title": "Biała/czarna lista",
     "global": "Globalna",
@@ -212,7 +209,10 @@
     "msg_entries_added": "Dodano wpisy: :count.",
     "msg_entries_removed": "Usunięto wpisy: :count.",
     "msg_invalid_kind": "Typ musi być W lub B.",
-    "msg_sender_required": "Podaj co najmniej jeden adres."
+    "msg_sender_required": "Podaj co najmniej jeden adres.",
+    "rdns_whitelist_legend_help": "Jedna domena w wierszu. Poczta z serwera o pasującym odwrotnym DNS pomija greylisting.",
+    "rdns_blacklist_legend_help": "Jedna domena w wierszu. Poczta z serwera o pasującym odwrotnym DNS jest odrzucana.",
+    "senderscore_legend_help": "Jeden adres IP w wierszu, IPv4 lub IPv6. Te adresy zawsze pomijają sprawdzenie SenderScore."
   },
   "spampolicy": {
     "msg_deleted": "Polityka spamu usunięta!",
@@ -344,8 +344,12 @@
     "inbound": "Przychodzące",
     "save": "Zapisz ograniczenia",
     "external": "Zewnętrzny (przychodzący z innych serwerów)",
-    "limit_hint": "-1 dziedziczy ustawienie domeny lub globalne. 0 oznacza brak limitu. Limit i rozmiar wiadomości podaje się w bajtach.",
-    "msg_invalid_value": "Nieprawidłowa wartość: :field"
+    "msg_invalid_value": "Nieprawidłowa wartość: :field",
+    "kind_help": "Jaki ruch liczy limit: outbound to poczta, którą konto wysyła, inbound to poczta, którą odbiera, external liczy nadawcę spoza obsługiwanych domen.",
+    "period_seconds_help": "Długość okna zliczania. Liczniki zaczynają od nowa po tylu sekundach: 3600 liczy na godzinę, 86400 na dobę.",
+    "max_messages_help": "Ile wiadomości konto może wysłać w jednym okresie. -1 bierze ustawienie domeny lub globalne, 0 oznacza bez limitu.",
+    "max_quota_bytes_help": "Ile bajtów łącznie konto może wysłać w jednym okresie. -1 bierze ustawienie domeny lub globalne, 0 oznacza bez limitu.",
+    "max_message_size_help": "Największa pojedyncza wiadomość w bajtach. Większa wiadomość jest odrzucana. -1 bierze ustawienie domeny lub globalne, 0 oznacza bez limitu."
   },
   "user": {
     "msg_quota_exceeds_max": "Limit użytkownika (:quota MB) przekracza maksimum domeny (:max MB)",
@@ -886,7 +890,10 @@
     "domains_label": "Jedna domena w wierszu",
     "msg_domains_updated": "Dozwolone domeny zapisane.",
     "spf_heading": "Nadawcy z rekordów SPF",
-    "no_spf_senders": "Job nie rozwiązał jeszcze żadnego nadawcy."
+    "no_spf_senders": "Job nie rozwiązał jeszcze żadnego nadawcy.",
+    "state_for_help": "Greylisting odrzuca pierwszą próbę doręczenia od nieznanego nadawcy i przyjmuje powtórzenie. Zatrzymuje dużo spamu i opóźnia pierwszą pocztę nowego nadawcy o kilka minut.",
+    "senders_label_help": "Nadawcy pomijający greylisting, jeden w wierszu: user@example.com, @example.com dla całej domeny lub adres IP.",
+    "domains_label_help": "Jedna domena w wierszu. Zadanie iRedAPD czyta rekord SPF każdej domeny i dodaje znalezione serwery nadawcze do białej listy. Usunięcie domeny usuwa też pochodzących z niej nadawców."
   },
   "resource": {
     "title": "Źródła kont",

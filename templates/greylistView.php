@@ -22,7 +22,7 @@
       <input type="hidden" name="action" value="state" />
       <div class="card-header"><?= $te('greylist.status_heading') ?></div>
       <div class="card-body">
-        <label for="greylistState" class="form-label"><?= $te('greylist.state_for', ['account' => $account]) ?></label>
+        <label for="greylistState" class="form-label"><?= $te('greylist.state_for', ['account' => $account]) ?></label><?= $help('greylist.state_for', ['account' => $account]) ?>
         <select id="greylistState" name="state" class="form-select">
           <?php if ($canInherit): ?>
           <option value="inherit"<?= $greylistState === 'inherit' ? ' selected' : '' ?>><?= $te('greylist.state_inherit') ?></option>
@@ -41,7 +41,7 @@
       <input type="hidden" name="action" value="whitelist" />
       <div class="card-header"><?= $te('greylist.whitelist_heading') ?></div>
       <div class="card-body">
-        <label for="whitelistedSenders" class="form-label"><?= $te('greylist.senders_label') ?></label>
+        <label for="whitelistedSenders" class="form-label"><?= $te('greylist.senders_label') ?></label><?= $help('greylist.senders_label') ?>
         <textarea id="whitelistedSenders" name="whitelistedSenders" data-account-picker="multi" rows="6" class="form-control"><?= $e(implode("\n", $whitelistedSenders ?? [])) ?></textarea>
       </div>
       <div class="card-footer">

@@ -62,7 +62,7 @@ $limitFields = [
       <div class="card-body">
         <div class="row g-3 mb-3">
           <div class="col-md-6">
-            <label for="throttleKind" class="form-label"><?= $te('throttle.kind') ?></label>
+            <label for="throttleKind" class="form-label"><?= $te('throttle.kind') ?></label><?= $help('throttle.kind') ?>
             <select id="throttleKind" name="kind" class="form-select">
               <option value="outbound"><?= $te('throttle.outbound') ?></option>
               <option value="inbound"><?= $te('throttle.inbound') ?></option>
@@ -70,17 +70,16 @@ $limitFields = [
             </select>
           </div>
           <div class="col-md-6">
-            <label for="throttlePeriod" class="form-label"><?= $te('throttle.period_seconds') ?></label>
+            <label for="throttlePeriod" class="form-label"><?= $te('throttle.period_seconds') ?></label><?= $help('throttle.period_seconds') ?>
             <input id="throttlePeriod" type="number" name="period" class="form-control" value="3600" min="1" required />
           </div>
           <?php foreach ($limitFields as $field => $labelKey): ?>
           <div class="col-md-4">
-            <label for="<?= $field ?>" class="form-label"><?= $te($labelKey) ?></label>
+            <label for="<?= $field ?>" class="form-label"><?= $te($labelKey) ?></label><?= $help($labelKey) ?>
             <input id="<?= $field ?>" type="number" name="<?= $field ?>" class="form-control" value="-1" min="-1" />
           </div>
           <?php endforeach; ?>
         </div>
-        <div class="form-text"><?= $te('throttle.limit_hint') ?></div>
       </div>
       <div class="card-footer">
         <button type="submit" class="btn btn-primary"><?= $te('throttle.save') ?></button>

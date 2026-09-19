@@ -181,13 +181,10 @@
     "rdns_title": "rDNS valge/must nimekiri",
     "rdns_intro": "Hallake iRedAPD jaoks pöörd-DNS-il põhinevat valget/musta nimekirja.",
     "rdns_whitelist_legend": "Valges nimekirjas rDNS domeenid",
-    "rdns_whitelist_hint": "Üks domeen rea kohta. Vastava rDNS-iga serverite e-post möödub greylistingust.",
     "rdns_blacklist_legend": "Mustas nimekirjas rDNS domeenid",
-    "rdns_blacklist_hint": "Üks domeen rea kohta. Vastava rDNS-iga serverite e-post lükatakse tagasi.",
     "senderscore_title": "SenderScore valge nimekiri",
     "senderscore_intro": "Lisage IP-aadressid püsivalt valgesse nimekirja, et möödub SenderScore kontrollidest.",
     "senderscore_legend": "Valges nimekirjas IP-aadressid",
-    "senderscore_hint": "Üks IP-aadress rea kohta (IPv4 või IPv6). Need IP-d mööduvad püsivalt SenderScore kontrollidest.",
     "view_title": "Valge/must nimekiri: :account",
     "title": "Valge/must nimekiri",
     "global": "Globaalne",
@@ -212,7 +209,10 @@
     "msg_entries_added": "Lisati :count kirjet.",
     "msg_entries_removed": "Eemaldati :count kirjet.",
     "msg_invalid_kind": "Tüüp peab olema W või B.",
-    "msg_sender_required": "Sisesta vähemalt üks aadress."
+    "msg_sender_required": "Sisesta vähemalt üks aadress.",
+    "rdns_whitelist_legend_help": "Üks domeen reale. Kiri serverist, mille pöörd-DNS sobib, jätab greylistingu vahele.",
+    "rdns_blacklist_legend_help": "Üks domeen reale. Kiri serverist, mille pöörd-DNS sobib, lükatakse tagasi.",
+    "senderscore_legend_help": "Üks IP-aadress reale, IPv4 või IPv6. Need aadressid jätavad SenderScore kontrolli alati vahele."
   },
   "spampolicy": {
     "msg_deleted": "Rämpsposti poliitika kustutatud!",
@@ -344,8 +344,12 @@
     "inbound": "Sissetulev",
     "save": "Salvesta piiramine",
     "external": "Väline (sissetulev teistest serveritest)",
-    "limit_hint": "-1 pärib domeeni või globaalse sätte. 0 tähendab piiramatut. Kvoot ja kirja suurus on baitides.",
-    "msg_invalid_value": "Vigane väärtus: :field"
+    "msg_invalid_value": "Vigane väärtus: :field",
+    "kind_help": "Millist liiklust piirang loeb: outbound on kiri, mille konto saadab, inbound on kiri, mille ta saab, external loeb saatjat väljaspool teenindatavaid domeene.",
+    "period_seconds_help": "Loendusakna pikkus. Loendurid algavad uuesti pärast nii mitut sekundit: 3600 loeb tunnis, 86400 päevas.",
+    "max_messages_help": "Mitu sõnumit tohib konto ühe perioodi jooksul saata. -1 võtab domeeni või üldise seade, 0 tähendab piiranguta.",
+    "max_quota_bytes_help": "Mitu baiti kokku tohib konto ühe perioodi jooksul saata. -1 võtab domeeni või üldise seade, 0 tähendab piiranguta.",
+    "max_message_size_help": "Suurim üksik sõnum baitides. Suurem sõnum lükatakse tagasi. -1 võtab domeeni või üldise seade, 0 tähendab piiranguta."
   },
   "user": {
     "msg_quota_exceeds_max": "Kasutaja kvoot (:quota MB) ületab domeeni maksimumi (:max MB)",
@@ -886,7 +890,10 @@
     "domains_label": "Üks domeen rea kohta",
     "msg_domains_updated": "Lubatud domeenid salvestatud.",
     "spf_heading": "Saatjad SPF-kirjetest",
-    "no_spf_senders": "Job pole veel ühtegi saatjat leidnud."
+    "no_spf_senders": "Job pole veel ühtegi saatjat leidnud.",
+    "state_for_help": "Greylisting lükkab tundmatu saatja esimese saatmiskatse tagasi ja võtab korduskatse vastu. See peatab palju rämpsposti ja viivitab uue saatja esimest kirja mõne minuti.",
+    "senders_label_help": "Saatjad, kes greylistingu vahele jätavad, üks reale: user@example.com, @example.com terve domeeni kohta või IP-aadress.",
+    "domains_label_help": "Üks domeen reale. iRedAPD töö loeb iga domeeni SPF-kirje ja lisab leitud saatvad serverid valgesse nimekirja. Domeeni eemaldamine kustutab ka selle saatjad."
   },
   "resource": {
     "title": "Kontoallikad",

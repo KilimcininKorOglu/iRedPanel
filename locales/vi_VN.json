@@ -181,13 +181,10 @@
     "rdns_title": "Danh sách trắng/đen rDNS",
     "rdns_intro": "Quản lý danh sách trắng/đen dựa trên DNS ngược cho iRedAPD.",
     "rdns_whitelist_legend": "Tên miền rDNS trong danh sách trắng",
-    "rdns_whitelist_hint": "Mỗi dòng một tên miền. Email từ các máy chủ có rDNS khớp sẽ bỏ qua danh sách xám.",
     "rdns_blacklist_legend": "Tên miền rDNS trong danh sách đen",
-    "rdns_blacklist_hint": "Mỗi dòng một tên miền. Email từ các máy chủ có rDNS khớp sẽ bị từ chối.",
     "senderscore_title": "Danh sách trắng SenderScore",
     "senderscore_intro": "Thêm vĩnh viễn địa chỉ IP vào danh sách trắng để bỏ qua kiểm tra SenderScore.",
     "senderscore_legend": "Địa chỉ IP trong danh sách trắng",
-    "senderscore_hint": "Mỗi dòng một địa chỉ IP (IPv4 hoặc IPv6). Các IP này sẽ bỏ qua kiểm tra SenderScore vĩnh viễn.",
     "view_title": "Danh sách trắng/đen: :account",
     "title": "Danh sách trắng/đen",
     "global": "Toàn cục",
@@ -212,7 +209,10 @@
     "msg_entries_added": "Đã thêm :count mục.",
     "msg_entries_removed": "Đã xóa :count mục.",
     "msg_invalid_kind": "Loại phải là W hoặc B.",
-    "msg_sender_required": "Nhập ít nhất một địa chỉ."
+    "msg_sender_required": "Nhập ít nhất một địa chỉ.",
+    "rdns_whitelist_legend_help": "Mỗi dòng một domain. Thư từ máy chủ có reverse DNS khớp sẽ bỏ qua greylisting.",
+    "rdns_blacklist_legend_help": "Mỗi dòng một domain. Thư từ máy chủ có reverse DNS khớp sẽ bị từ chối.",
+    "senderscore_legend_help": "Mỗi dòng một địa chỉ IP, IPv4 hoặc IPv6. Các địa chỉ này luôn bỏ qua kiểm tra SenderScore."
   },
   "spampolicy": {
     "msg_deleted": "Chính sách thư rác đã được xóa!",
@@ -344,8 +344,12 @@
     "inbound": "Đến",
     "save": "Lưu giới hạn",
     "external": "Bên ngoài (đến từ máy chủ khác)",
-    "limit_hint": "-1 kế thừa cài đặt của tên miền hoặc cài đặt toàn cục. 0 nghĩa là không giới hạn. Hạn mức và kích thước thư tính bằng byte.",
-    "msg_invalid_value": "Giá trị không hợp lệ: :field"
+    "msg_invalid_value": "Giá trị không hợp lệ: :field",
+    "kind_help": "Giới hạn đếm loại lưu lượng nào: outbound là thư tài khoản gửi, inbound là thư tài khoản nhận, external đếm người gửi ngoài các domain được phục vụ.",
+    "period_seconds_help": "Độ dài cửa sổ đếm. Bộ đếm bắt đầu lại sau số giây này: 3600 đếm theo giờ, 86400 theo ngày.",
+    "max_messages_help": "Số thư tài khoản được gửi trong một chu kỳ. -1 lấy thiết lập của domain hoặc thiết lập chung, 0 nghĩa là không giới hạn.",
+    "max_quota_bytes_help": "Tổng số byte tài khoản được gửi trong một chu kỳ. -1 lấy thiết lập của domain hoặc thiết lập chung, 0 nghĩa là không giới hạn.",
+    "max_message_size_help": "Kích thước lớn nhất của một thư, tính bằng byte. Thư lớn hơn bị từ chối. -1 lấy thiết lập của domain hoặc thiết lập chung, 0 nghĩa là không giới hạn."
   },
   "user": {
     "msg_quota_exceeds_max": "Hạn ngạch người dùng (:quota MB) vượt quá mức tối đa của tên miền (:max MB)",
@@ -886,7 +890,10 @@
     "domains_label": "Mỗi dòng một domain",
     "msg_domains_updated": "Đã lưu domain được phép.",
     "spf_heading": "Sender từ bản ghi SPF",
-    "no_spf_senders": "Job chưa phân giải sender nào."
+    "no_spf_senders": "Job chưa phân giải sender nào.",
+    "state_for_help": "Greylisting từ chối lần gửi đầu tiên của người gửi lạ và chấp nhận lần gửi lại. Cách này chặn nhiều spam và làm thư đầu tiên của người gửi mới chậm vài phút.",
+    "senders_label_help": "Người gửi bỏ qua greylisting, mỗi dòng một mục: user@example.com, @example.com cho cả domain, hoặc một địa chỉ IP.",
+    "domains_label_help": "Mỗi dòng một domain. Tác vụ iRedAPD đọc bản ghi SPF của từng domain và đưa các máy chủ gửi tìm được vào danh sách trắng. Xóa một domain cũng xóa những người gửi đến từ domain đó."
   },
   "resource": {
     "title": "Nguồn tài khoản",

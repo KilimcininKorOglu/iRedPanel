@@ -181,13 +181,10 @@
     "rdns_title": "Beli/črni seznam rDNS",
     "rdns_intro": "Upravljanje belega/črnega seznama na podlagi obratnega DNS za iRedAPD.",
     "rdns_whitelist_legend": "Domene rDNS na belem seznamu",
-    "rdns_whitelist_hint": "Ena domena na vrstico. E-pošta s strežnikov z ujemajočim se rDNS bo obšla sivi seznam.",
     "rdns_blacklist_legend": "Domene rDNS na črnem seznamu",
-    "rdns_blacklist_hint": "Ena domena na vrstico. E-pošta s strežnikov z ujemajočim se rDNS bo zavrnjena.",
     "senderscore_title": "Beli seznam SenderScore",
     "senderscore_intro": "Trajno uvrstite naslove IP na beli seznam, da obidete preverjanja SenderScore.",
     "senderscore_legend": "Naslovi IP na belem seznamu",
-    "senderscore_hint": "En naslov IP na vrstico (IPv4 ali IPv6). Ti naslovi IP bodo trajno obšli preverjanja SenderScore.",
     "view_title": "Beli/črni seznam: :account",
     "title": "Beli/črni seznam",
     "global": "Globalno",
@@ -212,7 +209,10 @@
     "msg_entries_added": "Dodanih vnosov: :count.",
     "msg_entries_removed": "Odstranjenih vnosov: :count.",
     "msg_invalid_kind": "Vrsta mora biti W ali B.",
-    "msg_sender_required": "Vnesite vsaj en naslov."
+    "msg_sender_required": "Vnesite vsaj en naslov.",
+    "rdns_whitelist_legend_help": "Ena domena na vrstico. Pošta s strežnika z ujemajočim obratnim DNS preskoči greylisting.",
+    "rdns_blacklist_legend_help": "Ena domena na vrstico. Pošta s strežnika z ujemajočim obratnim DNS je zavrnjena.",
+    "senderscore_legend_help": "En naslov IP na vrstico, IPv4 ali IPv6. Ti naslovi vedno preskočijo preverjanje SenderScore."
   },
   "spampolicy": {
     "msg_deleted": "Pravilnik o neželeni pošti izbrisan!",
@@ -344,8 +344,12 @@
     "inbound": "Dohodno",
     "save": "Shrani omejevanje",
     "external": "Zunanje (dohodno z drugih strežnikov)",
-    "limit_hint": "-1 prevzame nastavitev domene ali globalno nastavitev. 0 pomeni neomejeno. Kvota in velikost sporočila sta v bajtih.",
-    "msg_invalid_value": "Neveljavna vrednost: :field"
+    "msg_invalid_value": "Neveljavna vrednost: :field",
+    "kind_help": "Kateri promet omejitev šteje: outbound je pošta, ki jo račun pošilja, inbound pošta, ki jo prejema, external šteje pošiljatelja zunaj postreženih domen.",
+    "period_seconds_help": "Dolžina okna štetja. Števci se začnejo znova po toliko sekundah: 3600 šteje na uro, 86400 na dan.",
+    "max_messages_help": "Koliko sporočil sme račun poslati v enem obdobju. -1 prevzame nastavitev domene ali globalno, 0 pomeni brez omejitve.",
+    "max_quota_bytes_help": "Koliko bajtov skupaj sme račun poslati v enem obdobju. -1 prevzame nastavitev domene ali globalno, 0 pomeni brez omejitve.",
+    "max_message_size_help": "Največje posamezno sporočilo v bajtih. Večje sporočilo je zavrnjeno. -1 prevzame nastavitev domene ali globalno, 0 pomeni brez omejitve."
   },
   "user": {
     "msg_quota_exceeds_max": "Uporabniška kvota (:quota MB) presega največjo domensko (:max MB)",
@@ -886,7 +890,10 @@
     "domains_label": "Ena domena na vrstico",
     "msg_domains_updated": "Dovoljene domene shranjene.",
     "spf_heading": "Pošiljatelji iz zapisov SPF",
-    "no_spf_senders": "Job še ni razrešil nobenega pošiljatelja."
+    "no_spf_senders": "Job še ni razrešil nobenega pošiljatelja.",
+    "state_for_help": "Greylisting zavrne prvi poskus dostave neznanega pošiljatelja in sprejme ponovitev. Ustavi veliko neželene pošte in zadrži prvo pošto novega pošiljatelja za nekaj minut.",
+    "senders_label_help": "Pošiljatelji, ki preskočijo greylisting, eden na vrstico: user@example.com, @example.com za celotno domeno ali naslov IP.",
+    "domains_label_help": "Ena domena na vrstico. Opravilo iRedAPD prebere zapis SPF vsake domene in na beli seznam doda najdene pošiljajoče strežnike. Odstranitev domene izbriše tudi pošiljatelje iz nje."
   },
   "resource": {
     "title": "Viri računov",

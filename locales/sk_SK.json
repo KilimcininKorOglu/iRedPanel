@@ -181,13 +181,10 @@
     "rdns_title": "Biely/čierny zoznam rDNS",
     "rdns_intro": "Spravujte biely/čierny zoznam založený na reverznom DNS pre iRedAPD.",
     "rdns_whitelist_legend": "Domény rDNS na bielom zozname",
-    "rdns_whitelist_hint": "Jedna doména na riadok. E-maily zo serverov so zhodným rDNS obídu greylisting.",
     "rdns_blacklist_legend": "Domény rDNS na čiernom zozname",
-    "rdns_blacklist_hint": "Jedna doména na riadok. E-maily zo serverov so zhodným rDNS budú odmietnuté.",
     "senderscore_title": "Biely zoznam SenderScore",
     "senderscore_intro": "Trvalo pridajte IP adresy na biely zoznam, aby obišli kontroly SenderScore.",
     "senderscore_legend": "IP adresy na bielom zozname",
-    "senderscore_hint": "Jedna IP adresa na riadok (IPv4 alebo IPv6). Tieto IP trvalo obídu kontroly SenderScore.",
     "view_title": "Biely/čierny zoznam: :account",
     "title": "Biely/čierny zoznam",
     "global": "Globálny",
@@ -212,7 +209,10 @@
     "msg_entries_added": "Pridané záznamy: :count.",
     "msg_entries_removed": "Odobrané záznamy: :count.",
     "msg_invalid_kind": "Typ musí byť W alebo B.",
-    "msg_sender_required": "Zadajte aspoň jednu adresu."
+    "msg_sender_required": "Zadajte aspoň jednu adresu.",
+    "rdns_whitelist_legend_help": "Jedna doména na riadok. Pošta zo servera so zhodným reverzným DNS preskočí greylisting.",
+    "rdns_blacklist_legend_help": "Jedna doména na riadok. Pošta zo servera so zhodným reverzným DNS je odmietnutá.",
+    "senderscore_legend_help": "Jedna IP adresa na riadok, IPv4 alebo IPv6. Tieto adresy vždy preskočia kontrolu SenderScore."
   },
   "spampolicy": {
     "msg_deleted": "Zásady spamu odstránené!",
@@ -344,8 +344,12 @@
     "inbound": "Prichádzajúce",
     "save": "Uložiť obmedzenie",
     "external": "Externé (prichádzajúce z iných serverov)",
-    "limit_hint": "-1 prevezme nastavenie domény alebo globálne nastavenie. 0 znamená bez obmedzenia. Kvóta a veľkosť správy sú v bajtoch.",
-    "msg_invalid_value": "Neplatná hodnota: :field"
+    "msg_invalid_value": "Neplatná hodnota: :field",
+    "kind_help": "Aký prenos limit počíta: outbound je pošta, ktorú účet odosiela, inbound pošta, ktorú prijíma, external počíta odosielateľa mimo obsluhovaných domén.",
+    "period_seconds_help": "Dĺžka okna počítania. Počítadlá začnú znova po toľkých sekundách: 3600 počíta za hodinu, 86400 za deň.",
+    "max_messages_help": "Koľko správ smie účet odoslať za jedno obdobie. -1 preberie nastavenie domény alebo globálne, 0 znamená bez obmedzenia.",
+    "max_quota_bytes_help": "Koľko bajtov celkovo smie účet odoslať za jedno obdobie. -1 preberie nastavenie domény alebo globálne, 0 znamená bez obmedzenia.",
+    "max_message_size_help": "Najväčšia jednotlivá správa v bajtoch. Väčšia správa je odmietnutá. -1 preberie nastavenie domény alebo globálne, 0 znamená bez obmedzenia."
   },
   "user": {
     "msg_quota_exceeds_max": "Kvóta používateľa (:quota MB) prekračuje maximum domény (:max MB)",
@@ -886,7 +890,10 @@
     "domains_label": "Jedna doména na riadok",
     "msg_domains_updated": "Povolené domény uložené.",
     "spf_heading": "Odosielatelia zo SPF záznamov",
-    "no_spf_senders": "Job zatiaľ nevyhodnotil žiadneho odosielateľa."
+    "no_spf_senders": "Job zatiaľ nevyhodnotil žiadneho odosielateľa.",
+    "state_for_help": "Greylisting odmietne prvý pokus o doručenie od neznámeho odosielateľa a prijme opakovanie. Zastaví veľa spamu a oneskorí prvú poštu nového odosielateľa o pár minút.",
+    "senders_label_help": "Odosielatelia, ktorí preskočia greylisting, jeden na riadok: user@example.com, @example.com pre celú doménu alebo IP adresa.",
+    "domains_label_help": "Jedna doména na riadok. Úloha iRedAPD načíta SPF záznam každej domény a pridá nájdené odosielajúce servery na biely zoznam. Odstránenie domény zmaže aj odosielateľov z nej."
   },
   "resource": {
     "title": "Zdroje účtov",

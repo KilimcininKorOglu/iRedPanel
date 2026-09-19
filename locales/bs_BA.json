@@ -181,13 +181,10 @@
     "rdns_title": "rDNS bijela/crna lista",
     "rdns_intro": "Upravljajte bijelom/crnom listom zasnovanom na obrnutom DNS-u za iRedAPD.",
     "rdns_whitelist_legend": "rDNS domene na bijeloj listi",
-    "rdns_whitelist_hint": "Jedna domena po liniji. E-mail sa servera sa odgovarajućim rDNS-om zaobilazi sivu listu.",
     "rdns_blacklist_legend": "rDNS domene na crnoj listi",
-    "rdns_blacklist_hint": "Jedna domena po liniji. E-mail sa servera sa odgovarajućim rDNS-om bit će odbijen.",
     "senderscore_title": "SenderScore bijela lista",
     "senderscore_intro": "Trajno stavite IP adrese na bijelu listu da zaobiđu SenderScore provjere.",
     "senderscore_legend": "IP adrese na bijeloj listi",
-    "senderscore_hint": "Jedna IP adresa po liniji (IPv4 ili IPv6). Ove IP adrese trajno zaobilaze SenderScore provjere.",
     "view_title": "Bijela/crna lista: :account",
     "title": "Bijela/crna lista",
     "global": "Globalno",
@@ -212,7 +209,10 @@
     "msg_entries_added": "Dodano unosa: :count.",
     "msg_entries_removed": "Uklonjeno unosa: :count.",
     "msg_invalid_kind": "Vrsta mora biti W ili B.",
-    "msg_sender_required": "Unesite barem jednu adresu."
+    "msg_sender_required": "Unesite barem jednu adresu.",
+    "rdns_whitelist_legend_help": "Jedna domena po redu. Pošta sa servera čiji obrnuti DNS odgovara preskače greylisting.",
+    "rdns_blacklist_legend_help": "Jedna domena po redu. Pošta sa servera čiji obrnuti DNS odgovara se odbija.",
+    "senderscore_legend_help": "Jedna IP adresa po redu, IPv4 ili IPv6. Ove adrese uvijek preskaču SenderScore provjeru."
   },
   "spampolicy": {
     "msg_deleted": "Politika spama je obrisana!",
@@ -344,8 +344,12 @@
     "inbound": "Dolazno",
     "save": "Sačuvaj ograničenje",
     "external": "Vanjski (dolazni s drugih servera)",
-    "limit_hint": "-1 nasljeđuje postavku domene ili globalnu postavku. 0 znači neograničeno. Kvota i veličina poruke su u bajtima.",
-    "msg_invalid_value": "Neispravna vrijednost: :field"
+    "msg_invalid_value": "Neispravna vrijednost: :field",
+    "kind_help": "Koji promet limit broji: outbound je pošta koju račun šalje, inbound je pošta koju prima, external broji pošiljaoca izvan posluženih domena.",
+    "period_seconds_help": "Dužina prozora brojanja. Brojači kreću ispočetka nakon ovoliko sekundi: 3600 broji po satu, 86400 po danu.",
+    "max_messages_help": "Koliko poruka račun smije poslati u jednom periodu. -1 uzima postavku domene ili globalnu, 0 znači bez ograničenja.",
+    "max_quota_bytes_help": "Koliko bajtova ukupno račun smije poslati u jednom periodu. -1 uzima postavku domene ili globalnu, 0 znači bez ograničenja.",
+    "max_message_size_help": "Najveća pojedinačna poruka u bajtovima. Veća poruka se odbija. -1 uzima postavku domene ili globalnu, 0 znači bez ograničenja."
   },
   "user": {
     "msg_quota_exceeds_max": "Kvota korisnika (:quota MB) prelazi maksimum domene (:max MB)",
@@ -886,7 +890,10 @@
     "domains_label": "Jedan domen po redu",
     "msg_domains_updated": "Dozvoljeni domeni sačuvani.",
     "spf_heading": "Pošiljaoci iz SPF zapisa",
-    "no_spf_senders": "Job još nije razriješio nijednog pošiljaoca."
+    "no_spf_senders": "Job još nije razriješio nijednog pošiljaoca.",
+    "state_for_help": "Greylisting odbija prvi pokušaj isporuke nepoznatog pošiljaoca i prihvata ponovni pokušaj. Zaustavlja mnogo spama i kasni prvu poštu novog pošiljaoca nekoliko minuta.",
+    "senders_label_help": "Pošiljaoci koji preskaču greylisting, jedan po redu: user@example.com, @example.com za cijelu domenu ili IP adresa.",
+    "domains_label_help": "Jedna domena po redu. iRedAPD posao čita SPF zapis svake domene i stavlja nađene servere na bijelu listu. Uklanjanje domene briše i pošiljaoce iz nje."
   },
   "resource": {
     "title": "Izvori naloga",

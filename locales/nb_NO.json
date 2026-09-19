@@ -181,13 +181,10 @@
     "rdns_title": "rDNS hvit-/svartliste",
     "rdns_intro": "Administrer revers-DNS-basert hvit-/svartliste for iRedAPD.",
     "rdns_whitelist_legend": "Hvitlistede rDNS-domener",
-    "rdns_whitelist_hint": "Ett domene per linje. E-poster fra servere med samsvarende rDNS omgår greylisting.",
     "rdns_blacklist_legend": "Svartlistede rDNS-domener",
-    "rdns_blacklist_hint": "Ett domene per linje. E-poster fra servere med samsvarende rDNS avvises.",
     "senderscore_title": "SenderScore-hvitliste",
     "senderscore_intro": "Hvitlist IP-adresser permanent for å omgå SenderScore-kontroller.",
     "senderscore_legend": "Hvitlistede IP-adresser",
-    "senderscore_hint": "Én IP-adresse per linje (IPv4 eller IPv6). Disse IP-ene omgår permanent SenderScore-kontroller.",
     "view_title": "Hvit-/svartliste: :account",
     "title": "Hvit-/svartliste",
     "global": "Global",
@@ -212,7 +209,10 @@
     "msg_entries_added": ":count poster lagt til.",
     "msg_entries_removed": ":count poster fjernet.",
     "msg_invalid_kind": "Typen må være W eller B.",
-    "msg_sender_required": "Oppgi minst én adresse."
+    "msg_sender_required": "Oppgi minst én adresse.",
+    "rdns_whitelist_legend_help": "Ett domene per linje. Post fra en server med samsvarende omvendt DNS hopper over greylisting.",
+    "rdns_blacklist_legend_help": "Ett domene per linje. Post fra en server med samsvarende omvendt DNS avvises.",
+    "senderscore_legend_help": "Én IP-adresse per linje, IPv4 eller IPv6. Disse adressene hopper alltid over SenderScore-kontrollen."
   },
   "spampolicy": {
     "msg_deleted": "Spampolicy slettet!",
@@ -344,8 +344,12 @@
     "inbound": "Innkommende",
     "save": "Lagre begrensning",
     "external": "Ekstern (innkommende fra andre servere)",
-    "limit_hint": "-1 arver domenets eller den globale innstillingen. 0 betyr ubegrenset. Kvote og meldingsstørrelse oppgis i byte.",
-    "msg_invalid_value": "Ugyldig verdi: :field"
+    "msg_invalid_value": "Ugyldig verdi: :field",
+    "kind_help": "Hvilken trafikk grensen teller: outbound er post kontoen sender, inbound er post den mottar, external teller en avsender utenfor de betjente domenene.",
+    "period_seconds_help": "Lengden på telleperioden. Tellerne starter på nytt etter så mange sekunder: 3600 teller per time, 86400 per dag.",
+    "max_messages_help": "Hvor mange meldinger kontoen kan sende i én periode. -1 tar domenets eller den globale innstillingen, 0 betyr ubegrenset.",
+    "max_quota_bytes_help": "Hvor mange byte totalt kontoen kan sende i én periode. -1 tar domenets eller den globale innstillingen, 0 betyr ubegrenset.",
+    "max_message_size_help": "Den største enkeltmeldingen i byte. En større melding avvises. -1 tar domenets eller den globale innstillingen, 0 betyr ubegrenset."
   },
   "user": {
     "msg_quota_exceeds_max": "Brukerkvote (:quota MB) overstiger domenets maksimum (:max MB)",
@@ -886,7 +890,10 @@
     "domains_label": "Ett domene per linje",
     "msg_domains_updated": "Tillatte domener lagret.",
     "spf_heading": "Avsendere fra SPF-postene",
-    "no_spf_senders": "Jobben har ennå ikke funnet noen avsender."
+    "no_spf_senders": "Jobben har ennå ikke funnet noen avsender.",
+    "state_for_help": "Greylisting avviser første leveringsforsøk fra en ukjent avsender og godtar det neste. Det stopper mye søppelpost og forsinker den første posten fra en ny avsender med noen minutter.",
+    "senders_label_help": "Avsendere som hopper over greylisting, én per linje: user@example.com, @example.com for et helt domene, eller en IP-adresse.",
+    "domains_label_help": "Ett domene per linje. iRedAPD-jobben leser SPF-oppføringen til hvert domene og hvitelister avsenderserverne den finner. Fjernes et domene, forsvinner også avsenderne fra det."
   },
   "resource": {
     "title": "Kontokilder",

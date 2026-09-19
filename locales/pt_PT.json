@@ -181,13 +181,10 @@
     "rdns_title": "Lista branca/negra de rDNS",
     "rdns_intro": "Faça a gestão da lista branca/negra baseada em DNS inverso para o iRedAPD.",
     "rdns_whitelist_legend": "Domínios rDNS na lista branca",
-    "rdns_whitelist_hint": "Um domínio por linha. Os e-mails de servidores com rDNS correspondente ignoram o greylisting.",
     "rdns_blacklist_legend": "Domínios rDNS na lista negra",
-    "rdns_blacklist_hint": "Um domínio por linha. Os e-mails de servidores com rDNS correspondente serão rejeitados.",
     "senderscore_title": "Lista branca de SenderScore",
     "senderscore_intro": "Adicione permanentemente endereços IP à lista branca para ignorar as verificações de SenderScore.",
     "senderscore_legend": "Endereços IP na lista branca",
-    "senderscore_hint": "Um endereço IP por linha (IPv4 ou IPv6). Estes IP ignoram permanentemente as verificações de SenderScore.",
     "view_title": "Lista branca/negra: :account",
     "title": "Lista branca/negra",
     "global": "Global",
@@ -212,7 +209,10 @@
     "msg_entries_added": "Foram adicionadas :count entradas.",
     "msg_entries_removed": "Foram removidas :count entradas.",
     "msg_invalid_kind": "O tipo tem de ser W ou B.",
-    "msg_sender_required": "Introduza pelo menos um endereço."
+    "msg_sender_required": "Introduza pelo menos um endereço.",
+    "rdns_whitelist_legend_help": "Um domínio por linha. O correio de um servidor com DNS inverso correspondente salta o greylisting.",
+    "rdns_blacklist_legend_help": "Um domínio por linha. O correio de um servidor com DNS inverso correspondente é recusado.",
+    "senderscore_legend_help": "Um endereço IP por linha, IPv4 ou IPv6. Estes endereços saltam sempre a verificação do SenderScore."
   },
   "spampolicy": {
     "msg_deleted": "Política antispam eliminada!",
@@ -344,8 +344,12 @@
     "inbound": "Entrada",
     "save": "Guardar limitação",
     "external": "Externo (recebido de outros servidores)",
-    "limit_hint": "-1 herda a definição do domínio ou global. 0 significa ilimitado. A quota e o tamanho da mensagem estão em bytes.",
-    "msg_invalid_value": "Valor inválido: :field"
+    "msg_invalid_value": "Valor inválido: :field",
+    "kind_help": "Que tráfego o limite conta: outbound é o correio que a conta envia, inbound o que recebe, external conta um remetente fora dos domínios servidos.",
+    "period_seconds_help": "A duração da janela de contagem. Os contadores recomeçam após esses segundos: 3600 conta por hora, 86400 por dia.",
+    "max_messages_help": "Quantas mensagens a conta pode enviar num período. -1 assume a definição do domínio ou a global, 0 significa sem limite.",
+    "max_quota_bytes_help": "Quantos bytes no total a conta pode enviar num período. -1 assume a definição do domínio ou a global, 0 significa sem limite.",
+    "max_message_size_help": "A maior mensagem individual em bytes. Uma mensagem maior é recusada. -1 assume a definição do domínio ou a global, 0 significa sem limite."
   },
   "user": {
     "msg_quota_exceeds_max": "A quota do utilizador (:quota MB) excede o máximo do domínio (:max MB)",
@@ -886,7 +890,10 @@
     "domains_label": "Um domínio por linha",
     "msg_domains_updated": "Domínios autorizados guardados.",
     "spf_heading": "Remetentes dos registos SPF",
-    "no_spf_senders": "O job ainda não resolveu nenhum remetente."
+    "no_spf_senders": "O job ainda não resolveu nenhum remetente.",
+    "state_for_help": "O greylisting recusa a primeira tentativa de entrega de um remetente desconhecido e aceita a repetição. Trava muito spam e atrasa alguns minutos o primeiro correio de um remetente novo.",
+    "senders_label_help": "Remetentes que saltam o greylisting, um por linha: user@example.com, @example.com para um domínio inteiro, ou um endereço IP.",
+    "domains_label_help": "Um domínio por linha. A tarefa do iRedAPD lê o registo SPF de cada domínio e coloca na lista branca os servidores de envio que encontra. Remover um domínio remove também os remetentes vindos dele."
   },
   "resource": {
     "title": "Recursos de contas",

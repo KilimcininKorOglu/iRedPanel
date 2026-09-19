@@ -181,13 +181,10 @@
     "rdns_title": "rDNS sallittujen/estettyjen lista",
     "rdns_intro": "Hallinnoi käänteiseen DNS:ään perustuvaa sallittujen/estettyjen listaa iRedAPD:lle.",
     "rdns_whitelist_legend": "Sallitut rDNS-verkkotunnukset",
-    "rdns_whitelist_hint": "Yksi verkkotunnus riviä kohden. Palvelimilta, joilla on vastaava rDNS, tulevat sähköpostit ohittavat greylistingin.",
     "rdns_blacklist_legend": "Estetyt rDNS-verkkotunnukset",
-    "rdns_blacklist_hint": "Yksi verkkotunnus riviä kohden. Palvelimilta, joilla on vastaava rDNS, tulevat sähköpostit hylätään.",
     "senderscore_title": "SenderScore-sallittujen lista",
     "senderscore_intro": "Salli IP-osoitteet pysyvästi ohittaaksesi SenderScore-tarkistukset.",
     "senderscore_legend": "Sallitut IP-osoitteet",
-    "senderscore_hint": "Yksi IP-osoite riviä kohden (IPv4 tai IPv6). Nämä IP-osoitteet ohittavat pysyvästi SenderScore-tarkistukset.",
     "view_title": "Sallittujen/estettyjen lista: :account",
     "title": "Sallittujen/estettyjen lista",
     "global": "Globaali",
@@ -212,7 +209,10 @@
     "msg_entries_added": "Lisättiin :count merkintää.",
     "msg_entries_removed": "Poistettiin :count merkintää.",
     "msg_invalid_kind": "Tyypin on oltava W tai B.",
-    "msg_sender_required": "Anna vähintään yksi osoite."
+    "msg_sender_required": "Anna vähintään yksi osoite.",
+    "rdns_whitelist_legend_help": "Yksi verkkotunnus riviä kohden. Posti palvelimelta, jonka käänteinen DNS täsmää, ohittaa greylistingin.",
+    "rdns_blacklist_legend_help": "Yksi verkkotunnus riviä kohden. Posti palvelimelta, jonka käänteinen DNS täsmää, hylätään.",
+    "senderscore_legend_help": "Yksi IP-osoite riviä kohden, IPv4 tai IPv6. Nämä osoitteet ohittavat aina SenderScore-tarkistuksen."
   },
   "spampolicy": {
     "msg_deleted": "Roskapostikäytäntö poistettu!",
@@ -344,8 +344,12 @@
     "inbound": "Saapuva",
     "save": "Tallenna rajoitus",
     "external": "Ulkoinen (saapuva muilta palvelimilta)",
-    "limit_hint": "-1 perii domainin tai yleisen asetuksen. 0 tarkoittaa rajoittamatonta. Kiintiö ja viestin koko ilmoitetaan tavuina.",
-    "msg_invalid_value": "Virheellinen arvo: :field"
+    "msg_invalid_value": "Virheellinen arvo: :field",
+    "kind_help": "Mitä liikennettä raja laskee: outbound on posti, jonka tili lähettää, inbound posti, jonka se vastaanottaa, external laskee lähettäjän palveltujen verkkotunnusten ulkopuolelta.",
+    "period_seconds_help": "Laskentaikkunan pituus. Laskurit alkavat alusta näin monen sekunnin jälkeen: 3600 laskee tunnissa, 86400 päivässä.",
+    "max_messages_help": "Kuinka monta viestiä tili saa lähettää yhdessä jaksossa. -1 ottaa verkkotunnuksen tai yleisen asetuksen, 0 tarkoittaa rajoittamatonta.",
+    "max_quota_bytes_help": "Kuinka monta tavua yhteensä tili saa lähettää yhdessä jaksossa. -1 ottaa verkkotunnuksen tai yleisen asetuksen, 0 tarkoittaa rajoittamatonta.",
+    "max_message_size_help": "Suurin yksittäinen viesti tavuina. Suurempi viesti hylätään. -1 ottaa verkkotunnuksen tai yleisen asetuksen, 0 tarkoittaa rajoittamatonta."
   },
   "user": {
     "msg_quota_exceeds_max": "Käyttäjän kiintiö (:quota MB) ylittää verkkotunnuksen enimmäismäärän (:max MB)",
@@ -886,7 +890,10 @@
     "domains_label": "Yksi domain riviä kohden",
     "msg_domains_updated": "Sallitut domainit tallennettiin.",
     "spf_heading": "Lähettäjät SPF-tietueista",
-    "no_spf_senders": "Job ei ole vielä selvittänyt yhtään lähettäjää."
+    "no_spf_senders": "Job ei ole vielä selvittänyt yhtään lähettäjää.",
+    "state_for_help": "Greylisting hylkää tuntemattoman lähettäjän ensimmäisen toimitusyrityksen ja hyväksyy uusintayrityksen. Se pysäyttää paljon roskapostia ja viivästyttää uuden lähettäjän ensimmäistä viestiä muutaman minuutin.",
+    "senders_label_help": "Lähettäjät, jotka ohittavat greylistingin, yksi riviä kohden: user@example.com, @example.com koko verkkotunnukselle tai IP-osoite.",
+    "domains_label_help": "Yksi verkkotunnus riviä kohden. iRedAPD-tehtävä lukee kunkin verkkotunnuksen SPF-tietueen ja lisää löytämänsä lähettävät palvelimet sallittuihin. Verkkotunnuksen poisto poistaa myös sen lähettäjät."
   },
   "resource": {
     "title": "Tililähteet",

@@ -21,7 +21,7 @@
       <?= $csrfField ?>
       <div class="card-header"><?= $te('greylist.domains_heading') ?></div>
       <div class="card-body">
-        <label for="domains" class="form-label"><?= $te('greylist.domains_label') ?></label>
+        <label for="domains" class="form-label"><?= $te('greylist.domains_label') ?></label><?= $help('greylist.domains_label') ?>
         <textarea id="domains" name="domains" rows="8" class="form-control"><?= $e(implode("\n", $domains ?? [])) ?></textarea>
       </div>
       <div class="card-footer">

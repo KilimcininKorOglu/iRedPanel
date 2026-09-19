@@ -12,7 +12,7 @@ class MysqlDeletedMailboxRepository implements DeletedMailboxRepositoryInterface
 {
     public function getPendingDeletions(int $page, int $perPage): PaginatedResult
     {
-        $pdo = MysqlConnection::getInstance()->getPdo();
+        $pdo = $this->pdo();
         $offset = ($page - 1) * $perPage;
 
         $countStmt = $pdo->query("SELECT COUNT(*) AS total FROM deleted_mailboxes");
@@ -38,7 +38,7 @@ class MysqlDeletedMailboxRepository implements DeletedMailboxRepositoryInterface
 
     public function cancelDeletion(int $id): bool
     {
-        $pdo = MysqlConnection::getInstance()->getPdo();
+        $pdo = $this->pdo();
 
         $stmt = $pdo->prepare("DELETE FROM deleted_mailboxes WHERE id = :id");
         $stmt->execute(['id' => $id]);
@@ -48,11 +48,19 @@ class MysqlDeletedMailboxRepository implements DeletedMailboxRepositoryInterface
 
     public function reschedule(int $id, string $newDate): bool
     {
-        $pdo = MysqlConnection::getInstance()->getPdo();
+        $pdo = $this->pdo();
 
         $stmt = $pdo->prepare("UPDATE deleted_mailboxes SET delete_date = :newDate WHERE id = :id");
         $stmt->execute(['newDate' => $newDate, 'id' => $id]);
 
         return $stmt->rowCount() > 0;
+    }
+
+    /**
+     * Returns the connection that holds the deleted_mailboxes table (vmail on SQL backends).
+     */
+    protected function pdo(): \PDO
+    {
+        return MysqlConnection::getInstance()->getPdo();
     }
 }

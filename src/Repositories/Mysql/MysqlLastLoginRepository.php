@@ -11,7 +11,7 @@ class MysqlLastLoginRepository implements LastLoginRepositoryInterface
 {
     public function getLastLogin(string $username): ?array
     {
-        $pdo = MysqlConnection::getInstance()->getPdo();
+        $pdo = $this->pdo();
 
         $stmt = $pdo->prepare(
             "SELECT username, domain, imap, pop3, lda
@@ -29,7 +29,7 @@ class MysqlLastLoginRepository implements LastLoginRepositoryInterface
 
     public function getLastLoginsPaginated(int $page, int $perPage, ?string $domain = null): PaginatedResult
     {
-        $pdo = MysqlConnection::getInstance()->getPdo();
+        $pdo = $this->pdo();
 
         $where = "";
         $params = [];
@@ -63,6 +63,14 @@ class MysqlLastLoginRepository implements LastLoginRepositoryInterface
         }
 
         return new PaginatedResult($items, $totalCount, $page, $perPage);
+    }
+
+    /**
+     * Returns the connection that holds the last_login table (vmail on SQL backends).
+     */
+    protected function pdo(): \PDO
+    {
+        return MysqlConnection::getInstance()->getPdo();
     }
 
     private function formatRow(array $row): array

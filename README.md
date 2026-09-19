@@ -354,8 +354,9 @@ server {
 - Log viewer with domain and event type filters
 - Log deletion (individual and bulk)
 
-### Deferred Mailbox Deletion (MySQL only)
-- Deleted user mailboxes recorded in `deleted_mailboxes` table
+### Deferred Mailbox Deletion
+- MySQL and PostgreSQL: deleted user mailboxes recorded in the `vmail.deleted_mailboxes` table
+- LDAP: the page manages the `iredadmin.deleted_mailboxes` rows; the panel does not record LDAP user deletions there
 - Management UI: view, cancel, reschedule pending deletions
 
 ### External Integrations

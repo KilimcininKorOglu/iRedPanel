@@ -232,8 +232,9 @@ class RepositoryFactory
     {
         if (self::$lastLoginRepo === null) {
             self::$lastLoginRepo = match (Settings::getInstance()->backend) {
+                'mysql' => new MysqlLastLoginRepository(),
                 'pgsql' => new PgsqlLastLoginRepository(),
-                default => new MysqlLastLoginRepository(),
+                default => new Ldap\LdapLastLoginRepository(),
             };
         }
         return self::$lastLoginRepo;
@@ -322,8 +323,9 @@ class RepositoryFactory
     {
         if (self::$deletedMailboxRepo === null) {
             self::$deletedMailboxRepo = match (Settings::getInstance()->backend) {
+                'mysql' => new Mysql\MysqlDeletedMailboxRepository(),
                 'pgsql' => new Pgsql\PgsqlDeletedMailboxRepository(),
-                default => new Mysql\MysqlDeletedMailboxRepository(),
+                default => new Ldap\LdapDeletedMailboxRepository(),
             };
         }
         return self::$deletedMailboxRepo;

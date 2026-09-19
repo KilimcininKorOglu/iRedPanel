@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/../src/bootstrap.php';
 
+use App\Controllers\AccountLookupController;
 use App\Controllers\AdminController;
 use App\Controllers\AliasController;
 use App\Controllers\AmavisdController;
@@ -74,6 +75,11 @@ $router->addRoute('POST', '/language', function () {
 // Search
 $router->addRoute('GET', '/search', function () use ($tpl) {
     SearchController::search($tpl);
+});
+
+// Account picker lookup for the web forms
+$router->addRoute('GET', '/ajax/accounts', function () {
+    AccountLookupController::accounts();
 });
 
 // Domain management

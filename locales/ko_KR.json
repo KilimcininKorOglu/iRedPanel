@@ -236,7 +236,6 @@
   },
   "dashboard": {
     "title": "대시보드",
-    "new_version": "새로운 버전의 iRedPanel을 사용할 수 있습니다: <strong>v:version</strong>.",
     "view_release": "릴리스 보기",
     "domains": "도메인",
     "users": "사용자",
@@ -253,7 +252,21 @@
     "software": "소프트웨어",
     "hostname": "호스트 이름",
     "uptime": "가동 시간",
-    "load": "부하"
+    "load": "부하",
+    "update_available": "iRedPanel v:version을(를) 사용할 수 있습니다. iRedMail :iredmail에서 테스트되었습니다.",
+    "compat_title": "iRedMail 호환성",
+    "compat_installed": "설치된 iRedPanel",
+    "compat_tested": "테스트된 iRedMail 버전",
+    "compat_backends": "백엔드",
+    "compat_not_listed": "호환성 목록에 이 iRedPanel 버전의 항목이 없습니다.",
+    "compat_newer": "최신 iRedPanel 버전",
+    "compat_released": "출시일",
+    "compat_upgrade_hint": "iRedMail을 업그레이드하기 전에 새 iRedMail 버전이 포함된 iRedPanel 버전을 확인하세요. iRedMail을 먼저 업그레이드한 다음 iRedPanel을 업그레이드하세요.",
+    "compat_source_remote": "출처: GitHub의 호환성 목록, 확인 시각 :time.",
+    "compat_source_offline": "GitHub를 읽을 수 없습니다. 이 iRedPanel 버전에 포함된 목록을 표시합니다.",
+    "compat_source_local": "업데이트 확인이 꺼져 있습니다. 이 iRedPanel 버전에 포함된 목록을 표시합니다.",
+    "compat_unavailable": "호환성 목록을 읽을 수 없습니다. 서버 로그를 확인하세요.",
+    "compat_up_to_date": "목록에 더 새로운 iRedPanel 버전이 없습니다."
   },
   "fail2ban": {
     "title": "Fail2ban",

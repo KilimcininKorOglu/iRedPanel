@@ -3,11 +3,12 @@
   <h1><?= $te('dashboard.title') ?></h1>
 </div>
 
-<?php if (!empty($newVersion)): ?>
+<?php $latest = $compatibility['newer'][0] ?? null; ?>
+<?php if ($latest !== null): ?>
 <div class="alert alert-info d-flex align-items-center gap-2">
   <i class="bi bi-arrow-up-circle"></i>
-  <span><?= $te('dashboard.new_version', ['version' => $newVersion]) ?></span>
-  <a href="https://github.com/KilimcininKorOglu/iRedPanel/releases/latest" target="_blank" rel="noopener" class="ms-auto"><?= $te('dashboard.view_release') ?></a>
+  <span><?= $te('dashboard.update_available', ['version' => $latest['version'], 'iredmail' => implode(', ', $latest['iredmail'])]) ?></span>
+  <a href="https://github.com/KilimcininKorOglu/iRedPanel/releases/tag/v<?= $e($latest['version']) ?>" target="_blank" rel="noopener" class="ms-auto"><?= $te('dashboard.view_release') ?></a>
 </div>
 <?php endif; ?>
 
@@ -113,8 +114,6 @@
       <div class="card-header"><i class="bi bi-box-seam me-2"></i><?= $te('dashboard.software') ?></div>
       <div class="card-body">
         <dl class="row mb-0">
-          <dt class="col-5 text-body-secondary fw-normal">iRedMail</dt>
-          <dd class="col-7"><?= $e($systemInfo['iredmailVersion']) ?></dd>
           <dt class="col-5 text-body-secondary fw-normal">PHP</dt>
           <dd class="col-7"><?= $e($systemInfo['phpVersion']) ?></dd>
           <dt class="col-5 text-body-secondary fw-normal">iRedPanel</dt>
@@ -124,4 +123,8 @@
     </div>
   </div>
 </div>
+<?php endif; ?>
+
+<?php if (!empty($compatibility)): ?>
+<?php include __DIR__ . '/dashboardCompatibility.php'; ?>
 <?php endif; ?>

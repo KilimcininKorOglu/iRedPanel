@@ -236,7 +236,6 @@
   },
   "dashboard": {
     "title": "Dashboard",
-    "new_version": "A new version of iRedPanel is available: <strong>v:version</strong>.",
     "view_release": "View release",
     "domains": "Domains",
     "users": "Users",
@@ -253,7 +252,21 @@
     "software": "Software",
     "hostname": "Hostname",
     "uptime": "Uptime",
-    "load": "Load"
+    "load": "Load",
+    "update_available": "iRedPanel v:version is available. Tested with iRedMail :iredmail.",
+    "compat_title": "iRedMail Compatibility",
+    "compat_installed": "Installed iRedPanel",
+    "compat_tested": "Tested iRedMail versions",
+    "compat_backends": "Backends",
+    "compat_not_listed": "The compatibility list has no entry for this iRedPanel version.",
+    "compat_newer": "Newer iRedPanel versions",
+    "compat_released": "Released",
+    "compat_upgrade_hint": "Before you upgrade iRedMail, find the iRedPanel version that lists the new iRedMail version. Upgrade iRedMail first, then iRedPanel.",
+    "compat_source_remote": "Source: the compatibility list on GitHub, checked :time.",
+    "compat_source_offline": "GitHub could not be read. The list bundled with this iRedPanel version is shown.",
+    "compat_source_local": "The update check is disabled. The list bundled with this iRedPanel version is shown.",
+    "compat_unavailable": "The compatibility list could not be read. See the server log.",
+    "compat_up_to_date": "No newer iRedPanel version is listed."
   },
   "fail2ban": {
     "title": "Fail2ban",

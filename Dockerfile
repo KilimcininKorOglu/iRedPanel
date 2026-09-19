@@ -33,7 +33,7 @@ FROM base AS prod
 RUN cp "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini" \
     && printf 'expose_php = Off\n' > "$PHP_INI_DIR/conf.d/zz-iredpanel.ini"
 COPY --from=vendor /app/vendor ./vendor
-COPY composer.json ./
+COPY composer.json compatibility.json ./
 COPY public ./public
 COPY src ./src
 COPY templates ./templates

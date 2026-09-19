@@ -236,7 +236,6 @@
   },
   "dashboard": {
     "title": "Bảng điều khiển",
-    "new_version": "Đã có phiên bản mới của iRedPanel: <strong>v:version</strong>.",
     "view_release": "Xem phiên bản",
     "domains": "Tên miền",
     "users": "Người dùng",
@@ -253,7 +252,21 @@
     "software": "Phần mềm",
     "hostname": "Tên máy chủ",
     "uptime": "Thời gian hoạt động",
-    "load": "Tải"
+    "load": "Tải",
+    "update_available": "Đã có iRedPanel v:version. Đã kiểm thử với iRedMail :iredmail.",
+    "compat_title": "Tương thích iRedMail",
+    "compat_installed": "iRedPanel đã cài đặt",
+    "compat_tested": "Các phiên bản iRedMail đã kiểm thử",
+    "compat_backends": "Backend",
+    "compat_not_listed": "Danh sách tương thích không có mục nào cho phiên bản iRedPanel này.",
+    "compat_newer": "Các phiên bản iRedPanel mới hơn",
+    "compat_released": "Phát hành",
+    "compat_upgrade_hint": "Trước khi nâng cấp iRedMail, hãy tìm phiên bản iRedPanel có liệt kê phiên bản iRedMail mới. Nâng cấp iRedMail trước, sau đó nâng cấp iRedPanel.",
+    "compat_source_remote": "Nguồn: danh sách tương thích trên GitHub, kiểm tra lúc :time.",
+    "compat_source_offline": "Không đọc được GitHub. Đang hiển thị danh sách đi kèm phiên bản iRedPanel này.",
+    "compat_source_local": "Kiểm tra cập nhật đang tắt. Đang hiển thị danh sách đi kèm phiên bản iRedPanel này.",
+    "compat_unavailable": "Không đọc được danh sách tương thích. Xem log của máy chủ.",
+    "compat_up_to_date": "Danh sách không có phiên bản iRedPanel nào mới hơn."
   },
   "fail2ban": {
     "title": "Fail2ban",

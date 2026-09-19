@@ -236,7 +236,6 @@
   },
   "dashboard": {
     "title": "Kojelauta",
-    "new_version": "iRedPanelista on saatavilla uusi versio: <strong>v:version</strong>.",
     "view_release": "Näytä julkaisu",
     "domains": "Verkkotunnukset",
     "users": "Käyttäjät",
@@ -253,7 +252,21 @@
     "software": "Ohjelmisto",
     "hostname": "Palvelimen nimi",
     "uptime": "Käyttöaika",
-    "load": "Kuormitus"
+    "load": "Kuormitus",
+    "update_available": "iRedPanel v:version on saatavilla. Testattu iRedMail-versiolla :iredmail.",
+    "compat_title": "iRedMail-yhteensopivuus",
+    "compat_installed": "Asennettu iRedPanel",
+    "compat_tested": "Testatut iRedMail-versiot",
+    "compat_backends": "Taustajärjestelmät",
+    "compat_not_listed": "Yhteensopivuuslistassa ei ole merkintää tälle iRedPanel-versiolle.",
+    "compat_newer": "Uudemmat iRedPanel-versiot",
+    "compat_released": "Julkaistu",
+    "compat_upgrade_hint": "Etsi ennen iRedMailin päivitystä iRedPanel-versio, joka mainitsee uuden iRedMail-version. Päivitä ensin iRedMail ja sitten iRedPanel.",
+    "compat_source_remote": "Lähde: yhteensopivuuslista GitHubissa, tarkistettu :time.",
+    "compat_source_offline": "GitHubia ei voitu lukea. Näytetään tämän iRedPanel-version mukana tullut lista.",
+    "compat_source_local": "Päivitysten tarkistus on pois käytöstä. Näytetään tämän iRedPanel-version mukana tullut lista.",
+    "compat_unavailable": "Yhteensopivuuslistaa ei voitu lukea. Katso palvelimen loki.",
+    "compat_up_to_date": "Listassa ei ole uudempaa iRedPanel-versiota."
   },
   "fail2ban": {
     "title": "Fail2ban",

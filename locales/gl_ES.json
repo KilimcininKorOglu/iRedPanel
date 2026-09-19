@@ -236,7 +236,6 @@
   },
   "dashboard": {
     "title": "Panel",
-    "new_version": "Hai unha nova versión de iRedPanel dispoñible: <strong>v:version</strong>.",
     "view_release": "Ver lanzamento",
     "domains": "Dominios",
     "users": "Usuarios",
@@ -253,7 +252,21 @@
     "software": "Software",
     "hostname": "Nome do host",
     "uptime": "Tempo activo",
-    "load": "Carga"
+    "load": "Carga",
+    "update_available": "iRedPanel v:version está dispoñible. Probado con iRedMail :iredmail.",
+    "compat_title": "Compatibilidade con iRedMail",
+    "compat_installed": "iRedPanel instalado",
+    "compat_tested": "Versións de iRedMail probadas",
+    "compat_backends": "Backends",
+    "compat_not_listed": "A lista de compatibilidade non ten ningunha entrada para esta versión de iRedPanel.",
+    "compat_newer": "Versións máis recentes de iRedPanel",
+    "compat_released": "Publicada",
+    "compat_upgrade_hint": "Antes de actualizar iRedMail, busque a versión de iRedPanel que inclúe a nova versión de iRedMail. Actualice primeiro iRedMail e despois iRedPanel.",
+    "compat_source_remote": "Fonte: lista de compatibilidade en GitHub, comprobada :time.",
+    "compat_source_offline": "Non se puido ler GitHub. Móstrase a lista incluída con esta versión de iRedPanel.",
+    "compat_source_local": "A comprobación de actualizacións está desactivada. Móstrase a lista incluída con esta versión de iRedPanel.",
+    "compat_unavailable": "Non se puido ler a lista de compatibilidade. Consulte o rexistro do servidor.",
+    "compat_up_to_date": "Non hai ningunha versión máis recente de iRedPanel na lista."
   },
   "fail2ban": {
     "title": "Fail2ban",

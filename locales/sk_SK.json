@@ -236,7 +236,6 @@
   },
   "dashboard": {
     "title": "Nástenka",
-    "new_version": "K dispozícii je nová verzia iRedPanel: <strong>v:version</strong>.",
     "view_release": "Zobraziť vydanie",
     "domains": "Domény",
     "users": "Používatelia",
@@ -253,7 +252,21 @@
     "software": "Softvér",
     "hostname": "Názov hostiteľa",
     "uptime": "Doba prevádzky",
-    "load": "Záťaž"
+    "load": "Záťaž",
+    "update_available": "K dispozícii je iRedPanel v:version. Testované s iRedMail :iredmail.",
+    "compat_title": "Kompatibilita s iRedMail",
+    "compat_installed": "Nainštalovaný iRedPanel",
+    "compat_tested": "Testované verzie iRedMail",
+    "compat_backends": "Backendy",
+    "compat_not_listed": "Zoznam kompatibility nemá záznam pre túto verziu iRedPanel.",
+    "compat_newer": "Novšie verzie iRedPanel",
+    "compat_released": "Vydané",
+    "compat_upgrade_hint": "Pred upgradom iRedMail nájdite verziu iRedPanel, ktorá uvádza novú verziu iRedMail. Najprv aktualizujte iRedMail, potom iRedPanel.",
+    "compat_source_remote": "Zdroj: zoznam kompatibility na GitHube, skontrolované :time.",
+    "compat_source_offline": "GitHub sa nedá načítať. Zobrazuje sa zoznam dodaný s touto verziou iRedPanel.",
+    "compat_source_local": "Kontrola aktualizácií je vypnutá. Zobrazuje sa zoznam dodaný s touto verziou iRedPanel.",
+    "compat_unavailable": "Zoznam kompatibility sa nedá načítať. Pozrite log servera.",
+    "compat_up_to_date": "V zozname nie je novšia verzia iRedPanel."
   },
   "fail2ban": {
     "title": "Fail2ban",

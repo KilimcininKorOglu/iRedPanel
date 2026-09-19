@@ -236,7 +236,6 @@
   },
   "dashboard": {
     "title": "แดชบอร์ด",
-    "new_version": "มี iRedPanel เวอร์ชันใหม่: <strong>v:version</strong>",
     "view_release": "ดูรุ่นที่ออก",
     "domains": "โดเมน",
     "users": "ผู้ใช้",
@@ -253,7 +252,21 @@
     "software": "ซอฟต์แวร์",
     "hostname": "ชื่อโฮสต์",
     "uptime": "เวลาทำงาน",
-    "load": "โหลด"
+    "load": "โหลด",
+    "update_available": "มี iRedPanel v:version แล้ว ทดสอบกับ iRedMail :iredmail",
+    "compat_title": "ความเข้ากันได้กับ iRedMail",
+    "compat_installed": "iRedPanel ที่ติดตั้ง",
+    "compat_tested": "เวอร์ชัน iRedMail ที่ทดสอบแล้ว",
+    "compat_backends": "Backend",
+    "compat_not_listed": "รายการความเข้ากันได้ไม่มีข้อมูลสำหรับ iRedPanel เวอร์ชันนี้",
+    "compat_newer": "iRedPanel เวอร์ชันที่ใหม่กว่า",
+    "compat_released": "วันที่เผยแพร่",
+    "compat_upgrade_hint": "ก่อนอัปเกรด iRedMail ให้หา iRedPanel เวอร์ชันที่ระบุ iRedMail เวอร์ชันใหม่ อัปเกรด iRedMail ก่อน แล้วจึงอัปเกรด iRedPanel",
+    "compat_source_remote": "แหล่งที่มา: รายการความเข้ากันได้บน GitHub ตรวจสอบเมื่อ :time",
+    "compat_source_offline": "อ่าน GitHub ไม่ได้ แสดงรายการที่มากับ iRedPanel เวอร์ชันนี้",
+    "compat_source_local": "ปิดการตรวจสอบอัปเดตอยู่ แสดงรายการที่มากับ iRedPanel เวอร์ชันนี้",
+    "compat_unavailable": "อ่านรายการความเข้ากันได้ไม่ได้ ดู log ของเซิร์ฟเวอร์",
+    "compat_up_to_date": "ไม่มี iRedPanel เวอร์ชันที่ใหม่กว่าในรายการ"
   },
   "fail2ban": {
     "title": "Fail2ban",

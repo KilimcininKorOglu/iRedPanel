@@ -236,7 +236,6 @@
   },
   "dashboard": {
     "title": "Панель",
-    "new_version": "Доступна новая версия iRedPanel: <strong>v:version</strong>.",
     "view_release": "Посмотреть выпуск",
     "domains": "Домены",
     "users": "Пользователи",
@@ -253,7 +252,21 @@
     "software": "Программное обеспечение",
     "hostname": "Имя хоста",
     "uptime": "Время работы",
-    "load": "Нагрузка"
+    "load": "Нагрузка",
+    "update_available": "Доступна iRedPanel v:version. Протестирована с iRedMail :iredmail.",
+    "compat_title": "Совместимость с iRedMail",
+    "compat_installed": "Установленная iRedPanel",
+    "compat_tested": "Протестированные версии iRedMail",
+    "compat_backends": "Бэкенды",
+    "compat_not_listed": "В списке совместимости нет записи для этой версии iRedPanel.",
+    "compat_newer": "Более новые версии iRedPanel",
+    "compat_released": "Дата выпуска",
+    "compat_upgrade_hint": "Перед обновлением iRedMail найдите версию iRedPanel, в которой указана новая версия iRedMail. Сначала обновите iRedMail, затем iRedPanel.",
+    "compat_source_remote": "Источник: список совместимости на GitHub, проверено :time.",
+    "compat_source_offline": "Не удалось прочитать GitHub. Показан список, поставляемый с этой версией iRedPanel.",
+    "compat_source_local": "Проверка обновлений отключена. Показан список, поставляемый с этой версией iRedPanel.",
+    "compat_unavailable": "Не удалось прочитать список совместимости. См. журнал сервера.",
+    "compat_up_to_date": "Более новых версий iRedPanel в списке нет."
   },
   "fail2ban": {
     "title": "Fail2ban",

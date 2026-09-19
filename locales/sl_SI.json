@@ -236,7 +236,6 @@
   },
   "dashboard": {
     "title": "Nadzorna plošča",
-    "new_version": "Na voljo je nova različica iRedPanel: <strong>v:version</strong>.",
     "view_release": "Prikaži izdajo",
     "domains": "Domene",
     "users": "Uporabniki",
@@ -253,7 +252,21 @@
     "software": "Programska oprema",
     "hostname": "Ime gostitelja",
     "uptime": "Čas delovanja",
-    "load": "Obremenitev"
+    "load": "Obremenitev",
+    "update_available": "Na voljo je iRedPanel v:version. Preizkušeno z iRedMail :iredmail.",
+    "compat_title": "Združljivost z iRedMail",
+    "compat_installed": "Nameščen iRedPanel",
+    "compat_tested": "Preizkušene različice iRedMail",
+    "compat_backends": "Zaledja",
+    "compat_not_listed": "Seznam združljivosti nima vnosa za to različico iRedPanel.",
+    "compat_newer": "Novejše različice iRedPanel",
+    "compat_released": "Izdano",
+    "compat_upgrade_hint": "Pred nadgradnjo iRedMail poiščite različico iRedPanel, ki navaja novo različico iRedMail. Najprej nadgradite iRedMail, nato iRedPanel.",
+    "compat_source_remote": "Vir: seznam združljivosti na GitHubu, preverjeno :time.",
+    "compat_source_offline": "GitHuba ni mogoče prebrati. Prikazan je seznam, priložen tej različici iRedPanel.",
+    "compat_source_local": "Preverjanje posodobitev je izklopljeno. Prikazan je seznam, priložen tej različici iRedPanel.",
+    "compat_unavailable": "Seznama združljivosti ni mogoče prebrati. Glejte dnevnik strežnika.",
+    "compat_up_to_date": "Na seznamu ni novejše različice iRedPanel."
   },
   "fail2ban": {
     "title": "Fail2ban",

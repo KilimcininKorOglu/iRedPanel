@@ -236,7 +236,6 @@
   },
   "dashboard": {
     "title": "İdarə paneli",
-    "new_version": "iRedPanel-in yeni versiyası mövcuddur: <strong>v:version</strong>.",
     "view_release": "Buraxılışa bax",
     "domains": "Domenlər",
     "users": "İstifadəçilər",
@@ -253,7 +252,21 @@
     "software": "Proqram təminatı",
     "hostname": "Host adı",
     "uptime": "İşləmə müddəti",
-    "load": "Yük"
+    "load": "Yük",
+    "update_available": "iRedPanel v:version mövcuddur. iRedMail :iredmail ilə test edilib.",
+    "compat_title": "iRedMail uyğunluğu",
+    "compat_installed": "Quraşdırılmış iRedPanel",
+    "compat_tested": "Test edilmiş iRedMail versiyaları",
+    "compat_backends": "Backend-lər",
+    "compat_not_listed": "Uyğunluq siyahısında bu iRedPanel versiyası üçün qeyd yoxdur.",
+    "compat_newer": "Daha yeni iRedPanel versiyaları",
+    "compat_released": "Buraxılış tarixi",
+    "compat_upgrade_hint": "iRedMail-i yeniləmədən əvvəl yeni iRedMail versiyasını göstərən iRedPanel versiyasını tapın. Əvvəlcə iRedMail-i, sonra iRedPanel-i yeniləyin.",
+    "compat_source_remote": "Mənbə: GitHub-dakı uyğunluq siyahısı, yoxlanılıb :time.",
+    "compat_source_offline": "GitHub oxuna bilmədi. Bu iRedPanel versiyası ilə gələn siyahı göstərilir.",
+    "compat_source_local": "Yeniləmə yoxlaması söndürülüb. Bu iRedPanel versiyası ilə gələn siyahı göstərilir.",
+    "compat_unavailable": "Uyğunluq siyahısı oxuna bilmədi. Server log-una baxın.",
+    "compat_up_to_date": "Siyahıda daha yeni iRedPanel versiyası yoxdur."
   },
   "fail2ban": {
     "title": "Fail2ban",

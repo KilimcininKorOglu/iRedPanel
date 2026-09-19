@@ -236,7 +236,6 @@
   },
   "dashboard": {
     "title": "儀表板",
-    "new_version": "有新版本的 iRedPanel 可用：<strong>v:version</strong>。",
     "view_release": "檢視版本",
     "domains": "網域",
     "users": "使用者",
@@ -253,7 +252,21 @@
     "software": "軟體",
     "hostname": "主機名稱",
     "uptime": "運行時間",
-    "load": "負載"
+    "load": "負載",
+    "update_available": "iRedPanel v:version 已推出。已在 iRedMail :iredmail 上測試。",
+    "compat_title": "iRedMail 相容性",
+    "compat_installed": "已安裝的 iRedPanel",
+    "compat_tested": "已測試的 iRedMail 版本",
+    "compat_backends": "後端",
+    "compat_not_listed": "相容性清單中沒有此 iRedPanel 版本的項目。",
+    "compat_newer": "較新的 iRedPanel 版本",
+    "compat_released": "發布日期",
+    "compat_upgrade_hint": "升級 iRedMail 之前，請先找到列出新 iRedMail 版本的 iRedPanel 版本。先升級 iRedMail，再升級 iRedPanel。",
+    "compat_source_remote": "來源：GitHub 上的相容性清單，檢查時間 :time。",
+    "compat_source_offline": "無法讀取 GitHub。顯示此 iRedPanel 版本隨附的清單。",
+    "compat_source_local": "更新檢查已關閉。顯示此 iRedPanel 版本隨附的清單。",
+    "compat_unavailable": "無法讀取相容性清單。請查看伺服器記錄。",
+    "compat_up_to_date": "清單中沒有較新的 iRedPanel 版本。"
   },
   "fail2ban": {
     "title": "Fail2ban",

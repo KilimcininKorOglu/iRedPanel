@@ -236,7 +236,6 @@
   },
   "dashboard": {
     "title": "Kontrollpanel",
-    "new_version": "En ny versjon av iRedPanel er tilgjengelig: <strong>v:version</strong>.",
     "view_release": "Vis utgivelse",
     "domains": "Domener",
     "users": "Brukere",
@@ -253,7 +252,21 @@
     "software": "Programvare",
     "hostname": "Vertsnavn",
     "uptime": "Oppetid",
-    "load": "Belastning"
+    "load": "Belastning",
+    "update_available": "iRedPanel v:version er tilgjengelig. Testet med iRedMail :iredmail.",
+    "compat_title": "iRedMail-kompatibilitet",
+    "compat_installed": "Installert iRedPanel",
+    "compat_tested": "Testede iRedMail-versjoner",
+    "compat_backends": "Backends",
+    "compat_not_listed": "Kompatibilitetslisten har ingen oppføring for denne iRedPanel-versjonen.",
+    "compat_newer": "Nyere iRedPanel-versjoner",
+    "compat_released": "Utgitt",
+    "compat_upgrade_hint": "Før du oppgraderer iRedMail, finn iRedPanel-versjonen som oppgir den nye iRedMail-versjonen. Oppgrader iRedMail først, deretter iRedPanel.",
+    "compat_source_remote": "Kilde: kompatibilitetslisten på GitHub, kontrollert :time.",
+    "compat_source_offline": "GitHub kunne ikke leses. Listen som følger med denne iRedPanel-versjonen vises.",
+    "compat_source_local": "Oppdateringskontrollen er slått av. Listen som følger med denne iRedPanel-versjonen vises.",
+    "compat_unavailable": "Kompatibilitetslisten kunne ikke leses. Se serverloggen.",
+    "compat_up_to_date": "Det finnes ingen nyere iRedPanel-versjon i listen."
   },
   "fail2ban": {
     "title": "Fail2ban",

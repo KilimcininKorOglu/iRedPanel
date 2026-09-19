@@ -236,7 +236,6 @@
   },
   "dashboard": {
     "title": "Табло",
-    "new_version": "Налична е нова версия на iRedPanel: <strong>v:version</strong>.",
     "view_release": "Виж изданието",
     "domains": "Домейни",
     "users": "Потребители",
@@ -253,7 +252,21 @@
     "software": "Софтуер",
     "hostname": "Име на хост",
     "uptime": "Време на работа",
-    "load": "Натоварване"
+    "load": "Натоварване",
+    "update_available": "Налична е iRedPanel v:version. Тествана с iRedMail :iredmail.",
+    "compat_title": "Съвместимост с iRedMail",
+    "compat_installed": "Инсталиран iRedPanel",
+    "compat_tested": "Тествани версии на iRedMail",
+    "compat_backends": "Бекендове",
+    "compat_not_listed": "Списъкът за съвместимост няма запис за тази версия на iRedPanel.",
+    "compat_newer": "По-нови версии на iRedPanel",
+    "compat_released": "Издадена",
+    "compat_upgrade_hint": "Преди да обновите iRedMail, намерете версията на iRedPanel, която посочва новата версия на iRedMail. Първо обновете iRedMail, след това iRedPanel.",
+    "compat_source_remote": "Източник: списъкът за съвместимост в GitHub, проверен :time.",
+    "compat_source_offline": "GitHub не може да бъде прочетен. Показан е списъкът, доставен с тази версия на iRedPanel.",
+    "compat_source_local": "Проверката за обновления е изключена. Показан е списъкът, доставен с тази версия на iRedPanel.",
+    "compat_unavailable": "Списъкът за съвместимост не може да бъде прочетен. Вижте лога на сървъра.",
+    "compat_up_to_date": "В списъка няма по-нова версия на iRedPanel."
   },
   "fail2ban": {
     "title": "Fail2ban",

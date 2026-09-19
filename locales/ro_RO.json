@@ -236,7 +236,6 @@
   },
   "dashboard": {
     "title": "Tablou de bord",
-    "new_version": "O nouă versiune de iRedPanel este disponibilă: <strong>v:version</strong>.",
     "view_release": "Vezi versiunea",
     "domains": "Domenii",
     "users": "Utilizatori",
@@ -253,7 +252,21 @@
     "software": "Software",
     "hostname": "Nume gazdă",
     "uptime": "Timp de funcționare",
-    "load": "Încărcare"
+    "load": "Încărcare",
+    "update_available": "iRedPanel v:version este disponibil. Testat cu iRedMail :iredmail.",
+    "compat_title": "Compatibilitate iRedMail",
+    "compat_installed": "iRedPanel instalat",
+    "compat_tested": "Versiuni iRedMail testate",
+    "compat_backends": "Backend-uri",
+    "compat_not_listed": "Lista de compatibilitate nu are nicio intrare pentru această versiune iRedPanel.",
+    "compat_newer": "Versiuni iRedPanel mai noi",
+    "compat_released": "Lansată",
+    "compat_upgrade_hint": "Înainte de a actualiza iRedMail, găsiți versiunea iRedPanel care listează noua versiune iRedMail. Actualizați mai întâi iRedMail, apoi iRedPanel.",
+    "compat_source_remote": "Sursă: lista de compatibilitate de pe GitHub, verificată :time.",
+    "compat_source_offline": "GitHub nu a putut fi citit. Este afișată lista livrată cu această versiune iRedPanel.",
+    "compat_source_local": "Verificarea actualizărilor este dezactivată. Este afișată lista livrată cu această versiune iRedPanel.",
+    "compat_unavailable": "Lista de compatibilitate nu a putut fi citită. Consultați log-ul serverului.",
+    "compat_up_to_date": "Nu există nicio versiune iRedPanel mai nouă în listă."
   },
   "fail2ban": {
     "title": "Fail2ban",

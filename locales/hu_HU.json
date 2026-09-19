@@ -236,7 +236,6 @@
   },
   "dashboard": {
     "title": "Vezérlőpult",
-    "new_version": "Az iRedPanel új verziója érhető el: <strong>v:version</strong>.",
     "view_release": "Kiadás megtekintése",
     "domains": "Domainek",
     "users": "Felhasználók",
@@ -253,7 +252,21 @@
     "software": "Szoftver",
     "hostname": "Gazdanév",
     "uptime": "Üzemidő",
-    "load": "Terhelés"
+    "load": "Terhelés",
+    "update_available": "Elérhető az iRedPanel v:version. Tesztelve: iRedMail :iredmail.",
+    "compat_title": "iRedMail-kompatibilitás",
+    "compat_installed": "Telepített iRedPanel",
+    "compat_tested": "Tesztelt iRedMail-verziók",
+    "compat_backends": "Backendek",
+    "compat_not_listed": "A kompatibilitási listában nincs bejegyzés ehhez az iRedPanel-verzióhoz.",
+    "compat_newer": "Újabb iRedPanel-verziók",
+    "compat_released": "Kiadva",
+    "compat_upgrade_hint": "Az iRedMail frissítése előtt keresse meg azt az iRedPanel-verziót, amely az új iRedMail-verziót felsorolja. Először az iRedMailt, utána az iRedPanelt frissítse.",
+    "compat_source_remote": "Forrás: a kompatibilitási lista a GitHubon, ellenőrizve: :time.",
+    "compat_source_offline": "A GitHub nem olvasható. Az ezzel az iRedPanel-verzióval szállított lista látható.",
+    "compat_source_local": "A frissítés-ellenőrzés ki van kapcsolva. Az ezzel az iRedPanel-verzióval szállított lista látható.",
+    "compat_unavailable": "A kompatibilitási lista nem olvasható. Lásd a szerver naplóját.",
+    "compat_up_to_date": "A listában nincs újabb iRedPanel-verzió."
   },
   "fail2ban": {
     "title": "Fail2ban",

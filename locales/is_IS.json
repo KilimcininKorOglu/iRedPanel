@@ -236,7 +236,6 @@
   },
   "dashboard": {
     "title": "Stjórnborð",
-    "new_version": "Ný útgáfa af iRedPanel er í boði: <strong>v:version</strong>.",
     "view_release": "Skoða útgáfu",
     "domains": "Lén",
     "users": "Notendur",
@@ -253,7 +252,21 @@
     "software": "Hugbúnaður",
     "hostname": "Vélarnafn",
     "uptime": "Uppitími",
-    "load": "Álag"
+    "load": "Álag",
+    "update_available": "iRedPanel v:version er fáanlegt. Prófað með iRedMail :iredmail.",
+    "compat_title": "Samhæfni við iRedMail",
+    "compat_installed": "Uppsett iRedPanel",
+    "compat_tested": "Prófaðar iRedMail-útgáfur",
+    "compat_backends": "Bakendar",
+    "compat_not_listed": "Samhæfnilistinn hefur enga færslu fyrir þessa iRedPanel-útgáfu.",
+    "compat_newer": "Nýrri iRedPanel-útgáfur",
+    "compat_released": "Gefin út",
+    "compat_upgrade_hint": "Áður en þú uppfærir iRedMail skaltu finna iRedPanel-útgáfuna sem tilgreinir nýju iRedMail-útgáfuna. Uppfærðu fyrst iRedMail og síðan iRedPanel.",
+    "compat_source_remote": "Heimild: samhæfnilistinn á GitHub, athugað :time.",
+    "compat_source_offline": "Ekki tókst að lesa GitHub. Listinn sem fylgir þessari iRedPanel-útgáfu er sýndur.",
+    "compat_source_local": "Slökkt er á uppfærsluathugun. Listinn sem fylgir þessari iRedPanel-útgáfu er sýndur.",
+    "compat_unavailable": "Ekki tókst að lesa samhæfnilistann. Sjá annál þjónsins.",
+    "compat_up_to_date": "Engin nýrri iRedPanel-útgáfa er á listanum."
   },
   "fail2ban": {
     "title": "Fail2ban",

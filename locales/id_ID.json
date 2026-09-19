@@ -236,7 +236,6 @@
   },
   "dashboard": {
     "title": "Dasbor",
-    "new_version": "Versi baru iRedPanel tersedia: <strong>v:version</strong>.",
     "view_release": "Lihat rilis",
     "domains": "Domain",
     "users": "Pengguna",
@@ -253,7 +252,21 @@
     "software": "Perangkat lunak",
     "hostname": "Nama host",
     "uptime": "Waktu aktif",
-    "load": "Beban"
+    "load": "Beban",
+    "update_available": "iRedPanel v:version tersedia. Diuji dengan iRedMail :iredmail.",
+    "compat_title": "Kompatibilitas iRedMail",
+    "compat_installed": "iRedPanel terpasang",
+    "compat_tested": "Versi iRedMail yang diuji",
+    "compat_backends": "Backend",
+    "compat_not_listed": "Daftar kompatibilitas tidak memiliki entri untuk versi iRedPanel ini.",
+    "compat_newer": "Versi iRedPanel yang lebih baru",
+    "compat_released": "Dirilis",
+    "compat_upgrade_hint": "Sebelum meningkatkan iRedMail, temukan versi iRedPanel yang mencantumkan versi iRedMail baru. Tingkatkan iRedMail terlebih dahulu, lalu iRedPanel.",
+    "compat_source_remote": "Sumber: daftar kompatibilitas di GitHub, diperiksa :time.",
+    "compat_source_offline": "GitHub tidak dapat dibaca. Daftar yang disertakan dengan versi iRedPanel ini ditampilkan.",
+    "compat_source_local": "Pemeriksaan pembaruan dinonaktifkan. Daftar yang disertakan dengan versi iRedPanel ini ditampilkan.",
+    "compat_unavailable": "Daftar kompatibilitas tidak dapat dibaca. Lihat log server.",
+    "compat_up_to_date": "Tidak ada versi iRedPanel yang lebih baru dalam daftar."
   },
   "fail2ban": {
     "title": "Fail2ban",

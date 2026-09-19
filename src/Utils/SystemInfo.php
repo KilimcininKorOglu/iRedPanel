@@ -43,20 +43,6 @@ class SystemInfo
         return sys_getloadavg() ?: [0.0, 0.0, 0.0];
     }
 
-    public static function getIredMailVersion(): string
-    {
-        $file = '/etc/iredmail-release';
-        if (!file_exists($file)) {
-            return 'N/A';
-        }
-        $content = @file_get_contents($file);
-        if ($content === false) {
-            return 'N/A';
-        }
-        $parts = explode(' ', trim($content));
-        return $parts[0] ?? 'N/A';
-    }
-
     public static function getPhpVersion(): string
     {
         return PHP_VERSION;

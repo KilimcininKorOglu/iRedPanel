@@ -1,0 +1,11 @@
+{
+  "schema": 1,
+  "releases": [
+    {
+      "version": "1.0.2",
+      "date": "2026-07-26",
+      "iredmail": ["1.7.4"],
+      "backends": ["ldap", "mysql", "pgsql"]
+    }
+  ]
+}

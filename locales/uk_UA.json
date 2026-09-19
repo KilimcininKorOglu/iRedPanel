@@ -236,7 +236,6 @@
   },
   "dashboard": {
     "title": "Панель керування",
-    "new_version": "Доступна нова версія iRedPanel: <strong>v:version</strong>.",
     "view_release": "Переглянути випуск",
     "domains": "Домени",
     "users": "Користувачі",
@@ -253,7 +252,21 @@
     "software": "Програмне забезпечення",
     "hostname": "Ім'я хоста",
     "uptime": "Час роботи",
-    "load": "Навантаження"
+    "load": "Навантаження",
+    "update_available": "Доступна iRedPanel v:version. Протестовано з iRedMail :iredmail.",
+    "compat_title": "Сумісність з iRedMail",
+    "compat_installed": "Встановлена iRedPanel",
+    "compat_tested": "Протестовані версії iRedMail",
+    "compat_backends": "Бекенди",
+    "compat_not_listed": "У списку сумісності немає запису для цієї версії iRedPanel.",
+    "compat_newer": "Новіші версії iRedPanel",
+    "compat_released": "Дата випуску",
+    "compat_upgrade_hint": "Перед оновленням iRedMail знайдіть версію iRedPanel, у якій вказано нову версію iRedMail. Спочатку оновіть iRedMail, потім iRedPanel.",
+    "compat_source_remote": "Джерело: список сумісності на GitHub, перевірено :time.",
+    "compat_source_offline": "Не вдалося прочитати GitHub. Показано список, що постачається з цією версією iRedPanel.",
+    "compat_source_local": "Перевірку оновлень вимкнено. Показано список, що постачається з цією версією iRedPanel.",
+    "compat_unavailable": "Не вдалося прочитати список сумісності. Дивіться журнал сервера.",
+    "compat_up_to_date": "Новіших версій iRedPanel у списку немає."
   },
   "fail2ban": {
     "title": "Fail2ban",

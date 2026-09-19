@@ -95,7 +95,8 @@
     "msg_password_uppercase": "Mật khẩu phải chứa ít nhất một chữ hoa",
     "msg_password_lowercase": "Mật khẩu phải chứa ít nhất một chữ thường",
     "msg_password_special": "Mật khẩu phải chứa ít nhất một ký tự đặc biệt (:chars)",
-    "msg_password_mismatch": "Mật khẩu và mật khẩu xác nhận không khớp"
+    "msg_password_mismatch": "Mật khẩu và mật khẩu xác nhận không khớp",
+    "msg_bulk_select": "Chọn ít nhất một mục và một thao tác."
   },
   "auth": {
     "title": "Xác thực",

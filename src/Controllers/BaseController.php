@@ -124,6 +124,19 @@ class BaseController
      *
      * @return list<string> the items that succeeded
      */
+    /**
+     * Checks a bulk form post, and reports a missing selection or action
+     * instead of redirecting without a message.
+     */
+    public static function isValidBulkRequest(mixed $items, mixed $action): bool
+    {
+        if (is_array($items) && $items !== [] && in_array($action, self::BULK_ACTIONS, true)) {
+            return true;
+        }
+        self::flashError(Translator::translate('common.msg_bulk_select'));
+        return false;
+    }
+
     public static function runBulk(array $items, callable $apply): array
     {
         $done = [];

@@ -95,7 +95,8 @@
     "msg_password_uppercase": "Heslo musí obsahovat alespoň jedno velké písmeno",
     "msg_password_lowercase": "Heslo musí obsahovat alespoň jedno malé písmeno",
     "msg_password_special": "Heslo musí obsahovat alespoň jeden speciální znak (:chars)",
-    "msg_password_mismatch": "Heslo a potvrzení hesla se neshodují"
+    "msg_password_mismatch": "Heslo a potvrzení hesla se neshodují",
+    "msg_bulk_select": "Vyberte alespoň jednu položku a akci."
   },
   "auth": {
     "title": "Ověření",

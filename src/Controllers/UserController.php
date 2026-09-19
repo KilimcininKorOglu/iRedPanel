@@ -303,7 +303,7 @@ class UserController
         $action = $_POST['action'] ?? '';
         $adminEmail = $_SESSION['email'] ?? '';
 
-        if (!is_array($selectedUsers) || !in_array($action, BaseController::BULK_ACTIONS, true)) {
+        if (!BaseController::isValidBulkRequest($selectedUsers, $action)) {
             header("Location: /{$domain}/users");
             exit;
         }

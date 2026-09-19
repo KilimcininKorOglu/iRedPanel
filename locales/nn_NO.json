@@ -95,7 +95,8 @@
     "msg_password_uppercase": "Passordet må innehalde minst éin stor bokstav",
     "msg_password_lowercase": "Passordet må innehalde minst éin liten bokstav",
     "msg_password_special": "Passordet må innehalde minst eitt spesialteikn (:chars)",
-    "msg_password_mismatch": "Passordet og stadfestinga er ikkje like"
+    "msg_password_mismatch": "Passordet og stadfestinga er ikkje like",
+    "msg_bulk_select": "Vel minst eitt element og ei handling."
   },
   "auth": {
     "title": "Autentisering",

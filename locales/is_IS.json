@@ -95,7 +95,8 @@
     "msg_password_uppercase": "Lykilorðið verður að innihalda að minnsta kosti einn hástaf",
     "msg_password_lowercase": "Lykilorðið verður að innihalda að minnsta kosti einn lágstaf",
     "msg_password_special": "Lykilorðið verður að innihalda að minnsta kosti eitt sértákn (:chars)",
-    "msg_password_mismatch": "Lykilorðið og staðfestingin passa ekki saman"
+    "msg_password_mismatch": "Lykilorðið og staðfestingin passa ekki saman",
+    "msg_bulk_select": "Veldu að minnsta kosti eitt atriði og eina aðgerð."
   },
   "auth": {
     "title": "Auðkenning",

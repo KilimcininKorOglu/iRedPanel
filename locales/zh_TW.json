@@ -95,7 +95,8 @@
     "msg_password_uppercase": "密碼必須至少包含一個大寫字母",
     "msg_password_lowercase": "密碼必須至少包含一個小寫字母",
     "msg_password_special": "密碼必須至少包含一個特殊字元（:chars）",
-    "msg_password_mismatch": "密碼與確認密碼不一致"
+    "msg_password_mismatch": "密碼與確認密碼不一致",
+    "msg_bulk_select": "請至少選擇一個項目並選擇一個動作。"
   },
   "auth": {
     "title": "驗證",

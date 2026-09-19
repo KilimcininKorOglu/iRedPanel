@@ -192,7 +192,7 @@ class AliasController
         $action = $_POST['action'] ?? '';
         $selectedAliases = $_POST['selected'] ?? [];
 
-        if (!is_array($selectedAliases) || !in_array($action, BaseController::BULK_ACTIONS, true)) {
+        if (!BaseController::isValidBulkRequest($selectedAliases, $action)) {
             header("Location: /aliases");
             exit;
         }

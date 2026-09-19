@@ -95,7 +95,8 @@
     "msg_password_uppercase": "Lozinka mora sadržavati najmanje jedno veliko slovo",
     "msg_password_lowercase": "Lozinka mora sadržavati najmanje jedno malo slovo",
     "msg_password_special": "Lozinka mora sadržavati najmanje jedan poseban znak (:chars)",
-    "msg_password_mismatch": "Lozinka i potvrda lozinke se ne podudaraju"
+    "msg_password_mismatch": "Lozinka i potvrda lozinke se ne podudaraju",
+    "msg_bulk_select": "Odaberite barem jednu stavku i akciju."
   },
   "auth": {
     "title": "Autentifikacija",

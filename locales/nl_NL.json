@@ -95,7 +95,8 @@
     "msg_password_uppercase": "Het wachtwoord moet minstens één hoofdletter bevatten",
     "msg_password_lowercase": "Het wachtwoord moet minstens één kleine letter bevatten",
     "msg_password_special": "Het wachtwoord moet minstens één speciaal teken bevatten (:chars)",
-    "msg_password_mismatch": "Wachtwoord en wachtwoordbevestiging komen niet overeen"
+    "msg_password_mismatch": "Wachtwoord en wachtwoordbevestiging komen niet overeen",
+    "msg_bulk_select": "Selecteer minstens één item en een actie."
   },
   "auth": {
     "title": "Authenticatie",

@@ -95,7 +95,8 @@
     "msg_password_uppercase": "Parool peab sisaldama vähemalt ühte suurtähte",
     "msg_password_lowercase": "Parool peab sisaldama vähemalt ühte väiketähte",
     "msg_password_special": "Parool peab sisaldama vähemalt ühte erimärki (:chars)",
-    "msg_password_mismatch": "Parool ja parooli kinnitus ei ühti"
+    "msg_password_mismatch": "Parool ja parooli kinnitus ei ühti",
+    "msg_bulk_select": "Valige vähemalt üks kirje ja toiming."
   },
   "auth": {
     "title": "Autentimine",

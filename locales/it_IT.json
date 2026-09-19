@@ -95,7 +95,8 @@
     "msg_password_uppercase": "La password deve contenere almeno una lettera maiuscola",
     "msg_password_lowercase": "La password deve contenere almeno una lettera minuscola",
     "msg_password_special": "La password deve contenere almeno un carattere speciale (:chars)",
-    "msg_password_mismatch": "La password e la conferma non corrispondono"
+    "msg_password_mismatch": "La password e la conferma non corrispondono",
+    "msg_bulk_select": "Seleziona almeno un elemento e un'azione."
   },
   "auth": {
     "title": "Autenticazione",

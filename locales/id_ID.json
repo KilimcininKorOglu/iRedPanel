@@ -95,7 +95,8 @@
     "msg_password_uppercase": "Kata sandi harus berisi setidaknya satu huruf besar",
     "msg_password_lowercase": "Kata sandi harus berisi setidaknya satu huruf kecil",
     "msg_password_special": "Kata sandi harus berisi setidaknya satu karakter khusus (:chars)",
-    "msg_password_mismatch": "Kata sandi dan konfirmasi kata sandi tidak cocok"
+    "msg_password_mismatch": "Kata sandi dan konfirmasi kata sandi tidak cocok",
+    "msg_bulk_select": "Pilih setidaknya satu item dan satu tindakan."
   },
   "auth": {
     "title": "Autentikasi",

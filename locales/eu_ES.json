@@ -95,7 +95,8 @@
     "msg_password_uppercase": "Pasahitzak gutxienez letra larri bat izan behar du",
     "msg_password_lowercase": "Pasahitzak gutxienez letra xehe bat izan behar du",
     "msg_password_special": "Pasahitzak gutxienez karaktere berezi bat izan behar du (:chars)",
-    "msg_password_mismatch": "Pasahitza eta berrespena ez datoz bat"
+    "msg_password_mismatch": "Pasahitza eta berrespena ez datoz bat",
+    "msg_bulk_select": "Hautatu gutxienez elementu bat eta ekintza bat."
   },
   "auth": {
     "title": "Autentifikazioa",

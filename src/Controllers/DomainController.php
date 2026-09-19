@@ -276,7 +276,7 @@ class DomainController
         $action = $_POST['action'] ?? '';
         $adminEmail = $_SESSION['email'] ?? '';
 
-        if (!is_array($selectedDomains) || !in_array($action, BaseController::BULK_ACTIONS, true)) {
+        if (!BaseController::isValidBulkRequest($selectedDomains, $action)) {
             header("Location: /domains");
             exit;
         }

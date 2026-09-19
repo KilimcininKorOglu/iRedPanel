@@ -253,7 +253,7 @@ class MailingListController
         $action = $_POST['action'] ?? '';
         $selected = $_POST['selected'] ?? [];
 
-        if (!is_array($selected) || !in_array($action, BaseController::BULK_ACTIONS, true)) {
+        if (!BaseController::isValidBulkRequest($selected, $action)) {
             header("Location: /mailing-lists");
             exit;
         }

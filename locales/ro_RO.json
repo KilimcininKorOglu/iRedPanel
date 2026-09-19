@@ -95,7 +95,8 @@
     "msg_password_uppercase": "Parola trebuie să conțină cel puțin o literă mare",
     "msg_password_lowercase": "Parola trebuie să conțină cel puțin o literă mică",
     "msg_password_special": "Parola trebuie să conțină cel puțin un caracter special (:chars)",
-    "msg_password_mismatch": "Parola și confirmarea parolei nu se potrivesc"
+    "msg_password_mismatch": "Parola și confirmarea parolei nu se potrivesc",
+    "msg_bulk_select": "Selectați cel puțin un element și o acțiune."
   },
   "auth": {
     "title": "Autentificare",

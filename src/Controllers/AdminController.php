@@ -42,7 +42,7 @@ class AdminController
         $selectedAdmins = $_POST['selectedAdmins'] ?? [];
         $action = $_POST['action'] ?? '';
 
-        if (!is_array($selectedAdmins) || !in_array($action, BaseController::BULK_ACTIONS, true)) {
+        if (!BaseController::isValidBulkRequest($selectedAdmins, $action)) {
             header("Location: /admins");
             exit;
         }

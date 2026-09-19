@@ -95,7 +95,8 @@
     "msg_password_uppercase": "Password must contain at least one uppercase letter",
     "msg_password_lowercase": "Password must contain at least one lowercase letter",
     "msg_password_special": "Password must contain at least one special character (:chars)",
-    "msg_password_mismatch": "Password and password confirmation do not match"
+    "msg_password_mismatch": "Password and password confirmation do not match",
+    "msg_bulk_select": "Select at least one item and an action."
   },
   "auth": {
     "title": "Authentication",

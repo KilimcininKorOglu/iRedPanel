@@ -95,7 +95,8 @@
     "msg_password_uppercase": "Geslo mora vsebovati vsaj eno veliko črko",
     "msg_password_lowercase": "Geslo mora vsebovati vsaj eno malo črko",
     "msg_password_special": "Geslo mora vsebovati vsaj en poseben znak (:chars)",
-    "msg_password_mismatch": "Geslo in potrditev gesla se ne ujemata"
+    "msg_password_mismatch": "Geslo in potrditev gesla se ne ujemata",
+    "msg_bulk_select": "Izberite vsaj en element in dejanje."
   },
   "auth": {
     "title": "Preverjanje pristnosti",

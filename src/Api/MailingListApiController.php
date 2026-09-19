@@ -95,6 +95,7 @@ class MailingListApiController
         try {
             $accessPolicy = Alias::validAccessPolicy($data['accessPolicy'] ?? $ml->accessPolicy);
             $maxMsgSize = MailingList::validMaxMsgSize($data['maxMsgSize'] ?? $ml->maxMsgSize);
+            $owners = self::ownersFromBody($data);
         } catch (\InvalidArgumentException $e) {
             ApiResponse::error($e->getMessage());
             return;
@@ -107,7 +108,32 @@ class MailingListApiController
             (bool) ($data['active'] ?? $ml->active),
             $newsletter,
         );
+        if ($owners !== null) {
+            MailingListService::setOwners($address, $owners);
+        }
         ApiResponse::success(['message' => 'Mailing list updated']);
+    }
+
+    /**
+     * Reads `owners`, which GET returns. An empty array falls back to the default owner.
+     *
+     * @return string[]|null the owners, or null when the body does not set them
+     */
+    private static function ownersFromBody(array $data): ?array
+    {
+        if (!array_key_exists('owners', $data)) {
+            return null;
+        }
+        $input = $data['owners'];
+        if (!is_array($input) || array_filter($input, 'is_string') !== $input) {
+            throw new \InvalidArgumentException('owners must be an array of email addresses');
+        }
+
+        try {
+            return AddressList::parse(implode("\n", $input));
+        } catch (\InvalidArgumentException $e) {
+            throw new \InvalidArgumentException('Invalid owner: ' . $e->getMessage(), 0, $e);
+        }
     }
 
     public static function delete(string $address): void

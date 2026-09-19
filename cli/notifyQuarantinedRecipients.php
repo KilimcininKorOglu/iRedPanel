@@ -37,7 +37,6 @@ if (!in_array($settings->backend, ['mysql', 'pgsql'], true)) {
 
 try {
     $vmailPdo = getVmailPdo($settings);
-    $amavisdPdo = getAmavisdPdo($settings);
     // Optional: without it every run reports all quarantined mail again.
     $iredadminPdo = getIredadminPdo($settings);
     $mailer = Mailer::fromSettings();
@@ -46,8 +45,8 @@ try {
     exit(1);
 }
 
-if ($vmailPdo === null || $amavisdPdo === null) {
-    fwrite(STDERR, "Cannot connect to the vmail or amavisd database.\n");
+if ($vmailPdo === null) {
+    fwrite(STDERR, "Cannot connect to the vmail database.\n");
     exit(1);
 }
 
@@ -90,30 +89,11 @@ $notified = 0;
 $failed = 0;
 $quarDays = $settings->amavisdRemoveQuarantinedInDays;
 
+$amavisdRepo = \App\Repositories\RepositoryFactory::getAmavisdRepository();
+
 foreach ($users as $userEmail) {
-    // Find user's maddr ID
-    $stmt = $amavisdPdo->prepare("SELECT id FROM maddr WHERE email = :email LIMIT 1");
-    $stmt->execute(['email' => $userEmail]);
-    $maddrRow = $stmt->fetch();
-
-    if ($maddrRow === false) {
-        continue;
-    }
-
-    $maddrId = (int) $maddrRow['id'];
-
-    // Find quarantined messages since last notification
-    $stmt = $amavisdPdo->prepare(
-        "SELECT m.mail_id, m.subject, m.from_addr, m.spam_level, m.time_num
-         FROM msgs m
-         JOIN msgrcpt mr ON m.mail_id = mr.mail_id
-         WHERE mr.rid = :rid AND m.quar_type = 'Q' AND m.time_num > :since
-         ORDER BY m.time_num DESC
-         LIMIT 100"
-    );
-    $stmt->execute(['rid' => $maddrId, 'since' => $lastNotifyTime]);
-
-    $messages = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    // Quarantined messages since the last notification
+    $messages = $amavisdRepo->getQuarantinedForRecipient($userEmail, $lastNotifyTime);
 
     if (empty($messages)) {
         continue;
@@ -190,13 +170,6 @@ function getVmailPdo(Settings $settings): ?\PDO
     return $settings->backend === 'pgsql'
         ? \App\Repositories\Pgsql\PgsqlConnection::getInstance()->getPdo()
         : \App\Repositories\Mysql\MysqlConnection::getInstance()->getPdo();
-}
-
-function getAmavisdPdo(Settings $settings): ?\PDO
-{
-    return $settings->backend === 'pgsql'
-        ? \App\Repositories\Pgsql\AmavisdPgsqlConnection::getInstance()->getPdo()
-        : \App\Repositories\Mysql\AmavisdConnection::getInstance()->getPdo();
 }
 
 function getIredadminPdo(Settings $settings): ?\PDO

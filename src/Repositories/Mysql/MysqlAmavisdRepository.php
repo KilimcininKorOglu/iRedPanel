@@ -218,6 +218,25 @@ class MysqlAmavisdRepository implements AmavisdRepositoryInterface
         return $stmt->fetchAll(\PDO::FETCH_COLUMN);
     }
 
+    public function getQuarantinedForRecipient(string $email, int $since, int $limit = 100): array
+    {
+        $stmt = $this->amavisdPdo()->prepare(
+            "SELECT m.mail_id, m.subject, m.from_addr, m.spam_level, m.time_num
+             FROM msgs m
+             JOIN msgrcpt mr ON m.mail_id = mr.mail_id
+             JOIN maddr a ON a.id = mr.rid
+             WHERE a.email = :email AND m.quar_type = 'Q' AND m.time_num > :since
+             ORDER BY m.time_num DESC
+             LIMIT :lim"
+        );
+        $stmt->bindValue('email', $email);
+        $stmt->bindValue('since', $since, \PDO::PARAM_INT);
+        $stmt->bindValue('lim', $limit, \PDO::PARAM_INT);
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
     public function getQuarantinedMailText(string $mailId): string
     {
         $stmt = $this->amavisdPdo()->prepare(

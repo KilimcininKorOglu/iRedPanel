@@ -21,6 +21,14 @@ interface AmavisdRepositoryInterface extends AccountSettingsStoreInterface
      */
     public function getQuarantinedMailIds(?int $since = null): array;
 
+    /**
+     * Quarantined messages of one recipient, newest first, at most $limit.
+     *
+     * @param int $since Unix time; only messages received after it
+     * @return list<array{mail_id: string, subject: string, from_addr: string, spam_level: mixed, time_num: int}>
+     */
+    public function getQuarantinedForRecipient(string $email, int $since, int $limit = 100): array;
+
     /** The full message: Amavisd stores it in chunks, joined here in chunk order. */
     public function getQuarantinedMailText(string $mailId): string;
 }

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Repositories;
 
+use App\Models\DeletedMailbox;
 use App\Models\PaginatedResult;
 
 interface DeletedMailboxRepositoryInterface
@@ -12,6 +13,13 @@ interface DeletedMailboxRepositoryInterface
      * Returns paginated list of pending mailbox deletions.
      */
     public function getPendingDeletions(int $page, int $perPage): PaginatedResult;
+
+    /**
+     * Returns the deletions whose delete date is today or earlier, oldest first.
+     *
+     * @return DeletedMailbox[]
+     */
+    public function getExpiredDeletions(): array;
 
     /**
      * Cancels a pending deletion (removes the record).

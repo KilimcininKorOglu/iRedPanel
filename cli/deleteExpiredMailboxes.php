@@ -11,7 +11,7 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/bootstrap.php';
 
-use App\Repositories\Mysql\MysqlConnection;
+use App\Repositories\RepositoryFactory;
 
 $options = getopt('', ['dry-run']);
 $dryRun = isset($options['dry-run']);
@@ -20,30 +20,22 @@ if ($dryRun) {
     echo "DRY RUN — no files will be deleted.\n\n";
 }
 
-$pdo = MysqlConnection::getInstance()->getPdo();
-
-$stmt = $pdo->query(
-    "SELECT id, username, maildir, domain, admin, delete_date
-     FROM deleted_mailboxes
-     WHERE delete_date IS NOT NULL AND delete_date <= NOW()
-     ORDER BY delete_date"
-);
+$repo = RepositoryFactory::getDeletedMailboxRepository();
 
 $processed = 0;
 $errors = 0;
 
-while ($row = $stmt->fetch()) {
-    $id = (int) $row['id'];
-    $maildir = $row['maildir'];
-    $username = $row['username'];
+foreach ($repo->getExpiredDeletions() as $deletion) {
+    $id = $deletion->id;
+    $maildir = $deletion->maildir;
+    $username = $deletion->username;
 
     echo "Processing: {$username} — {$maildir}\n";
 
     if (!is_dir($maildir)) {
         echo "  Directory not found, removing record.\n";
         if (!$dryRun) {
-            $delStmt = $pdo->prepare("DELETE FROM deleted_mailboxes WHERE id = :id");
-            $delStmt->execute(['id' => $id]);
+            $repo->cancelDeletion($id);
         }
         $processed++;
         continue;
@@ -77,8 +69,7 @@ while ($row = $stmt->fetch()) {
             rmdir($maildir);
             echo "  Deleted directory.\n";
 
-            $delStmt = $pdo->prepare("DELETE FROM deleted_mailboxes WHERE id = :id");
-            $delStmt->execute(['id' => $id]);
+            $repo->cancelDeletion($id);
         } catch (\Exception $e) {
             echo "  Error: {$e->getMessage()}\n";
             $errors++;

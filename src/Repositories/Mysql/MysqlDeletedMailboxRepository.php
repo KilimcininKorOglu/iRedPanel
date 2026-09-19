@@ -36,6 +36,22 @@ class MysqlDeletedMailboxRepository implements DeletedMailboxRepositoryInterface
         return new PaginatedResult($items, $totalCount, $page, $perPage);
     }
 
+    public function getExpiredDeletions(): array
+    {
+        $stmt = $this->pdo()->query(
+            "SELECT id, username, maildir, domain, admin, delete_date, timestamp
+             FROM deleted_mailboxes
+             WHERE delete_date IS NOT NULL AND delete_date <= CURRENT_DATE
+             ORDER BY delete_date"
+        );
+
+        $items = [];
+        while ($row = $stmt->fetch()) {
+            $items[] = DeletedMailbox::fromMysqlRow($row);
+        }
+        return $items;
+    }
+
     public function cancelDeletion(int $id): bool
     {
         $pdo = $this->pdo();

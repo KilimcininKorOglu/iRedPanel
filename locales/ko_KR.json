@@ -651,7 +651,12 @@
     "delete_confirm_perm": "별칭 :address를 영구적으로 삭제하시겠습니까?",
     "delete_button": "별칭 삭제",
     "back": "별칭으로 돌아가기",
-    "msg_invalid_access_policy": "잘못된 접근 정책: :policy"
+    "msg_invalid_access_policy": "잘못된 접근 정책: :policy",
+    "rename_address": "별칭 주소 이름 변경",
+    "rename_confirm": "별칭 주소의 이름을 변경하시겠습니까?",
+    "new_local_part": "new-alias",
+    "rename": "이름 변경",
+    "msg_renamed": "별칭의 이름이 :address(으)로 변경되었습니다"
   },
   "domainalias": {
     "msg_alias_required": "별칭 도메인 이름이 필요합니다",

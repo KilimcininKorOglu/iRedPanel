@@ -651,7 +651,12 @@
     "delete_confirm_perm": "Трајно обрисати алијас :address?",
     "delete_button": "Обриши алијас",
     "back": "Назад на алијасе",
-    "msg_invalid_access_policy": "Неважећа правила приступа: :policy"
+    "msg_invalid_access_policy": "Неважећа правила приступа: :policy",
+    "rename_address": "Преименуј адресу alias-а",
+    "rename_confirm": "Преименовати адресу alias-а?",
+    "new_local_part": "novi-alias",
+    "rename": "Преименуј",
+    "msg_renamed": "Alias је преименован у :address"
   },
   "domainalias": {
     "msg_alias_required": "Назив алијаса домена је обавезан",

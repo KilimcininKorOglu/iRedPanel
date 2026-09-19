@@ -41,6 +41,22 @@
 
 <div class="row">
   <div class="col-xl-8">
+    <?php if (!$managed): ?>
+    <details class="card mb-4">
+      <summary class="card-header"><?= $te('alias.rename_address') ?></summary>
+      <div class="card-body">
+        <form method="post" action="/aliases/<?= $e($alias->address) ?>/rename" data-confirm="<?= $te('alias.rename_confirm') ?>" class="d-flex flex-wrap gap-2">
+          <?= $csrfField ?>
+          <div class="input-group flex-grow-1 w-auto">
+            <input type="text" name="newLocalPart" class="form-control" placeholder="<?= $te('alias.new_local_part') ?>" required aria-label="<?= $te('alias.new_local_part') ?>" />
+            <span class="input-group-text">@<?= $e($alias->domain) ?></span>
+          </div>
+          <button type="submit" class="btn btn-outline-secondary"><?= $te('alias.rename') ?></button>
+        </form>
+      </div>
+    </details>
+    <?php endif; ?>
+
     <form method="post" action="/aliases/<?= $e($alias->address) ?>" class="card" id="section-settings">
       <?= $csrfField ?>
       <input type="hidden" name="action" value="updateSettings" />

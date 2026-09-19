@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace App\Api;
 
+use App\Exceptions\InvalidInputException;
 use App\Models\Alias;
 use App\Repositories\RepositoryFactory;
+use App\Services\AccountRenameService;
 use App\Services\AccountSettingsService;
 use App\Services\Replication\ReplicatedAccountGuard;
 use App\Utils\AddressList;
@@ -153,6 +155,32 @@ class AliasApiController
             $data['active'] ?? $alias->active,
         );
         ApiResponse::success(['message' => 'Alias updated']);
+    }
+
+    /**
+     * Moves the alias to the address in the body field newAddress, in the same domain.
+     */
+    public static function rename(string $address): void
+    {
+        ApiMiddleware::requireGlobalKey();
+        ApiMiddleware::requireWriteAccess();
+        if (RepositoryFactory::getAliasRepository()->getAlias($address) === null) {
+            ApiResponse::error('Alias not found', 404);
+            return;
+        }
+
+        $newAddress = ApiMiddleware::getJsonBody()['newAddress'] ?? null;
+        if (!is_string($newAddress)) {
+            ApiResponse::error('newAddress is required');
+            return;
+        }
+        try {
+            $renamed = AccountRenameService::renameAlias($address, $newAddress);
+        } catch (InvalidInputException $e) {
+            ApiResponse::invalidInput($e);
+            return;
+        }
+        ApiResponse::success(['message' => 'Alias renamed', 'address' => $renamed]);
     }
 
     /**

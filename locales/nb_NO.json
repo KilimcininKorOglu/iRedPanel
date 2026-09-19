@@ -651,7 +651,12 @@
     "delete_confirm_perm": "Slette alias :address permanent?",
     "delete_button": "Slett alias",
     "back": "Tilbake til aliaser",
-    "msg_invalid_access_policy": "Ugyldig tilgangspolicy: :policy"
+    "msg_invalid_access_policy": "Ugyldig tilgangspolicy: :policy",
+    "rename_address": "Gi alias-adressen nytt navn",
+    "rename_confirm": "Gi alias-adressen nytt navn?",
+    "new_local_part": "nytt-alias",
+    "rename": "Gi nytt navn",
+    "msg_renamed": "Aliaset fikk det nye navnet :address"
   },
   "domainalias": {
     "msg_alias_required": "Aliasdomenenavn er påkrevd",

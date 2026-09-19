@@ -651,7 +651,12 @@
     "delete_confirm_perm": "Alias :address permanent verwijderen?",
     "delete_button": "Alias verwijderen",
     "back": "Terug naar aliassen",
-    "msg_invalid_access_policy": "Ongeldig toegangsbeleid: :policy"
+    "msg_invalid_access_policy": "Ongeldig toegangsbeleid: :policy",
+    "rename_address": "Aliasadres hernoemen",
+    "rename_confirm": "Aliasadres hernoemen?",
+    "new_local_part": "nieuwe-alias",
+    "rename": "Hernoemen",
+    "msg_renamed": "De alias is hernoemd naar :address"
   },
   "domainalias": {
     "msg_alias_required": "De naam van het aliasdomein is verplicht",

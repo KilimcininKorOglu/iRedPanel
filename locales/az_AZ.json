@@ -651,7 +651,12 @@
     "delete_confirm_perm": ":address təxəllüsünü daimi silmək?",
     "delete_button": "Təxəllüsü sil",
     "back": "Təxəllüslərə qayıt",
-    "msg_invalid_access_policy": "Yanlış giriş siyasəti: :policy"
+    "msg_invalid_access_policy": "Yanlış giriş siyasəti: :policy",
+    "rename_address": "Alias ünvanının adını dəyiş",
+    "rename_confirm": "Alias ünvanının adı dəyişdirilsin?",
+    "new_local_part": "yeni-alias",
+    "rename": "Yenidən adlandır",
+    "msg_renamed": "Alias :address olaraq adlandırıldı"
   },
   "domainalias": {
     "msg_alias_required": "Təxəllüs domen adı tələb olunur",

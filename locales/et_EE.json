@@ -651,7 +651,12 @@
     "delete_confirm_perm": "Kas kustutada alias :address jäädavalt?",
     "delete_button": "Kustuta alias",
     "back": "Tagasi aliastesse",
-    "msg_invalid_access_policy": "Vigane juurdepääsupoliitika: :policy"
+    "msg_invalid_access_policy": "Vigane juurdepääsupoliitika: :policy",
+    "rename_address": "Nimeta aliase aadress ümber",
+    "rename_confirm": "Kas nimetada aliase aadress ümber?",
+    "new_local_part": "uus-alias",
+    "rename": "Nimeta ümber",
+    "msg_renamed": "Alias nimetati ümber: :address"
   },
   "domainalias": {
     "msg_alias_required": "Domeeni aliase nimi on kohustuslik",

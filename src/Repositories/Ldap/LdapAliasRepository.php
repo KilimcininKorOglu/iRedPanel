@@ -94,6 +94,11 @@ class LdapAliasRepository implements AliasRepositoryInterface
         return true;
     }
 
+    public function renameAlias(string $oldAddress, string $newAddress): void
+    {
+        LdapUtils::renameAccountEntry(LdapConnection::getInstance()->getConn(), $oldAddress, $newAddress, 'Aliases');
+    }
+
     public function getAliasMembers(string $address): array
     {
         return self::sortedValues($address, 'mailForwardingAddress');

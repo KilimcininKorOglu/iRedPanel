@@ -651,7 +651,12 @@
     "delete_confirm_perm": "Μόνιμη διαγραφή ψευδωνύμου :address;",
     "delete_button": "Διαγραφή ψευδωνύμου",
     "back": "Πίσω στα ψευδώνυμα",
-    "msg_invalid_access_policy": "Μη έγκυρη πολιτική πρόσβασης: :policy"
+    "msg_invalid_access_policy": "Μη έγκυρη πολιτική πρόσβασης: :policy",
+    "rename_address": "Μετονομασία διεύθυνσης alias",
+    "rename_confirm": "Μετονομασία της διεύθυνσης alias;",
+    "new_local_part": "neo-alias",
+    "rename": "Μετονομασία",
+    "msg_renamed": "Το alias μετονομάστηκε σε :address"
   },
   "domainalias": {
     "msg_alias_required": "Απαιτείται όνομα τομέα ψευδωνύμου",

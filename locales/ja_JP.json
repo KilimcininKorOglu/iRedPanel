@@ -651,7 +651,12 @@
     "delete_confirm_perm": "エイリアス :address を完全に削除しますか？",
     "delete_button": "エイリアスを削除",
     "back": "エイリアスに戻る",
-    "msg_invalid_access_policy": "無効なアクセスポリシー: :policy"
+    "msg_invalid_access_policy": "無効なアクセスポリシー: :policy",
+    "rename_address": "エイリアスのアドレスを変更",
+    "rename_confirm": "エイリアスのアドレスを変更しますか?",
+    "new_local_part": "new-alias",
+    "rename": "名前を変更",
+    "msg_renamed": "エイリアスを :address に変更しました"
   },
   "domainalias": {
     "msg_alias_required": "エイリアスドメイン名は必須です",

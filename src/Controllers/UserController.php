@@ -13,6 +13,7 @@ use App\Models\Settings;
 use App\Models\User;
 use App\Models\UserPassword;
 use App\Repositories\RepositoryFactory;
+use App\Services\AccountRenameService;
 use App\Services\AccountSettingsService;
 use App\Services\ActivityLogger;
 use App\Services\Replication\ReplicatedAccountGuard;
@@ -295,20 +296,8 @@ class UserController
             exit;
         }
 
-        $newEmail = "{$newUid}@{$domain}";
         try {
-            if (filter_var($newEmail, FILTER_VALIDATE_EMAIL) === false) {
-                throw new \RuntimeException(Translator::translate('common.msg_invalid_email', ['address' => $newEmail]));
-            }
-            if (RepositoryFactory::getAliasRepository()->isAddressInUse($newEmail)) {
-                throw new \RuntimeException(Translator::translate('common.msg_address_in_use', ['address' => $newEmail]));
-            }
-            // The directory owns the address; a rename here would be undone by the next replication.
-            ReplicatedAccountGuard::assertNotReplicated("{$userUid}@{$domain}");
-
-            RepositoryFactory::getUserRepository()->renameUser($domain, $userUid, $newUid);
-            AccountSettingsService::renameAccount("{$userUid}@{$domain}", $newEmail);
-            ActivityLogger::logUpdate($domain, $newUid, "Renamed user from {$userUid}@{$domain} to {$newEmail}");
+            $newEmail = AccountRenameService::renameUser($domain, $userUid, $newUid);
             $_SESSION['flash_success'] = Translator::translate('user.msg_renamed', ['address' => $newEmail]);
             header("Location: /{$domain}/users/{$newUid}/general");
             exit;

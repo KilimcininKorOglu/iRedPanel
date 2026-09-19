@@ -651,7 +651,12 @@
     "delete_confirm_perm": "Excluir alias :address permanentemente?",
     "delete_button": "Excluir alias",
     "back": "Voltar aos aliases",
-    "msg_invalid_access_policy": "Política de acesso inválida: :policy"
+    "msg_invalid_access_policy": "Política de acesso inválida: :policy",
+    "rename_address": "Renomear endereço do alias",
+    "rename_confirm": "Renomear o endereço do alias?",
+    "new_local_part": "novo-alias",
+    "rename": "Renomear",
+    "msg_renamed": "O alias foi renomeado para :address"
   },
   "domainalias": {
     "msg_alias_required": "O nome do alias de domínio é obrigatório",

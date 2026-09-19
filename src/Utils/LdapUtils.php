@@ -17,6 +17,12 @@ class LdapUtils
     /** LDAP result code "No such object". */
     private const NO_SUCH_OBJECT = 32;
 
+    /** Attributes that store a mail address and must follow a rename. */
+    private const ADDRESS_ATTRS = [
+        'mailForwardingAddress', 'listModerator', 'listOwner', 'listAllowedUser',
+        'userSenderBccAddress', 'userRecipientBccAddress', 'domainSenderBccAddress', 'domainRecipientBccAddress',
+    ];
+
     /**
      * Builds LDAP DN for an email-based user.
      * Example: mail=user@example.com,ou=Users,domainName=example.com,o=domains,dc=example,dc=com
@@ -57,6 +63,27 @@ class LdapUtils
         $domain = explode('@', $address, 2)[1] ?? '';
 
         return 'mail=' . ldap_escape($address, '', LDAP_ESCAPE_DN) . ",ou={$ou}," . self::getDomainDn($domain);
+    }
+
+    /**
+     * Moves the account entry `mail=<old>,ou=<ou>` to `mail=<new>` in the same domain. The
+     * addresses in the alias domains and every reference to the old address follow it.
+     *
+     * @param array<string, list<string>> $attributes further attributes to replace with mail
+     * @throws \RuntimeException when the directory refuses the change
+     */
+    public static function renameAccountEntry(\LDAP\Connection $conn, string $oldAddress, string $newAddress, string $ou, array $attributes = []): void
+    {
+        $newDn = self::accountDn($newAddress, $ou);
+        [$newRdn, $parentDn] = explode(',', $newDn, 2);
+        if (!@ldap_rename($conn, self::accountDn($oldAddress, $ou), $newRdn, $parentDn, true)
+            || !@ldap_mod_replace($conn, $newDn, ['mail' => [strtolower($newAddress)]] + $attributes)) {
+            throw new \RuntimeException("LDAP rename failed for '{$oldAddress}': " . ldap_error($conn));
+        }
+
+        self::deleteValues($conn, $newDn, 'shadowAddress', self::aliasDomainAddresses($conn, $oldAddress));
+        self::addValues($conn, $newDn, 'shadowAddress', self::aliasDomainAddresses($conn, $newAddress));
+        self::replaceAddressReferences($conn, $oldAddress, $newAddress);
     }
 
     /**
@@ -250,5 +277,49 @@ class LdapUtils
         }
 
         return $result;
+    }
+
+    /**
+     * Replaces the old address in every entry attribute that stores an address, or removes it
+     * when $newEmail is null, as the SQL backends do for their forwardings, moderator, owner
+     * and BCC columns. A user or alias rename and a user delete call it.
+     */
+    public static function replaceAddressReferences(\LDAP\Connection $conn, string $oldEmail, ?string $newEmail): void
+    {
+        $safeOld = ldap_escape($oldEmail, '', LDAP_ESCAPE_FILTER);
+        $filter = '(|' . implode('', array_map(
+            static fn (string $attr): string => "({$attr}={$safeOld})",
+            self::ADDRESS_ATTRS
+        )) . ')';
+        $result = @ldap_search($conn, 'o=domains,' . Settings::getInstance()->ldapRootDn, $filter, self::ADDRESS_ATTRS);
+        if ($result === false) {
+            throw new \RuntimeException('LDAP search failed: ' . ldap_error($conn));
+        }
+
+        $entries = ldap_get_entries($conn, $result);
+        for ($i = 0; $i < $entries['count']; $i++) {
+            $changes = self::replacedValues($entries[$i], $oldEmail, $newEmail);
+            if ($changes !== [] && !@ldap_mod_replace($conn, $entries[$i]['dn'], $changes)) {
+                throw new \RuntimeException('LDAP update failed: ' . ldap_error($conn));
+            }
+        }
+    }
+
+    /**
+     * @return array<string, string[]> the attributes of the entry that hold $oldEmail, with $newEmail
+     *         instead or without it. An empty list deletes the attribute.
+     */
+    private static function replacedValues(array $entry, string $oldEmail, ?string $newEmail): array
+    {
+        $changes = [];
+        foreach (self::ADDRESS_ATTRS as $attr) {
+            $values = self::allValues($entry, $attr);
+            $kept = array_filter($values, static fn (string $value): bool => strcasecmp($value, $oldEmail) !== 0);
+            if (count($kept) !== count($values)) {
+                $changes[$attr] = array_values(array_unique($newEmail === null ? $kept : [...$kept, $newEmail]));
+            }
+        }
+
+        return $changes;
     }
 }

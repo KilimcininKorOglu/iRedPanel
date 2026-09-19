@@ -651,7 +651,12 @@
     "delete_confirm_perm": "Permanently delete alias :address?",
     "delete_button": "Delete Alias",
     "back": "Back to aliases",
-    "msg_invalid_access_policy": "Invalid access policy: :policy"
+    "msg_invalid_access_policy": "Invalid access policy: :policy",
+    "rename_address": "Rename alias address",
+    "rename_confirm": "Rename alias address?",
+    "new_local_part": "new-alias",
+    "rename": "Rename",
+    "msg_renamed": "The alias was renamed to :address"
   },
   "domainalias": {
     "msg_alias_required": "Alias domain name is required",

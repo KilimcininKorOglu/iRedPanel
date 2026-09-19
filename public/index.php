@@ -149,6 +149,10 @@ $router->addRoute(['GET', 'POST'], '/aliases/{address}', function (string $addre
     AliasController::view($tpl, $address);
 });
 
+$router->addRoute('POST', '/aliases/{address}/rename', function (string $address) use ($tpl) {
+    AliasController::rename($tpl, $address);
+});
+
 $router->addRoute('POST', '/aliases/{address}/delete', function (string $address) use ($tpl) {
     AliasController::delete($tpl, $address);
 });
@@ -493,6 +497,9 @@ $router->addRoute('PUT', '/api/v1/users/{email}', function (string $email) use (
 $router->addRoute('DELETE', '/api/v1/users/{email}', function (string $email) use ($apiAuth) {
     $apiAuth(); UserApiController::delete($email);
 });
+$router->addRoute('POST', '/api/v1/users/{email}/rename', function (string $email) use ($apiAuth) {
+    $apiAuth(); UserApiController::rename($email);
+});
 
 // Aliases API
 $router->addRoute('GET', '/api/v1/aliases', function () use ($apiAuth) {
@@ -509,6 +516,9 @@ $router->addRoute('PUT', '/api/v1/aliases/{address}', function (string $address)
 });
 $router->addRoute('DELETE', '/api/v1/aliases/{address}', function (string $address) use ($apiAuth) {
     $apiAuth(); AliasApiController::delete($address);
+});
+$router->addRoute('POST', '/api/v1/aliases/{address}/rename', function (string $address) use ($apiAuth) {
+    $apiAuth(); AliasApiController::rename($address);
 });
 
 // Mailing Lists API

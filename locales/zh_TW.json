@@ -651,7 +651,12 @@
     "delete_confirm_perm": "要永久刪除別名 :address 嗎？",
     "delete_button": "刪除別名",
     "back": "返回別名",
-    "msg_invalid_access_policy": "無效的存取政策：:policy"
+    "msg_invalid_access_policy": "無效的存取政策：:policy",
+    "rename_address": "重新命名別名位址",
+    "rename_confirm": "重新命名別名位址?",
+    "new_local_part": "new-alias",
+    "rename": "重新命名",
+    "msg_renamed": "別名已重新命名為 :address"
   },
   "domainalias": {
     "msg_alias_required": "別名網域名稱為必填",

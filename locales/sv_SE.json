@@ -651,7 +651,12 @@
     "delete_confirm_perm": "Ta bort alias :address permanent?",
     "delete_button": "Ta bort alias",
     "back": "Tillbaka till alias",
-    "msg_invalid_access_policy": "Ogiltig åtkomstpolicy: :policy"
+    "msg_invalid_access_policy": "Ogiltig åtkomstpolicy: :policy",
+    "rename_address": "Byt namn på aliasadress",
+    "rename_confirm": "Byta namn på aliasadressen?",
+    "new_local_part": "nytt-alias",
+    "rename": "Byt namn",
+    "msg_renamed": "Aliaset har bytt namn till :address"
   },
   "domainalias": {
     "msg_alias_required": "Aliasdomännamn krävs",

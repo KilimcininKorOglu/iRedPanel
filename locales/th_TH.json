@@ -651,7 +651,12 @@
     "delete_confirm_perm": "ลบนามแฝง :address อย่างถาวรหรือไม่?",
     "delete_button": "ลบนามแฝง",
     "back": "กลับไปที่นามแฝง",
-    "msg_invalid_access_policy": "นโยบายการเข้าถึงไม่ถูกต้อง: :policy"
+    "msg_invalid_access_policy": "นโยบายการเข้าถึงไม่ถูกต้อง: :policy",
+    "rename_address": "เปลี่ยนชื่อที่อยู่ alias",
+    "rename_confirm": "เปลี่ยนชื่อที่อยู่ alias หรือไม่?",
+    "new_local_part": "new-alias",
+    "rename": "เปลี่ยนชื่อ",
+    "msg_renamed": "เปลี่ยนชื่อ alias เป็น :address แล้ว"
   },
   "domainalias": {
     "msg_alias_required": "จำเป็นต้องมีชื่อโดเมนนามแฝง",

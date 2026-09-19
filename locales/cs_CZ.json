@@ -651,7 +651,12 @@
     "delete_confirm_perm": "Trvale smazat alias :address?",
     "delete_button": "Smazat alias",
     "back": "Zpět na aliasy",
-    "msg_invalid_access_policy": "Neplatné zásady přístupu: :policy"
+    "msg_invalid_access_policy": "Neplatné zásady přístupu: :policy",
+    "rename_address": "Přejmenovat adresu aliasu",
+    "rename_confirm": "Přejmenovat adresu aliasu?",
+    "new_local_part": "novy-alias",
+    "rename": "Přejmenovat",
+    "msg_renamed": "Alias byl přejmenován na :address"
   },
   "domainalias": {
     "msg_alias_required": "Název domény aliasu je povinný",

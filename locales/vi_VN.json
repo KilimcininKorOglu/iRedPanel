@@ -651,7 +651,12 @@
     "delete_confirm_perm": "Xóa vĩnh viễn bí danh :address?",
     "delete_button": "Xóa bí danh",
     "back": "Quay lại bí danh",
-    "msg_invalid_access_policy": "Chính sách truy cập không hợp lệ: :policy"
+    "msg_invalid_access_policy": "Chính sách truy cập không hợp lệ: :policy",
+    "rename_address": "Đổi tên địa chỉ alias",
+    "rename_confirm": "Đổi tên địa chỉ alias?",
+    "new_local_part": "alias-moi",
+    "rename": "Đổi tên",
+    "msg_renamed": "Alias đã được đổi tên thành :address"
   },
   "domainalias": {
     "msg_alias_required": "Tên miền bí danh là bắt buộc",

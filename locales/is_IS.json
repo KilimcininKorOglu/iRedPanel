@@ -651,7 +651,12 @@
     "delete_confirm_perm": "Eyða samnefni :address varanlega?",
     "delete_button": "Eyða samnefni",
     "back": "Til baka í samnefni",
-    "msg_invalid_access_policy": "Ógild aðgangsstefna: :policy"
+    "msg_invalid_access_policy": "Ógild aðgangsstefna: :policy",
+    "rename_address": "Endurnefna netfang alias",
+    "rename_confirm": "Endurnefna netfang alias?",
+    "new_local_part": "nytt-alias",
+    "rename": "Endurnefna",
+    "msg_renamed": "Alias var endurnefnt í :address"
   },
   "domainalias": {
     "msg_alias_required": "Samnefnislénsheiti er nauðsynlegt",

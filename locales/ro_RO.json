@@ -651,7 +651,12 @@
     "delete_confirm_perm": "Ștergeți permanent alias-ul :address?",
     "delete_button": "Șterge alias-ul",
     "back": "Înapoi la alias-uri",
-    "msg_invalid_access_policy": "Politică de acces nevalidă: :policy"
+    "msg_invalid_access_policy": "Politică de acces nevalidă: :policy",
+    "rename_address": "Redenumește adresa aliasului",
+    "rename_confirm": "Redenumiți adresa aliasului?",
+    "new_local_part": "alias-nou",
+    "rename": "Redenumește",
+    "msg_renamed": "Aliasul a fost redenumit în :address"
   },
   "domainalias": {
     "msg_alias_required": "Numele domeniului alias este obligatoriu",

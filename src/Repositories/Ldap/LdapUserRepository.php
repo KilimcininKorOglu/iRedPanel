@@ -20,16 +20,10 @@ class LdapUserRepository implements UserRepositoryInterface
         'enabledService', 'preferredLanguage',
     ];
 
-    /** Attributes that store a mail address and must follow a rename. */
     /** iredadmin table and column pairs that hold a mailbox address on the LDAP backend. */
     private const IREDADMIN_ADDRESS_COLUMNS = [
         ['used_quota', 'username'], ['last_login', 'username'],
         ['share_folder', 'from_user'], ['share_folder', 'to_user'], ['anyone_shares', 'from_user'],
-    ];
-
-    private const ADDRESS_ATTRS = [
-        'mailForwardingAddress', 'listModerator', 'listOwner', 'listAllowedUser',
-        'userSenderBccAddress', 'userRecipientBccAddress', 'domainSenderBccAddress', 'domainRecipientBccAddress',
     ];
 
     private const USER_LIST_ATTRS = [
@@ -279,76 +273,17 @@ class LdapUserRepository implements UserRepositoryInterface
             throw new \RuntimeException("LDAP user deletion failed for '{$email}': " . ldap_error($conn));
         }
 
-        self::replaceAddressReferences($conn, $email, null);
+        LdapUtils::replaceAddressReferences($conn, $email, null);
         self::deleteIredadminRows($email, $domain, $maildir, $adminEmail);
     }
 
     public function renameUser(string $domain, string $oldUid, string $newUid): void
     {
-        $conn = LdapConnection::getInstance()->getConn();
         $oldEmail = "{$oldUid}@{$domain}";
         $newEmail = "{$newUid}@{$domain}";
-        $newRdn = 'mail=' . ldap_escape($newEmail, '', LDAP_ESCAPE_DN);
-        $parentDn = 'ou=Users,' . LdapUtils::getDomainDn($domain);
-
-        if (!@ldap_rename($conn, LdapUtils::getEmailDn($oldEmail), $newRdn, $parentDn, true)) {
-            throw new \RuntimeException('LDAP rename failed: ' . ldap_error($conn));
-        }
         // The panel finds a user by uid, so uid must follow the address.
-        if (!@ldap_mod_replace($conn, "{$newRdn},{$parentDn}", ['mail' => [$newEmail], 'uid' => [$newUid]])) {
-            throw new \RuntimeException('LDAP rename failed: ' . ldap_error($conn));
-        }
-
-        // The addresses in the alias domains follow the new local part.
-        LdapUtils::deleteValues($conn, "{$newRdn},{$parentDn}", 'shadowAddress', LdapUtils::aliasDomainAddresses($conn, $oldEmail));
-        LdapUtils::addValues($conn, "{$newRdn},{$parentDn}", 'shadowAddress', LdapUtils::aliasDomainAddresses($conn, $newEmail));
-
-        self::replaceAddressReferences($conn, $oldEmail, $newEmail);
+        LdapUtils::renameAccountEntry(LdapConnection::getInstance()->getConn(), $oldEmail, $newEmail, 'Users', ['uid' => [$newUid]]);
         self::renameIredadminRows($oldEmail, $newEmail);
-    }
-
-    /**
-     * Replaces the old address in every entry attribute that stores an address, or removes it
-     * when $newEmail is null, as the SQL backends do for their forwardings, moderator, owner
-     * and BCC columns.
-     */
-    private static function replaceAddressReferences(\LDAP\Connection $conn, string $oldEmail, ?string $newEmail): void
-    {
-        $safeOld = ldap_escape($oldEmail, '', LDAP_ESCAPE_FILTER);
-        $filter = '(|' . implode('', array_map(
-            static fn (string $attr): string => "({$attr}={$safeOld})",
-            self::ADDRESS_ATTRS
-        )) . ')';
-        $result = @ldap_search($conn, 'o=domains,' . Settings::getInstance()->ldapRootDn, $filter, self::ADDRESS_ATTRS);
-        if ($result === false) {
-            throw new \RuntimeException('LDAP search failed: ' . ldap_error($conn));
-        }
-
-        $entries = ldap_get_entries($conn, $result);
-        for ($i = 0; $i < $entries['count']; $i++) {
-            $changes = self::replacedValues($entries[$i], $oldEmail, $newEmail);
-            if ($changes !== [] && !@ldap_mod_replace($conn, $entries[$i]['dn'], $changes)) {
-                throw new \RuntimeException('LDAP update failed: ' . ldap_error($conn));
-            }
-        }
-    }
-
-    /**
-     * @return array<string, string[]> the attributes of the entry that hold $oldEmail, with $newEmail
-     *         instead or without it. An empty list deletes the attribute.
-     */
-    private static function replacedValues(array $entry, string $oldEmail, ?string $newEmail): array
-    {
-        $changes = [];
-        foreach (self::ADDRESS_ATTRS as $attr) {
-            $values = LdapUtils::allValues($entry, $attr);
-            $kept = array_filter($values, static fn (string $value): bool => strcasecmp($value, $oldEmail) !== 0);
-            if (count($kept) !== count($values)) {
-                $changes[$attr] = array_values(array_unique($newEmail === null ? $kept : [...$kept, $newEmail]));
-            }
-        }
-
-        return $changes;
     }
 
     /**

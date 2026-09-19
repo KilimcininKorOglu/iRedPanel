@@ -651,7 +651,12 @@
     "delete_confirm_perm": ":address aliasa betiko ezabatu?",
     "delete_button": "Ezabatu aliasa",
     "back": "Itzuli aliasetara",
-    "msg_invalid_access_policy": "Sarbide politika baliogabea: :policy"
+    "msg_invalid_access_policy": "Sarbide politika baliogabea: :policy",
+    "rename_address": "Aldatu aliasaren helbidearen izena",
+    "rename_confirm": "Aliasaren helbidearen izena aldatu?",
+    "new_local_part": "alias-berria",
+    "rename": "Berrizendatu",
+    "msg_renamed": "Aliasaren izena :address da orain"
   },
   "domainalias": {
     "msg_alias_required": "Domeinu-aliasaren izena beharrezkoa da",

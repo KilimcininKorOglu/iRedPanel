@@ -651,7 +651,12 @@
     "delete_confirm_perm": "Trajno izbrišem vzdevek :address?",
     "delete_button": "Izbriši vzdevek",
     "back": "Nazaj na vzdevke",
-    "msg_invalid_access_policy": "Neveljaven pravilnik dostopa: :policy"
+    "msg_invalid_access_policy": "Neveljaven pravilnik dostopa: :policy",
+    "rename_address": "Preimenuj naslov vzdevka",
+    "rename_confirm": "Preimenujem naslov vzdevka?",
+    "new_local_part": "nov-vzdevek",
+    "rename": "Preimenuj",
+    "msg_renamed": "Vzdevek je preimenovan v :address"
   },
   "domainalias": {
     "msg_alias_required": "Ime domene vzdevka je obvezno",

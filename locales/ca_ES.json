@@ -651,7 +651,12 @@
     "delete_confirm_perm": "Eliminar permanentment l'àlies :address?",
     "delete_button": "Eliminar àlies",
     "back": "Tornar als àlies",
-    "msg_invalid_access_policy": "Política d'accés no vàlida: :policy"
+    "msg_invalid_access_policy": "Política d'accés no vàlida: :policy",
+    "rename_address": "Canvia el nom de l'adreça de l'àlies",
+    "rename_confirm": "Voleu canviar el nom de l'adreça de l'àlies?",
+    "new_local_part": "nou-alies",
+    "rename": "Reanomenar",
+    "msg_renamed": "L'àlies s'ha canviat a :address"
   },
   "domainalias": {
     "msg_alias_required": "El nom del domini d'àlies és obligatori",

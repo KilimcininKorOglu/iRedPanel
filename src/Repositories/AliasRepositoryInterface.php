@@ -19,6 +19,12 @@ interface AliasRepositoryInterface
 
     public function deleteAlias(string $address): bool;
 
+    /**
+     * Moves an alias to a free address in the same domain. The members, the moderators
+     * and the references to the alias in other accounts follow the new address.
+     */
+    public function renameAlias(string $oldAddress, string $newAddress): void;
+
     /** @return string[] */
     public function getAliasMembers(string $address): array;
 

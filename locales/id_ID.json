@@ -651,7 +651,12 @@
     "delete_confirm_perm": "Hapus alias :address secara permanen?",
     "delete_button": "Hapus alias",
     "back": "Kembali ke alias",
-    "msg_invalid_access_policy": "Kebijakan akses tidak valid: :policy"
+    "msg_invalid_access_policy": "Kebijakan akses tidak valid: :policy",
+    "rename_address": "Ganti nama alamat alias",
+    "rename_confirm": "Ganti nama alamat alias?",
+    "new_local_part": "alias-baru",
+    "rename": "Ganti nama",
+    "msg_renamed": "Alias diganti namanya menjadi :address"
   },
   "domainalias": {
     "msg_alias_required": "Nama domain alias wajib diisi",

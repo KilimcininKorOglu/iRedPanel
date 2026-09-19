@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Api;
 
+use App\Exceptions\AddressConflictException;
+use App\Exceptions\InvalidInputException;
 use App\Models\PaginatedResult;
 
 class ApiResponse
@@ -30,6 +32,14 @@ class ApiResponse
         http_response_code($status);
         header('Content-Type: application/json; charset=UTF-8');
         echo $json;
+    }
+
+    /**
+     * Answers a refused input: 409 when it conflicts with the stored accounts, 400 otherwise.
+     */
+    public static function invalidInput(InvalidInputException $e): void
+    {
+        self::error($e->getMessage(), $e instanceof AddressConflictException ? 409 : 400);
     }
 
     public static function paginated(PaginatedResult $result, ?callable $transform = null): void

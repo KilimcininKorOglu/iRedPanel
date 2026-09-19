@@ -651,7 +651,12 @@
     "delete_confirm_perm": "Poistetaanko alias :address pysyvästi?",
     "delete_button": "Poista alias",
     "back": "Takaisin aliaksiin",
-    "msg_invalid_access_policy": "Virheellinen käyttöoikeuskäytäntö: :policy"
+    "msg_invalid_access_policy": "Virheellinen käyttöoikeuskäytäntö: :policy",
+    "rename_address": "Nimeä aliaksen osoite uudelleen",
+    "rename_confirm": "Nimetäänkö aliaksen osoite uudelleen?",
+    "new_local_part": "uusi-alias",
+    "rename": "Nimeä uudelleen",
+    "msg_renamed": "Alias nimettiin uudelleen: :address"
   },
   "domainalias": {
     "msg_alias_required": "Aliasverkkotunnuksen nimi vaaditaan",

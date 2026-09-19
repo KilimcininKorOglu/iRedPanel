@@ -651,7 +651,12 @@
     "delete_confirm_perm": "Да се изтрие ли псевдонимът :address завинаги?",
     "delete_button": "Изтрий псевдонима",
     "back": "Назад към псевдонимите",
-    "msg_invalid_access_policy": "Невалидна политика за достъп: :policy"
+    "msg_invalid_access_policy": "Невалидна политика за достъп: :policy",
+    "rename_address": "Преименуване на адреса на alias",
+    "rename_confirm": "Да се преименува ли адресът на alias?",
+    "new_local_part": "нов-alias",
+    "rename": "Преименувай",
+    "msg_renamed": "Alias е преименуван на :address"
   },
   "domainalias": {
     "msg_alias_required": "Името на псевдонима на домейна е задължително",

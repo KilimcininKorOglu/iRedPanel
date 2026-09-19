@@ -651,7 +651,12 @@
     "delete_confirm_perm": "Alias :address dauerhaft löschen?",
     "delete_button": "Alias löschen",
     "back": "Zurück zu den Aliasen",
-    "msg_invalid_access_policy": "Ungültige Zugriffsrichtlinie: :policy"
+    "msg_invalid_access_policy": "Ungültige Zugriffsrichtlinie: :policy",
+    "rename_address": "Alias-Adresse umbenennen",
+    "rename_confirm": "Alias-Adresse umbenennen?",
+    "new_local_part": "neuer-alias",
+    "rename": "Umbenennen",
+    "msg_renamed": "Der Alias wurde in :address umbenannt"
   },
   "domainalias": {
     "msg_alias_required": "Der Name der Alias-Domain ist erforderlich",

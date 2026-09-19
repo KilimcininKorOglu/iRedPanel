@@ -651,7 +651,12 @@
     "delete_confirm_perm": "Trwale usunąć alias :address?",
     "delete_button": "Usuń alias",
     "back": "Powrót do aliasów",
-    "msg_invalid_access_policy": "Nieprawidłowa polityka dostępu: :policy"
+    "msg_invalid_access_policy": "Nieprawidłowa polityka dostępu: :policy",
+    "rename_address": "Zmień nazwę adresu aliasu",
+    "rename_confirm": "Zmienić nazwę adresu aliasu?",
+    "new_local_part": "nowy-alias",
+    "rename": "Zmień nazwę",
+    "msg_renamed": "Nazwa aliasu została zmieniona na :address"
   },
   "domainalias": {
     "msg_alias_required": "Nazwa domeny aliasu jest wymagana",

@@ -7,6 +7,7 @@ namespace App\Repositories\Pgsql;
 use App\Models\Alias;
 use App\Models\PaginatedResult;
 use App\Repositories\AliasRepositoryInterface;
+use App\Repositories\SqlAliasRename;
 
 /**
  * Mail aliases in the iRedMail SQL layout: one `alias` row per alias, one
@@ -147,6 +148,11 @@ class PgsqlAliasRepository implements AliasRepositoryInterface
             $pdo->rollBack();
             throw $e;
         }
+    }
+
+    public function renameAlias(string $oldAddress, string $newAddress): void
+    {
+        SqlAliasRename::rename(PgsqlConnection::getInstance()->getPdo(), $oldAddress, $newAddress);
     }
 
     public function getAliasMembers(string $address): array

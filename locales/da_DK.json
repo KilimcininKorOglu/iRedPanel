@@ -651,7 +651,12 @@
     "delete_confirm_perm": "Slet alias :address permanent?",
     "delete_button": "Slet alias",
     "back": "Tilbage til aliasser",
-    "msg_invalid_access_policy": "Ugyldig adgangspolitik: :policy"
+    "msg_invalid_access_policy": "Ugyldig adgangspolitik: :policy",
+    "rename_address": "Omdøb aliasadresse",
+    "rename_confirm": "Omdøb aliasadressen?",
+    "new_local_part": "nyt-alias",
+    "rename": "Omdøb",
+    "msg_renamed": "Aliasset blev omdøbt til :address"
   },
   "domainalias": {
     "msg_alias_required": "Aliasdomænenavn er påkrævet",

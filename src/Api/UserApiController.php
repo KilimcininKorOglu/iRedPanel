@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace App\Api;
 
+use App\Exceptions\InvalidInputException;
 use App\Models\DomainSettings;
 use App\Models\ProfileToggles;
 use App\Models\User;
 use App\Repositories\RepositoryFactory;
+use App\Services\AccountRenameService;
 use App\Services\AccountSettingsService;
 use App\Services\Replication\ReplicatedAccountGuard;
 use App\Utils\PasswordUtils;
@@ -298,6 +300,39 @@ class UserApiController
         } else {
             ApiResponse::error('accountType must be "user" or "admin"');
         }
+    }
+
+    /**
+     * Moves the mailbox to the address in the body field newEmail, in the same domain.
+     * Only a global key may rename, as only a global admin may in the web UI.
+     */
+    public static function rename(string $email): void
+    {
+        ApiMiddleware::requireGlobalKey();
+        ApiMiddleware::requireWriteAccess();
+        [$uid, $domain] = self::parseEmail($email);
+        if ($uid === null) {
+            ApiResponse::error('Invalid email format');
+            return;
+        }
+        if (RepositoryFactory::getUserRepository()->getUser($domain, $uid) === null) {
+            ApiResponse::error('User not found', 404);
+            return;
+        }
+
+        $newEmail = ApiMiddleware::getJsonBody()['newEmail'] ?? null;
+        [$newUid, $newDomain] = is_string($newEmail) ? self::parseEmail(strtolower(trim($newEmail))) : [null, null];
+        if ($newUid === null || $newDomain !== $domain) {
+            ApiResponse::error("newEmail must be an address in the domain {$domain}");
+            return;
+        }
+        try {
+            $renamed = AccountRenameService::renameUser($domain, $uid, $newUid);
+        } catch (InvalidInputException $e) {
+            ApiResponse::invalidInput($e);
+            return;
+        }
+        ApiResponse::success(['message' => 'User renamed', 'email' => $renamed]);
     }
 
     public static function delete(string $email): void

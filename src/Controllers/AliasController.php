@@ -10,10 +10,12 @@ use App\Middleware;
 use App\Models\Alias;
 use App\Models\Settings;
 use App\Repositories\RepositoryFactory;
+use App\Services\AccountRenameService;
 use App\Services\AccountSettingsService;
 use App\Services\ActivityLogger;
 use App\Services\Replication\ReplicatedAccountGuard;
 use App\TemplateEngine;
+use App\Utils\FormValue;
 
 class AliasController
 {
@@ -174,6 +176,30 @@ class AliasController
     {
         RepositoryFactory::getAliasRepository()->setModerators($alias->address, BaseController::postedAddresses('moderators'));
         ActivityLogger::logUpdate($alias->domain, '', "Updated moderators for alias {$alias->address}");
+    }
+
+    /**
+     * Renames a mail alias to another free address in the same domain (POST only).
+     * The result is shown on the alias page through a session flash message.
+     */
+    public static function rename(TemplateEngine $tpl, string $address): void
+    {
+        $domain = str_contains($address, '@') ? explode('@', $address, 2)[1] : '';
+        Middleware::domainAdminRequired($domain);
+        CsrfProtection::validateToken();
+
+        $target = $address;
+        try {
+            RepositoryFactory::getAliasRepository()->getAlias($address) ?? throw BaseController::itemNotFound();
+            $newLocal = FormValue::text($_POST, 'newLocalPart');
+            $target = AccountRenameService::renameAlias($address, "{$newLocal}@{$domain}");
+            BaseController::flashSuccess(Translator::translate('alias.msg_renamed', ['address' => $target]));
+        } catch (\Exception $e) {
+            BaseController::flashError(BaseController::errorMessage($e));
+        }
+
+        header("Location: /aliases/{$target}");
+        exit;
     }
 
     public static function delete(TemplateEngine $tpl, string $address): void

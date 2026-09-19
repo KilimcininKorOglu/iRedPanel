@@ -7,6 +7,7 @@ namespace App\Repositories\Mysql;
 use App\Models\Alias;
 use App\Models\PaginatedResult;
 use App\Repositories\AliasRepositoryInterface;
+use App\Repositories\SqlAliasRename;
 
 /**
  * Mail aliases in the iRedMail SQL layout: one `alias` row per alias, one
@@ -147,6 +148,11 @@ class MysqlAliasRepository implements AliasRepositoryInterface
             $pdo->rollBack();
             throw $e;
         }
+    }
+
+    public function renameAlias(string $oldAddress, string $newAddress): void
+    {
+        SqlAliasRename::rename(MysqlConnection::getInstance()->getPdo(), $oldAddress, $newAddress);
     }
 
     public function getAliasMembers(string $address): array

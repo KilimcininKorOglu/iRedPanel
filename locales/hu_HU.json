@@ -651,7 +651,12 @@
     "delete_confirm_perm": "Véglegesen törli a(z) :address álnevet?",
     "delete_button": "Álnév törlése",
     "back": "Vissza az álnevekhez",
-    "msg_invalid_access_policy": "Érvénytelen hozzáférési szabályzat: :policy"
+    "msg_invalid_access_policy": "Érvénytelen hozzáférési szabályzat: :policy",
+    "rename_address": "Alias címének átnevezése",
+    "rename_confirm": "Átnevezi az alias címét?",
+    "new_local_part": "uj-alias",
+    "rename": "Átnevezés",
+    "msg_renamed": "Az alias új címe: :address"
   },
   "domainalias": {
     "msg_alias_required": "Az álnév-domain nevének megadása kötelező",

@@ -60,14 +60,14 @@ class PgsqlDomainRepository implements DomainRepositoryInterface
 
         $stmt = $pdo->prepare(
             "SELECT d.domain, d.description, d.active, d.maxquota, d.quota,
-                    d.mailboxes, d.aliases, d.transport, d.settings, d.created, d.modified,
+                    d.mailboxes, d.aliases, d.maillists, d.transport, d.settings, d.created, d.modified,
                     COUNT(m.username) AS \"userCount\",
                     COALESCE(SUM(m.quota), 0) AS \"quotaUsed\"
              FROM domain d
              LEFT JOIN mailbox m ON m.domain = d.domain
              WHERE {$where}
              GROUP BY d.domain, d.description, d.active, d.maxquota, d.quota,
-                      d.mailboxes, d.aliases, d.transport, d.settings, d.created, d.modified
+                      d.mailboxes, d.aliases, d.maillists, d.transport, d.settings, d.created, d.modified
              ORDER BY d.domain
              LIMIT :perPage OFFSET :offset"
         );
@@ -89,14 +89,14 @@ class PgsqlDomainRepository implements DomainRepositoryInterface
 
         $stmt = $pdo->prepare(
             "SELECT d.domain, d.description, d.active, d.maxquota, d.quota,
-                    d.mailboxes, d.aliases, d.transport, d.settings, d.disclaimer, d.created, d.modified,
+                    d.mailboxes, d.aliases, d.maillists, d.transport, d.settings, d.disclaimer, d.created, d.modified,
                     COUNT(m.username) AS \"userCount\",
                     COALESCE(SUM(m.quota), 0) AS \"quotaUsed\"
              FROM domain d
              LEFT JOIN mailbox m ON m.domain = d.domain
              WHERE d.domain = :domain
              GROUP BY d.domain, d.description, d.active, d.maxquota, d.quota,
-                      d.mailboxes, d.aliases, d.transport, d.settings, d.disclaimer, d.created, d.modified
+                      d.mailboxes, d.aliases, d.maillists, d.transport, d.settings, d.disclaimer, d.created, d.modified
              LIMIT 1"
         );
         $stmt->execute(['domain' => $domainName]);
@@ -114,9 +114,9 @@ class PgsqlDomainRepository implements DomainRepositoryInterface
         $pdo = PgsqlConnection::getInstance()->getPdo();
 
         $stmt = $pdo->prepare(
-            "INSERT INTO domain (domain, description, active, maxquota, quota, mailboxes, aliases, transport,
+            "INSERT INTO domain (domain, description, active, maxquota, quota, mailboxes, aliases, maillists, transport,
                                  settings, disclaimer, created)
-             VALUES (:domain, :description, :active, :maxquota, :quota, :mailboxes, :aliases, :transport,
+             VALUES (:domain, :description, :active, :maxquota, :quota, :mailboxes, :aliases, :maillists, :transport,
                      :settings, :disclaimer, NOW())"
         );
         $stmt->execute([
@@ -127,6 +127,7 @@ class PgsqlDomainRepository implements DomainRepositoryInterface
             'quota' => $domain->quota,
             'mailboxes' => $domain->mailboxes,
             'aliases' => $domain->aliases,
+            'maillists' => $domain->lists,
             'transport' => $domain->transport,
             'settings' => $domain->settings,
             'disclaimer' => $domain->disclaimer,
@@ -145,6 +146,7 @@ class PgsqlDomainRepository implements DomainRepositoryInterface
                 quota = :quota,
                 mailboxes = :mailboxes,
                 aliases = :aliases,
+                maillists = :maillists,
                 transport = :transport,
                 settings = :settings,
                 disclaimer = :disclaimer,
@@ -158,6 +160,7 @@ class PgsqlDomainRepository implements DomainRepositoryInterface
             'quota' => $domain->quota,
             'mailboxes' => $domain->mailboxes,
             'aliases' => $domain->aliases,
+            'maillists' => $domain->lists,
             'transport' => $domain->transport,
             'settings' => $domain->settings,
             'disclaimer' => $domain->disclaimer,

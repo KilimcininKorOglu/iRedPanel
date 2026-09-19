@@ -407,7 +407,8 @@
     "moderators_hint": "Direcciones de correo de los moderadores (una por línea)",
     "moderators_desc": "Cuando la política de acceso es \"Solo moderadores\", solo los moderadores pueden enviar a la lista. Una lista vacía establece el postmaster del dominio.",
     "save_moderators": "Guardar moderadores",
-    "msg_moderators_updated": "¡Moderadores actualizados!"
+    "msg_moderators_updated": "¡Moderadores actualizados!",
+    "msg_list_limit": "Se alcanzó el límite de listas de correo del dominio (:current/:max)"
   },
   "search": {
     "title": "Buscar",
@@ -552,7 +553,8 @@
     "msg_is_alias_domain": "El dominio :domain ya es un dominio alias",
     "msg_password_length_range": "La longitud mínima de la contraseña (:min) supera la máxima (:max). Ninguna contraseña puede cumplir ambos límites.",
     "disabled_services": "Servicios desactivados para buzones nuevos",
-    "disabled_services_help": "Un buzón nuevo de este dominio empieza con estos servicios desactivados. Los buzones existentes no cambian."
+    "disabled_services_help": "Un buzón nuevo de este dominio empieza con estos servicios desactivados. Los buzones existentes no cambian.",
+    "max_lists": "Máx. listas de correo (0 = ilimitado)"
   },
   "admin": {
     "msg_email_required": "Se requiere una dirección de correo válida",

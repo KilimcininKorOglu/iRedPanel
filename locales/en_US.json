@@ -407,7 +407,8 @@
     "moderators_hint": "Moderator email addresses (one per line)",
     "moderators_desc": "When the access policy is \"Moderators Only\", only moderators can post to the list. An empty list sets the postmaster of the domain.",
     "save_moderators": "Save Moderators",
-    "msg_moderators_updated": "Moderators updated!"
+    "msg_moderators_updated": "Moderators updated!",
+    "msg_list_limit": "Domain mailing list limit reached (:current/:max)"
   },
   "search": {
     "title": "Search",
@@ -552,7 +553,8 @@
     "msg_is_alias_domain": "The domain :domain is already an alias domain",
     "msg_password_length_range": "The min password length (:min) exceeds the max password length (:max). No password can meet both limits.",
     "disabled_services": "Disabled services for new mailboxes",
-    "disabled_services_help": "A new mailbox in this domain starts with these services disabled. Existing mailboxes do not change."
+    "disabled_services_help": "A new mailbox in this domain starts with these services disabled. Existing mailboxes do not change.",
+    "max_lists": "Max mailing lists (0 = unlimited)"
   },
   "admin": {
     "msg_email_required": "A valid email address is required",

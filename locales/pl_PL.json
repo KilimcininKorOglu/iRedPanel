@@ -407,7 +407,8 @@
     "moderators_hint": "Adresy e-mail moderatorów (jeden w wierszu)",
     "moderators_desc": "Gdy zasada dostępu to „Tylko moderatorzy”, tylko moderatorzy mogą wysyłać na listę. Pusta lista ustawia postmastera domeny.",
     "save_moderators": "Zapisz moderatorów",
-    "msg_moderators_updated": "Moderatorzy zaktualizowani!"
+    "msg_moderators_updated": "Moderatorzy zaktualizowani!",
+    "msg_list_limit": "Osiągnięto limit list mailingowych domeny (:current/:max)"
   },
   "search": {
     "title": "Szukaj",
@@ -552,7 +553,8 @@
     "msg_is_alias_domain": "Domena :domain jest już domeną aliasu",
     "msg_password_length_range": "Minimalna długość hasła (:min) przekracza maksymalną (:max). Żadne hasło nie spełni obu limitów.",
     "disabled_services": "Wyłączone usługi dla nowych skrzynek",
-    "disabled_services_help": "Nowa skrzynka w tej domenie startuje z wyłączonymi tymi usługami. Istniejące skrzynki się nie zmieniają."
+    "disabled_services_help": "Nowa skrzynka w tej domenie startuje z wyłączonymi tymi usługami. Istniejące skrzynki się nie zmieniają.",
+    "max_lists": "Maks. list mailingowych (0 = bez limitu)"
   },
   "admin": {
     "msg_email_required": "Wymagany jest prawidłowy adres e-mail",

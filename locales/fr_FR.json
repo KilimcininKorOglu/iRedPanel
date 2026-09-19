@@ -407,7 +407,8 @@
     "moderators_hint": "Adresses e-mail des modérateurs (une par ligne)",
     "moderators_desc": "Lorsque la politique d'accès est « Modérateurs uniquement », seuls les modérateurs peuvent écrire à la liste. Une liste vide définit le postmaster du domaine.",
     "save_moderators": "Enregistrer les modérateurs",
-    "msg_moderators_updated": "Modérateurs mis à jour !"
+    "msg_moderators_updated": "Modérateurs mis à jour !",
+    "msg_list_limit": "Limite de listes de diffusion du domaine atteinte (:current/:max)"
   },
   "search": {
     "title": "Rechercher",
@@ -552,7 +553,8 @@
     "msg_is_alias_domain": "Le domaine :domain est déjà un domaine alias",
     "msg_password_length_range": "La longueur minimale du mot de passe (:min) dépasse la longueur maximale (:max). Aucun mot de passe ne peut respecter les deux limites.",
     "disabled_services": "Services désactivés pour les nouvelles boîtes",
-    "disabled_services_help": "Une nouvelle boîte de ce domaine démarre avec ces services désactivés. Les boîtes existantes ne changent pas."
+    "disabled_services_help": "Une nouvelle boîte de ce domaine démarre avec ces services désactivés. Les boîtes existantes ne changent pas.",
+    "max_lists": "Listes de diffusion max. (0 = illimité)"
   },
   "admin": {
     "msg_email_required": "Une adresse e-mail valide est requise",

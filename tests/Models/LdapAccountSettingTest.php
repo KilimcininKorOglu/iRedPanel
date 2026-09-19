@@ -64,11 +64,11 @@ class LdapAccountSettingTest extends TestCase
 
     public function testWriteKeepsOtherKeysAndDropsUnlimitedLimits(): void
     {
-        $domain = new Domain('example.com', maxQuota: 250, mailboxes: 0, aliases: 7);
-        $current = ['numberOfLists:2', 'numberOfUsers:5', 'disabledDomainProfile:bcc', 'disabledDomainProfile:relay'];
+        $domain = new Domain('example.com', maxQuota: 250, mailboxes: 0, aliases: 7, lists: 3);
+        $current = ['numberOfLists:2', 'numberOfUsers:5', 'defaultLanguage:de_DE', 'timezone:UTC'];
 
         $this->assertEqualsCanonicalizing(
-            ['numberOfLists:2', 'disabledDomainProfile:bcc', 'disabledDomainProfile:relay', 'maxUserQuota:250', 'numberOfAliases:7'],
+            ['defaultLanguage:de_DE', 'timezone:UTC', 'maxUserQuota:250', 'numberOfAliases:7', 'numberOfLists:3'],
             LdapAccountSetting::valuesFor($domain, $current)
         );
     }

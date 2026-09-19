@@ -407,7 +407,8 @@
     "moderators_hint": "Moderaatorite e-posti aadressid (üks rea kohta)",
     "moderators_desc": "Kui juurdepääsupoliitika on \"Ainult moderaatorid\", saavad loendisse postitada ainult moderaatorid. Tühi loend määrab domeeni postmasteri.",
     "save_moderators": "Salvesta moderaatorid",
-    "msg_moderators_updated": "Moderaatorid uuendatud!"
+    "msg_moderators_updated": "Moderaatorid uuendatud!",
+    "msg_list_limit": "Domeeni postiloendite piirang on täis (:current/:max)"
   },
   "search": {
     "title": "Otsing",
@@ -552,7 +553,8 @@
     "msg_is_alias_domain": "Domeen :domain on juba aliasdomeen",
     "msg_password_length_range": "Parooli minimaalne pikkus (:min) ületab maksimaalse (:max). Ükski parool ei saa täita mõlemat piirangut.",
     "disabled_services": "Uute postkastide keelatud teenused",
-    "disabled_services_help": "Selle domeeni uus postkast alustab nende teenustega keelatuna. Olemasolevad postkastid ei muutu."
+    "disabled_services_help": "Selle domeeni uus postkast alustab nende teenustega keelatuna. Olemasolevad postkastid ei muutu.",
+    "max_lists": "Maks. postiloendeid (0 = piiramatu)"
   },
   "admin": {
     "msg_email_required": "Nõutav on kehtiv e-posti aadress",

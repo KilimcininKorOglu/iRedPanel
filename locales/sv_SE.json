@@ -407,7 +407,8 @@
     "moderators_hint": "Moderatorernas e-postadresser (en per rad)",
     "moderators_desc": "När åtkomstpolicyn är \"Endast moderatorer\" kan bara moderatorer skicka till listan. En tom lista anger domänens postmaster.",
     "save_moderators": "Spara moderatorer",
-    "msg_moderators_updated": "Moderatorer uppdaterade!"
+    "msg_moderators_updated": "Moderatorer uppdaterade!",
+    "msg_list_limit": "Domänens gräns för e-postlistor är nådd (:current/:max)"
   },
   "search": {
     "title": "Sök",
@@ -552,7 +553,8 @@
     "msg_is_alias_domain": "Domänen :domain är redan en aliasdomän",
     "msg_password_length_range": "Minsta lösenordslängd (:min) är större än största lösenordslängd (:max). Inget lösenord kan uppfylla båda gränserna.",
     "disabled_services": "Inaktiverade tjänster för nya brevlådor",
-    "disabled_services_help": "En ny brevlåda i den här domänen startar med dessa tjänster inaktiverade. Befintliga brevlådor ändras inte."
+    "disabled_services_help": "En ny brevlåda i den här domänen startar med dessa tjänster inaktiverade. Befintliga brevlådor ändras inte.",
+    "max_lists": "Max e-postlistor (0 = obegränsat)"
   },
   "admin": {
     "msg_email_required": "En giltig e-postadress krävs",

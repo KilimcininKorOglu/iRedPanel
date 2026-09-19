@@ -26,6 +26,8 @@ class Domain
         public int $currentQuotaUsed = 0,
         // iRedMail's own column (SQL `domain.disclaimer`, LDAP `disclaimer`), read by dump_disclaimer.py.
         public string $disclaimer = '',
+        // Max mailing lists (SQL `domain.maillists`, LDAP accountSetting `numberOfLists`); 0 means unlimited.
+        public int $lists = 0,
     ) {}
 
     /**
@@ -40,7 +42,26 @@ class Domain
         $this->quota = $form->quota;
         $this->mailboxes = $form->mailboxes;
         $this->aliases = $form->aliases;
+        $this->lists = $form->lists;
         $this->transport = $form->transport;
+    }
+
+    /**
+     * Checks the mailing list limit of this domain for one more list.
+     *
+     * @param int $currentLists the mailing lists that the domain has
+     */
+    public function newListError(int $currentLists): ?InvalidInputException
+    {
+        if ($this->lists > 0 && $currentLists >= $this->lists) {
+            return new InvalidInputException(
+                "Domain mailing list limit reached ({$currentLists}/{$this->lists})",
+                'mlist.msg_list_limit',
+                ['current' => $currentLists, 'max' => $this->lists],
+            );
+        }
+
+        return null;
     }
 
     /**
@@ -130,6 +151,7 @@ class Domain
         'quota' => 'domain.domain_quota',
         'mailboxes' => 'domain.max_mailboxes',
         'aliases' => 'domain.max_aliases',
+        'lists' => 'domain.max_lists',
     ];
 
     /**
@@ -162,6 +184,7 @@ class Domain
             aliases: self::validLimit($post['aliases'] ?? 0, 'aliases'),
             transport: FormValue::text($post, 'transport', 'dovecot'),
             settings: FormValue::text($post, 'settings'),
+            lists: self::validLimit($post['lists'] ?? 0, 'lists'),
         );
     }
 
@@ -182,6 +205,7 @@ class Domain
             currentUserCount: (int) ($row['userCount'] ?? 0),
             currentQuotaUsed: (int) ($row['quotaUsed'] ?? 0),
             disclaimer: self::storedDisclaimer($row['disclaimer'] ?? null, $row['settings'] ?? ''),
+            lists: (int) ($row['maillists'] ?? 0),
         );
     }
 

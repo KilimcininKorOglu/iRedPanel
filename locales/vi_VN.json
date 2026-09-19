@@ -407,7 +407,8 @@
     "moderators_hint": "Địa chỉ email của người kiểm duyệt (mỗi dòng một địa chỉ)",
     "moderators_desc": "Khi chính sách truy cập là \"Chỉ người kiểm duyệt\", chỉ người kiểm duyệt mới được gửi tới danh sách. Danh sách trống sẽ đặt postmaster của tên miền.",
     "save_moderators": "Lưu người kiểm duyệt",
-    "msg_moderators_updated": "Người kiểm duyệt đã được cập nhật!"
+    "msg_moderators_updated": "Người kiểm duyệt đã được cập nhật!",
+    "msg_list_limit": "Đã đạt giới hạn danh sách thư của domain (:current/:max)"
   },
   "search": {
     "title": "Tìm kiếm",
@@ -552,7 +553,8 @@
     "msg_is_alias_domain": "Tên miền :domain đã là tên miền bí danh",
     "msg_password_length_range": "Độ dài mật khẩu tối thiểu (:min) lớn hơn độ dài tối đa (:max). Không mật khẩu nào đáp ứng được cả hai giới hạn.",
     "disabled_services": "Dịch vụ bị tắt cho hộp thư mới",
-    "disabled_services_help": "Hộp thư mới trong domain này bắt đầu với các dịch vụ này bị tắt. Các hộp thư hiện có không thay đổi."
+    "disabled_services_help": "Hộp thư mới trong domain này bắt đầu với các dịch vụ này bị tắt. Các hộp thư hiện có không thay đổi.",
+    "max_lists": "Số danh sách thư tối đa (0 = không giới hạn)"
   },
   "admin": {
     "msg_email_required": "Cần địa chỉ email hợp lệ",

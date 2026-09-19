@@ -407,7 +407,8 @@
     "moderators_hint": "E-mailové adresy moderátorů (jedna na řádek)",
     "moderators_desc": "Když je zásada přístupu „Pouze moderátoři“, mohou do konference psát jen moderátoři. Prázdný seznam nastaví postmaster domény.",
     "save_moderators": "Uložit moderátory",
-    "msg_moderators_updated": "Moderátoři aktualizováni!"
+    "msg_moderators_updated": "Moderátoři aktualizováni!",
+    "msg_list_limit": "Dosažen limit poštovních konferencí domény (:current/:max)"
   },
   "search": {
     "title": "Hledat",
@@ -552,7 +553,8 @@
     "msg_is_alias_domain": "Doména :domain je již aliasovou doménou",
     "msg_password_length_range": "Minimální délka hesla (:min) je větší než maximální (:max). Žádné heslo nemůže splnit oba limity.",
     "disabled_services": "Vypnuté služby pro nové schránky",
-    "disabled_services_help": "Nová schránka v této doméně začíná s vypnutými těmito službami. Existující schránky se nemění."
+    "disabled_services_help": "Nová schránka v této doméně začíná s vypnutými těmito službami. Existující schránky se nemění.",
+    "max_lists": "Max. poštovních konferencí (0 = neomezeno)"
   },
   "admin": {
     "msg_email_required": "Je vyžadována platná e-mailová adresa",

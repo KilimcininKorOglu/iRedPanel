@@ -407,7 +407,8 @@
     "moderators_hint": "Adresele de email ale moderatorilor (una pe linie)",
     "moderators_desc": "Când politica de acces este „Doar moderatori”, doar moderatorii pot trimite pe listă. O listă goală setează postmaster-ul domeniului.",
     "save_moderators": "Salvează moderatorii",
-    "msg_moderators_updated": "Moderatorii au fost actualizați!"
+    "msg_moderators_updated": "Moderatorii au fost actualizați!",
+    "msg_list_limit": "S-a atins limita de liste de e-mail a domain-ului (:current/:max)"
   },
   "search": {
     "title": "Căutare",
@@ -552,7 +553,8 @@
     "msg_is_alias_domain": "Domeniul :domain este deja un domeniu alias",
     "msg_password_length_range": "Lungimea minimă a parolei (:min) depășește lungimea maximă (:max). Nicio parolă nu poate respecta ambele limite.",
     "disabled_services": "Servicii dezactivate pentru căsuțele noi",
-    "disabled_services_help": "O căsuță nouă din acest domain pornește cu aceste servicii dezactivate. Căsuțele existente nu se schimbă."
+    "disabled_services_help": "O căsuță nouă din acest domain pornește cu aceste servicii dezactivate. Căsuțele existente nu se schimbă.",
+    "max_lists": "Max. liste de e-mail (0 = nelimitat)"
   },
   "admin": {
     "msg_email_required": "Este necesară o adresă de email validă",

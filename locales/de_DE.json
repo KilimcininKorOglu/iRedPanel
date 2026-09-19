@@ -407,7 +407,8 @@
     "moderators_hint": "E-Mail-Adressen der Moderatoren (eine pro Zeile)",
     "moderators_desc": "Wenn die Zugriffsrichtlinie „Nur Moderatoren“ ist, können nur Moderatoren an die Liste senden. Eine leere Liste setzt den Postmaster der Domain.",
     "save_moderators": "Moderatoren speichern",
-    "msg_moderators_updated": "Moderatoren aktualisiert!"
+    "msg_moderators_updated": "Moderatoren aktualisiert!",
+    "msg_list_limit": "Mailinglisten-Limit der Domain erreicht (:current/:max)"
   },
   "search": {
     "title": "Suche",
@@ -552,7 +553,8 @@
     "msg_is_alias_domain": "Die Domain :domain ist bereits eine Alias-Domain",
     "msg_password_length_range": "Die minimale Passwortlänge (:min) ist größer als die maximale (:max). Kein Passwort kann beide Grenzen erfüllen.",
     "disabled_services": "Deaktivierte Dienste für neue Postfächer",
-    "disabled_services_help": "Ein neues Postfach in dieser Domain beginnt mit diesen deaktivierten Diensten. Bestehende Postfächer bleiben unverändert."
+    "disabled_services_help": "Ein neues Postfach in dieser Domain beginnt mit diesen deaktivierten Diensten. Bestehende Postfächer bleiben unverändert.",
+    "max_lists": "Max. Mailinglisten (0 = unbegrenzt)"
   },
   "admin": {
     "msg_email_required": "Eine gültige E-Mail-Adresse ist erforderlich",

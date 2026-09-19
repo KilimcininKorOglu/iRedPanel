@@ -407,7 +407,8 @@
     "moderators_hint": "モデレーターのメールアドレス（1 行に 1 つ）",
     "moderators_desc": "アクセスポリシーが「モデレーターのみ」の場合、リストに投稿できるのはモデレーターだけです。空にするとドメインの postmaster が設定されます。",
     "save_moderators": "モデレーターを保存",
-    "msg_moderators_updated": "モデレーターを更新しました！"
+    "msg_moderators_updated": "モデレーターを更新しました！",
+    "msg_list_limit": "ドメインのメーリングリスト上限に達しました (:current/:max)"
   },
   "search": {
     "title": "検索",
@@ -552,7 +553,8 @@
     "msg_is_alias_domain": "ドメイン :domain は既にエイリアスドメインです",
     "msg_password_length_range": "パスワードの最小長 (:min) が最大長 (:max) を超えています。両方の制限を満たすパスワードはありません。",
     "disabled_services": "新しいメールボックスで無効にするサービス",
-    "disabled_services_help": "このドメインの新しいメールボックスは、これらのサービスが無効の状態で作成されます。既存のメールボックスは変わりません。"
+    "disabled_services_help": "このドメインの新しいメールボックスは、これらのサービスが無効の状態で作成されます。既存のメールボックスは変わりません。",
+    "max_lists": "最大メーリングリスト数 (0 = 無制限)"
   },
   "admin": {
     "msg_email_required": "有効なメールアドレスが必要です",

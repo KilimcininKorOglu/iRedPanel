@@ -407,7 +407,8 @@
     "moderators_hint": "Moderátorok e-mail-címei (soronként egy)",
     "moderators_desc": "Ha a hozzáférési szabály „Csak moderátorok”, csak a moderátorok küldhetnek a listára. Üres lista esetén a domain postmaster címe lesz beállítva.",
     "save_moderators": "Moderátorok mentése",
-    "msg_moderators_updated": "Moderátorok frissítve!"
+    "msg_moderators_updated": "Moderátorok frissítve!",
+    "msg_list_limit": "Elérte a domain levelezőlista-korlátját (:current/:max)"
   },
   "search": {
     "title": "Keresés",
@@ -552,7 +553,8 @@
     "msg_is_alias_domain": "A(z) :domain már alias domain",
     "msg_password_length_range": "A jelszó minimális hossza (:min) nagyobb a maximálisnál (:max). Egyetlen jelszó sem felelhet meg mindkét korlátnak.",
     "disabled_services": "Letiltott szolgáltatások új postafiókoknál",
-    "disabled_services_help": "Az ebben a domainben létrehozott új postafiók ezekkel a szolgáltatásokkal letiltva indul. A meglévő postafiókok nem változnak."
+    "disabled_services_help": "Az ebben a domainben létrehozott új postafiók ezekkel a szolgáltatásokkal letiltva indul. A meglévő postafiókok nem változnak.",
+    "max_lists": "Max. levelezőlisták (0 = korlátlan)"
   },
   "admin": {
     "msg_email_required": "Érvényes e-mail-cím megadása kötelező",

@@ -407,7 +407,8 @@
     "moderators_hint": "E-mailadressen van moderators (één per regel)",
     "moderators_desc": "Als het toegangsbeleid \"Alleen moderators\" is, kunnen alleen moderators naar de lijst sturen. Een lege lijst stelt de postmaster van het domein in.",
     "save_moderators": "Moderators opslaan",
-    "msg_moderators_updated": "Moderators bijgewerkt!"
+    "msg_moderators_updated": "Moderators bijgewerkt!",
+    "msg_list_limit": "Limiet voor mailinglijsten van het domein bereikt (:current/:max)"
   },
   "search": {
     "title": "Zoeken",
@@ -552,7 +553,8 @@
     "msg_is_alias_domain": "Het domein :domain is al een aliasdomein",
     "msg_password_length_range": "De minimale wachtwoordlengte (:min) is groter dan de maximale (:max). Geen wachtwoord kan aan beide limieten voldoen.",
     "disabled_services": "Uitgeschakelde diensten voor nieuwe mailboxen",
-    "disabled_services_help": "Een nieuwe mailbox in dit domein start met deze diensten uitgeschakeld. Bestaande mailboxen veranderen niet."
+    "disabled_services_help": "Een nieuwe mailbox in dit domein start met deze diensten uitgeschakeld. Bestaande mailboxen veranderen niet.",
+    "max_lists": "Max. mailinglijsten (0 = onbeperkt)"
   },
   "admin": {
     "msg_email_required": "Een geldig e-mailadres is vereist",

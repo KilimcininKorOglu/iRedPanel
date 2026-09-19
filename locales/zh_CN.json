@@ -407,7 +407,8 @@
     "moderators_hint": "审核员的电子邮件地址（每行一个）",
     "moderators_desc": "当访问策略为“仅审核员”时，只有审核员可以向列表发信。留空时将设置为域名的 postmaster。",
     "save_moderators": "保存审核员",
-    "msg_moderators_updated": "审核员已更新！"
+    "msg_moderators_updated": "审核员已更新！",
+    "msg_list_limit": "已达到域的邮件列表上限 (:current/:max)"
   },
   "search": {
     "title": "搜索",
@@ -552,7 +553,8 @@
     "msg_is_alias_domain": "域名 :domain 已是别名域",
     "msg_password_length_range": "最小密码长度（:min）超过最大密码长度（:max）。没有密码能同时满足这两个限制。",
     "disabled_services": "新邮箱禁用的服务",
-    "disabled_services_help": "此域中新建的邮箱默认禁用这些服务。现有邮箱不受影响。"
+    "disabled_services_help": "此域中新建的邮箱默认禁用这些服务。现有邮箱不受影响。",
+    "max_lists": "最大邮件列表数（0 = 不限）"
   },
   "admin": {
     "msg_email_required": "需要有效的电子邮件地址",

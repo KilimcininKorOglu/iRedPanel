@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Api;
 
+use App\Exceptions\InvalidInputException;
 use App\Models\Alias;
 use App\Models\MailingList;
 use App\Repositories\RepositoryFactory;
@@ -66,12 +67,17 @@ class MailingListApiController
             return;
         }
 
-        MailingListService::create(
-            $address, $domain,
-            $data['name'] ?? '',
-            $accessPolicy,
-            $maxMsgSize,
-        );
+        try {
+            MailingListService::create(
+                $address, $domain,
+                $data['name'] ?? '',
+                $accessPolicy,
+                $maxMsgSize,
+            );
+        } catch (InvalidInputException $e) {
+            ApiResponse::error($e->getMessage(), 403);
+            return;
+        }
         ApiResponse::created(['address' => $address]);
     }
 

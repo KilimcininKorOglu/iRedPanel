@@ -407,7 +407,8 @@
     "moderators_hint": "E-postadresser til moderatorar (éi per linje)",
     "moderators_desc": "Når tilgangspolicyen er «Berre moderatorar», kan berre moderatorar sende til lista. Ei tom liste set postmaster for domenet.",
     "save_moderators": "Lagre moderatorar",
-    "msg_moderators_updated": "Moderatorar oppdaterte!"
+    "msg_moderators_updated": "Moderatorar oppdaterte!",
+    "msg_list_limit": "Domenet si grense for e-postlister er nådd (:current/:max)"
   },
   "search": {
     "title": "Søk",
@@ -552,7 +553,8 @@
     "msg_is_alias_domain": "Domenet :domain er allereie eit aliasdomene",
     "msg_password_length_range": "Minste passordlengd (:min) er større enn største passordlengd (:max). Ingen passord kan oppfylle begge grensene.",
     "disabled_services": "Deaktiverte tenester for nye postboksar",
-    "disabled_services_help": "Ein ny postboks i dette domenet startar med desse tenestene deaktiverte. Eksisterande postboksar vert ikkje endra."
+    "disabled_services_help": "Ein ny postboks i dette domenet startar med desse tenestene deaktiverte. Eksisterande postboksar vert ikkje endra.",
+    "max_lists": "Maks. e-postlister (0 = uavgrensa)"
   },
   "admin": {
     "msg_email_required": "Ei gyldig e-postadresse er påkravd",

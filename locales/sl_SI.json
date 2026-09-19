@@ -407,7 +407,8 @@
     "moderators_hint": "E-poštni naslovi moderatorjev (eden na vrstico)",
     "moderators_desc": "Ko je pravilnik dostopa »Samo moderatorji«, lahko na seznam pošiljajo samo moderatorji. Prazen seznam nastavi postmaster domene.",
     "save_moderators": "Shrani moderatorje",
-    "msg_moderators_updated": "Moderatorji posodobljeni!"
+    "msg_moderators_updated": "Moderatorji posodobljeni!",
+    "msg_list_limit": "Dosežena je omejitev poštnih seznamov domene (:current/:max)"
   },
   "search": {
     "title": "Iskanje",
@@ -552,7 +553,8 @@
     "msg_is_alias_domain": "Domena :domain je že domena vzdevka",
     "msg_password_length_range": "Najmanjša dolžina gesla (:min) presega največjo (:max). Nobeno geslo ne more izpolniti obeh omejitev.",
     "disabled_services": "Onemogočene storitve za nove poštne predale",
-    "disabled_services_help": "Nov poštni predal v tej domeni se začne s temi onemogočenimi storitvami. Obstoječi predali se ne spremenijo."
+    "disabled_services_help": "Nov poštni predal v tej domeni se začne s temi onemogočenimi storitvami. Obstoječi predali se ne spremenijo.",
+    "max_lists": "Najv. poštnih seznamov (0 = neomejeno)"
   },
   "admin": {
     "msg_email_required": "Zahtevan je veljaven e-poštni naslov",

@@ -188,6 +188,7 @@ class DomainApiController
                 'quota' => $existing->quota,
                 'mailboxes' => $existing->mailboxes,
                 'aliases' => $existing->aliases,
+                'lists' => $existing->lists,
                 'transport' => $existing->transport,
             ]);
             $routing = self::routingFromBody($data);

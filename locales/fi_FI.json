@@ -407,7 +407,8 @@
     "moderators_hint": "Moderaattorien sähköpostiosoitteet (yksi riviä kohden)",
     "moderators_desc": "Kun käyttöoikeuskäytäntö on \"Vain moderaattorit\", vain moderaattorit voivat lähettää listalle. Tyhjä luettelo asettaa verkkotunnuksen postmasterin.",
     "save_moderators": "Tallenna moderaattorit",
-    "msg_moderators_updated": "Moderaattorit päivitetty!"
+    "msg_moderators_updated": "Moderaattorit päivitetty!",
+    "msg_list_limit": "Domainin postituslistarajoitus täynnä (:current/:max)"
   },
   "search": {
     "title": "Haku",
@@ -552,7 +553,8 @@
     "msg_is_alias_domain": "Verkkotunnus :domain on jo aliasverkkotunnus",
     "msg_password_length_range": "Salasanan vähimmäispituus (:min) ylittää enimmäispituuden (:max). Mikään salasana ei voi täyttää kumpaakin rajaa.",
     "disabled_services": "Uusien postilaatikoiden poistetut palvelut",
-    "disabled_services_help": "Tämän domainin uusi postilaatikko alkaa näiden palvelujen ollessa pois käytöstä. Olemassa olevat postilaatikot eivät muutu."
+    "disabled_services_help": "Tämän domainin uusi postilaatikko alkaa näiden palvelujen ollessa pois käytöstä. Olemassa olevat postilaatikot eivät muutu.",
+    "max_lists": "Postituslistoja enintään (0 = rajaton)"
   },
   "admin": {
     "msg_email_required": "Kelvollinen sähköpostiosoite vaaditaan",

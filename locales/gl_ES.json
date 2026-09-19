@@ -407,7 +407,8 @@
     "moderators_hint": "Enderezos de correo dos moderadores (un por liña)",
     "moderators_desc": "Cando a política de acceso é \"Só moderadores\", só os moderadores poden enviar á lista. Unha lista baleira establece o postmaster do dominio.",
     "save_moderators": "Gardar moderadores",
-    "msg_moderators_updated": "Moderadores actualizados!"
+    "msg_moderators_updated": "Moderadores actualizados!",
+    "msg_list_limit": "Alcanzouse o límite de listas de correo do dominio (:current/:max)"
   },
   "search": {
     "title": "Buscar",
@@ -552,7 +553,8 @@
     "msg_is_alias_domain": "O dominio :domain xa é un dominio alias",
     "msg_password_length_range": "A lonxitude mínima do contrasinal (:min) supera a máxima (:max). Ningún contrasinal pode cumprir os dous límites.",
     "disabled_services": "Servizos desactivados para caixas novas",
-    "disabled_services_help": "Unha caixa nova deste dominio comeza con estes servizos desactivados. As caixas existentes non cambian."
+    "disabled_services_help": "Unha caixa nova deste dominio comeza con estes servizos desactivados. As caixas existentes non cambian.",
+    "max_lists": "Máx. listas de correo (0 = ilimitado)"
   },
   "admin": {
     "msg_email_required": "É obrigatorio un enderezo de correo válido",

@@ -407,7 +407,8 @@
     "moderators_hint": "중재자 이메일 주소 (한 줄에 하나)",
     "moderators_desc": "접근 정책이 \"중재자 전용\"이면 중재자만 리스트에 게시할 수 있습니다. 비워 두면 도메인의 postmaster가 설정됩니다.",
     "save_moderators": "중재자 저장",
-    "msg_moderators_updated": "중재자가 업데이트되었습니다!"
+    "msg_moderators_updated": "중재자가 업데이트되었습니다!",
+    "msg_list_limit": "도메인 메일링 리스트 한도에 도달했습니다 (:current/:max)"
   },
   "search": {
     "title": "검색",
@@ -552,7 +553,8 @@
     "msg_is_alias_domain": "도메인 :domain 은(는) 이미 별칭 도메인입니다",
     "msg_password_length_range": "최소 비밀번호 길이(:min)가 최대 길이(:max)보다 큽니다. 두 제한을 모두 충족하는 비밀번호는 없습니다.",
     "disabled_services": "새 메일함에서 비활성화할 서비스",
-    "disabled_services_help": "이 도메인의 새 메일함은 이 서비스들이 비활성화된 상태로 시작합니다. 기존 메일함은 바뀌지 않습니다."
+    "disabled_services_help": "이 도메인의 새 메일함은 이 서비스들이 비활성화된 상태로 시작합니다. 기존 메일함은 바뀌지 않습니다.",
+    "max_lists": "최대 메일링 리스트 (0 = 무제한)"
   },
   "admin": {
     "msg_email_required": "유효한 이메일 주소가 필요합니다",

@@ -407,7 +407,8 @@
     "moderators_hint": "Adreces de correu dels moderadors (una per línia)",
     "moderators_desc": "Quan la política d'accés és \"Només moderadors\", només els moderadors poden enviar a la llista. Una llista buida estableix el postmaster del domini.",
     "save_moderators": "Desar moderadors",
-    "msg_moderators_updated": "Moderadors actualitzats!"
+    "msg_moderators_updated": "Moderadors actualitzats!",
+    "msg_list_limit": "S'ha assolit el límit de llistes de correu del domini (:current/:max)"
   },
   "search": {
     "title": "Cerca",
@@ -552,7 +553,8 @@
     "msg_is_alias_domain": "El domini :domain ja és un domini àlies",
     "msg_password_length_range": "La longitud mínima de la contrasenya (:min) supera la màxima (:max). Cap contrasenya no pot complir tots dos límits.",
     "disabled_services": "Serveis desactivats per a les bústies noves",
-    "disabled_services_help": "Una bústia nova d'aquest domini comença amb aquests serveis desactivats. Les bústies existents no canvien."
+    "disabled_services_help": "Una bústia nova d'aquest domini comença amb aquests serveis desactivats. Les bústies existents no canvien.",
+    "max_lists": "Màx. llistes de correu (0 = il·limitat)"
   },
   "admin": {
     "msg_email_required": "Cal una adreça de correu electrònic vàlida",

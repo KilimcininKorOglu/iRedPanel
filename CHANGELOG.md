@@ -17,6 +17,7 @@ All notable changes to this project will be documented in this file.
 - `App\Utils\SecretBox` encrypts secrets that the panel reads back (libsodium, key derived from `IREDPANEL_SECRET_KEY`)
 - REST API: `GET /api/v1/domains/{domain}` returns and `PUT` sets `catchall`, `senderBcc`, `recipientBcc` and `relayhost` (null removes the value)
 - Disabled mail services per domain (Settings tab and REST API `disabledMailServices`): a new mailbox from the web form, the REST API, `cli/importUsers.php` or account replication starts with these services off, as in iRedAdmin (SQL `disabled_mail_services`, LDAP `disabledMailService`)
+- Mailing list limit per domain (`lists`: SQL `domain.maillists`, LDAP `numberOfLists`), checked when the web form or the REST API creates a list
 - REST API: `GET /api/v1/domains/{domain}` returns and `POST`/`PUT` set `defaultUserQuota`, `minPasswordLength`, `maxPasswordLength`, `disclaimer` and `disabledMailServices`
 
 ### Changed

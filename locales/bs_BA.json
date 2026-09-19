@@ -407,7 +407,8 @@
     "moderators_hint": "E-mail adrese moderatora (jedna po liniji)",
     "moderators_desc": "Kada je pravilo pristupa \"Samo moderatori\", samo moderatori mogu slati na listu. Prazna lista postavlja postmaster adresu domene.",
     "save_moderators": "Sačuvaj moderatore",
-    "msg_moderators_updated": "Moderatori su ažurirani!"
+    "msg_moderators_updated": "Moderatori su ažurirani!",
+    "msg_list_limit": "Dostignut limit mailing lista domene (:current/:max)"
   },
   "search": {
     "title": "Pretraga",
@@ -552,7 +553,8 @@
     "msg_is_alias_domain": "Domena :domain je već alias domena",
     "msg_password_length_range": "Minimalna dužina lozinke (:min) veća je od maksimalne (:max). Nijedna lozinka ne može ispuniti oba ograničenja.",
     "disabled_services": "Onemogućene usluge za nove poštanske sandučiće",
-    "disabled_services_help": "Novi poštanski sandučić u ovoj domeni počinje s ovim onemogućenim uslugama. Postojeći sandučići se ne mijenjaju."
+    "disabled_services_help": "Novi poštanski sandučić u ovoj domeni počinje s ovim onemogućenim uslugama. Postojeći sandučići se ne mijenjaju.",
+    "max_lists": "Maks. mailing lista (0 = neograničeno)"
   },
   "admin": {
     "msg_email_required": "Ispravna e-mail adresa je obavezna",

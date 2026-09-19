@@ -407,7 +407,8 @@
     "moderators_hint": "Alamat email moderator (satu per baris)",
     "moderators_desc": "Jika kebijakan akses adalah \"Hanya moderator\", hanya moderator yang dapat mengirim ke milis. Daftar kosong menetapkan postmaster domain.",
     "save_moderators": "Simpan moderator",
-    "msg_moderators_updated": "Moderator diperbarui!"
+    "msg_moderators_updated": "Moderator diperbarui!",
+    "msg_list_limit": "Batas milis domain tercapai (:current/:max)"
   },
   "search": {
     "title": "Cari",
@@ -552,7 +553,8 @@
     "msg_is_alias_domain": "Domain :domain sudah menjadi domain alias",
     "msg_password_length_range": "Panjang kata sandi minimum (:min) melebihi panjang maksimum (:max). Tidak ada kata sandi yang dapat memenuhi kedua batas.",
     "disabled_services": "Layanan nonaktif untuk kotak surat baru",
-    "disabled_services_help": "Kotak surat baru di domain ini dimulai dengan layanan ini nonaktif. Kotak surat yang ada tidak berubah."
+    "disabled_services_help": "Kotak surat baru di domain ini dimulai dengan layanan ini nonaktif. Kotak surat yang ada tidak berubah.",
+    "max_lists": "Maks. milis (0 = tanpa batas)"
   },
   "admin": {
     "msg_email_required": "Alamat email yang valid diperlukan",

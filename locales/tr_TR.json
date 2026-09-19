@@ -407,7 +407,8 @@
     "moderators_hint": "Moderatör e-posta adresleri (her satıra bir tane)",
     "moderators_desc": "Erişim politikası \"Yalnızca Moderatörler\" olduğunda listeye yalnızca moderatörler mail gönderebilir. Boş liste domain'in postmaster adresini atar.",
     "save_moderators": "Moderatörleri Kaydet",
-    "msg_moderators_updated": "Moderatörler güncellendi!"
+    "msg_moderators_updated": "Moderatörler güncellendi!",
+    "msg_list_limit": "Alan adı e-posta listesi sınırına ulaşıldı (:current/:max)"
   },
   "search": {
     "title": "Ara",
@@ -552,7 +553,8 @@
     "msg_is_alias_domain": ":domain zaten bir alias domain",
     "msg_password_length_range": "Minimum şifre uzunluğu (:min), maksimum şifre uzunluğundan (:max) büyük. Hiçbir şifre iki sınırı birden karşılayamaz.",
     "disabled_services": "Yeni posta kutuları için kapalı servisler",
-    "disabled_services_help": "Bu domain'de oluşturulan yeni posta kutusu bu servisler kapalı olarak başlar. Mevcut posta kutuları değişmez."
+    "disabled_services_help": "Bu domain'de oluşturulan yeni posta kutusu bu servisler kapalı olarak başlar. Mevcut posta kutuları değişmez.",
+    "max_lists": "Maks. e-posta listesi (0 = sınırsız)"
   },
   "admin": {
     "msg_email_required": "Geçerli bir e-posta adresi gerekli",

@@ -407,7 +407,8 @@
     "moderators_hint": "Netföng umsjónarmanna (eitt á línu)",
     "moderators_desc": "Þegar aðgangsstefnan er „Aðeins umsjónarmenn“ geta aðeins umsjónarmenn sent á listann. Tómur listi setur postmaster lénsins.",
     "save_moderators": "Vista umsjónarmenn",
-    "msg_moderators_updated": "Umsjónarmenn uppfærðir!"
+    "msg_moderators_updated": "Umsjónarmenn uppfærðir!",
+    "msg_list_limit": "Hámarksfjölda póstlista lénsins er náð (:current/:max)"
   },
   "search": {
     "title": "Leita",
@@ -552,7 +553,8 @@
     "msg_is_alias_domain": "Lénið :domain er þegar samnefnislén",
     "msg_password_length_range": "Lágmarkslengd lykilorðs (:min) er meiri en hámarkslengd (:max). Ekkert lykilorð getur uppfyllt bæði mörkin.",
     "disabled_services": "Óvirkar þjónustur fyrir ný pósthólf",
-    "disabled_services_help": "Nýtt pósthólf í þessu léni byrjar með þessar þjónustur óvirkar. Núverandi pósthólf breytast ekki."
+    "disabled_services_help": "Nýtt pósthólf í þessu léni byrjar með þessar þjónustur óvirkar. Núverandi pósthólf breytast ekki.",
+    "max_lists": "Hám. póstlistar (0 = ótakmarkað)"
   },
   "admin": {
     "msg_email_required": "Gilt netfang er nauðsynlegt",

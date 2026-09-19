@@ -407,7 +407,8 @@
     "moderators_hint": "審核者電子郵件位址（每行一個）",
     "moderators_desc": "當存取原則為「僅限審核者」時，只有審核者可以寄信到清單。留空時會設定為網域的 postmaster。",
     "save_moderators": "儲存審核者",
-    "msg_moderators_updated": "審核者已更新！"
+    "msg_moderators_updated": "審核者已更新！",
+    "msg_list_limit": "已達到網域的郵件列表上限 (:current/:max)"
   },
   "search": {
     "title": "搜尋",
@@ -552,7 +553,8 @@
     "msg_is_alias_domain": "網域 :domain 已是別名網域",
     "msg_password_length_range": "最小密碼長度（:min）超過最大密碼長度（:max）。沒有密碼能同時符合這兩個限制。",
     "disabled_services": "新信箱停用的服務",
-    "disabled_services_help": "此網域中新建的信箱預設停用這些服務。現有信箱不受影響。"
+    "disabled_services_help": "此網域中新建的信箱預設停用這些服務。現有信箱不受影響。",
+    "max_lists": "最大郵件列表數（0 = 不限）"
   },
   "admin": {
     "msg_email_required": "需要有效的電子郵件位址",

@@ -14,10 +14,19 @@ use App\Repositories\RepositoryFactory;
  */
 class MailingListService
 {
+    /**
+     * @throws \App\Exceptions\InvalidInputException when the domain has reached its mailing list limit
+     */
     public static function create(string $address, string $domain, string $name, string $accessPolicy, int $maxMsgSize): void
     {
         $client = MlmmjadminClient::fromSettings();
         $repo = self::repo();
+
+        $listCount = $repo->getMailingListsPaginated(1, 1, $domain)->totalCount;
+        $limitError = RepositoryFactory::getDomainRepository()->getDomain($domain)?->newListError($listCount);
+        if ($limitError !== null) {
+            throw $limitError;
+        }
 
         $owners = self::orPostmaster($address, []);
         $repo->createMailingList($address, $domain, $name, $accessPolicy, $maxMsgSize);

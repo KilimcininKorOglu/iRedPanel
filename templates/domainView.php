@@ -76,6 +76,10 @@ $tabs = [
             <label for="aliases" class="form-label"><?= $te('domain.max_aliases') ?></label>
             <input id="aliases" type="number" name="aliases" min="0" class="form-control" value="<?= $e($domain->aliases) ?>" />
           </div>
+          <div class="col-md-6">
+            <label for="lists" class="form-label"><?= $te('domain.max_lists') ?></label>
+            <input id="lists" type="number" name="lists" min="0" class="form-control" value="<?= $e($domain->lists) ?>" />
+          </div>
         </div>
 
         <div class="mb-3">

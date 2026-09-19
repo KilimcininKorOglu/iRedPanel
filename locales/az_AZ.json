@@ -407,7 +407,8 @@
     "moderators_hint": "Moderator e-poçt ünvanları (hər sətirdə bir)",
     "moderators_desc": "Giriş siyasəti \"Yalnız moderatorlar\" olduqda siyahıya yalnız moderatorlar yaza bilər. Boş siyahı domenin postmaster ünvanını təyin edir.",
     "save_moderators": "Moderatorları yadda saxla",
-    "msg_moderators_updated": "Moderatorlar yeniləndi!"
+    "msg_moderators_updated": "Moderatorlar yeniləndi!",
+    "msg_list_limit": "Domain poçt siyahısı limitinə çatıldı (:current/:max)"
   },
   "search": {
     "title": "Axtarış",
@@ -552,7 +553,8 @@
     "msg_is_alias_domain": ":domain artıq alias domendir",
     "msg_password_length_range": "Minimum şifrə uzunluğu (:min) maksimum şifrə uzunluğundan (:max) böyükdür. Heç bir şifrə hər iki limitə uyğun gəlmir.",
     "disabled_services": "Yeni poçt qutuları üçün söndürülmüş xidmətlər",
-    "disabled_services_help": "Bu domain-də yaradılan yeni poçt qutusu bu xidmətlər söndürülmüş halda başlayır. Mövcud poçt qutuları dəyişmir."
+    "disabled_services_help": "Bu domain-də yaradılan yeni poçt qutusu bu xidmətlər söndürülmüş halda başlayır. Mövcud poçt qutuları dəyişmir.",
+    "max_lists": "Maks. poçt siyahıları (0 = limitsiz)"
   },
   "admin": {
     "msg_email_required": "Etibarlı e-poçt ünvanı tələb olunur",

@@ -16,6 +16,7 @@ final class LdapAccountSetting
         'maxQuota' => 'maxUserQuota',
         'mailboxes' => 'numberOfUsers',
         'aliases' => 'numberOfAliases',
+        'lists' => 'numberOfLists',
     ];
 
     /** DomainSettings property => accountSetting key. 0 means "use the global setting". */

@@ -407,7 +407,8 @@
     "moderators_hint": "Moderatzaileen posta-helbideak (bat lerroko)",
     "moderators_desc": "Sarbide-politika \"Moderatzaileak soilik\" denean, moderatzaileek soilik bidal dezakete zerrendara. Zerrenda hutsak domeinuaren postmaster ezartzen du.",
     "save_moderators": "Gorde moderatzaileak",
-    "msg_moderators_updated": "Moderatzaileak eguneratu dira!"
+    "msg_moderators_updated": "Moderatzaileak eguneratu dira!",
+    "msg_list_limit": "Domeinuaren posta-zerrenden muga iritsi da (:current/:max)"
   },
   "search": {
     "title": "Bilatu",
@@ -552,7 +553,8 @@
     "msg_is_alias_domain": ":domain domeinua alias domeinua da jada",
     "msg_password_length_range": "Pasahitzaren gutxieneko luzera (:min) gehienekoa (:max) baino handiagoa da. Ezein pasahitzek ezin ditu bi mugak bete.",
     "disabled_services": "Postontzi berrientzako desgaitutako zerbitzuak",
-    "disabled_services_help": "Domeinu honetako postontzi berri batek zerbitzu hauek desgaituta ditu hasieran. Lehendik dauden postontziak ez dira aldatzen."
+    "disabled_services_help": "Domeinu honetako postontzi berri batek zerbitzu hauek desgaituta ditu hasieran. Lehendik dauden postontziak ez dira aldatzen.",
+    "max_lists": "Gehieneko posta-zerrendak (0 = mugagabea)"
   },
   "admin": {
     "msg_email_required": "Baliozko posta-helbidea beharrezkoa da",

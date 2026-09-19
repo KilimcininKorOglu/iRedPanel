@@ -136,6 +136,15 @@ class DomainTest extends TestCase
     /**
      * Saving the general tab used to erase the settings string.
      */
+    public function testListLimitCountsMailingListsOnly(): void
+    {
+        $domain = new Domain('example.com', lists: 2);
+
+        $this->assertNull($domain->newListError(1));
+        $this->assertSame(['current' => 2, 'max' => 2], $domain->newListError(2)?->params);
+        $this->assertNull((new Domain('example.com'))->newListError(500));
+    }
+
     public function testApplyProfileKeepsSettingsAndDisclaimer(): void
     {
         $stored = new Domain(domainName: 'd.test', settings: 'default_user_quota:128;', disclaimer: 'Kept');

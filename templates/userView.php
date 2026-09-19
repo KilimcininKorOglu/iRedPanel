@@ -168,12 +168,14 @@
                     value="<?= $e($user->telephoneNumber) ?>"
                   />
                 </p>
+                <?php if (!empty($session['isGlobalAdmin'])): ?>
                 <p>
                   <label for="domainGlobalAdmin">
                     <input id="domainGlobalAdmin" name="domainGlobalAdmin"
                     type="checkbox" <?php if ($user->domainGlobalAdmin): ?>checked<?php endif; ?>> <?= $te('admin.global_administrator') ?>
                   </label>
                 </p>
+                <?php endif; ?>
                 <p>
                   <button type="submit" class="button primary">
                     <?= $te('common.save') ?>

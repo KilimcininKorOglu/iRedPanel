@@ -300,28 +300,53 @@ class LdapAliasRepository implements AliasRepositoryInterface
     public function getCatchall(string $domain): ?string
     {
         $conn = LdapConnection::getInstance()->getConn();
-        $domainDn = LdapUtils::getDomainDn($domain);
 
-        $result = @ldap_read($conn, $domainDn, '(objectClass=*)', ['catchallAddress']);
+        $result = @ldap_read($conn, self::catchallDn($domain), '(objectClass=mailUser)', ['mailForwardingAddress']);
         if ($result === false) {
             return null;
         }
 
-        $entries = ldap_get_entries($conn, $result);
-        if (($entries['count'] ?? 0) === 0) {
-            return null;
-        }
-
-        return $entries[0]['catchalladdress'][0] ?? null;
+        return ldap_get_entries($conn, $result)[0]['mailforwardingaddress'][0] ?? null;
     }
 
+    /**
+     * iRedMail's Postfix catchall_maps.cf reads mailForwardingAddress of the active mailUser
+     * entry `mail=@<domain>`. The entry has no enabledService=mail, so it is no mailbox.
+     *
+     * @throws \RuntimeException when the directory rejects the change
+     */
     public function setCatchall(string $domain, ?string $targetEmail): bool
     {
         $conn = LdapConnection::getInstance()->getConn();
-        $domainDn = LdapUtils::getDomainDn($domain);
+        $dn = self::catchallDn($domain);
+        $exists = @ldap_read($conn, $dn, '(objectClass=*)', ['mail']) !== false;
 
-        $modification = LdapUtils::modReplace('catchallAddress', $targetEmail);
-        return LdapUtils::modifyBatch($conn, $domainDn, [$modification]);
+        if ($targetEmail === null || $targetEmail === '') {
+            $done = !$exists || @ldap_delete($conn, $dn);
+        } elseif ($exists) {
+            $done = @ldap_mod_replace($conn, $dn, ['mailForwardingAddress' => [$targetEmail]]);
+        } else {
+            $done = @ldap_add($conn, $dn, [
+                'objectClass' => ['inetOrgPerson', 'mailUser'],
+                'mail' => "@{$domain}",
+                'uid' => "@{$domain}",
+                'cn' => 'catch-all',
+                'sn' => 'catch-all',
+                'accountStatus' => 'active',
+                'mailForwardingAddress' => [$targetEmail],
+            ]);
+        }
+
+        if (!$done) {
+            throw new \RuntimeException('LDAP catch-all update failed: ' . ldap_error($conn));
+        }
+
+        return true;
+    }
+
+    private static function catchallDn(string $domain): string
+    {
+        return LdapUtils::getEmailDn("@{$domain}");
     }
 
     public function enableDisableAlias(string $address, bool $active): bool

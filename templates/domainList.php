@@ -24,7 +24,7 @@
         <thead>
           <tr>
             <?php if ($isGlobalAdmin): ?>
-            <th><input type="checkbox" id="selectAll" onclick="document.querySelectorAll('input[name=\\'selectedDomains[]\\']').forEach(c=>c.checked=this.checked)" /></th>
+            <th><input type="checkbox" id="selectAll" data-select-all="selectedDomains[]" /></th>
             <?php endif; ?>
             <th><?= $te('common.name') ?></th>
             <th><?= $te('common.description') ?></th>
@@ -65,7 +65,7 @@
           <option value="disable"><?= $te('common.disable_selected') ?></option>
           <option value="delete"><?= $te('common.delete_selected') ?></option>
         </select>
-        <button type="submit" class="button outline" onclick="return this.form.action.value==='delete' ? confirm(<?= htmlspecialchars(json_encode($t('domain.bulk_delete_confirm')), ENT_QUOTES) ?>) : true"><?= $te('common.apply') ?></button>
+        <button type="submit" class="button outline" data-bulk-confirm="<?= $e(json_encode(['delete' => $t('domain.bulk_delete_confirm')])) ?>"><?= $te('common.apply') ?></button>
       </div>
       <?php endif; ?>
       </form>

@@ -21,7 +21,12 @@
     "panel_settings": "面板設定",
     "system": "系統",
     "logout": "登出",
-    "domain_ownership": "網域所有權"
+    "domain_ownership": "網域所有權",
+    "group_general": "一般",
+    "group_accounts": "帳戶",
+    "group_security": "安全性",
+    "group_system": "系統",
+    "toggle_menu": "選單"
   },
   "common": {
     "msg_password_updated": "密碼已成功更新！",
@@ -99,7 +104,8 @@
     "msg_bulk_select": "請至少選擇一個項目並選擇一個動作。",
     "msg_domain_not_found": "網域 :domain 不存在。",
     "msg_invalid_whole_number": ":field：請輸入 0 或更大的整數。",
-    "msg_invalid_input": "表單中有格式無效的值。"
+    "msg_invalid_input": "表單中有格式無效的值。",
+    "confirm_title": "確定嗎?"
   },
   "auth": {
     "title": "驗證",

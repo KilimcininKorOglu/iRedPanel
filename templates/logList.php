@@ -34,7 +34,7 @@
     <thead>
       <tr>
         <?php if (!empty($session['isGlobalAdmin'])): ?>
-        <th><input type="checkbox" id="selectAllLogs" onclick="document.querySelectorAll('input[name=\\'ids[]\\']').forEach(c=>c.checked=this.checked)" /></th>
+        <th><input type="checkbox" id="selectAllLogs" data-select-all="ids[]" /></th>
         <?php endif; ?>
         <th><?= $te('log.timestamp') ?></th>
         <th><?= $te('log.admin') ?></th>

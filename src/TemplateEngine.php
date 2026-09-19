@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App;
 
+use App\Models\Settings;
+
 class TemplateEngine
 {
     private string $templateDir;
@@ -27,6 +29,11 @@ class TemplateEngine
         $e = function (mixed $value): string {
             return htmlspecialchars((string) $value, ENT_QUOTES, 'UTF-8');
         };
+        // A static file URL with its modification time, so a browser reloads it after an upgrade.
+        $asset = function (string $path) use ($e): string {
+            $file = dirname($this->templateDir) . '/public' . $path;
+            return $e(is_file($file) ? $path . '?v=' . filemtime($file) : $path);
+        };
         $localize = [TemplateFilters::class, 'localize'];
         $asMegabytes = [TemplateFilters::class, 'asMegabytes'];
 
@@ -43,12 +50,14 @@ class TemplateEngine
         $csrfField = '<input type="hidden" name="_csrf_token" value="' . htmlspecialchars($csrfToken, ENT_QUOTES, 'UTF-8') . '" />';
 
         // Branding and feature flags
-        $settings = \App\Models\Settings::getInstance();
+        $settings = Settings::getInstance();
         $brand = [
             'name' => $settings->brandName,
             'logoUrl' => $settings->brandLogoUrl,
             'footerText' => $settings->brandFooterText,
-            'primaryColor' => $settings->brandPrimaryColor,
+            // The value goes into a <style> block. The panel settings form checks the
+            // pattern, but an .env value reaches this point unchecked.
+            'primaryColor' => preg_match(Settings::COLOR_PATTERN, $settings->brandPrimaryColor) === 1 ? $settings->brandPrimaryColor : '',
         ];
         $features = [
             'amavisd' => $settings->amavisdEnabled,
@@ -56,6 +65,8 @@ class TemplateEngine
             'iredapd' => $settings->iredapdEnabled,
             'domainOwnership' => $settings->requireDomainOwnershipVerification,
         ];
+        $navGroups = Navigation::groups(!empty($_SESSION['isGlobalAdmin']), $features);
+        $navActive = Navigation::activeHref($navGroups, (string) ($_SERVER['REQUEST_URI'] ?? '/'));
         $passwordPolicy = json_encode([
             'minLength' => $settings->passwordMinLength,
             'uppercase' => $settings->passwordIncludesUppercase,

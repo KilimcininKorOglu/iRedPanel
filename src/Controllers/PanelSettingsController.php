@@ -139,12 +139,10 @@ class PanelSettingsController
     /** Lowest accepted value of the integer settings; the others accept 0. */
     private const INT_MINIMUMS = ['sessionTimeout' => 60, 'passwordMinLength' => 1, 'paginationPerPage' => 1];
 
-    private const COLOR_PATTERN = '/^(#[0-9a-fA-F]{3,8}|[a-zA-Z]+|rgba?\(\s*[\d.,\s\/]+\)|hsla?\(\s*[\d.,%\s\/]+\))$/';
-
     /** Patterns of the string settings that may also stay empty. */
     private const OPTIONAL_PATTERNS = [
         'fail2banSocket' => '#^(/[a-zA-Z0-9._/-]+)$#',
-        'brandPrimaryColor' => self::COLOR_PATTERN,
+        'brandPrimaryColor' => Settings::COLOR_PATTERN,
         // An http(s) URL or a local path; "//host" and "/\host" would load from another host.
         'brandLogoUrl' => '#^(https?://[^\s"\'<>]+|/(?![/\\\\])[^\s"\'<>]*)$#',
     ];

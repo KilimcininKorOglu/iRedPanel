@@ -21,7 +21,12 @@
     "panel_settings": "Paneelinstellingen",
     "system": "Systeem",
     "logout": "Afmelden",
-    "domain_ownership": "Domeineigendom"
+    "domain_ownership": "Domeineigendom",
+    "group_general": "Algemeen",
+    "group_accounts": "Accounts",
+    "group_security": "Beveiliging",
+    "group_system": "Systeem",
+    "toggle_menu": "Menu"
   },
   "common": {
     "msg_password_updated": "Wachtwoord succesvol bijgewerkt!",
@@ -99,7 +104,8 @@
     "msg_bulk_select": "Selecteer minstens één item en een actie.",
     "msg_domain_not_found": "Het domein :domain bestaat niet.",
     "msg_invalid_whole_number": ":field: voer een geheel getal van 0 of meer in.",
-    "msg_invalid_input": "Het formulier bevat een waarde met een ongeldige indeling."
+    "msg_invalid_input": "Het formulier bevat een waarde met een ongeldige indeling.",
+    "confirm_title": "Weet u het zeker?"
   },
   "auth": {
     "title": "Authenticatie",

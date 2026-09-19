@@ -21,7 +21,12 @@
     "panel_settings": "Настройки панели",
     "system": "Система",
     "logout": "Выйти",
-    "domain_ownership": "Владение доменом"
+    "domain_ownership": "Владение доменом",
+    "group_general": "Общее",
+    "group_accounts": "Учётные записи",
+    "group_security": "Безопасность",
+    "group_system": "Система",
+    "toggle_menu": "Меню"
   },
   "common": {
     "msg_password_updated": "Пароль успешно обновлён!",
@@ -99,7 +104,8 @@
     "msg_bulk_select": "Выберите хотя бы один элемент и действие.",
     "msg_domain_not_found": "Домен :domain не существует.",
     "msg_invalid_whole_number": ":field: введите целое число не меньше 0.",
-    "msg_invalid_input": "Форма содержит значение в недопустимом формате."
+    "msg_invalid_input": "Форма содержит значение в недопустимом формате.",
+    "confirm_title": "Вы уверены?"
   },
   "auth": {
     "title": "Аутентификация",

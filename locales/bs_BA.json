@@ -21,7 +21,12 @@
     "panel_settings": "Postavke panela",
     "system": "Sistem",
     "logout": "Odjava",
-    "domain_ownership": "Vlasništvo domene"
+    "domain_ownership": "Vlasništvo domene",
+    "group_general": "Općenito",
+    "group_accounts": "Računi",
+    "group_security": "Sigurnost",
+    "group_system": "Sistem",
+    "toggle_menu": "Meni"
   },
   "common": {
     "msg_password_updated": "Lozinka je ažurirana!",
@@ -99,7 +104,8 @@
     "msg_bulk_select": "Odaberite barem jednu stavku i akciju.",
     "msg_domain_not_found": "Domena :domain ne postoji.",
     "msg_invalid_whole_number": ":field: unesite cijeli broj, 0 ili veći.",
-    "msg_invalid_input": "Obrazac sadrži vrijednost u neispravnom formatu."
+    "msg_invalid_input": "Obrazac sadrži vrijednost u neispravnom formatu.",
+    "confirm_title": "Jeste li sigurni?"
   },
   "auth": {
     "title": "Autentifikacija",

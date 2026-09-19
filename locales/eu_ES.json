@@ -21,7 +21,12 @@
     "panel_settings": "Panelaren ezarpenak",
     "system": "Sistema",
     "logout": "Saioa itxi",
-    "domain_ownership": "Domeinuaren jabetza"
+    "domain_ownership": "Domeinuaren jabetza",
+    "group_general": "Orokorra",
+    "group_accounts": "Kontuak",
+    "group_security": "Segurtasuna",
+    "group_system": "Sistema",
+    "toggle_menu": "Menua"
   },
   "common": {
     "msg_password_updated": "Pasahitza eguneratu da!",
@@ -99,7 +104,8 @@
     "msg_bulk_select": "Hautatu gutxienez elementu bat eta ekintza bat.",
     "msg_domain_not_found": ":domain domeinua ez da existitzen.",
     "msg_invalid_whole_number": ":field: idatzi 0 edo handiagoa den zenbaki oso bat.",
-    "msg_invalid_input": "Inprimakiak formatu baliogabeko balio bat du."
+    "msg_invalid_input": "Inprimakiak formatu baliogabeko balio bat du.",
+    "confirm_title": "Ziur zaude?"
   },
   "auth": {
     "title": "Autentifikazioa",

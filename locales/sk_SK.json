@@ -21,7 +21,12 @@
     "panel_settings": "Nastavenia panela",
     "system": "Systém",
     "logout": "Odhlásiť sa",
-    "domain_ownership": "Vlastníctvo domény"
+    "domain_ownership": "Vlastníctvo domény",
+    "group_general": "Všeobecné",
+    "group_accounts": "Účty",
+    "group_security": "Zabezpečenie",
+    "group_system": "Systém",
+    "toggle_menu": "Ponuka"
   },
   "common": {
     "msg_password_updated": "Heslo bolo úspešne aktualizované!",
@@ -99,7 +104,8 @@
     "msg_bulk_select": "Vyberte aspoň jednu položku a akciu.",
     "msg_domain_not_found": "Doména :domain neexistuje.",
     "msg_invalid_whole_number": ":field: zadajte celé číslo 0 alebo väčšie.",
-    "msg_invalid_input": "Formulár obsahuje hodnotu v neplatnom formáte."
+    "msg_invalid_input": "Formulár obsahuje hodnotu v neplatnom formáte.",
+    "confirm_title": "Ste si istí?"
   },
   "auth": {
     "title": "Overenie",

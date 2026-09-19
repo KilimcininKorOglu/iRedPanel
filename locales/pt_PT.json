@@ -21,7 +21,12 @@
     "panel_settings": "Definições do painel",
     "system": "Sistema",
     "logout": "Terminar sessão",
-    "domain_ownership": "Propriedade do domínio"
+    "domain_ownership": "Propriedade do domínio",
+    "group_general": "Geral",
+    "group_accounts": "Contas",
+    "group_security": "Segurança",
+    "group_system": "Sistema",
+    "toggle_menu": "Menu"
   },
   "common": {
     "msg_password_updated": "Palavra-passe atualizada com sucesso!",
@@ -99,7 +104,8 @@
     "msg_bulk_select": "Selecione pelo menos um item e uma ação.",
     "msg_domain_not_found": "O domínio :domain não existe.",
     "msg_invalid_whole_number": ":field: introduza um número inteiro igual ou superior a 0.",
-    "msg_invalid_input": "O formulário contém um valor com um formato inválido."
+    "msg_invalid_input": "O formulário contém um valor com um formato inválido.",
+    "confirm_title": "Tem a certeza?"
   },
   "auth": {
     "title": "Autenticação",

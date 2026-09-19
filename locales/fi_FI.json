@@ -21,7 +21,12 @@
     "panel_settings": "Paneelin asetukset",
     "system": "Järjestelmä",
     "logout": "Kirjaudu ulos",
-    "domain_ownership": "Domainin omistajuus"
+    "domain_ownership": "Domainin omistajuus",
+    "group_general": "Yleiset",
+    "group_accounts": "Tilit",
+    "group_security": "Tietoturva",
+    "group_system": "Järjestelmä",
+    "toggle_menu": "Valikko"
   },
   "common": {
     "msg_password_updated": "Salasana päivitetty onnistuneesti!",
@@ -99,7 +104,8 @@
     "msg_bulk_select": "Valitse vähintään yksi kohde ja toiminto.",
     "msg_domain_not_found": "Verkkotunnusta :domain ei ole olemassa.",
     "msg_invalid_whole_number": ":field: anna kokonaisluku 0 tai suurempi.",
-    "msg_invalid_input": "Lomakkeessa on arvo, jonka muoto on virheellinen."
+    "msg_invalid_input": "Lomakkeessa on arvo, jonka muoto on virheellinen.",
+    "confirm_title": "Oletko varma?"
   },
   "auth": {
     "title": "Todennus",

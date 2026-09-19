@@ -21,7 +21,12 @@
     "panel_settings": "Ajustes del panel",
     "system": "Sistema",
     "logout": "Cerrar sesión",
-    "domain_ownership": "Propiedad del dominio"
+    "domain_ownership": "Propiedad del dominio",
+    "group_general": "General",
+    "group_accounts": "Cuentas",
+    "group_security": "Seguridad",
+    "group_system": "Sistema",
+    "toggle_menu": "Menú"
   },
   "common": {
     "msg_password_updated": "¡Contraseña actualizada correctamente!",
@@ -99,7 +104,8 @@
     "msg_bulk_select": "Seleccione al menos un elemento y una acción.",
     "msg_domain_not_found": "El dominio :domain no existe.",
     "msg_invalid_whole_number": ":field: introduzca un número entero igual o mayor que 0.",
-    "msg_invalid_input": "El formulario contiene un valor con un formato no válido."
+    "msg_invalid_input": "El formulario contiene un valor con un formato no válido.",
+    "confirm_title": "¿Está seguro?"
   },
   "auth": {
     "title": "Autenticación",

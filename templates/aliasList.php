@@ -11,7 +11,7 @@
           <?php endif; ?>
 
           <form method="get" action="/aliases" style="display:inline-block; margin-left:1rem;">
-            <select name="domain" onchange="this.form.submit()">
+            <select name="domain" data-autosubmit>
               <option value=""><?= $te('common.all_domains') ?></option>
               <?php foreach ($domains as $d): ?>
               <option value="<?= $e($d['domainName']) ?>"
@@ -29,7 +29,7 @@
         <table class="striped">
           <thead>
             <tr>
-              <th><input type="checkbox" onclick="document.querySelectorAll('input[name=\'selected[]\']').forEach(c=>c.checked=this.checked)" /></th>
+              <th><input type="checkbox" data-select-all="selected[]" /></th>
               <th><?= $te('common.address') ?></th>
               <th><?= $te('common.name') ?></th>
               <th><?= $te('common.domain') ?></th>
@@ -70,7 +70,7 @@
               <option value="disable"><?= $te('common.disable') ?></option>
               <option value="delete"><?= $te('common.delete') ?></option>
             </select>
-            <button type="submit" class="button outline" onclick="return this.form.action.value && confirm(<?= htmlspecialchars(json_encode($t('common.apply_bulk_confirm')), ENT_QUOTES) ?>)"><?= $te('common.apply') ?></button>
+            <button type="submit" class="button outline" data-bulk-confirm="<?= $e(json_encode(['*' => $t('common.apply_bulk_confirm')])) ?>"><?= $te('common.apply') ?></button>
           </div>
         </div>
         <?php endif; ?>

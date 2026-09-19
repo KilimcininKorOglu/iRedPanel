@@ -21,7 +21,12 @@
     "panel_settings": "Configuración do panel",
     "system": "Sistema",
     "logout": "Pechar sesión",
-    "domain_ownership": "Propiedade do dominio"
+    "domain_ownership": "Propiedade do dominio",
+    "group_general": "Xeral",
+    "group_accounts": "Contas",
+    "group_security": "Seguridade",
+    "group_system": "Sistema",
+    "toggle_menu": "Menú"
   },
   "common": {
     "msg_password_updated": "Contrasinal actualizado!",
@@ -99,7 +104,8 @@
     "msg_bulk_select": "Seleccione polo menos un elemento e unha acción.",
     "msg_domain_not_found": "O dominio :domain non existe.",
     "msg_invalid_whole_number": ":field: introduza un número enteiro igual ou maior que 0.",
-    "msg_invalid_input": "O formulario contén un valor cun formato non válido."
+    "msg_invalid_input": "O formulario contén un valor cun formato non válido.",
+    "confirm_title": "Está seguro?"
   },
   "auth": {
     "title": "Autenticación",

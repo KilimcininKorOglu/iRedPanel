@@ -21,7 +21,12 @@
     "panel_settings": "Configuració del tauler",
     "system": "Sistema",
     "logout": "Tancar sessió",
-    "domain_ownership": "Propietat del domini"
+    "domain_ownership": "Propietat del domini",
+    "group_general": "General",
+    "group_accounts": "Comptes",
+    "group_security": "Seguretat",
+    "group_system": "Sistema",
+    "toggle_menu": "Menú"
   },
   "common": {
     "msg_password_updated": "Contrasenya actualitzada correctament!",
@@ -99,7 +104,8 @@
     "msg_bulk_select": "Seleccioneu almenys un element i una acció.",
     "msg_domain_not_found": "El domini :domain no existeix.",
     "msg_invalid_whole_number": ":field: introduïu un nombre enter igual o superior a 0.",
-    "msg_invalid_input": "El formulari conté un valor amb un format no vàlid."
+    "msg_invalid_input": "El formulari conté un valor amb un format no vàlid.",
+    "confirm_title": "N’esteu segur?"
   },
   "auth": {
     "title": "Autenticació",

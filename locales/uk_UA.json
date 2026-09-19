@@ -21,7 +21,12 @@
     "panel_settings": "Налаштування панелі",
     "system": "Система",
     "logout": "Вийти",
-    "domain_ownership": "Володіння доменом"
+    "domain_ownership": "Володіння доменом",
+    "group_general": "Загальне",
+    "group_accounts": "Облікові записи",
+    "group_security": "Безпека",
+    "group_system": "Система",
+    "toggle_menu": "Меню"
   },
   "common": {
     "msg_password_updated": "Пароль успішно оновлено!",
@@ -99,7 +104,8 @@
     "msg_bulk_select": "Виберіть щонайменше один елемент і дію.",
     "msg_domain_not_found": "Домен :domain не існує.",
     "msg_invalid_whole_number": ":field: введіть ціле число, не менше за 0.",
-    "msg_invalid_input": "Форма містить значення в недійсному форматі."
+    "msg_invalid_input": "Форма містить значення в недійсному форматі.",
+    "confirm_title": "Ви впевнені?"
   },
   "auth": {
     "title": "Автентифікація",

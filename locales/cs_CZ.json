@@ -21,7 +21,12 @@
     "panel_settings": "Nastavení panelu",
     "system": "Systém",
     "logout": "Odhlásit se",
-    "domain_ownership": "Vlastnictví domény"
+    "domain_ownership": "Vlastnictví domény",
+    "group_general": "Obecné",
+    "group_accounts": "Účty",
+    "group_security": "Zabezpečení",
+    "group_system": "Systém",
+    "toggle_menu": "Nabídka"
   },
   "common": {
     "msg_password_updated": "Heslo bylo úspěšně aktualizováno!",
@@ -99,7 +104,8 @@
     "msg_bulk_select": "Vyberte alespoň jednu položku a akci.",
     "msg_domain_not_found": "Doména :domain neexistuje.",
     "msg_invalid_whole_number": ":field: zadejte celé číslo 0 nebo větší.",
-    "msg_invalid_input": "Formulář obsahuje hodnotu v neplatném formátu."
+    "msg_invalid_input": "Formulář obsahuje hodnotu v neplatném formátu.",
+    "confirm_title": "Jste si jisti?"
   },
   "auth": {
     "title": "Ověření",

@@ -12,6 +12,9 @@ namespace App\Models;
  */
 class Settings
 {
+    /** A CSS color value: hex, a named color, rgb(a) or hsl(a). */
+    public const COLOR_PATTERN = '/^(#[0-9a-fA-F]{3,8}|[a-zA-Z]+|rgba?\(\s*[\d.,\s\/]+\)|hsla?\(\s*[\d.,%\s\/]+\))$/';
+
     private static ?self $instance = null;
     private bool $dbOverridesLoaded = false;
 

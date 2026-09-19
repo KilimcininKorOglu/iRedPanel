@@ -21,7 +21,12 @@
     "panel_settings": "Panel Settings",
     "system": "System",
     "logout": "Logout",
-    "domain_ownership": "Domain Ownership"
+    "domain_ownership": "Domain Ownership",
+    "group_general": "General",
+    "group_accounts": "Accounts",
+    "group_security": "Security",
+    "group_system": "System",
+    "toggle_menu": "Menu"
   },
   "common": {
     "msg_password_updated": "Password updated successfully!",
@@ -99,7 +104,8 @@
     "msg_bulk_select": "Select at least one item and an action.",
     "msg_domain_not_found": "The domain :domain does not exist.",
     "msg_invalid_whole_number": ":field: enter a whole number of 0 or more.",
-    "msg_invalid_input": "The form holds a value with an invalid format."
+    "msg_invalid_input": "The form holds a value with an invalid format.",
+    "confirm_title": "Are you sure?"
   },
   "auth": {
     "title": "Authentication",

@@ -21,7 +21,12 @@
     "panel_settings": "面板设置",
     "system": "系统",
     "logout": "退出登录",
-    "domain_ownership": "域名所有权"
+    "domain_ownership": "域名所有权",
+    "group_general": "常规",
+    "group_accounts": "账户",
+    "group_security": "安全",
+    "group_system": "系统",
+    "toggle_menu": "菜单"
   },
   "common": {
     "msg_password_updated": "密码更新成功！",
@@ -99,7 +104,8 @@
     "msg_bulk_select": "请至少选择一项并选择一个操作。",
     "msg_domain_not_found": "域名 :domain 不存在。",
     "msg_invalid_whole_number": ":field：请输入 0 或更大的整数。",
-    "msg_invalid_input": "表单中有格式无效的值。"
+    "msg_invalid_input": "表单中有格式无效的值。",
+    "confirm_title": "确定吗?"
   },
   "auth": {
     "title": "身份验证",

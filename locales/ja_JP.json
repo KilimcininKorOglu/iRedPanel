@@ -21,7 +21,12 @@
     "panel_settings": "パネル設定",
     "system": "システム",
     "logout": "ログアウト",
-    "domain_ownership": "ドメイン所有権"
+    "domain_ownership": "ドメイン所有権",
+    "group_general": "一般",
+    "group_accounts": "アカウント",
+    "group_security": "セキュリティ",
+    "group_system": "システム",
+    "toggle_menu": "メニュー"
   },
   "common": {
     "msg_password_updated": "パスワードが正常に更新されました！",
@@ -99,7 +104,8 @@
     "msg_bulk_select": "項目を 1 つ以上と操作を選択してください。",
     "msg_domain_not_found": "ドメイン :domain は存在しません。",
     "msg_invalid_whole_number": ":field: 0 以上の整数を入力してください。",
-    "msg_invalid_input": "フォームに無効な形式の値があります。"
+    "msg_invalid_input": "フォームに無効な形式の値があります。",
+    "confirm_title": "よろしいですか?"
   },
   "auth": {
     "title": "認証",

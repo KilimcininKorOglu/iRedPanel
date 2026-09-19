@@ -44,7 +44,7 @@
       <table class="striped">
         <thead>
           <tr>
-            <th><input type="checkbox" id="selectAll" onclick="document.querySelectorAll('input[name=\\'selectedUsers[]\\']').forEach(c=>c.checked=this.checked)" /></th>
+            <th><input type="checkbox" id="selectAll" data-select-all="selectedUsers[]" /></th>
             <?php
             $sortUrl = function(string $col) use ($baseUrl, $sortBy, $sortDir, $currentLetter) {
                 $newDir = ($sortBy === $col && $sortDir === 'asc') ? 'desc' : 'asc';
@@ -98,7 +98,7 @@
           <option value="disable"><?= $te('common.disable_selected') ?></option>
           <option value="delete"><?= $te('common.delete_selected') ?></option>
         </select>
-        <button type="submit" class="button outline" onclick="return this.form.action.value==='delete' ? confirm(<?= htmlspecialchars(json_encode($t('user.bulk_delete_confirm')), ENT_QUOTES) ?>) : true"><?= $te('common.apply') ?></button>
+        <button type="submit" class="button outline" data-bulk-confirm="<?= $e(json_encode(['delete' => $t('user.bulk_delete_confirm')])) ?>"><?= $te('common.apply') ?></button>
       </div>
       </form>
 

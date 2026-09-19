@@ -21,7 +21,12 @@
     "panel_settings": "Ustawienia panelu",
     "system": "System",
     "logout": "Wyloguj",
-    "domain_ownership": "Własność domeny"
+    "domain_ownership": "Własność domeny",
+    "group_general": "Ogólne",
+    "group_accounts": "Konta",
+    "group_security": "Bezpieczeństwo",
+    "group_system": "System",
+    "toggle_menu": "Menu"
   },
   "common": {
     "msg_password_updated": "Hasło zostało pomyślnie zaktualizowane!",
@@ -99,7 +104,8 @@
     "msg_bulk_select": "Wybierz co najmniej jeden element i akcję.",
     "msg_domain_not_found": "Domena :domain nie istnieje.",
     "msg_invalid_whole_number": ":field: wprowadź liczbę całkowitą równą 0 lub większą.",
-    "msg_invalid_input": "Formularz zawiera wartość w nieprawidłowym formacie."
+    "msg_invalid_input": "Formularz zawiera wartość w nieprawidłowym formacie.",
+    "confirm_title": "Czy na pewno?"
   },
   "auth": {
     "title": "Uwierzytelnianie",

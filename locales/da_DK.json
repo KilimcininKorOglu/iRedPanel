@@ -21,7 +21,12 @@
     "panel_settings": "Panelindstillinger",
     "system": "System",
     "logout": "Log ud",
-    "domain_ownership": "Domæneejerskab"
+    "domain_ownership": "Domæneejerskab",
+    "group_general": "Generelt",
+    "group_accounts": "Konti",
+    "group_security": "Sikkerhed",
+    "group_system": "System",
+    "toggle_menu": "Menu"
   },
   "common": {
     "msg_password_updated": "Adgangskoden blev opdateret!",
@@ -99,7 +104,8 @@
     "msg_bulk_select": "Vælg mindst ét element og en handling.",
     "msg_domain_not_found": "Domænet :domain findes ikke.",
     "msg_invalid_whole_number": ":field: angiv et heltal på 0 eller mere.",
-    "msg_invalid_input": "Formularen indeholder en værdi i et ugyldigt format."
+    "msg_invalid_input": "Formularen indeholder en værdi i et ugyldigt format.",
+    "confirm_title": "Er du sikker?"
   },
   "auth": {
     "title": "Godkendelse",

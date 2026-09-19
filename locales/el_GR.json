@@ -21,7 +21,12 @@
     "panel_settings": "Ρυθμίσεις πίνακα",
     "system": "Σύστημα",
     "logout": "Αποσύνδεση",
-    "domain_ownership": "Κυριότητα domain"
+    "domain_ownership": "Κυριότητα domain",
+    "group_general": "Γενικά",
+    "group_accounts": "Λογαριασμοί",
+    "group_security": "Ασφάλεια",
+    "group_system": "Σύστημα",
+    "toggle_menu": "Μενού"
   },
   "common": {
     "msg_password_updated": "Ο κωδικός πρόσβασης ενημερώθηκε επιτυχώς!",
@@ -99,7 +104,8 @@
     "msg_bulk_select": "Επιλέξτε τουλάχιστον ένα στοιχείο και μια ενέργεια.",
     "msg_domain_not_found": "Ο τομέας :domain δεν υπάρχει.",
     "msg_invalid_whole_number": ":field: εισαγάγετε ακέραιο αριθμό 0 ή μεγαλύτερο.",
-    "msg_invalid_input": "Η φόρμα περιέχει τιμή με μη έγκυρη μορφή."
+    "msg_invalid_input": "Η φόρμα περιέχει τιμή με μη έγκυρη μορφή.",
+    "confirm_title": "Είστε βέβαιοι;"
   },
   "auth": {
     "title": "Έλεγχος ταυτότητας",

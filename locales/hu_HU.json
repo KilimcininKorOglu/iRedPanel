@@ -21,7 +21,12 @@
     "panel_settings": "Panelbeállítások",
     "system": "Rendszer",
     "logout": "Kijelentkezés",
-    "domain_ownership": "Domain tulajdonjog"
+    "domain_ownership": "Domain tulajdonjog",
+    "group_general": "Általános",
+    "group_accounts": "Fiókok",
+    "group_security": "Biztonság",
+    "group_system": "Rendszer",
+    "toggle_menu": "Menü"
   },
   "common": {
     "msg_password_updated": "A jelszó sikeresen frissítve!",
@@ -99,7 +104,8 @@
     "msg_bulk_select": "Válasszon ki legalább egy elemet és egy műveletet.",
     "msg_domain_not_found": "A(z) :domain domain nem létezik.",
     "msg_invalid_whole_number": ":field: adjon meg 0 vagy nagyobb egész számot.",
-    "msg_invalid_input": "Az űrlap érvénytelen formátumú értéket tartalmaz."
+    "msg_invalid_input": "Az űrlap érvénytelen formátumú értéket tartalmaz.",
+    "confirm_title": "Biztos benne?"
   },
   "auth": {
     "title": "Hitelesítés",

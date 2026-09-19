@@ -215,7 +215,7 @@
               <?php endif; ?>
             </p>
             <p>
-              <button type="button" class="button outline" onclick="generatePassword()"><?= $te('user.generate_password') ?></button>
+              <button type="button" class="button outline" data-generate-password><?= $te('user.generate_password') ?></button>
             </p>
             <p>
               <button type="submit" class="button primary">

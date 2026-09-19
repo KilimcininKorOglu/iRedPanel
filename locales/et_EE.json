@@ -21,7 +21,12 @@
     "panel_settings": "Paneeli seaded",
     "system": "Süsteem",
     "logout": "Logi välja",
-    "domain_ownership": "Domeeni omandiõigus"
+    "domain_ownership": "Domeeni omandiõigus",
+    "group_general": "Üldine",
+    "group_accounts": "Kontod",
+    "group_security": "Turvalisus",
+    "group_system": "Süsteem",
+    "toggle_menu": "Menüü"
   },
   "common": {
     "msg_password_updated": "Parool edukalt uuendatud!",
@@ -99,7 +104,8 @@
     "msg_bulk_select": "Valige vähemalt üks kirje ja toiming.",
     "msg_domain_not_found": "Domeeni :domain ei ole olemas.",
     "msg_invalid_whole_number": ":field: sisestage täisarv 0 või suurem.",
-    "msg_invalid_input": "Vorm sisaldab vigases vormingus väärtust."
+    "msg_invalid_input": "Vorm sisaldab vigases vormingus väärtust.",
+    "confirm_title": "Kas olete kindel?"
   },
   "auth": {
     "title": "Autentimine",

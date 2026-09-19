@@ -21,7 +21,12 @@
     "panel_settings": "Setări panou",
     "system": "Sistem",
     "logout": "Deconectare",
-    "domain_ownership": "Proprietatea domeniului"
+    "domain_ownership": "Proprietatea domeniului",
+    "group_general": "General",
+    "group_accounts": "Conturi",
+    "group_security": "Securitate",
+    "group_system": "Sistem",
+    "toggle_menu": "Meniu"
   },
   "common": {
     "msg_password_updated": "Parola a fost actualizată cu succes!",
@@ -99,7 +104,8 @@
     "msg_bulk_select": "Selectați cel puțin un element și o acțiune.",
     "msg_domain_not_found": "Domeniul :domain nu există.",
     "msg_invalid_whole_number": ":field: introduceți un număr întreg de 0 sau mai mare.",
-    "msg_invalid_input": "Formularul conține o valoare cu un format nevalid."
+    "msg_invalid_input": "Formularul conține o valoare cu un format nevalid.",
+    "confirm_title": "Sunteți sigur?"
   },
   "auth": {
     "title": "Autentificare",

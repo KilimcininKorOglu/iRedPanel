@@ -21,7 +21,12 @@
     "panel_settings": "Impostazioni pannello",
     "system": "Sistema",
     "logout": "Disconnetti",
-    "domain_ownership": "Proprietà del dominio"
+    "domain_ownership": "Proprietà del dominio",
+    "group_general": "Generale",
+    "group_accounts": "Account",
+    "group_security": "Sicurezza",
+    "group_system": "Sistema",
+    "toggle_menu": "Menu"
   },
   "common": {
     "msg_password_updated": "Password aggiornata con successo!",
@@ -99,7 +104,8 @@
     "msg_bulk_select": "Seleziona almeno un elemento e un'azione.",
     "msg_domain_not_found": "Il dominio :domain non esiste.",
     "msg_invalid_whole_number": ":field: inserire un numero intero pari o superiore a 0.",
-    "msg_invalid_input": "Il modulo contiene un valore con un formato non valido."
+    "msg_invalid_input": "Il modulo contiene un valore con un formato non valido.",
+    "confirm_title": "Sei sicuro?"
   },
   "auth": {
     "title": "Autenticazione",

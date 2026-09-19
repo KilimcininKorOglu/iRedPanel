@@ -21,7 +21,12 @@
     "panel_settings": "Pengaturan Panel",
     "system": "Sistem",
     "logout": "Keluar",
-    "domain_ownership": "Kepemilikan Domain"
+    "domain_ownership": "Kepemilikan Domain",
+    "group_general": "Umum",
+    "group_accounts": "Akun",
+    "group_security": "Keamanan",
+    "group_system": "Sistem",
+    "toggle_menu": "Menu"
   },
   "common": {
     "msg_password_updated": "Kata sandi berhasil diperbarui!",
@@ -99,7 +104,8 @@
     "msg_bulk_select": "Pilih setidaknya satu item dan satu tindakan.",
     "msg_domain_not_found": "Domain :domain tidak ada.",
     "msg_invalid_whole_number": ":field: masukkan bilangan bulat 0 atau lebih.",
-    "msg_invalid_input": "Formulir berisi nilai dengan format yang tidak valid."
+    "msg_invalid_input": "Formulir berisi nilai dengan format yang tidak valid.",
+    "confirm_title": "Apakah Anda yakin?"
   },
   "auth": {
     "title": "Autentikasi",

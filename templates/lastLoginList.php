@@ -5,7 +5,7 @@
       <h1><?= $te('lastlogin.title') ?></h1>
 
       <form method="get" action="/last-logins" style="margin-bottom:1rem;">
-        <select name="domain" onchange="this.form.submit()">
+        <select name="domain" data-autosubmit>
           <option value=""><?= $te('lastlogin.all_domains') ?></option>
           <?php foreach ($domains as $d): ?>
           <option value="<?= $e($d['domainName']) ?>"

@@ -21,7 +21,12 @@
     "panel_settings": "การตั้งค่าแผงควบคุม",
     "system": "ระบบ",
     "logout": "ออกจากระบบ",
-    "domain_ownership": "ความเป็นเจ้าของโดเมน"
+    "domain_ownership": "ความเป็นเจ้าของโดเมน",
+    "group_general": "ทั่วไป",
+    "group_accounts": "บัญชี",
+    "group_security": "ความปลอดภัย",
+    "group_system": "ระบบ",
+    "toggle_menu": "เมนู"
   },
   "common": {
     "msg_password_updated": "อัปเดตรหัสผ่านสำเร็จ!",
@@ -99,7 +104,8 @@
     "msg_bulk_select": "เลือกอย่างน้อยหนึ่งรายการและหนึ่งการดำเนินการ",
     "msg_domain_not_found": "ไม่มีโดเมน :domain",
     "msg_invalid_whole_number": ":field: ป้อนจำนวนเต็มตั้งแต่ 0 ขึ้นไป",
-    "msg_invalid_input": "แบบฟอร์มมีค่าที่มีรูปแบบไม่ถูกต้อง"
+    "msg_invalid_input": "แบบฟอร์มมีค่าที่มีรูปแบบไม่ถูกต้อง",
+    "confirm_title": "คุณแน่ใจหรือไม่?"
   },
   "auth": {
     "title": "การยืนยันตัวตน",

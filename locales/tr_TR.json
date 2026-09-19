@@ -21,7 +21,12 @@
     "panel_settings": "Panel Ayarları",
     "system": "Sistem",
     "logout": "Çıkış",
-    "domain_ownership": "Domain Sahipliği"
+    "domain_ownership": "Domain Sahipliği",
+    "group_general": "Genel",
+    "group_accounts": "Hesaplar",
+    "group_security": "Güvenlik",
+    "group_system": "Sistem",
+    "toggle_menu": "Menü"
   },
   "common": {
     "msg_password_updated": "Parola başarıyla güncellendi!",
@@ -99,7 +104,8 @@
     "msg_bulk_select": "En az bir öğe ve bir işlem seçin.",
     "msg_domain_not_found": ":domain domain'i mevcut değil.",
     "msg_invalid_whole_number": ":field: 0 veya daha büyük bir tam sayı girin.",
-    "msg_invalid_input": "Formda geçersiz formatta bir değer var."
+    "msg_invalid_input": "Formda geçersiz formatta bir değer var.",
+    "confirm_title": "Emin misiniz?"
   },
   "auth": {
     "title": "Kimlik Doğrulama",

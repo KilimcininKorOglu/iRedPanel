@@ -21,7 +21,12 @@
     "panel_settings": "Panelinnstillingar",
     "system": "System",
     "logout": "Logg ut",
-    "domain_ownership": "Domeneeigarskap"
+    "domain_ownership": "Domeneeigarskap",
+    "group_general": "Generelt",
+    "group_accounts": "Kontoar",
+    "group_security": "Tryggleik",
+    "group_system": "System",
+    "toggle_menu": "Meny"
   },
   "common": {
     "msg_password_updated": "Passordet er oppdatert!",
@@ -99,7 +104,8 @@
     "msg_bulk_select": "Vel minst eitt element og ei handling.",
     "msg_domain_not_found": "Domenet :domain finst ikkje.",
     "msg_invalid_whole_number": ":field: skriv inn eit heiltal på 0 eller meir.",
-    "msg_invalid_input": "Skjemaet inneheld ein verdi i eit ugyldig format."
+    "msg_invalid_input": "Skjemaet inneheld ein verdi i eit ugyldig format.",
+    "confirm_title": "Er du sikker?"
   },
   "auth": {
     "title": "Autentisering",

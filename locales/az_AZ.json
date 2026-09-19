@@ -21,7 +21,12 @@
     "panel_settings": "Panel parametrləri",
     "system": "Sistem",
     "logout": "Çıxış",
-    "domain_ownership": "Domen sahibliyi"
+    "domain_ownership": "Domen sahibliyi",
+    "group_general": "Ümumi",
+    "group_accounts": "Hesablar",
+    "group_security": "Təhlükəsizlik",
+    "group_system": "Sistem",
+    "toggle_menu": "Menyu"
   },
   "common": {
     "msg_password_updated": "Parol uğurla yeniləndi!",
@@ -99,7 +104,8 @@
     "msg_bulk_select": "Ən azı bir element və bir əməliyyat seçin.",
     "msg_domain_not_found": ":domain domeni mövcud deyil.",
     "msg_invalid_whole_number": ":field: 0 və ya daha böyük tam ədəd daxil edin.",
-    "msg_invalid_input": "Formda yanlış formatlı dəyər var."
+    "msg_invalid_input": "Formda yanlış formatlı dəyər var.",
+    "confirm_title": "Əminsiniz?"
   },
   "auth": {
     "title": "Autentifikasiya",

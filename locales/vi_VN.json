@@ -21,7 +21,12 @@
     "panel_settings": "Cài đặt bảng điều khiển",
     "system": "Hệ thống",
     "logout": "Đăng xuất",
-    "domain_ownership": "Quyền sở hữu tên miền"
+    "domain_ownership": "Quyền sở hữu tên miền",
+    "group_general": "Chung",
+    "group_accounts": "Tài khoản",
+    "group_security": "Bảo mật",
+    "group_system": "Hệ thống",
+    "toggle_menu": "Menu"
   },
   "common": {
     "msg_password_updated": "Mật khẩu đã được cập nhật thành công!",
@@ -99,7 +104,8 @@
     "msg_bulk_select": "Chọn ít nhất một mục và một thao tác.",
     "msg_domain_not_found": "Tên miền :domain không tồn tại.",
     "msg_invalid_whole_number": ":field: nhập số nguyên từ 0 trở lên.",
-    "msg_invalid_input": "Biểu mẫu có một giá trị sai định dạng."
+    "msg_invalid_input": "Biểu mẫu có một giá trị sai định dạng.",
+    "confirm_title": "Bạn có chắc không?"
   },
   "auth": {
     "title": "Xác thực",

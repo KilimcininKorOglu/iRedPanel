@@ -21,7 +21,12 @@
     "panel_settings": "Panel-Einstellungen",
     "system": "System",
     "logout": "Abmelden",
-    "domain_ownership": "Domain-Besitz"
+    "domain_ownership": "Domain-Besitz",
+    "group_general": "Allgemein",
+    "group_accounts": "Konten",
+    "group_security": "Sicherheit",
+    "group_system": "System",
+    "toggle_menu": "Menü"
   },
   "common": {
     "msg_password_updated": "Passwort erfolgreich aktualisiert!",
@@ -99,7 +104,8 @@
     "msg_bulk_select": "Wählen Sie mindestens einen Eintrag und eine Aktion aus.",
     "msg_domain_not_found": "Die Domain :domain existiert nicht.",
     "msg_invalid_whole_number": ":field: Geben Sie eine ganze Zahl von 0 oder mehr ein.",
-    "msg_invalid_input": "Das Formular enthält einen Wert in einem ungültigen Format."
+    "msg_invalid_input": "Das Formular enthält einen Wert in einem ungültigen Format.",
+    "confirm_title": "Sind Sie sicher?"
   },
   "auth": {
     "title": "Authentifizierung",

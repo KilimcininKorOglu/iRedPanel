@@ -21,7 +21,12 @@
     "panel_settings": "Stillingar spjalds",
     "system": "Kerfi",
     "logout": "Útskrá",
-    "domain_ownership": "Eignarhald léns"
+    "domain_ownership": "Eignarhald léns",
+    "group_general": "Almennt",
+    "group_accounts": "Aðgangar",
+    "group_security": "Öryggi",
+    "group_system": "Kerfi",
+    "toggle_menu": "Valmynd"
   },
   "common": {
     "msg_password_updated": "Lykilorð uppfært!",
@@ -99,7 +104,8 @@
     "msg_bulk_select": "Veldu að minnsta kosti eitt atriði og eina aðgerð.",
     "msg_domain_not_found": "Lénið :domain er ekki til.",
     "msg_invalid_whole_number": ":field: sláðu inn heiltölu, 0 eða hærri.",
-    "msg_invalid_input": "Eyðublaðið inniheldur gildi á ógildu sniði."
+    "msg_invalid_input": "Eyðublaðið inniheldur gildi á ógildu sniði.",
+    "confirm_title": "Ertu viss?"
   },
   "auth": {
     "title": "Auðkenning",

@@ -21,7 +21,12 @@
     "panel_settings": "Nastavitve plošče",
     "system": "Sistem",
     "logout": "Odjava",
-    "domain_ownership": "Lastništvo domene"
+    "domain_ownership": "Lastništvo domene",
+    "group_general": "Splošno",
+    "group_accounts": "Računi",
+    "group_security": "Varnost",
+    "group_system": "Sistem",
+    "toggle_menu": "Meni"
   },
   "common": {
     "msg_password_updated": "Geslo uspešno posodobljeno!",
@@ -99,7 +104,8 @@
     "msg_bulk_select": "Izberite vsaj en element in dejanje.",
     "msg_domain_not_found": "Domena :domain ne obstaja.",
     "msg_invalid_whole_number": ":field: vnesite celo število 0 ali več.",
-    "msg_invalid_input": "Obrazec vsebuje vrednost v neveljavni obliki."
+    "msg_invalid_input": "Obrazec vsebuje vrednost v neveljavni obliki.",
+    "confirm_title": "Ali ste prepričani?"
   },
   "auth": {
     "title": "Preverjanje pristnosti",

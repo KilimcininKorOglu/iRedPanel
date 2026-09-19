@@ -21,7 +21,12 @@
     "panel_settings": "Подешавања табле",
     "system": "Систем",
     "logout": "Одјава",
-    "domain_ownership": "Власништво домена"
+    "domain_ownership": "Власништво домена",
+    "group_general": "Опште",
+    "group_accounts": "Налози",
+    "group_security": "Безбедност",
+    "group_system": "Систем",
+    "toggle_menu": "Мени"
   },
   "common": {
     "msg_password_updated": "Лозинка је успешно ажурирана!",
@@ -99,7 +104,8 @@
     "msg_bulk_select": "Изаберите бар једну ставку и радњу.",
     "msg_domain_not_found": "Домен :domain не постоји.",
     "msg_invalid_whole_number": ":field: унесите цео број, 0 или већи.",
-    "msg_invalid_input": "Образац садржи вредност у неисправном формату."
+    "msg_invalid_input": "Образац садржи вредност у неисправном формату.",
+    "confirm_title": "Да ли сте сигурни?"
   },
   "auth": {
     "title": "Аутентификација",

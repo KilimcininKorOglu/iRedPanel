@@ -21,7 +21,12 @@
     "panel_settings": "Panelinställningar",
     "system": "System",
     "logout": "Logga ut",
-    "domain_ownership": "Domänägarskap"
+    "domain_ownership": "Domänägarskap",
+    "group_general": "Allmänt",
+    "group_accounts": "Konton",
+    "group_security": "Säkerhet",
+    "group_system": "System",
+    "toggle_menu": "Meny"
   },
   "common": {
     "msg_password_updated": "Lösenordet har uppdaterats!",
@@ -99,7 +104,8 @@
     "msg_bulk_select": "Välj minst ett objekt och en åtgärd.",
     "msg_domain_not_found": "Domänen :domain finns inte.",
     "msg_invalid_whole_number": ":field: ange ett heltal på 0 eller mer.",
-    "msg_invalid_input": "Formuläret innehåller ett värde i ett ogiltigt format."
+    "msg_invalid_input": "Formuläret innehåller ett värde i ett ogiltigt format.",
+    "confirm_title": "Är du säker?"
   },
   "auth": {
     "title": "Autentisering",

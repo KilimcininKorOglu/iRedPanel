@@ -80,6 +80,7 @@ class AliasController
 
                 $repo->createAlias($address, $domain, $name, $members, $accessPolicy);
                 ActivityLogger::logCreate($domain, '', "Created mail alias: {$address}");
+                BaseController::flashCreated($address);
 
                 header("Location: /aliases/{$address}");
                 exit;

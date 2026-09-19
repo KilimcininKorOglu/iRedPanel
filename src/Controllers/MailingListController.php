@@ -48,6 +48,7 @@ class MailingListController
 
             try {
                 $address = self::createFromPost();
+                BaseController::flashCreated($address);
                 header("Location: /mailing-lists/{$address}");
                 exit;
             } catch (\Exception $e) {

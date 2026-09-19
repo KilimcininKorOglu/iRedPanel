@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Services;
 
+use App\Models\MlmmjOptions;
 use App\Repositories\MailingListRepositoryInterface;
 use App\Repositories\RepositoryFactory;
 
@@ -102,12 +103,31 @@ class MailingListService
     }
 
     /**
+     * The mlmmj profile options of a list.
+     */
+    public static function options(string $address): MlmmjOptions
+    {
+        return MlmmjOptions::fromProfile($address, MlmmjadminClient::fromSettings()->profile($address));
+    }
+
+    /**
+     * Writes every mlmmj profile option. mlmmjadmin resolves the conflicts
+     * between the options itself, so they go in one request.
+     */
+    public static function setOptions(string $address, MlmmjOptions $options): void
+    {
+        MlmmjadminClient::fromSettings()->updateList($address, $options->params());
+    }
+
+    /**
      * Removes the list from mlmmj first, so a failed API call leaves the
      * account in place and the admin can retry.
+     *
+     * @param bool $keepArchive keeps the list spool under the mlmmj archive directory
      */
-    public static function delete(string $address): void
+    public static function delete(string $address, bool $keepArchive = true): void
     {
-        MlmmjadminClient::fromSettings()->deleteList($address);
+        MlmmjadminClient::fromSettings()->deleteList($address, $keepArchive);
         self::repo()->deleteMailingList($address);
         AccountSettingsService::deleteAccounts([$address]);
     }
@@ -133,10 +153,12 @@ class MailingListService
 
     /**
      * @param string[] $subscribers
+     * @param bool $requireConfirm asks every address for a confirmation before it joins
+     * @param string $subscription one of MlmmjOptions::SUBSCRIPTIONS
      */
-    public static function addSubscribers(string $address, array $subscribers): void
+    public static function addSubscribers(string $address, array $subscribers, bool $requireConfirm = false, string $subscription = 'normal'): void
     {
-        MlmmjadminClient::fromSettings()->addSubscribers($address, $subscribers);
+        MlmmjadminClient::fromSettings()->addSubscribers($address, $subscribers, $requireConfirm, $subscription);
     }
 
     /**

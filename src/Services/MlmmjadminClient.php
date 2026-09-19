@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Services;
 
 use App\Exceptions\BackendConnectionException;
+use App\Models\MlmmjOptions;
 use App\Models\Settings;
 
 /**
@@ -79,11 +80,24 @@ class MlmmjadminClient
     }
 
     /**
-     * Deletes the list and keeps its data under the mlmmj archive directory.
+     * Returns the stored profile parameters of a list.
+     *
+     * @return array<string, mixed>
      */
-    public function deleteList(string $mail): void
+    public function profile(string $mail): array
     {
-        $this->request('DELETE', self::path($mail) . '?archive=yes');
+        $data = $this->request('GET', self::path($mail));
+
+        return is_array($data) ? $data : [];
+    }
+
+    /**
+     * Deletes the list. With $archive the spool directory is kept under the
+     * mlmmj archive directory; without it the messages are removed as well.
+     */
+    public function deleteList(string $mail, bool $archive = true): void
+    {
+        $this->request('DELETE', self::path($mail) . '?archive=' . ($archive ? 'yes' : 'no'));
     }
 
     /**
@@ -121,16 +135,18 @@ class MlmmjadminClient
     }
 
     /**
-     * Adds subscribers to the normal subscription without a confirmation mail.
+     * Adds subscribers. Without a confirmation mail the address becomes a member
+     * at once; with one mlmmj waits for the answer of the subscriber.
      *
      * @param string[] $subscribers
+     * @param string $subscription one of MlmmjOptions::SUBSCRIPTIONS
      */
-    public function addSubscribers(string $mail, array $subscribers): void
+    public function addSubscribers(string $mail, array $subscribers, bool $requireConfirm = false, string $subscription = 'normal'): void
     {
         $this->request('POST', self::path($mail) . '/subscribers', [
             'add_subscribers' => implode(',', self::emails($subscribers)),
-            'subscription' => 'normal',
-            'require_confirm' => 'no',
+            'subscription' => MlmmjOptions::validSubscription($subscription),
+            'require_confirm' => $requireConfirm ? 'yes' : 'no',
         ]);
     }
 

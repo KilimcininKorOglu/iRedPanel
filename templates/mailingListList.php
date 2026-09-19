@@ -68,6 +68,10 @@
       <option value="disable"><?= $te('common.disable') ?></option>
       <option value="delete"><?= $te('common.delete') ?></option>
     </select>
+    <div class="form-check">
+      <input type="checkbox" class="form-check-input" id="keepArchive" name="keepArchive" checked />
+      <label class="form-check-label small text-body-secondary" for="keepArchive"><?= $te('mlist.keep_archive') ?></label>
+    </div>
     <button type="submit" class="btn btn-sm btn-outline-secondary" data-bulk-confirm="<?= $e(json_encode(['*' => $t('common.apply_bulk_confirm')])) ?>"><?= $te('common.apply') ?></button>
   </div>
   <?php endif; ?>

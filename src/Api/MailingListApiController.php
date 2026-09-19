@@ -7,6 +7,7 @@ namespace App\Api;
 use App\Exceptions\InvalidInputException;
 use App\Models\Alias;
 use App\Models\MailingList;
+use App\Models\MlmmjOptions;
 use App\Repositories\RepositoryFactory;
 use App\Services\MailingListService;
 use App\Utils\AddressList;
@@ -49,8 +50,40 @@ class MailingListApiController
             return;
         }
 
-        $owners = $repo->getOwners($address);
-        ApiResponse::success(array_merge((array) $ml, ['owners' => $owners]));
+        try {
+            $withSubscribers = ApiInput::queryFlag('withSubscribers');
+        } catch (\InvalidArgumentException $e) {
+            ApiResponse::error($e->getMessage());
+            return;
+        }
+
+        $profile = array_merge((array) $ml, ['owners' => $repo->getOwners($address)], self::mlmmjFields($address, $withSubscribers));
+        ApiResponse::success($profile);
+    }
+
+    /**
+     * The fields that mlmmj holds. They are null when mlmmjadmin cannot be reached,
+     * so the stored account is still readable.
+     *
+     * @return array<string, mixed>
+     */
+    private static function mlmmjFields(string $address, bool $withSubscribers): array
+    {
+        $fields = ['options' => null];
+        if ($withSubscribers) {
+            $fields['subscribers'] = null;
+        }
+
+        try {
+            $fields['options'] = MailingListService::options($address)->toArray();
+            if ($withSubscribers) {
+                $fields['subscribers'] = MailingListService::subscribers($address);
+            }
+        } catch (\Exception) {
+            return $fields;
+        }
+
+        return $fields;
     }
 
     public static function create(): void
@@ -125,7 +158,33 @@ class MailingListApiController
         if ($owners !== null) {
             MailingListService::setOwners($address, $owners);
         }
+        if (!self::applyOptions($address, $data)) {
+            return;
+        }
         ApiResponse::success(['message' => 'Mailing list updated']);
+    }
+
+    /**
+     * Writes the mlmmj profile options that the body carries.
+     *
+     * @param array<string, mixed> $data
+     * @return bool false after an error response
+     */
+    private static function applyOptions(string $address, array $data): bool
+    {
+        $fields = array_keys(MlmmjOptions::BOOLEANS + MlmmjOptions::TEXTS + MlmmjOptions::LISTS);
+        if (array_intersect($fields, array_keys($data)) === []) {
+            return true;
+        }
+
+        try {
+            MailingListService::setOptions($address, MailingListService::options($address)->with($data, false));
+        } catch (\InvalidArgumentException $e) {
+            ApiResponse::error($e->getMessage());
+            return false;
+        }
+
+        return true;
     }
 
     /**
@@ -160,7 +219,14 @@ class MailingListApiController
             return;
         }
 
-        MailingListService::delete($address);
+        try {
+            $keepArchive = ApiInput::queryFlag('keepArchive', true);
+        } catch (\InvalidArgumentException $e) {
+            ApiResponse::error($e->getMessage());
+            return;
+        }
+
+        MailingListService::delete($address, $keepArchive);
         ApiResponse::deleted();
     }
 
@@ -185,7 +251,15 @@ class MailingListApiController
         }
 
         if ($add) {
-            MailingListService::addSubscribers($address, $subscribers);
+            $body = ApiMiddleware::getJsonBody();
+            try {
+                $requireConfirm = ApiInput::bool($body, 'requireConfirm', false);
+                $subscription = MlmmjOptions::validSubscription($body['subscription'] ?? 'normal');
+            } catch (\InvalidArgumentException $e) {
+                ApiResponse::error($e->getMessage());
+                return;
+            }
+            MailingListService::addSubscribers($address, $subscribers, $requireConfirm, $subscription);
         } else {
             MailingListService::removeSubscribers($address, $subscribers);
         }

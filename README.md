@@ -462,6 +462,8 @@ The REST API lives at `/api/v1/*`. It is disabled by default (`API_ENABLED=false
 | Throttle | `GET, PUT /throttle/{account}` |
 | Greylisting | `GET, PUT /greylist/{account}` |
 
+**Mailing lists**: `GET /mailing-lists/{address}` returns the mlmmj profile under `options`, and `?withSubscribers=yes` adds the subscribers. `PUT` writes the option fields that the body carries. `POST /mailing-lists/{address}/subscribers` accepts `subscription` (`normal`, `digest`, `nomail`) and `requireConfirm`. `DELETE /mailing-lists/{address}?keepArchive=no` removes the messages of the list with the account.
+
 **Incremental list fields**: a `PUT` body either replaces a list or changes it one item at a time: `forwardings`/`addForwardings`/`removeForwardings` and `aliases`/`addAliases`/`removeAliases` and `services`/`addServices`/`removeServices` on a user, `members`/`addMembers`/`removeMembers` on a mail alias, and `addAdmins`/`removeAdmins` on a domain. The full field and its add/remove pair are refused together.
 
 **List filters**: every list endpoint pages with `?page` and `?perPage`. `?disabledOnly=yes` returns only the disabled accounts, and `?emailOnly=yes` (`?nameOnly=yes` for domains) returns the addresses instead of the profiles.

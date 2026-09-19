@@ -111,9 +111,9 @@ final class ApiInput
      *
      * @throws \InvalidArgumentException when the value is not a yes/no value
      */
-    public static function queryFlag(string $name): bool
+    public static function queryFlag(string $name, bool $default = false): bool
     {
-        $value = $_GET[$name] ?? 'no';
+        $value = $_GET[$name] ?? ($default ? 'yes' : 'no');
         if (!is_string($value) || !in_array(strtolower($value), ['yes', 'no', 'true', 'false', '1', '0', ''], true)) {
             throw new \InvalidArgumentException("{$name} must be yes or no");
         }

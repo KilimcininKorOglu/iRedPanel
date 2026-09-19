@@ -8,6 +8,7 @@ use App\CsrfProtection;
 use App\I18n\Translator;
 use App\Middleware;
 use App\Models\MailingList;
+use App\Models\MlmmjOptions;
 use App\Models\Settings;
 use App\Repositories\RepositoryFactory;
 use App\Services\ActivityLogger;
@@ -119,8 +120,11 @@ class MailingListController
 
         [$subscribers, $subscribersError] = self::loadFromMlmmj(MailingListService::subscribers(...), $address);
         [$moderators, $moderatorsError] = self::loadFromMlmmj(MailingListService::moderators(...), $address);
+        [$options, $optionsError] = self::loadFromMlmmj(MailingListService::options(...), $address, MlmmjOptions::empty());
 
         $tpl->render('mailingListView.php', [
+            'options' => $options->toArray(),
+            'optionsError' => $optionsError,
             'ml' => $ml,
             'owners' => $repo->getOwners($address),
             'subscribers' => $subscribers,
@@ -176,9 +180,18 @@ class MailingListController
                 MailingListService::setModerators($address, BaseController::postedAddresses('moderators'));
                 ActivityLogger::logUpdate($domain, '', "Updated moderators for: {$address}");
                 return Translator::translate('mlist.msg_moderators_updated');
+            case 'updateOptions':
+                MailingListService::setOptions($address, MailingListService::options($address)->with($_POST, true));
+                ActivityLogger::logUpdate($domain, '', "Updated mlmmj options for: {$address}");
+                return Translator::translate('mlist.msg_options_updated');
             case 'addSubscribers':
                 $subscribers = self::postedAddresses('subscribers');
-                MailingListService::addSubscribers($address, $subscribers);
+                MailingListService::addSubscribers(
+                    $address,
+                    $subscribers,
+                    isset($_POST['requireConfirm']),
+                    MlmmjOptions::validSubscription($_POST['subscription'] ?? 'normal'),
+                );
                 ActivityLogger::logUpdate($domain, '', "Added " . count($subscribers) . " subscriber(s) to: {$address}");
                 return Translator::translate('mlist.msg_subscribers_added', ['count' => count($subscribers)]);
             case 'removeSubscriber':
@@ -208,16 +221,26 @@ class MailingListController
      * Returns the addresses that mlmmj holds, or the error that prevented
      * loading them, so the settings stay usable while mlmmjadmin is down.
      *
-     * @param callable(string): string[] $load
-     * @return array{0: string[], 1: ?string}
+     * @param callable(string): mixed $load
+     * @param mixed $fallback the value to show when mlmmjadmin cannot be reached
+     * @return array{0: mixed, 1: ?string}
      */
-    private static function loadFromMlmmj(callable $load, string $address): array
+    private static function loadFromMlmmj(callable $load, string $address, mixed $fallback = []): array
     {
         try {
             return [$load($address), null];
         } catch (\Exception $e) {
-            return [[], BaseController::errorMessage($e)];
+            return [$fallback, BaseController::errorMessage($e)];
         }
+    }
+
+    /**
+     * The delete forms carry the checkbox, so an admin who clears it removes the
+     * messages of the list as well.
+     */
+    private static function postedKeepArchive(): bool
+    {
+        return isset($_POST['keepArchive']);
     }
 
     public static function delete(TemplateEngine $tpl, string $address): void
@@ -228,7 +251,7 @@ class MailingListController
         $repo = RepositoryFactory::getMailingListRepository();
         try {
             $ml = $repo->getMailingList($address) ?? throw BaseController::itemNotFound();
-            MailingListService::delete($address);
+            MailingListService::delete($address, self::postedKeepArchive());
             ActivityLogger::logDelete($ml->domain, '', "Deleted mailing list: {$address}");
             BaseController::flashDeleted($address);
         } catch (\Exception $e) {
@@ -253,11 +276,12 @@ class MailingListController
         }
 
         $repo = RepositoryFactory::getMailingListRepository();
-        $done = BaseController::runBulk($selected, function (string $address) use ($repo, $action): void {
+        $keepArchive = self::postedKeepArchive();
+        $done = BaseController::runBulk($selected, function (string $address) use ($repo, $action, $keepArchive): void {
             BaseController::assertManagedAddress($address);
             $repo->getMailingList($address) ?? throw BaseController::itemNotFound();
             if ($action === 'delete') {
-                MailingListService::delete($address);
+                MailingListService::delete($address, $keepArchive);
             } else {
                 $repo->enableDisableMailingList($address, $action === 'enable');
             }

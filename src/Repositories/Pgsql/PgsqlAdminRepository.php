@@ -198,12 +198,13 @@ class PgsqlAdminRepository implements AdminRepositoryInterface
 
         $pdo->beginTransaction();
         try {
-            // Lock and verify: prevent last global admin deletion (TOCTOU safe)
+            // Lock and verify: prevent last global admin deletion (TOCTOU safe).
+            // PostgreSQL rejects FOR UPDATE with COUNT(*), so lock the rows and count them here.
             $lockStmt = $pdo->prepare(
-                "SELECT COUNT(*) AS cnt FROM domain_admins WHERE domain = 'ALL' FOR UPDATE"
+                "SELECT username FROM domain_admins WHERE domain = 'ALL' FOR UPDATE"
             );
             $lockStmt->execute();
-            $globalCount = (int) $lockStmt->fetch()['cnt'];
+            $globalCount = count($lockStmt->fetchAll(\PDO::FETCH_COLUMN));
 
             $isGlobal = $pdo->prepare("SELECT 1 FROM domain_admins WHERE username = :u AND domain = 'ALL'");
             $isGlobal->execute(['u' => $username]);

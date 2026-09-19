@@ -371,7 +371,12 @@
     "newsletter_hint": "Każdy może zapisać się lub wypisać na publicznej stronie. Każde żądanie jest potwierdzane e-mailem.",
     "subscribe_page": "Strona zapisu",
     "unsubscribe_page": "Strona wypisu",
-    "msg_invalid_max_msg_size": "Maksymalny rozmiar wiadomości musi być liczbą całkowitą równą 0 lub większą."
+    "msg_invalid_max_msg_size": "Maksymalny rozmiar wiadomości musi być liczbą całkowitą równą 0 lub większą.",
+    "list_moderators": "Moderatorzy listy",
+    "moderators_hint": "Adresy e-mail moderatorów (jeden w wierszu)",
+    "moderators_desc": "Gdy zasada dostępu to „Tylko moderatorzy”, tylko moderatorzy mogą wysyłać na listę. Pusta lista ustawia postmastera domeny.",
+    "save_moderators": "Zapisz moderatorów",
+    "msg_moderators_updated": "Moderatorzy zaktualizowani!"
   },
   "search": {
     "title": "Szukaj",

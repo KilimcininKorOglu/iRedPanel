@@ -75,6 +75,26 @@
 
       <hr />
 
+      <?php if ($moderatorsError !== null): ?>
+      <p class="text-error"><?= $e($moderatorsError) ?></p>
+      <?php else: ?>
+      <form method="post">
+        <?= $csrfField ?>
+        <input type="hidden" name="action" value="updateModerators" />
+
+        <fieldset>
+          <legend><?= $te('mlist.list_moderators') ?></legend>
+          <label for="moderators"><?= $te('mlist.moderators_hint') ?></label>
+          <textarea id="moderators" name="moderators" rows="4"><?= $e(implode("\n", $moderators)) ?></textarea>
+          <p class="text-light"><?= $te('mlist.moderators_desc') ?></p>
+        </fieldset>
+
+        <button type="submit" class="button primary outline"><?= $te('mlist.save_moderators') ?></button>
+      </form>
+      <?php endif; ?>
+
+      <hr />
+
       <h3 id="subscribers"><?= $te('mlist.subscribers') ?> (<?= count($subscribers) ?>)</h3>
       <?php if ($subscribersError !== null): ?>
       <p class="text-error"><?= $e($subscribersError) ?></p>

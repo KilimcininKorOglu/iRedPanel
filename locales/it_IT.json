@@ -371,7 +371,12 @@
     "newsletter_hint": "Chiunque può iscriversi o annullare l'iscrizione da una pagina pubblica. Ogni richiesta è confermata via e-mail.",
     "subscribe_page": "Pagina di iscrizione",
     "unsubscribe_page": "Pagina di annullamento iscrizione",
-    "msg_invalid_max_msg_size": "La dimensione massima del messaggio deve essere un numero intero pari o superiore a 0."
+    "msg_invalid_max_msg_size": "La dimensione massima del messaggio deve essere un numero intero pari o superiore a 0.",
+    "list_moderators": "Moderatori della lista",
+    "moderators_hint": "Indirizzi e-mail dei moderatori (uno per riga)",
+    "moderators_desc": "Quando la politica di accesso è \"Solo moderatori\", solo i moderatori possono scrivere alla lista. Una lista vuota imposta il postmaster del dominio.",
+    "save_moderators": "Salva moderatori",
+    "msg_moderators_updated": "Moderatori aggiornati!"
   },
   "search": {
     "title": "Cerca",

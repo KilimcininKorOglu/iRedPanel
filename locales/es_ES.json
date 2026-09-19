@@ -371,7 +371,12 @@
     "newsletter_hint": "Cualquiera puede suscribirse o darse de baja en una página pública. Cada solicitud se confirma por correo.",
     "subscribe_page": "Página de suscripción",
     "unsubscribe_page": "Página de baja",
-    "msg_invalid_max_msg_size": "El tamaño máximo del mensaje debe ser un número entero igual o mayor que 0."
+    "msg_invalid_max_msg_size": "El tamaño máximo del mensaje debe ser un número entero igual o mayor que 0.",
+    "list_moderators": "Moderadores de la lista",
+    "moderators_hint": "Direcciones de correo de los moderadores (una por línea)",
+    "moderators_desc": "Cuando la política de acceso es \"Solo moderadores\", solo los moderadores pueden enviar a la lista. Una lista vacía establece el postmaster del dominio.",
+    "save_moderators": "Guardar moderadores",
+    "msg_moderators_updated": "¡Moderadores actualizados!"
   },
   "search": {
     "title": "Buscar",

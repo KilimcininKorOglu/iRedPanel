@@ -19,7 +19,7 @@ class MailingListService
         $client = MlmmjadminClient::fromSettings();
         $repo = self::repo();
 
-        $owners = self::owners($address, []);
+        $owners = self::orPostmaster($address, []);
         $repo->createMailingList($address, $domain, $name, $accessPolicy, $maxMsgSize);
         try {
             $client->createList($address, MlmmjadminClient::listParams($name, $accessPolicy, $maxMsgSize, $owners));
@@ -44,7 +44,7 @@ class MailingListService
         }
 
         $params = MlmmjadminClient::listParams(
-            $name, $accessPolicy, $maxMsgSize, self::owners($address, $repo->getOwners($address))
+            $name, $accessPolicy, $maxMsgSize, self::orPostmaster($address, $repo->getOwners($address))
         );
         if ($newsletter !== null) {
             $params['enable_newsletter_subscription'] = $newsletter ? 'yes' : 'no';
@@ -65,9 +65,31 @@ class MailingListService
      */
     public static function setOwners(string $address, array $owners): void
     {
-        $owners = self::owners($address, $owners);
+        $owners = self::orPostmaster($address, $owners);
         MlmmjadminClient::fromSettings()->updateList($address, ['owner' => implode(',', $owners)]);
         self::repo()->setOwners($address, $owners);
+    }
+
+    /**
+     * Moderators exist only in mlmmj. They alone may post when the access policy
+     * is moderatorsOnly.
+     *
+     * @return string[]
+     */
+    public static function moderators(string $address): array
+    {
+        return MlmmjadminClient::fromSettings()->moderators($address);
+    }
+
+    /**
+     * An empty list becomes the default postmaster, which mlmmjadmin also sets
+     * when it creates a list.
+     *
+     * @param string[] $moderators
+     */
+    public static function setModerators(string $address, array $moderators): void
+    {
+        MlmmjadminClient::fromSettings()->setModerators($address, self::orPostmaster($address, $moderators));
     }
 
     /**
@@ -117,16 +139,17 @@ class MailingListService
     }
 
     /**
-     * mlmmj needs at least one owner; iRedMail uses postmaster of the domain.
+     * mlmmj needs at least one owner. mlmmjadmin uses postmaster of the domain as
+     * the default owner and the default moderator.
      *
-     * @param string[] $owners
+     * @param string[] $addresses
      * @return string[]
      */
-    private static function owners(string $address, array $owners): array
+    private static function orPostmaster(string $address, array $addresses): array
     {
-        $owners = array_values(array_filter(array_map('trim', $owners), fn(string $o) => $o !== ''));
-        if ($owners !== []) {
-            return $owners;
+        $addresses = array_values(array_filter(array_map('trim', $addresses), fn(string $a) => $a !== ''));
+        if ($addresses !== []) {
+            return $addresses;
         }
 
         return ['postmaster@' . (explode('@', $address, 2)[1] ?? '')];

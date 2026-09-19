@@ -371,7 +371,12 @@
     "newsletter_hint": "Anyone can subscribe or unsubscribe on a public page. Every request is confirmed by email.",
     "subscribe_page": "Subscribe page",
     "unsubscribe_page": "Unsubscribe page",
-    "msg_invalid_max_msg_size": "The max message size must be a whole number of 0 or more."
+    "msg_invalid_max_msg_size": "The max message size must be a whole number of 0 or more.",
+    "list_moderators": "List Moderators",
+    "moderators_hint": "Moderator email addresses (one per line)",
+    "moderators_desc": "When the access policy is \"Moderators Only\", only moderators can post to the list. An empty list sets the postmaster of the domain.",
+    "save_moderators": "Save Moderators",
+    "msg_moderators_updated": "Moderators updated!"
   },
   "search": {
     "title": "Search",

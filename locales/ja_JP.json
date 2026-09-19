@@ -371,7 +371,12 @@
     "newsletter_hint": "誰でも公開ページで購読または購読解除できます。すべてのリクエストはメールで確認されます。",
     "subscribe_page": "購読ページ",
     "unsubscribe_page": "購読解除ページ",
-    "msg_invalid_max_msg_size": "最大メッセージサイズは 0 以上の整数で指定してください。"
+    "msg_invalid_max_msg_size": "最大メッセージサイズは 0 以上の整数で指定してください。",
+    "list_moderators": "リストのモデレーター",
+    "moderators_hint": "モデレーターのメールアドレス（1 行に 1 つ）",
+    "moderators_desc": "アクセスポリシーが「モデレーターのみ」の場合、リストに投稿できるのはモデレーターだけです。空にするとドメインの postmaster が設定されます。",
+    "save_moderators": "モデレーターを保存",
+    "msg_moderators_updated": "モデレーターを更新しました！"
   },
   "search": {
     "title": "検索",

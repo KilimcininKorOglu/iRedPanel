@@ -371,7 +371,12 @@
     "newsletter_hint": "Hver sem er getur skráð sig eða afskráð á opinberri síðu. Hver beiðni er staðfest með tölvupósti.",
     "subscribe_page": "Skráningarsíða",
     "unsubscribe_page": "Afskráningarsíða",
-    "msg_invalid_max_msg_size": "Hámarksstærð skilaboða verður að vera heiltala, 0 eða hærri."
+    "msg_invalid_max_msg_size": "Hámarksstærð skilaboða verður að vera heiltala, 0 eða hærri.",
+    "list_moderators": "Umsjónarmenn lista",
+    "moderators_hint": "Netföng umsjónarmanna (eitt á línu)",
+    "moderators_desc": "Þegar aðgangsstefnan er „Aðeins umsjónarmenn“ geta aðeins umsjónarmenn sent á listann. Tómur listi setur postmaster lénsins.",
+    "save_moderators": "Vista umsjónarmenn",
+    "msg_moderators_updated": "Umsjónarmenn uppfærðir!"
   },
   "search": {
     "title": "Leita",

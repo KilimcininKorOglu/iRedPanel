@@ -371,7 +371,12 @@
     "newsletter_hint": "Alle kan tilmelde eller afmelde sig på en offentlig side. Hver anmodning bekræftes via e-mail.",
     "subscribe_page": "Tilmeldingsside",
     "unsubscribe_page": "Afmeldingsside",
-    "msg_invalid_max_msg_size": "Maksimal beskedstørrelse skal være et heltal på 0 eller mere."
+    "msg_invalid_max_msg_size": "Maksimal beskedstørrelse skal være et heltal på 0 eller mere.",
+    "list_moderators": "Listemoderatorer",
+    "moderators_hint": "Moderatorers e-mailadresser (én pr. linje)",
+    "moderators_desc": "Når adgangspolitikken er \"Kun moderatorer\", kan kun moderatorer sende til listen. En tom liste angiver domænets postmaster.",
+    "save_moderators": "Gem moderatorer",
+    "msg_moderators_updated": "Moderatorer opdateret!"
   },
   "search": {
     "title": "Søg",

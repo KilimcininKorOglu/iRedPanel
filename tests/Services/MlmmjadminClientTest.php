@@ -64,12 +64,21 @@ class MlmmjadminClientTest extends TestCase
         MlmmjadminClient::parseResponse('<html>502 Bad Gateway</html>');
     }
 
-    public function testAddSubscribersRejectsAnInvalidAddressBeforeAnyRequest(): void
+    /**
+     * @return array<string, array{string}>
+     */
+    public static function addressWriters(): array
+    {
+        return ['subscribers' => ['addSubscribers'], 'moderators' => ['setModerators']];
+    }
+
+    #[\PHPUnit\Framework\Attributes\DataProvider('addressWriters')]
+    public function testInvalidAddressIsRejectedBeforeAnyRequest(string $method): void
     {
         $client = new MlmmjadminClient('http://127.0.0.1:1/api', 'token');
 
         $this->expectException(\InvalidArgumentException::class);
 
-        $client->addSubscribers('list@example.com', ['not an address']);
+        $client->$method('list@example.com', ['valid@example.com', 'not an address']);
     }
 }

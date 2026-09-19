@@ -371,7 +371,12 @@
     "newsletter_hint": "Qualsevol persona pot subscriure's o donar-se de baixa en una pàgina pública. Cada sol·licitud es confirma per correu.",
     "subscribe_page": "Pàgina de subscripció",
     "unsubscribe_page": "Pàgina de baixa",
-    "msg_invalid_max_msg_size": "La mida màxima del missatge ha de ser un nombre enter igual o superior a 0."
+    "msg_invalid_max_msg_size": "La mida màxima del missatge ha de ser un nombre enter igual o superior a 0.",
+    "list_moderators": "Moderadors de la llista",
+    "moderators_hint": "Adreces de correu dels moderadors (una per línia)",
+    "moderators_desc": "Quan la política d'accés és \"Només moderadors\", només els moderadors poden enviar a la llista. Una llista buida estableix el postmaster del domini.",
+    "save_moderators": "Desar moderadors",
+    "msg_moderators_updated": "Moderadors actualitzats!"
   },
   "search": {
     "title": "Cerca",

@@ -371,7 +371,12 @@
     "newsletter_hint": "Kuka tahansa voi tilata tai perua tilauksen julkisella sivulla. Jokainen pyyntö vahvistetaan sähköpostilla.",
     "subscribe_page": "Tilaussivu",
     "unsubscribe_page": "Tilauksen perumissivu",
-    "msg_invalid_max_msg_size": "Viestin enimmäiskoon on oltava kokonaisluku 0 tai suurempi."
+    "msg_invalid_max_msg_size": "Viestin enimmäiskoon on oltava kokonaisluku 0 tai suurempi.",
+    "list_moderators": "Listan moderaattorit",
+    "moderators_hint": "Moderaattorien sähköpostiosoitteet (yksi riviä kohden)",
+    "moderators_desc": "Kun käyttöoikeuskäytäntö on \"Vain moderaattorit\", vain moderaattorit voivat lähettää listalle. Tyhjä luettelo asettaa verkkotunnuksen postmasterin.",
+    "save_moderators": "Tallenna moderaattorit",
+    "msg_moderators_updated": "Moderaattorit päivitetty!"
   },
   "search": {
     "title": "Haku",

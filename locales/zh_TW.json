@@ -371,7 +371,12 @@
     "newsletter_hint": "任何人都可以在公開頁面訂閱或取消訂閱。每個要求都會以郵件確認。",
     "subscribe_page": "訂閱頁面",
     "unsubscribe_page": "取消訂閱頁面",
-    "msg_invalid_max_msg_size": "最大郵件大小必須是 0 或更大的整數。"
+    "msg_invalid_max_msg_size": "最大郵件大小必須是 0 或更大的整數。",
+    "list_moderators": "清單審核者",
+    "moderators_hint": "審核者電子郵件位址（每行一個）",
+    "moderators_desc": "當存取原則為「僅限審核者」時，只有審核者可以寄信到清單。留空時會設定為網域的 postmaster。",
+    "save_moderators": "儲存審核者",
+    "msg_moderators_updated": "審核者已更新！"
   },
   "search": {
     "title": "搜尋",

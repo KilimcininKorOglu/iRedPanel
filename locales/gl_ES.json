@@ -371,7 +371,12 @@
     "newsletter_hint": "Calquera pode subscribirse ou darse de baixa nunha páxina pública. Cada solicitude confírmase por correo.",
     "subscribe_page": "Páxina de subscrición",
     "unsubscribe_page": "Páxina de baixa",
-    "msg_invalid_max_msg_size": "O tamaño máximo da mensaxe debe ser un número enteiro igual ou maior que 0."
+    "msg_invalid_max_msg_size": "O tamaño máximo da mensaxe debe ser un número enteiro igual ou maior que 0.",
+    "list_moderators": "Moderadores da lista",
+    "moderators_hint": "Enderezos de correo dos moderadores (un por liña)",
+    "moderators_desc": "Cando a política de acceso é \"Só moderadores\", só os moderadores poden enviar á lista. Unha lista baleira establece o postmaster do dominio.",
+    "save_moderators": "Gardar moderadores",
+    "msg_moderators_updated": "Moderadores actualizados!"
   },
   "search": {
     "title": "Buscar",

@@ -371,7 +371,12 @@
     "newsletter_hint": "Oricine se poate abona sau dezabona pe o pagină publică. Fiecare cerere este confirmată prin email.",
     "subscribe_page": "Pagina de abonare",
     "unsubscribe_page": "Pagina de dezabonare",
-    "msg_invalid_max_msg_size": "Dimensiunea maximă a mesajului trebuie să fie un număr întreg de 0 sau mai mare."
+    "msg_invalid_max_msg_size": "Dimensiunea maximă a mesajului trebuie să fie un număr întreg de 0 sau mai mare.",
+    "list_moderators": "Moderatorii listei",
+    "moderators_hint": "Adresele de email ale moderatorilor (una pe linie)",
+    "moderators_desc": "Când politica de acces este „Doar moderatori”, doar moderatorii pot trimite pe listă. O listă goală setează postmaster-ul domeniului.",
+    "save_moderators": "Salvează moderatorii",
+    "msg_moderators_updated": "Moderatorii au fost actualizați!"
   },
   "search": {
     "title": "Căutare",

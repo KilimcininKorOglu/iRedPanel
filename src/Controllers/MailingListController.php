@@ -113,13 +113,16 @@ class MailingListController
             }
         }
 
-        [$subscribers, $subscribersError] = self::loadSubscribers($address);
+        [$subscribers, $subscribersError] = self::loadFromMlmmj(MailingListService::subscribers(...), $address);
+        [$moderators, $moderatorsError] = self::loadFromMlmmj(MailingListService::moderators(...), $address);
 
         $tpl->render('mailingListView.php', [
             'ml' => $ml,
             'owners' => $repo->getOwners($address),
             'subscribers' => $subscribers,
             'subscribersError' => $subscribersError,
+            'moderators' => $moderators,
+            'moderatorsError' => $moderatorsError,
             'supportsNewsletter' => $repo->supportsNewsletter(),
             'newsletterBaseUrl' => Settings::getInstance()->publicUrl . '/newsletters',
             // Keep the typed addresses when adding them failed.
@@ -165,6 +168,10 @@ class MailingListController
                 MailingListService::setOwners($address, BaseController::postedAddresses('owners'));
                 ActivityLogger::logUpdate($domain, '', "Updated owners for: {$address}");
                 return Translator::translate('mlist.msg_owners_updated');
+            case 'updateModerators':
+                MailingListService::setModerators($address, BaseController::postedAddresses('moderators'));
+                ActivityLogger::logUpdate($domain, '', "Updated moderators for: {$address}");
+                return Translator::translate('mlist.msg_moderators_updated');
             case 'addSubscribers':
                 $subscribers = self::postedAddresses('subscribers');
                 MailingListService::addSubscribers($address, $subscribers);
@@ -194,15 +201,16 @@ class MailingListController
     }
 
     /**
-     * Returns the subscribers, or the error that prevented loading them, so
-     * the settings stay usable while mlmmjadmin is down.
+     * Returns the addresses that mlmmj holds, or the error that prevented
+     * loading them, so the settings stay usable while mlmmjadmin is down.
      *
+     * @param callable(string): string[] $load
      * @return array{0: string[], 1: ?string}
      */
-    private static function loadSubscribers(string $address): array
+    private static function loadFromMlmmj(callable $load, string $address): array
     {
         try {
-            return [MailingListService::subscribers($address), null];
+            return [$load($address), null];
         } catch (\Exception $e) {
             return [[], BaseController::errorMessage($e)];
         }

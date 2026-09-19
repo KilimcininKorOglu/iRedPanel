@@ -371,7 +371,12 @@
     "newsletter_hint": "Herkes herkese açık bir sayfadan abone olabilir veya aboneliğini kaldırabilir. Her istek e-posta ile onaylanır.",
     "subscribe_page": "Abonelik sayfası",
     "unsubscribe_page": "Abonelik iptal sayfası",
-    "msg_invalid_max_msg_size": "Maksimum mesaj boyutu 0 veya daha büyük bir tam sayı olmalıdır."
+    "msg_invalid_max_msg_size": "Maksimum mesaj boyutu 0 veya daha büyük bir tam sayı olmalıdır.",
+    "list_moderators": "Liste Moderatörleri",
+    "moderators_hint": "Moderatör e-posta adresleri (her satıra bir tane)",
+    "moderators_desc": "Erişim politikası \"Yalnızca Moderatörler\" olduğunda listeye yalnızca moderatörler mail gönderebilir. Boş liste domain'in postmaster adresini atar.",
+    "save_moderators": "Moderatörleri Kaydet",
+    "msg_moderators_updated": "Moderatörler güncellendi!"
   },
   "search": {
     "title": "Ara",

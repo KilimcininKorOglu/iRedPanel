@@ -371,7 +371,12 @@
     "newsletter_hint": "Igaüks saab avalikul lehel tellida või tellimuse lõpetada. Iga taotlus kinnitatakse e-posti teel.",
     "subscribe_page": "Tellimise leht",
     "unsubscribe_page": "Tellimuse lõpetamise leht",
-    "msg_invalid_max_msg_size": "Sõnumi maksimaalne suurus peab olema täisarv 0 või suurem."
+    "msg_invalid_max_msg_size": "Sõnumi maksimaalne suurus peab olema täisarv 0 või suurem.",
+    "list_moderators": "Loendi moderaatorid",
+    "moderators_hint": "Moderaatorite e-posti aadressid (üks rea kohta)",
+    "moderators_desc": "Kui juurdepääsupoliitika on \"Ainult moderaatorid\", saavad loendisse postitada ainult moderaatorid. Tühi loend määrab domeeni postmasteri.",
+    "save_moderators": "Salvesta moderaatorid",
+    "msg_moderators_updated": "Moderaatorid uuendatud!"
   },
   "search": {
     "title": "Otsing",

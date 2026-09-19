@@ -371,7 +371,12 @@
     "newsletter_hint": "Svatko se može prijaviti ili odjaviti na javnoj stranici. Svaki se zahtjev potvrđuje e-poštom.",
     "subscribe_page": "Stranica za prijavu",
     "unsubscribe_page": "Stranica za odjavu",
-    "msg_invalid_max_msg_size": "Najveća veličina poruke mora biti cijeli broj, 0 ili veći."
+    "msg_invalid_max_msg_size": "Najveća veličina poruke mora biti cijeli broj, 0 ili veći.",
+    "list_moderators": "Moderatori liste",
+    "moderators_hint": "Adrese e-pošte moderatora (jedna po retku)",
+    "moderators_desc": "Kada je pravilo pristupa \"Samo moderatori\", samo moderatori mogu slati na listu. Prazan popis postavlja postmaster domene.",
+    "save_moderators": "Spremi moderatore",
+    "msg_moderators_updated": "Moderatori ažurirani!"
   },
   "search": {
     "title": "Pretraživanje",

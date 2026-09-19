@@ -371,7 +371,12 @@
     "newsletter_hint": "Ktokoľvek sa môže prihlásiť alebo odhlásiť na verejnej stránke. Každá žiadosť sa potvrdzuje e-mailom.",
     "subscribe_page": "Stránka prihlásenia",
     "unsubscribe_page": "Stránka odhlásenia",
-    "msg_invalid_max_msg_size": "Maximálna veľkosť správy musí byť celé číslo 0 alebo väčšie."
+    "msg_invalid_max_msg_size": "Maximálna veľkosť správy musí byť celé číslo 0 alebo väčšie.",
+    "list_moderators": "Moderátori zoznamu",
+    "moderators_hint": "E-mailové adresy moderátorov (jedna na riadok)",
+    "moderators_desc": "Keď je pravidlo prístupu „Iba moderátori“, do zoznamu môžu písať iba moderátori. Prázdny zoznam nastaví postmaster domény.",
+    "save_moderators": "Uložiť moderátorov",
+    "msg_moderators_updated": "Moderátori aktualizovaní!"
   },
   "search": {
     "title": "Hľadať",

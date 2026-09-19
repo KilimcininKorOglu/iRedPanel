@@ -371,7 +371,12 @@
     "newsletter_hint": "Tout le monde peut s'abonner ou se désabonner sur une page publique. Chaque demande est confirmée par e-mail.",
     "subscribe_page": "Page d'abonnement",
     "unsubscribe_page": "Page de désabonnement",
-    "msg_invalid_max_msg_size": "La taille maximale du message doit être un nombre entier supérieur ou égal à 0."
+    "msg_invalid_max_msg_size": "La taille maximale du message doit être un nombre entier supérieur ou égal à 0.",
+    "list_moderators": "Modérateurs de la liste",
+    "moderators_hint": "Adresses e-mail des modérateurs (une par ligne)",
+    "moderators_desc": "Lorsque la politique d'accès est « Modérateurs uniquement », seuls les modérateurs peuvent écrire à la liste. Une liste vide définit le postmaster du domaine.",
+    "save_moderators": "Enregistrer les modérateurs",
+    "msg_moderators_updated": "Modérateurs mis à jour !"
   },
   "search": {
     "title": "Rechercher",

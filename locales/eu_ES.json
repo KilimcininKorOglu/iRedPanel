@@ -371,7 +371,12 @@
     "newsletter_hint": "Edonork harpidetu edo baja eman dezake orri publiko batean. Eskaera bakoitza posta bidez berresten da.",
     "subscribe_page": "Harpidetza-orria",
     "unsubscribe_page": "Baja-orria",
-    "msg_invalid_max_msg_size": "Mezuaren gehieneko tamainak 0 edo handiagoa den zenbaki oso bat izan behar du."
+    "msg_invalid_max_msg_size": "Mezuaren gehieneko tamainak 0 edo handiagoa den zenbaki oso bat izan behar du.",
+    "list_moderators": "Zerrendaren moderatzaileak",
+    "moderators_hint": "Moderatzaileen posta-helbideak (bat lerroko)",
+    "moderators_desc": "Sarbide-politika \"Moderatzaileak soilik\" denean, moderatzaileek soilik bidal dezakete zerrendara. Zerrenda hutsak domeinuaren postmaster ezartzen du.",
+    "save_moderators": "Gorde moderatzaileak",
+    "msg_moderators_updated": "Moderatzaileak eguneratu dira!"
   },
   "search": {
     "title": "Bilatu",

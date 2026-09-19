@@ -371,7 +371,12 @@
     "newsletter_hint": "Bárki feliratkozhat vagy leiratkozhat egy nyilvános oldalon. Minden kérést e-mailben kell megerősíteni.",
     "subscribe_page": "Feliratkozási oldal",
     "unsubscribe_page": "Leiratkozási oldal",
-    "msg_invalid_max_msg_size": "A maximális üzenetméretnek 0 vagy nagyobb egész számnak kell lennie."
+    "msg_invalid_max_msg_size": "A maximális üzenetméretnek 0 vagy nagyobb egész számnak kell lennie.",
+    "list_moderators": "Lista moderátorai",
+    "moderators_hint": "Moderátorok e-mail-címei (soronként egy)",
+    "moderators_desc": "Ha a hozzáférési szabály „Csak moderátorok”, csak a moderátorok küldhetnek a listára. Üres lista esetén a domain postmaster címe lesz beállítva.",
+    "save_moderators": "Moderátorok mentése",
+    "msg_moderators_updated": "Moderátorok frissítve!"
   },
   "search": {
     "title": "Keresés",

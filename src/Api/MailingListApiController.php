@@ -153,12 +153,9 @@ class MailingListApiController
     public static function subscribers(string $address): void
     {
         ApiMiddleware::requireGlobalKey();
-        if (RepositoryFactory::getMailingListRepository()->getMailingList($address) === null) {
-            ApiResponse::error('Mailing list not found', 404);
-            return;
+        if (self::listExists($address)) {
+            ApiResponse::success(['subscribers' => MailingListService::subscribers($address)]);
         }
-
-        ApiResponse::success(['subscribers' => MailingListService::subscribers($address)]);
     }
 
     /**
@@ -168,20 +165,8 @@ class MailingListApiController
     {
         ApiMiddleware::requireGlobalKey();
         ApiMiddleware::requireWriteAccess();
-        if (RepositoryFactory::getMailingListRepository()->getMailingList($address) === null) {
-            ApiResponse::error('Mailing list not found', 404);
-            return;
-        }
-
-        $input = ApiMiddleware::getJsonBody()['subscribers'] ?? null;
-        if (!is_array($input) || $input === [] || array_filter($input, 'is_string') !== $input) {
-            ApiResponse::error('subscribers must be a non-empty array of email addresses');
-            return;
-        }
-        try {
-            $subscribers = AddressList::parse(implode("\n", $input));
-        } catch (\InvalidArgumentException $e) {
-            ApiResponse::error('Invalid subscriber: ' . $e->getMessage());
+        $subscribers = self::listExists($address) ? self::addressesFromBody('subscribers', 'subscriber', false) : null;
+        if ($subscribers === null) {
             return;
         }
 
@@ -191,5 +176,63 @@ class MailingListApiController
             MailingListService::removeSubscribers($address, $subscribers);
         }
         ApiResponse::success(['subscribers' => MailingListService::subscribers($address)]);
+    }
+
+    public static function moderators(string $address): void
+    {
+        ApiMiddleware::requireGlobalKey();
+        if (self::listExists($address)) {
+            ApiResponse::success(['moderators' => MailingListService::moderators($address)]);
+        }
+    }
+
+    /**
+     * Replaces the moderators with `{"moderators": [...]}`. An empty array falls back
+     * to the default moderator.
+     */
+    public static function setModerators(string $address): void
+    {
+        ApiMiddleware::requireGlobalKey();
+        ApiMiddleware::requireWriteAccess();
+        $moderators = self::listExists($address) ? self::addressesFromBody('moderators', 'moderator', true) : null;
+        if ($moderators === null) {
+            return;
+        }
+
+        MailingListService::setModerators($address, $moderators);
+        ApiResponse::success(['moderators' => MailingListService::moderators($address)]);
+    }
+
+    /**
+     * Sends 404 when the list does not exist.
+     */
+    private static function listExists(string $address): bool
+    {
+        if (RepositoryFactory::getMailingListRepository()->getMailingList($address) !== null) {
+            return true;
+        }
+        ApiResponse::error('Mailing list not found', 404);
+
+        return false;
+    }
+
+    /**
+     * Reads an array of email addresses from the JSON body, or sends 400.
+     *
+     * @return string[]|null the addresses, or null after the error response
+     */
+    private static function addressesFromBody(string $field, string $label, bool $allowEmpty): ?array
+    {
+        $input = ApiMiddleware::getJsonBody()[$field] ?? null;
+        if (!is_array($input) || (!$allowEmpty && $input === []) || array_filter($input, 'is_string') !== $input) {
+            ApiResponse::error($field . ' must be ' . ($allowEmpty ? 'an' : 'a non-empty') . ' array of email addresses');
+            return null;
+        }
+        try {
+            return AddressList::parse(implode("\n", $input));
+        } catch (\InvalidArgumentException $e) {
+            ApiResponse::error('Invalid ' . $label . ': ' . $e->getMessage());
+            return null;
+        }
     }
 }

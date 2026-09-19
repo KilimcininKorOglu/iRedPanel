@@ -99,6 +99,28 @@ class MlmmjadminClient
     }
 
     /**
+     * @return string[] moderator addresses, sorted
+     */
+    public function moderators(string $mail): array
+    {
+        $data = $this->request('GET', self::path($mail) . '/moderators');
+        $moderators = array_values(array_unique(array_map('strval', is_array($data) ? $data : [])));
+        sort($moderators);
+
+        return $moderators;
+    }
+
+    /**
+     * Replaces the moderators.
+     *
+     * @param string[] $moderators
+     */
+    public function setModerators(string $mail, array $moderators): void
+    {
+        $this->updateList($mail, ['moderators' => implode(',', self::emails($moderators))]);
+    }
+
+    /**
      * Adds subscribers to the normal subscription without a confirmation mail.
      *
      * @param string[] $subscribers

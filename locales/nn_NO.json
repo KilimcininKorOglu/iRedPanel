@@ -371,7 +371,12 @@
     "newsletter_hint": "Kven som helst kan melde seg på eller av på ei offentleg side. Kvar førespurnad blir stadfesta via e-post.",
     "subscribe_page": "Påmeldingsside",
     "unsubscribe_page": "Avmeldingsside",
-    "msg_invalid_max_msg_size": "Maksimal meldingsstorleik må vere eit heiltal på 0 eller meir."
+    "msg_invalid_max_msg_size": "Maksimal meldingsstorleik må vere eit heiltal på 0 eller meir.",
+    "list_moderators": "Listemoderatorar",
+    "moderators_hint": "E-postadresser til moderatorar (éi per linje)",
+    "moderators_desc": "Når tilgangspolicyen er «Berre moderatorar», kan berre moderatorar sende til lista. Ei tom liste set postmaster for domenet.",
+    "save_moderators": "Lagre moderatorar",
+    "msg_moderators_updated": "Moderatorar oppdaterte!"
   },
   "search": {
     "title": "Søk",

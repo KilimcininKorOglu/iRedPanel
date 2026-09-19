@@ -371,7 +371,12 @@
     "newsletter_hint": "Iedereen kan zich op een openbare pagina aan- of afmelden. Elk verzoek wordt per e-mail bevestigd.",
     "subscribe_page": "Aanmeldpagina",
     "unsubscribe_page": "Afmeldpagina",
-    "msg_invalid_max_msg_size": "De maximale berichtgrootte moet een geheel getal van 0 of meer zijn."
+    "msg_invalid_max_msg_size": "De maximale berichtgrootte moet een geheel getal van 0 of meer zijn.",
+    "list_moderators": "Lijstmoderators",
+    "moderators_hint": "E-mailadressen van moderators (één per regel)",
+    "moderators_desc": "Als het toegangsbeleid \"Alleen moderators\" is, kunnen alleen moderators naar de lijst sturen. Een lege lijst stelt de postmaster van het domein in.",
+    "save_moderators": "Moderators opslaan",
+    "msg_moderators_updated": "Moderators bijgewerkt!"
   },
   "search": {
     "title": "Zoeken",

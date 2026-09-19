@@ -371,7 +371,12 @@
     "newsletter_hint": "Vem som helst kan prenumerera eller avsluta prenumerationen på en offentlig sida. Varje begäran bekräftas via e-post.",
     "subscribe_page": "Prenumerationssida",
     "unsubscribe_page": "Avprenumerationssida",
-    "msg_invalid_max_msg_size": "Maximal meddelandestorlek måste vara ett heltal på 0 eller mer."
+    "msg_invalid_max_msg_size": "Maximal meddelandestorlek måste vara ett heltal på 0 eller mer.",
+    "list_moderators": "Listmoderatorer",
+    "moderators_hint": "Moderatorernas e-postadresser (en per rad)",
+    "moderators_desc": "När åtkomstpolicyn är \"Endast moderatorer\" kan bara moderatorer skicka till listan. En tom lista anger domänens postmaster.",
+    "save_moderators": "Spara moderatorer",
+    "msg_moderators_updated": "Moderatorer uppdaterade!"
   },
   "search": {
     "title": "Sök",

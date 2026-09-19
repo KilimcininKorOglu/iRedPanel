@@ -371,7 +371,12 @@
     "newsletter_hint": "Siapa pun dapat berlangganan atau berhenti berlangganan di halaman publik. Setiap permintaan dikonfirmasi melalui email.",
     "subscribe_page": "Halaman langganan",
     "unsubscribe_page": "Halaman berhenti berlangganan",
-    "msg_invalid_max_msg_size": "Ukuran pesan maksimum harus bilangan bulat 0 atau lebih."
+    "msg_invalid_max_msg_size": "Ukuran pesan maksimum harus bilangan bulat 0 atau lebih.",
+    "list_moderators": "Moderator milis",
+    "moderators_hint": "Alamat email moderator (satu per baris)",
+    "moderators_desc": "Jika kebijakan akses adalah \"Hanya moderator\", hanya moderator yang dapat mengirim ke milis. Daftar kosong menetapkan postmaster domain.",
+    "save_moderators": "Simpan moderator",
+    "msg_moderators_updated": "Moderator diperbarui!"
   },
   "search": {
     "title": "Cari",

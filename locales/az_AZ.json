@@ -371,7 +371,12 @@
     "newsletter_hint": "Hər kəs ictimai səhifədə abunə ola və ya abunəliyi ləğv edə bilər. Hər sorğu e-poçtla təsdiqlənir.",
     "subscribe_page": "Abunəlik səhifəsi",
     "unsubscribe_page": "Abunəliyin ləğvi səhifəsi",
-    "msg_invalid_max_msg_size": "Maksimum mesaj ölçüsü 0 və ya daha böyük tam ədəd olmalıdır."
+    "msg_invalid_max_msg_size": "Maksimum mesaj ölçüsü 0 və ya daha böyük tam ədəd olmalıdır.",
+    "list_moderators": "Siyahı moderatorları",
+    "moderators_hint": "Moderator e-poçt ünvanları (hər sətirdə bir)",
+    "moderators_desc": "Giriş siyasəti \"Yalnız moderatorlar\" olduqda siyahıya yalnız moderatorlar yaza bilər. Boş siyahı domenin postmaster ünvanını təyin edir.",
+    "save_moderators": "Moderatorları yadda saxla",
+    "msg_moderators_updated": "Moderatorlar yeniləndi!"
   },
   "search": {
     "title": "Axtarış",

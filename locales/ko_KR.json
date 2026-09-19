@@ -371,7 +371,12 @@
     "newsletter_hint": "누구나 공개 페이지에서 구독하거나 구독을 해지할 수 있습니다. 모든 요청은 이메일로 확인됩니다.",
     "subscribe_page": "구독 페이지",
     "unsubscribe_page": "구독 해지 페이지",
-    "msg_invalid_max_msg_size": "최대 메시지 크기는 0 이상의 정수여야 합니다."
+    "msg_invalid_max_msg_size": "최대 메시지 크기는 0 이상의 정수여야 합니다.",
+    "list_moderators": "리스트 중재자",
+    "moderators_hint": "중재자 이메일 주소 (한 줄에 하나)",
+    "moderators_desc": "접근 정책이 \"중재자 전용\"이면 중재자만 리스트에 게시할 수 있습니다. 비워 두면 도메인의 postmaster가 설정됩니다.",
+    "save_moderators": "중재자 저장",
+    "msg_moderators_updated": "중재자가 업데이트되었습니다!"
   },
   "search": {
     "title": "검색",

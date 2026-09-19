@@ -55,8 +55,8 @@ interface AdminRepositoryInterface
     public function getDomainAdmins(string $domain): array;
 
     /**
-     * Assigns a domain to an admin for management. A mailbox becomes a domain admin, as in
-     * iRedAdmin: SQL sets mailbox.isadmin, LDAP adds enabledService=domainadmin.
+     * Assigns a domain to an admin for management. A mailbox becomes a domain admin:
+     * SQL sets mailbox.isadmin, LDAP adds enabledService=domainadmin.
      */
     public function assignDomainToAdmin(string $adminUsername, string $domain): void;
 
@@ -72,7 +72,7 @@ interface AdminRepositoryInterface
     public function enableDisableAdmin(string $username, bool $active): void;
 
     /**
-     * Writes the resource limits of the admin in the iRedAdmin form: SQL admin.settings or,
+     * Writes the resource limits of the admin in the stored form: SQL admin.settings or,
      * for a mailbox admin, mailbox.settings; LDAP accountSetting. The other stored keys stay.
      */
     public function updateAdminSettings(Admin $admin): void;

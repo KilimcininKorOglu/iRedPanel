@@ -100,8 +100,8 @@ class AdminController
     }
 
     /**
-     * Whether the domain is a mail domain or an alias domain of this server. As in
-     * iRedAdmin, a standalone admin must not use such a domain: its address would
+     * Whether the domain is a mail domain or an alias domain of this server. A
+     * standalone admin must not use such a domain: its address would
      * collide with a mailbox that has its own password.
      */
     public static function isHostedDomain(string $domain): bool

@@ -22,7 +22,7 @@ class Settings
     public readonly string $backend;
     public readonly string $secretKey;
 
-    // iRedAdmin database settings (for activity logging + panel_settings)
+    // iredadmin database settings (for activity logging + panel_settings)
     public readonly bool $activityLoggingEnabled;
     public readonly string $iredadminDbHost;
     public readonly int $iredadminDbPort;
@@ -221,7 +221,7 @@ class Settings
         // Integration DB default port based on backend
         $defaultDbPort = $this->backend === 'pgsql' ? 5432 : 3306;
 
-        // iRedAdmin database (optional, for activity logging)
+        // iredadmin database (optional, for activity logging)
         $this->activityLoggingEnabled = $this->envBool('IREDPANEL_ACTIVITY_LOGGING_ENABLED', true);
         $this->iredadminDbHost = $this->env('IREDPANEL_IREDADMIN_DB_HOST', '');
         $this->iredadminDbPort = $this->envInt('IREDPANEL_IREDADMIN_DB_PORT', $defaultDbPort);

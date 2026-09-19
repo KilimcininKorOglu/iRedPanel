@@ -13,7 +13,7 @@ class AmavisdAddressTest extends TestCase
     /** @return array<string, array{string, ?string}> */
     public static function addresses(): array
     {
-        // The expected types follow the doctests of iRedAdmin is_valid_amavisd_address.
+        // The expected types follow the is_valid_amavisd_address doctests.
         return [
             'email' => ['user@domain.com', 'email'],
             'domain' => ['@domain.com', 'domain'],
@@ -52,7 +52,7 @@ class AmavisdAddressTest extends TestCase
 
     public function testWblistRejectsAWildcardIp(): void
     {
-        // iRedAdmin get_wblist_address_type has no wildcard IP format.
+        // get_wblist_address_type has no wildcard IP format.
         $this->assertTrue(AmavisdAddress::isValidAccount('192.168.1.*'));
         $this->assertFalse(AmavisdAddress::isValidWblistAddress('192.168.1.*'));
     }

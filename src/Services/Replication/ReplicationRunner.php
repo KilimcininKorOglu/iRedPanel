@@ -137,7 +137,7 @@ final class ReplicationRunner
         $result->count($action->type);
         if (in_array($action->type, self::LOGGED_ACTIONS, true)) {
             ActivityLogger::log(
-                // iRedAdmin logs a rename as an update.
+                // A rename is logged as an update.
                 $action->type === ReplicationAction::RENAME ? 'update' : $action->type,
                 $resource->domain,
                 $action->address(),

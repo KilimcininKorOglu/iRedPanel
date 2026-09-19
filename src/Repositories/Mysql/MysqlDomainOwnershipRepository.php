@@ -85,7 +85,7 @@ class MysqlDomainOwnershipRepository implements DomainOwnershipRepositoryInterfa
     {
         $pdo = IredadminConnection::getInstance()->getPdo();
         if ($pdo === null) {
-            throw new BackendConnectionException('iRedAdmin database not available');
+            throw new BackendConnectionException('iredadmin database not available');
         }
         return $pdo;
     }

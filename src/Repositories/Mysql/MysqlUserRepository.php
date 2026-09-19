@@ -391,7 +391,7 @@ class MysqlUserRepository implements UserRepositoryInterface
             );
             $stmt->execute(['admin' => $adminEmail, 'deleteDate' => $deleteDate, 'username' => $username, 'domain' => $domain]);
 
-            // Delete every row that holds the address, as iRedAdmin delete_users() does
+            // Delete every row that holds the address
             foreach (self::ADDRESS_COLUMNS_ON_DELETE as $table => $columns) {
                 foreach ($columns as $column) {
                     $pdo->prepare("DELETE FROM {$table} WHERE {$column} = :username")

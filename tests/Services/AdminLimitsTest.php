@@ -31,7 +31,7 @@ class AdminLimitsTest extends TestCase
     }
 
     /**
-     * A zero limit allows nothing, as in iRedAdmin-Pro.
+     * A zero limit allows nothing.
      */
     public function testZeroLimitAllowsNothing(): void
     {

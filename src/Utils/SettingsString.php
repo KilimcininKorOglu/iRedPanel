@@ -6,7 +6,7 @@ namespace App\Utils;
 
 /**
  * The "key:value;key:value;" format of the iRedMail settings columns (admin.settings,
- * mailbox.settings, domain.settings), as iRedAdmin reads and writes it.
+ * mailbox.settings, domain.settings).
  */
 final class SettingsString
 {

@@ -10,8 +10,8 @@ use App\Repositories\Mysql\IredadminConnection;
 use App\Repositories\Pgsql\IredadminPgsqlConnection;
 
 /**
- * Pending newsletter subscribe/unsubscribe requests in the iRedAdmin table
- * `newsletter_subunsub_confirms`, which iRedAdmin's cleanup job also purges.
+ * Pending newsletter subscribe/unsubscribe requests in the iredadmin table
+ * `newsletter_subunsub_confirms`.
  */
 class NewsletterConfirmations
 {
@@ -116,7 +116,7 @@ class NewsletterConfirmations
             ? IredadminPgsqlConnection::getInstance()->getPdo()
             : IredadminConnection::getInstance()->getPdo();
         if ($pdo === null) {
-            throw new BackendConnectionException('iRedAdmin database not available');
+            throw new BackendConnectionException('iredadmin database not available');
         }
 
         return $pdo;

@@ -66,7 +66,7 @@ class UserTest extends TestCase
     }
 
     /**
-     * A new mailbox takes the disabled mail services of its domain, as iRedAdmin creates it.
+     * A new mailbox takes the disabled mail services of its domain.
      * The web create form posts no toggles, so without this call every service was off.
      */
     public function testNewMailboxServicesFollowTheDomain(): void

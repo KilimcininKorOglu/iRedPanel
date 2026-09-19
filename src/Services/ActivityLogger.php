@@ -22,8 +22,8 @@ class ActivityLogger
     }
 
     /**
-     * Event name that iRedAdmin writes for an "enable" action. The log table is
-     * shared with iRedAdmin, so the panel writes the same name.
+     * Event name of an "enable" action. The log table is shared with other admin
+     * tools, so the panel writes the name that they already read.
      */
     public const EVENT_ENABLE = 'active';
 

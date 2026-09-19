@@ -32,7 +32,7 @@ class Admin
     ) {}
 
     /**
-     * Permission toggle => SQL settings key and LDAP disabledService value, as in iRedAdmin.
+     * Permission toggle => SQL settings key and LDAP disabledService value.
      * A toggle closes an Amavisd page for a domain admin; it never binds a global admin.
      */
     public const PERMISSIONS = [
@@ -173,9 +173,9 @@ class Admin
     ];
 
     /**
-     * Returns the SQL settings in the iRedAdmin form. An unlimited (-1) limit is not written,
-     * because iRedAdmin reads -1 as "not allowed". iRedAdmin reads create_new_domains
-     * from the presence of the key, so it is written only when domain creation is allowed.
+     * Returns the SQL settings in the stored form. An unlimited (-1) limit is not written,
+     * because the reader takes -1 as "not allowed". create_new_domains is read from the
+     * presence of the key, so it is written only when domain creation is allowed.
      *
      * @return array<string, string>
      */
@@ -200,7 +200,7 @@ class Admin
     }
 
     /**
-     * Returns the settings as LDAP accountSetting values in the iRedAdmin "key:value" form.
+     * Returns the settings as LDAP accountSetting values in the "key:value" form.
      *
      * @return string[]
      */
@@ -236,7 +236,7 @@ class Admin
 
     /**
      * Returns the settings column of the admin with the panel keys written over the stored
-     * value. A JSON value that an older panel version wrote becomes the iRedAdmin form.
+     * value. A JSON value that an older panel version wrote becomes the "key:value;" form.
      */
     public function mergedSettings(string $stored): string
     {
@@ -257,7 +257,7 @@ class Admin
         foreach (array_keys(self::LIMIT_LABELS) as $field) {
             $this->{$field} = (int) ($settings[self::settingKey($field)] ?? -1);
         }
-        // iRedAdmin allows domain creation when the key is present; an older panel version
+        // Domain creation is allowed when the key is present; an older panel version
         // also wrote "no" or false, which filter_var() reads as false.
         $this->createNewDomains = filter_var($settings['create_new_domains'] ?? false, FILTER_VALIDATE_BOOLEAN);
         foreach (self::PERMISSIONS as $toggle => [$key]) {

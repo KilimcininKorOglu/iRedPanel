@@ -27,7 +27,7 @@ class KeepMailboxDaysTest extends TestCase
     }
 
     /**
-     * As in iRedAdmin, only a global admin keeps a mailbox forever or longer than a year.
+     * Only a global admin keeps a mailbox forever or longer than a year.
      */
     public function testDomainAdminChoosesFromItsDays(): void
     {

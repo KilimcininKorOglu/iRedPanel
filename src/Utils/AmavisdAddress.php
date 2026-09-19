@@ -6,12 +6,11 @@ namespace App\Utils;
 
 /**
  * Address formats that Amavisd (users, mailaddr) and the iRedAPD
- * amavisd_wblist plugin accept, with the same rules as iRedAdmin
- * (libs/iredutils.py is_valid_amavisd_address, get_wblist_address_type).
+ * amavisd_wblist plugin accept.
  */
 class AmavisdAddress
 {
-    // Without the u modifier \w matches ASCII only, as in iRedAdmin (re.ASCII).
+    // Without the u modifier \w matches ASCII only.
     // D stops $ from accepting a trailing newline.
     private const EMAIL = '/^[\w\-#][\w\-.+=\/&#]*@[\w\-][\w\-.]*\.[a-z0-9\-]{2,25}$/iD';
     private const DOMAIN = '/^[\w\-][\w\-.]*\.[a-z0-9\-]{2,25}$/iD';
@@ -25,8 +24,7 @@ class AmavisdAddress
     ];
 
     /**
-     * Amavisd and iRedAPD sort matching rows by this priority, highest first
-     * (iRedAdmin MAILADDR_PRIORITIES).
+     * Amavisd and iRedAPD sort matching rows by this priority, highest first.
      */
     private const PRIORITIES = [
         'email' => 10,

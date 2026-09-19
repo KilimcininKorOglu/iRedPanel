@@ -148,7 +148,7 @@ class LdapAdminRepository implements AdminRepositoryInterface
     {
         $conn = self::conn();
         LdapUtils::addValues($conn, LdapUtils::getDomainDn($domain), 'domainAdmin', [strtolower($adminUsername)]);
-        // iRedAdmin marks a mailbox that administers a domain with this service.
+        // A mailbox that administers a domain is marked with this service.
         $mailbox = self::mailboxEntry($conn, $adminUsername);
         if ($mailbox !== null) {
             LdapUtils::addValues($conn, $mailbox['dn'], 'enabledService', [self::DOMAIN_ADMIN_SERVICE]);

@@ -7,8 +7,8 @@ namespace App\Repositories;
 use App\Models\Admin;
 
 /**
- * Admin settings of the vmail database, for MySQL and PostgreSQL. iRedAdmin keeps the
- * settings of a standalone admin in admin.settings and of a mailbox admin in
+ * Admin settings of the vmail database, for MySQL and PostgreSQL. The
+ * settings of a standalone admin live in admin.settings and of a mailbox admin in
  * mailbox.settings, both in the "key:value;" form.
  */
 final class SqlAdminSettings

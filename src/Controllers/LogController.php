@@ -60,7 +60,7 @@ class LogController
         }
 
         if ($filterEvent === ActivityLogger::EVENT_ENABLE) {
-            // Earlier panel versions wrote "enable" instead of iRedAdmin's "active".
+            // Earlier panel versions wrote "enable" instead of the "active" that the shared log table holds.
             $where .= " AND event IN ('active', 'enable')";
         } elseif ($filterEvent !== '') {
             $where .= ' AND event = :event';

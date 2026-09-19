@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace App\Services;
 
 /**
- * Releases a quarantined message through the Amavisd AM.PDP protocol, as
- * iRedAdmin does. Amavisd serves the protocol on a TCP port (9998 in
+ * Releases a quarantined message through the Amavisd AM.PDP protocol.
+ * Amavisd serves the protocol on a TCP port (9998 in
  * iRedMail), so the panel does not need the amavisd-release command.
  *
  * See "Releasing a message from a quarantine" in Amavisd README.protocol.

@@ -5,8 +5,7 @@ declare(strict_types=1);
 namespace App\Models;
 
 /**
- * Maps the LDAP domain attribute accountSetting ("key:value" values, the keys that
- * iRedAdmin uses) to the Domain limits and the DomainSettings of Domain::$settings.
+ * Maps the LDAP domain attribute accountSetting ("key:value" values) to the Domain limits and the DomainSettings of Domain::$settings.
  * Values of other keys are kept on write.
  */
 final class LdapAccountSetting
@@ -95,7 +94,7 @@ final class LdapAccountSetting
     }
 
     /**
-     * Returns the items of a key that has one value per item, lowercased as iRedAdmin reads them.
+     * Returns the items of a key that has one value per item, lowercased as the reader expects them.
      *
      * @param string[] $values
      * @return list<string>

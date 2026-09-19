@@ -170,7 +170,7 @@ class LdapDomainRepository implements DomainRepositoryInterface
 
     /**
      * Returns the enabledService values of the domain entry. The settings of a domain read from
-     * LDAP hold every stored value; a new domain always gets "mail", as iRedAdmin creates it.
+     * LDAP hold every stored value; a new domain always gets "mail".
      *
      * @return list<string>
      */

@@ -14,7 +14,7 @@ class MysqlSpamPolicyRepository implements SpamPolicyRepositoryInterface
     {
         $pdo = AmavisdConnection::getInstance()->getPdo();
 
-        // As iRedAdmin does, an account's own policy is the one named after it.
+        // An account's own policy is the one named after it.
         // users.policy_id is not usable: it defaults to 1 (the global policy)
         // for rows that white/blacklist entries created.
         $stmt = $pdo->prepare("SELECT * FROM policy WHERE policy_name = :account LIMIT 1");
@@ -58,7 +58,7 @@ class MysqlSpamPolicyRepository implements SpamPolicyRepositoryInterface
     {
         $pdo = AmavisdConnection::getInstance()->getPdo();
 
-        // As iRedAdmin does: the account's own policy carries its name, and the
+        // The account's own policy carries its name, and the
         // users row stays because white/blacklist entries refer to it.
         // users.policy_id is NOT NULL, so it keeps the old ID, and Amavisd
         // falls through to the next lookup.

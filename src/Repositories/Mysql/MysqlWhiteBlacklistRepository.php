@@ -71,7 +71,7 @@ class MysqlWhiteBlacklistRepository implements WhiteBlacklistRepositoryInterface
 
     /**
      * Returns the row ID of an address in users or mailaddr, with the
-     * priority that iRedAdmin gives its address format.
+     * priority of its address format.
      */
     private function getOrCreateAddressId(string $table, string $email): int
     {
@@ -88,7 +88,7 @@ class MysqlWhiteBlacklistRepository implements WhiteBlacklistRepositoryInterface
             return (int) $pdo->lastInsertId();
         }
         if ((int) $row['priority'] !== $priority) {
-            // Earlier panel versions wrote priorities that differ from iRedAdmin.
+            // Earlier panel versions wrote other priorities.
             $pdo->prepare("UPDATE {$table} SET priority = :priority WHERE id = :id")
                 ->execute(['priority' => $priority, 'id' => $row['id']]);
         }

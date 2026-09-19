@@ -14,7 +14,7 @@ use App\Utils\WholeNumber;
  */
 class DomainSettings
 {
-    /** settings key => list property; the items are stored comma-separated, as iRedAdmin does. */
+    /** settings key => list property; the items are stored comma-separated. */
     private const LIST_KEYS = [
         'disabled_mail_services' => 'disabledMailServices',
         'disabled_domain_profiles' => 'disabledDomainProfiles',
@@ -29,7 +29,7 @@ class DomainSettings
         public int $maxPasswordLength = 0,
         public string $disclaimer = '',
         public array $disabledMailServices = [],
-        /** @var array<string, string> keys that the panel does not manage (iRedAdmin), kept on write */
+        /** @var array<string, string> keys that the panel does not manage, kept on write */
         public array $otherKeys = [],
         /** @var list<string> ProfileToggles::DOMAIN_PROFILES items closed for domain admins */
         public array $disabledDomainProfiles = [],

@@ -26,7 +26,7 @@ class LdapAccountSettingTest extends TestCase
     }
 
     /**
-     * The Settings tab used to show 0 for a domain with iRedAdmin's defaultQuota and
+     * The Settings tab used to show 0 for a domain with the stored defaultQuota and
      * minPasswordLength, and a save did not reach LDAP.
      */
     public function testDomainSettingsUseTheIredadminKeys(): void
@@ -47,7 +47,7 @@ class LdapAccountSettingTest extends TestCase
     }
 
     /**
-     * iRedAdmin stores one accountSetting value per disabled service ("disabledMailService:imap").
+     * One accountSetting value is stored per disabled service ("disabledMailService:imap").
      */
     public function testDisabledMailServicesUseOneValuePerService(): void
     {
@@ -63,7 +63,7 @@ class LdapAccountSettingTest extends TestCase
     }
 
     /**
-     * The page toggles use the iRedAdmin keys with one value per item; self-service is a value
+     * The page toggles use the stored keys with one value per item; self-service is a value
      * of the domain attribute enabledService.
      */
     public function testPageTogglesUseOneValuePerItem(): void

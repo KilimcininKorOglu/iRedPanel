@@ -189,7 +189,7 @@ class MysqlDomainRepository implements DomainRepositoryInterface
             );
             $stmt->execute(['admin' => $adminEmail, 'deleteDate' => $deleteDate, 'domain' => $domainName]);
 
-            // Delete from every table with a domain column, as iRedAdmin delete_domains() does
+            // Delete from every table with a domain column
             foreach (self::DOMAIN_TABLES_ON_DELETE as $table) {
                 $stmt = $pdo->prepare("DELETE FROM {$table} WHERE domain = :domain");
                 $stmt->execute(['domain' => $domainName]);

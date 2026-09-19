@@ -202,7 +202,7 @@ class AdminTest extends TestCase
     }
 
     /**
-     * iRedAdmin reads -1 as "not allowed" and allows domain creation when the key is
+     * The reader takes -1 as "not allowed" and allows domain creation when the key is
      * present, so an unlimited limit and a forbidden domain creation are not written.
      */
     public function testSettingValuesUseTheIredadminForm(): void
@@ -215,7 +215,7 @@ class AdminTest extends TestCase
     }
 
     /**
-     * A save keeps the keys that iRedAdmin wrote and replaces the panel keys, also the
+     * A save keeps the keys that another tool wrote and replaces the panel keys, also the
      * ones that are unlimited now.
      */
     public function testMergedSettingsKeepOtherKeys(): void
@@ -227,7 +227,7 @@ class AdminTest extends TestCase
     }
 
     /**
-     * An older panel version stored JSON, which iRedAdmin cannot parse.
+     * An older panel version stored JSON, which the "key:value;" reader cannot parse.
      */
     public function testMergedSettingsConvertsLegacyJson(): void
     {
@@ -239,7 +239,7 @@ class AdminTest extends TestCase
     }
 
     /**
-     * iRedAdmin writes create_new_domains:yes; an older panel version also wrote "no".
+     * The stored form is create_new_domains:yes; an older panel version also wrote "no".
      */
     public function testDomainCreationFollowsTheStoredKey(): void
     {
@@ -249,7 +249,7 @@ class AdminTest extends TestCase
     }
 
     /**
-     * iRedAdmin reads the toggles from the SQL settings ("yes") and from the LDAP
+     * The toggles are read from the SQL settings ("yes") and from the LDAP
      * disabledService values; LDAP keeps them out of accountSetting.
      */
     public function testPermissionTogglesFollowTheBackendForm(): void

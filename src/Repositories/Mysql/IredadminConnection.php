@@ -8,7 +8,7 @@ use App\Exceptions\BackendConnectionException;
 use App\Models\Settings;
 
 /**
- * PDO connection singleton for the iRedAdmin database (activity logging).
+ * PDO connection singleton for the iredadmin database (activity logging).
  * This is separate from MysqlConnection which connects to the vmail database.
  */
 class IredadminConnection
@@ -53,12 +53,12 @@ class IredadminConnection
     }
 
     /**
-     * @throws BackendConnectionException when the iRedAdmin database is not configured or not reachable
+     * @throws BackendConnectionException when the iredadmin database is not configured or not reachable
      */
     public function requirePdo(): \PDO
     {
         if ($this->pdo === null) {
-            throw new BackendConnectionException('iRedAdmin database not available');
+            throw new BackendConnectionException('iredadmin database not available');
         }
         return $this->pdo;
     }

@@ -24,7 +24,7 @@ class DomainSettingsTest extends TestCase
     }
 
     /**
-     * iRedAdmin stores more keys in domain.settings (default_language, timezone, ...).
+     * Other tools store more keys in domain.settings (default_language, timezone, ...).
      * A save from the settings tab used to delete them.
      */
     public function testSaveKeepsTheKeysOfOtherTools(): void
@@ -39,7 +39,7 @@ class DomainSettingsTest extends TestCase
     }
 
     /**
-     * The page toggles use the iRedAdmin keys; self-service is an item of enabled_services,
+     * The page toggles use the stored keys; self-service is an item of enabled_services,
      * and the other items of that list stay when the form turns self-service on or off.
      */
     public function testPageTogglesUseTheIredadminKeys(): void

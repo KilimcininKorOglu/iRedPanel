@@ -18,7 +18,7 @@ class UserPasswordHashTest extends TestCase
     }
 
     /**
-     * The admin gives either the password or its hash, as in iRedAdmin.
+     * The admin gives either the password or its hash.
      */
     public function testPasswordAndHashTogetherAreRefused(): void
     {

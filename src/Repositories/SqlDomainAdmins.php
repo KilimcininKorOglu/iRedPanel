@@ -6,8 +6,8 @@ namespace App\Repositories;
 
 /**
  * Domain admin rows of the vmail database, for MySQL and PostgreSQL. A mailbox that
- * administers a domain carries mailbox.isadmin=1 and a domain_admins row per domain,
- * as iRedAdmin writes them; a standalone admin has only the domain_admins rows.
+ * administers a domain carries mailbox.isadmin=1 and a domain_admins row per domain;
+ * a standalone admin has only the domain_admins rows.
  */
 final class SqlDomainAdmins
 {

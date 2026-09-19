@@ -18,7 +18,9 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/bootstrap.php';
 
+use App\Exceptions\MailDeliveryException;
 use App\Models\Settings;
+use App\Services\Mailer;
 
 $forceAll = in_array('--force-all', $argv ?? [], true);
 $settings = Settings::getInstance();
@@ -28,22 +30,26 @@ if (!$settings->amavisdEnabled) {
     exit(1);
 }
 
-// Get vmail DB connection
-$vmailPdo = getVmailPdo($settings);
-if ($vmailPdo === null) {
-    echo "Cannot connect to vmail database.\n";
+if (!in_array($settings->backend, ['mysql', 'pgsql'], true)) {
+    echo "This tool supports only the mysql and pgsql backends.\n";
     exit(1);
 }
 
-// Get amavisd DB connection
-$amavisdPdo = getAmavisdPdo($settings);
-if ($amavisdPdo === null) {
-    echo "Cannot connect to amavisd database.\n";
+try {
+    $vmailPdo = getVmailPdo($settings);
+    $amavisdPdo = getAmavisdPdo($settings);
+    // Optional: without it every run reports all quarantined mail again.
+    $iredadminPdo = getIredadminPdo($settings);
+    $mailer = Mailer::fromSettings();
+} catch (\Exception $e) {
+    fwrite(STDERR, $e->getMessage() . "\n");
     exit(1);
 }
 
-// Get iredadmin DB connection for tracking
-$iredadminPdo = getIredadminPdo($settings);
+if ($vmailPdo === null || $amavisdPdo === null) {
+    fwrite(STDERR, "Cannot connect to the vmail or amavisd database.\n");
+    exit(1);
+}
 
 // Get last notification time
 $lastNotifyTime = 0;
@@ -81,6 +87,7 @@ if (empty($users)) {
 echo "Found " . count($users) . " users to check.\n";
 
 $notified = 0;
+$failed = 0;
 $quarDays = $settings->amavisdRemoveQuarantinedInDays;
 
 foreach ($users as $userEmail) {
@@ -115,17 +122,16 @@ foreach ($users as $userEmail) {
     // Build notification email
     $body = buildNotificationBody($userEmail, $messages, $quarDays);
 
-    $subject = "Quarantine notification: " . count($messages) . " message(s)";
-    $headers = "From: postmaster@" . explode('@', $userEmail, 2)[1] . "\r\n";
-    $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
-    $headers .= "X-Mailer: iRedPanel Quarantine Notifier\r\n";
-
     $msgCount = count($messages);
-    if (@mail($userEmail, $subject, $body, $headers)) {
+    $subject = "Quarantine notification: {$msgCount} message(s)";
+
+    try {
+        $mailer->send($userEmail, $subject, $body, true);
         echo "  Notified: {$userEmail} ({$msgCount} messages)\n";
         $notified++;
-    } else {
-        echo "  Failed: {$userEmail}\n";
+    } catch (MailDeliveryException $e) {
+        echo "  Failed: {$userEmail}: {$e->getMessage()}\n";
+        $failed++;
     }
 }
 
@@ -144,7 +150,8 @@ if ($iredadminPdo !== null && $notified > 0) {
     }
 }
 
-echo "\nDone: {$notified} users notified.\n";
+echo "\nDone: {$notified} users notified, {$failed} failed.\n";
+exit($failed > 0 ? 1 : 0);
 
 // --- Helper functions ---
 
@@ -180,41 +187,21 @@ function buildNotificationBody(string $userEmail, array $messages, int $quarDays
 
 function getVmailPdo(Settings $settings): ?\PDO
 {
-    try {
-        if ($settings->backend === 'pgsql') {
-            return \App\Repositories\Pgsql\PgsqlConnection::getInstance()->getPdo();
-        }
-        if ($settings->backend === 'mysql') {
-            return \App\Repositories\Mysql\MysqlConnection::getInstance()->getPdo();
-        }
-    } catch (\Exception $e) {
-        // Connection failed
-    }
-    return null;
+    return $settings->backend === 'pgsql'
+        ? \App\Repositories\Pgsql\PgsqlConnection::getInstance()->getPdo()
+        : \App\Repositories\Mysql\MysqlConnection::getInstance()->getPdo();
 }
 
 function getAmavisdPdo(Settings $settings): ?\PDO
 {
-    try {
-        if ($settings->backend === 'pgsql') {
-            return \App\Repositories\Pgsql\AmavisdPgsqlConnection::getInstance()->getPdo();
-        }
-        return \App\Repositories\Mysql\AmavisdConnection::getInstance()->getPdo();
-    } catch (\Exception $e) {
-        // Connection failed
-    }
-    return null;
+    return $settings->backend === 'pgsql'
+        ? \App\Repositories\Pgsql\AmavisdPgsqlConnection::getInstance()->getPdo()
+        : \App\Repositories\Mysql\AmavisdConnection::getInstance()->getPdo();
 }
 
 function getIredadminPdo(Settings $settings): ?\PDO
 {
-    try {
-        if ($settings->backend === 'pgsql') {
-            return \App\Repositories\Pgsql\IredadminPgsqlConnection::getInstance()->getPdo();
-        }
-        return \App\Repositories\Mysql\IredadminConnection::getInstance()->getPdo();
-    } catch (\Exception $e) {
-        // Connection failed
-    }
-    return null;
+    return $settings->backend === 'pgsql'
+        ? \App\Repositories\Pgsql\IredadminPgsqlConnection::getInstance()->getPdo()
+        : \App\Repositories\Mysql\IredadminConnection::getInstance()->getPdo();
 }

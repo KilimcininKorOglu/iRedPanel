@@ -224,8 +224,8 @@ class LdapAdminRepository implements AdminRepositoryInterface
             $users = RepositoryFactory::getUserRepository()->getUsersPaginated($domainName, 1, PHP_INT_MAX)->items;
             $counts['users'] += count($users);
             $counts['quotaMb'] += array_sum(array_map(static fn ($user): int => $user->mailQuota, $users));
-            $counts['aliases'] += RepositoryFactory::getAliasRepository()->getAliasesPaginated(1, 1, $domainName)->total;
-            $counts['lists'] += RepositoryFactory::getMailingListRepository()->getMailingListsPaginated(1, 1, $domainName)->total;
+            $counts['aliases'] += RepositoryFactory::getAliasRepository()->getAliasesPaginated(1, 1, $domainName)->totalCount;
+            $counts['lists'] += RepositoryFactory::getMailingListRepository()->getMailingListsPaginated(1, 1, $domainName)->totalCount;
         }
 
         return $counts;

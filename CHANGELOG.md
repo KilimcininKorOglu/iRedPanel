@@ -41,6 +41,7 @@ All notable changes to this project will be documented in this file.
 - A domain API key can set the fields of these pages with `PUT /api/v1/domains/{domain}`, and a closed domain or user page answers 403 for a domain key
 
 ### Fixed
+- LDAP: the alias and mailing list counts of an admin were always 0, because they read a property that the page result does not have
 - LDAP: the stored language of an admin (`preferredLanguage`) was never read, so a login did not apply it
 - Admin creation limits were stored as JSON, which iRedAdmin cannot read, and a save replaced the other settings of the admin. They are now stored in the iRedAdmin form (`create_max_users:10;`, `create_new_domains:yes`), the other settings stay, an unlimited value is not written, and the limits of a mailbox admin go to `mailbox.settings` instead of the `admin` table. Stored JSON is still read and is converted on the next save
 - `composer install` failed on PHP 8.1 to 8.3, because PHPUnit 13 needs PHP 8.4.1 and `composer.lock` is not tracked; PHPUnit 10.5 to 13 is now accepted

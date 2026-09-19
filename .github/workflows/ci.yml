@@ -27,7 +27,8 @@ jobs:
           tools: composer:v2
 
       - name: Validate composer.json
-        run: composer validate --no-check-publish --strict
+        # The version field is intentional: APP_VERSION is read from it.
+        run: composer validate --no-check-publish --no-check-version --strict
 
       - name: Install dependencies
         run: composer install --prefer-dist --no-progress --no-interaction

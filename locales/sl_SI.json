@@ -120,7 +120,9 @@
     "type_alias": "Vzdevek",
     "type_ml": "Poštni seznam",
     "msg_invalid_domain": "Neveljavna domena: :domain",
-    "help": "Pomoč"
+    "help": "Pomoč",
+    "description_help": "Prosta opomba za skrbnike. Na dostavo ne vpliva.",
+    "active_help": "Izklopljeno: račun ostane shranjen, vendar poštni strežnik njegovo pošto zavrne in prijava ni mogoča."
   },
   "auth": {
     "title": "Preverjanje pristnosti",
@@ -663,7 +665,6 @@
     "catchall_desc": "Naslov za prestrezanje vse pošte prejema vso e-pošto, poslano na neobstoječe naslove pod to domeno.",
     "forward_to": "Posreduj na e-poštni naslov",
     "catchall_placeholder": "Pustite prazno za onemogočenje prestrezanja vse pošte",
-    "catchall_remove_hint": "Pustite prazno in shranite za odstranitev naslova za prestrezanje vse pošte.",
     "save_catchall": "Shrani prestrezanje vse pošte",
     "bcc_settings": "Nastavitve BCC",
     "bcc_desc": "BCC kopije vseh poslanih ali prejetih e-poštnih sporočil na navedene naslove.",
@@ -693,7 +694,6 @@
     "pref_received": "Prejeta pošta",
     "self_service": "Samopostrežba",
     "self_service_enable": "Uporabniki te domene se lahko prijavijo in upravljajo lastne nastavitve",
-    "disabled_preferences_help": "Uporabniki ne morejo spremeniti označenih nastavitev.",
     "disabled_domain_profiles": "Strani domene, zaprte za skrbnike domene",
     "disabled_domain_profiles_help": "Skrbniki domene ne morejo odpreti označenih strani te domene.",
     "disabled_user_profiles": "Strani uporabnika, zaprte za skrbnike domene",
@@ -711,7 +711,26 @@
     "msg_admin_removed": ":address je odstranjen iz skrbnikov domene",
     "msg_admin_unknown": "Skrbnik ali predal z naslovom :address ne obstaja",
     "msg_admin_not_allowed": "Skrbnik domene lahko dodaja ali odstranjuje samo predale svojih domen: :address",
-    "msg_admin_self": "Sebe ne morete odstraniti iz skrbnikov domene"
+    "msg_admin_self": "Sebe ne morete odstraniti iz skrbnikov domene",
+    "domain_name_help": "Del za @ vsakega naslova te domene, na primer example.com. Kasneje ga ni mogoče spremeniti; napačno ime je treba izbrisati in ustvariti znova.",
+    "max_quota_help": "Največja kvota, ki jo sme imeti en poštni predal te domene, v MB. Ustvarjanje ali sprememba kvote nad njo se zavrne. 0 pomeni brez omejitve.",
+    "domain_quota_help": "Vsota kvot poštnih predalov domene, v MB. Nov predal se zavrne, če bi jo vsota presegla. 0 pomeni brez omejitve.",
+    "max_mailboxes_help": "Koliko poštnih predalov sme imeti domena. Ustvarjanje nad tem se zavrne. 0 pomeni brez omejitve.",
+    "max_aliases_help": "Koliko poštnih aliasov sme imeti domena. 0 pomeni brez omejitve.",
+    "max_lists_help": "Koliko dopisnih seznamov sme imeti domena. 0 pomeni brez omejitve.",
+    "transport_help": "Kako Postfix dostavlja pošto te domene. dovecot je krajevna dostava. Spremenite le, ko je drugi transport nastavljen v Postfixu.",
+    "backup_mx_enable_help": "Vklopljeno: ta strežnik sprejme pošto domene in jo posreduje primarnemu MX. Domena tu ne hrani predala.",
+    "primary_mx_help": "Strežnik, ki prejme posredovano pošto, na primer [mx1.example.com]:25. Oglati oklepaji ustavijo iskanje MX. Prazno: Postfix uporabi zapise MX domene.",
+    "default_user_quota_help": "Kvota, ki jo predlaga obrazec za ustvarjanje novega predala, v MB. 0 uporabi globalno vrednost. Obstoječega predala ne spremeni.",
+    "min_password_length_help": "Najkrajše geslo za poštne predale te domene. 0 uporabi nastavitev panela, vrednost pod najmanjšo vrednostjo panela pa se zavrne.",
+    "max_password_length_help": "Najdaljše geslo za poštne predale te domene. 0 pomeni brez omejitve.",
+    "self_service_help": "Uporabnik predala te domene se prijavi na isti strani in upravlja svoje nastavitve. Označenih nastavitev ne more spreminjati.",
+    "self_service_enable_help": "Izklopljeno: prijavi se lahko samo skrbnik; uporabnik predala te domene ne.",
+    "disclaimer_text_help": "Besedilo, ki ga poštni strežnik doda odhodni pošti te domene. Panel ga shrani, datoteke pa napiše skript disclaimer poštnega strežnika.",
+    "forward_to_help": "Naslov, ki prejme vso pošto, poslano na neobstoječi naslov te domene. Prazno in shranjeno: catch-all se odstrani in taka pošta se zavrne.",
+    "sender_bcc_help": "Vsa pošta, ki jo ta domena pošlje, gre tudi na ta naslov. Pošiljatelj kopije ne vidi.",
+    "recipient_bcc_help": "Vsa pošta, ki jo ta domena prejme, gre tudi na ta naslov. Pošiljatelj kopije ne vidi.",
+    "relay_host_help": "Odhodna pošta te domene gre na ta strežnik namesto neposredne dostave. Prazno: Postfix dostavi sam."
   },
   "admin": {
     "msg_email_required": "Zahtevan je veljaven e-poštni naslov",
@@ -811,7 +830,9 @@
     "alias_domain_name": "Ime domene vzdevka",
     "select_target": "-- Izberi ciljno domeno --",
     "msg_is_mail_domain": "Domena :alias je poštna domena in ne more biti domena vzdevka",
-    "msg_target_not_found": "Ciljna domena :domain ne obstaja"
+    "msg_target_not_found": "Ciljna domena :domain ne obstaja",
+    "alias_domain_name_help": "Pošta na to domeno se dostavi istemu krajevnemu delu v ciljni domeni. Alias domena nima svojih predalov.",
+    "target_domain_help": "Poštna domena, ki prejme pošto alias domene."
   },
   "domainownership": {
     "title": "Preverjanje lastništva domene",

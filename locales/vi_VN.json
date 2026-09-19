@@ -120,7 +120,9 @@
     "type_alias": "Bí danh",
     "type_ml": "Danh sách thư",
     "msg_invalid_domain": "Domain không hợp lệ: :domain",
-    "help": "Trợ giúp"
+    "help": "Trợ giúp",
+    "description_help": "Ghi chú tự do cho các quản trị viên. Không ảnh hưởng đến việc gửi thư.",
+    "active_help": "Tắt: tài khoản vẫn được lưu, nhưng máy chủ thư từ chối thư của nó và nó không đăng nhập được."
   },
   "auth": {
     "title": "Xác thực",
@@ -663,7 +665,6 @@
     "catchall_desc": "Địa chỉ catch-all nhận tất cả email gửi đến các địa chỉ không tồn tại trong tên miền này.",
     "forward_to": "Chuyển tiếp đến địa chỉ email",
     "catchall_placeholder": "Để trống để tắt catch-all",
-    "catchall_remove_hint": "Để trống và lưu để gỡ bỏ địa chỉ catch-all.",
     "save_catchall": "Lưu catch-all",
     "bcc_settings": "Cài đặt BCC",
     "bcc_desc": "Gửi bản sao BCC của tất cả email đã gửi hoặc nhận đến các địa chỉ chỉ định.",
@@ -693,7 +694,6 @@
     "pref_received": "Thư đã nhận",
     "self_service": "Tự phục vụ",
     "self_service_enable": "Người dùng của domain này có thể đăng nhập để quản lý thiết lập của mình",
-    "disabled_preferences_help": "Người dùng không thể thay đổi các thiết lập đã chọn.",
     "disabled_domain_profiles": "Trang domain bị đóng với admin domain",
     "disabled_domain_profiles_help": "Admin domain không thể mở các trang đã chọn của domain này.",
     "disabled_user_profiles": "Trang người dùng bị đóng với admin domain",
@@ -711,7 +711,26 @@
     "msg_admin_removed": "Đã xóa :address khỏi quản trị viên của domain",
     "msg_admin_unknown": "Không có quản trị viên hoặc hộp thư nào với địa chỉ :address",
     "msg_admin_not_allowed": "Quản trị viên domain chỉ có thể thêm hoặc xóa hộp thư thuộc các domain của mình: :address",
-    "msg_admin_self": "Bạn không thể tự xóa mình khỏi quản trị viên của domain"
+    "msg_admin_self": "Bạn không thể tự xóa mình khỏi quản trị viên của domain",
+    "domain_name_help": "Phần sau dấu @ của mọi địa chỉ trong domain này, ví dụ example.com. Không đổi được về sau; tên sai phải xóa và tạo lại.",
+    "max_quota_help": "Hạn mức lớn nhất mà một hộp thư của domain này được có, tính bằng MB. Việc tạo hoặc đổi hạn mức vượt mức này bị từ chối. 0 nghĩa là không giới hạn.",
+    "domain_quota_help": "Tổng hạn mức của các hộp thư trong domain, tính bằng MB. Hộp thư mới bị từ chối nếu tổng vượt mức này. 0 nghĩa là không giới hạn.",
+    "max_mailboxes_help": "Số hộp thư mà domain được có. Việc tạo vượt số này bị từ chối. 0 nghĩa là không giới hạn.",
+    "max_aliases_help": "Số mail alias mà domain được có. 0 nghĩa là không giới hạn.",
+    "max_lists_help": "Số mailing list mà domain được có. 0 nghĩa là không giới hạn.",
+    "transport_help": "Cách Postfix gửi thư của domain này. dovecot là gửi nội bộ. Chỉ đổi khi transport kia đã được cấu hình trong Postfix.",
+    "backup_mx_enable_help": "Bật: máy chủ này nhận thư của domain và chuyển tiếp tới MX chính. Domain không giữ hộp thư ở đây.",
+    "primary_mx_help": "Máy chủ nhận thư chuyển tiếp, ví dụ [mx1.example.com]:25. Dấu ngoặc vuông dừng tra cứu MX. Để trống: Postfix dùng bản ghi MX của domain.",
+    "default_user_quota_help": "Hạn mức mà biểu mẫu tạo hộp thư mới đề nghị, tính bằng MB. 0 dùng giá trị chung. Không đổi hộp thư đã có.",
+    "min_password_length_help": "Mật khẩu ngắn nhất cho các hộp thư của domain này. 0 dùng thiết lập của bảng điều khiển, và giá trị dưới mức tối thiểu của bảng điều khiển bị từ chối.",
+    "max_password_length_help": "Mật khẩu dài nhất cho các hộp thư của domain này. 0 nghĩa là không giới hạn.",
+    "self_service_help": "Người dùng hộp thư của domain này đăng nhập ở cùng trang và quản lý thiết lập của chính mình. Các mục được đánh dấu thì người dùng không đổi được.",
+    "self_service_enable_help": "Tắt: chỉ quản trị viên đăng nhập được; người dùng hộp thư của domain này thì không.",
+    "disclaimer_text_help": "Đoạn chữ mà máy chủ thư nối vào thư gửi đi của domain này. Bảng điều khiển lưu đoạn chữ, còn tệp thì script disclaimer của máy chủ thư ghi.",
+    "forward_to_help": "Địa chỉ nhận mọi thư gửi tới một địa chỉ không tồn tại trong domain này. Để trống rồi lưu: catch-all bị gỡ và thư như vậy bị từ chối.",
+    "sender_bcc_help": "Mọi thư domain này gửi cũng tới địa chỉ này. Người gửi không thấy bản sao.",
+    "recipient_bcc_help": "Mọi thư domain này nhận cũng tới địa chỉ này. Người gửi không thấy bản sao.",
+    "relay_host_help": "Thư gửi đi của domain này tới máy chủ này thay vì gửi trực tiếp. Để trống: Postfix tự gửi."
   },
   "admin": {
     "msg_email_required": "Cần địa chỉ email hợp lệ",
@@ -811,7 +830,9 @@
     "alias_domain_name": "Tên miền bí danh",
     "select_target": "-- Chọn tên miền đích --",
     "msg_is_mail_domain": "Tên miền :alias là tên miền thư và không thể là tên miền bí danh",
-    "msg_target_not_found": "Tên miền đích :domain không tồn tại"
+    "msg_target_not_found": "Tên miền đích :domain không tồn tại",
+    "alias_domain_name_help": "Thư gửi tới domain này được chuyển đến cùng local part trong domain đích. Domain alias không giữ hộp thư riêng.",
+    "target_domain_help": "Domain thư nhận thư của domain alias."
   },
   "domainownership": {
     "title": "Xác minh quyền sở hữu tên miền",

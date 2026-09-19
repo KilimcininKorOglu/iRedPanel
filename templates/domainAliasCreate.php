@@ -21,7 +21,7 @@
       <?= $csrfField ?>
       <div class="card-body">
         <div class="mb-3">
-          <label for="aliasDomain" class="form-label"><?= $te('domainalias.alias_domain_name') ?></label>
+          <label for="aliasDomain" class="form-label"><?= $te('domainalias.alias_domain_name') ?></label><?= $help('domainalias.alias_domain_name') ?>
           <input id="aliasDomain" type="text" name="aliasDomain" required placeholder="alias.example.com"
             class="form-control<?= !empty($validationErrors['aliasDomain']) ? ' is-invalid' : '' ?>"
             value="<?= $e($alias?->aliasDomain ?? '') ?>" />
@@ -31,7 +31,7 @@
         </div>
 
         <div class="mb-3">
-          <label for="targetDomain" class="form-label"><?= $te('domainalias.target_domain') ?></label>
+          <label for="targetDomain" class="form-label"><?= $te('domainalias.target_domain') ?></label><?= $help('domainalias.target_domain') ?>
           <select id="targetDomain" name="targetDomain" required class="form-select<?= !empty($validationErrors['targetDomain']) ? ' is-invalid' : '' ?>">
             <option value=""><?= $te('domainalias.select_target') ?></option>
             <?php foreach ($allDomains as $d): ?>
@@ -46,7 +46,7 @@
         <?php if ($supportsStatus): ?>
         <div class="form-check form-switch">
           <input type="checkbox" class="form-check-input" id="active" name="active" <?php if ($alias === null || ($alias->active ?? true)): ?>checked<?php endif; ?> />
-          <label class="form-check-label" for="active"><?= $te('common.active') ?></label>
+          <label class="form-check-label" for="active"><?= $te('common.active') ?></label><?= $help('common.active') ?>
         </div>
         <?php endif; ?>
       </div>

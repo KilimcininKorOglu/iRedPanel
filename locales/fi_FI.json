@@ -120,7 +120,9 @@
     "type_alias": "Alias",
     "type_ml": "Postituslista",
     "msg_invalid_domain": "Virheellinen domain: :domain",
-    "help": "Ohje"
+    "help": "Ohje",
+    "description_help": "Vapaa muistiinpano ylläpitäjille. Se ei vaikuta toimitukseen.",
+    "active_help": "Pois: tili säilyy tallennettuna, mutta postipalvelin hylkää sen postin eikä tili voi kirjautua."
   },
   "auth": {
     "title": "Todennus",
@@ -663,7 +665,6 @@
     "catchall_desc": "Catch-all-osoite vastaanottaa kaikki sähköpostit, jotka lähetetään olemattomiin osoitteisiin tässä verkkotunnuksessa.",
     "forward_to": "Edelleenlähetä sähköpostiosoitteeseen",
     "catchall_placeholder": "Jätä tyhjäksi poistaaksesi catch-all käytöstä",
-    "catchall_remove_hint": "Jätä tyhjäksi ja tallenna poistaaksesi catch-all-osoitteen.",
     "save_catchall": "Tallenna catch-all",
     "bcc_settings": "BCC-asetukset",
     "bcc_desc": "BCC-kopiot kaikista lähetetyistä tai vastaanotetuista sähköposteista määritettyihin osoitteisiin.",
@@ -693,7 +694,6 @@
     "pref_received": "Vastaanotetut viestit",
     "self_service": "Itsepalvelu",
     "self_service_enable": "Tämän domainin käyttäjät voivat kirjautua ja hallita omia asetuksiaan",
-    "disabled_preferences_help": "Käyttäjät eivät voi muuttaa valittuja asetuksia.",
     "disabled_domain_profiles": "Domain-ylläpitäjiltä suljetut domain-sivut",
     "disabled_domain_profiles_help": "Domain-ylläpitäjät eivät voi avata tämän domainin valittuja sivuja.",
     "disabled_user_profiles": "Domain-ylläpitäjiltä suljetut käyttäjäsivut",
@@ -711,7 +711,26 @@
     "msg_admin_removed": ":address poistettiin domainin ylläpitäjistä",
     "msg_admin_unknown": "Osoitteella :address ei ole ylläpitäjää eikä postilaatikkoa",
     "msg_admin_not_allowed": "Domainin ylläpitäjä voi lisätä tai poistaa vain omien domainiensa postilaatikoita: :address",
-    "msg_admin_self": "Et voi poistaa itseäsi domainin ylläpitäjistä"
+    "msg_admin_self": "Et voi poistaa itseäsi domainin ylläpitäjistä",
+    "domain_name_help": "Tämän verkkotunnuksen jokaisen osoitteen @-merkin jälkeinen osa, esimerkiksi example.com. Sitä ei voi myöhemmin muuttaa; väärä nimi pitää poistaa ja luoda uudelleen.",
+    "max_quota_help": "Suurin kiintiö, joka tämän verkkotunnuksen yhdellä postilaatikolla saa olla, megatavuina. Sen ylittävä luonti tai kiintiön muutos hylätään. 0 tarkoittaa rajoittamatonta.",
+    "domain_quota_help": "Verkkotunnuksen postilaatikkokiintiöiden summa, megatavuina. Uusi postilaatikko hylätään, jos summa ylittäisi sen. 0 tarkoittaa rajoittamatonta.",
+    "max_mailboxes_help": "Kuinka monta postilaatikkoa verkkotunnuksella saa olla. Sen ylittävä luonti hylätään. 0 tarkoittaa rajoittamatonta.",
+    "max_aliases_help": "Kuinka monta mail aliasta verkkotunnuksella saa olla. 0 tarkoittaa rajoittamatonta.",
+    "max_lists_help": "Kuinka monta postituslistaa verkkotunnuksella saa olla. 0 tarkoittaa rajoittamatonta.",
+    "transport_help": "Miten Postfix toimittaa tämän verkkotunnuksen postin. dovecot on paikallinen toimitus. Vaihda vain, kun toinen transport on määritetty Postfixiin.",
+    "backup_mx_enable_help": "Päällä: tämä palvelin ottaa verkkotunnuksen postin vastaan ja välittää sen ensisijaiselle MX:lle. Verkkotunnuksella ei ole täällä postilaatikkoa.",
+    "primary_mx_help": "Palvelin, joka vastaanottaa välitetyn postin, esimerkiksi [mx1.example.com]:25. Hakasulkeet pysäyttävät MX-haun. Tyhjä: Postfix käyttää verkkotunnuksen MX-tietueita.",
+    "default_user_quota_help": "Kiintiö, jonka uuden postilaatikon luontilomake ehdottaa, megatavuina. 0 käyttää yleistä oletusta. Olemassa olevaa postilaatikkoa se ei muuta.",
+    "min_password_length_help": "Lyhin salasana tämän verkkotunnuksen postilaatikoille. 0 käyttää paneelin asetusta, ja paneelin vähimmäisarvoa pienempi arvo hylätään.",
+    "max_password_length_help": "Pisin salasana tämän verkkotunnuksen postilaatikoille. 0 tarkoittaa rajoittamatonta.",
+    "self_service_help": "Tämän verkkotunnuksen postilaatikon käyttäjä kirjautuu samalle sivulle ja hallitsee omia asetuksiaan. Valittuja asetuksia hän ei voi muuttaa.",
+    "self_service_enable_help": "Pois: vain ylläpitäjä voi kirjautua; tämän verkkotunnuksen postilaatikon käyttäjä ei.",
+    "disclaimer_text_help": "Teksti, jonka postipalvelin liittää tämän verkkotunnuksen lähtevään postiin. Paneeli tallentaa sen, ja tiedostot kirjoittaa postipalvelimen disclaimer-skripti.",
+    "forward_to_help": "Osoite, joka vastaanottaa kaiken postin, joka on lähetetty tämän verkkotunnuksen olemattomaan osoitteeseen. Tyhjä ja tallennettu: catch-all poistuu ja tällainen posti hylätään.",
+    "sender_bcc_help": "Jokainen posti, jonka tämä verkkotunnus lähettää, menee myös tähän osoitteeseen. Lähettäjä ei näe kopiota.",
+    "recipient_bcc_help": "Jokainen posti, jonka tämä verkkotunnus vastaanottaa, menee myös tähän osoitteeseen. Lähettäjä ei näe kopiota.",
+    "relay_host_help": "Tämän verkkotunnuksen lähtevä posti menee tähän palvelimeen suoran toimituksen sijaan. Tyhjä: Postfix toimittaa itse."
   },
   "admin": {
     "msg_email_required": "Kelvollinen sähköpostiosoite vaaditaan",
@@ -811,7 +830,9 @@
     "alias_domain_name": "Aliasverkkotunnuksen nimi",
     "select_target": "-- Valitse kohdeverkkotunnus --",
     "msg_is_mail_domain": "Verkkotunnus :alias on sähköpostiverkkotunnus eikä voi olla aliasverkkotunnus",
-    "msg_target_not_found": "Kohdeverkkotunnusta :domain ei ole"
+    "msg_target_not_found": "Kohdeverkkotunnusta :domain ei ole",
+    "alias_domain_name_help": "Tähän verkkotunnukseen lähetetty posti toimitetaan kohdeverkkotunnuksen samaan paikalliseen osaan. Alias-verkkotunnuksella ei ole omia postilaatikoita.",
+    "target_domain_help": "Postiverkkotunnus, joka vastaanottaa alias-verkkotunnuksen postin."
   },
   "domainownership": {
     "title": "Verkkotunnuksen omistajuuden vahvistus",

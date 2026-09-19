@@ -120,7 +120,9 @@
     "type_alias": "Alias",
     "type_ml": "Meililist",
     "msg_invalid_domain": "Vigane domeen: :domain",
-    "help": "Abi"
+    "help": "Abi",
+    "description_help": "Vaba märkus administraatoritele. See ei mõjuta kohaletoimetamist.",
+    "active_help": "Väljas: konto jääb salvestatuks, kuid postiserver lükkab selle kirjad tagasi ja sisse logida ei saa."
   },
   "auth": {
     "title": "Autentimine",
@@ -663,7 +665,6 @@
     "catchall_desc": "Catch-all aadress võtab vastu kogu e-posti, mis on saadetud selle domeeni olematutele aadressidele.",
     "forward_to": "Edasta e-posti aadressile",
     "catchall_placeholder": "Jätke tühjaks catch-alli keelamiseks",
-    "catchall_remove_hint": "Jätke tühjaks ja salvestage catch-all aadressi eemaldamiseks.",
     "save_catchall": "Salvesta catch-all",
     "bcc_settings": "BCC seaded",
     "bcc_desc": "BCC koopiad kogu saadetud või vastuvõetud e-postist määratud aadressidele.",
@@ -693,7 +694,6 @@
     "pref_received": "Saabunud kirjad",
     "self_service": "Iseteenindus",
     "self_service_enable": "Selle domeeni kasutajad saavad sisse logida ja oma eelistusi hallata",
-    "disabled_preferences_help": "Kasutajad ei saa märgitud eelistusi muuta.",
     "disabled_domain_profiles": "Domeeni administraatoritele suletud domeenilehed",
     "disabled_domain_profiles_help": "Domeeni administraatorid ei saa selle domeeni märgitud lehti avada.",
     "disabled_user_profiles": "Domeeni administraatoritele suletud kasutajalehed",
@@ -711,7 +711,26 @@
     "msg_admin_removed": ":address eemaldati domeeni administraatorite hulgast",
     "msg_admin_unknown": "Aadressiga :address ei ole administraatorit ega postkasti",
     "msg_admin_not_allowed": "Domeeni administraator saab lisada või eemaldada ainult oma domeenide postkaste: :address",
-    "msg_admin_self": "Te ei saa ennast domeeni administraatorite hulgast eemaldada"
+    "msg_admin_self": "Te ei saa ennast domeeni administraatorite hulgast eemaldada",
+    "domain_name_help": "Selle domeeni iga aadressi @-märgist järgnev osa, näiteks example.com. Hiljem seda muuta ei saa; vale nimi tuleb kustutada ja uuesti luua.",
+    "max_quota_help": "Suurim kvoot, mis selle domeeni ühel postkastil võib olla, MB-des. Sellest suurem loomine või kvoodimuutus lükatakse tagasi. 0 tähendab piiranguta.",
+    "domain_quota_help": "Domeeni postkastikvootide summa, MB-des. Uus postkast lükatakse tagasi, kui summa seda ületaks. 0 tähendab piiranguta.",
+    "max_mailboxes_help": "Mitu postkasti domeenil tohib olla. Sellest rohkem loomine lükatakse tagasi. 0 tähendab piiranguta.",
+    "max_aliases_help": "Mitu mail alias't domeenil tohib olla. 0 tähendab piiranguta.",
+    "max_lists_help": "Mitu postiloendit domeenil tohib olla. 0 tähendab piiranguta.",
+    "transport_help": "Kuidas Postfix selle domeeni kirjad kohale toimetab. dovecot on kohalik kohaletoimetamine. Muutke ainult siis, kui teine transport on Postfixis seadistatud.",
+    "backup_mx_enable_help": "Sees: see server võtab domeeni kirjad vastu ja edastab need peamisele MX-ile. Domeen ei hoia siin postkasti.",
+    "primary_mx_help": "Server, mis edastatud kirjad saab, näiteks [mx1.example.com]:25. Nurksulud peatavad MX-otsingu. Tühi: Postfix kasutab domeeni MX-kirjeid.",
+    "default_user_quota_help": "Kvoot, mida uue postkasti loomise vorm pakub, MB-des. 0 kasutab üldist vaikeväärtust. Olemasolevat postkasti see ei muuda.",
+    "min_password_length_help": "Lühim parool selle domeeni postkastidele. 0 kasutab paneeli seadet ja paneeli miinimumist väiksem väärtus lükatakse tagasi.",
+    "max_password_length_help": "Pikim parool selle domeeni postkastidele. 0 tähendab piiranguta.",
+    "self_service_help": "Selle domeeni postkasti kasutaja logib sisse samal lehel ja haldab oma seadeid. Märgitud eelistusi ta muuta ei saa.",
+    "self_service_enable_help": "Väljas: sisse saab logida ainult administraator; selle domeeni postkasti kasutaja ei saa.",
+    "disclaimer_text_help": "Tekst, mille postiserver lisab selle domeeni väljuvatele kirjadele. Paneel salvestab selle ja failid kirjutab postiserveri disclaimer-skript.",
+    "forward_to_help": "Aadress, mis saab kõik kirjad, mis on saadetud selle domeeni olematule aadressile. Tühi ja salvestatud: catch-all eemaldatakse ja sellised kirjad lükatakse tagasi.",
+    "sender_bcc_help": "Iga kiri, mille see domeen saadab, läheb ka sellele aadressile. Saatja koopiat ei näe.",
+    "recipient_bcc_help": "Iga kiri, mille see domeen saab, läheb ka sellele aadressile. Saatja koopiat ei näe.",
+    "relay_host_help": "Selle domeeni väljuvad kirjad lähevad otsese kohaletoimetamise asemel sellesse serverisse. Tühi: Postfix toimetab ise kohale."
   },
   "admin": {
     "msg_email_required": "Nõutav on kehtiv e-posti aadress",
@@ -811,7 +830,9 @@
     "alias_domain_name": "Aliasdomeeni nimi",
     "select_target": "-- Valige sihtdomeen --",
     "msg_is_mail_domain": "Domeen :alias on e-posti domeen ega saa olla aliasdomeen",
-    "msg_target_not_found": "Sihtdomeeni :domain ei ole olemas"
+    "msg_target_not_found": "Sihtdomeeni :domain ei ole olemas",
+    "alias_domain_name_help": "Sellele domeenile saadetud kiri toimetatakse sihtdomeenis samale kohalikule osale. Alias-domeen ei hoia oma postkasti.",
+    "target_domain_help": "Postidomeen, mis saab alias-domeeni kirjad."
   },
   "domainownership": {
     "title": "Domeeni omandiõiguse kontroll",

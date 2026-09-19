@@ -120,7 +120,9 @@
     "type_alias": "Alias",
     "type_ml": "Milis",
     "msg_invalid_domain": "Domain tidak valid: :domain",
-    "help": "Bantuan"
+    "help": "Bantuan",
+    "description_help": "Catatan bebas untuk para admin. Tidak memengaruhi pengiriman.",
+    "active_help": "Nonaktif: akun tetap tersimpan, tetapi server mail menolak mail-nya dan akun tidak bisa masuk."
   },
   "auth": {
     "title": "Autentikasi",
@@ -663,7 +665,6 @@
     "catchall_desc": "Alamat catch-all menerima semua email yang dikirim ke alamat yang tidak ada di domain ini.",
     "forward_to": "Teruskan ke alamat email",
     "catchall_placeholder": "Kosongkan untuk menonaktifkan catch-all",
-    "catchall_remove_hint": "Kosongkan dan simpan untuk menghapus alamat catch-all.",
     "save_catchall": "Simpan catch-all",
     "bcc_settings": "Pengaturan BCC",
     "bcc_desc": "Kirim salinan BCC dari semua email yang dikirim atau diterima ke alamat yang ditentukan.",
@@ -693,7 +694,6 @@
     "pref_received": "Surat masuk",
     "self_service": "Layanan mandiri",
     "self_service_enable": "Pengguna domain ini dapat login untuk mengelola preferensi mereka sendiri",
-    "disabled_preferences_help": "Pengguna tidak dapat mengubah preferensi yang dicentang.",
     "disabled_domain_profiles": "Halaman domain yang ditutup untuk admin domain",
     "disabled_domain_profiles_help": "Admin domain tidak dapat membuka halaman yang dicentang pada domain ini.",
     "disabled_user_profiles": "Halaman pengguna yang ditutup untuk admin domain",
@@ -711,7 +711,26 @@
     "msg_admin_removed": ":address dihapus dari admin domain",
     "msg_admin_unknown": "Tidak ada admin atau kotak surat dengan alamat :address",
     "msg_admin_not_allowed": "Admin domain hanya dapat menambah atau menghapus kotak surat dari domainnya sendiri: :address",
-    "msg_admin_self": "Anda tidak dapat menghapus diri sendiri dari admin domain"
+    "msg_admin_self": "Anda tidak dapat menghapus diri sendiri dari admin domain",
+    "domain_name_help": "Bagian setelah @ pada setiap alamat domain ini, misalnya example.com. Tidak bisa diubah nanti; nama yang salah harus dihapus dan dibuat ulang.",
+    "max_quota_help": "Kuota terbesar yang boleh dimiliki satu kotak surat domain ini, dalam MB. Pembuatan atau perubahan kuota di atasnya ditolak. 0 berarti tanpa batas.",
+    "domain_quota_help": "Jumlah kuota semua kotak surat domain, dalam MB. Kotak surat baru ditolak bila jumlahnya akan melewatinya. 0 berarti tanpa batas.",
+    "max_mailboxes_help": "Berapa kotak surat yang boleh dimiliki domain. Pembuatan di atasnya ditolak. 0 berarti tanpa batas.",
+    "max_aliases_help": "Berapa mail alias yang boleh dimiliki domain. 0 berarti tanpa batas.",
+    "max_lists_help": "Berapa mailing list yang boleh dimiliki domain. 0 berarti tanpa batas.",
+    "transport_help": "Cara Postfix mengirim mail domain ini. dovecot adalah pengiriman lokal. Ubah hanya bila transport lain sudah disetel di Postfix.",
+    "backup_mx_enable_help": "Aktif: server ini menerima mail domain dan meneruskannya ke MX utama. Domain tidak menyimpan kotak surat di sini.",
+    "primary_mx_help": "Server yang menerima mail yang diteruskan, misalnya [mx1.example.com]:25. Tanda kurung siku menghentikan pencarian MX. Kosong: Postfix memakai rekaman MX domain.",
+    "default_user_quota_help": "Kuota yang diusulkan formulir pembuatan kotak surat baru, dalam MB. 0 memakai nilai global. Tidak mengubah kotak surat yang sudah ada.",
+    "min_password_length_help": "Kata sandi terpendek untuk kotak surat domain ini. 0 memakai pengaturan panel, dan nilai di bawah batas minimum panel ditolak.",
+    "max_password_length_help": "Kata sandi terpanjang untuk kotak surat domain ini. 0 berarti tanpa batas.",
+    "self_service_help": "Pengguna kotak surat domain ini masuk lewat halaman yang sama dan mengatur pengaturannya sendiri. Preferensi yang dicentang tidak dapat ia ubah.",
+    "self_service_enable_help": "Nonaktif: hanya admin yang bisa masuk; pengguna kotak surat domain ini tidak.",
+    "disclaimer_text_help": "Teks yang ditambahkan server mail ke mail keluar domain ini. Panel menyimpannya, dan skrip disclaimer server mail menulis berkasnya.",
+    "forward_to_help": "Alamat yang menerima semua mail yang dikirim ke alamat tak ada di domain ini. Kosong lalu disimpan: catch-all dihapus dan mail itu ditolak.",
+    "sender_bcc_help": "Setiap mail yang dikirim domain ini juga menuju alamat ini. Pengirim tidak melihat salinannya.",
+    "recipient_bcc_help": "Setiap mail yang diterima domain ini juga menuju alamat ini. Pengirim tidak melihat salinannya.",
+    "relay_host_help": "Mail keluar domain ini menuju server ini, bukan pengiriman langsung. Kosong: Postfix mengirim sendiri."
   },
   "admin": {
     "msg_email_required": "Alamat email yang valid diperlukan",
@@ -811,7 +830,9 @@
     "alias_domain_name": "Nama domain alias",
     "select_target": "-- Pilih domain target --",
     "msg_is_mail_domain": "Domain :alias adalah domain email dan tidak dapat menjadi domain alias",
-    "msg_target_not_found": "Domain tujuan :domain tidak ada"
+    "msg_target_not_found": "Domain tujuan :domain tidak ada",
+    "alias_domain_name_help": "Mail ke domain ini dikirim ke local part yang sama di domain tujuan. Domain alias tidak menyimpan kotak surat sendiri.",
+    "target_domain_help": "Domain mail yang menerima mail domain alias."
   },
   "domainownership": {
     "title": "Verifikasi Kepemilikan Domain",

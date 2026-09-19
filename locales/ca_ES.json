@@ -120,7 +120,9 @@
     "type_alias": "Àlies",
     "type_ml": "Llista de correu",
     "msg_invalid_domain": "Domini no vàlid: :domain",
-    "help": "Ajuda"
+    "help": "Ajuda",
+    "description_help": "Una nota lliure per als administradors. No afecta el lliurament.",
+    "active_help": "Desactivat: el compte es manté desat, però el servidor de correu rebutja el seu correu i no pot iniciar sessió."
   },
   "auth": {
     "title": "Autenticació",
@@ -663,7 +665,6 @@
     "catchall_desc": "Una adreça de recepció universal rep tots els correus enviats a adreces inexistents sota aquest domini.",
     "forward_to": "Reenviar a l'adreça de correu",
     "catchall_placeholder": "Deixeu-ho buit per deshabilitar la recepció universal",
-    "catchall_remove_hint": "Deixeu-ho buit i deseu per treure l'adreça de recepció universal.",
     "save_catchall": "Desar recepció universal",
     "bcc_settings": "Configuració de CCO",
     "bcc_desc": "Còpies CCO de tots els correus enviats o rebuts a les adreces especificades.",
@@ -693,7 +694,6 @@
     "pref_received": "Correus rebuts",
     "self_service": "Autoservei",
     "self_service_enable": "Els usuaris d'aquest domini poden iniciar sessió per gestionar les seves preferències",
-    "disabled_preferences_help": "Els usuaris no poden canviar les preferències marcades.",
     "disabled_domain_profiles": "Pàgines de domini tancades als admins de domini",
     "disabled_domain_profiles_help": "Els admins de domini no poden obrir les pàgines marcades d'aquest domini.",
     "disabled_user_profiles": "Pàgines d'usuari tancades als admins de domini",
@@ -711,7 +711,26 @@
     "msg_admin_removed": "S'ha tret :address dels administradors del domini",
     "msg_admin_unknown": "No existeix cap administrador ni bústia amb l'adreça :address",
     "msg_admin_not_allowed": "Un administrador de domini només pot afegir o treure bústies dels seus propis dominis: :address",
-    "msg_admin_self": "No us podeu treure a vosaltres mateixos dels administradors del domini"
+    "msg_admin_self": "No us podeu treure a vosaltres mateixos dels administradors del domini",
+    "domain_name_help": "La part després de la @ de cada adreça d'aquest domini, per exemple example.com. No es pot canviar després; un nom erroni s'ha d'esborrar i tornar a crear.",
+    "max_quota_help": "La quota més gran que pot tenir una bústia d'aquest domini, en MB. Una creació o un canvi de quota per sobre es rebutja. 0 vol dir sense límit.",
+    "domain_quota_help": "La suma de les quotes de les bústies del domini, en MB. Una bústia nova es rebutja si la suma la superés. 0 vol dir sense límit.",
+    "max_mailboxes_help": "Quantes bústies pot tenir el domini. Una creació per sobre es rebutja. 0 vol dir sense límit.",
+    "max_aliases_help": "Quants àlies de correu pot tenir el domini. 0 vol dir sense límit.",
+    "max_lists_help": "Quantes llistes de correu pot tenir el domini. 0 vol dir sense límit.",
+    "transport_help": "Com lliura Postfix el correu d'aquest domini. dovecot és el lliurament local. Canvieu-ho només si l'altre transport està configurat a Postfix.",
+    "backup_mx_enable_help": "Activat: aquest servidor accepta el correu del domini i el reenvia al MX principal. El domini no manté cap bústia aquí.",
+    "primary_mx_help": "El servidor que rep el correu reenviat, per exemple [mx1.example.com]:25. Els claudàtors aturen la consulta MX. Buit: Postfix fa servir els registres MX del domini.",
+    "default_user_quota_help": "La quota que proposa el formulari de creació d'una bústia, en MB. 0 fa servir el valor global. No canvia una bústia existent.",
+    "min_password_length_help": "La contrasenya més curta per a les bústies d'aquest domini. 0 fa servir el valor del tauler, i un valor per sota del mínim del tauler es rebutja.",
+    "max_password_length_help": "La contrasenya més llarga per a les bústies d'aquest domini. 0 vol dir sense límit.",
+    "self_service_help": "Un usuari de bústia d'aquest domini inicia sessió a la mateixa pàgina i gestiona els seus propis paràmetres. No pot canviar les preferències marcades.",
+    "self_service_enable_help": "Desactivat: només un administrador pot iniciar sessió; un usuari de bústia d'aquest domini no.",
+    "disclaimer_text_help": "El text que el servidor de correu afegeix al correu sortint d'aquest domini. El tauler el desa i l'script de disclaimer del servidor escriu els fitxers.",
+    "forward_to_help": "L'adreça que rep tot el correu enviat a una adreça inexistent d'aquest domini. Buit i desat: el catch-all es treu i aquest correu es rebutja.",
+    "sender_bcc_help": "Tot el correu que envia aquest domini va també a aquesta adreça. El remitent no veu la còpia.",
+    "recipient_bcc_help": "Tot el correu que rep aquest domini va també a aquesta adreça. El remitent no veu la còpia.",
+    "relay_host_help": "El correu sortint d'aquest domini va a aquest servidor en lloc del lliurament directe. Buit: Postfix el lliura ell mateix."
   },
   "admin": {
     "msg_email_required": "Cal una adreça de correu electrònic vàlida",
@@ -811,7 +830,9 @@
     "alias_domain_name": "Nom del domini d'àlies",
     "select_target": "-- Seleccionar domini de destinació --",
     "msg_is_mail_domain": "El domini :alias és un domini de correu i no pot ser un domini àlies",
-    "msg_target_not_found": "El domini de destinació :domain no existeix"
+    "msg_target_not_found": "El domini de destinació :domain no existeix",
+    "alias_domain_name_help": "El correu enviat a aquest domini es lliura a la mateixa part local del domini de destí. El domini àlies no manté bústies pròpies.",
+    "target_domain_help": "El domini de correu que rep el correu del domini àlies."
   },
   "domainownership": {
     "title": "Verificació de propietat del domini",

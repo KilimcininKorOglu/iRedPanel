@@ -120,7 +120,9 @@
     "type_alias": "Álnév",
     "type_ml": "Levelezőlista",
     "msg_invalid_domain": "Érvénytelen domain: :domain",
-    "help": "Súgó"
+    "help": "Súgó",
+    "description_help": "Szabad megjegyzés az adminoknak. A kézbesítést nem befolyásolja.",
+    "active_help": "Kikapcsolva: a fiók tárolva marad, de a mailszerver elutasítja a levelét, és belépni sem tud."
   },
   "auth": {
     "title": "Hitelesítés",
@@ -663,7 +665,6 @@
     "catchall_desc": "A catch-all cím fogadja az összes olyan e-mailt, amelyet nem létező címekre küldenek ezen a domainen.",
     "forward_to": "Továbbítás e-mail-címre",
     "catchall_placeholder": "Hagyja üresen a catch-all letiltásához",
-    "catchall_remove_hint": "Hagyja üresen és mentsen a catch-all cím eltávolításához.",
     "save_catchall": "Catch-all mentése",
     "bcc_settings": "BCC-beállítások",
     "bcc_desc": "Az összes küldött vagy fogadott e-mail BCC-másolatai a megadott címekre.",
@@ -693,7 +694,6 @@
     "pref_received": "Beérkezett levelek",
     "self_service": "Önkiszolgálás",
     "self_service_enable": "A domain felhasználói bejelentkezhetnek és kezelhetik saját beállításaikat",
-    "disabled_preferences_help": "A felhasználók nem módosíthatják a bejelölt beállításokat.",
     "disabled_domain_profiles": "Domain adminok elől elzárt domain oldalak",
     "disabled_domain_profiles_help": "A domain adminok nem nyithatják meg a domain bejelölt oldalait.",
     "disabled_user_profiles": "Domain adminok elől elzárt felhasználói oldalak",
@@ -711,7 +711,26 @@
     "msg_admin_removed": ":address eltávolítva a domain adminisztrátorai közül",
     "msg_admin_unknown": "Nincs adminisztrátor vagy postafiók ezzel a címmel: :address",
     "msg_admin_not_allowed": "Egy domain-adminisztrátor csak a saját domainjei postafiókjait adhatja hozzá vagy távolíthatja el: :address",
-    "msg_admin_self": "Saját magát nem távolíthatja el a domain adminisztrátorai közül"
+    "msg_admin_self": "Saját magát nem távolíthatja el a domain adminisztrátorai közül",
+    "domain_name_help": "Ennek a tartománynak minden címében a @ utáni rész, például example.com. Később nem módosítható; a hibás nevet törölni és újra létrehozni kell.",
+    "max_quota_help": "A legnagyobb kvóta, amelyet ennek a tartománynak egy postafiókja kaphat, MB-ban. Az e feletti létrehozás vagy kvótaváltoztatás elutasításra kerül. A 0 korlátlant jelent.",
+    "domain_quota_help": "A tartomány postafiók-kvótáinak összege, MB-ban. Új postafiók elutasításra kerül, ha az összeg átlépné. A 0 korlátlant jelent.",
+    "max_mailboxes_help": "Hány postafiókja lehet a tartománynak. Az e feletti létrehozás elutasításra kerül. A 0 korlátlant jelent.",
+    "max_aliases_help": "Hány mail aliasa lehet a tartománynak. A 0 korlátlant jelent.",
+    "max_lists_help": "Hány mailing listje lehet a tartománynak. A 0 korlátlant jelent.",
+    "transport_help": "Hogyan kézbesíti a Postfix ennek a tartománynak a levelét. A dovecot a helyi kézbesítés. Csak akkor módosítsa, ha a másik transport be van állítva a Postfixben.",
+    "backup_mx_enable_help": "Bekapcsolva: ez a szerver átveszi a tartomány levelét és továbbítja az elsődleges MX-nek. A tartomány itt nem tart postafiókot.",
+    "primary_mx_help": "A továbbított levelet fogadó szerver, például [mx1.example.com]:25. A szögletes zárójel megállítja az MX lekérdezést. Üres: a Postfix a tartomány MX rekordjait használja.",
+    "default_user_quota_help": "Az a kvóta, amelyet az új postafiók létrehozó űrlapja felkínál, MB-ban. A 0 a globális alapértéket használja. Meglévő postafiókot nem változtat.",
+    "min_password_length_help": "A legrövidebb jelszó ennek a tartománynak a postafiókjaihoz. A 0 a panel beállítását használja, a panel minimuma alatti érték pedig elutasításra kerül.",
+    "max_password_length_help": "A leghosszabb jelszó ennek a tartománynak a postafiókjaihoz. A 0 korlátlant jelent.",
+    "self_service_help": "A tartomány postafiók-felhasználója ugyanazon az oldalon lép be, és a saját beállításait kezeli. A bejelölt beállításokat nem módosíthatja.",
+    "self_service_enable_help": "Kikapcsolva: csak admin léphet be; ennek a tartománynak a postafiók-felhasználója nem.",
+    "disclaimer_text_help": "A szöveg, amelyet a mailszerver a tartomány kimenő leveléhez fűz. A panel tárolja, a fájlokat a mailszerver disclaimer scriptje írja.",
+    "forward_to_help": "Az a cím, amely minden olyan levelet megkap, amely e tartomány nem létező címére ment. Üresen mentve: a catch-all megszűnik, és az ilyen levelet elutasítja.",
+    "sender_bcc_help": "Minden levél, amelyet ez a tartomány küld, erre a címre is elmegy. A feladó nem látja a másolatot.",
+    "recipient_bcc_help": "Minden levél, amelyet ez a tartomány kap, erre a címre is elmegy. A feladó nem látja a másolatot.",
+    "relay_host_help": "A tartomány kimenő levele a közvetlen kézbesítés helyett erre a szerverre megy. Üres: a Postfix maga kézbesít."
   },
   "admin": {
     "msg_email_required": "Érvényes e-mail-cím megadása kötelező",
@@ -811,7 +830,9 @@
     "alias_domain_name": "Álnév-domain neve",
     "select_target": "-- Válasszon cél-domaint --",
     "msg_is_mail_domain": "A(z) :alias levelezési domain, nem lehet alias domain",
-    "msg_target_not_found": "A(z) :domain céldomain nem létezik"
+    "msg_target_not_found": "A(z) :domain céldomain nem létezik",
+    "alias_domain_name_help": "Az e tartományra küldött levél a céltartomány azonos helyi részére kerül. Az alias tartomány saját postafiókot nem tart.",
+    "target_domain_help": "A mail tartomány, amely az alias tartomány levelét kapja."
   },
   "domainownership": {
     "title": "Domain tulajdonjogának ellenőrzése",

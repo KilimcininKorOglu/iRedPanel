@@ -120,7 +120,9 @@
     "type_alias": "Alias",
     "type_ml": "Lista de e-mail",
     "msg_invalid_domain": "Domínio inválido: :domain",
-    "help": "Ajuda"
+    "help": "Ajuda",
+    "description_help": "Uma anotação livre para os admins. Não afeta a entrega.",
+    "active_help": "Desligado: a conta continua salva, mas o servidor de e-mail recusa seu e-mail e ela não consegue entrar."
   },
   "auth": {
     "title": "Autenticação",
@@ -663,7 +665,6 @@
     "catchall_desc": "O endereço catch-all recebe todos os e-mails enviados a endereços inexistentes neste domínio.",
     "forward_to": "Encaminhar para endereço de e-mail",
     "catchall_placeholder": "Deixe em branco para desativar o catch-all",
-    "catchall_remove_hint": "Deixe em branco e salve para remover o endereço catch-all.",
     "save_catchall": "Salvar catch-all",
     "bcc_settings": "Configurações de BCC",
     "bcc_desc": "Cópias BCC de todos os e-mails enviados ou recebidos para os endereços especificados.",
@@ -693,7 +694,6 @@
     "pref_received": "E-mails recebidos",
     "self_service": "Autoatendimento",
     "self_service_enable": "Os usuários deste domínio podem entrar para gerenciar as próprias preferências",
-    "disabled_preferences_help": "Os usuários não podem alterar as preferências marcadas.",
     "disabled_domain_profiles": "Páginas de domínio fechadas para admins de domínio",
     "disabled_domain_profiles_help": "Admins de domínio não podem abrir as páginas marcadas deste domínio.",
     "disabled_user_profiles": "Páginas de usuário fechadas para admins de domínio",
@@ -711,7 +711,26 @@
     "msg_admin_removed": ":address foi removido dos administradores do domínio",
     "msg_admin_unknown": "Não existe administrador nem caixa de correio com o endereço :address",
     "msg_admin_not_allowed": "Um administrador de domínio só pode adicionar ou remover caixas de correio dos próprios domínios: :address",
-    "msg_admin_self": "Você não pode remover a si mesmo dos administradores do domínio"
+    "msg_admin_self": "Você não pode remover a si mesmo dos administradores do domínio",
+    "domain_name_help": "A parte depois do @ de cada endereço deste domínio, por exemplo example.com. Não muda depois; um nome errado precisa ser apagado e criado de novo.",
+    "max_quota_help": "A maior cota que uma caixa deste domínio pode ter, em MB. Uma criação ou mudança de cota acima disso é recusada. 0 significa sem limite.",
+    "domain_quota_help": "A soma das cotas das caixas do domínio, em MB. Uma caixa nova é recusada se a soma passar desse valor. 0 significa sem limite.",
+    "max_mailboxes_help": "Quantas caixas o domínio pode ter. Uma criação acima disso é recusada. 0 significa sem limite.",
+    "max_aliases_help": "Quantos aliases de e-mail o domínio pode ter. 0 significa sem limite.",
+    "max_lists_help": "Quantas mailing lists o domínio pode ter. 0 significa sem limite.",
+    "transport_help": "Como o Postfix entrega o e-mail deste domínio. dovecot é a entrega local. Mude apenas se o outro transport estiver configurado no Postfix.",
+    "backup_mx_enable_help": "Ligado: este servidor aceita o e-mail do domínio e o repassa ao MX primário. O domínio não guarda caixa aqui.",
+    "primary_mx_help": "O servidor que recebe o e-mail repassado, por exemplo [mx1.example.com]:25. Os colchetes param a consulta de MX. Vazio: o Postfix usa os registros MX do domínio.",
+    "default_user_quota_help": "A cota que o formulário de criação de uma caixa propõe, em MB. 0 usa o padrão global. Não muda uma caixa existente.",
+    "min_password_length_help": "A senha mais curta para as caixas deste domínio. 0 usa a configuração do painel, e um valor abaixo do mínimo do painel é recusado.",
+    "max_password_length_help": "A senha mais longa para as caixas deste domínio. 0 significa sem limite.",
+    "self_service_help": "Um usuário de caixa deste domínio entra pela mesma página e gerencia as próprias configurações. Ele não pode mudar as preferências marcadas.",
+    "self_service_enable_help": "Desligado: só um admin consegue entrar; um usuário de caixa deste domínio não.",
+    "disclaimer_text_help": "O texto que o servidor de e-mail acrescenta ao e-mail que sai deste domínio. O painel guarda o texto e o script de disclaimer do servidor escreve os arquivos.",
+    "forward_to_help": "O endereço que recebe todo e-mail enviado a um endereço que não existe neste domínio. Vazio e salvo: o catch-all é removido e esse e-mail é recusado.",
+    "sender_bcc_help": "Todo e-mail que este domínio envia também vai para este endereço. O remetente não vê a cópia.",
+    "recipient_bcc_help": "Todo e-mail que este domínio recebe também vai para este endereço. O remetente não vê a cópia.",
+    "relay_host_help": "O e-mail que sai deste domínio vai para este servidor em vez da entrega direta. Vazio: o Postfix entrega sozinho."
   },
   "admin": {
     "msg_email_required": "É necessário um endereço de e-mail válido",
@@ -811,7 +830,9 @@
     "alias_domain_name": "Nome do alias de domínio",
     "select_target": "-- Selecione o domínio de destino --",
     "msg_is_mail_domain": "O domínio :alias é um domínio de e-mail e não pode ser um domínio alias",
-    "msg_target_not_found": "O domínio de destino :domain não existe"
+    "msg_target_not_found": "O domínio de destino :domain não existe",
+    "alias_domain_name_help": "O e-mail enviado a este domínio é entregue à mesma parte local no domínio de destino. O domínio alias não guarda caixa própria.",
+    "target_domain_help": "O domínio de e-mail que recebe o e-mail do domínio alias."
   },
   "domainownership": {
     "title": "Verificação de propriedade do domínio",

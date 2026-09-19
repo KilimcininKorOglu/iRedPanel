@@ -120,7 +120,9 @@
     "type_alias": "Alias",
     "type_ml": "Listă de corespondență",
     "msg_invalid_domain": "Domeniu nevalid: :domain",
-    "help": "Ajutor"
+    "help": "Ajutor",
+    "description_help": "O notă liberă pentru administratori. Nu influențează livrarea.",
+    "active_help": "Oprit: contul rămâne salvat, dar serverul de mail îi refuză mailul și nu se poate autentifica."
   },
   "auth": {
     "title": "Autentificare",
@@ -663,7 +665,6 @@
     "catchall_desc": "Adresa catch-all primește toate email-urile trimise către adrese inexistente din acest domeniu.",
     "forward_to": "Redirecționează către adresa de email",
     "catchall_placeholder": "Lăsați gol pentru a dezactiva catch-all",
-    "catchall_remove_hint": "Lăsați gol și salvați pentru a elimina adresa catch-all.",
     "save_catchall": "Salvează catch-all",
     "bcc_settings": "Setări BCC",
     "bcc_desc": "Trimite copii BCC ale tuturor email-urilor trimise sau primite către adresele specificate.",
@@ -693,7 +694,6 @@
     "pref_received": "Mesaje primite",
     "self_service": "Autoservire",
     "self_service_enable": "Utilizatorii acestui domain se pot autentifica pentru a-și gestiona preferințele",
-    "disabled_preferences_help": "Utilizatorii nu pot modifica preferințele bifate.",
     "disabled_domain_profiles": "Pagini de domain închise pentru adminii de domain",
     "disabled_domain_profiles_help": "Adminii de domain nu pot deschide paginile bifate ale acestui domain.",
     "disabled_user_profiles": "Pagini de utilizator închise pentru adminii de domain",
@@ -711,7 +711,26 @@
     "msg_admin_removed": ":address a fost eliminat din administratorii domeniului",
     "msg_admin_unknown": "Nu există niciun administrator sau căsuță cu adresa :address",
     "msg_admin_not_allowed": "Un administrator de domeniu poate adăuga sau elimina doar căsuțele propriilor domenii: :address",
-    "msg_admin_self": "Nu vă puteți elimina din administratorii domeniului"
+    "msg_admin_self": "Nu vă puteți elimina din administratorii domeniului",
+    "domain_name_help": "Partea de după @ a fiecărei adrese din acest domeniu, de exemplu example.com. Nu se schimbă ulterior; un nume greșit trebuie șters și creat din nou.",
+    "max_quota_help": "Cea mai mare cotă pe care o poate avea o cutie poștală din acest domeniu, în MB. O creare sau o schimbare de cotă peste ea este refuzată. 0 înseamnă nelimitat.",
+    "domain_quota_help": "Suma cotelor cutiilor poștale din domeniu, în MB. O cutie nouă este refuzată dacă suma ar depăși valoarea. 0 înseamnă nelimitat.",
+    "max_mailboxes_help": "Câte cutii poștale poate avea domeniul. O creare peste acest număr este refuzată. 0 înseamnă nelimitat.",
+    "max_aliases_help": "Câte mail alias poate avea domeniul. 0 înseamnă nelimitat.",
+    "max_lists_help": "Câte liste de discuții poate avea domeniul. 0 înseamnă nelimitat.",
+    "transport_help": "Cum livrează Postfix mailul acestui domeniu. dovecot este livrarea locală. Schimbați doar când celălalt transport este configurat în Postfix.",
+    "backup_mx_enable_help": "Pornit: acest server preia mailul domeniului și îl trimite mai departe la MX-ul principal. Domeniul nu ține cutii poștale aici.",
+    "primary_mx_help": "Serverul care primește mailul trimis mai departe, de exemplu [mx1.example.com]:25. Parantezele drepte opresc căutarea MX. Gol: Postfix folosește înregistrările MX ale domeniului.",
+    "default_user_quota_help": "Cota propusă de formularul de creare a unei cutii poștale noi, în MB. 0 folosește valoarea globală. Nu schimbă o cutie existentă.",
+    "min_password_length_help": "Cea mai scurtă parolă pentru cutiile poștale ale acestui domeniu. 0 folosește setarea panoului, iar o valoare sub minimul panoului este refuzată.",
+    "max_password_length_help": "Cea mai lungă parolă pentru cutiile poștale ale acestui domeniu. 0 înseamnă nelimitat.",
+    "self_service_help": "Un utilizator de cutie poștală din acest domeniu se autentifică pe aceeași pagină și își gestionează propriile setări. Preferințele bifate nu le poate schimba.",
+    "self_service_enable_help": "Oprit: doar un administrator se poate autentifica; un utilizator de cutie poștală din acest domeniu nu.",
+    "disclaimer_text_help": "Textul pe care serverul de mail îl adaugă la mailul trimis de acest domeniu. Panoul îl păstrează, iar fișierele le scrie scriptul disclaimer al serverului de mail.",
+    "forward_to_help": "Adresa care primește tot mailul trimis către o adresă inexistentă din acest domeniu. Gol și salvat: catch-all-ul dispare și un astfel de mail este refuzat.",
+    "sender_bcc_help": "Tot mailul trimis de acest domeniu ajunge și la această adresă. Expeditorul nu vede copia.",
+    "recipient_bcc_help": "Tot mailul primit de acest domeniu ajunge și la această adresă. Expeditorul nu vede copia.",
+    "relay_host_help": "Mailul trimis de acest domeniu merge la acest server în loc de livrarea directă. Gol: Postfix livrează singur."
   },
   "admin": {
     "msg_email_required": "Este necesară o adresă de email validă",
@@ -811,7 +830,9 @@
     "alias_domain_name": "Nume domeniu alias",
     "select_target": "-- Selectați domeniul țintă --",
     "msg_is_mail_domain": "Domeniul :alias este un domeniu de e-mail și nu poate fi domeniu alias",
-    "msg_target_not_found": "Domeniul țintă :domain nu există"
+    "msg_target_not_found": "Domeniul țintă :domain nu există",
+    "alias_domain_name_help": "Mailul trimis către acest domeniu este livrat aceleiași părți locale din domeniul țintă. Domeniul alias nu ține cutii poștale proprii.",
+    "target_domain_help": "Domeniul de mail care primește mailul domeniului alias."
   },
   "domainownership": {
     "title": "Verificare proprietate domeniu",

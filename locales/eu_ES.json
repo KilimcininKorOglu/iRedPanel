@@ -120,7 +120,9 @@
     "type_alias": "Aliasa",
     "type_ml": "Posta-zerrenda",
     "msg_invalid_domain": "Domeinu baliogabea: :domain",
-    "help": "Laguntza"
+    "help": "Laguntza",
+    "description_help": "Administratzaileentzako ohar librea. Ez du bidalketan eraginik.",
+    "active_help": "Itzalita: kontua gordeta geratzen da, baina posta zerbitzariak bere posta ukatzen du eta ezin da saioa hasi."
   },
   "auth": {
     "title": "Autentifikazioa",
@@ -663,7 +665,6 @@
     "catchall_desc": "Catch-all helbide batek domeinu honetako existitzen ez diren helbideetara bidalitako posta guztiak jasotzen ditu.",
     "forward_to": "Birbidali posta-helbidera",
     "catchall_placeholder": "Utzi hutsik catch-all desgaitzeko",
-    "catchall_remove_hint": "Utzi hutsik eta gorde catch-all helbidea kentzeko.",
     "save_catchall": "Gorde catch-all",
     "bcc_settings": "BCC ezarpenak",
     "bcc_desc": "Bidalitako edo jasotako posta guztien BCC kopiak zehaztutako helbideetara.",
@@ -693,7 +694,6 @@
     "pref_received": "Jasotako mezuak",
     "self_service": "Autozerbitzua",
     "self_service_enable": "Domeinu honetako erabiltzaileek saioa hasi eta beren hobespenak kudea ditzakete",
-    "disabled_preferences_help": "Erabiltzaileek ezin dituzte markatutako hobespenak aldatu.",
     "disabled_domain_profiles": "Domeinu-administratzaileentzat itxitako domeinu-orriak",
     "disabled_domain_profiles_help": "Domeinu-administratzaileek ezin dituzte domeinu honetako markatutako orriak ireki.",
     "disabled_user_profiles": "Domeinu-administratzaileentzat itxitako erabiltzaile-orriak",
@@ -711,7 +711,26 @@
     "msg_admin_removed": ":address domeinuaren administratzaileetatik kendu da",
     "msg_admin_unknown": "Ez dago :address helbidea duen administratzaile edo postontzirik",
     "msg_admin_not_allowed": "Domeinu-administratzaile batek bere domeinuetako postontziak soilik gehitu edo kendu ditzake: :address",
-    "msg_admin_self": "Ezin duzu zure burua kendu domeinuaren administratzaileetatik"
+    "msg_admin_self": "Ezin duzu zure burua kendu domeinuaren administratzaileetatik",
+    "domain_name_help": "Domeinu honetako helbide bakoitzean @ ondoren doan zatia, adibidez example.com. Gero ezin da aldatu; izen okerra ezabatu eta berriro sortu behar da.",
+    "max_quota_help": "Domeinu honetako postontzi batek izan dezakeen kuotarik handiena, MBtan. Horren gaineko sorrera edo kuota aldaketa ukatzen da. 0 mugarik ez esan nahi du.",
+    "domain_quota_help": "Domeinuko postontzien kuoten batura, MBtan. Batura hori gainditzen bada postontzi berria ukatzen da. 0 mugarik ez esan nahi du.",
+    "max_mailboxes_help": "Domeinuak izan ditzakeen postontzi kopurua. Horren gaineko sorrera ukatzen da. 0 mugarik ez esan nahi du.",
+    "max_aliases_help": "Domeinuak izan ditzakeen mail alias kopurua. 0 mugarik ez esan nahi du.",
+    "max_lists_help": "Domeinuak izan ditzakeen posta zerrenda kopurua. 0 mugarik ez esan nahi du.",
+    "transport_help": "Postfix-ek domeinu honen posta nola banatzen duen. dovecot banaketa lokala da. Aldatu bakarrik beste transport-a Postfix-en konfiguratuta badago.",
+    "backup_mx_enable_help": "Piztuta: zerbitzari honek domeinuaren posta onartzen du eta MX nagusira bidaltzen. Domeinuak ez du hemen postontzirik.",
+    "primary_mx_help": "Bidalitako posta jasotzen duen zerbitzaria, adibidez [mx1.example.com]:25. Kortxeteek MX bilaketa gelditzen dute. Hutsik: Postfix-ek domeinuaren MX erregistroak erabiltzen ditu.",
+    "default_user_quota_help": "Postontzi berri baten sortze formularioak proposatzen duen kuota, MBtan. 0 balio orokorra erabiltzen du. Ez du lehendik dagoen postontzia aldatzen.",
+    "min_password_length_help": "Domeinu honetako postontzien pasahitzik laburrena. 0 panelaren ezarpena erabiltzen du, eta panelaren gutxienekoaren azpiko balioa ukatzen da.",
+    "max_password_length_help": "Domeinu honetako postontzien pasahitzik luzeena. 0 mugarik ez esan nahi du.",
+    "self_service_help": "Domeinu honetako postontzi erabiltzaileak orri berean hasten du saioa eta bere ezarpenak kudeatzen ditu. Markatutako hobespenak ezin ditu aldatu.",
+    "self_service_enable_help": "Itzalita: administratzaileak bakarrik has dezake saioa; domeinu honetako postontzi erabiltzaileak ez.",
+    "disclaimer_text_help": "Posta zerbitzariak domeinu honen irteerako postari eransten dion testua. Panelak gordetzen du, eta fitxategiak posta zerbitzariaren disclaimer script-ak idazten ditu.",
+    "forward_to_help": "Domeinu honetan existitzen ez den helbide batera bidalitako posta guztia jasotzen duen helbidea. Hutsik utzi eta gorde: catch-all kentzen da eta posta hori ukatzen da.",
+    "sender_bcc_help": "Domeinu honek bidaltzen duen posta guztia helbide honetara ere doa. Bidaltzaileak ez du kopia ikusten.",
+    "recipient_bcc_help": "Domeinu honek jasotzen duen posta guztia helbide honetara ere doa. Bidaltzaileak ez du kopia ikusten.",
+    "relay_host_help": "Domeinu honen irteerako posta zuzeneko banaketa ordez zerbitzari honetara doa. Hutsik: Postfix-ek berak banatzen du."
   },
   "admin": {
     "msg_email_required": "Baliozko posta-helbidea beharrezkoa da",
@@ -811,7 +830,9 @@
     "alias_domain_name": "Alias domeinuaren izena",
     "select_target": "-- Hautatu helburu-domeinua --",
     "msg_is_mail_domain": ":alias domeinua posta-domeinu bat da eta ezin da alias domeinua izan",
-    "msg_target_not_found": ":domain helburu-domeinua ez dago"
+    "msg_target_not_found": ":domain helburu-domeinua ez dago",
+    "alias_domain_name_help": "Domeinu honetara bidalitako posta helburuko domeinuko local part berera banatzen da. Alias domeinuak ez du bere postontzirik.",
+    "target_domain_help": "Alias domeinuaren posta jasotzen duen posta domeinua."
   },
   "domainownership": {
     "title": "Domeinuaren jabetzaren egiaztapena",

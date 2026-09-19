@@ -120,7 +120,9 @@
     "type_alias": "Alias",
     "type_ml": "Mailing list",
     "msg_invalid_domain": "Dominio non valido: :domain",
-    "help": "Aiuto"
+    "help": "Aiuto",
+    "description_help": "Una nota libera per gli amministratori. Non incide sulla consegna.",
+    "active_help": "Spento: l'account resta salvato, ma il server di posta rifiuta la sua posta e non può accedere."
   },
   "auth": {
     "title": "Autenticazione",
@@ -663,7 +665,6 @@
     "catchall_desc": "Un indirizzo catch-all riceve tutte le e-mail inviate a indirizzi inesistenti di questo dominio.",
     "forward_to": "Inoltra all'indirizzo e-mail",
     "catchall_placeholder": "Lascia vuoto per disattivare il catch-all",
-    "catchall_remove_hint": "Lascia vuoto e salva per rimuovere l'indirizzo catch-all.",
     "save_catchall": "Salva catch-all",
     "bcc_settings": "Impostazioni CCN",
     "bcc_desc": "Copie CCN di tutte le e-mail inviate o ricevute agli indirizzi specificati.",
@@ -693,7 +694,6 @@
     "pref_received": "Mail ricevute",
     "self_service": "Self-service",
     "self_service_enable": "Gli utenti di questo dominio possono accedere e gestire le proprie preferenze",
-    "disabled_preferences_help": "Gli utenti non possono modificare le preferenze selezionate.",
     "disabled_domain_profiles": "Pagine del dominio chiuse agli admin di dominio",
     "disabled_domain_profiles_help": "Gli admin di dominio non possono aprire le pagine selezionate di questo dominio.",
     "disabled_user_profiles": "Pagine utente chiuse agli admin di dominio",
@@ -711,7 +711,26 @@
     "msg_admin_removed": ":address è stato rimosso dagli amministratori del dominio",
     "msg_admin_unknown": "Non esiste alcun amministratore o casella con l'indirizzo :address",
     "msg_admin_not_allowed": "Un amministratore di dominio può aggiungere o rimuovere solo le caselle dei propri domini: :address",
-    "msg_admin_self": "Non puoi rimuovere te stesso dagli amministratori del dominio"
+    "msg_admin_self": "Non puoi rimuovere te stesso dagli amministratori del dominio",
+    "domain_name_help": "La parte dopo la @ di ogni indirizzo di questo dominio, per esempio example.com. Non si cambia dopo; un nome errato va eliminato e ricreato.",
+    "max_quota_help": "La quota più grande che una casella di questo dominio può avere, in MB. Una creazione o una modifica oltre questo valore viene rifiutata. 0 significa senza limite.",
+    "domain_quota_help": "La somma delle quote delle caselle del dominio, in MB. Una casella nuova viene rifiutata se la somma la supererebbe. 0 significa senza limite.",
+    "max_mailboxes_help": "Quante caselle può contenere il dominio. Una creazione oltre questo valore viene rifiutata. 0 significa senza limite.",
+    "max_aliases_help": "Quanti alias di posta può contenere il dominio. 0 significa senza limite.",
+    "max_lists_help": "Quante mailing list può contenere il dominio. 0 significa senza limite.",
+    "transport_help": "Come Postfix consegna la posta di questo dominio. dovecot è la consegna locale. Cambiarlo solo se l'altro transport è configurato in Postfix.",
+    "backup_mx_enable_help": "Attivo: questo server accetta la posta del dominio e la inoltra al MX primario. Il dominio non tiene caselle qui.",
+    "primary_mx_help": "Il server che riceve la posta inoltrata, per esempio [mx1.example.com]:25. Le parentesi quadre fermano la ricerca MX. Vuoto: Postfix usa i record MX del dominio.",
+    "default_user_quota_help": "La quota che il modulo di creazione di una casella propone, in MB. 0 usa il valore globale. Non cambia una casella esistente.",
+    "min_password_length_help": "La password più corta per le caselle di questo dominio. 0 usa l'impostazione del pannello, e un valore sotto il minimo del pannello viene rifiutato.",
+    "max_password_length_help": "La password più lunga per le caselle di questo dominio. 0 significa senza limite.",
+    "self_service_help": "Un utente di casella di questo dominio accede dalla stessa pagina e gestisce le proprie impostazioni. Non può cambiare le preferenze selezionate.",
+    "self_service_enable_help": "Spento: solo un amministratore può accedere; un utente di casella di questo dominio no.",
+    "disclaimer_text_help": "Il testo che il server di posta aggiunge alla posta in uscita di questo dominio. Il pannello lo salva e lo script disclaimer del server scrive i file.",
+    "forward_to_help": "L'indirizzo che riceve ogni messaggio inviato a un indirizzo inesistente di questo dominio. Vuoto e salvato: il catch-all viene rimosso e quella posta viene rifiutata.",
+    "sender_bcc_help": "Ogni messaggio inviato da questo dominio va anche a questo indirizzo. Il mittente non vede la copia.",
+    "recipient_bcc_help": "Ogni messaggio ricevuto da questo dominio va anche a questo indirizzo. Il mittente non vede la copia.",
+    "relay_host_help": "La posta in uscita di questo dominio passa da questo server invece della consegna diretta. Vuoto: Postfix consegna da solo."
   },
   "admin": {
     "msg_email_required": "È richiesto un indirizzo e-mail valido",
@@ -811,7 +830,9 @@
     "alias_domain_name": "Nome del dominio alias",
     "select_target": "-- Seleziona dominio di destinazione --",
     "msg_is_mail_domain": "Il dominio :alias è un dominio di posta e non può essere un dominio alias",
-    "msg_target_not_found": "Il dominio di destinazione :domain non esiste"
+    "msg_target_not_found": "Il dominio di destinazione :domain non esiste",
+    "alias_domain_name_help": "La posta inviata a questo dominio viene consegnata alla stessa parte locale nel dominio di destinazione. Il dominio alias non tiene caselle proprie.",
+    "target_domain_help": "Il dominio di posta che riceve la posta del dominio alias."
   },
   "domainownership": {
     "title": "Verifica della proprietà del dominio",

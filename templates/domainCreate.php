@@ -21,7 +21,7 @@
       <?= $csrfField ?>
       <div class="card-body">
         <div class="mb-3">
-          <label for="domainName" class="form-label"><?= $te('domain.domain_name') ?></label>
+          <label for="domainName" class="form-label"><?= $te('domain.domain_name') ?></label><?= $help('domain.domain_name') ?>
           <input id="domainName" type="text" name="domainName" required placeholder="example.com"
             class="form-control<?= !empty($validationErrors['domainName']) ? ' is-invalid' : '' ?>"
             value="<?= $e($domain?->domainName ?? '') ?>" />
@@ -31,7 +31,7 @@
         </div>
 
         <div class="mb-3">
-          <label for="description" class="form-label"><?= $te('common.description') ?></label>
+          <label for="description" class="form-label"><?= $te('common.description') ?></label><?= $help('common.description') ?>
           <input id="description" type="text" name="description" class="form-control" value="<?= $e($domain?->description ?? '') ?>" />
         </div>
 
@@ -39,11 +39,11 @@
         <?php if (!empty($session['isGlobalAdmin'])): ?>
         <div class="row g-3 mb-3">
           <div class="col-md-6">
-            <label for="maxQuota" class="form-label"><?= $te('domain.max_quota') ?></label>
+            <label for="maxQuota" class="form-label"><?= $te('domain.max_quota') ?></label><?= $help('domain.max_quota') ?>
             <input id="maxQuota" type="number" name="maxQuota" min="0" class="form-control" value="<?= $e($domain?->maxQuota ?? 0) ?>" />
           </div>
           <div class="col-md-6">
-            <label for="mailboxes" class="form-label"><?= $te('domain.max_mailboxes') ?></label>
+            <label for="mailboxes" class="form-label"><?= $te('domain.max_mailboxes') ?></label><?= $help('domain.max_mailboxes') ?>
             <input id="mailboxes" type="number" name="mailboxes" min="0" class="form-control" value="<?= $e($domain?->mailboxes ?? 0) ?>" />
           </div>
         </div>
@@ -51,7 +51,7 @@
 
         <div class="form-check form-switch">
           <input type="checkbox" class="form-check-input" id="active" name="active" <?php if ($domain === null || $domain->active): ?>checked<?php endif; ?> />
-          <label class="form-check-label" for="active"><?= $te('common.active') ?></label>
+          <label class="form-check-label" for="active"><?= $te('common.active') ?></label><?= $help('common.active') ?>
         </div>
       </div>
       <div class="card-footer d-flex gap-2">

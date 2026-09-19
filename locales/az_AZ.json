@@ -120,7 +120,9 @@
     "type_alias": "Alias",
     "type_ml": "Poçt siyahısı",
     "msg_invalid_domain": "Yanlış domain: :domain",
-    "help": "Kömək"
+    "help": "Kömək",
+    "description_help": "Adminlər üçün sərbəst qeyd. Mail çatdırılmasına təsir etmir.",
+    "active_help": "Bağlı: hesab saxlanılır, lakin mail serveri onun mailini rədd edir və hesab daxil ola bilmir."
   },
   "auth": {
     "title": "Autentifikasiya",
@@ -663,7 +665,6 @@
     "catchall_desc": "Catch-all ünvanı bu domen altında mövcud olmayan ünvanlara göndərilən bütün poçtu qəbul edir.",
     "forward_to": "E-poçt ünvanına yönləndir",
     "catchall_placeholder": "Catch-all-u deaktiv etmək üçün boş buraxın",
-    "catchall_remove_hint": "Catch-all ünvanını çıxarmaq üçün boş buraxıb yadda saxlayın.",
     "save_catchall": "Catch-all yadda saxla",
     "bcc_settings": "BCC parametrləri",
     "bcc_desc": "Göndərilən və ya alınan bütün poçtların surətlərini göstərilən ünvanlara BCC edir.",
@@ -693,7 +694,6 @@
     "pref_received": "Gələn məktublar",
     "self_service": "Özünəxidmət",
     "self_service_enable": "Bu domain-in istifadəçiləri daxil olub öz ayarlarını idarə edə bilər",
-    "disabled_preferences_help": "İstifadəçilər işarələnmiş ayarları dəyişə bilməz.",
     "disabled_domain_profiles": "Domain adminləri üçün bağlı domain səhifələri",
     "disabled_domain_profiles_help": "Domain adminləri bu domain-in işarələnmiş səhifələrini aça bilməz.",
     "disabled_user_profiles": "Domain adminləri üçün bağlı istifadəçi səhifələri",
@@ -711,7 +711,26 @@
     "msg_admin_removed": ":address domain-in adminlərindən çıxarıldı",
     "msg_admin_unknown": ":address ünvanı ilə admin və ya poçt qutusu yoxdur",
     "msg_admin_not_allowed": "Domain admini yalnız öz domain-lərinin poçt qutularını əlavə edə və ya çıxara bilər: :address",
-    "msg_admin_self": "Özünüzü domain-in adminlərindən çıxara bilməzsiniz"
+    "msg_admin_self": "Özünüzü domain-in adminlərindən çıxara bilməzsiniz",
+    "domain_name_help": "Bu domendəki hər ünvanın @ işarəsindən sonrakı hissəsi, məsələn example.com. Sonradan dəyişdirilmir; səhv ad silinib yenidən yaradılır.",
+    "max_quota_help": "Bu domendəki bir mailbox'ın ala biləcəyi ən böyük kvota, MB ilə. Bundan yuxarı yaratma və ya kvota dəyişikliyi rədd edilir. 0 limitsiz deməkdir.",
+    "domain_quota_help": "Domendəki mailbox kvotalarının cəmi, MB ilə. Cəm bunu aşacaqsa yeni mailbox rədd edilir. 0 limitsiz deməkdir.",
+    "max_mailboxes_help": "Domenin saxlaya biləcəyi mailbox sayı. Bundan yuxarı yaratma rədd edilir. 0 limitsiz deməkdir.",
+    "max_aliases_help": "Domenin saxlaya biləcəyi mail alias sayı. 0 limitsiz deməkdir.",
+    "max_lists_help": "Domenin saxlaya biləcəyi mailing list sayı. 0 limitsiz deməkdir.",
+    "transport_help": "Postfix'in bu domenin mailini necə çatdırdığı. dovecot yerli çatdırılmadır. Yalnız digər transport Postfix'də qurulubsa dəyişin.",
+    "backup_mx_enable_help": "Açıq: bu server domenin mailini qəbul edir və primary MX'ə ötürür. Domen burada mailbox saxlamır.",
+    "primary_mx_help": "Ötürülən maili alan server, məsələn [mx1.example.com]:25. Kvadrat mötərizə MX sorğusunu dayandırır. Boş: Postfix domenin MX qeydlərini istifadə edir.",
+    "default_user_quota_help": "Yeni mailbox yaratma formasının təklif etdiyi kvota, MB ilə. 0 qlobal susmaya görə dəyəri götürür. Mövcud mailbox'ı dəyişmir.",
+    "min_password_length_help": "Bu domendəki mailbox'lar üçün ən qısa parol. 0 panel parametrini götürür və panel minimumundan aşağı dəyər rədd edilir.",
+    "max_password_length_help": "Bu domendəki mailbox'lar üçün ən uzun parol. 0 limitsiz deməkdir.",
+    "self_service_help": "Bu domenin mailbox istifadəçisi eyni login səhifəsindən daxil olur və öz parametrlərini idarə edir. İşarələnmiş seçimləri istifadəçi dəyişə bilmir.",
+    "self_service_enable_help": "Bağlı: yalnız admin daxil ola bilər; bu domenin mailbox istifadəçisi yox.",
+    "disclaimer_text_help": "Mail serverinin bu domenin gedən mailinə əlavə etdiyi mətn. Panel mətni saxlayır, faylları mail serverinin disclaimer script'i yazır.",
+    "forward_to_help": "Bu domendə mövcud olmayan ünvana göndərilən hər maili alan ünvan. Boş saxlanıb yadda saxlanılarsa catch-all silinir və belə mail rədd edilir.",
+    "sender_bcc_help": "Bu domenin göndərdiyi hər mail bu ünvana da gedir. Göndərən surəti görmür.",
+    "recipient_bcc_help": "Bu domenin aldığı hər mail bu ünvana da gedir. Göndərən surəti görmür.",
+    "relay_host_help": "Bu domenin gedən maili birbaşa çatdırılma yerinə bu serverə gedir. Boş: Postfix maili özü çatdırır."
   },
   "admin": {
     "msg_email_required": "Etibarlı e-poçt ünvanı tələb olunur",
@@ -811,7 +830,9 @@
     "alias_domain_name": "Təxəllüs domen adı",
     "select_target": "-- Hədəf domen seçin --",
     "msg_is_mail_domain": ":alias poçt domenidir və alias domen ola bilməz",
-    "msg_target_not_found": "Hədəf domen :domain mövcud deyil"
+    "msg_target_not_found": "Hədəf domen :domain mövcud deyil",
+    "alias_domain_name_help": "Bu domenə göndərilən mail hədəf domendəki eyni local part'a çatdırılır. Alias domen öz mailbox'ını saxlamır.",
+    "target_domain_help": "Alias domenin mailini alan mail domeni."
   },
   "domainownership": {
     "title": "Domen sahibliyi təsdiqi",

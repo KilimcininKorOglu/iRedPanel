@@ -120,7 +120,9 @@
     "type_alias": "Alias",
     "type_ml": "Mailinglijst",
     "msg_invalid_domain": "Ongeldig domein: :domain",
-    "help": "Help"
+    "help": "Help",
+    "description_help": "Een vrije notitie voor de beheerders. Het heeft geen invloed op de bezorging.",
+    "active_help": "Uit: het account blijft opgeslagen, maar de mailserver weigert zijn mail en het kan niet inloggen."
   },
   "auth": {
     "title": "Authenticatie",
@@ -663,7 +665,6 @@
     "catchall_desc": "Een catch-all-adres ontvangt alle e-mails die naar niet-bestaande adressen van dit domein worden verzonden.",
     "forward_to": "Doorsturen naar e-mailadres",
     "catchall_placeholder": "Laat leeg om catch-all uit te schakelen",
-    "catchall_remove_hint": "Laat leeg en sla op om het catch-all-adres te verwijderen.",
     "save_catchall": "Catch-all opslaan",
     "bcc_settings": "BCC-instellingen",
     "bcc_desc": "BCC-kopieën van alle verzonden of ontvangen e-mails naar de opgegeven adressen.",
@@ -693,7 +694,6 @@
     "pref_received": "Ontvangen mails",
     "self_service": "Selfservice",
     "self_service_enable": "Gebruikers van dit domein kunnen inloggen en hun eigen voorkeuren beheren",
-    "disabled_preferences_help": "Gebruikers kunnen de aangevinkte voorkeuren niet wijzigen.",
     "disabled_domain_profiles": "Domeinpagina's gesloten voor domeinbeheerders",
     "disabled_domain_profiles_help": "Domeinbeheerders kunnen de aangevinkte pagina's van dit domein niet openen.",
     "disabled_user_profiles": "Gebruikerspagina's gesloten voor domeinbeheerders",
@@ -711,7 +711,26 @@
     "msg_admin_removed": ":address is verwijderd uit de beheerders van het domein",
     "msg_admin_unknown": "Er bestaat geen beheerder of mailbox met het adres :address",
     "msg_admin_not_allowed": "Een domeinbeheerder kan alleen mailboxen van de eigen domeinen toevoegen of verwijderen: :address",
-    "msg_admin_self": "U kunt uzelf niet verwijderen uit de beheerders van het domein"
+    "msg_admin_self": "U kunt uzelf niet verwijderen uit de beheerders van het domein",
+    "domain_name_help": "Het deel na de @ van elk adres van dit domein, bijvoorbeeld example.com. Het is later niet te wijzigen; een verkeerde naam moet worden verwijderd en opnieuw aangemaakt.",
+    "max_quota_help": "De grootste quota die één mailbox van dit domein mag hebben, in MB. Een aanmaak of quotawijziging daarboven wordt geweigerd. 0 betekent onbeperkt.",
+    "domain_quota_help": "De som van de mailboxquota's van het domein, in MB. Een nieuwe mailbox wordt geweigerd als de som eroverheen gaat. 0 betekent onbeperkt.",
+    "max_mailboxes_help": "Hoeveel mailboxen het domein mag bevatten. Een aanmaak daarboven wordt geweigerd. 0 betekent onbeperkt.",
+    "max_aliases_help": "Hoeveel mailaliassen het domein mag bevatten. 0 betekent onbeperkt.",
+    "max_lists_help": "Hoeveel mailinglijsten het domein mag bevatten. 0 betekent onbeperkt.",
+    "transport_help": "Hoe Postfix de mail van dit domein bezorgt. dovecot is de lokale bezorging. Wijzig het alleen als het andere transport in Postfix is ingesteld.",
+    "backup_mx_enable_help": "Aan: deze server neemt de mail van het domein aan en stuurt die door naar de primaire MX. Het domein houdt hier geen mailbox.",
+    "primary_mx_help": "De server die de doorgestuurde mail ontvangt, bijvoorbeeld [mx1.example.com]:25. De rechte haken stoppen de MX-opzoeking. Leeg: Postfix gebruikt de MX-records van het domein.",
+    "default_user_quota_help": "De quota die het aanmaakformulier van een nieuwe mailbox voorstelt, in MB. 0 gebruikt de algemene standaard. Een bestaande mailbox verandert niet.",
+    "min_password_length_help": "Het kortste wachtwoord voor de mailboxen van dit domein. 0 gebruikt de paneelinstelling, en een waarde onder het paneelminimum wordt geweigerd.",
+    "max_password_length_help": "Het langste wachtwoord voor de mailboxen van dit domein. 0 betekent onbeperkt.",
+    "self_service_help": "Een mailboxgebruiker van dit domein logt in op dezelfde pagina en beheert zijn eigen instellingen. De aangevinkte voorkeuren kan hij niet wijzigen.",
+    "self_service_enable_help": "Uit: alleen een beheerder kan inloggen; een mailboxgebruiker van dit domein niet.",
+    "disclaimer_text_help": "De tekst die de mailserver aan de uitgaande mail van dit domein toevoegt. Het paneel bewaart hem en het disclaimer-script van de mailserver schrijft de bestanden.",
+    "forward_to_help": "Het adres dat elke mail ontvangt die naar een niet-bestaand adres van dit domein gaat. Leeg en opgeslagen: de catch-all vervalt en die mail wordt geweigerd.",
+    "sender_bcc_help": "Elke mail die dit domein verstuurt, gaat ook naar dit adres. De afzender ziet de kopie niet.",
+    "recipient_bcc_help": "Elke mail die dit domein ontvangt, gaat ook naar dit adres. De afzender ziet de kopie niet.",
+    "relay_host_help": "De uitgaande mail van dit domein gaat naar deze server in plaats van een directe bezorging. Leeg: Postfix bezorgt zelf."
   },
   "admin": {
     "msg_email_required": "Een geldig e-mailadres is vereist",
@@ -811,7 +830,9 @@
     "alias_domain_name": "Naam van aliasdomein",
     "select_target": "-- Selecteer doeldomein --",
     "msg_is_mail_domain": "Het domein :alias is een maildomein en kan geen aliasdomein zijn",
-    "msg_target_not_found": "Het doeldomein :domain bestaat niet"
+    "msg_target_not_found": "Het doeldomein :domain bestaat niet",
+    "alias_domain_name_help": "Mail naar dit domein wordt bezorgd bij hetzelfde lokale deel in het doeldomein. Het aliasdomein houdt geen eigen mailbox.",
+    "target_domain_help": "Het maildomein dat de mail van het aliasdomein ontvangt."
   },
   "domainownership": {
     "title": "Verificatie van domeineigendom",

@@ -120,7 +120,9 @@
     "type_alias": "Alias",
     "type_ml": "Liste de diffusion",
     "msg_invalid_domain": "Domaine non valide : :domain",
-    "help": "Aide"
+    "help": "Aide",
+    "description_help": "Une note libre pour les admins. Elle n'a aucun effet sur la remise.",
+    "active_help": "Désactivé : le compte reste enregistré, mais le serveur de courrier refuse son courrier et il ne peut pas se connecter."
   },
   "auth": {
     "title": "Authentification",
@@ -663,7 +665,6 @@
     "catchall_desc": "Une adresse catch-all reçoit tous les e-mails envoyés à des adresses inexistantes de ce domaine.",
     "forward_to": "Transférer vers l'adresse e-mail",
     "catchall_placeholder": "Laisser vide pour désactiver le catch-all",
-    "catchall_remove_hint": "Laisser vide et enregistrer pour supprimer l'adresse catch-all.",
     "save_catchall": "Enregistrer le catch-all",
     "bcc_settings": "Paramètres CCI",
     "bcc_desc": "Copies CCI de tous les e-mails envoyés ou reçus vers les adresses spécifiées.",
@@ -693,7 +694,6 @@
     "pref_received": "Mails reçus",
     "self_service": "Self-service",
     "self_service_enable": "Les utilisateurs de ce domaine peuvent se connecter pour gérer leurs propres préférences",
-    "disabled_preferences_help": "Les utilisateurs ne peuvent pas modifier les préférences cochées.",
     "disabled_domain_profiles": "Pages de domaine fermées aux admins de domaine",
     "disabled_domain_profiles_help": "Les admins de domaine ne peuvent pas ouvrir les pages cochées de ce domaine.",
     "disabled_user_profiles": "Pages utilisateur fermées aux admins de domaine",
@@ -711,7 +711,26 @@
     "msg_admin_removed": ":address a été retiré des administrateurs du domaine",
     "msg_admin_unknown": "Aucun administrateur ni boîte aux lettres n'existe avec l'adresse :address",
     "msg_admin_not_allowed": "Un administrateur de domaine ne peut ajouter ou retirer que les boîtes aux lettres de ses propres domaines : :address",
-    "msg_admin_self": "Vous ne pouvez pas vous retirer des administrateurs du domaine"
+    "msg_admin_self": "Vous ne pouvez pas vous retirer des administrateurs du domaine",
+    "domain_name_help": "La partie après le @ de chaque adresse de ce domaine, par exemple example.com. Elle ne se change pas ensuite ; un nom erroné doit être supprimé et recréé.",
+    "max_quota_help": "La plus grande quota qu'une boîte de ce domaine peut avoir, en Mo. Une création ou un changement au-dessus est refusé. 0 signifie sans limite.",
+    "domain_quota_help": "La somme des quotas des boîtes du domaine, en Mo. Une nouvelle boîte est refusée si la somme la dépasse. 0 signifie sans limite.",
+    "max_mailboxes_help": "Combien de boîtes le domaine peut contenir. Une création au-dessus est refusée. 0 signifie sans limite.",
+    "max_aliases_help": "Combien d'alias de courrier le domaine peut contenir. 0 signifie sans limite.",
+    "max_lists_help": "Combien de listes de diffusion le domaine peut contenir. 0 signifie sans limite.",
+    "transport_help": "Comment Postfix remet le courrier de ce domaine. dovecot est la remise locale. Ne le changez que si l'autre transport est configuré dans Postfix.",
+    "backup_mx_enable_help": "Activé : ce serveur accepte le courrier du domaine et le relaie vers le MX principal. Le domaine ne garde aucune boîte ici.",
+    "primary_mx_help": "Le serveur qui reçoit le courrier relayé, par exemple [mx1.example.com]:25. Les crochets arrêtent la recherche MX. Vide : Postfix utilise les enregistrements MX du domaine.",
+    "default_user_quota_help": "La quota que le formulaire de création d'une boîte propose, en Mo. 0 utilise la valeur globale. Une boîte existante ne change pas.",
+    "min_password_length_help": "Le mot de passe le plus court pour les boîtes de ce domaine. 0 utilise le réglage du panneau, et une valeur sous le minimum du panneau est refusée.",
+    "max_password_length_help": "Le mot de passe le plus long pour les boîtes de ce domaine. 0 signifie sans limite.",
+    "self_service_help": "Un utilisateur de boîte de ce domaine se connecte sur la même page et gère ses propres réglages. Il ne peut pas changer les préférences cochées.",
+    "self_service_enable_help": "Désactivé : seul un admin peut se connecter ; un utilisateur de boîte de ce domaine ne le peut pas.",
+    "disclaimer_text_help": "Le texte que le serveur de courrier ajoute au courrier sortant de ce domaine. Le panneau le stocke, et le script de disclaimer du serveur écrit les fichiers.",
+    "forward_to_help": "L'adresse qui reçoit tout courrier envoyé à une adresse inexistante de ce domaine. Vide et enregistré : le catch-all est retiré et ce courrier est refusé.",
+    "sender_bcc_help": "Tout courrier envoyé par ce domaine part aussi vers cette adresse. L'expéditeur ne voit pas la copie.",
+    "recipient_bcc_help": "Tout courrier reçu par ce domaine part aussi vers cette adresse. L'expéditeur ne voit pas la copie.",
+    "relay_host_help": "Le courrier sortant de ce domaine passe par ce serveur au lieu d'une remise directe. Vide : Postfix remet lui-même."
   },
   "admin": {
     "msg_email_required": "Une adresse e-mail valide est requise",
@@ -811,7 +830,9 @@
     "alias_domain_name": "Nom du domaine d'alias",
     "select_target": "-- Sélectionner le domaine cible --",
     "msg_is_mail_domain": "Le domaine :alias est un domaine de messagerie et ne peut pas être un domaine alias",
-    "msg_target_not_found": "Le domaine cible :domain n'existe pas"
+    "msg_target_not_found": "Le domaine cible :domain n'existe pas",
+    "alias_domain_name_help": "Le courrier envoyé à ce domaine est remis à la même partie locale dans le domaine cible. Le domaine alias ne garde aucune boîte.",
+    "target_domain_help": "Le domaine de courrier qui reçoit le courrier du domaine alias."
   },
   "domainownership": {
     "title": "Vérification de la propriété du domaine",

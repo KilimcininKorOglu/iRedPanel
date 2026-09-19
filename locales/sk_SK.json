@@ -120,7 +120,9 @@
     "type_alias": "Alias",
     "type_ml": "E-mailová konferencia",
     "msg_invalid_domain": "Neplatná doména: :domain",
-    "help": "Pomocník"
+    "help": "Pomocník",
+    "description_help": "Voľná poznámka pre správcov. Na doručovanie nemá vplyv.",
+    "active_help": "Vypnuté: účet ostane uložený, ale poštový server jeho poštu odmietne a účet sa neprihlási."
   },
   "auth": {
     "title": "Overenie",
@@ -663,7 +665,6 @@
     "catchall_desc": "Catch-all adresa prijíma všetky e-maily odoslané na neexistujúce adresy v tejto doméne.",
     "forward_to": "Presmerovať na e-mailovú adresu",
     "catchall_placeholder": "Ponechajte prázdne na zakázanie catch-all",
-    "catchall_remove_hint": "Ponechajte prázdne a uložte na odstránenie catch-all adresy.",
     "save_catchall": "Uložiť catch-all",
     "bcc_settings": "Nastavenia BCC",
     "bcc_desc": "BCC kópie všetkých odoslaných alebo prijatých e-mailov na zadané adresy.",
@@ -693,7 +694,6 @@
     "pref_received": "Prijatá pošta",
     "self_service": "Samoobsluha",
     "self_service_enable": "Používatelia tejto domény sa môžu prihlásiť a spravovať vlastné nastavenia",
-    "disabled_preferences_help": "Používatelia nemôžu meniť označené nastavenia.",
     "disabled_domain_profiles": "Stránky domény zatvorené pre adminov domény",
     "disabled_domain_profiles_help": "Admini domény nemôžu otvoriť označené stránky tejto domény.",
     "disabled_user_profiles": "Stránky používateľa zatvorené pre adminov domény",
@@ -711,7 +711,26 @@
     "msg_admin_removed": ":address bol odobratý zo správcov domény",
     "msg_admin_unknown": "Neexistuje žiadny správca ani schránka s adresou :address",
     "msg_admin_not_allowed": "Správca domény môže pridávať alebo odoberať len schránky vlastných domén: :address",
-    "msg_admin_self": "Nemôžete odobrať sami seba zo správcov domény"
+    "msg_admin_self": "Nemôžete odobrať sami seba zo správcov domény",
+    "domain_name_help": "Časť za @ každej adresy tejto domény, napríklad example.com. Neskôr sa nedá zmeniť; nesprávny názov treba zmazať a vytvoriť znova.",
+    "max_quota_help": "Najväčšia kvóta, akú smie mať jedna schránka tejto domény, v MB. Vytvorenie alebo zmena kvóty nad ňu sa odmietne. 0 znamená bez obmedzenia.",
+    "domain_quota_help": "Súčet kvót schránok domény, v MB. Nová schránka sa odmietne, ak by ho súčet prekročil. 0 znamená bez obmedzenia.",
+    "max_mailboxes_help": "Koľko schránok smie doména mať. Vytvorenie nad tento počet sa odmietne. 0 znamená bez obmedzenia.",
+    "max_aliases_help": "Koľko poštových aliasov smie doména mať. 0 znamená bez obmedzenia.",
+    "max_lists_help": "Koľko mailing listov smie doména mať. 0 znamená bez obmedzenia.",
+    "transport_help": "Ako Postfix doručuje poštu tejto domény. dovecot je miestne doručenie. Meňte len vtedy, keď je druhý transport v Postfixe nastavený.",
+    "backup_mx_enable_help": "Zapnuté: tento server prijme poštu domény a odovzdá ju primárnemu MX. Doména tu nedrží schránku.",
+    "primary_mx_help": "Server, ktorý prijíma odovzdanú poštu, napríklad [mx1.example.com]:25. Hranaté zátvorky zastavia vyhľadanie MX. Prázdne: Postfix použije MX záznamy domény.",
+    "default_user_quota_help": "Kvóta, ktorú navrhuje formulár vytvorenia novej schránky, v MB. 0 použije globálnu východiskovú hodnotu. Existujúcu schránku nemení.",
+    "min_password_length_help": "Najkratšie heslo pre schránky tejto domény. 0 použije nastavenie panela a hodnota pod minimom panela sa odmietne.",
+    "max_password_length_help": "Najdlhšie heslo pre schránky tejto domény. 0 znamená bez obmedzenia.",
+    "self_service_help": "Používateľ schránky tejto domény sa prihlási na tej istej stránke a spravuje vlastné nastavenia. Zaškrtnuté voľby zmeniť nemôže.",
+    "self_service_enable_help": "Vypnuté: prihlásiť sa môže len správca; používateľ schránky tejto domény nie.",
+    "disclaimer_text_help": "Text, ktorý poštový server pridá k odchádzajúcej pošte tejto domény. Panel ho uloží a súbory zapíše disclaimer skript poštového servera.",
+    "forward_to_help": "Adresa, ktorá prijíma všetku poštu poslanú na neexistujúcu adresu tejto domény. Prázdne a uložené: catch-all sa odstráni a taká pošta sa odmietne.",
+    "sender_bcc_help": "Každá pošta, ktorú táto doména odošle, ide aj na túto adresu. Odosielateľ kópiu nevidí.",
+    "recipient_bcc_help": "Každá pošta, ktorú táto doména prijme, ide aj na túto adresu. Odosielateľ kópiu nevidí.",
+    "relay_host_help": "Odchádzajúca pošta tejto domény ide na tento server namiesto priameho doručenia. Prázdne: Postfix doručuje sám."
   },
   "admin": {
     "msg_email_required": "Vyžaduje sa platná e-mailová adresa",
@@ -811,7 +830,9 @@
     "alias_domain_name": "Názov aliasovej domény",
     "select_target": "-- Vyberte cieľovú doménu --",
     "msg_is_mail_domain": "Doména :alias je poštová doména a nemôže byť aliasovou doménou",
-    "msg_target_not_found": "Cieľová doména :domain neexistuje"
+    "msg_target_not_found": "Cieľová doména :domain neexistuje",
+    "alias_domain_name_help": "Pošta na túto doménu sa doručí rovnakej miestnej časti v cieľovej doméne. Aliasová doména nedrží vlastné schránky.",
+    "target_domain_help": "Poštová doména, ktorá prijíma poštu aliasovej domény."
   },
   "domainownership": {
     "title": "Overenie vlastníctva domény",

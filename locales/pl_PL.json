@@ -120,7 +120,9 @@
     "type_alias": "Alias",
     "type_ml": "Lista mailingowa",
     "msg_invalid_domain": "Nieprawidłowa domena: :domain",
-    "help": "Pomoc"
+    "help": "Pomoc",
+    "description_help": "Swobodna notatka dla administratorów. Nie wpływa na doręczanie.",
+    "active_help": "Wyłączone: konto pozostaje zapisane, ale serwer pocztowy odrzuca jego pocztę i nie da się zalogować."
   },
   "auth": {
     "title": "Uwierzytelnianie",
@@ -663,7 +665,6 @@
     "catchall_desc": "Adres catch-all odbiera wszystkie e-maile wysłane na nieistniejące adresy w tej domenie.",
     "forward_to": "Przekaż na adres e-mail",
     "catchall_placeholder": "Pozostaw puste, aby wyłączyć catch-all",
-    "catchall_remove_hint": "Pozostaw puste i zapisz, aby usunąć adres catch-all.",
     "save_catchall": "Zapisz catch-all",
     "bcc_settings": "Ustawienia BCC",
     "bcc_desc": "Wysyła kopie BCC wszystkich wysłanych lub odebranych e-maili na określone adresy.",
@@ -693,7 +694,6 @@
     "pref_received": "Odebrane wiadomości",
     "self_service": "Samoobsługa",
     "self_service_enable": "Użytkownicy tej domeny mogą się zalogować i zarządzać własnymi ustawieniami",
-    "disabled_preferences_help": "Użytkownicy nie mogą zmieniać zaznaczonych ustawień.",
     "disabled_domain_profiles": "Strony domeny zamknięte dla adminów domeny",
     "disabled_domain_profiles_help": "Admini domeny nie mogą otwierać zaznaczonych stron tej domeny.",
     "disabled_user_profiles": "Strony użytkownika zamknięte dla adminów domeny",
@@ -711,7 +711,26 @@
     "msg_admin_removed": "Usunięto :address z administratorów domeny",
     "msg_admin_unknown": "Nie istnieje administrator ani skrzynka o adresie :address",
     "msg_admin_not_allowed": "Administrator domeny może dodawać lub usuwać tylko skrzynki własnych domen: :address",
-    "msg_admin_self": "Nie możesz usunąć siebie z administratorów domeny"
+    "msg_admin_self": "Nie możesz usunąć siebie z administratorów domeny",
+    "domain_name_help": "Część po @ każdego adresu tej domeny, na przykład example.com. Później nie da się jej zmienić; błędną nazwę trzeba usunąć i utworzyć ponownie.",
+    "max_quota_help": "Największa kwota, jaką może mieć jedna skrzynka tej domeny, w MB. Utworzenie lub zmiana kwoty powyżej jest odrzucana. 0 oznacza bez limitu.",
+    "domain_quota_help": "Suma kwot skrzynek domeny, w MB. Nowa skrzynka jest odrzucana, gdy suma miałaby ją przekroczyć. 0 oznacza bez limitu.",
+    "max_mailboxes_help": "Ile skrzynek może mieć domena. Utworzenie ponad tę liczbę jest odrzucane. 0 oznacza bez limitu.",
+    "max_aliases_help": "Ile aliasów pocztowych może mieć domena. 0 oznacza bez limitu.",
+    "max_lists_help": "Ile list mailingowych może mieć domena. 0 oznacza bez limitu.",
+    "transport_help": "Jak Postfix doręcza pocztę tej domeny. dovecot to doręczanie lokalne. Zmieniaj tylko wtedy, gdy inny transport jest skonfigurowany w Postfiksie.",
+    "backup_mx_enable_help": "Włączone: ten serwer przyjmuje pocztę domeny i przekazuje ją do głównego MX. Domena nie trzyma tu skrzynek.",
+    "primary_mx_help": "Serwer, który odbiera przekazywaną pocztę, na przykład [mx1.example.com]:25. Nawiasy kwadratowe wstrzymują wyszukiwanie MX. Puste: Postfix używa rekordów MX domeny.",
+    "default_user_quota_help": "Kwota proponowana przez formularz tworzenia nowej skrzynki, w MB. 0 używa wartości globalnej. Istniejącej skrzynki nie zmienia.",
+    "min_password_length_help": "Najkrótsze hasło dla skrzynek tej domeny. 0 używa ustawienia panelu, a wartość poniżej minimum panelu jest odrzucana.",
+    "max_password_length_help": "Najdłuższe hasło dla skrzynek tej domeny. 0 oznacza bez limitu.",
+    "self_service_help": "Użytkownik skrzynki tej domeny loguje się na tej samej stronie i zarządza własnymi ustawieniami. Zaznaczonych preferencji nie może zmienić.",
+    "self_service_enable_help": "Wyłączone: zalogować się może tylko administrator; użytkownik skrzynki tej domeny nie.",
+    "disclaimer_text_help": "Tekst, który serwer pocztowy dokłada do poczty wychodzącej tej domeny. Panel go przechowuje, a pliki zapisuje skrypt disclaimer serwera pocztowego.",
+    "forward_to_help": "Adres, który odbiera każdą pocztę wysłaną na nieistniejący adres tej domeny. Puste i zapisane: catch-all znika, a taka poczta jest odrzucana.",
+    "sender_bcc_help": "Każda poczta wysłana przez tę domenę trafia też na ten adres. Nadawca nie widzi kopii.",
+    "recipient_bcc_help": "Każda poczta odebrana przez tę domenę trafia też na ten adres. Nadawca nie widzi kopii.",
+    "relay_host_help": "Poczta wychodząca tej domeny idzie na ten serwer zamiast doręczenia bezpośredniego. Puste: Postfix doręcza sam."
   },
   "admin": {
     "msg_email_required": "Wymagany jest prawidłowy adres e-mail",
@@ -811,7 +830,9 @@
     "alias_domain_name": "Nazwa domeny aliasu",
     "select_target": "-- Wybierz domenę docelową --",
     "msg_is_mail_domain": "Domena :alias jest domeną pocztową i nie może być domeną aliasu",
-    "msg_target_not_found": "Domena docelowa :domain nie istnieje"
+    "msg_target_not_found": "Domena docelowa :domain nie istnieje",
+    "alias_domain_name_help": "Poczta wysłana do tej domeny trafia do tej samej części lokalnej w domenie docelowej. Domena alias nie trzyma własnych skrzynek.",
+    "target_domain_help": "Domena pocztowa, która odbiera pocztę domeny alias."
   },
   "domainownership": {
     "title": "Weryfikacja własności domeny",

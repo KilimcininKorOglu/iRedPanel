@@ -120,7 +120,9 @@
     "type_alias": "Alias",
     "type_ml": "E-postlista",
     "msg_invalid_domain": "Ogiltig domän: :domain",
-    "help": "Hjälp"
+    "help": "Hjälp",
+    "description_help": "En fri anteckning till administratörerna. Den påverkar inte leveransen.",
+    "active_help": "Av: kontot är kvar sparat, men mailservern avvisar dess post och det kan inte logga in."
   },
   "auth": {
     "title": "Autentisering",
@@ -663,7 +665,6 @@
     "catchall_desc": "Catch-all-adressen tar emot all e-post som skickas till obefintliga adresser i denna domän.",
     "forward_to": "Vidarebefordra till e-postadress",
     "catchall_placeholder": "Lämna tomt för att inaktivera catch-all",
-    "catchall_remove_hint": "Lämna tomt och spara för att ta bort catch-all-adressen.",
     "save_catchall": "Spara catch-all",
     "bcc_settings": "BCC-inställningar",
     "bcc_desc": "Skickar BCC-kopior av alla skickade eller mottagna e-postmeddelanden till angivna adresser.",
@@ -693,7 +694,6 @@
     "pref_received": "Mottagna mail",
     "self_service": "Självbetjäning",
     "self_service_enable": "Användare i den här domänen kan logga in och hantera sina egna inställningar",
-    "disabled_preferences_help": "Användare kan inte ändra de markerade inställningarna.",
     "disabled_domain_profiles": "Domänsidor stängda för domänadministratörer",
     "disabled_domain_profiles_help": "Domänadministratörer kan inte öppna de markerade sidorna i den här domänen.",
     "disabled_user_profiles": "Användarsidor stängda för domänadministratörer",
@@ -711,7 +711,26 @@
     "msg_admin_removed": ":address har tagits bort från domänens administratörer",
     "msg_admin_unknown": "Det finns ingen administratör eller brevlåda med adressen :address",
     "msg_admin_not_allowed": "En domänadministratör kan bara lägga till eller ta bort brevlådor i sina egna domäner: :address",
-    "msg_admin_self": "Du kan inte ta bort dig själv från domänens administratörer"
+    "msg_admin_self": "Du kan inte ta bort dig själv från domänens administratörer",
+    "domain_name_help": "Delen efter @ i varje adress i denna domän, till exempel example.com. Den går inte att ändra senare; ett fel namn måste tas bort och skapas på nytt.",
+    "max_quota_help": "Den största kvot en brevlåda i denna domän får ha, i MB. En skapelse eller kvotändring över den avvisas. 0 betyder obegränsat.",
+    "domain_quota_help": "Summan av brevlådornas kvoter i domänen, i MB. En ny brevlåda avvisas om summan skulle passera den. 0 betyder obegränsat.",
+    "max_mailboxes_help": "Hur många brevlådor domänen får ha. En skapelse över det avvisas. 0 betyder obegränsat.",
+    "max_aliases_help": "Hur många mail alias domänen får ha. 0 betyder obegränsat.",
+    "max_lists_help": "Hur många sändlistor domänen får ha. 0 betyder obegränsat.",
+    "transport_help": "Hur Postfix levererar posten i denna domän. dovecot är den lokala leveransen. Ändra det bara när den andra transporten är uppsatt i Postfix.",
+    "backup_mx_enable_help": "På: denna server tar emot domänens post och skickar den vidare till primär MX. Domänen har ingen brevlåda här.",
+    "primary_mx_help": "Servern som tar emot den vidarebefordrade posten, till exempel [mx1.example.com]:25. Hakparenteserna stoppar MX-uppslaget. Tomt: Postfix använder domänens MX-poster.",
+    "default_user_quota_help": "Den kvot som skapandeformuläret för en ny brevlåda föreslår, i MB. 0 använder det globala standardvärdet. En befintlig brevlåda ändras inte.",
+    "min_password_length_help": "Det kortaste lösenordet för brevlådorna i denna domän. 0 använder panelens inställning, och ett värde under panelens minimum avvisas.",
+    "max_password_length_help": "Det längsta lösenordet för brevlådorna i denna domän. 0 betyder obegränsat.",
+    "self_service_help": "En brevlådeanvändare i denna domän loggar in på samma sida och sköter sina egna inställningar. De ikryssade valen kan användaren inte ändra.",
+    "self_service_enable_help": "Av: bara en administratör kan logga in; en brevlådeanvändare i denna domän kan inte.",
+    "disclaimer_text_help": "Texten som mailservern lägger till i den utgående posten i denna domän. Panelen sparar den och mailserverns disclaimer-skript skriver filerna.",
+    "forward_to_help": "Adressen som tar emot all post skickad till en adress som inte finns i denna domän. Tomt och sparat: catch-all tas bort och sådan post avvisas.",
+    "sender_bcc_help": "All post som denna domän skickar går också till denna adress. Avsändaren ser inte kopian.",
+    "recipient_bcc_help": "All post som denna domän tar emot går också till denna adress. Avsändaren ser inte kopian.",
+    "relay_host_help": "Den utgående posten i denna domän går till denna server i stället för en direkt leverans. Tomt: Postfix levererar själv."
   },
   "admin": {
     "msg_email_required": "En giltig e-postadress krävs",
@@ -811,7 +830,9 @@
     "alias_domain_name": "Aliasdomännamn",
     "select_target": "-- Välj måldomän --",
     "msg_is_mail_domain": "Domänen :alias är en e-postdomän och kan inte vara en aliasdomän",
-    "msg_target_not_found": "Måldomänen :domain finns inte"
+    "msg_target_not_found": "Måldomänen :domain finns inte",
+    "alias_domain_name_help": "Post till denna domän levereras till samma lokala del i måldomänen. Aliasdomänen har inga egna brevlådor.",
+    "target_domain_help": "Maildomänen som tar emot aliasdomänens post."
   },
   "domainownership": {
     "title": "Verifiering av domänägande",

@@ -120,7 +120,9 @@
     "type_alias": "Alias",
     "type_ml": "Mailing list",
     "msg_invalid_domain": "Geçersiz domain: :domain",
-    "help": "Yardım"
+    "help": "Yardım",
+    "description_help": "Admin'ler için serbest bir not. Mail teslimini etkilemez.",
+    "active_help": "Kapalı: hesap kayıtlı kalır, ancak mail sunucusu mailini reddeder ve hesap giriş yapamaz."
   },
   "auth": {
     "title": "Kimlik Doğrulama",
@@ -663,7 +665,6 @@
     "catchall_desc": "Yakala-tümü adresi, bu alan adı altında var olmayan adreslere gönderilen tüm e-postaları alır.",
     "forward_to": "İletilecek e-posta adresi",
     "catchall_placeholder": "Yakala-tümü'nü devre dışı bırakmak için boş bırakın",
-    "catchall_remove_hint": "Yakala-tümü adresini kaldırmak için boş bırakıp kaydedin.",
     "save_catchall": "Yakala-tümü'nü Kaydet",
     "bcc_settings": "BCC Ayarları",
     "bcc_desc": "Gönderilen veya alınan tüm e-postaların kopyalarını belirtilen adreslere BCC olarak gönderir.",
@@ -693,7 +694,6 @@
     "pref_received": "Gelen mailler",
     "self_service": "Self-service",
     "self_service_enable": "Bu domain'in kullanıcıları login olup kendi ayarlarını yönetebilir",
-    "disabled_preferences_help": "Kullanıcılar işaretli ayarları değiştiremez.",
     "disabled_domain_profiles": "Domain admin'e kapalı domain sayfaları",
     "disabled_domain_profiles_help": "Domain admin'ler bu domain'in işaretli sayfalarını açamaz.",
     "disabled_user_profiles": "Domain admin'e kapalı kullanıcı sayfaları",
@@ -711,7 +711,26 @@
     "msg_admin_removed": ":address domain'in adminlerinden çıkarıldı",
     "msg_admin_unknown": ":address adresiyle bir admin veya mailbox yok",
     "msg_admin_not_allowed": "Domain admin yalnızca kendi domain'lerinin mailbox'larını ekleyip çıkarabilir: :address",
-    "msg_admin_self": "Kendinizi domain'in adminlerinden çıkaramazsınız"
+    "msg_admin_self": "Kendinizi domain'in adminlerinden çıkaramazsınız",
+    "domain_name_help": "Bu domain'deki her adresin @ işaretinden sonraki bölümü, örneğin example.com. Sonradan değiştirilemez; yanlış ad silinip yeniden oluşturulur.",
+    "max_quota_help": "Bu domain'deki tek bir mailbox'ın alabileceği en büyük kota, MB cinsinden. Bunun üzerindeki oluşturma veya kota değişikliği reddedilir. 0 sınırsız demektir.",
+    "domain_quota_help": "Domain'deki mailbox kotalarının toplamı, MB cinsinden. Toplam bunu aşacaksa yeni mailbox reddedilir. 0 sınırsız demektir.",
+    "max_mailboxes_help": "Domain'in tutabileceği mailbox sayısı. Bunun üzerindeki oluşturma reddedilir. 0 sınırsız demektir.",
+    "max_aliases_help": "Domain'in tutabileceği mail alias sayısı. 0 sınırsız demektir.",
+    "max_lists_help": "Domain'in tutabileceği mailing list sayısı. 0 sınırsız demektir.",
+    "transport_help": "Postfix'in bu domain'in mailini nasıl teslim ettiği. dovecot yerel teslimdir. Yalnızca diğer transport Postfix'te tanımlıysa değiştirin.",
+    "backup_mx_enable_help": "Açık: bu sunucu domain'in mailini kabul eder ve primary MX'e iletir. Domain burada mailbox tutmaz.",
+    "primary_mx_help": "İletilen maili alan sunucu, örneğin [mx1.example.com]:25. Köşeli parantez MX sorgusunu durdurur. Boş bırakılırsa Postfix domain'in MX kayıtlarını kullanır.",
+    "default_user_quota_help": "Yeni bir mailbox oluşturma formunun önerdiği kota, MB cinsinden. 0 genel varsayılanı kullanır. Mevcut mailbox'ı değiştirmez.",
+    "min_password_length_help": "Bu domain'deki mailbox'lar için en kısa parola. 0 panel ayarını kullanır ve panel alt sınırının altındaki değer reddedilir.",
+    "max_password_length_help": "Bu domain'deki mailbox'lar için en uzun parola. 0 sınırsız demektir.",
+    "self_service_help": "Bu domain'in mailbox kullanıcısı aynı login sayfasından girer ve kendi ayarlarını yönetir. İşaretlenen tercihleri kullanıcı değiştiremez.",
+    "self_service_enable_help": "Kapalı: yalnızca admin giriş yapabilir; bu domain'in mailbox kullanıcısı giremez.",
+    "disclaimer_text_help": "Mail sunucusunun bu domain'in giden mailine eklediği metin. Panel metni saklar, dosyaları mail sunucusunun disclaimer script'i yazar.",
+    "forward_to_help": "Bu domain'de var olmayan bir adrese gönderilen her maili alan adres. Boş bırakılıp kaydedilirse catch-all kaldırılır ve böyle mail reddedilir.",
+    "sender_bcc_help": "Bu domain'in gönderdiği her mail bu adrese de gider. Gönderen kopyayı görmez.",
+    "recipient_bcc_help": "Bu domain'in aldığı her mail bu adrese de gider. Gönderen kopyayı görmez.",
+    "relay_host_help": "Bu domain'in giden maili doğrudan teslim yerine bu sunucuya gider. Boş bırakılırsa Postfix maili kendisi teslim eder."
   },
   "admin": {
     "msg_email_required": "Geçerli bir e-posta adresi gerekli",
@@ -811,7 +830,9 @@
     "alias_domain_name": "Takma ad alanı adı",
     "select_target": "-- Hedef alan seçin --",
     "msg_is_mail_domain": ":alias bir mail domain'i, alias domain olamaz",
-    "msg_target_not_found": "Hedef domain :domain mevcut değil"
+    "msg_target_not_found": "Hedef domain :domain mevcut değil",
+    "alias_domain_name_help": "Bu domain'e gönderilen mail, hedef domain'deki aynı local part'a teslim edilir. Alias domain kendi mailbox'ını tutmaz.",
+    "target_domain_help": "Alias domain'in mailini alan mail domain'i."
   },
   "domainownership": {
     "title": "Alan Adı Sahipliği Doğrulaması",

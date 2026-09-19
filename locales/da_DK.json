@@ -83,7 +83,7 @@
     "enable": "Aktiver",
     "disable": "Deaktiver",
     "apply": "Anvend",
-    "bulk_action": "-- Masseh­andling --",
+    "bulk_action": "-- Massehandling --",
     "enable_selected": "Aktiver valgte",
     "disable_selected": "Deaktiver valgte",
     "delete_selected": "Slet valgte",
@@ -120,7 +120,9 @@
     "type_alias": "Alias",
     "type_ml": "Mailingliste",
     "msg_invalid_domain": "Ugyldigt domæne: :domain",
-    "help": "Hjælp"
+    "help": "Hjælp",
+    "description_help": "En fri note til administratorerne. Den påvirker ikke leveringen.",
+    "active_help": "Fra: kontoen forbliver gemt, men mailserveren afviser dens post, og den kan ikke logge ind."
   },
   "auth": {
     "title": "Godkendelse",
@@ -663,7 +665,6 @@
     "catchall_desc": "En catch-all-adresse modtager alle e-mails sendt til ikke-eksisterende adresser under dette domæne.",
     "forward_to": "Videresend til e-mailadresse",
     "catchall_placeholder": "Lad stå tom for at deaktivere catch-all",
-    "catchall_remove_hint": "Lad stå tom og gem for at fjerne catch-all-adressen.",
     "save_catchall": "Gem catch-all",
     "bcc_settings": "BCC-indstillinger",
     "bcc_desc": "BCC-kopier af alle sendte eller modtagne e-mails til de angivne adresser.",
@@ -693,7 +694,6 @@
     "pref_received": "Modtagne mails",
     "self_service": "Selvbetjening",
     "self_service_enable": "Brugere i dette domæne kan logge ind og administrere deres egne indstillinger",
-    "disabled_preferences_help": "Brugere kan ikke ændre de markerede indstillinger.",
     "disabled_domain_profiles": "Domænesider lukket for domæneadministratorer",
     "disabled_domain_profiles_help": "Domæneadministratorer kan ikke åbne de markerede sider i dette domæne.",
     "disabled_user_profiles": "Brugersider lukket for domæneadministratorer",
@@ -711,7 +711,26 @@
     "msg_admin_removed": ":address er fjernet fra domænets administratorer",
     "msg_admin_unknown": "Der findes ingen administrator eller postkasse med adressen :address",
     "msg_admin_not_allowed": "En domæneadministrator kan kun tilføje eller fjerne postkasser i sine egne domæner: :address",
-    "msg_admin_self": "Du kan ikke fjerne dig selv fra domænets administratorer"
+    "msg_admin_self": "Du kan ikke fjerne dig selv fra domænets administratorer",
+    "domain_name_help": "Delen efter @ i hver adresse i dette domæne, for eksempel example.com. Den kan ikke ændres senere; et forkert navn skal slettes og oprettes igen.",
+    "max_quota_help": "Den største kvote, én postkasse i dette domæne må have, i MB. En oprettelse eller kvoteændring derover afvises. 0 betyder ubegrænset.",
+    "domain_quota_help": "Summen af postkassekvoterne i domænet, i MB. En ny postkasse afvises, hvis summen ville overstige den. 0 betyder ubegrænset.",
+    "max_mailboxes_help": "Hvor mange postkasser domænet må have. En oprettelse derover afvises. 0 betyder ubegrænset.",
+    "max_aliases_help": "Hvor mange mailaliasser domænet må have. 0 betyder ubegrænset.",
+    "max_lists_help": "Hvor mange mailinglister domænet må have. 0 betyder ubegrænset.",
+    "transport_help": "Hvordan Postfix leverer posten i dette domæne. dovecot er den lokale levering. Skift det kun, når den anden transport er sat op i Postfix.",
+    "backup_mx_enable_help": "Til: denne server modtager domænets post og sender den videre til den primære MX. Domænet har ingen postkasse her.",
+    "primary_mx_help": "Serveren, der modtager den videresendte post, for eksempel [mx1.example.com]:25. De kantede parenteser stopper MX-opslaget. Tom: Postfix bruger domænets MX-poster.",
+    "default_user_quota_help": "Den kvote, oprettelsesformularen for en ny postkasse foreslår, i MB. 0 bruger den globale standard. En eksisterende postkasse ændres ikke.",
+    "min_password_length_help": "Det korteste kodeord for postkasserne i dette domæne. 0 bruger panelets indstilling, og en værdi under panelets minimum afvises.",
+    "max_password_length_help": "Det længste kodeord for postkasserne i dette domæne. 0 betyder ubegrænset.",
+    "self_service_help": "En postkassebruger i dette domæne logger ind på samme side og styrer sine egne indstillinger. De afkrydsede præferencer kan brugeren ikke ændre.",
+    "self_service_enable_help": "Fra: kun en administrator kan logge ind; en postkassebruger i dette domæne kan ikke.",
+    "disclaimer_text_help": "Teksten, mailserveren føjer til den udgående post i dette domæne. Panelet gemmer den, og mailserverens disclaimer-script skriver filerne.",
+    "forward_to_help": "Adressen, der modtager al post sendt til en adresse, der ikke findes i dette domæne. Tom og gemt: catch-all fjernes, og den post afvises.",
+    "sender_bcc_help": "Al post, dette domæne sender, går også til denne adresse. Afsenderen ser ikke kopien.",
+    "recipient_bcc_help": "Al post, dette domæne modtager, går også til denne adresse. Afsenderen ser ikke kopien.",
+    "relay_host_help": "Den udgående post i dette domæne går til denne server i stedet for direkte levering. Tom: Postfix leverer selv."
   },
   "admin": {
     "msg_email_required": "En gyldig e-mailadresse er påkrævet",
@@ -811,7 +830,9 @@
     "alias_domain_name": "Aliasdomænenavn",
     "select_target": "-- Vælg måldomæne --",
     "msg_is_mail_domain": "Domænet :alias er et maildomæne og kan ikke være et aliasdomæne",
-    "msg_target_not_found": "Måldomænet :domain findes ikke"
+    "msg_target_not_found": "Måldomænet :domain findes ikke",
+    "alias_domain_name_help": "Post til dette domæne leveres til samme lokale del i måldomænet. Aliasdomænet har ingen egne postkasser.",
+    "target_domain_help": "Det maildomæne, der modtager aliasdomænets post."
   },
   "domainownership": {
     "title": "Verificering af domæneejerskab",

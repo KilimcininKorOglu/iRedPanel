@@ -120,7 +120,9 @@
     "type_alias": "Alias",
     "type_ml": "E-postliste",
     "msg_invalid_domain": "Ugyldig domene: :domain",
-    "help": "Hjelp"
+    "help": "Hjelp",
+    "description_help": "En fri merknad til administratorene. Den påvirker ikke leveringen.",
+    "active_help": "Av: kontoen blir liggende lagret, men e-posttjeneren avviser posten dens, og den kan ikke logge inn."
   },
   "auth": {
     "title": "Autentisering",
@@ -663,7 +665,6 @@
     "catchall_desc": "En catch-all-adresse mottar alle e-poster sendt til ikke-eksisterende adresser under dette domenet.",
     "forward_to": "Videresend til e-postadresse",
     "catchall_placeholder": "La stå tom for å deaktivere catch-all",
-    "catchall_remove_hint": "La stå tom og lagre for å fjerne catch-all-adressen.",
     "save_catchall": "Lagre catch-all",
     "bcc_settings": "BCC-innstillinger",
     "bcc_desc": "BCC-kopier av alle sendte eller mottatte e-poster til de angitte adressene.",
@@ -693,7 +694,6 @@
     "pref_received": "Mottatt e-post",
     "self_service": "Selvbetjening",
     "self_service_enable": "Brukere i dette domenet kan logge inn og administrere egne innstillinger",
-    "disabled_preferences_help": "Brukere kan ikke endre de avkryssede innstillingene.",
     "disabled_domain_profiles": "Domenesider stengt for domeneadministratorer",
     "disabled_domain_profiles_help": "Domeneadministratorer kan ikke åpne de avkryssede sidene i dette domenet.",
     "disabled_user_profiles": "Brukersider stengt for domeneadministratorer",
@@ -711,7 +711,26 @@
     "msg_admin_removed": ":address er fjernet fra domenets administratorer",
     "msg_admin_unknown": "Det finnes ingen administrator eller postkasse med adressen :address",
     "msg_admin_not_allowed": "En domeneadministrator kan bare legge til eller fjerne postkasser i sine egne domener: :address",
-    "msg_admin_self": "Du kan ikke fjerne deg selv fra domenets administratorer"
+    "msg_admin_self": "Du kan ikke fjerne deg selv fra domenets administratorer",
+    "domain_name_help": "Delen etter @ i hver adresse i dette domenet, for eksempel example.com. Den kan ikke endres senere; et feil navn må slettes og opprettes på nytt.",
+    "max_quota_help": "Den største kvoten én postkasse i dette domenet kan ha, i MB. En oppretting eller kvoteendring over den avvises. 0 betyr ubegrenset.",
+    "domain_quota_help": "Summen av postkassekvotene i domenet, i MB. En ny postkasse avvises hvis summen ville overstige den. 0 betyr ubegrenset.",
+    "max_mailboxes_help": "Hvor mange postkasser domenet kan ha. En oppretting over det avvises. 0 betyr ubegrenset.",
+    "max_aliases_help": "Hvor mange mail alias domenet kan ha. 0 betyr ubegrenset.",
+    "max_lists_help": "Hvor mange e-postlister domenet kan ha. 0 betyr ubegrenset.",
+    "transport_help": "Hvordan Postfix leverer posten i dette domenet. dovecot er den lokale leveringen. Endre det bare når den andre transporten er satt opp i Postfix.",
+    "backup_mx_enable_help": "På: denne tjeneren tar imot domenets post og videresender den til primær MX. Domenet har ingen postkasse her.",
+    "primary_mx_help": "Tjeneren som mottar den videresendte posten, for eksempel [mx1.example.com]:25. Hakeparentesene stopper MX-oppslaget. Tom: Postfix bruker domenets MX-oppføringer.",
+    "default_user_quota_help": "Kvoten som opprettingsskjemaet for en ny postkasse foreslår, i MB. 0 bruker den globale standarden. En eksisterende postkasse endres ikke.",
+    "min_password_length_help": "Det korteste passordet for postkassene i dette domenet. 0 bruker panelinnstillingen, og en verdi under panelets minimum avvises.",
+    "max_password_length_help": "Det lengste passordet for postkassene i dette domenet. 0 betyr ubegrenset.",
+    "self_service_help": "En postkassebruker i dette domenet logger inn på samme side og styrer sine egne innstillinger. De avkryssede valgene kan brukeren ikke endre.",
+    "self_service_enable_help": "Av: bare en administrator kan logge inn; en postkassebruker i dette domenet kan ikke.",
+    "disclaimer_text_help": "Teksten e-posttjeneren legger til den utgående posten i dette domenet. Panelet lagrer den, og disclaimer-skriptet til e-posttjeneren skriver filene.",
+    "forward_to_help": "Adressen som mottar all post sendt til en adresse som ikke finnes i dette domenet. Tom og lagret: catch-all fjernes, og slik post avvises.",
+    "sender_bcc_help": "All post dette domenet sender, går også til denne adressen. Avsenderen ser ikke kopien.",
+    "recipient_bcc_help": "All post dette domenet mottar, går også til denne adressen. Avsenderen ser ikke kopien.",
+    "relay_host_help": "Den utgående posten i dette domenet går til denne tjeneren i stedet for direkte levering. Tom: Postfix leverer selv."
   },
   "admin": {
     "msg_email_required": "En gyldig e-postadresse er påkrevd",
@@ -811,7 +830,9 @@
     "alias_domain_name": "Aliasdomenenavn",
     "select_target": "-- Velg måldomene --",
     "msg_is_mail_domain": "Domenet :alias er et e-postdomene og kan ikke være et aliasdomene",
-    "msg_target_not_found": "Måldomenet :domain finnes ikke"
+    "msg_target_not_found": "Måldomenet :domain finnes ikke",
+    "alias_domain_name_help": "Post til dette domenet leveres til samme lokale del i måldomenet. Aliasdomenet har ingen egne postkasser.",
+    "target_domain_help": "E-postdomenet som mottar posten til aliasdomenet."
   },
   "domainownership": {
     "title": "Verifisering av domeneeierskap",

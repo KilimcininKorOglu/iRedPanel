@@ -120,7 +120,9 @@
     "type_alias": "별칭",
     "type_ml": "메일링 리스트",
     "msg_invalid_domain": "잘못된 도메인: :domain",
-    "help": "도움말"
+    "help": "도움말",
+    "description_help": "관리자를 위한 자유 메모입니다. 배달에는 영향을 주지 않습니다.",
+    "active_help": "끔: 계정은 저장된 채 남지만, 메일 서버가 그 메일을 거부하고 로그인도 되지 않습니다."
   },
   "auth": {
     "title": "인증",
@@ -663,7 +665,6 @@
     "catchall_desc": "Catch-all 주소는 이 도메인의 존재하지 않는 주소로 보낸 모든 이메일을 수신합니다.",
     "forward_to": "이메일 주소로 전달",
     "catchall_placeholder": "Catch-all을 비활성화하려면 비워 두세요",
-    "catchall_remove_hint": "Catch-all 주소를 제거하려면 비워 두고 저장하세요.",
     "save_catchall": "Catch-all 저장",
     "bcc_settings": "BCC 설정",
     "bcc_desc": "보내거나 받은 모든 이메일의 BCC 사본을 지정된 주소로 보냅니다.",
@@ -693,7 +694,6 @@
     "pref_received": "받은 메일",
     "self_service": "셀프 서비스",
     "self_service_enable": "이 도메인의 사용자는 로그인하여 자신의 설정을 관리할 수 있습니다",
-    "disabled_preferences_help": "사용자는 선택한 설정을 변경할 수 없습니다.",
     "disabled_domain_profiles": "도메인 관리자에게 닫힌 도메인 페이지",
     "disabled_domain_profiles_help": "도메인 관리자는 이 도메인의 선택한 페이지를 열 수 없습니다.",
     "disabled_user_profiles": "도메인 관리자에게 닫힌 사용자 페이지",
@@ -711,7 +711,26 @@
     "msg_admin_removed": ":address을(를) 도메인 관리자에서 제거했습니다",
     "msg_admin_unknown": "주소가 :address인 관리자나 메일함이 없습니다",
     "msg_admin_not_allowed": "도메인 관리자는 자신의 도메인에 있는 메일함만 추가하거나 제거할 수 있습니다: :address",
-    "msg_admin_self": "자신을 도메인 관리자에서 제거할 수 없습니다"
+    "msg_admin_self": "자신을 도메인 관리자에서 제거할 수 없습니다",
+    "domain_name_help": "이 도메인의 모든 주소에서 @ 뒤의 부분입니다. 예: example.com. 나중에 바꿀 수 없으며, 잘못 적었으면 지우고 다시 만들어야 합니다.",
+    "max_quota_help": "이 도메인의 메일박스 하나가 가질 수 있는 최대 용량(MB)입니다. 이를 넘는 생성이나 용량 변경은 거부됩니다. 0은 무제한입니다.",
+    "domain_quota_help": "도메인 메일박스 용량의 합계(MB)입니다. 합계가 이를 넘으면 새 메일박스를 거부합니다. 0은 무제한입니다.",
+    "max_mailboxes_help": "도메인이 가질 수 있는 메일박스 수입니다. 이를 넘는 생성은 거부됩니다. 0은 무제한입니다.",
+    "max_aliases_help": "도메인이 가질 수 있는 mail alias 수입니다. 0은 무제한입니다.",
+    "max_lists_help": "도메인이 가질 수 있는 메일링 리스트 수입니다. 0은 무제한입니다.",
+    "transport_help": "Postfix가 이 도메인의 메일을 배달하는 방식입니다. dovecot은 로컬 배달입니다. 다른 transport를 Postfix에 설정한 경우에만 바꾸십시오.",
+    "backup_mx_enable_help": "켬: 이 서버가 도메인의 메일을 받아 기본 MX로 전달합니다. 도메인은 여기에 메일박스를 두지 않습니다.",
+    "primary_mx_help": "전달된 메일을 받는 서버입니다. 예: [mx1.example.com]:25. 대괄호는 MX 조회를 막습니다. 비우면 Postfix가 도메인의 MX 레코드를 씁니다.",
+    "default_user_quota_help": "새 메일박스 생성 폼이 제안하는 용량(MB)입니다. 0은 전역 기본값을 씁니다. 기존 메일박스는 바뀌지 않습니다.",
+    "min_password_length_help": "이 도메인 메일박스의 가장 짧은 비밀번호입니다. 0은 패널 설정을 쓰며, 패널 최솟값보다 작은 값은 거부됩니다.",
+    "max_password_length_help": "이 도메인 메일박스의 가장 긴 비밀번호입니다. 0은 무제한입니다.",
+    "self_service_help": "이 도메인의 메일박스 사용자는 같은 페이지에서 로그인해 자기 설정을 관리합니다. 체크한 항목은 사용자가 바꿀 수 없습니다.",
+    "self_service_enable_help": "끔: 관리자만 로그인할 수 있고, 이 도메인의 메일박스 사용자는 로그인할 수 없습니다.",
+    "disclaimer_text_help": "메일 서버가 이 도메인의 보내는 메일에 덧붙이는 문구입니다. 패널은 문구를 저장하고, 파일은 메일 서버의 disclaimer 스크립트가 씁니다.",
+    "forward_to_help": "이 도메인에 없는 주소로 보낸 메일을 모두 받는 주소입니다. 비우고 저장하면 catch-all이 사라지고 그런 메일은 거부됩니다.",
+    "sender_bcc_help": "이 도메인이 보내는 모든 메일이 이 주소로도 갑니다. 보낸 사람은 사본을 보지 못합니다.",
+    "recipient_bcc_help": "이 도메인이 받는 모든 메일이 이 주소로도 갑니다. 보낸 사람은 사본을 보지 못합니다.",
+    "relay_host_help": "이 도메인의 보내는 메일이 직접 배달 대신 이 서버로 갑니다. 비우면 Postfix가 직접 배달합니다."
   },
   "admin": {
     "msg_email_required": "유효한 이메일 주소가 필요합니다",
@@ -811,7 +830,9 @@
     "alias_domain_name": "별칭 도메인 이름",
     "select_target": "-- 대상 도메인 선택 --",
     "msg_is_mail_domain": "도메인 :alias 은(는) 메일 도메인이므로 별칭 도메인이 될 수 없습니다",
-    "msg_target_not_found": "대상 도메인 :domain 이(가) 없습니다"
+    "msg_target_not_found": "대상 도메인 :domain 이(가) 없습니다",
+    "alias_domain_name_help": "이 도메인으로 보낸 메일은 대상 도메인의 같은 local part로 배달됩니다. alias 도메인은 자체 메일박스를 두지 않습니다.",
+    "target_domain_help": "alias 도메인의 메일을 받는 메일 도메인입니다."
   },
   "domainownership": {
     "title": "도메인 소유권 확인",

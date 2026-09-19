@@ -120,7 +120,9 @@
     "type_alias": "別名",
     "type_ml": "郵寄清單",
     "msg_invalid_domain": "無效的網域：:domain",
-    "help": "說明"
+    "help": "說明",
+    "description_help": "給管理員看的自由備註。不影響投遞。",
+    "active_help": "關閉：帳號仍然保留，但郵件伺服器拒收它的郵件，它也無法登入。"
   },
   "auth": {
     "title": "驗證",
@@ -663,7 +665,6 @@
     "catchall_desc": "Catch-all 位址會接收傳送至此網域不存在位址的所有電子郵件。",
     "forward_to": "轉寄至電子郵件位址",
     "catchall_placeholder": "留空以停用 catch-all",
-    "catchall_remove_hint": "留空並儲存以移除 catch-all 位址。",
     "save_catchall": "儲存 catch-all",
     "bcc_settings": "BCC 設定",
     "bcc_desc": "將所有傳送或接收的電子郵件的 BCC 副本傳送至指定位址。",
@@ -693,7 +694,6 @@
     "pref_received": "已收郵件",
     "self_service": "自助服務",
     "self_service_enable": "此網域的使用者可以登入並管理自己的設定",
-    "disabled_preferences_help": "使用者不能變更勾選的設定。",
     "disabled_domain_profiles": "對網域管理員關閉的網域頁面",
     "disabled_domain_profiles_help": "網域管理員不能開啟此網域中勾選的頁面。",
     "disabled_user_profiles": "對網域管理員關閉的使用者頁面",
@@ -711,7 +711,26 @@
     "msg_admin_removed": "已將 :address 從網域管理員中移除",
     "msg_admin_unknown": "不存在位址為 :address 的管理員或信箱",
     "msg_admin_not_allowed": "網域管理員只能新增或移除其所管理網域的信箱: :address",
-    "msg_admin_self": "無法將自己從網域管理員中移除"
+    "msg_admin_self": "無法將自己從網域管理員中移除",
+    "domain_name_help": "本網域每個位址中 @ 之後的部分，例如 example.com。之後無法修改；寫錯只能刪除後重新建立。",
+    "max_quota_help": "本網域單一信箱可擁有的最大配額（MB）。超過此值的建立或配額變更會被拒絕。0 表示不限。",
+    "domain_quota_help": "本網域所有信箱配額的總和（MB）。若總和會超過此值，新信箱將被拒絕。0 表示不限。",
+    "max_mailboxes_help": "網域可容納的信箱數量。超過此值的建立會被拒絕。0 表示不限。",
+    "max_aliases_help": "網域可容納的 mail alias 數量。0 表示不限。",
+    "max_lists_help": "網域可容納的郵件列表數量。0 表示不限。",
+    "transport_help": "Postfix 如何投遞本網域的郵件。dovecot 是本機投遞。只有在 Postfix 中設定了另一個 transport 時才變更。",
+    "backup_mx_enable_help": "開啟：本伺服器接收該網域的郵件並轉送給主 MX。該網域在此不保存信箱。",
+    "primary_mx_help": "接收轉送郵件的伺服器，例如 [mx1.example.com]:25。方括號會停止 MX 查詢。留空時 Postfix 使用該網域的 MX 記錄。",
+    "default_user_quota_help": "新增信箱表單建議的配額（MB）。0 使用全域預設值。不會變更既有信箱。",
+    "min_password_length_help": "本網域信箱的最短密碼。0 使用面板設定，低於面板下限的值會被拒絕。",
+    "max_password_length_help": "本網域信箱的最長密碼。0 表示不限。",
+    "self_service_help": "本網域的信箱使用者在同一頁面登入並管理自己的設定。勾選的項目使用者無法變更。",
+    "self_service_enable_help": "關閉：只有管理員可以登入，本網域的信箱使用者不能登入。",
+    "disclaimer_text_help": "郵件伺服器附加在本網域寄出郵件上的文字。面板保存文字，檔案由郵件伺服器的 disclaimer 指令稿寫入。",
+    "forward_to_help": "接收所有寄往本網域中不存在位址的郵件的位址。留空並儲存則取消 catch-all，這類郵件會被拒收。",
+    "sender_bcc_help": "本網域寄出的每封郵件也會寄往這個位址。寄件者看不到副本。",
+    "recipient_bcc_help": "本網域收到的每封郵件也會寄往這個位址。寄件者看不到副本。",
+    "relay_host_help": "本網域寄出的郵件會送到這台伺服器，而不是直接投遞。留空時 Postfix 自行投遞。"
   },
   "admin": {
     "msg_email_required": "需要有效的電子郵件位址",
@@ -811,7 +830,9 @@
     "alias_domain_name": "別名網域名稱",
     "select_target": "-- 選擇目標網域 --",
     "msg_is_mail_domain": "網域 :alias 是郵件網域，不能作為別名網域",
-    "msg_target_not_found": "目標網域 :domain 不存在"
+    "msg_target_not_found": "目標網域 :domain 不存在",
+    "alias_domain_name_help": "寄往本網域的郵件會投遞到目標網域中相同的 local part。alias 網域不保存自己的信箱。",
+    "target_domain_help": "接收 alias 網域郵件的郵件網域。"
   },
   "domainownership": {
     "title": "網域擁有權驗證",

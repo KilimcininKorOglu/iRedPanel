@@ -120,7 +120,9 @@
     "type_alias": "Alias",
     "type_ml": "Mailingliste",
     "msg_invalid_domain": "Ungültige Domain: :domain",
-    "help": "Hilfe"
+    "help": "Hilfe",
+    "description_help": "Eine freie Notiz für die Admins. Sie hat keinen Einfluss auf die Zustellung.",
+    "active_help": "Aus: das Konto bleibt gespeichert, aber der Mailserver weist seine Mail ab und es kann sich nicht anmelden."
   },
   "auth": {
     "title": "Authentifizierung",
@@ -663,7 +665,6 @@
     "catchall_desc": "Eine Catch-all-Adresse empfängt alle E-Mails, die an nicht existierende Adressen dieser Domain gesendet werden.",
     "forward_to": "An E-Mail-Adresse weiterleiten",
     "catchall_placeholder": "Leer lassen, um Catch-all zu deaktivieren",
-    "catchall_remove_hint": "Leer lassen und speichern, um die Catch-all-Adresse zu entfernen.",
     "save_catchall": "Catch-all speichern",
     "bcc_settings": "BCC-Einstellungen",
     "bcc_desc": "BCC-Kopien aller gesendeten oder empfangenen E-Mails an die angegebenen Adressen.",
@@ -693,7 +694,6 @@
     "pref_received": "Empfangene Mails",
     "self_service": "Self-Service",
     "self_service_enable": "Benutzer dieser Domain können sich anmelden und ihre eigenen Einstellungen verwalten",
-    "disabled_preferences_help": "Benutzer können die markierten Einstellungen nicht ändern.",
     "disabled_domain_profiles": "Für Domain-Admins gesperrte Domain-Seiten",
     "disabled_domain_profiles_help": "Domain-Admins können die markierten Seiten dieser Domain nicht öffnen.",
     "disabled_user_profiles": "Für Domain-Admins gesperrte Benutzerseiten",
@@ -711,7 +711,26 @@
     "msg_admin_removed": ":address wurde aus den Administratoren der Domain entfernt",
     "msg_admin_unknown": "Es gibt keinen Administrator und kein Postfach mit der Adresse :address",
     "msg_admin_not_allowed": "Ein Domain-Administrator kann nur Postfächer seiner eigenen Domains hinzufügen oder entfernen: :address",
-    "msg_admin_self": "Sie können sich nicht selbst aus den Administratoren der Domain entfernen"
+    "msg_admin_self": "Sie können sich nicht selbst aus den Administratoren der Domain entfernen",
+    "domain_name_help": "Der Teil nach dem @ jeder Adresse dieser Domain, zum Beispiel example.com. Er lässt sich später nicht ändern; ein falscher Name muss gelöscht und neu angelegt werden.",
+    "max_quota_help": "Die größte Quota, die eine Mailbox dieser Domain haben darf, in MB. Ein Anlegen oder eine Quota-Änderung darüber wird abgewiesen. 0 bedeutet unbegrenzt.",
+    "domain_quota_help": "Die Summe der Mailbox-Quotas der Domain, in MB. Eine neue Mailbox wird abgewiesen, wenn die Summe sie überschreiten würde. 0 bedeutet unbegrenzt.",
+    "max_mailboxes_help": "Wie viele Mailboxen die Domain halten darf. Ein Anlegen darüber wird abgewiesen. 0 bedeutet unbegrenzt.",
+    "max_aliases_help": "Wie viele Mail-Aliase die Domain halten darf. 0 bedeutet unbegrenzt.",
+    "max_lists_help": "Wie viele Mailinglisten die Domain halten darf. 0 bedeutet unbegrenzt.",
+    "transport_help": "Wie Postfix die Mail dieser Domain zustellt. dovecot ist die lokale Zustellung. Ändern Sie es nur, wenn der andere Transport in Postfix eingerichtet ist.",
+    "backup_mx_enable_help": "An: dieser Server nimmt die Mail der Domain an und leitet sie an den primären MX weiter. Die Domain hält hier keine Mailbox.",
+    "primary_mx_help": "Der Server, der die weitergeleitete Mail erhält, zum Beispiel [mx1.example.com]:25. Die eckigen Klammern verhindern die MX-Abfrage. Leer: Postfix nutzt die MX-Einträge der Domain.",
+    "default_user_quota_help": "Die Quota, die das Anlegeformular einer neuen Mailbox vorschlägt, in MB. 0 nutzt die globale Vorgabe. Eine vorhandene Mailbox ändert sich nicht.",
+    "min_password_length_help": "Das kürzeste Passwort für die Mailboxen dieser Domain. 0 nutzt die Paneleinstellung, und ein Wert unter dem Panelminimum wird abgewiesen.",
+    "max_password_length_help": "Das längste Passwort für die Mailboxen dieser Domain. 0 bedeutet unbegrenzt.",
+    "self_service_help": "Ein Mailbox-Benutzer dieser Domain meldet sich auf derselben Anmeldeseite an und verwaltet seine eigenen Einstellungen. Die angehakten Vorlieben kann er nicht ändern.",
+    "self_service_enable_help": "Aus: nur ein Admin kann sich anmelden, ein Mailbox-Benutzer dieser Domain nicht.",
+    "disclaimer_text_help": "Der Text, den der Mailserver an die ausgehende Mail dieser Domain anhängt. Das Panel speichert ihn, die Dateien schreibt das Disclaimer-Skript des Mailservers.",
+    "forward_to_help": "Die Adresse, die jede Mail an eine in dieser Domain nicht vorhandene Adresse erhält. Leer und gespeichert: der Catch-all entfällt und solche Mail wird abgewiesen.",
+    "sender_bcc_help": "Jede Mail, die diese Domain sendet, geht auch an diese Adresse. Der Absender sieht die Kopie nicht.",
+    "recipient_bcc_help": "Jede Mail, die diese Domain empfängt, geht auch an diese Adresse. Der Absender sieht die Kopie nicht.",
+    "relay_host_help": "Die ausgehende Mail dieser Domain geht an diesen Server statt in die direkte Zustellung. Leer: Postfix stellt selbst zu."
   },
   "admin": {
     "msg_email_required": "Eine gültige E-Mail-Adresse ist erforderlich",
@@ -811,7 +830,9 @@
     "alias_domain_name": "Name der Alias-Domain",
     "select_target": "-- Ziel-Domain auswählen --",
     "msg_is_mail_domain": "Die Domain :alias ist eine Mail-Domain und kann keine Alias-Domain sein",
-    "msg_target_not_found": "Die Zieldomain :domain existiert nicht"
+    "msg_target_not_found": "Die Zieldomain :domain existiert nicht",
+    "alias_domain_name_help": "Mail an diese Domain wird an denselben lokalen Teil in der Zieldomain zugestellt. Die Alias-Domain hält keine eigene Mailbox.",
+    "target_domain_help": "Die Mail-Domain, die die Mail der Alias-Domain erhält."
   },
   "domainownership": {
     "title": "Überprüfung des Domainbesitzes",

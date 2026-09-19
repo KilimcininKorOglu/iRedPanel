@@ -120,7 +120,9 @@
     "type_alias": "Samnefni",
     "type_ml": "Póstlisti",
     "msg_invalid_domain": "Ógilt lén: :domain",
-    "help": "Hjálp"
+    "help": "Hjálp",
+    "description_help": "Frjáls athugasemd fyrir stjórnendur. Hún hefur engin áhrif á afhendingu.",
+    "active_help": "Slökkt: reikningurinn helst vistaður, en póstþjónninn hafnar pósti hans og hann kemst ekki inn."
   },
   "auth": {
     "title": "Auðkenning",
@@ -663,7 +665,6 @@
     "catchall_desc": "Safnvistfang tekur við öllum pósti sem sendur er á vistföng sem ekki eru til undir þessu léni.",
     "forward_to": "Áframsenda á netfang",
     "catchall_placeholder": "Skildu eftir autt til að afvirkja safnvistfang",
-    "catchall_remove_hint": "Skildu eftir autt og vistaðu til að fjarlægja safnvistfangið.",
     "save_catchall": "Vista safnvistfang",
     "bcc_settings": "BCC-stillingar",
     "bcc_desc": "BCC-afrit af öllum sendum eða mótteknum pósti á tilgreind vistföng.",
@@ -693,7 +694,6 @@
     "pref_received": "Móttekinn póstur",
     "self_service": "Sjálfsafgreiðsla",
     "self_service_enable": "Notendur þessa léns geta skráð sig inn og stjórnað eigin stillingum",
-    "disabled_preferences_help": "Notendur geta ekki breytt merktum stillingum.",
     "disabled_domain_profiles": "Lénssíður lokaðar lénsstjórum",
     "disabled_domain_profiles_help": "Lénsstjórar geta ekki opnað merktar síður þessa léns.",
     "disabled_user_profiles": "Notendasíður lokaðar lénsstjórum",
@@ -711,7 +711,26 @@
     "msg_admin_removed": ":address var fjarlægt úr stjórnendum lénsins",
     "msg_admin_unknown": "Enginn stjórnandi eða pósthólf er til með netfangið :address",
     "msg_admin_not_allowed": "Lénsstjórnandi getur aðeins bætt við eða fjarlægt pósthólf eigin léna: :address",
-    "msg_admin_self": "Þú getur ekki fjarlægt sjálfan þig úr stjórnendum lénsins"
+    "msg_admin_self": "Þú getur ekki fjarlægt sjálfan þig úr stjórnendum lénsins",
+    "domain_name_help": "Hlutinn á eftir @ í hverju netfangi þessa léns, til dæmis example.com. Honum verður ekki breytt síðar; rangt nafn þarf að eyða og stofna aftur.",
+    "max_quota_help": "Stærsti kvóti sem eitt pósthólf þessa léns má hafa, í MB. Stofnun eða kvótabreyting yfir honum er hafnað. 0 þýðir ótakmarkað.",
+    "domain_quota_help": "Summa pósthólfskvóta lénsins, í MB. Nýju pósthólfi er hafnað ef summan færi yfir hana. 0 þýðir ótakmarkað.",
+    "max_mailboxes_help": "Hve mörg pósthólf lénið má hafa. Stofnun umfram það er hafnað. 0 þýðir ótakmarkað.",
+    "max_aliases_help": "Hve mörg mail alias lénið má hafa. 0 þýðir ótakmarkað.",
+    "max_lists_help": "Hve marga póstlista lénið má hafa. 0 þýðir ótakmarkað.",
+    "transport_help": "Hvernig Postfix afhendir póst þessa léns. dovecot er staðbundin afhending. Breyttu því aðeins þegar hinn transport er uppsettur í Postfix.",
+    "backup_mx_enable_help": "Kveikt: þessi þjónn tekur við pósti lénsins og áframsendir hann á aðal-MX. Lénið heldur ekkert pósthólf hér.",
+    "primary_mx_help": "Þjónninn sem tekur við áframsenda póstinum, til dæmis [mx1.example.com]:25. Hornklofarnir stöðva MX uppflettinguna. Autt: Postfix notar MX færslur lénsins.",
+    "default_user_quota_help": "Kvótinn sem stofnunarform nýs pósthólfs stingur upp á, í MB. 0 notar almenna gildið. Það breytir ekki pósthólfi sem er til.",
+    "min_password_length_help": "Stysta lykilorðið fyrir pósthólf þessa léns. 0 notar stillingu spjaldsins, og gildi undir lágmarki spjaldsins er hafnað.",
+    "max_password_length_help": "Lengsta lykilorðið fyrir pósthólf þessa léns. 0 þýðir ótakmarkað.",
+    "self_service_help": "Pósthólfsnotandi þessa léns skráir sig inn á sömu síðu og stýrir sínum eigin stillingum. Merktu stillingarnar getur hann ekki breytt.",
+    "self_service_enable_help": "Slökkt: aðeins stjórnandi kemst inn; pósthólfsnotandi þessa léns ekki.",
+    "disclaimer_text_help": "Textinn sem póstþjónninn bætir við útfarandi póst þessa léns. Spjaldið geymir hann og disclaimer skrifta póstþjónsins skrifar skrárnar.",
+    "forward_to_help": "Netfangið sem fær allan póst sem sendur er á netfang sem ekki er til í þessu léni. Autt og vistað: catch-all fellur niður og slíkum pósti er hafnað.",
+    "sender_bcc_help": "Allur póstur sem þetta lén sendir fer líka á þetta netfang. Sendandinn sér ekki afritið.",
+    "recipient_bcc_help": "Allur póstur sem þetta lén fær fer líka á þetta netfang. Sendandinn sér ekki afritið.",
+    "relay_host_help": "Útfarandi póstur þessa léns fer á þennan þjón í stað beinnar afhendingar. Autt: Postfix afhendir sjálfur."
   },
   "admin": {
     "msg_email_required": "Gilt netfang er nauðsynlegt",
@@ -811,7 +830,9 @@
     "alias_domain_name": "Samnefnislénsheiti",
     "select_target": "-- Veldu marklén --",
     "msg_is_mail_domain": "Lénið :alias er póstlén og getur ekki verið samnefnislén",
-    "msg_target_not_found": "Marklénið :domain er ekki til"
+    "msg_target_not_found": "Marklénið :domain er ekki til",
+    "alias_domain_name_help": "Póstur á þetta lén er afhentur sama staðarhluta í markléninu. Alias-lénið heldur engin eigin pósthólf.",
+    "target_domain_help": "Póstlénið sem fær póst alias-lénsins."
   },
   "domainownership": {
     "title": "Staðfesting eignarhalds léns",

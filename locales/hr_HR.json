@@ -120,7 +120,9 @@
     "type_alias": "Alias",
     "type_ml": "Mailing lista",
     "msg_invalid_domain": "Nevažeća domena: :domain",
-    "help": "Pomoć"
+    "help": "Pomoć",
+    "description_help": "Slobodna bilješka za administratore. Ne utječe na isporuku pošte.",
+    "active_help": "Isključeno: račun ostaje spremljen, ali poslužitelj pošte odbija njegovu poštu i ne može se prijaviti."
   },
   "auth": {
     "title": "Autentifikacija",
@@ -663,7 +665,6 @@
     "catchall_desc": "Catch-all adresa prima svu e-poštu poslanu na nepostojeće adrese u ovoj domeni.",
     "forward_to": "Proslijedi na adresu e-pošte",
     "catchall_placeholder": "Ostavite prazno za onemogućavanje catch-all-a",
-    "catchall_remove_hint": "Ostavite prazno i spremite za uklanjanje catch-all adrese.",
     "save_catchall": "Spremi catch-all",
     "bcc_settings": "Postavke BCC-a",
     "bcc_desc": "BCC kopije sve poslane ili primljene e-pošte na navedene adrese.",
@@ -693,7 +694,6 @@
     "pref_received": "Primljena pošta",
     "self_service": "Samoposluga",
     "self_service_enable": "Korisnici ove domene mogu se prijaviti i upravljati vlastitim postavkama",
-    "disabled_preferences_help": "Korisnici ne mogu mijenjati označene postavke.",
     "disabled_domain_profiles": "Stranice domene zatvorene za administratore domene",
     "disabled_domain_profiles_help": "Administratori domene ne mogu otvoriti označene stranice ove domene.",
     "disabled_user_profiles": "Stranice korisnika zatvorene za administratore domene",
@@ -711,7 +711,26 @@
     "msg_admin_removed": ":address je uklonjen iz administratora domene",
     "msg_admin_unknown": "Ne postoji administrator ni sandučić s adresom :address",
     "msg_admin_not_allowed": "Administrator domene može dodavati ili uklanjati samo sandučiće vlastitih domena: :address",
-    "msg_admin_self": "Ne možete ukloniti sebe iz administratora domene"
+    "msg_admin_self": "Ne možete ukloniti sebe iz administratora domene",
+    "domain_name_help": "Dio poslije @ svake adrese ove domene, na primjer example.com. Poslije se ne mijenja; pogrešno ime treba obrisati i stvoriti ponovno.",
+    "max_quota_help": "Najveća kvota koju smije imati jedan sandučić ove domene, u MB. Stvaranje ili promjena kvote iznad toga se odbija. 0 znači bez ograničenja.",
+    "domain_quota_help": "Zbroj kvota sandučića domene, u MB. Novi sandučić se odbija ako bi zbroj prešao tu vrijednost. 0 znači bez ograničenja.",
+    "max_mailboxes_help": "Koliko sandučića domena smije imati. Stvaranje iznad toga se odbija. 0 znači bez ograničenja.",
+    "max_aliases_help": "Koliko mail aliasa domena smije imati. 0 znači bez ograničenja.",
+    "max_lists_help": "Koliko mailing lista domena smije imati. 0 znači bez ograničenja.",
+    "transport_help": "Kako Postfix isporučuje poštu ove domene. dovecot je lokalna isporuka. Mijenjajte samo ako je drugi transport postavljen u Postfixu.",
+    "backup_mx_enable_help": "Uključeno: ovaj poslužitelj prima poštu domene i prosljeđuje je primarnom MX-u. Domena ovdje ne drži sandučić.",
+    "primary_mx_help": "Poslužitelj koji prima proslijeđenu poštu, na primjer [mx1.example.com]:25. Uglate zagrade zaustavljaju MX pretragu. Prazno: Postfix koristi MX zapise domene.",
+    "default_user_quota_help": "Kvota koju predlaže obrazac za stvaranje novog sandučića, u MB. 0 koristi globalnu vrijednost. Postojeći sandučić se ne mijenja.",
+    "min_password_length_help": "Najkraća lozinka za sandučiće ove domene. 0 koristi postavku panela, a vrijednost ispod minimuma panela se odbija.",
+    "max_password_length_help": "Najduža lozinka za sandučiće ove domene. 0 znači bez ograničenja.",
+    "self_service_help": "Korisnik sandučića ove domene prijavljuje se na istoj stranici i upravlja svojim postavkama. Označene postavke ne može mijenjati.",
+    "self_service_enable_help": "Isključeno: prijaviti se može samo administrator; korisnik sandučića ove domene ne može.",
+    "disclaimer_text_help": "Tekst koji poslužitelj pošte dodaje odlaznoj pošti ove domene. Panel ga sprema, a datoteke piše disclaimer skripta poslužitelja pošte.",
+    "forward_to_help": "Adresa koja prima svaku poštu poslanu na nepostojeću adresu ove domene. Prazno i spremljeno: catch-all se uklanja i takva pošta se odbija.",
+    "sender_bcc_help": "Svaka pošta koju ova domena pošalje ide i na ovu adresu. Pošiljatelj ne vidi kopiju.",
+    "recipient_bcc_help": "Svaka pošta koju ova domena primi ide i na ovu adresu. Pošiljatelj ne vidi kopiju.",
+    "relay_host_help": "Odlazna pošta ove domene ide na ovaj poslužitelj umjesto izravne isporuke. Prazno: Postfix isporučuje sam."
   },
   "admin": {
     "msg_email_required": "Potrebna je valjana adresa e-pošte",
@@ -811,7 +830,9 @@
     "alias_domain_name": "Naziv aliasa domene",
     "select_target": "-- Odaberite ciljnu domenu --",
     "msg_is_mail_domain": "Domena :alias je domena e-pošte i ne može biti alias domena",
-    "msg_target_not_found": "Odredišna domena :domain ne postoji"
+    "msg_target_not_found": "Odredišna domena :domain ne postoji",
+    "alias_domain_name_help": "Pošta poslana ovoj domeni isporučuje se istom lokalnom dijelu u ciljnoj domeni. Alias domena nema vlastitih sandučića.",
+    "target_domain_help": "Mail domena koja prima poštu alias domene."
   },
   "domainownership": {
     "title": "Provjera vlasništva domene",

@@ -120,7 +120,9 @@
     "type_alias": "Alias",
     "type_ml": "Mailing list",
     "msg_invalid_domain": "Invalid domain: :domain",
-    "help": "Help"
+    "help": "Help",
+    "description_help": "A free note for the admins. It has no effect on mail delivery.",
+    "active_help": "Off: the account stays stored, but the mail server refuses its mail and it cannot log in."
   },
   "auth": {
     "title": "Authentication",
@@ -663,7 +665,6 @@
     "catchall_desc": "A catch-all address receives all emails sent to non-existent addresses under this domain.",
     "forward_to": "Forward to email address",
     "catchall_placeholder": "Leave empty to disable catch-all",
-    "catchall_remove_hint": "Leave empty and save to remove the catch-all address.",
     "save_catchall": "Save catch-all",
     "bcc_settings": "BCC Settings",
     "bcc_desc": "BCC copies of all sent or received emails to the specified addresses.",
@@ -693,7 +694,6 @@
     "pref_received": "Received mails",
     "self_service": "Self-service",
     "self_service_enable": "Users of this domain can log in to manage their own preferences",
-    "disabled_preferences_help": "Users cannot change the checked preferences.",
     "disabled_domain_profiles": "Domain pages closed for domain admins",
     "disabled_domain_profiles_help": "Domain admins cannot open the checked pages of this domain.",
     "disabled_user_profiles": "User pages closed for domain admins",
@@ -711,7 +711,26 @@
     "msg_admin_removed": "Removed :address from the admins of the domain",
     "msg_admin_unknown": "No admin or mailbox exists with the address :address",
     "msg_admin_not_allowed": "A domain admin can add or remove only the mailboxes of its own domains: :address",
-    "msg_admin_self": "You cannot remove yourself from the admins of the domain"
+    "msg_admin_self": "You cannot remove yourself from the admins of the domain",
+    "domain_name_help": "The part after the @ of every address of this domain, for example example.com. It cannot be changed later; a wrong name has to be deleted and created again.",
+    "max_quota_help": "The largest quota one mailbox of this domain may have, in MB. A create or a quota change above it is refused. 0 means unlimited.",
+    "domain_quota_help": "The sum of the mailbox quotas of the domain, in MB. A new mailbox is refused when the sum would pass it. 0 means unlimited.",
+    "max_mailboxes_help": "How many mailboxes the domain may hold. A create above it is refused. 0 means unlimited.",
+    "max_aliases_help": "How many mail aliases the domain may hold. 0 means unlimited.",
+    "max_lists_help": "How many mailing lists the domain may hold. 0 means unlimited.",
+    "transport_help": "How Postfix delivers the mail of this domain. dovecot is the local delivery. Change it only when the other transport is configured in Postfix.",
+    "backup_mx_enable_help": "On: this server accepts the mail of the domain and relays it to the primary MX. The domain keeps no mailbox here.",
+    "primary_mx_help": "The server that receives the relayed mail, for example [mx1.example.com]:25. The square brackets stop the MX lookup. Empty: Postfix uses the MX records of the domain.",
+    "default_user_quota_help": "The quota that the create form of a new mailbox proposes, in MB. 0 uses the global default. It does not change an existing mailbox.",
+    "min_password_length_help": "The shortest password for the mailboxes of this domain. 0 uses the panel setting, and a value below the panel minimum is refused.",
+    "max_password_length_help": "The longest password for the mailboxes of this domain. 0 means unlimited.",
+    "self_service_help": "A mailbox user of this domain logs in on the same login page and manages its own settings. The user cannot change the checked preferences.",
+    "self_service_enable_help": "Off: only an admin can log in; a mailbox user of this domain cannot.",
+    "disclaimer_text_help": "The text that the mail server appends to the outgoing mail of this domain. The panel stores it, and the disclaimer script of the mail server writes the files.",
+    "forward_to_help": "The address that receives every mail sent to an address that does not exist in this domain. Empty and saved: the catch-all is removed and such mail is refused.",
+    "sender_bcc_help": "Every mail that this domain sends also goes to this address. The sender does not see the copy.",
+    "recipient_bcc_help": "Every mail that this domain receives also goes to this address. The sender does not see the copy.",
+    "relay_host_help": "The outbound mail of this domain goes to this server instead of a direct delivery. Empty: Postfix delivers it itself."
   },
   "admin": {
     "msg_email_required": "A valid email address is required",
@@ -811,7 +830,9 @@
     "alias_domain_name": "Alias domain name",
     "select_target": "-- Select target domain --",
     "msg_is_mail_domain": "The domain :alias is a mail domain and cannot be an alias domain",
-    "msg_target_not_found": "The target domain :domain does not exist"
+    "msg_target_not_found": "The target domain :domain does not exist",
+    "alias_domain_name_help": "Mail sent to this domain is delivered to the same local part in the target domain. The alias domain holds no mailbox of its own.",
+    "target_domain_help": "The mail domain that receives the mail of the alias domain."
   },
   "domainownership": {
     "title": "Domain Ownership Verification",

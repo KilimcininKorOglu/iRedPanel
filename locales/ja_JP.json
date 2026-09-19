@@ -120,7 +120,9 @@
     "type_alias": "エイリアス",
     "type_ml": "メーリングリスト",
     "msg_invalid_domain": "無効なドメイン: :domain",
-    "help": "ヘルプ"
+    "help": "ヘルプ",
+    "description_help": "管理者向けの自由なメモです。配送には影響しません。",
+    "active_help": "オフ: アカウントは保存されたままですが、メールサーバーはそのメールを拒否し、ログインもできません。"
   },
   "auth": {
     "title": "認証",
@@ -663,7 +665,6 @@
     "catchall_desc": "キャッチオールアドレスは、このドメインの存在しないアドレス宛のすべてのメールを受信します。",
     "forward_to": "メールアドレスに転送",
     "catchall_placeholder": "キャッチオールを無効にするには空のままにします",
-    "catchall_remove_hint": "キャッチオールアドレスを削除するには空のままにして保存します。",
     "save_catchall": "キャッチオールを保存",
     "bcc_settings": "BCC 設定",
     "bcc_desc": "送信済みまたは受信済みのすべてのメールの BCC コピーを指定したアドレスに送信します。",
@@ -693,7 +694,6 @@
     "pref_received": "受信したメール",
     "self_service": "セルフサービス",
     "self_service_enable": "このドメインのユーザーはログインして自分の設定を管理できます",
-    "disabled_preferences_help": "ユーザーはチェックした設定を変更できません。",
     "disabled_domain_profiles": "ドメイン管理者に閉じたドメインページ",
     "disabled_domain_profiles_help": "ドメイン管理者はこのドメインのチェックしたページを開けません。",
     "disabled_user_profiles": "ドメイン管理者に閉じたユーザーページ",
@@ -711,7 +711,26 @@
     "msg_admin_removed": ":address をドメインの管理者から外しました",
     "msg_admin_unknown": "アドレス :address の管理者またはメールボックスはありません",
     "msg_admin_not_allowed": "ドメイン管理者は自分のドメインのメールボックスだけを追加・削除できます: :address",
-    "msg_admin_self": "自分自身をドメインの管理者から外すことはできません"
+    "msg_admin_self": "自分自身をドメインの管理者から外すことはできません",
+    "domain_name_help": "このドメインのすべてのアドレスの @ より後ろの部分です。例: example.com。あとから変更できません。間違えた場合は削除して作り直します。",
+    "max_quota_help": "このドメインの 1 つのメールボックスが持てる最大容量です (MB)。これを超える作成や容量変更は拒否します。0 は無制限です。",
+    "domain_quota_help": "ドメイン内のメールボックス容量の合計です (MB)。合計がこれを超える場合、新しいメールボックスを拒否します。0 は無制限です。",
+    "max_mailboxes_help": "ドメインが持てるメールボックス数です。これを超える作成は拒否します。0 は無制限です。",
+    "max_aliases_help": "ドメインが持てる mail alias の数です。0 は無制限です。",
+    "max_lists_help": "ドメインが持てるメーリングリストの数です。0 は無制限です。",
+    "transport_help": "Postfix がこのドメインのメールをどう配送するかです。dovecot はローカル配送です。別の transport を Postfix に設定した場合だけ変更します。",
+    "backup_mx_enable_help": "オン: このサーバーはドメインのメールを受け取り、プライマリ MX に転送します。ドメインはここにメールボックスを持ちません。",
+    "primary_mx_help": "転送先のサーバーです。例: [mx1.example.com]:25。角かっこは MX 参照を止めます。空の場合、Postfix はドメインの MX レコードを使います。",
+    "default_user_quota_help": "新しいメールボックスの作成フォームが提案する容量です (MB)。0 は全体の既定値を使います。既存のメールボックスは変わりません。",
+    "min_password_length_help": "このドメインのメールボックスの最短パスワードです。0 はパネル設定を使い、パネルの下限より小さい値は拒否します。",
+    "max_password_length_help": "このドメインのメールボックスの最長パスワードです。0 は無制限です。",
+    "self_service_help": "このドメインのメールボックス利用者は同じページからログインし、自分の設定を管理します。チェックした項目は利用者が変更できません。",
+    "self_service_enable_help": "オフ: ログインできるのは管理者だけで、このドメインのメールボックス利用者はログインできません。",
+    "disclaimer_text_help": "メールサーバーがこのドメインの送信メールに付け足す文面です。パネルは文面を保存し、ファイルはメールサーバーの disclaimer スクリプトが書きます。",
+    "forward_to_help": "このドメインに存在しないアドレス宛のメールをすべて受け取るアドレスです。空にして保存すると catch-all は外れ、そのようなメールは拒否されます。",
+    "sender_bcc_help": "このドメインが送るすべてのメールがこのアドレスにも届きます。送信者に写しは見えません。",
+    "recipient_bcc_help": "このドメインが受け取るすべてのメールがこのアドレスにも届きます。送信者に写しは見えません。",
+    "relay_host_help": "このドメインの送信メールは直接配送ではなくこのサーバーへ行きます。空の場合、Postfix が自分で配送します。"
   },
   "admin": {
     "msg_email_required": "有効なメールアドレスが必要です",
@@ -811,7 +830,9 @@
     "alias_domain_name": "エイリアスドメイン名",
     "select_target": "-- ターゲットドメインを選択 --",
     "msg_is_mail_domain": "ドメイン :alias はメールドメインのため、エイリアスドメインにできません",
-    "msg_target_not_found": "ターゲットドメイン :domain は存在しません"
+    "msg_target_not_found": "ターゲットドメイン :domain は存在しません",
+    "alias_domain_name_help": "このドメイン宛のメールは、宛先ドメインの同じローカル部分に配送されます。エイリアスドメインは自分のメールボックスを持ちません。",
+    "target_domain_help": "エイリアスドメインのメールを受け取るメールドメインです。"
   },
   "domainownership": {
     "title": "ドメイン所有権の検証",

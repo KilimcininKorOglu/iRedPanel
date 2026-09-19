@@ -120,7 +120,9 @@
     "type_alias": "别名",
     "type_ml": "邮件列表",
     "msg_invalid_domain": "无效的域名：:domain",
-    "help": "帮助"
+    "help": "帮助",
+    "description_help": "给管理员看的自由备注。不影响投递。",
+    "active_help": "关闭：账户仍然保留，但邮件服务器拒收它的邮件，它也无法登录。"
   },
   "auth": {
     "title": "身份验证",
@@ -663,7 +665,6 @@
     "catchall_desc": "全收地址接收发送到此域名不存在地址的所有邮件。",
     "forward_to": "转发到电子邮件地址",
     "catchall_placeholder": "留空以禁用全收",
-    "catchall_remove_hint": "留空并保存以移除全收地址。",
     "save_catchall": "保存全收",
     "bcc_settings": "密送设置",
     "bcc_desc": "将所有已发送或已接收邮件的密送副本发送到指定地址。",
@@ -693,7 +694,6 @@
     "pref_received": "已收邮件",
     "self_service": "自助服务",
     "self_service_enable": "该域的用户可以登录并管理自己的设置",
-    "disabled_preferences_help": "用户不能更改勾选的设置。",
     "disabled_domain_profiles": "对域管理员关闭的域页面",
     "disabled_domain_profiles_help": "域管理员不能打开该域中勾选的页面。",
     "disabled_user_profiles": "对域管理员关闭的用户页面",
@@ -711,7 +711,26 @@
     "msg_admin_removed": "已将 :address 从域管理员中移除",
     "msg_admin_unknown": "不存在地址为 :address 的管理员或邮箱",
     "msg_admin_not_allowed": "域管理员只能添加或移除其所管理域的邮箱: :address",
-    "msg_admin_self": "不能将自己从域管理员中移除"
+    "msg_admin_self": "不能将自己从域管理员中移除",
+    "domain_name_help": "本域名每个地址中 @ 之后的部分，例如 example.com。之后无法修改；写错只能删除后重新创建。",
+    "max_quota_help": "本域名单个邮箱可拥有的最大配额（MB）。超过该值的创建或配额修改会被拒绝。0 表示不限。",
+    "domain_quota_help": "本域名所有邮箱配额之和（MB）。若总和会超过该值，新邮箱将被拒绝。0 表示不限。",
+    "max_mailboxes_help": "域名可容纳的邮箱数量。超过该值的创建会被拒绝。0 表示不限。",
+    "max_aliases_help": "域名可容纳的 mail alias 数量。0 表示不限。",
+    "max_lists_help": "域名可容纳的邮件列表数量。0 表示不限。",
+    "transport_help": "Postfix 如何投递本域名的邮件。dovecot 是本地投递。只有在 Postfix 中配置了另一个 transport 时才更改。",
+    "backup_mx_enable_help": "开启：本服务器接收该域名的邮件并转发给主 MX。该域名在此不保存邮箱。",
+    "primary_mx_help": "接收转发邮件的服务器，例如 [mx1.example.com]:25。方括号会停止 MX 查询。留空时 Postfix 使用该域名的 MX 记录。",
+    "default_user_quota_help": "新建邮箱表单提议的配额（MB）。0 使用全局默认值。不会改变已有邮箱。",
+    "min_password_length_help": "本域名邮箱的最短密码。0 使用面板设置，低于面板下限的值会被拒绝。",
+    "max_password_length_help": "本域名邮箱的最长密码。0 表示不限。",
+    "self_service_help": "本域名的邮箱用户在同一页面登录并管理自己的设置。勾选的项目用户无法修改。",
+    "self_service_enable_help": "关闭：只有管理员可以登录，本域名的邮箱用户不能登录。",
+    "disclaimer_text_help": "邮件服务器附加到本域名外发邮件上的文字。面板保存文字，文件由邮件服务器的 disclaimer 脚本写入。",
+    "forward_to_help": "接收所有发往本域名中不存在地址的邮件的地址。留空并保存则取消 catch-all，此类邮件将被拒收。",
+    "sender_bcc_help": "本域名发出的每封邮件也会发往该地址。发件人看不到副本。",
+    "recipient_bcc_help": "本域名收到的每封邮件也会发往该地址。发件人看不到副本。",
+    "relay_host_help": "本域名的外发邮件发往该服务器，而不是直接投递。留空时 Postfix 自行投递。"
   },
   "admin": {
     "msg_email_required": "需要有效的电子邮件地址",
@@ -811,7 +830,9 @@
     "alias_domain_name": "别名域名名称",
     "select_target": "-- 选择目标域名 --",
     "msg_is_mail_domain": "域名 :alias 是邮件域，不能作为别名域",
-    "msg_target_not_found": "目标域 :domain 不存在"
+    "msg_target_not_found": "目标域 :domain 不存在",
+    "alias_domain_name_help": "发往本域名的邮件会投递到目标域名中相同的 local part。alias 域名不保存自己的邮箱。",
+    "target_domain_help": "接收 alias 域名邮件的邮件域名。"
   },
   "domainownership": {
     "title": "域名所有权验证",

@@ -9,7 +9,7 @@ use App\Utils\LdapUtils;
 class LdapConnectionException extends \App\Exceptions\BackendConnectionException {}
 
 /**
- * LDAP connection singleton. Handles TLS/STARTTLS and admin verification.
+ * LDAP connection singleton. Handles TLS/STARTTLS and password verification.
  */
 class LdapConnection
 {
@@ -18,7 +18,7 @@ class LdapConnection
     /** @var \LDAP\Connection */
     private \LDAP\Connection $conn;
 
-    private function __construct(string $email, string $password)
+    private function __construct(string $bindDn, string $password)
     {
         $settings = Settings::getInstance();
         $uri = $settings->ldapUri;
@@ -44,31 +44,8 @@ class LdapConnection
             }
         }
 
-        $safeEmail = ldap_escape($email, '', LDAP_ESCAPE_DN);
-
-        if (str_contains($email, '@')) {
-            $emailDn = LdapUtils::getEmailDn($email);
-            if (!@ldap_bind($conn, $emailDn, $password)) {
-                throw new \Exception("LDAP bind failed for $email: " . ldap_error($conn));
-            }
-
-            $safeEmailFilter = ldap_escape($email, '', LDAP_ESCAPE_FILTER);
-            $result = @ldap_read(
-                $conn,
-                $emailDn,
-                "(&(domainGlobalAdmin=yes)(mail={$safeEmailFilter}))",
-                ['domainGlobalAdmin']
-            );
-
-            if ($result === false || ldap_count_entries($conn, $result) === 0) {
-                throw new \Exception("User {$email} is not an administrator!");
-            }
-        } else {
-            // A full DN (cn=vmailadmin,dc=example,dc=com) is used as is; a bare CN is placed under the root DN.
-            $bindDn = str_contains($email, '=') ? $email : "cn={$safeEmail},{$settings->ldapRootDn}";
-            if (!@ldap_bind($conn, $bindDn, $password)) {
-                throw new \Exception("LDAP bind failed: " . ldap_error($conn));
-            }
+        if (!@ldap_bind($conn, $bindDn, $password)) {
+            throw new \Exception("LDAP bind failed for {$bindDn}: " . ldap_error($conn));
         }
 
         $this->conn = $conn;
@@ -82,18 +59,23 @@ class LdapConnection
     }
 
     /**
-     * Creates a new LDAP connection and stores it as the singleton instance.
+     * Checks a password by binding a separate connection as $bindDn. The request keeps
+     * the service connection, so the admin's own directory rights do not limit the panel.
+     *
+     * @throws \Exception when the bind fails
      */
-    public static function connect(string $email, string $password): self
+    public static function verifyPassword(string $bindDn, string $password): void
     {
-        self::$instance = new self($email, $password);
-        return self::$instance;
+        // An empty password makes an unauthenticated bind succeed.
+        if ($password === '') {
+            throw new \Exception("LDAP bind failed for {$bindDn}: empty password");
+        }
+        new self($bindDn, $password);
     }
 
     /**
-     * Returns the LDAP connection of this request. Only the login request binds
-     * as the admin; every other request, and the CLI, binds with the service
-     * account IREDPANEL_LDAP_USER / IREDPANEL_LDAP_PASSWORD.
+     * Returns the LDAP connection of this request. Every request, and the CLI, binds
+     * with the service account IREDPANEL_LDAP_USER / IREDPANEL_LDAP_PASSWORD.
      *
      * @throws LdapConnectionException when the service account cannot bind
      */
@@ -101,15 +83,39 @@ class LdapConnection
     {
         if (self::$instance === null) {
             $settings = Settings::getInstance();
-            try {
-                self::$instance = new self($settings->ldapUser, $settings->ldapPassword);
-            } catch (LdapConnectionException $e) {
-                throw $e;
-            } catch (\Exception $e) {
-                throw new LdapConnectionException('LDAP service bind failed: ' . $e->getMessage(), 0, $e);
+            $error = null;
+            foreach (self::serviceBindDns($settings) as $bindDn) {
+                try {
+                    self::$instance = new self($bindDn, $settings->ldapPassword);
+                    return self::$instance;
+                } catch (LdapConnectionException $e) {
+                    throw $e;
+                } catch (\Exception $e) {
+                    $error = $e;
+                }
             }
+            throw new LdapConnectionException('LDAP service bind failed: ' . $error?->getMessage(), 0, $error);
         }
         return self::$instance;
+    }
+
+    /**
+     * An admin address may belong to a mailbox or to a standalone admin; a full DN
+     * (cn=vmailadmin,dc=example,dc=com) is used as is; a bare CN is placed under the root DN.
+     *
+     * @return string[]
+     */
+    private static function serviceBindDns(Settings $settings): array
+    {
+        $user = $settings->ldapUser;
+        if (str_contains($user, '@')) {
+            return [
+                LdapUtils::getEmailDn($user),
+                'mail=' . ldap_escape(strtolower($user), '', LDAP_ESCAPE_DN) . ",o=domainAdmins,{$settings->ldapRootDn}",
+            ];
+        }
+
+        return [str_contains($user, '=') ? $user : 'cn=' . ldap_escape($user, '', LDAP_ESCAPE_DN) . ",{$settings->ldapRootDn}"];
     }
 
     /**

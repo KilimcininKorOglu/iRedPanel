@@ -76,16 +76,14 @@ class Admin
         return new self(
             username: strtolower(FormValue::text($post, 'username')),
             name: FormValue::text($post, 'name'),
-            active: isset($post['active']),
-            isGlobalAdmin: isset($post['isGlobalAdmin']),
+            active: (bool) ($post['active'] ?? false),
+            isGlobalAdmin: (bool) ($post['isGlobalAdmin'] ?? false),
         );
     }
 
     public static function fromMysqlRow(array $row, bool $isMailboxAdmin = false): self
     {
-        $settings = self::parseSettings($row['settings'] ?? '');
-
-        return new self(
+        $admin = new self(
             username: $row['username'] ?? '',
             name: $row['name'] ?? '',
             active: (bool) ($row['active'] ?? 1),
@@ -93,24 +91,43 @@ class Admin
             isMailboxAdmin: $isMailboxAdmin,
             created: $row['created'] ?? null,
             passwordLastChange: $row['passwordlastchange'] ?? null,
-            createMaxDomains: (int) ($settings['create_max_domains'] ?? -1),
-            createMaxUsers: (int) ($settings['create_max_users'] ?? -1),
-            createMaxAliases: (int) ($settings['create_max_aliases'] ?? -1),
-            createMaxLists: (int) ($settings['create_max_lists'] ?? -1),
-            createMaxQuota: (int) ($settings['create_max_quota'] ?? -1),
-            createNewDomains: (bool) ($settings['create_new_domains'] ?? true),
         );
+        $admin->applySettings(self::parseSettings($row['settings'] ?? ''));
+
+        return $admin;
     }
 
+    /**
+     * @param array<string, string> $entry first values by attribute name; `accountSetting`
+     *        holds all "key:value" values joined with ';'
+     */
     public static function fromLdapEntry(array $entry, bool $isMailboxAdmin = false): self
     {
-        return new self(
+        $admin = new self(
             username: $entry['mail'] ?? '',
             name: $entry['cn'] ?? '',
             active: ($entry['accountStatus'] ?? 'active') === 'active',
             isGlobalAdmin: ($entry['domainGlobalAdmin'] ?? '') === 'yes',
             isMailboxAdmin: $isMailboxAdmin,
         );
+        $admin->applySettings(self::parseSettings($entry['accountSetting'] ?? ''));
+
+        return $admin;
+    }
+
+    /**
+     * Returns the limits as LDAP accountSetting values in the iRedAdmin-Pro "key:value" form.
+     *
+     * @return string[]
+     */
+    public function toLdapAccountSetting(): array
+    {
+        $values = [];
+        foreach (json_decode($this->toSettingsJson(), true) as $key => $value) {
+            $values[] = $key . ':' . (is_bool($value) ? ($value ? 'yes' : 'no') : $value);
+        }
+
+        return $values;
     }
 
     public function toSettingsJson(): string
@@ -123,6 +140,20 @@ class Admin
             'create_max_quota' => $this->createMaxQuota,
             'create_new_domains' => $this->createNewDomains,
         ]);
+    }
+
+    /**
+     * @param array<string, mixed> $settings
+     */
+    private function applySettings(array $settings): void
+    {
+        $this->createMaxDomains = (int) ($settings['create_max_domains'] ?? -1);
+        $this->createMaxUsers = (int) ($settings['create_max_users'] ?? -1);
+        $this->createMaxAliases = (int) ($settings['create_max_aliases'] ?? -1);
+        $this->createMaxLists = (int) ($settings['create_max_lists'] ?? -1);
+        $this->createMaxQuota = (int) ($settings['create_max_quota'] ?? -1);
+        // The key:value form stores "yes"/"no", which a (bool) cast reads as true.
+        $this->createNewDomains = filter_var($settings['create_new_domains'] ?? true, FILTER_VALIDATE_BOOLEAN);
     }
 
     private static function parseSettings(string $settings): array

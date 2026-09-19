@@ -6,243 +6,162 @@ namespace App\Repositories\Ldap;
 
 use App\Models\Admin;
 use App\Models\LdapConnection;
+use App\Models\PaginatedResult;
 use App\Models\Settings;
 use App\Repositories\AdminRepositoryInterface;
+use App\Repositories\RepositoryFactory;
 use App\Utils\LdapUtils;
 
+/**
+ * Admins in the iRedAdmin-Pro LDAP layout. A standalone admin is a `mailAdmin` entry
+ * `mail=<address>,o=domainAdmins`; a mailbox admin is a `mailUser` entry. Either one is a
+ * global admin with `domainGlobalAdmin: yes`, and a domain admin of every domain whose
+ * entry lists its address in `domainAdmin`. Creation limits are `accountSetting` values.
+ */
 class LdapAdminRepository implements AdminRepositoryInterface
 {
-    private const ADMIN_ATTRS = ['mail', 'cn', 'accountStatus', 'domainGlobalAdmin'];
+    private const ADMIN_ATTRS = ['mail', 'cn', 'accountStatus', 'domainGlobalAdmin', 'accountSetting', 'objectClass'];
 
     public function getAdmins(): array
     {
-        $conn = LdapConnection::getInstance()->getConn();
-        $settings = Settings::getInstance();
+        $conn = self::conn();
         $admins = [];
-
-        // Mail users with global admin flag
-        $result = @ldap_search(
-            $conn,
-            $settings->ldapRootDn,
-            '(&(objectClass=mailUser)(domainGlobalAdmin=yes))',
-            self::ADMIN_ATTRS
-        );
-
-        if ($result !== false) {
-            $entries = ldap_get_entries($conn, $result);
-            for ($i = 0; $i < ($entries['count'] ?? 0); $i++) {
-                $normalized = LdapUtils::normalizeEntry($entries[$i], self::ADMIN_ATTRS);
-                $admins[] = Admin::fromLdapEntry($normalized, true);
-            }
+        foreach (LdapUtils::searchEntries($conn, self::adminsBase(), '(objectClass=mailAdmin)', self::ADMIN_ATTRS) as $entry) {
+            $admins[] = self::toAdmin($entry);
         }
 
-        usort($admins, fn(Admin $a, Admin $b) => strcmp($a->username, $b->username));
+        $filter = '(&(objectClass=mailUser)(|(domainGlobalAdmin=yes)'
+            . implode('', array_map(
+                static fn (string $mail): string => '(mail=' . ldap_escape($mail, '', LDAP_ESCAPE_FILTER) . ')',
+                self::domainAdminAddresses($conn)
+            )) . '))';
+        foreach (LdapUtils::searchEntries($conn, self::domainsBase(), $filter, self::ADMIN_ATTRS) as $entry) {
+            $admins[] = self::toAdmin($entry);
+        }
+
+        usort($admins, static fn (Admin $a, Admin $b): int => strcmp($a->username, $b->username));
 
         return $admins;
     }
 
     public function getAdmin(string $username): ?Admin
     {
-        $conn = LdapConnection::getInstance()->getConn();
-        $settings = Settings::getInstance();
-        $safeUsername = ldap_escape($username, '', LDAP_ESCAPE_FILTER);
+        $entry = self::findAdminEntry(self::conn(), $username);
 
-        // Search as mail user with admin flag
-        $result = @ldap_search(
-            $conn,
-            $settings->ldapRootDn,
-            "(&(objectClass=mailUser)(mail={$safeUsername}))",
-            self::ADMIN_ATTRS
-        );
-
-        if ($result !== false && ldap_count_entries($conn, $result) > 0) {
-            $entries = ldap_get_entries($conn, $result);
-            $normalized = LdapUtils::normalizeEntry($entries[0], self::ADMIN_ATTRS);
-            return Admin::fromLdapEntry($normalized, true);
-        }
-
-        return null;
+        return $entry === null ? null : self::toAdmin($entry);
     }
 
     public function createAdmin(Admin $admin, string $passwordHash): void
     {
-        // In LDAP, admins are typically mail users promoted to global admin.
-        // Standalone admin creation would require a separate objectClass (mailAdmin).
-        // For now, we only support promoting existing mail users.
-        throw new \RuntimeException('Standalone admin creation is not supported for LDAP. Promote an existing mail user instead.');
+        $conn = self::conn();
+        $entry = [
+            'objectClass' => ['mailAdmin'],
+            'mail' => $admin->username,
+            'userPassword' => $passwordHash,
+            'accountStatus' => $admin->active ? 'active' : 'disabled',
+        ];
+        if ($admin->name !== '') {
+            $entry['cn'] = $admin->name;
+        }
+        if ($admin->isGlobalAdmin) {
+            $entry['domainGlobalAdmin'] = 'yes';
+        }
+
+        if (!@ldap_add($conn, self::standaloneDn($admin->username), $entry)) {
+            throw new \RuntimeException("LDAP admin creation failed for '{$admin->username}': " . ldap_error($conn));
+        }
     }
 
     public function updateAdmin(Admin $admin): void
     {
-        $conn = LdapConnection::getInstance()->getConn();
-        $settings = Settings::getInstance();
-        $safeUsername = ldap_escape($admin->username, '', LDAP_ESCAPE_FILTER);
-
-        // Find user DN
-        $result = @ldap_search(
-            $conn,
-            $settings->ldapRootDn,
-            "(&(objectClass=mailUser)(mail={$safeUsername}))",
-            ['dn']
-        );
-
-        if ($result === false || ldap_count_entries($conn, $result) === 0) {
-            throw new \RuntimeException("Admin user '{$admin->username}' not found in LDAP");
-        }
-
-        $entries = ldap_get_entries($conn, $result);
-        $dn = $entries[0]['dn'];
-
-        $mods = [
-            LdapUtils::modReplace('cn', $admin->name ?: null),
-            LdapUtils::modReplace('accountStatus', $admin->active ? 'active' : 'disabled'),
-            LdapUtils::modReplace('domainGlobalAdmin', $admin->isGlobalAdmin ? 'yes' : null),
-        ];
-
-        if (!LdapUtils::modifyBatch($conn, $dn, $mods)) {
-            throw new \RuntimeException('LDAP admin update failed: ' . ldap_error($conn));
-        }
+        LdapUtils::replaceValues(self::conn(), self::requireAdminDn($admin->username), [
+            'cn' => $admin->name !== '' ? [$admin->name] : [],
+            'accountStatus' => [$admin->active ? 'active' : 'disabled'],
+            'domainGlobalAdmin' => $admin->isGlobalAdmin ? ['yes'] : [],
+        ]);
     }
 
     public function updateAdminPassword(string $username, string $passwordHash): void
     {
-        $conn = LdapConnection::getInstance()->getConn();
-        $settings = Settings::getInstance();
-        $safeUsername = ldap_escape($username, '', LDAP_ESCAPE_FILTER);
-
-        $result = @ldap_search(
-            $conn,
-            $settings->ldapRootDn,
-            "(&(objectClass=mailUser)(mail={$safeUsername}))",
-            ['dn']
-        );
-
-        if ($result === false || ldap_count_entries($conn, $result) === 0) {
-            throw new \RuntimeException("Admin user '{$username}' not found in LDAP");
-        }
-
-        $entries = ldap_get_entries($conn, $result);
-        $dn = $entries[0]['dn'];
-
-        if (!@ldap_mod_replace($conn, $dn, ['userPassword' => $passwordHash])) {
-            throw new \RuntimeException('LDAP admin password update failed: ' . ldap_error($conn));
-        }
+        LdapUtils::replaceValues(self::conn(), self::requireAdminDn($username), ['userPassword' => [$passwordHash]]);
     }
 
+    /**
+     * Deletes a standalone admin entry. A mailbox admin keeps its mailbox and loses
+     * the global flag and every domain assignment, as on the SQL backends.
+     */
     public function deleteAdmin(string $username): void
     {
-        // For LDAP, "deleting" an admin means revoking the domainGlobalAdmin attribute
-        $conn = LdapConnection::getInstance()->getConn();
-        $settings = Settings::getInstance();
-        $safeUsername = ldap_escape($username, '', LDAP_ESCAPE_FILTER);
-
-        $result = @ldap_search(
-            $conn,
-            $settings->ldapRootDn,
-            "(&(objectClass=mailUser)(mail={$safeUsername}))",
-            ['dn']
-        );
-
-        if ($result === false || ldap_count_entries($conn, $result) === 0) {
-            throw new \RuntimeException("Admin user '{$username}' not found in LDAP");
+        $conn = self::conn();
+        $entry = self::findAdminEntry($conn, $username)
+            ?? throw new \RuntimeException("Admin '{$username}' not found");
+        if (($entry['domainglobaladmin'][0] ?? '') === 'yes' && $this->countGlobalAdmins() <= 1) {
+            throw new \RuntimeException('Cannot delete the last global admin');
         }
 
-        $entries = ldap_get_entries($conn, $result);
-        $dn = $entries[0]['dn'];
-
-        $mods = [LdapUtils::modReplace('domainGlobalAdmin', null)];
-
-        if (!LdapUtils::modifyBatch($conn, $dn, $mods)) {
-            throw new \RuntimeException('LDAP admin revocation failed: ' . ldap_error($conn));
+        foreach ($this->getManagedDomains($username) as $domain) {
+            $this->revokeDomainFromAdmin($username, $domain);
         }
+        if (self::isStandalone($entry)) {
+            if (!@ldap_delete($conn, $entry['dn'])) {
+                throw new \RuntimeException("LDAP admin deletion failed for '{$username}': " . ldap_error($conn));
+            }
+            return;
+        }
+        LdapUtils::replaceValues($conn, $entry['dn'], ['domainGlobalAdmin' => []]);
     }
 
     public function getManagedDomains(string $adminUsername): array
     {
-        $conn = LdapConnection::getInstance()->getConn();
-        $settings = Settings::getInstance();
-        $safeAdmin = ldap_escape($adminUsername, '', LDAP_ESCAPE_FILTER);
-
-        $result = @ldap_search(
-            $conn,
-            $settings->ldapRootDn,
-            "(&(objectClass=mailDomain)(domainAdmin={$safeAdmin}))",
-            ['domainName']
+        $filter = '(&(objectClass=mailDomain)(domainAdmin=' . ldap_escape(strtolower($adminUsername), '', LDAP_ESCAPE_FILTER) . '))';
+        $domains = array_map(
+            static fn (array $entry): string => LdapUtils::allValues($entry, 'domainName')[0] ?? '',
+            LdapUtils::searchEntries(self::conn(), self::domainsBase(), $filter, ['domainName'])
         );
-
-        $domains = [];
-        if ($result !== false) {
-            $entries = ldap_get_entries($conn, $result);
-            for ($i = 0; $i < ($entries['count'] ?? 0); $i++) {
-                $normalized = LdapUtils::normalizeEntry($entries[$i], ['domainName']);
-                if (!empty($normalized['domainName'])) {
-                    $domains[] = $normalized['domainName'];
-                }
-            }
-        }
-
         sort($domains);
+
         return $domains;
     }
 
     public function assignDomainToAdmin(string $adminUsername, string $domain): void
     {
-        $conn = LdapConnection::getInstance()->getConn();
-        $dn = LdapUtils::getDomainDn($domain);
-
-        if (!@ldap_mod_add($conn, $dn, ['domainAdmin' => $adminUsername])) {
-            throw new \RuntimeException('Failed to assign domain admin: ' . ldap_error($conn));
-        }
+        LdapUtils::addValues(self::conn(), LdapUtils::getDomainDn($domain), 'domainAdmin', [strtolower($adminUsername)]);
     }
 
     public function revokeDomainFromAdmin(string $adminUsername, string $domain): void
     {
-        $conn = LdapConnection::getInstance()->getConn();
-        $dn = LdapUtils::getDomainDn($domain);
-
-        if (!@ldap_mod_del($conn, $dn, ['domainAdmin' => $adminUsername])) {
-            throw new \RuntimeException('Failed to revoke domain admin: ' . ldap_error($conn));
-        }
+        LdapUtils::deleteValues(self::conn(), LdapUtils::getDomainDn($domain), 'domainAdmin', [strtolower($adminUsername)]);
     }
 
     public function enableDisableAdmin(string $username, bool $active): void
     {
-        $conn = LdapConnection::getInstance()->getConn();
-        $settings = Settings::getInstance();
-        $safeUsername = ldap_escape($username, '', LDAP_ESCAPE_FILTER);
-
-        $result = @ldap_search(
-            $conn,
-            $settings->ldapRootDn,
-            "(&(objectClass=mailUser)(mail={$safeUsername}))",
-            ['dn']
-        );
-
-        if ($result === false || ldap_count_entries($conn, $result) === 0) {
-            throw new \RuntimeException("Admin user '{$username}' not found in LDAP");
-        }
-
-        $entries = ldap_get_entries($conn, $result);
-        $dn = $entries[0]['dn'];
-
-        if (!@ldap_mod_replace($conn, $dn, ['accountStatus' => $active ? 'active' : 'disabled'])) {
-            throw new \RuntimeException('LDAP admin status update failed: ' . ldap_error($conn));
-        }
+        LdapUtils::replaceValues(self::conn(), self::requireAdminDn($username), ['accountStatus' => [$active ? 'active' : 'disabled']]);
     }
 
+    /**
+     * Stores the creation limits as accountSetting values and keeps the other values.
+     */
     public function updateAdminSettings(string $username, string $settingsJson): void
     {
-        // LDAP admin settings are not stored as JSON; no-op for LDAP backend
+        $conn = self::conn();
+        $entry = self::findAdminEntry($conn, $username)
+            ?? throw new \RuntimeException("Admin '{$username}' not found");
+
+        $admin = Admin::fromLdapEntry(['mail' => $username, 'accountSetting' => $settingsJson]);
+        $limitKeys = array_map(static fn (string $value): string => explode(':', $value, 2)[0], $admin->toLdapAccountSetting());
+        $kept = array_filter(
+            LdapUtils::allValues($entry, 'accountSetting'),
+            static fn (string $value): bool => !in_array(explode(':', $value, 2)[0], $limitKeys, true)
+        );
+
+        LdapUtils::replaceValues($conn, $entry['dn'], ['accountSetting' => [...array_values($kept), ...$admin->toLdapAccountSetting()]]);
     }
 
-    public function getAdminsPaginated(int $page, int $perPage): \App\Models\PaginatedResult
+    public function getAdminsPaginated(int $page, int $perPage): PaginatedResult
     {
         $admins = $this->getAdmins();
-        $totalCount = count($admins);
-        $offset = ($page - 1) * $perPage;
-        $pageItems = array_slice($admins, $offset, $perPage);
 
-        return new \App\Models\PaginatedResult($pageItems, $totalCount, $page, $perPage);
+        return new PaginatedResult(array_slice($admins, max(0, ($page - 1) * $perPage), $perPage), count($admins), $page, $perPage);
     }
 
     public function countManagedDomains(string $adminUsername): int
@@ -252,56 +171,105 @@ class LdapAdminRepository implements AdminRepositoryInterface
 
     public function countGlobalAdmins(): int
     {
-        $admins = $this->getAdmins();
-        $count = 0;
-        foreach ($admins as $admin) {
-            if ($admin->isGlobalAdmin) {
-                $count++;
-            }
-        }
-        return $count;
+        return count(array_filter($this->getAdmins(), static fn (Admin $admin): bool => $admin->isGlobalAdmin));
     }
 
     public function getAdminResourceCounts(string $adminUsername): array
     {
-        $managedDomains = $this->getManagedDomains($adminUsername);
-        $admin = $this->getAdmin($adminUsername);
-        $isGlobal = $admin !== null && $admin->isGlobalAdmin;
-
-        $userRepo = \App\Repositories\RepositoryFactory::getUserRepository();
-        $aliasRepo = \App\Repositories\RepositoryFactory::getAliasRepository();
-        $mlRepo = \App\Repositories\RepositoryFactory::getMailingListRepository();
-        $domainRepo = \App\Repositories\RepositoryFactory::getDomainRepository();
-
-        $users = 0;
-        $aliases = 0;
-        $lists = 0;
-        $quotaMb = 0;
-
-        $domains = $isGlobal
-            ? $domainRepo->getDomainsPaginated(1, 999999)->total
-            : count($managedDomains);
-
+        $isGlobal = $this->getAdmin($adminUsername)?->isGlobalAdmin === true;
         $domainNames = $isGlobal
-            ? array_map(fn($d) => $d->domainName, $domainRepo->getDomainsPaginated(1, 999999)->items)
-            : $managedDomains;
+            ? array_map(static fn (array $d): string => $d['domainName'], RepositoryFactory::getDomainRepository()->getDomains())
+            : $this->getManagedDomains($adminUsername);
 
+        $counts = ['domains' => count($domainNames), 'users' => 0, 'aliases' => 0, 'lists' => 0, 'quotaMb' => 0];
         foreach ($domainNames as $domainName) {
-            $userResult = $userRepo->getUsersPaginated($domainName, 1, 1);
-            $users += $userResult->total;
-
-            $domain = $domainRepo->getDomain($domainName);
-            if ($domain !== null) {
-                $quotaMb += $domain->currentUserCount * ($domain->maxQuota > 0 ? $domain->maxQuota : 0);
-            }
+            $users = RepositoryFactory::getUserRepository()->getUsersPaginated($domainName, 1, PHP_INT_MAX)->items;
+            $counts['users'] += count($users);
+            $counts['quotaMb'] += array_sum(array_map(static fn ($user): int => $user->mailQuota, $users));
+            $counts['aliases'] += RepositoryFactory::getAliasRepository()->getAliasesPaginated(1, 1, $domainName)->total;
+            $counts['lists'] += RepositoryFactory::getMailingListRepository()->getMailingListsPaginated(1, 1, $domainName)->total;
         }
 
-        return [
-            'domains' => $domains,
-            'users' => $users,
-            'aliases' => $aliases,
-            'lists' => $lists,
-            'quotaMb' => $quotaMb,
-        ];
+        return $counts;
+    }
+
+    /**
+     * Finds the entry of an admin: a standalone admin first, then a mailbox that is a
+     * global admin or listed in the domainAdmin of a domain.
+     *
+     * @return array<string, mixed>|null
+     */
+    public static function findAdminEntry(\LDAP\Connection $conn, string $username): ?array
+    {
+        $username = strtolower($username);
+        $entry = LdapUtils::readEntry($conn, self::standaloneDn($username), '(objectClass=mailAdmin)', self::ADMIN_ATTRS);
+        if ($entry !== null) {
+            return $entry;
+        }
+
+        $safe = ldap_escape($username, '', LDAP_ESCAPE_FILTER);
+        $entries = LdapUtils::searchEntries($conn, self::domainsBase(), "(&(objectClass=mailUser)(mail={$safe}))", self::ADMIN_ATTRS);
+        $entry = $entries[0] ?? null;
+        if ($entry === null) {
+            return null;
+        }
+        $isAdmin = (LdapUtils::allValues($entry, 'domainGlobalAdmin')[0] ?? '') === 'yes'
+            || in_array($username, self::domainAdminAddresses($conn), true);
+
+        return $isAdmin ? $entry : null;
+    }
+
+    private static function conn(): \LDAP\Connection
+    {
+        return LdapConnection::getInstance()->getConn();
+    }
+
+    private static function adminsBase(): string
+    {
+        return 'o=domainAdmins,' . Settings::getInstance()->ldapRootDn;
+    }
+
+    private static function domainsBase(): string
+    {
+        return 'o=domains,' . Settings::getInstance()->ldapRootDn;
+    }
+
+    private static function standaloneDn(string $username): string
+    {
+        return 'mail=' . ldap_escape(strtolower($username), '', LDAP_ESCAPE_DN) . ',' . self::adminsBase();
+    }
+
+    private static function requireAdminDn(string $username): string
+    {
+        $entry = self::findAdminEntry(self::conn(), $username)
+            ?? throw new \RuntimeException("Admin '{$username}' not found");
+
+        return $entry['dn'];
+    }
+
+    /**
+     * @return string[] every address listed in the domainAdmin attribute of a domain
+     */
+    private static function domainAdminAddresses(\LDAP\Connection $conn): array
+    {
+        $addresses = [];
+        foreach (LdapUtils::searchEntries($conn, self::domainsBase(), '(&(objectClass=mailDomain)(domainAdmin=*))', ['domainAdmin']) as $entry) {
+            array_push($addresses, ...array_map('strtolower', LdapUtils::allValues($entry, 'domainAdmin')));
+        }
+
+        return array_values(array_unique($addresses));
+    }
+
+    private static function isStandalone(array $entry): bool
+    {
+        return in_array('mailadmin', array_map('strtolower', LdapUtils::allValues($entry, 'objectClass')), true);
+    }
+
+    private static function toAdmin(array $entry): Admin
+    {
+        $normalized = LdapUtils::normalizeEntry($entry, self::ADMIN_ATTRS);
+        $normalized['accountSetting'] = implode(';', LdapUtils::allValues($entry, 'accountSetting'));
+
+        return Admin::fromLdapEntry($normalized, !self::isStandalone($entry));
     }
 }

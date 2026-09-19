@@ -5,90 +5,50 @@ declare(strict_types=1);
 namespace App\Repositories\Ldap;
 
 use App\Models\LdapConnection;
-use App\Models\Settings;
 use App\Repositories\AuthRepositoryInterface;
 use App\Utils\LdapUtils;
 
 class LdapAuthRepository implements AuthRepositoryInterface
 {
+    /**
+     * A standalone or mailbox admin logs in with its own password; the admin must be
+     * active and a global admin or the admin of at least one domain.
+     */
     public function authenticate(string $email, string $password): bool
     {
-        LdapConnection::connect($email, $password);
+        $entry = LdapAdminRepository::findAdminEntry(LdapConnection::getInstance()->getConn(), $email)
+            ?? throw new \Exception("User {$email} is not an administrator!");
+        if ((LdapUtils::allValues($entry, 'accountStatus')[0] ?? '') !== 'active') {
+            throw new \Exception("Administrator {$email} is disabled");
+        }
+        LdapConnection::verifyPassword($entry['dn'], $password);
+
         return true;
     }
 
     public function isGlobalAdmin(string $email): bool
     {
-        $conn = LdapConnection::getInstance()->getConn();
-        $settings = Settings::getInstance();
-        $safeEmail = ldap_escape($email, '', LDAP_ESCAPE_FILTER);
-
-        $result = @ldap_search(
-            $conn,
-            $settings->ldapRootDn,
-            "(&(objectClass=mailUser)(mail={$safeEmail})(domainGlobalAdmin=yes))",
-            ['mail']
-        );
-
-        if ($result === false) {
-            return false;
-        }
-
-        return ldap_count_entries($conn, $result) > 0;
+        return (new LdapAdminRepository())->getAdmin($email)?->isGlobalAdmin === true;
     }
 
     public function getManagedDomains(string $email): array
     {
-        $conn = LdapConnection::getInstance()->getConn();
-        $settings = Settings::getInstance();
-        $safeEmail = ldap_escape($email, '', LDAP_ESCAPE_FILTER);
-
-        $result = @ldap_search(
-            $conn,
-            $settings->ldapRootDn,
-            "(&(objectClass=mailDomain)(domainAdmin={$safeEmail}))",
-            ['domainName']
-        );
-
-        $domains = [];
-        if ($result !== false) {
-            $entries = ldap_get_entries($conn, $result);
-            for ($i = 0; $i < ($entries['count'] ?? 0); $i++) {
-                $normalized = LdapUtils::normalizeEntry($entries[$i], ['domainName']);
-                if (!empty($normalized['domainName'])) {
-                    $domains[] = $normalized['domainName'];
-                }
-            }
-        }
-
-        sort($domains);
-        return $domains;
+        return (new LdapAdminRepository())->getManagedDomains($email);
     }
 
     public function getLanguage(string $email): string
     {
-        $conn = LdapConnection::getInstance()->getConn();
-        $dn = LdapUtils::getEmailDn($email);
+        $entry = LdapAdminRepository::findAdminEntry(LdapConnection::getInstance()->getConn(), $email);
 
-        $result = @ldap_read($conn, $dn, '(objectClass=*)', ['preferredLanguage']);
-        if ($result === false) {
-            return '';
-        }
-
-        $entries = ldap_get_entries($conn, $result);
-        if (($entries['count'] ?? 0) === 0) {
-            return '';
-        }
-
-        return $entries[0]['preferredlanguage'][0] ?? '';
+        return LdapUtils::allValues($entry ?? [], 'preferredLanguage')[0] ?? '';
     }
 
     public function setLanguage(string $email, string $locale): void
     {
         $conn = LdapConnection::getInstance()->getConn();
-        $dn = LdapUtils::getEmailDn($email);
-
-        LdapUtils::modifyBatch($conn, $dn, [LdapUtils::modReplace('preferredLanguage', $locale)]);
+        $entry = LdapAdminRepository::findAdminEntry($conn, $email)
+            ?? throw new \RuntimeException("Admin '{$email}' not found");
+        LdapUtils::replaceValues($conn, $entry['dn'], ['preferredLanguage' => [$locale]]);
     }
 
     public function supportsLanguagePersistence(): bool

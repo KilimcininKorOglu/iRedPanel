@@ -458,7 +458,7 @@ php cli/notifyQuarantinedRecipients.php [--force-all]        # Cron: quarantine 
 
 Authentication depends on the selected backend:
 
-**LDAP backend**: Binds to the LDAP server with user credentials and verifies the `domainGlobalAdmin=yes` attribute.
+**LDAP backend**: Uses the iRedAdmin-Pro layout. A standalone admin is a `mailAdmin` entry `mail=<address>,o=domainAdmins,<root>`; a mailbox admin is a `mailUser` entry. The panel finds the admin entry with the service account, requires `accountStatus=active`, and binds with the admin's DN and password. An admin is a global admin with `domainGlobalAdmin=yes`, and a domain admin of every domain whose entry lists the address in `domainAdmin`. Creation limits are stored as `accountSetting` values.
 
 **MySQL/PostgreSQL backend**: Verifies credentials against the `admin` table (standalone admins) or `mailbox` table (mailbox-based admins). Checks `domain_admins` for role assignment.
 
@@ -469,7 +469,7 @@ Authentication depends on the selected backend:
 | Global admin | Full access to all domains, users, admins, and system |
 | Domain admin | Access only to assigned domains and their users       |
 
-Global admins are identified by `domain='ALL'` in `domain_admins` (MySQL/PostgreSQL) or `domainGlobalAdmin=yes` (LDAP). Domain admins see only their managed domains in the domain list and can only manage users within those domains.
+Global admins are identified by `domain='ALL'` in `domain_admins` (MySQL/PostgreSQL) or `domainGlobalAdmin=yes` (LDAP). Domain admins are listed in `domain_admins` (MySQL/PostgreSQL) or in the `domainAdmin` attribute of the domain (LDAP). Domain admins see only their managed domains in the domain list and can only manage users within those domains.
 
 Session cookies are configured with `httponly=true`, `samesite=Lax`, and `secure=true` (when served over HTTPS). Session IDs are regenerated after successful login. Sessions expire after `SESSION_TIMEOUT` seconds of inactivity.
 

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Repositories\Pgsql;
 
+use App\Exceptions\BackendConnectionException;
 use App\Models\Settings;
 
 /**
@@ -46,6 +47,17 @@ class IredadminPgsqlConnection
 
     public function getPdo(): ?\PDO
     {
+        return $this->pdo;
+    }
+
+    /**
+     * @throws BackendConnectionException when the iRedAdmin database is not configured or not reachable
+     */
+    public function requirePdo(): \PDO
+    {
+        if ($this->pdo === null) {
+            throw new BackendConnectionException('iRedAdmin database not available');
+        }
         return $this->pdo;
     }
 

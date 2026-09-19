@@ -55,6 +55,15 @@ $limits = [
           <label for="name" class="form-label"><?= $te('admin.display_name') ?></label>
           <input id="name" type="text" name="name" class="form-control" value="<?= $e($admin->name) ?>" />
         </div>
+        <div class="mb-3">
+          <label for="language" class="form-label"><?= $te('user.language') ?></label>
+          <?php $languages = ['' => $t('user.language_default')] + $availableLocales + [$admin->language => $admin->language]; ?>
+          <select id="language" name="language" class="form-select">
+            <?php foreach ($languages as $code => $name): ?>
+            <option value="<?= $e($code) ?>"<?= (string) $code === $admin->language ? ' selected' : '' ?>><?= $e($name) ?></option>
+            <?php endforeach; ?>
+          </select>
+        </div>
         <div class="form-check form-switch mb-2">
           <input type="checkbox" class="form-check-input" id="isGlobalAdmin" name="isGlobalAdmin" <?php if ($admin->isGlobalAdmin): ?>checked<?php endif; ?> />
           <label class="form-check-label" for="isGlobalAdmin"><?= $te('admin.global_administrator') ?></label>
@@ -151,7 +160,7 @@ $limits = [
       <?= $csrfField ?>
       <div class="card-header"><?= $te('admin.resource_limits') ?></div>
       <div class="card-body">
-        <p class="text-body-secondary"><?= $te('admin.resource_limits_hint') ?></p>
+        <p class="text-body-secondary"><?= $te('admin.resource_limits_hint') ?> <?= $te('admin.limits_not_global') ?></p>
         <div class="row g-3 mb-3">
           <?php foreach ($limits as $field => $labelKey): ?>
           <div class="col-md-4">

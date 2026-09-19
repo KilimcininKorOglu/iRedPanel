@@ -618,6 +618,7 @@
     "assign": "Úthluta",
     "resource_limits": "Auðlindatakmörk",
     "resource_limits_hint": "Settu takmörk á auðlindasköpun fyrir þennan stjórnanda. Notaðu -1 fyrir ótakmarkað.",
+    "limits_not_global": "Takmörkin gilda ekki um alhliða stjórnanda.",
     "max_domains": "Hámark léna",
     "max_users": "Hámark notenda",
     "max_aliases": "Hámark samnefna",

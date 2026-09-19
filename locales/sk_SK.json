@@ -618,6 +618,7 @@
     "assign": "Priradiť",
     "resource_limits": "Limity zdrojov",
     "resource_limits_hint": "Nastavte limity vytvárania zdrojov pre tohto správcu. Použite -1 pre neobmedzené.",
+    "limits_not_global": "Limity sa nevzťahujú na globálneho správcu.",
     "max_domains": "Max. domén",
     "max_users": "Max. používateľov",
     "max_aliases": "Max. aliasov",

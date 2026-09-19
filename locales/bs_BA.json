@@ -618,6 +618,7 @@
     "assign": "Dodijeli",
     "resource_limits": "Ograničenja resursa",
     "resource_limits_hint": "Postavite ograničenja kreiranja resursa za ovog administratora. Koristite -1 za neograničeno.",
+    "limits_not_global": "Ograničenja se ne primjenjuju na globalnog administratora.",
     "max_domains": "Maks. domena",
     "max_users": "Maks. korisnika",
     "max_aliases": "Maks. aliasa",

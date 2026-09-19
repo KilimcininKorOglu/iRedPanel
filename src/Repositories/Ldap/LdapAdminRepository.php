@@ -68,6 +68,12 @@ class LdapAdminRepository implements AdminRepositoryInterface
         if ($admin->isGlobalAdmin) {
             $entry['domainGlobalAdmin'] = 'yes';
         }
+        if ($admin->toLdapAccountSetting() !== []) {
+            $entry['accountSetting'] = $admin->toLdapAccountSetting();
+        }
+        if ($admin->language !== '') {
+            $entry['preferredLanguage'] = $admin->language;
+        }
 
         if (!@ldap_add($conn, self::standaloneDn($admin->username), $entry)) {
             throw new \RuntimeException("LDAP admin creation failed for '{$admin->username}': " . ldap_error($conn));
@@ -80,6 +86,7 @@ class LdapAdminRepository implements AdminRepositoryInterface
             'cn' => $admin->name !== '' ? [$admin->name] : [],
             'accountStatus' => [$admin->active ? 'active' : 'disabled'],
             'domainGlobalAdmin' => $admin->isGlobalAdmin ? ['yes'] : [],
+            'preferredLanguage' => $admin->language !== '' ? [$admin->language] : [],
         ]);
     }
 

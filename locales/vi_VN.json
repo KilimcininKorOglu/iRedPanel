@@ -618,6 +618,7 @@
     "assign": "Gán",
     "resource_limits": "Giới hạn tài nguyên",
     "resource_limits_hint": "Đặt giới hạn tạo tài nguyên cho quản trị viên này. Dùng -1 để không giới hạn.",
+    "limits_not_global": "Các giới hạn không áp dụng cho quản trị viên toàn cục.",
     "max_domains": "Số tên miền tối đa",
     "max_users": "Số người dùng tối đa",
     "max_aliases": "Số bí danh tối đa",

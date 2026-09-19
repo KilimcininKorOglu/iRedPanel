@@ -618,6 +618,7 @@
     "assign": "할당",
     "resource_limits": "리소스 한도",
     "resource_limits_hint": "이 관리자의 리소스 생성 한도를 설정합니다. 무제한은 -1을 사용하세요.",
+    "limits_not_global": "전역 관리자에게는 제한이 적용되지 않습니다.",
     "max_domains": "최대 도메인 수",
     "max_users": "최대 사용자 수",
     "max_aliases": "최대 별칭 수",

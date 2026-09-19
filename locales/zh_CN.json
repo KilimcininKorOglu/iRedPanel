@@ -618,6 +618,7 @@
     "assign": "分配",
     "resource_limits": "资源限制",
     "resource_limits_hint": "为此管理员设置资源创建上限。使用 -1 表示无限制。",
+    "limits_not_global": "这些限制不适用于全局管理员。",
     "max_domains": "最大域名数",
     "max_users": "最大用户数",
     "max_aliases": "最大别名数",

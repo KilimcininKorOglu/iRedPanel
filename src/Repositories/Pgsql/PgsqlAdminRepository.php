@@ -60,7 +60,7 @@ class PgsqlAdminRepository implements AdminRepositoryInterface
         $pdo = PgsqlConnection::getInstance()->getPdo();
 
         $stmt = $pdo->prepare(
-            "SELECT a.username, a.name, a.active, a.created, a.passwordlastchange, a.settings
+            "SELECT a.username, a.name, a.active, a.created, a.passwordlastchange, a.settings, a.language
              FROM admin a
              WHERE a.username = :username
              LIMIT 1"
@@ -71,7 +71,7 @@ class PgsqlAdminRepository implements AdminRepositoryInterface
         if ($row === false) {
             // Check mailbox-based admins
             $stmt = $pdo->prepare(
-                "SELECT m.username, m.name, m.active, m.created, m.passwordlastchange, m.settings,
+                "SELECT m.username, m.name, m.active, m.created, m.passwordlastchange, m.settings, m.language,
                         m.isglobaladmin AS \"isGlobalAdmin\"
                  FROM mailbox m
                  WHERE m.username = :username AND (m.isadmin = 1 OR m.isglobaladmin = 1)
@@ -104,14 +104,16 @@ class PgsqlAdminRepository implements AdminRepositoryInterface
         $pdo->beginTransaction();
         try {
             $stmt = $pdo->prepare(
-                "INSERT INTO admin (username, password, name, active, created)
-                 VALUES (:username, :password, :name, :active, NOW())"
+                "INSERT INTO admin (username, password, name, active, settings, language, created)
+                 VALUES (:username, :password, :name, :active, :settings, :language, NOW())"
             );
             $stmt->execute([
                 'username' => $admin->username,
                 'password' => $passwordHash,
                 'name' => $admin->name,
                 'active' => $admin->active ? 1 : 0,
+                'settings' => $admin->mergedSettings(''),
+                'language' => $admin->language,
             ]);
 
             if ($admin->isGlobalAdmin) {
@@ -135,22 +137,24 @@ class PgsqlAdminRepository implements AdminRepositoryInterface
 
         if ($admin->isMailboxAdmin) {
             $stmt = $pdo->prepare(
-                "UPDATE mailbox SET name = :name, active = :active, isglobaladmin = :isGlobalAdmin
+                "UPDATE mailbox SET name = :name, active = :active, isglobaladmin = :isGlobalAdmin, language = :language
                  WHERE username = :username"
             );
             $stmt->execute([
                 'name' => $admin->name,
                 'active' => $admin->active ? 1 : 0,
                 'isGlobalAdmin' => $admin->isGlobalAdmin ? 1 : 0,
+                'language' => $admin->language,
                 'username' => $admin->username,
             ]);
         } else {
             $stmt = $pdo->prepare(
-                "UPDATE admin SET name = :name, active = :active WHERE username = :username"
+                "UPDATE admin SET name = :name, active = :active, language = :language WHERE username = :username"
             );
             $stmt->execute([
                 'name' => $admin->name,
                 'active' => $admin->active ? 1 : 0,
+                'language' => $admin->language,
                 'username' => $admin->username,
             ]);
 

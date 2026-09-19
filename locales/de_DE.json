@@ -618,6 +618,7 @@
     "assign": "Zuweisen",
     "resource_limits": "Ressourcenlimits",
     "resource_limits_hint": "Ressourcen-Erstellungslimits für diesen Administrator festlegen. -1 für unbegrenzt verwenden.",
+    "limits_not_global": "Die Limits gelten nicht für einen globalen Administrator.",
     "max_domains": "Max. Domains",
     "max_users": "Max. Benutzer",
     "max_aliases": "Max. Aliase",

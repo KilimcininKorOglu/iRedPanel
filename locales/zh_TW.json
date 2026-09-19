@@ -618,6 +618,7 @@
     "assign": "指派",
     "resource_limits": "資源限制",
     "resource_limits_hint": "設定此管理員的資源建立限制。使用 -1 表示無限制。",
+    "limits_not_global": "這些限制不適用於全域管理員。",
     "max_domains": "最大網域數",
     "max_users": "最大使用者數",
     "max_aliases": "最大別名數",

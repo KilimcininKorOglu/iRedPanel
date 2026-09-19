@@ -618,6 +618,7 @@
     "assign": "Tetapkan",
     "resource_limits": "Batas sumber daya",
     "resource_limits_hint": "Tetapkan batas pembuatan sumber daya untuk administrator ini. Gunakan -1 untuk tak terbatas.",
+    "limits_not_global": "Batas tidak berlaku untuk admin global.",
     "max_domains": "Domain maksimum",
     "max_users": "Pengguna maksimum",
     "max_aliases": "Alias maksimum",

@@ -618,6 +618,7 @@
     "assign": "Määra",
     "resource_limits": "Ressursipiirangud",
     "resource_limits_hint": "Määrake selle administraatori jaoks ressursside loomise piirangud. Kasutage -1 piiramatu jaoks.",
+    "limits_not_global": "Piirangud ei kehti globaalsele administraatorile.",
     "max_domains": "Maks. domeene",
     "max_users": "Maks. kasutajaid",
     "max_aliases": "Maks. aliaseid",

@@ -618,6 +618,7 @@
     "assign": "Dodeli",
     "resource_limits": "Omejitve virov",
     "resource_limits_hint": "Nastavite omejitve ustvarjanja virov za tega skrbnika. Uporabite -1 za neomejeno.",
+    "limits_not_global": "Omejitve ne veljajo za globalnega skrbnika.",
     "max_domains": "Največ domen",
     "max_users": "Največ uporabnikov",
     "max_aliases": "Največ vzdevkov",

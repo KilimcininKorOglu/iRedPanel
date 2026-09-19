@@ -618,6 +618,7 @@
     "assign": "Atribuir",
     "resource_limits": "Limites de recursos",
     "resource_limits_hint": "Defina limites de criação de recursos para este administrador. Use -1 para ilimitado.",
+    "limits_not_global": "Os limites não se aplicam a um administrador global.",
     "max_domains": "Máx. domínios",
     "max_users": "Máx. usuários",
     "max_aliases": "Máx. aliases",

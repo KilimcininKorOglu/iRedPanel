@@ -618,6 +618,7 @@
     "assign": "Määritä",
     "resource_limits": "Resurssirajat",
     "resource_limits_hint": "Aseta resurssien luontirajat tälle ylläpitäjälle. Käytä -1 rajoittamattomalle.",
+    "limits_not_global": "Rajoitukset eivät koske globaalia ylläpitäjää.",
     "max_domains": "Enimmäisverkkotunnukset",
     "max_users": "Enimmäiskäyttäjät",
     "max_aliases": "Enimmäisaliakset",

@@ -618,6 +618,7 @@
     "assign": "Tilldela",
     "resource_limits": "Resursgränser",
     "resource_limits_hint": "Ställ in gränser för att skapa resurser för denna administratör. Använd -1 för obegränsat.",
+    "limits_not_global": "Gränserna gäller inte för en global administratör.",
     "max_domains": "Max domäner",
     "max_users": "Max användare",
     "max_aliases": "Max alias",

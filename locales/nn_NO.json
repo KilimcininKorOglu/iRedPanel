@@ -618,6 +618,7 @@
     "assign": "Tildel",
     "resource_limits": "Ressursgrenser",
     "resource_limits_hint": "Set grenser for ressursoppretting for denne administratoren. Bruk -1 for ubegrensa.",
+    "limits_not_global": "Grensene gjeld ikkje for ein global administrator.",
     "max_domains": "Maks domene",
     "max_users": "Maks brukarar",
     "max_aliases": "Maks alias",

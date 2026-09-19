@@ -618,6 +618,7 @@
     "assign": "Assegna",
     "resource_limits": "Limiti delle risorse",
     "resource_limits_hint": "Imposta i limiti di creazione delle risorse per questo amministratore. Usa -1 per illimitato.",
+    "limits_not_global": "I limiti non si applicano a un amministratore globale.",
     "max_domains": "Max domini",
     "max_users": "Max utenti",
     "max_aliases": "Max alias",

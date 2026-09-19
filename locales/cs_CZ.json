@@ -618,6 +618,7 @@
     "assign": "Přiřadit",
     "resource_limits": "Limity zdrojů",
     "resource_limits_hint": "Nastavte limity vytváření zdrojů pro tohoto administrátora. Použijte -1 pro neomezené.",
+    "limits_not_global": "Limity se nevztahují na globálního správce.",
     "max_domains": "Max. domén",
     "max_users": "Max. uživatelů",
     "max_aliases": "Max. aliasů",

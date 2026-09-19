@@ -618,6 +618,7 @@
     "assign": "Tildel",
     "resource_limits": "Ressourcegrænser",
     "resource_limits_hint": "Angiv grænser for ressourceoprettelse for denne administrator. Brug -1 for ubegrænset.",
+    "limits_not_global": "Grænserne gælder ikke for en global administrator.",
     "max_domains": "Maks. domæner",
     "max_users": "Maks. brugere",
     "max_aliases": "Maks. aliasser",

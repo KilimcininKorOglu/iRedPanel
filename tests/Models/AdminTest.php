@@ -39,6 +39,21 @@ class AdminTest extends TestCase
         $this->assertTrue($admin->isGlobalAdmin);
     }
 
+    public function testLanguageIsReadFromEveryBackend(): void
+    {
+        $this->assertSame('de_DE', Admin::fromFormData(['username' => 'a@test.com', 'language' => 'de_DE'])->language);
+        $this->assertSame('', Admin::fromFormData(['username' => 'a@test.com'])->language);
+        $this->assertSame('tr_TR', Admin::fromMysqlRow(['username' => 'a@test.com', 'language' => 'tr_TR'])->language);
+        $this->assertSame('', Admin::fromMysqlRow(['username' => 'a@test.com', 'language' => null])->language);
+        $this->assertSame('fr_FR', Admin::fromLdapEntry(['mail' => 'a@test.com', 'preferredLanguage' => 'fr_FR'])->language);
+    }
+
+    public function testInvalidLanguageIsRejected(): void
+    {
+        $this->expectException(InvalidInputException::class);
+        Admin::fromFormData(['username' => 'a@test.com', 'language' => '../x']);
+    }
+
     public function testFromFormDataNoCheckboxes(): void
     {
         $post = ['username' => 'admin@test.com', 'name' => 'Test'];

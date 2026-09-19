@@ -618,6 +618,7 @@
     "assign": "Przypisz",
     "resource_limits": "Limity zasobów",
     "resource_limits_hint": "Ustaw limity tworzenia zasobów dla tego administratora. Użyj -1 dla braku limitu.",
+    "limits_not_global": "Limity nie dotyczą administratora globalnego.",
     "max_domains": "Maks. domen",
     "max_users": "Maks. użytkowników",
     "max_aliases": "Maks. aliasów",

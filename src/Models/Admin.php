@@ -25,6 +25,8 @@ class Admin
         public int $createMaxLists = -1,
         public int $createMaxQuota = -1,
         public bool $createNewDomains = false,
+        /** Preferred UI language (xx_YY); '' uses the default language. */
+        public string $language = '',
     ) {}
 
     /** Form label of each resource limit. */
@@ -104,6 +106,7 @@ class Admin
             name: FormValue::text($post, 'name'),
             active: (bool) ($post['active'] ?? false),
             isGlobalAdmin: (bool) ($post['isGlobalAdmin'] ?? false),
+            language: (string) User::validLanguage(FormValue::text($post, 'language')),
         );
     }
 
@@ -117,6 +120,7 @@ class Admin
             isMailboxAdmin: $isMailboxAdmin,
             created: $row['created'] ?? null,
             passwordLastChange: $row['passwordlastchange'] ?? null,
+            language: (string) ($row['language'] ?? ''),
         );
         $admin->applySettings(self::parseSettings($row['settings'] ?? ''));
 
@@ -135,6 +139,7 @@ class Admin
             active: ($entry['accountStatus'] ?? 'active') === 'active',
             isGlobalAdmin: ($entry['domainGlobalAdmin'] ?? '') === 'yes',
             isMailboxAdmin: $isMailboxAdmin,
+            language: $entry['preferredLanguage'] ?? '',
         );
         $admin->applySettings(self::parseSettings($entry['accountSetting'] ?? ''));
 

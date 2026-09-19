@@ -618,6 +618,7 @@
     "assign": "Assign",
     "resource_limits": "Resource Limits",
     "resource_limits_hint": "Set resource creation limits for this admin. Use -1 for unlimited.",
+    "limits_not_global": "The limits do not apply to a global admin.",
     "max_domains": "Max Domains",
     "max_users": "Max Users",
     "max_aliases": "Max Aliases",

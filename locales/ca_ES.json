@@ -618,6 +618,7 @@
     "assign": "Assignar",
     "resource_limits": "Límits de recursos",
     "resource_limits_hint": "Definiu límits de creació de recursos per a aquest administrador. Useu -1 per il·limitat.",
+    "limits_not_global": "Els límits no s'apliquen a un administrador global.",
     "max_domains": "Màxim de dominis",
     "max_users": "Màxim d'usuaris",
     "max_aliases": "Màxim d'àlies",

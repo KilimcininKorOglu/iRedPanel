@@ -618,6 +618,7 @@
     "assign": "Hozzárendelés",
     "resource_limits": "Erőforráskorlátok",
     "resource_limits_hint": "Állítsa be az erőforrás-létrehozási korlátokat ehhez az adminisztrátorhoz. Használjon -1 értéket a korlátlanhoz.",
+    "limits_not_global": "A korlátok nem vonatkoznak a globális adminisztrátorra.",
     "max_domains": "Max. domainek",
     "max_users": "Max. felhasználók",
     "max_aliases": "Max. álnevek",

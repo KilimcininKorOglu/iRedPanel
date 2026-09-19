@@ -618,6 +618,7 @@
     "assign": "割り当て",
     "resource_limits": "リソース制限",
     "resource_limits_hint": "この管理者のリソース作成制限を設定します。無制限にするには -1 を使用します。",
+    "limits_not_global": "グローバル管理者には制限は適用されません。",
     "max_domains": "最大ドメイン数",
     "max_users": "最大ユーザー数",
     "max_aliases": "最大エイリアス数",

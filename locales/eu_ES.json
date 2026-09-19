@@ -618,6 +618,7 @@
     "assign": "Esleitu",
     "resource_limits": "Baliabide mugak",
     "resource_limits_hint": "Ezarri baliabideak sortzeko mugak administratzaile honentzat. Erabili -1 mugagaberako.",
+    "limits_not_global": "Mugak ez zaizkio administratzaile global bati aplikatzen.",
     "max_domains": "Geh. domeinuak",
     "max_users": "Geh. erabiltzaileak",
     "max_aliases": "Geh. aliasak",

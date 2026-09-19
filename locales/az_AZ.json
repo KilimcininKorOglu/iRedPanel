@@ -618,6 +618,7 @@
     "assign": "Təyin et",
     "resource_limits": "Resurs limitləri",
     "resource_limits_hint": "Bu admin üçün resurs yaratma limitləri təyin edin. Limitsiz üçün -1 istifadə edin.",
+    "limits_not_global": "Limitlər qlobal adminə tətbiq edilmir.",
     "max_domains": "Maks. domen",
     "max_users": "Maks. istifadəçi",
     "max_aliases": "Maks. təxəllüs",

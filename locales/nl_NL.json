@@ -618,6 +618,7 @@
     "assign": "Toewijzen",
     "resource_limits": "Bronlimieten",
     "resource_limits_hint": "Stel de aanmaaklimieten voor bronnen voor deze beheerder in. Gebruik -1 voor onbeperkt.",
+    "limits_not_global": "De limieten gelden niet voor een globale beheerder.",
     "max_domains": "Max. domeinen",
     "max_users": "Max. gebruikers",
     "max_aliases": "Max. aliassen",

@@ -6,6 +6,7 @@ namespace App\Api;
 
 use App\Controllers\AdminController;
 use App\Models\Admin;
+use App\Models\User;
 use App\Repositories\RepositoryFactory;
 use App\Utils\FormValue;
 use App\Utils\PasswordUtils;
@@ -73,14 +74,20 @@ class AdminApiController
             return;
         }
 
-        $passwordHash = PasswordUtils::generatePasswordHash($password);
-        $admin = new Admin(
-            username: $email,
-            name: trim((string) ($data['name'] ?? '')),
-            active: (bool) ($data['active'] ?? true),
-            isGlobalAdmin: (bool) ($data['isGlobalAdmin'] ?? false),
-        );
-        $repo->createAdmin($admin, $passwordHash);
+        try {
+            $admin = new Admin(
+                username: $email,
+                name: FormValue::text($data, 'name'),
+                active: (bool) ($data['active'] ?? true),
+                isGlobalAdmin: (bool) ($data['isGlobalAdmin'] ?? false),
+                language: (string) User::validLanguage(FormValue::text($data, 'language')),
+            );
+            $admin->applyLimitsFromJson($data);
+        } catch (\InvalidArgumentException $e) {
+            ApiResponse::error($e->getMessage());
+            return;
+        }
+        $repo->createAdmin($admin, PasswordUtils::generatePasswordHash($password));
         ApiResponse::created(['email' => $email]);
     }
 
@@ -96,13 +103,14 @@ class AdminApiController
         }
 
         // Every field GET returns and the web pages can change: name, active, isGlobalAdmin,
-        // the limits, and the password. The whole body is validated before the first write.
+        // language, the limits, and the password. The whole body is validated before the first write.
         $data = ApiMiddleware::getJsonBody();
         $admin = clone $existing;
         try {
             $admin->name = FormValue::text($data, 'name', $existing->name);
             $admin->active = (bool) ($data['active'] ?? $existing->active);
             $admin->isGlobalAdmin = (bool) ($data['isGlobalAdmin'] ?? $existing->isGlobalAdmin);
+            $admin->language = (string) User::validLanguage(FormValue::text($data, 'language', $existing->language));
             $limitsChanged = $admin->applyLimitsFromJson($data);
             $passwordHash = self::passwordHashFromBody($data);
         } catch (\InvalidArgumentException $e) {

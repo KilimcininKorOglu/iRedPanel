@@ -618,6 +618,7 @@
     "assign": "Atribuie",
     "resource_limits": "Limite de resurse",
     "resource_limits_hint": "Setați limite de creare a resurselor pentru acest administrator. Folosiți -1 pentru nelimitat.",
+    "limits_not_global": "Limitele nu se aplică unui administrator global.",
     "max_domains": "Max. domenii",
     "max_users": "Max. utilizatori",
     "max_aliases": "Max. alias-uri",

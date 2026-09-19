@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Exceptions\InvalidInputException;
 use App\I18n\Translator;
 
 /**
@@ -30,6 +31,34 @@ class UserPassword
         'special' => 'Password must contain at least one special character (:chars)',
         'mismatch' => 'Password and password confirmation do not match',
     ];
+
+    /** Password schemes that iRedAdmin accepts in a given password hash ("{SSHA512}..."). */
+    public const HASH_SCHEMES = [
+        'PLAIN', 'CRYPT', 'MD5', 'PLAIN-MD5', 'SHA', 'SSHA', 'SHA512', 'SSHA512',
+        'SHA512-CRYPT', 'BCRYPT', 'CRAM-MD5', 'NTLM',
+    ];
+
+    /**
+     * Checks a given password hash of a new mailbox. The password policy cannot check a
+     * hash, as in iRedAdmin.
+     *
+     * @throws InvalidInputException when a password is also given, or the scheme is not supported
+     */
+    public static function acceptedHash(string $hash, string $password): string
+    {
+        if ($password !== '') {
+            throw new InvalidInputException('password conflicts with passwordHash', 'user.msg_password_or_hash');
+        }
+        $scheme = preg_match('/^\{([A-Za-z0-9-]+)\}./', $hash, $match) === 1 ? strtoupper($match[1]) : '';
+        if (!in_array($scheme, self::HASH_SCHEMES, true) || preg_match('/\s/', $hash) === 1) {
+            throw new InvalidInputException(
+                'passwordHash must start with a supported scheme: {' . implode('}, {', self::HASH_SCHEMES) . '}',
+                'user.msg_invalid_password_hash',
+            );
+        }
+
+        return $hash;
+    }
 
     /**
      * Validates password and password_repeat fields and returns English messages.

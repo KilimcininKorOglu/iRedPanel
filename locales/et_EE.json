@@ -375,7 +375,20 @@
     "msg_unknown_service": "Tundmatu meiliteenus: :service",
     "language": "Keel",
     "language_default": "Vaikekeel",
-    "msg_invalid_language": "Vigane keelekood."
+    "msg_invalid_language": "Vigane keelekood.",
+    "password_hash": "Parooli hash",
+    "password_hash_hint": "Parooli asemel: hash koos skeemiga, nt {SSHA512}... Paroolipoliitika hashi ei kontrolli.",
+    "mailbox_format": "Postkasti vorming",
+    "mailbox_folder": "Postkasti kaust",
+    "maildir_path": "Maildiri tee",
+    "maildir_path_hint": "Postkasti absoluutne tee. Tühi kasutab vaiketeed. Tee ei tohi kuuluda teisele postkastile.",
+    "msg_password_or_hash": "Sisestage kas parool või parooli hash.",
+    "msg_invalid_password_hash": "Parooli hash peab algama toetatud skeemiga, nt {SSHA512} või {CRYPT}.",
+    "msg_invalid_mailbox_format": "Valige postkasti vorminguks maildir, mdbox või sdbox.",
+    "msg_invalid_mailbox_folder": "Postkasti kaust peab olema 1 kuni 20 tähte või numbrit.",
+    "msg_maildir_global_only": "Maildiri teed saab määrata ainult globaalne administraator.",
+    "msg_invalid_maildir": "Maildiri tee peab olema vähemalt nelja kataloogiga absoluutne tee: väiketähed, numbrid ja . _ @ + -.",
+    "msg_maildir_in_use": "Maildiri tee kuulub teisele postkastile."
   },
   "mlist": {
     "msg_updated": "Postiloend uuendatud!",

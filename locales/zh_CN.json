@@ -375,7 +375,20 @@
     "msg_unknown_service": "未知的邮件服务：:service",
     "language": "语言",
     "language_default": "默认语言",
-    "msg_invalid_language": "无效的语言代码。"
+    "msg_invalid_language": "无效的语言代码。",
+    "password_hash": "密码哈希",
+    "password_hash_hint": "代替密码：带方案的哈希，例如 {SSHA512}... 密码策略不检查哈希。",
+    "mailbox_format": "邮箱格式",
+    "mailbox_folder": "邮箱文件夹",
+    "maildir_path": "Maildir 路径",
+    "maildir_path_hint": "邮箱的绝对路径。留空使用默认路径。该路径不能属于其他邮箱。",
+    "msg_password_or_hash": "请输入密码或密码哈希之一。",
+    "msg_invalid_password_hash": "密码哈希必须以受支持的方案开头，例如 {SSHA512} 或 {CRYPT}。",
+    "msg_invalid_mailbox_format": "请选择 maildir、mdbox 或 sdbox 作为邮箱格式。",
+    "msg_invalid_mailbox_folder": "邮箱文件夹必须由 1 到 20 个字母或数字组成。",
+    "msg_maildir_global_only": "只有全局管理员可以设置 Maildir 路径。",
+    "msg_invalid_maildir": "Maildir 路径必须是至少包含四级目录的绝对路径：小写字母、数字以及 . _ @ + -。",
+    "msg_maildir_in_use": "该 Maildir 路径属于其他邮箱。"
   },
   "mlist": {
     "msg_updated": "邮件列表已更新！",

@@ -375,7 +375,20 @@
     "msg_unknown_service": "Tuntematon postipalvelu: :service",
     "language": "Kieli",
     "language_default": "Oletuskieli",
-    "msg_invalid_language": "Virheellinen kielikoodi."
+    "msg_invalid_language": "Virheellinen kielikoodi.",
+    "password_hash": "Salasanan hash",
+    "password_hash_hint": "Salasanan sijaan: hash ja sen skeema, esim. {SSHA512}... Salasanakäytäntö ei tarkista hashia.",
+    "mailbox_format": "Postilaatikon muoto",
+    "mailbox_folder": "Postilaatikon kansio",
+    "maildir_path": "Maildir-polku",
+    "maildir_path_hint": "Postilaatikon absoluuttinen polku. Tyhjä käyttää oletuspolkua. Polku ei saa kuulua toiselle postilaatikolle.",
+    "msg_password_or_hash": "Anna joko salasana tai salasanan hash.",
+    "msg_invalid_password_hash": "Salasanan hashin on alettava tuetulla skeemalla, esim. {SSHA512} tai {CRYPT}.",
+    "msg_invalid_mailbox_format": "Valitse postilaatikon muodoksi maildir, mdbox tai sdbox.",
+    "msg_invalid_mailbox_folder": "Postilaatikon kansion on oltava 1–20 kirjainta tai numeroa.",
+    "msg_maildir_global_only": "Vain globaali ylläpitäjä voi asettaa maildir-polun.",
+    "msg_invalid_maildir": "Maildir-polun on oltava vähintään neljän hakemiston absoluuttinen polku: pienet kirjaimet, numerot ja . _ @ + -.",
+    "msg_maildir_in_use": "Maildir-polku kuuluu toiselle postilaatikolle."
   },
   "mlist": {
     "msg_updated": "Postituslista päivitetty!",

@@ -375,7 +375,20 @@
     "msg_unknown_service": "Servicio de correo desconocido: :service",
     "language": "Idioma",
     "language_default": "Idioma predeterminado",
-    "msg_invalid_language": "Código de idioma no válido."
+    "msg_invalid_language": "Código de idioma no válido.",
+    "password_hash": "Hash de la contraseña",
+    "password_hash_hint": "En lugar de una contraseña: un hash con su esquema, como {SSHA512}... La política de contraseñas no comprueba un hash.",
+    "mailbox_format": "Formato del buzón",
+    "mailbox_folder": "Carpeta del buzón",
+    "maildir_path": "Ruta del maildir",
+    "maildir_path_hint": "Ruta absoluta del buzón. Vacío usa la ruta predeterminada. La ruta no puede pertenecer a otro buzón.",
+    "msg_password_or_hash": "Introduzca una contraseña o un hash de contraseña.",
+    "msg_invalid_password_hash": "El hash de la contraseña debe empezar con un esquema admitido, como {SSHA512} o {CRYPT}.",
+    "msg_invalid_mailbox_format": "Elija maildir, mdbox o sdbox como formato del buzón.",
+    "msg_invalid_mailbox_folder": "La carpeta del buzón debe tener de 1 a 20 letras o dígitos.",
+    "msg_maildir_global_only": "Solo un administrador global puede definir la ruta del maildir.",
+    "msg_invalid_maildir": "La ruta del maildir debe ser una ruta absoluta de al menos cuatro directorios: minúsculas, dígitos y . _ @ + -.",
+    "msg_maildir_in_use": "La ruta del maildir pertenece a otro buzón."
   },
   "mlist": {
     "msg_updated": "¡Lista de correo actualizada!",

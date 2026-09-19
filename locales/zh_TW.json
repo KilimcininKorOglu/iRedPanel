@@ -375,7 +375,20 @@
     "msg_unknown_service": "未知的郵件服務：:service",
     "language": "語言",
     "language_default": "預設語言",
-    "msg_invalid_language": "無效的語言代碼。"
+    "msg_invalid_language": "無效的語言代碼。",
+    "password_hash": "密碼雜湊",
+    "password_hash_hint": "代替密碼：帶有方案的雜湊，例如 {SSHA512}... 密碼原則不檢查雜湊。",
+    "mailbox_format": "信箱格式",
+    "mailbox_folder": "信箱資料夾",
+    "maildir_path": "Maildir 路徑",
+    "maildir_path_hint": "信箱的絕對路徑。留空使用預設路徑。該路徑不能屬於其他信箱。",
+    "msg_password_or_hash": "請輸入密碼或密碼雜湊之一。",
+    "msg_invalid_password_hash": "密碼雜湊必須以支援的方案開頭，例如 {SSHA512} 或 {CRYPT}。",
+    "msg_invalid_mailbox_format": "請選擇 maildir、mdbox 或 sdbox 作為信箱格式。",
+    "msg_invalid_mailbox_folder": "信箱資料夾必須由 1 到 20 個字母或數字組成。",
+    "msg_maildir_global_only": "只有全域管理員可以設定 Maildir 路徑。",
+    "msg_invalid_maildir": "Maildir 路徑必須是至少包含四層目錄的絕對路徑：小寫字母、數字以及 . _ @ + -。",
+    "msg_maildir_in_use": "該 Maildir 路徑屬於其他信箱。"
   },
   "mlist": {
     "msg_updated": "郵件清單已更新！",

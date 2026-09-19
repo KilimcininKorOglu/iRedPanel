@@ -375,7 +375,20 @@
     "msg_unknown_service": "Service de messagerie inconnu : :service",
     "language": "Langue",
     "language_default": "Langue par défaut",
-    "msg_invalid_language": "Code de langue invalide."
+    "msg_invalid_language": "Code de langue invalide.",
+    "password_hash": "Hash du mot de passe",
+    "password_hash_hint": "À la place d'un mot de passe : un hash avec son schéma, par exemple {SSHA512}... La politique de mots de passe ne vérifie pas un hash.",
+    "mailbox_format": "Format de la boîte aux lettres",
+    "mailbox_folder": "Dossier de la boîte aux lettres",
+    "maildir_path": "Chemin du maildir",
+    "maildir_path_hint": "Chemin absolu de la boîte aux lettres. Vide utilise le chemin par défaut. Le chemin ne doit pas appartenir à une autre boîte.",
+    "msg_password_or_hash": "Saisissez soit un mot de passe, soit un hash de mot de passe.",
+    "msg_invalid_password_hash": "Le hash du mot de passe doit commencer par un schéma pris en charge, par exemple {SSHA512} ou {CRYPT}.",
+    "msg_invalid_mailbox_format": "Choisissez maildir, mdbox ou sdbox comme format de la boîte aux lettres.",
+    "msg_invalid_mailbox_folder": "Le dossier de la boîte aux lettres doit comporter de 1 à 20 lettres ou chiffres.",
+    "msg_maildir_global_only": "Seul un administrateur global peut définir le chemin du maildir.",
+    "msg_invalid_maildir": "Le chemin du maildir doit être un chemin absolu d'au moins quatre répertoires : minuscules, chiffres et . _ @ + -.",
+    "msg_maildir_in_use": "Le chemin du maildir appartient à une autre boîte aux lettres."
   },
   "mlist": {
     "msg_updated": "Liste de diffusion mise à jour !",

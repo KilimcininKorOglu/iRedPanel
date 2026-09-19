@@ -375,7 +375,20 @@
     "msg_unknown_service": "Servizio di posta sconosciuto: :service",
     "language": "Lingua",
     "language_default": "Lingua predefinita",
-    "msg_invalid_language": "Codice lingua non valido."
+    "msg_invalid_language": "Codice lingua non valido.",
+    "password_hash": "Hash della password",
+    "password_hash_hint": "Al posto di una password: un hash con il suo schema, ad esempio {SSHA512}... La policy delle password non controlla un hash.",
+    "mailbox_format": "Formato della casella",
+    "mailbox_folder": "Cartella della casella",
+    "maildir_path": "Percorso del maildir",
+    "maildir_path_hint": "Percorso assoluto della casella. Vuoto usa il percorso predefinito. Il percorso non deve appartenere a un'altra casella.",
+    "msg_password_or_hash": "Inserisci una password oppure un hash della password.",
+    "msg_invalid_password_hash": "L'hash della password deve iniziare con uno schema supportato, ad esempio {SSHA512} o {CRYPT}.",
+    "msg_invalid_mailbox_format": "Scegli maildir, mdbox o sdbox come formato della casella.",
+    "msg_invalid_mailbox_folder": "La cartella della casella deve avere da 1 a 20 lettere o cifre.",
+    "msg_maildir_global_only": "Solo un amministratore globale può impostare il percorso del maildir.",
+    "msg_invalid_maildir": "Il percorso del maildir deve essere assoluto con almeno quattro directory: minuscole, cifre e . _ @ + -.",
+    "msg_maildir_in_use": "Il percorso del maildir appartiene a un'altra casella."
   },
   "mlist": {
     "msg_updated": "Lista di distribuzione aggiornata!",

@@ -375,7 +375,20 @@
     "msg_unknown_service": "Serviço de correio desconhecido: :service",
     "language": "Idioma",
     "language_default": "Idioma predefinido",
-    "msg_invalid_language": "Código de idioma inválido."
+    "msg_invalid_language": "Código de idioma inválido.",
+    "password_hash": "Hash da palavra-passe",
+    "password_hash_hint": "Em vez de uma palavra-passe: um hash com o seu esquema, como {SSHA512}... A política de palavras-passe não verifica um hash.",
+    "mailbox_format": "Formato da caixa de correio",
+    "mailbox_folder": "Pasta da caixa de correio",
+    "maildir_path": "Caminho do maildir",
+    "maildir_path_hint": "Caminho absoluto da caixa de correio. Vazio usa o caminho predefinido. O caminho não pode pertencer a outra caixa.",
+    "msg_password_or_hash": "Introduza uma palavra-passe ou um hash de palavra-passe.",
+    "msg_invalid_password_hash": "O hash da palavra-passe deve começar por um esquema suportado, como {SSHA512} ou {CRYPT}.",
+    "msg_invalid_mailbox_format": "Escolha maildir, mdbox ou sdbox como formato da caixa de correio.",
+    "msg_invalid_mailbox_folder": "A pasta da caixa de correio deve ter de 1 a 20 letras ou dígitos.",
+    "msg_maildir_global_only": "Só um administrador global pode definir o caminho do maildir.",
+    "msg_invalid_maildir": "O caminho do maildir deve ser absoluto com pelo menos quatro diretórios: minúsculas, dígitos e . _ @ + -.",
+    "msg_maildir_in_use": "O caminho do maildir pertence a outra caixa de correio."
   },
   "mlist": {
     "msg_updated": "Lista de distribuição atualizada!",

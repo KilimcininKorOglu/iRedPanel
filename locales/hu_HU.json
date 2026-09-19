@@ -375,7 +375,20 @@
     "msg_unknown_service": "Ismeretlen levelezési szolgáltatás: :service",
     "language": "Nyelv",
     "language_default": "Alapértelmezett nyelv",
-    "msg_invalid_language": "Érvénytelen nyelvkód."
+    "msg_invalid_language": "Érvénytelen nyelvkód.",
+    "password_hash": "Jelszó hash",
+    "password_hash_hint": "Jelszó helyett: hash a sémájával, pl. {SSHA512}... A jelszószabály nem ellenőrzi a hash-t.",
+    "mailbox_format": "Postafiók formátuma",
+    "mailbox_folder": "Postafiók mappája",
+    "maildir_path": "Maildir elérési út",
+    "maildir_path_hint": "A postafiók abszolút elérési útja. Üresen az alapértelmezett utat használja. Az út nem tartozhat másik postafiókhoz.",
+    "msg_password_or_hash": "Adjon meg jelszót vagy jelszó hash-t.",
+    "msg_invalid_password_hash": "A jelszó hash-nek támogatott sémával kell kezdődnie, pl. {SSHA512} vagy {CRYPT}.",
+    "msg_invalid_mailbox_format": "Válassza a maildir, mdbox vagy sdbox postafiók-formátumot.",
+    "msg_invalid_mailbox_folder": "A postafiók mappája 1–20 betű vagy számjegy lehet.",
+    "msg_maildir_global_only": "Csak globális adminisztrátor állíthatja be a maildir elérési útját.",
+    "msg_invalid_maildir": "A maildir útvonalnak legalább négy könyvtárból álló abszolút útnak kell lennie: kisbetűk, számjegyek és . _ @ + -.",
+    "msg_maildir_in_use": "A maildir útvonal egy másik postafiókhoz tartozik."
   },
   "mlist": {
     "msg_updated": "Levelezőlista frissítve!",

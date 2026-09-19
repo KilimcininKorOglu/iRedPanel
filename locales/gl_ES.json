@@ -375,7 +375,20 @@
     "msg_unknown_service": "Servizo de correo descoñecido: :service",
     "language": "Idioma",
     "language_default": "Idioma predeterminado",
-    "msg_invalid_language": "Código de idioma non válido."
+    "msg_invalid_language": "Código de idioma non válido.",
+    "password_hash": "Hash do contrasinal",
+    "password_hash_hint": "No canto dun contrasinal: un hash co seu esquema, como {SSHA512}... A política de contrasinais non comproba un hash.",
+    "mailbox_format": "Formato da caixa de correo",
+    "mailbox_folder": "Cartafol da caixa de correo",
+    "maildir_path": "Ruta do maildir",
+    "maildir_path_hint": "Ruta absoluta da caixa de correo. Baleiro usa a ruta predeterminada. A ruta non pode pertencer a outra caixa.",
+    "msg_password_or_hash": "Introduza un contrasinal ou un hash de contrasinal.",
+    "msg_invalid_password_hash": "O hash do contrasinal debe comezar cun esquema admitido, como {SSHA512} ou {CRYPT}.",
+    "msg_invalid_mailbox_format": "Escolla maildir, mdbox ou sdbox como formato da caixa de correo.",
+    "msg_invalid_mailbox_folder": "O cartafol da caixa debe ter de 1 a 20 letras ou díxitos.",
+    "msg_maildir_global_only": "Só un administrador global pode definir a ruta do maildir.",
+    "msg_invalid_maildir": "A ruta do maildir debe ser unha ruta absoluta de polo menos catro directorios: minúsculas, díxitos e . _ @ + -.",
+    "msg_maildir_in_use": "A ruta do maildir pertence a outra caixa de correo."
   },
   "mlist": {
     "msg_updated": "Lista de correo actualizada!",

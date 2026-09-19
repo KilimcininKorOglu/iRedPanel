@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Repositories\Mysql;
 
+use App\Models\MailboxStorage;
 use App\Models\PaginatedResult;
 use App\Models\User;
 use App\Repositories\UserRepositoryInterface;
@@ -176,8 +177,9 @@ class MysqlUserRepository implements UserRepositoryInterface
         }
     }
 
-    public function createUser(string $domain, User $user, string $passwordHash): void
+    public function createUser(string $domain, User $user, string $passwordHash, ?MailboxStorage $storage = null): void
     {
+        $storage ??= new MailboxStorage();
         $pdo = MysqlConnection::getInstance()->getPdo();
         $settings = \App\Models\Settings::getInstance();
         $username = "{$user->uid}@{$domain}";
@@ -218,6 +220,7 @@ class MysqlUserRepository implements UserRepositoryInterface
                 throw new \RuntimeException("Domain '{$domain}' not found");
             }
 
+            [$storageBase, $storageNode, $maildir] = $storage->location($domain, $user->uid, $settings->vmailPath, $settings->storageNode);
             $services = $user->sqlServiceParams();
             $serviceColumns = implode(', ', array_map('strtolower', array_keys($services)));
             $servicePlaceholders = ':' . implode(', :', array_keys($services));
@@ -226,12 +229,12 @@ class MysqlUserRepository implements UserRepositoryInterface
                     (username, password, name, first_name, last_name,
                      quota, employeeid, rank, mobile, telephone,
                      domain, active, isglobaladmin, storagebasedirectory,
-                     storagenode, maildir, language, {$serviceColumns}, created, passwordlastchange)
+                     storagenode, maildir, mailboxformat, mailboxfolder, language, {$serviceColumns}, created, passwordlastchange)
                  VALUES
                     (:username, :password, :cn, :givenName, :sn,
                      :quota, :employeeNumber, :title, :mobile, :telephoneNumber,
                      :domain, :active, :isGlobalAdmin, :storageBase,
-                     :storageNode, :maildir, :language, {$servicePlaceholders}, NOW(), NOW())"
+                     :storageNode, :maildir, :mailboxFormat, :mailboxFolder, :language, {$servicePlaceholders}, NOW(), NOW())"
             );
             $stmt->execute($services + [
                 'username' => $username,
@@ -247,9 +250,11 @@ class MysqlUserRepository implements UserRepositoryInterface
                 'domain' => $domain,
                 'active' => $user->accountStatus ? 1 : 0,
                 'isGlobalAdmin' => $user->domainGlobalAdmin ? 1 : 0,
-                'storageBase' => $settings->vmailPath,
-                'storageNode' => $settings->storageNode,
-                'maildir' => "{$domain}/{$user->uid}/",
+                'storageBase' => $storageBase,
+                'storageNode' => $storageNode,
+                'maildir' => $maildir,
+                'mailboxFormat' => $storage->format ?? MailboxStorage::DEFAULT_FORMAT,
+                'mailboxFolder' => $storage->folder ?? MailboxStorage::DEFAULT_FOLDER,
                 'language' => $user->language ?? '',
             ]);
 
@@ -278,6 +283,19 @@ class MysqlUserRepository implements UserRepositoryInterface
     public function supportsCreateUser(): bool
     {
         return true;
+    }
+
+    public function isMailboxPathInUse(array $paths): bool
+    {
+        if ($paths === []) {
+            return false;
+        }
+        $stmt = MysqlConnection::getInstance()->getPdo()->prepare(
+            "SELECT 1 FROM mailbox WHERE CONCAT(storagebasedirectory, '/', storagenode, '/', maildir) IN (" . implode(', ', array_fill(0, count($paths), '?')) . ") LIMIT 1"
+        );
+        $stmt->execute(array_values($paths));
+
+        return $stmt->fetchColumn() !== false;
     }
 
     public function getUsersPaginated(string $domain, int $page, int $perPage, ?string $startsWith = null, ?bool $activeOnly = null, string $sortBy = 'uid', string $sortDir = 'asc'): PaginatedResult

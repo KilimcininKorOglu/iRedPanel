@@ -375,7 +375,20 @@
     "msg_unknown_service": "Onbekende maildienst: :service",
     "language": "Taal",
     "language_default": "Standaardtaal",
-    "msg_invalid_language": "Ongeldige taalcode."
+    "msg_invalid_language": "Ongeldige taalcode.",
+    "password_hash": "Wachtwoordhash",
+    "password_hash_hint": "In plaats van een wachtwoord: een hash met schema, zoals {SSHA512}... Het wachtwoordbeleid controleert een hash niet.",
+    "mailbox_format": "Mailboxformaat",
+    "mailbox_folder": "Mailboxmap",
+    "maildir_path": "Maildir-pad",
+    "maildir_path_hint": "Absoluut pad van de mailbox. Leeg gebruikt het standaardpad. Het pad mag niet bij een andere mailbox horen.",
+    "msg_password_or_hash": "Voer een wachtwoord of een wachtwoordhash in.",
+    "msg_invalid_password_hash": "De wachtwoordhash moet beginnen met een ondersteund schema, zoals {SSHA512} of {CRYPT}.",
+    "msg_invalid_mailbox_format": "Kies maildir, mdbox of sdbox als mailboxformaat.",
+    "msg_invalid_mailbox_folder": "De mailboxmap moet 1 tot 20 letters of cijfers bevatten.",
+    "msg_maildir_global_only": "Alleen een globale beheerder kan het maildir-pad instellen.",
+    "msg_invalid_maildir": "Het maildir-pad moet een absoluut pad van minstens vier mappen zijn: kleine letters, cijfers en . _ @ + -.",
+    "msg_maildir_in_use": "Het maildir-pad hoort bij een andere mailbox."
   },
   "mlist": {
     "msg_updated": "Mailinglijst bijgewerkt!",

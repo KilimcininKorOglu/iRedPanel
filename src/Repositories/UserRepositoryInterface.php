@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Repositories;
 
+use App\Models\MailboxStorage;
 use App\Models\PaginatedResult;
 use App\Models\User;
 
@@ -32,11 +33,19 @@ interface UserRepositoryInterface
     public function updateUserPassword(string $domain, string $userUid, string $passwordHash): void;
 
     /**
-     * Creates a new user.
+     * Creates a new user. Without $storage the mailbox gets the panel maildir layout and
+     * the default mailbox format and folder.
      *
      * @throws \RuntimeException if the backend does not support user creation
      */
-    public function createUser(string $domain, User $user, string $passwordHash): void;
+    public function createUser(string $domain, User $user, string $passwordHash, ?MailboxStorage $storage = null): void;
+
+    /**
+     * Whether a mailbox has one of the home directories (absolute paths).
+     *
+     * @param list<string> $paths
+     */
+    public function isMailboxPathInUse(array $paths): bool;
 
     /**
      * Whether this backend supports user creation.

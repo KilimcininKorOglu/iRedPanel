@@ -375,7 +375,20 @@
     "msg_unknown_service": "Neznáma poštová služba: :service",
     "language": "Jazyk",
     "language_default": "Predvolený jazyk",
-    "msg_invalid_language": "Neplatný kód jazyka."
+    "msg_invalid_language": "Neplatný kód jazyka.",
+    "password_hash": "Hash hesla",
+    "password_hash_hint": "Namiesto hesla: hash so schémou, napr. {SSHA512}... Pravidlá hesiel hash nekontrolujú.",
+    "mailbox_format": "Formát schránky",
+    "mailbox_folder": "Priečinok schránky",
+    "maildir_path": "Cesta maildiru",
+    "maildir_path_hint": "Absolútna cesta schránky. Prázdne pole použije predvolenú cestu. Cesta nesmie patriť inej schránke.",
+    "msg_password_or_hash": "Zadajte heslo, alebo hash hesla.",
+    "msg_invalid_password_hash": "Hash hesla musí začínať podporovanou schémou, napr. {SSHA512} alebo {CRYPT}.",
+    "msg_invalid_mailbox_format": "Ako formát schránky zvoľte maildir, mdbox alebo sdbox.",
+    "msg_invalid_mailbox_folder": "Priečinok schránky musí mať 1 až 20 písmen alebo číslic.",
+    "msg_maildir_global_only": "Cestu maildiru môže nastaviť iba globálny administrátor.",
+    "msg_invalid_maildir": "Cesta maildiru musí byť absolútna cesta s aspoň štyrmi adresármi: malé písmená, číslice a . _ @ + -.",
+    "msg_maildir_in_use": "Cesta maildiru patrí inej schránke."
   },
   "mlist": {
     "msg_updated": "Distribučný zoznam aktualizovaný!",

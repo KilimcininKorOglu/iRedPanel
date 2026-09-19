@@ -375,7 +375,20 @@
     "msg_unknown_service": "Layanan surat tidak dikenal: :service",
     "language": "Bahasa",
     "language_default": "Bahasa bawaan",
-    "msg_invalid_language": "Kode bahasa tidak valid."
+    "msg_invalid_language": "Kode bahasa tidak valid.",
+    "password_hash": "Hash kata sandi",
+    "password_hash_hint": "Sebagai ganti kata sandi: hash dengan skemanya, misalnya {SSHA512}... Kebijakan kata sandi tidak memeriksa hash.",
+    "mailbox_format": "Format kotak surat",
+    "mailbox_folder": "Folder kotak surat",
+    "maildir_path": "Path maildir",
+    "maildir_path_hint": "Path absolut kotak surat. Kosong memakai path bawaan. Path tidak boleh milik kotak surat lain.",
+    "msg_password_or_hash": "Masukkan kata sandi atau hash kata sandi.",
+    "msg_invalid_password_hash": "Hash kata sandi harus diawali skema yang didukung, misalnya {SSHA512} atau {CRYPT}.",
+    "msg_invalid_mailbox_format": "Pilih maildir, mdbox atau sdbox sebagai format kotak surat.",
+    "msg_invalid_mailbox_folder": "Folder kotak surat harus 1 sampai 20 huruf atau angka.",
+    "msg_maildir_global_only": "Hanya admin global yang dapat mengatur path maildir.",
+    "msg_invalid_maildir": "Path maildir harus path absolut dengan minimal empat direktori: huruf kecil, angka dan . _ @ + -.",
+    "msg_maildir_in_use": "Path maildir milik kotak surat lain."
   },
   "mlist": {
     "msg_updated": "Milis diperbarui!",

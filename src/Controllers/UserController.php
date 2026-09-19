@@ -9,6 +9,7 @@ use App\Exceptions\InvalidInputException;
 use App\I18n\Translator;
 use App\Middleware;
 use App\Models\DomainSettings;
+use App\Models\MailboxStorage;
 use App\Models\ProfileToggles;
 use App\Models\Settings;
 use App\Models\User;
@@ -20,6 +21,7 @@ use App\Services\ActivityLogger;
 use App\Services\AdminLimits;
 use App\Services\Replication\ReplicatedAccountGuard;
 use App\TemplateEngine;
+use App\Utils\FormValue;
 use App\Utils\PasswordUtils;
 
 class UserController
@@ -392,52 +394,19 @@ class UserController
     {
         Middleware::domainAdminRequired($domain);
 
-        $userRepo = RepositoryFactory::getUserRepository();
         $validationErrors = [];
         $error = null;
         $user = null;
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $userUid = strtolower(trim((string) ($_POST['uid'] ?? '')));
-            $uidError = self::newUserUidError($domain, $userUid);
+            $validationErrors = array_filter(['uid' => self::newUserUidError($domain, $userUid)]);
 
-            if ($uidError !== null) {
-                $validationErrors['uid'] = $uidError;
-            } else {
+            if ($validationErrors === []) {
                 try {
                     // The create form has no status field; a new mailbox starts active.
                     $user = User::fromFormData(['uid' => $userUid] + $_POST + ['accountStatus' => true]);
-                    $domainSettings = self::domainSettings($domain);
-                    $user->setNewMailboxServices($domainSettings->disabledMailServices);
-                    $password = $_POST['password'] ?? '';
-                    $passwordRepeat = $_POST['password_repeat'] ?? '';
-                    $validationErrors = UserPassword::validateLocalized($password, $passwordRepeat, $domainSettings);
-
-                    if (empty($validationErrors)) {
-                        // The creation limits of a domain admin
-                        AdminLimits::assertCanCreate('users');
-                        AdminLimits::assertQuota(0, $user->mailQuota);
-
-                        // Enforce domain mailbox count and quota limits
-                        $limitError = RepositoryFactory::getDomainRepository()->getDomain($domain)
-                            ?->newMailboxError($user->mailQuota);
-                        if ($limitError !== null) {
-                            $tpl->render('userCreate.php', [
-                                'domain' => $domain,
-                                'validationErrors' => $validationErrors,
-                                'error' => Translator::translate($limitError->translationKey, $limitError->params),
-                                'user' => $user,
-                            ]);
-                            return;
-                        }
-
-                        $passwordHash = PasswordUtils::generatePasswordHash($password);
-                        $userRepo->createUser($domain, $user, $passwordHash);
-                        ActivityLogger::logCreate($domain, $user->uid, "User created");
-                        BaseController::flashCreated("{$user->uid}@{$domain}");
-                        header("Location: /{$domain}/users");
-                        exit;
-                    }
+                    $validationErrors = self::createUser($domain, $user);
                 } catch (\Exception $e) {
                     $error = BaseController::errorMessage($e);
                 }
@@ -451,8 +420,62 @@ class UserController
             'validationErrors' => $validationErrors,
             'error' => $error,
             'user' => $user,
+            'posted' => $_SERVER['REQUEST_METHOD'] === 'POST' ? $_POST : null,
             'defaultQuota' => $defaultQuota > 0 ? $defaultQuota : 100,
+            'mailboxFormats' => MailboxStorage::FORMATS,
         ]);
+    }
+
+    /**
+     * Creates the mailbox of the create form and redirects to the user list.
+     *
+     * @return array<string, string> the validation errors of the password fields
+     * @throws \Exception when a check, a limit or the backend refuses the mailbox
+     */
+    private static function createUser(string $domain, User $user): array
+    {
+        $domainSettings = self::domainSettings($domain);
+        $user->setNewMailboxServices($domainSettings->disabledMailServices);
+        [$passwordHash, $validationErrors] = self::postedPasswordHash($domainSettings);
+        if ($validationErrors !== []) {
+            return $validationErrors;
+        }
+        $userRepo = RepositoryFactory::getUserRepository();
+        $storage = MailboxStorage::fromInput($_POST, Middleware::isGlobalAdmin());
+        $storage->assertPathFree($userRepo);
+
+        // The creation limits of a domain admin, then the domain mailbox count and quota limits
+        AdminLimits::assertCanCreate('users');
+        AdminLimits::assertQuota(0, $user->mailQuota);
+        $limitError = RepositoryFactory::getDomainRepository()->getDomain($domain)?->newMailboxError($user->mailQuota);
+        if ($limitError !== null) {
+            throw $limitError;
+        }
+
+        $userRepo->createUser($domain, $user, $passwordHash, $storage);
+        ActivityLogger::logCreate($domain, $user->uid, "User created");
+        BaseController::flashCreated("{$user->uid}@{$domain}");
+        header("Location: /{$domain}/users");
+        exit;
+    }
+
+    /**
+     * The hash of the posted password, or the posted password hash, which the password
+     * policy cannot check.
+     *
+     * @return array{0: string, 1: array<string, string>} the hash and the validation errors
+     */
+    private static function postedPasswordHash(DomainSettings $domainSettings): array
+    {
+        $password = is_string($_POST['password'] ?? null) ? $_POST['password'] : '';
+        $hash = FormValue::text($_POST, 'passwordHash');
+        if ($hash !== '') {
+            return [UserPassword::acceptedHash($hash, $password), []];
+        }
+        $repeat = is_string($_POST['password_repeat'] ?? null) ? $_POST['password_repeat'] : '';
+        $validationErrors = UserPassword::validateLocalized($password, $repeat, $domainSettings);
+
+        return [$validationErrors === [] ? PasswordUtils::generatePasswordHash($password) : '', $validationErrors];
     }
 
     /**

@@ -375,7 +375,20 @@
     "msg_unknown_service": "Dịch vụ thư không xác định: :service",
     "language": "Ngôn ngữ",
     "language_default": "Ngôn ngữ mặc định",
-    "msg_invalid_language": "Mã ngôn ngữ không hợp lệ."
+    "msg_invalid_language": "Mã ngôn ngữ không hợp lệ.",
+    "password_hash": "Hash mật khẩu",
+    "password_hash_hint": "Thay cho mật khẩu: một hash kèm lược đồ, ví dụ {SSHA512}... Chính sách mật khẩu không kiểm tra hash.",
+    "mailbox_format": "Định dạng hộp thư",
+    "mailbox_folder": "Thư mục hộp thư",
+    "maildir_path": "Đường dẫn maildir",
+    "maildir_path_hint": "Đường dẫn tuyệt đối của hộp thư. Để trống sẽ dùng đường dẫn mặc định. Đường dẫn không được thuộc về hộp thư khác.",
+    "msg_password_or_hash": "Nhập mật khẩu hoặc hash mật khẩu.",
+    "msg_invalid_password_hash": "Hash mật khẩu phải bắt đầu bằng lược đồ được hỗ trợ, ví dụ {SSHA512} hoặc {CRYPT}.",
+    "msg_invalid_mailbox_format": "Chọn maildir, mdbox hoặc sdbox làm định dạng hộp thư.",
+    "msg_invalid_mailbox_folder": "Thư mục hộp thư phải gồm 1 đến 20 chữ cái hoặc chữ số.",
+    "msg_maildir_global_only": "Chỉ quản trị viên toàn cục mới đặt được đường dẫn maildir.",
+    "msg_invalid_maildir": "Đường dẫn maildir phải là đường dẫn tuyệt đối có ít nhất bốn thư mục: chữ thường, chữ số và . _ @ + -.",
+    "msg_maildir_in_use": "Đường dẫn maildir thuộc về hộp thư khác."
   },
   "mlist": {
     "msg_updated": "Danh sách gửi thư đã được cập nhật!",

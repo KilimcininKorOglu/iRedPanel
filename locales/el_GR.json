@@ -375,7 +375,20 @@
     "msg_unknown_service": "Άγνωστη υπηρεσία αλληλογραφίας: :service",
     "language": "Γλώσσα",
     "language_default": "Προεπιλεγμένη γλώσσα",
-    "msg_invalid_language": "Μη έγκυρος κωδικός γλώσσας."
+    "msg_invalid_language": "Μη έγκυρος κωδικός γλώσσας.",
+    "password_hash": "Hash κωδικού πρόσβασης",
+    "password_hash_hint": "Αντί για κωδικό: ένα hash με το σχήμα του, π.χ. {SSHA512}... Η πολιτική κωδικών δεν ελέγχει το hash.",
+    "mailbox_format": "Μορφή θυρίδας",
+    "mailbox_folder": "Φάκελος θυρίδας",
+    "maildir_path": "Διαδρομή maildir",
+    "maildir_path_hint": "Απόλυτη διαδρομή της θυρίδας. Κενό χρησιμοποιεί την προεπιλεγμένη διαδρομή. Η διαδρομή δεν πρέπει να ανήκει σε άλλη θυρίδα.",
+    "msg_password_or_hash": "Εισαγάγετε είτε κωδικό είτε hash κωδικού.",
+    "msg_invalid_password_hash": "Το hash του κωδικού πρέπει να ξεκινά με υποστηριζόμενο σχήμα, π.χ. {SSHA512} ή {CRYPT}.",
+    "msg_invalid_mailbox_format": "Επιλέξτε maildir, mdbox ή sdbox ως μορφή θυρίδας.",
+    "msg_invalid_mailbox_folder": "Ο φάκελος θυρίδας πρέπει να έχει 1 έως 20 γράμματα ή ψηφία.",
+    "msg_maildir_global_only": "Μόνο ένας γενικός διαχειριστής μπορεί να ορίσει τη διαδρομή maildir.",
+    "msg_invalid_maildir": "Η διαδρομή maildir πρέπει να είναι απόλυτη με τουλάχιστον τέσσερις καταλόγους: πεζά, ψηφία και . _ @ + -.",
+    "msg_maildir_in_use": "Η διαδρομή maildir ανήκει σε άλλη θυρίδα."
   },
   "mlist": {
     "msg_updated": "Η λίστα αλληλογραφίας ενημερώθηκε!",

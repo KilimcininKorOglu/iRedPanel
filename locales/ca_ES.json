@@ -375,7 +375,20 @@
     "msg_unknown_service": "Servei de correu desconegut: :service",
     "language": "Idioma",
     "language_default": "Idioma per defecte",
-    "msg_invalid_language": "Codi d'idioma no vàlid."
+    "msg_invalid_language": "Codi d'idioma no vàlid.",
+    "password_hash": "Hash de la contrasenya",
+    "password_hash_hint": "En lloc d'una contrasenya: un hash amb el seu esquema, com ara {SSHA512}... La política de contrasenyes no el comprova.",
+    "mailbox_format": "Format de la bústia",
+    "mailbox_folder": "Carpeta de la bústia",
+    "maildir_path": "Ruta del maildir",
+    "maildir_path_hint": "Ruta absoluta de la bústia. Buit fa servir la ruta per defecte. La ruta no pot pertànyer a una altra bústia.",
+    "msg_password_or_hash": "Introduïu una contrasenya o un hash de contrasenya.",
+    "msg_invalid_password_hash": "El hash de la contrasenya ha de començar amb un esquema admès, com ara {SSHA512} o {CRYPT}.",
+    "msg_invalid_mailbox_format": "Trieu maildir, mdbox o sdbox com a format de la bústia.",
+    "msg_invalid_mailbox_folder": "La carpeta de la bústia ha de tenir d'1 a 20 lletres o xifres.",
+    "msg_maildir_global_only": "Només un administrador global pot definir la ruta del maildir.",
+    "msg_invalid_maildir": "La ruta del maildir ha de ser una ruta absoluta d'almenys quatre directoris: minúscules, xifres i . _ @ + -.",
+    "msg_maildir_in_use": "La ruta del maildir pertany a una altra bústia."
   },
   "mlist": {
     "msg_updated": "Llista de correu actualitzada!",

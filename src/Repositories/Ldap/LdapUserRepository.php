@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Repositories\Ldap;
 
 use App\Models\LdapConnection;
+use App\Models\MailboxStorage;
 use App\Models\PaginatedResult;
 use App\Models\Settings;
 use App\Models\User;
@@ -148,14 +149,16 @@ class LdapUserRepository implements UserRepositoryInterface
         }
     }
 
-    public function createUser(string $domain, User $user, string $passwordHash): void
+    public function createUser(string $domain, User $user, string $passwordHash, ?MailboxStorage $storage = null): void
     {
         $conn = LdapConnection::getInstance()->getConn();
         $settings = \App\Models\Settings::getInstance();
         $email = "{$user->uid}@{$domain}";
         $dn = LdapUtils::getEmailDn($email);
+        $storage ??= new MailboxStorage();
         // Same layout as the SQL backends: <vmail path>/<storage node>/<domain>/<uid>/
-        $maildir = "{$settings->storageNode}/{$domain}/{$user->uid}/";
+        [$storageBase, $storageNode, $maildir] = $storage->location($domain, $user->uid, $settings->vmailPath, $settings->storageNode);
+        $maildir = "{$storageNode}/{$maildir}";
 
         $entry = [
             'objectClass' => ['inetOrgPerson', 'mailUser', 'shadowAccount', 'amavisAccount'],
@@ -165,11 +168,11 @@ class LdapUserRepository implements UserRepositoryInterface
             'sn' => $user->sn ?: $user->uid,
             'userPassword' => $passwordHash,
             'accountStatus' => $user->accountStatus ? 'active' : 'disabled',
-            'homeDirectory' => "{$settings->vmailPath}/{$maildir}",
+            'homeDirectory' => "{$storageBase}/{$maildir}",
             'amavisLocal' => 'TRUE',
             // The caller sets the toggles with setNewMailboxServices().
             'enabledService' => $user->toLdapServiceList(),
-            'storageBaseDirectory' => $settings->vmailPath,
+            'storageBaseDirectory' => $storageBase,
             'mailMessageStore' => $maildir,
         ];
 
@@ -185,6 +188,9 @@ class LdapUserRepository implements UserRepositoryInterface
             'mobile' => $user->mobile,
             'telephoneNumber' => $user->telephoneNumber,
             'preferredLanguage' => $user->language ?? '',
+            // Dovecot reads a missing value as its default (maildir, Maildir).
+            'mailboxFormat' => $storage->format ?? '',
+            'mailboxFolder' => $storage->folder ?? '',
         ];
         $entry += array_filter($optional, static fn (string $value): bool => $value !== '');
         $shadowAddresses = LdapUtils::aliasDomainAddresses($conn, $email);
@@ -195,6 +201,20 @@ class LdapUserRepository implements UserRepositoryInterface
         if (!@ldap_add($conn, $dn, $entry)) {
             throw new \RuntimeException('LDAP user creation failed: ' . ldap_error($conn));
         }
+    }
+
+    public function isMailboxPathInUse(array $paths): bool
+    {
+        if ($paths === []) {
+            return false;
+        }
+        $conn = LdapConnection::getInstance()->getConn();
+        $filter = '(&(objectClass=mailUser)(|' . implode('', array_map(
+            static fn (string $path): string => '(homeDirectory=' . ldap_escape($path, '', LDAP_ESCAPE_FILTER) . ')',
+            $paths,
+        )) . '))';
+
+        return LdapUtils::searchEntries($conn, 'o=domains,' . Settings::getInstance()->ldapRootDn, $filter, ['mail']) !== [];
     }
 
     public function supportsCreateUser(): bool

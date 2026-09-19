@@ -375,7 +375,20 @@
     "msg_unknown_service": "Neznámá poštovní služba: :service",
     "language": "Jazyk",
     "language_default": "Výchozí jazyk",
-    "msg_invalid_language": "Neplatný kód jazyka."
+    "msg_invalid_language": "Neplatný kód jazyka.",
+    "password_hash": "Hash hesla",
+    "password_hash_hint": "Místo hesla: hash se schématem, např. {SSHA512}... Pravidla hesel hash nekontrolují.",
+    "mailbox_format": "Formát schránky",
+    "mailbox_folder": "Složka schránky",
+    "maildir_path": "Cesta maildiru",
+    "maildir_path_hint": "Absolutní cesta schránky. Prázdné pole použije výchozí cestu. Cesta nesmí patřit jiné schránce.",
+    "msg_password_or_hash": "Zadejte heslo, nebo hash hesla.",
+    "msg_invalid_password_hash": "Hash hesla musí začínat podporovaným schématem, např. {SSHA512} nebo {CRYPT}.",
+    "msg_invalid_mailbox_format": "Jako formát schránky zvolte maildir, mdbox nebo sdbox.",
+    "msg_invalid_mailbox_folder": "Složka schránky musí mít 1 až 20 písmen nebo číslic.",
+    "msg_maildir_global_only": "Cestu maildiru může nastavit jen globální administrátor.",
+    "msg_invalid_maildir": "Cesta maildiru musí být absolutní cesta s alespoň čtyřmi adresáři: malá písmena, číslice a . _ @ + -.",
+    "msg_maildir_in_use": "Cesta maildiru patří jiné schránce."
   },
   "mlist": {
     "msg_updated": "Poštovní konference aktualizována!",

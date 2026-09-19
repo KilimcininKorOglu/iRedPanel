@@ -375,7 +375,20 @@
     "msg_unknown_service": "ไม่รู้จักบริการอีเมล: :service",
     "language": "ภาษา",
     "language_default": "ภาษาเริ่มต้น",
-    "msg_invalid_language": "รหัสภาษาไม่ถูกต้อง"
+    "msg_invalid_language": "รหัสภาษาไม่ถูกต้อง",
+    "password_hash": "แฮชรหัสผ่าน",
+    "password_hash_hint": "แทนรหัสผ่าน: แฮชพร้อมรูปแบบ เช่น {SSHA512}... นโยบายรหัสผ่านไม่ตรวจสอบแฮช",
+    "mailbox_format": "รูปแบบกล่องจดหมาย",
+    "mailbox_folder": "โฟลเดอร์กล่องจดหมาย",
+    "maildir_path": "พาธ maildir",
+    "maildir_path_hint": "พาธแบบสมบูรณ์ของกล่องจดหมาย ว่างไว้เพื่อใช้พาธเริ่มต้น พาธต้องไม่เป็นของกล่องจดหมายอื่น",
+    "msg_password_or_hash": "ป้อนรหัสผ่านหรือแฮชรหัสผ่านอย่างใดอย่างหนึ่ง",
+    "msg_invalid_password_hash": "แฮชรหัสผ่านต้องขึ้นต้นด้วยรูปแบบที่รองรับ เช่น {SSHA512} หรือ {CRYPT}",
+    "msg_invalid_mailbox_format": "เลือก maildir, mdbox หรือ sdbox เป็นรูปแบบกล่องจดหมาย",
+    "msg_invalid_mailbox_folder": "โฟลเดอร์กล่องจดหมายต้องเป็นตัวอักษรหรือตัวเลข 1 ถึง 20 ตัว",
+    "msg_maildir_global_only": "เฉพาะผู้ดูแลระบบส่วนกลางเท่านั้นที่ตั้งค่าพาธ maildir ได้",
+    "msg_invalid_maildir": "พาธ maildir ต้องเป็นพาธแบบสมบูรณ์อย่างน้อยสี่ไดเรกทอรี: ตัวพิมพ์เล็ก ตัวเลข และ . _ @ + -",
+    "msg_maildir_in_use": "พาธ maildir เป็นของกล่องจดหมายอื่น"
   },
   "mlist": {
     "msg_updated": "อัปเดตรายชื่อเมลแล้ว!",

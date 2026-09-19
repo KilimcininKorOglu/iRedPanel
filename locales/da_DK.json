@@ -375,7 +375,20 @@
     "msg_unknown_service": "Ukendt mailtjeneste: :service",
     "language": "Sprog",
     "language_default": "Standardsprog",
-    "msg_invalid_language": "Ugyldig sprogkode."
+    "msg_invalid_language": "Ugyldig sprogkode.",
+    "password_hash": "Adgangskode-hash",
+    "password_hash_hint": "I stedet for en adgangskode: en hash med skema, f.eks. {SSHA512}... Adgangskodepolitikken kontrollerer ikke en hash.",
+    "mailbox_format": "Postkasseformat",
+    "mailbox_folder": "Postkassemappe",
+    "maildir_path": "Maildir-sti",
+    "maildir_path_hint": "Absolut sti til postkassen. Tom bruger standardstien. Stien må ikke tilhøre en anden postkasse.",
+    "msg_password_or_hash": "Angiv enten en adgangskode eller en adgangskode-hash.",
+    "msg_invalid_password_hash": "Adgangskode-hashen skal starte med et understøttet skema, f.eks. {SSHA512} eller {CRYPT}.",
+    "msg_invalid_mailbox_format": "Vælg maildir, mdbox eller sdbox som postkasseformat.",
+    "msg_invalid_mailbox_folder": "Postkassemappen skal være 1 til 20 bogstaver eller cifre.",
+    "msg_maildir_global_only": "Kun en global administrator kan angive maildir-stien.",
+    "msg_invalid_maildir": "Maildir-stien skal være en absolut sti med mindst fire mapper: små bogstaver, cifre og . _ @ + -.",
+    "msg_maildir_in_use": "Maildir-stien tilhører en anden postkasse."
   },
   "mlist": {
     "msg_updated": "Mailingliste opdateret!",

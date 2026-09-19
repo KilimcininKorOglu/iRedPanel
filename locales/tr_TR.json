@@ -375,7 +375,20 @@
     "msg_unknown_service": "Bilinmeyen posta servisi: :service",
     "language": "Dil",
     "language_default": "Varsayılan dil",
-    "msg_invalid_language": "Geçersiz dil kodu."
+    "msg_invalid_language": "Geçersiz dil kodu.",
+    "password_hash": "Parola hash'i",
+    "password_hash_hint": "Parola yerine şemasıyla bir hash, örneğin {SSHA512}... Parola politikası hash'i denetlemez.",
+    "mailbox_format": "Posta kutusu biçimi",
+    "mailbox_folder": "Posta kutusu klasörü",
+    "maildir_path": "Maildir yolu",
+    "maildir_path_hint": "Posta kutusunun mutlak yolu. Boş bırakılırsa varsayılan yol kullanılır. Yol başka bir posta kutusuna ait olmamalıdır.",
+    "msg_password_or_hash": "Bir parola ya da bir parola hash'i girin.",
+    "msg_invalid_password_hash": "Parola hash'i desteklenen bir şemayla başlamalıdır, örneğin {SSHA512} veya {CRYPT}.",
+    "msg_invalid_mailbox_format": "Posta kutusu biçimi olarak maildir, mdbox veya sdbox seçin.",
+    "msg_invalid_mailbox_folder": "Posta kutusu klasörü 1 ile 20 arasında harf veya rakamdan oluşmalıdır.",
+    "msg_maildir_global_only": "Maildir yolunu yalnızca global admin ayarlayabilir.",
+    "msg_invalid_maildir": "Maildir yolu en az dört dizinden oluşan mutlak bir yol olmalıdır: küçük harf, rakam ve . _ @ + -.",
+    "msg_maildir_in_use": "Maildir yolu başka bir posta kutusuna ait."
   },
   "mlist": {
     "msg_updated": "Posta listesi güncellendi!",

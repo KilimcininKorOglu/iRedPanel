@@ -375,7 +375,20 @@
     "msg_unknown_service": "Posta-zerbitzu ezezaguna: :service",
     "language": "Hizkuntza",
     "language_default": "Hizkuntza lehenetsia",
-    "msg_invalid_language": "Hizkuntza-kode baliogabea."
+    "msg_invalid_language": "Hizkuntza-kode baliogabea.",
+    "password_hash": "Pasahitzaren hash-a",
+    "password_hash_hint": "Pasahitzaren ordez: hash bat bere eskemarekin, adibidez {SSHA512}... Pasahitz-politikak ez du hash-a egiaztatzen.",
+    "mailbox_format": "Postontziaren formatua",
+    "mailbox_folder": "Postontziaren karpeta",
+    "maildir_path": "Maildir bidea",
+    "maildir_path_hint": "Postontziaren bide absolutua. Hutsik bide lehenetsia erabiltzen da. Bideak ezin du beste postontzi batena izan.",
+    "msg_password_or_hash": "Idatzi pasahitza edo pasahitzaren hash-a.",
+    "msg_invalid_password_hash": "Pasahitzaren hash-ak onartutako eskema batekin hasi behar du, adibidez {SSHA512} edo {CRYPT}.",
+    "msg_invalid_mailbox_format": "Aukeratu maildir, mdbox edo sdbox postontziaren formatu gisa.",
+    "msg_invalid_mailbox_folder": "Postontziaren karpetak 1 eta 20 letra edo zenbaki artean izan behar ditu.",
+    "msg_maildir_global_only": "Administratzaile globalak soilik ezar dezake maildir bidea.",
+    "msg_invalid_maildir": "Maildir bideak gutxienez lau direktorioko bide absolutua izan behar du: minuskulak, zenbakiak eta . _ @ + -.",
+    "msg_maildir_in_use": "Maildir bidea beste postontzi batena da."
   },
   "mlist": {
     "msg_updated": "Posta-zerrenda eguneratu da!",

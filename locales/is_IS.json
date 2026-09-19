@@ -375,7 +375,20 @@
     "msg_unknown_service": "Óþekkt póstþjónusta: :service",
     "language": "Tungumál",
     "language_default": "Sjálfgefið tungumál",
-    "msg_invalid_language": "Ógildur tungumálakóði."
+    "msg_invalid_language": "Ógildur tungumálakóði.",
+    "password_hash": "Hash lykilorðs",
+    "password_hash_hint": "Í stað lykilorðs: hash með skema, t.d. {SSHA512}... Lykilorðastefnan athugar ekki hash.",
+    "mailbox_format": "Snið pósthólfs",
+    "mailbox_folder": "Mappa pósthólfs",
+    "maildir_path": "Slóð maildir",
+    "maildir_path_hint": "Algild slóð pósthólfsins. Tómt notar sjálfgefna slóð. Slóðin má ekki tilheyra öðru pósthólfi.",
+    "msg_password_or_hash": "Sláðu inn annaðhvort lykilorð eða hash lykilorðs.",
+    "msg_invalid_password_hash": "Hash lykilorðs verður að byrja á studdu skema, t.d. {SSHA512} eða {CRYPT}.",
+    "msg_invalid_mailbox_format": "Veldu maildir, mdbox eða sdbox sem snið pósthólfs.",
+    "msg_invalid_mailbox_folder": "Mappa pósthólfs verður að vera 1 til 20 stafir eða tölustafir.",
+    "msg_maildir_global_only": "Aðeins altækur stjórnandi getur stillt slóð maildir.",
+    "msg_invalid_maildir": "Slóð maildir verður að vera algild slóð með minnst fjórum möppum: lágstafir, tölustafir og . _ @ + -.",
+    "msg_maildir_in_use": "Slóð maildir tilheyrir öðru pósthólfi."
   },
   "mlist": {
     "msg_updated": "Póstlisti uppfærður!",

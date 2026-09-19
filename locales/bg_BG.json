@@ -375,7 +375,20 @@
     "msg_unknown_service": "Непозната пощенска услуга: :service",
     "language": "Език",
     "language_default": "Език по подразбиране",
-    "msg_invalid_language": "Невалиден код на език."
+    "msg_invalid_language": "Невалиден код на език.",
+    "password_hash": "Hash на паролата",
+    "password_hash_hint": "Вместо парола: hash със схемата си, например {SSHA512}... Политиката за пароли не проверява hash.",
+    "mailbox_format": "Формат на пощенската кутия",
+    "mailbox_folder": "Папка на пощенската кутия",
+    "maildir_path": "Път на maildir",
+    "maildir_path_hint": "Абсолютен път на пощенската кутия. Празно поле използва пътя по подразбиране. Пътят не трябва да принадлежи на друга пощенска кутия.",
+    "msg_password_or_hash": "Въведете парола или hash на паролата.",
+    "msg_invalid_password_hash": "Hash на паролата трябва да започва с поддържана схема, например {SSHA512} или {CRYPT}.",
+    "msg_invalid_mailbox_format": "Изберете maildir, mdbox или sdbox за формат на пощенската кутия.",
+    "msg_invalid_mailbox_folder": "Папката на пощенската кутия трябва да е от 1 до 20 букви или цифри.",
+    "msg_maildir_global_only": "Само глобален администратор може да задава пътя на maildir.",
+    "msg_invalid_maildir": "Пътят на maildir трябва да е абсолютен път от поне четири директории: малки букви, цифри и . _ @ + -.",
+    "msg_maildir_in_use": "Пътят на maildir принадлежи на друга пощенска кутия."
   },
   "mlist": {
     "msg_updated": "Пощенският списък е актуализиран!",

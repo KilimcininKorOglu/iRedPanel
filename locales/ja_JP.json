@@ -375,7 +375,20 @@
     "msg_unknown_service": "不明なメールサービス: :service",
     "language": "言語",
     "language_default": "既定の言語",
-    "msg_invalid_language": "無効な言語コードです。"
+    "msg_invalid_language": "無効な言語コードです。",
+    "password_hash": "パスワードハッシュ",
+    "password_hash_hint": "パスワードの代わりに、スキーム付きのハッシュ (例: {SSHA512}...)。パスワードポリシーはハッシュを検証しません。",
+    "mailbox_format": "メールボックス形式",
+    "mailbox_folder": "メールボックスフォルダー",
+    "maildir_path": "Maildir パス",
+    "maildir_path_hint": "メールボックスの絶対パス。空欄の場合は既定のパスを使用します。他のメールボックスのパスは使用できません。",
+    "msg_password_or_hash": "パスワードまたはパスワードハッシュのどちらかを入力してください。",
+    "msg_invalid_password_hash": "パスワードハッシュは {SSHA512} や {CRYPT} などのサポートされるスキームで始める必要があります。",
+    "msg_invalid_mailbox_format": "メールボックス形式として maildir、mdbox、sdbox のいずれかを選択してください。",
+    "msg_invalid_mailbox_folder": "メールボックスフォルダーは 1〜20 文字の英数字である必要があります。",
+    "msg_maildir_global_only": "Maildir パスを設定できるのはグローバル管理者のみです。",
+    "msg_invalid_maildir": "Maildir パスは 4 階層以上の絶対パスで、小文字、数字、. _ @ + - のみ使用できます。",
+    "msg_maildir_in_use": "この Maildir パスは他のメールボックスのものです。"
   },
   "mlist": {
     "msg_updated": "メーリングリストを更新しました！",

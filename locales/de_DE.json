@@ -375,7 +375,20 @@
     "msg_unknown_service": "Unbekannter Maildienst: :service",
     "language": "Sprache",
     "language_default": "Standardsprache",
-    "msg_invalid_language": "Ungültiger Sprachcode."
+    "msg_invalid_language": "Ungültiger Sprachcode.",
+    "password_hash": "Passwort-Hash",
+    "password_hash_hint": "Statt eines Passworts: ein Hash mit Schema, z. B. {SSHA512}... Die Passwortrichtlinie prüft einen Hash nicht.",
+    "mailbox_format": "Postfachformat",
+    "mailbox_folder": "Postfachordner",
+    "maildir_path": "Maildir-Pfad",
+    "maildir_path_hint": "Absoluter Pfad des Postfachs. Leer verwendet den Standardpfad. Der Pfad darf keinem anderen Postfach gehören.",
+    "msg_password_or_hash": "Geben Sie entweder ein Passwort oder einen Passwort-Hash ein.",
+    "msg_invalid_password_hash": "Der Passwort-Hash muss mit einem unterstützten Schema beginnen, z. B. {SSHA512} oder {CRYPT}.",
+    "msg_invalid_mailbox_format": "Wählen Sie maildir, mdbox oder sdbox als Postfachformat.",
+    "msg_invalid_mailbox_folder": "Der Postfachordner muss aus 1 bis 20 Buchstaben oder Ziffern bestehen.",
+    "msg_maildir_global_only": "Nur ein globaler Administrator kann den Maildir-Pfad festlegen.",
+    "msg_invalid_maildir": "Der Maildir-Pfad muss ein absoluter Pfad aus mindestens vier Verzeichnissen sein: Kleinbuchstaben, Ziffern und . _ @ + -.",
+    "msg_maildir_in_use": "Der Maildir-Pfad gehört zu einem anderen Postfach."
   },
   "mlist": {
     "msg_updated": "Mailingliste aktualisiert!",

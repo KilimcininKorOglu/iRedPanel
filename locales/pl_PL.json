@@ -375,7 +375,20 @@
     "msg_unknown_service": "Nieznana usługa pocztowa: :service",
     "language": "Język",
     "language_default": "Język domyślny",
-    "msg_invalid_language": "Nieprawidłowy kod języka."
+    "msg_invalid_language": "Nieprawidłowy kod języka.",
+    "password_hash": "Hash hasła",
+    "password_hash_hint": "Zamiast hasła: hash ze schematem, np. {SSHA512}... Zasady haseł nie sprawdzają hasha.",
+    "mailbox_format": "Format skrzynki",
+    "mailbox_folder": "Folder skrzynki",
+    "maildir_path": "Ścieżka maildir",
+    "maildir_path_hint": "Ścieżka bezwzględna skrzynki. Puste pole używa ścieżki domyślnej. Ścieżka nie może należeć do innej skrzynki.",
+    "msg_password_or_hash": "Podaj hasło albo hash hasła.",
+    "msg_invalid_password_hash": "Hash hasła musi zaczynać się od obsługiwanego schematu, np. {SSHA512} lub {CRYPT}.",
+    "msg_invalid_mailbox_format": "Wybierz maildir, mdbox lub sdbox jako format skrzynki.",
+    "msg_invalid_mailbox_folder": "Folder skrzynki musi mieć od 1 do 20 liter lub cyfr.",
+    "msg_maildir_global_only": "Tylko administrator globalny może ustawić ścieżkę maildir.",
+    "msg_invalid_maildir": "Ścieżka maildir musi być ścieżką bezwzględną z co najmniej czterema katalogami: małe litery, cyfry i . _ @ + -.",
+    "msg_maildir_in_use": "Ścieżka maildir należy do innej skrzynki."
   },
   "mlist": {
     "msg_updated": "Lista mailingowa zaktualizowana!",

@@ -6,12 +6,15 @@ namespace App\Api;
 
 use App\Exceptions\InvalidInputException;
 use App\Models\DomainSettings;
+use App\Models\MailboxStorage;
 use App\Models\ProfileToggles;
 use App\Models\User;
+use App\Models\UserPassword;
 use App\Repositories\RepositoryFactory;
 use App\Services\AccountRenameService;
 use App\Services\AccountSettingsService;
 use App\Services\Replication\ReplicatedAccountGuard;
+use App\Utils\FormValue;
 use App\Utils\PasswordUtils;
 
 class UserApiController
@@ -69,9 +72,8 @@ class UserApiController
         }
 
         $data['uid'] = strtolower(trim((string) ($data['uid'] ?? '')));
-        $password = (string) ($data['password'] ?? '');
         $domainObj = RepositoryFactory::getDomainRepository()->getDomain($domain);
-        $failure = self::newUserError($data['uid'], $password, $domain, $domainObj !== null);
+        $failure = self::newUserError($data['uid'], $domain, $domainObj !== null);
         if ($failure !== null) {
             ApiResponse::error($failure[0], $failure[1]);
             return;
@@ -95,15 +97,16 @@ class UserApiController
             return;
         }
 
-        $validationErrors = \App\Models\UserPassword::validate($password, $password, $domainSettings);
-        if (!empty($validationErrors)) {
-            // The API has no repeat field, so every policy error is under the password key.
-            ApiResponse::error('Password policy violation: ' . $validationErrors['password']);
+        try {
+            $passwordHash = self::newPasswordHash($data, $domainSettings);
+            $storage = MailboxStorage::fromInput($data, ApiMiddleware::getCurrentKey()?->isGlobal() === true);
+            $storage->assertPathFree($repo);
+        } catch (InvalidInputException $e) {
+            ApiResponse::invalidInput($e);
             return;
         }
 
-        $passwordHash = PasswordUtils::generatePasswordHash($password);
-        $repo->createUser($domain, $user, $passwordHash);
+        $repo->createUser($domain, $user, $passwordHash, $storage);
         ApiResponse::created(['email' => $user->uid . '@' . $domain]);
     }
 
@@ -413,15 +416,41 @@ class UserApiController
     }
 
     /**
+     * The hash of `password`, or `passwordHash` as given (iRedAdmin-Pro `password_hash`),
+     * which the password policy cannot check.
+     *
+     * @throws InvalidInputException when both or none are given, or the password breaks the policy
+     */
+    private static function newPasswordHash(array $data, DomainSettings $domainSettings): string
+    {
+        // A password keeps its spaces; FormValue::text() would trim them.
+        $password = is_string($data['password'] ?? null) ? $data['password'] : '';
+        $hash = FormValue::text($data, 'passwordHash');
+        if ($hash !== '') {
+            return UserPassword::acceptedHash($hash, $password);
+        }
+        if ($password === '') {
+            throw new InvalidInputException('password or passwordHash is required', 'user.msg_password_or_hash');
+        }
+        // The API has no repeat field, so every policy error is under the password key.
+        $validationErrors = UserPassword::validate($password, $password, $domainSettings);
+        if ($validationErrors !== []) {
+            throw new InvalidInputException('Password policy violation: ' . $validationErrors['password'], 'user.msg_password_or_hash');
+        }
+
+        return PasswordUtils::generatePasswordHash($password);
+    }
+
+    /**
      * Checks the input of a new mailbox.
      *
      * @param string $uid lowercased local part
      * @return array{0: string, 1: int}|null the error message and HTTP status, or null when the input is valid
      */
-    private static function newUserError(string $uid, string $password, string $domain, bool $domainExists): ?array
+    private static function newUserError(string $uid, string $domain, bool $domainExists): ?array
     {
-        if ($uid === '' || $password === '') {
-            return ['uid and password are required', 400];
+        if ($uid === '') {
+            return ['uid is required', 400];
         }
         $address = "{$uid}@{$domain}";
         if (filter_var($address, FILTER_VALIDATE_EMAIL) === false) {

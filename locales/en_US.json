@@ -375,7 +375,20 @@
     "msg_unknown_service": "Unknown mail service: :service",
     "language": "Language",
     "language_default": "Default language",
-    "msg_invalid_language": "Invalid language code."
+    "msg_invalid_language": "Invalid language code.",
+    "password_hash": "Password hash",
+    "password_hash_hint": "Instead of a password: a hash with its scheme, such as {SSHA512}... The password policy does not check a hash.",
+    "mailbox_format": "Mailbox format",
+    "mailbox_folder": "Mailbox folder",
+    "maildir_path": "Maildir path",
+    "maildir_path_hint": "Absolute path of the mailbox. Empty uses the default path. The path must not belong to another mailbox.",
+    "msg_password_or_hash": "Enter either a password or a password hash.",
+    "msg_invalid_password_hash": "The password hash must start with a supported scheme, such as {SSHA512} or {CRYPT}.",
+    "msg_invalid_mailbox_format": "Choose maildir, mdbox or sdbox as the mailbox format.",
+    "msg_invalid_mailbox_folder": "The mailbox folder must be 1 to 20 letters or digits.",
+    "msg_maildir_global_only": "Only a global admin can set the maildir path.",
+    "msg_invalid_maildir": "The maildir path must be an absolute path of at least four directories: lowercase letters, digits and . _ @ + -.",
+    "msg_maildir_in_use": "The maildir path belongs to another mailbox."
   },
   "mlist": {
     "msg_updated": "Mailing list updated!",

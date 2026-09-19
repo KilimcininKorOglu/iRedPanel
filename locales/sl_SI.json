@@ -375,7 +375,20 @@
     "msg_unknown_service": "Neznana poštna storitev: :service",
     "language": "Jezik",
     "language_default": "Privzeti jezik",
-    "msg_invalid_language": "Neveljavna koda jezika."
+    "msg_invalid_language": "Neveljavna koda jezika.",
+    "password_hash": "Hash gesla",
+    "password_hash_hint": "Namesto gesla: hash s shemo, npr. {SSHA512}... Pravilnik gesel hasha ne preverja.",
+    "mailbox_format": "Oblika poštnega predala",
+    "mailbox_folder": "Mapa poštnega predala",
+    "maildir_path": "Pot maildir",
+    "maildir_path_hint": "Absolutna pot poštnega predala. Prazno uporabi privzeto pot. Pot ne sme pripadati drugemu predalu.",
+    "msg_password_or_hash": "Vnesite geslo ali hash gesla.",
+    "msg_invalid_password_hash": "Hash gesla se mora začeti s podprto shemo, npr. {SSHA512} ali {CRYPT}.",
+    "msg_invalid_mailbox_format": "Za obliko predala izberite maildir, mdbox ali sdbox.",
+    "msg_invalid_mailbox_folder": "Mapa predala mora imeti od 1 do 20 črk ali števk.",
+    "msg_maildir_global_only": "Pot maildir lahko nastavi le globalni skrbnik.",
+    "msg_invalid_maildir": "Pot maildir mora biti absolutna pot z vsaj štirimi imeniki: male črke, števke in . _ @ + -.",
+    "msg_maildir_in_use": "Pot maildir pripada drugemu poštnemu predalu."
   },
   "mlist": {
     "msg_updated": "Poštni seznam posodobljen!",

@@ -375,7 +375,20 @@
     "msg_unknown_service": "Serviciu de e-mail necunoscut: :service",
     "language": "Limbă",
     "language_default": "Limba implicită",
-    "msg_invalid_language": "Cod de limbă nevalid."
+    "msg_invalid_language": "Cod de limbă nevalid.",
+    "password_hash": "Hash-ul parolei",
+    "password_hash_hint": "În locul unei parole: un hash cu schema sa, de ex. {SSHA512}... Politica de parole nu verifică un hash.",
+    "mailbox_format": "Formatul căsuței poștale",
+    "mailbox_folder": "Dosarul căsuței poștale",
+    "maildir_path": "Calea maildir",
+    "maildir_path_hint": "Calea absolută a căsuței. Gol folosește calea implicită. Calea nu trebuie să aparțină altei căsuțe.",
+    "msg_password_or_hash": "Introduceți fie o parolă, fie un hash al parolei.",
+    "msg_invalid_password_hash": "Hash-ul parolei trebuie să înceapă cu o schemă acceptată, de ex. {SSHA512} sau {CRYPT}.",
+    "msg_invalid_mailbox_format": "Alegeți maildir, mdbox sau sdbox ca format al căsuței.",
+    "msg_invalid_mailbox_folder": "Dosarul căsuței trebuie să aibă între 1 și 20 de litere sau cifre.",
+    "msg_maildir_global_only": "Doar un administrator global poate seta calea maildir.",
+    "msg_invalid_maildir": "Calea maildir trebuie să fie o cale absolută de cel puțin patru directoare: litere mici, cifre și . _ @ + -.",
+    "msg_maildir_in_use": "Calea maildir aparține altei căsuțe poștale."
   },
   "mlist": {
     "msg_updated": "Lista de corespondență a fost actualizată!",

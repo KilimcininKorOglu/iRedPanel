@@ -375,7 +375,20 @@
     "msg_unknown_service": "Nepoznata usluga pošte: :service",
     "language": "Jezik",
     "language_default": "Zadani jezik",
-    "msg_invalid_language": "Nevažeći kod jezika."
+    "msg_invalid_language": "Nevažeći kod jezika.",
+    "password_hash": "Hash lozinke",
+    "password_hash_hint": "Umjesto lozinke: hash sa shemom, npr. {SSHA512}... Pravila lozinke ne provjeravaju hash.",
+    "mailbox_format": "Format sandučića",
+    "mailbox_folder": "Mapa sandučića",
+    "maildir_path": "Putanja maildira",
+    "maildir_path_hint": "Apsolutna putanja sandučića. Prazno koristi zadanu putanju. Putanja ne smije pripadati drugom sandučiću.",
+    "msg_password_or_hash": "Unesite lozinku ili hash lozinke.",
+    "msg_invalid_password_hash": "Hash lozinke mora početi podržanom shemom, npr. {SSHA512} ili {CRYPT}.",
+    "msg_invalid_mailbox_format": "Odaberite maildir, mdbox ili sdbox kao format sandučića.",
+    "msg_invalid_mailbox_folder": "Mapa sandučića mora imati 1 do 20 slova ili znamenki.",
+    "msg_maildir_global_only": "Samo globalni administrator može postaviti putanju maildira.",
+    "msg_invalid_maildir": "Putanja maildira mora biti apsolutna putanja od najmanje četiri direktorija: mala slova, znamenke i . _ @ + -.",
+    "msg_maildir_in_use": "Putanja maildira pripada drugom sandučiću."
   },
   "mlist": {
     "msg_updated": "Mailing lista ažurirana!",

@@ -375,7 +375,20 @@
     "msg_unknown_service": "Невідома поштова служба: :service",
     "language": "Мова",
     "language_default": "Мова за замовчуванням",
-    "msg_invalid_language": "Недійсний код мови."
+    "msg_invalid_language": "Недійсний код мови.",
+    "password_hash": "Хеш пароля",
+    "password_hash_hint": "Замість пароля: хеш зі схемою, наприклад {SSHA512}... Політика паролів не перевіряє хеш.",
+    "mailbox_format": "Формат поштової скриньки",
+    "mailbox_folder": "Тека поштової скриньки",
+    "maildir_path": "Шлях maildir",
+    "maildir_path_hint": "Абсолютний шлях поштової скриньки. Порожнє поле використовує шлях за замовчуванням. Шлях не повинен належати іншій скриньці.",
+    "msg_password_or_hash": "Введіть або пароль, або хеш пароля.",
+    "msg_invalid_password_hash": "Хеш пароля має починатися з підтримуваної схеми, наприклад {SSHA512} або {CRYPT}.",
+    "msg_invalid_mailbox_format": "Виберіть maildir, mdbox або sdbox як формат поштової скриньки.",
+    "msg_invalid_mailbox_folder": "Тека поштової скриньки повинна мати від 1 до 20 літер або цифр.",
+    "msg_maildir_global_only": "Шлях maildir може задати лише глобальний адміністратор.",
+    "msg_invalid_maildir": "Шлях maildir має бути абсолютним і містити щонайменше чотири каталоги: малі літери, цифри та . _ @ + -.",
+    "msg_maildir_in_use": "Шлях maildir належить іншій поштовій скриньці."
   },
   "mlist": {
     "msg_updated": "Список розсилки оновлено!",

@@ -338,6 +338,7 @@ server {
 - Used quota and last login display (Dovecot `used_quota` and `last_login` data)
 - Bulk enable, disable and delete; alphabetic filter, sortable columns, random password generation
 - Domain limits (maximum mailboxes and quota) checked in the web form, the REST API and the CLI
+- New mailbox options, as in iRedAdmin: a password hash instead of a password (`{SSHA512}`, `{CRYPT}`, `{BCRYPT}` and the other iRedMail schemes; the password policy does not check a hash), the language, the mailbox format (`maildir`, `mdbox`, `sdbox`) and folder, and, for a global admin only, an absolute maildir path. A path that another mailbox uses, or that lies inside another mailbox, is refused
 
 ### Mail Alias Management
 - Alias CRUD with member and moderator management
@@ -470,6 +471,11 @@ curl -H "X-API-Key: your-key" http://localhost:8080/api/v1/domains
 # Create a user
 curl -X POST -H "X-API-Key: your-key" -H "Content-Type: application/json" \
   -d '{"uid":"john","password":"P@ss123","mailQuota":1024}' \
+  http://localhost:8080/api/v1/domains/example.com/users
+
+# Create a user from a password hash, with the mailbox format, folder and path (global key)
+curl -X POST -H "X-API-Key: your-key" -H "Content-Type: application/json" \
+  -d '{"uid":"jane","passwordHash":"{SSHA512}...","mailboxFormat":"mdbox","mailboxFolder":"Mail","maildir":"/var/vmail/vmail1/example.com/jane","language":"en_US"}' \
   http://localhost:8080/api/v1/domains/example.com/users
 
 # Verify a password

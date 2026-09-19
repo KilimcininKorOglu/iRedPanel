@@ -10,9 +10,7 @@ class MysqlQuotaRepository implements QuotaRepositoryInterface
 {
     public function getDomainUsedQuotas(string $domain): array
     {
-        $pdo = MysqlConnection::getInstance()->getPdo();
-
-        $stmt = $pdo->prepare(
+        $stmt = $this->pdo()->prepare(
             "SELECT username, COALESCE(bytes, 0) AS bytes, COALESCE(messages, 0) AS messages
              FROM used_quota
              WHERE SUBSTRING_INDEX(username, '@', -1) = :domain"
@@ -28,5 +26,13 @@ class MysqlQuotaRepository implements QuotaRepositoryInterface
         }
 
         return $quotas;
+    }
+
+    /**
+     * Returns the connection that holds the Dovecot used_quota table (vmail on SQL backends).
+     */
+    protected function pdo(): \PDO
+    {
+        return MysqlConnection::getInstance()->getPdo();
     }
 }

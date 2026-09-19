@@ -4,17 +4,29 @@ declare(strict_types=1);
 
 namespace App\Repositories\Ldap;
 
-use App\Repositories\QuotaRepositoryInterface;
+use App\Repositories\Mysql\IredadminConnection;
+use App\Repositories\Mysql\MysqlQuotaRepository;
 
 /**
- * LDAP backend does not have access to the Dovecot used_quota table.
- * Returns empty data. A future enhancement could add a separate DB connection
- * for Dovecot quota via IREDPANEL_DOVECOT_QUOTA_DB_* env vars.
+ * With the LDAP backend, Dovecot writes used_quota into the iredadmin database
+ * (MariaDB), which has the same table layout as the SQL backends.
  */
-class LdapQuotaRepository implements QuotaRepositoryInterface
+class LdapQuotaRepository extends MysqlQuotaRepository
 {
+    /**
+     * Without an iredadmin database the used quota is unknown, so the user list shows none.
+     */
     public function getDomainUsedQuotas(string $domain): array
     {
-        return [];
+        if (IredadminConnection::getInstance()->getPdo() === null) {
+            return [];
+        }
+
+        return parent::getDomainUsedQuotas($domain);
+    }
+
+    protected function pdo(): \PDO
+    {
+        return IredadminConnection::getInstance()->requirePdo();
     }
 }

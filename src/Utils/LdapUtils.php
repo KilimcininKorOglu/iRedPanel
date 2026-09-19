@@ -21,6 +21,7 @@ class LdapUtils
     private const ADDRESS_ATTRS = [
         'mailForwardingAddress', 'listModerator', 'listOwner', 'listAllowedUser',
         'userSenderBccAddress', 'userRecipientBccAddress', 'domainSenderBccAddress', 'domainRecipientBccAddress',
+        'domainAdmin',
     ];
 
     /**
@@ -281,8 +282,8 @@ class LdapUtils
 
     /**
      * Replaces the old address in every entry attribute that stores an address, or removes it
-     * when $newEmail is null, as the SQL backends do for their forwardings, moderator, owner
-     * and BCC columns. A user or alias rename and a user delete call it.
+     * when $newEmail is null, as the SQL backends do for their forwardings, moderator, owner,
+     * BCC and domain_admins columns. A user or alias rename and a user delete call it.
      */
     public static function replaceAddressReferences(\LDAP\Connection $conn, string $oldEmail, ?string $newEmail): void
     {

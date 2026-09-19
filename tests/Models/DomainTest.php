@@ -165,6 +165,7 @@ class DomainTest extends TestCase
             'cn' => 'LDAP domain',
             'accountStatus' => 'active',
             'domainCurrentUserNumber' => '15',
+            'mtaTransport' => 'lmtp:unix:private/dovecot-lmtp',
         ];
 
         $domain = Domain::fromLdapEntry($entry);
@@ -173,6 +174,7 @@ class DomainTest extends TestCase
         $this->assertSame('LDAP domain', $domain->description);
         $this->assertTrue($domain->active);
         $this->assertSame(15, $domain->currentUserCount);
+        $this->assertSame('lmtp:unix:private/dovecot-lmtp', $domain->transport);
     }
 
     public function testFromLdapEntryDisabled(): void

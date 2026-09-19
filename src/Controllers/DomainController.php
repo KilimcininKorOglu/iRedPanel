@@ -256,6 +256,7 @@ class DomainController
             'senderBcc' => $senderBcc,
             'recipientBcc' => $recipientBcc,
             'domainRelayhost' => $domainRelayhost,
+            'supportsDomainQuota' => $repo->supportsDomainQuota(),
             'error' => $error,
             'success' => $success,
         ]);

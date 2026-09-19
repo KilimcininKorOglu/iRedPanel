@@ -50,4 +50,9 @@ interface DomainRepositoryInterface
      * Returns the total used quota for a domain in MB.
      */
     public function getDomainQuotaUsage(string $domainName): int;
+
+    /**
+     * Whether the backend stores a total quota per domain. iRedMail's LDAP backend has none.
+     */
+    public function supportsDomainQuota(): bool;
 }

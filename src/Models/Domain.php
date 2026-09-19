@@ -134,6 +134,7 @@ class Domain
             domainName: $entry['domainName'] ?? '',
             description: $entry['cn'] ?? $entry['description'] ?? '',
             active: ($entry['accountStatus'] ?? 'active') === 'active',
+            transport: $entry['mtaTransport'] ?? 'dovecot',
             currentUserCount: (int) ($entry['domainCurrentUserNumber'] ?? 0),
             disclaimer: $entry['disclaimer'] ?? '',
         );

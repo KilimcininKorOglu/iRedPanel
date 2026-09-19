@@ -61,6 +61,7 @@
               />
             </p>
           </div>
+          <?php if ($supportsDomainQuota): ?>
           <div class="col-6">
             <p>
               <label for="quota"><?= $te('domain.domain_quota') ?></label>
@@ -69,6 +70,7 @@
               />
             </p>
           </div>
+          <?php endif; ?>
         </div>
 
         <div class="row">

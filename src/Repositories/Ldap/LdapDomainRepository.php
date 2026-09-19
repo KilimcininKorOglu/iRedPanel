@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Repositories\Ldap;
 
 use App\Models\Domain;
+use App\Models\LdapAccountSetting;
 use App\Models\LdapConnection;
 use App\Models\PaginatedResult;
 use App\Models\Settings;
@@ -14,7 +15,7 @@ use App\Utils\LdapUtils;
 class LdapDomainRepository implements DomainRepositoryInterface
 {
     private const DOMAIN_ATTRS = ['domainName', 'accountStatus', 'domainCurrentUserNumber'];
-    private const DOMAIN_DETAIL_ATTRS = ['domainName', 'accountStatus', 'domainCurrentUserNumber', 'cn', 'description', 'mtaTransport', 'disclaimer'];
+    private const DOMAIN_DETAIL_ATTRS = ['domainName', 'accountStatus', 'domainCurrentUserNumber', 'cn', 'description', 'mtaTransport', 'disclaimer', 'accountSetting'];
 
     public function getDomains(): array
     {
@@ -62,8 +63,7 @@ class LdapDomainRepository implements DomainRepositoryInterface
         if ($result !== false) {
             $entries = ldap_get_entries($conn, $result);
             for ($i = 0; $i < ($entries['count'] ?? 0); $i++) {
-                $normalized = LdapUtils::normalizeEntry($entries[$i], self::DOMAIN_DETAIL_ATTRS);
-                $allDomains[] = Domain::fromLdapEntry($normalized);
+                $allDomains[] = self::toDomain($conn, $entries[$i]);
             }
         }
 
@@ -87,10 +87,33 @@ class LdapDomainRepository implements DomainRepositoryInterface
             return null;
         }
 
-        $entries = ldap_get_entries($conn, $result);
-        $normalized = LdapUtils::normalizeEntry($entries[0], self::DOMAIN_DETAIL_ATTRS);
+        return self::toDomain($conn, ldap_get_entries($conn, $result)[0]);
+    }
 
-        return Domain::fromLdapEntry($normalized);
+    /**
+     * Builds a Domain from an ldap_get_entries() entry. iRedMail does not maintain
+     * domainCurrentUserNumber, so the users are counted.
+     */
+    private static function toDomain(\LDAP\Connection $conn, array $entry): Domain
+    {
+        $domain = Domain::fromLdapEntry(LdapUtils::normalizeEntry($entry, self::DOMAIN_DETAIL_ATTRS));
+        LdapAccountSetting::applyTo($domain, LdapUtils::allValues($entry, 'accountSetting'));
+        $domain->currentUserCount = self::countUsers($conn, $domain->domainName);
+
+        return $domain;
+    }
+
+    private static function countUsers(\LDAP\Connection $conn, string $domainName): int
+    {
+        $safeDomain = ldap_escape($domainName, '', LDAP_ESCAPE_FILTER);
+        $result = @ldap_list(
+            $conn,
+            'ou=Users,' . LdapUtils::getDomainDn($domainName),
+            "(&(objectClass=mailUser)(!(mail=@{$safeDomain})))",
+            ['mail']
+        );
+
+        return $result === false ? 0 : ldap_count_entries($conn, $result);
     }
 
     public function createDomain(Domain $domain): void
@@ -106,6 +129,10 @@ class LdapDomainRepository implements DomainRepositoryInterface
             'mtaTransport' => $domain->transport ?: 'dovecot',
             'enabledService' => 'mail',
         ];
+        $accountSetting = LdapAccountSetting::valuesFor($domain, []);
+        if ($accountSetting !== []) {
+            $entry['accountSetting'] = $accountSetting;
+        }
 
         if (!@ldap_add($conn, $dn, $entry)) {
             throw new \RuntimeException('LDAP domain creation failed: ' . ldap_error($conn));
@@ -133,10 +160,20 @@ class LdapDomainRepository implements DomainRepositoryInterface
         $mods = [
             LdapUtils::modReplace('cn', $domain->description ?: null),
             LdapUtils::modReplace('accountStatus', $domain->active ? 'active' : 'disabled'),
+            LdapUtils::modReplace('mtaTransport', $domain->transport ?: 'dovecot'),
         ];
 
         if (!LdapUtils::modifyBatch($conn, $dn, $mods)) {
             throw new \RuntimeException('LDAP domain update failed: ' . ldap_error($conn));
+        }
+
+        $stored = @ldap_read($conn, $dn, '(objectClass=mailDomain)', ['accountSetting']);
+        if ($stored === false) {
+            throw new \RuntimeException('LDAP domain read failed: ' . ldap_error($conn));
+        }
+        $current = LdapUtils::allValues(ldap_get_entries($conn, $stored)[0], 'accountSetting');
+        if (!ldap_mod_replace($conn, $dn, ['accountSetting' => LdapAccountSetting::valuesFor($domain, $current)])) {
+            throw new \RuntimeException('LDAP domain limit update failed: ' . ldap_error($conn));
         }
 
         // A remove-all fails with "No such attribute" when no disclaimer is set; an empty replace does not.
@@ -198,5 +235,10 @@ class LdapDomainRepository implements DomainRepositoryInterface
         if (!@ldap_delete($conn, $dn)) {
             throw new \RuntimeException("LDAP delete failed for '{$dn}': " . ldap_error($conn));
         }
+    }
+
+    public function supportsDomainQuota(): bool
+    {
+        return false;
     }
 }

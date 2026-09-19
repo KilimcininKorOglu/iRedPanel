@@ -234,4 +234,9 @@ class MysqlDomainRepository implements DomainRepositoryInterface
 
         return (int) (($row['totalBytes'] ?? 0) / 1048576);
     }
+
+    public function supportsDomainQuota(): bool
+    {
+        return true;
+    }
 }

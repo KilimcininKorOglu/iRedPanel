@@ -103,6 +103,19 @@ class LdapUtils
      * containing 'count' keys. This method converts to simple ['attrName' => 'value']
      * using the $requestedAttrs list to preserve original casing.
      */
+    /**
+     * Returns every value of a multi-valued attribute of an ldap_get_entries() entry.
+     *
+     * @return string[]
+     */
+    public static function allValues(array $entry, string $attr): array
+    {
+        $values = $entry[strtolower($attr)] ?? ['count' => 0];
+        unset($values['count']);
+
+        return array_values($values);
+    }
+
     public static function normalizeEntry(array $entry, array $requestedAttrs): array
     {
         $result = [];

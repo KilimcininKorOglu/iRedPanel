@@ -7,6 +7,7 @@ namespace App\Controllers;
 use App\Exceptions\BackendConnectionException;
 use App\I18n\Translator;
 use App\TemplateEngine;
+use App\Utils\AddressList;
 use App\Utils\Relayhost;
 
 class BaseController
@@ -37,26 +38,34 @@ class BaseController
      */
     public static function postedAddress(string $field): ?string
     {
-        $address = trim((string) ($_POST[$field] ?? ''));
+        $address = strtolower(trim((string) ($_POST[$field] ?? '')));
         if ($address === '') {
             return null;
         }
-        return self::validAddresses([$address])[0];
+        if (filter_var($address, FILTER_VALIDATE_EMAIL) === false) {
+            throw self::invalidAddress($address);
+        }
+        return $address;
     }
 
     /**
-     * @param list<string> $addresses
-     * @return list<string> the addresses, lowercased
+     * Reads a posted list of email addresses, one per line or comma.
+     *
+     * @return list<string> the addresses, lowercased and without duplicates
      * @throws \RuntimeException naming the first value that is not an email address
      */
-    public static function validAddresses(array $addresses): array
+    public static function postedAddresses(string $field): array
     {
-        foreach ($addresses as $address) {
-            if (filter_var($address, FILTER_VALIDATE_EMAIL) === false) {
-                throw new \RuntimeException(Translator::translate('common.msg_invalid_email', ['address' => $address]));
-            }
+        try {
+            return AddressList::parse((string) ($_POST[$field] ?? ''));
+        } catch (\InvalidArgumentException $e) {
+            throw self::invalidAddress($e->getMessage());
         }
-        return array_map('strtolower', $addresses);
+    }
+
+    private static function invalidAddress(string $address): \RuntimeException
+    {
+        return new \RuntimeException(Translator::translate('common.msg_invalid_email', ['address' => $address]));
     }
 
     /**

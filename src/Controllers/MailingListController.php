@@ -179,8 +179,7 @@ class MailingListController
                 ActivityLogger::logUpdate($domain, '', "Updated mailing list: {$address}");
                 return Translator::translate('mlist.msg_updated');
             case 'updateOwners':
-                $owners = array_filter(array_map('trim', explode("\n", (string) ($_POST['owners'] ?? ''))));
-                MailingListService::setOwners($address, $owners);
+                MailingListService::setOwners($address, BaseController::postedAddresses('owners'));
                 ActivityLogger::logUpdate($domain, '', "Updated owners for: {$address}");
                 return Translator::translate('mlist.msg_owners_updated');
             case 'addSubscribers':
@@ -203,7 +202,7 @@ class MailingListController
      */
     private static function postedAddresses(string $field): array
     {
-        $addresses = MailingListService::parseAddresses((string) ($_POST[$field] ?? ''));
+        $addresses = BaseController::postedAddresses($field);
         if ($addresses === []) {
             throw new \RuntimeException(Translator::translate('newsletter.msg_invalid_email'));
         }

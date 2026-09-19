@@ -6,6 +6,7 @@ namespace App\Api;
 
 use App\Models\Alias;
 use App\Repositories\RepositoryFactory;
+use App\Utils\AddressList;
 
 class AliasApiController
 {
@@ -59,11 +60,17 @@ class AliasApiController
         $address = $data['address'] ?? '';
         $domain = $data['domain'] ?? '';
         $name = $data['name'] ?? '';
-        $members = $data['members'] ?? [];
         $accessPolicy = $data['accessPolicy'] ?? 'public';
 
         if ($address === '' || $domain === '') {
             ApiResponse::error('address and domain are required');
+            return;
+        }
+
+        try {
+            $members = self::members($data['members'] ?? []);
+        } catch (\InvalidArgumentException $e) {
+            ApiResponse::error($e->getMessage());
             return;
         }
 
@@ -104,14 +111,37 @@ class AliasApiController
         }
 
         $data = ApiMiddleware::getJsonBody();
+        try {
+            $members = array_key_exists('members', $data) ? self::members($data['members']) : $repo->getAliasMembers($address);
+        } catch (\InvalidArgumentException $e) {
+            ApiResponse::error($e->getMessage());
+            return;
+        }
+
         $repo->updateAlias(
             $address,
             $data['name'] ?? $alias->name,
-            $data['members'] ?? $repo->getAliasMembers($address),
+            $members,
             $data['accessPolicy'] ?? $alias->accessPolicy,
             $data['active'] ?? $alias->active,
         );
         ApiResponse::success(['message' => 'Alias updated']);
+    }
+
+    /**
+     * @return list<string> the members, lowercased and without duplicates
+     * @throws \InvalidArgumentException with the message for the API client
+     */
+    private static function members(mixed $input): array
+    {
+        if (!is_array($input) || array_filter($input, 'is_string') !== $input) {
+            throw new \InvalidArgumentException('members must be an array of email addresses');
+        }
+        try {
+            return AddressList::parse(implode("\n", $input));
+        } catch (\InvalidArgumentException $e) {
+            throw new \InvalidArgumentException('Invalid member: ' . $e->getMessage());
+        }
     }
 
     public static function delete(string $address): void

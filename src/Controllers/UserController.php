@@ -149,8 +149,7 @@ class UserController
                 } elseif ($editMode === 'forwarding') {
                     $email = "{$userUid}@{$domain}";
                     $forwardingRepo = RepositoryFactory::getForwardingRepository();
-                    $addressesRaw = $_POST['forwardingAddresses'] ?? '';
-                    $addresses = BaseController::validAddresses(array_values(array_filter(array_map('trim', explode("\n", $addressesRaw)))));
+                    $addresses = BaseController::postedAddresses('forwardingAddresses');
                     $keepCopy = isset($_POST['keepCopy']);
 
                     $forwardingRepo->setForwardings($email, $domain, $addresses);

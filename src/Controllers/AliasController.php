@@ -52,14 +52,13 @@ class AliasController
                 $domain = trim($_POST['domain'] ?? '');
                 $name = trim($_POST['name'] ?? '');
                 $accessPolicy = trim($_POST['accessPolicy'] ?? 'public');
-                $membersRaw = trim($_POST['members'] ?? '');
 
                 if ($localPart === '' || $domain === '') {
                     throw new \RuntimeException(Translator::translate('common.msg_address_required'));
                 }
 
                 $address = strtolower($localPart . '@' . $domain);
-                $members = array_filter(array_map('trim', explode("\n", $membersRaw)));
+                $members = BaseController::postedAddresses('members');
 
                 $repo = RepositoryFactory::getAliasRepository();
 
@@ -121,8 +120,8 @@ class AliasController
                 $action = $_POST['action'] ?? 'update';
 
                 if ($action === 'addMember') {
-                    $newMember = trim($_POST['newMember'] ?? '');
-                    if ($newMember !== '') {
+                    $newMember = BaseController::postedAddress('newMember');
+                    if ($newMember !== null) {
                         $repo->addAliasMember($address, $newMember);
                         ActivityLogger::logUpdate($alias->domain, '', "Added member {$newMember} to alias {$address}");
                     }
@@ -136,14 +135,12 @@ class AliasController
                     $name = trim($_POST['name'] ?? '');
                     $accessPolicy = trim($_POST['accessPolicy'] ?? 'public');
                     $active = isset($_POST['active']);
-                    $membersRaw = trim($_POST['members'] ?? '');
-                    $updatedMembers = array_filter(array_map('trim', explode("\n", $membersRaw)));
+                    $updatedMembers = BaseController::postedAddresses('members');
 
                     $repo->updateAlias($address, $name, $updatedMembers, $accessPolicy, $active);
                     ActivityLogger::logUpdate($alias->domain, '', "Updated alias settings: {$address}");
                 } elseif ($action === 'updateModerators') {
-                    $moderatorsRaw = trim($_POST['moderators'] ?? '');
-                    $newModerators = array_filter(array_map('trim', explode("\n", $moderatorsRaw)));
+                    $newModerators = BaseController::postedAddresses('moderators');
 
                     $repo->setModerators($address, $newModerators);
                     ActivityLogger::logUpdate($alias->domain, '', "Updated moderators for alias {$address}");

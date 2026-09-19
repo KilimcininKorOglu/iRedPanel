@@ -7,6 +7,7 @@ namespace App\Api;
 use App\Models\MailingList;
 use App\Repositories\RepositoryFactory;
 use App\Services\MailingListService;
+use App\Utils\AddressList;
 
 class MailingListApiController
 {
@@ -161,7 +162,7 @@ class MailingListApiController
             return;
         }
         try {
-            $subscribers = MailingListService::parseAddresses(implode("\n", $input));
+            $subscribers = AddressList::parse(implode("\n", $input));
         } catch (\InvalidArgumentException $e) {
             ApiResponse::error('Invalid subscriber: ' . $e->getMessage());
             return;

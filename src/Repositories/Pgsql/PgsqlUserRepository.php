@@ -412,6 +412,10 @@ class PgsqlUserRepository implements UserRepositoryInterface
                 ['domain_admins', 'username'],
                 ['used_quota', 'username'],
                 ['last_login', 'username'],
+                // Dovecot shared folder ACLs.
+                ['share_folder', 'from_user'],
+                ['share_folder', 'to_user'],
+                ['anyone_shares', 'from_user'],
             ];
 
             foreach ($tables as [$table, $column]) {

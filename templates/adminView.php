@@ -1,205 +1,174 @@
-<?php $pageTitle = $admin->username; ?>
-<div class="container">
-  <div class="row">
-    <div class="col-8">
-      <h1><?= $e($admin->username) ?></h1>
+<?php
+$pageTitle = $admin->username;
+$adminPath = '/admins/' . $e($admin->username);
+$fieldClass = fn (string $field): string => 'form-control' . (!empty($validationErrors[$field]) ? ' is-invalid' : '');
+$tabs = [
+    'general' => $t('admin.tab_general'),
+    'password' => $t('common.password'),
+    'domains' => $t('admin.tab_domains'),
+    'limits' => $t('admin.tab_limits'),
+];
+$limits = [
+    'createMaxDomains' => 'admin.max_domains',
+    'createMaxUsers' => 'admin.max_users',
+    'createMaxAliases' => 'admin.max_aliases',
+    'createMaxLists' => 'admin.max_lists',
+    'createMaxQuota' => 'admin.max_quota',
+];
+?>
+<div class="page-header">
+  <div>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/admins"><?= $te('admin.list_title') ?></a></li>
+        <li class="breadcrumb-item active" aria-current="page"><?= $e($admin->username) ?></li>
+      </ol>
+    </nav>
+    <h1><?= $e($admin->username) ?></h1>
+    <div class="small text-body-secondary mt-1">
+      <?= $te('common.type') ?>: <?= $e($admin->isMailboxAdmin ? $t('admin.type_mailbox') : $t('admin.type_standalone')) ?> &middot;
+      <?= $te('admin.created') ?>: <?= $e($admin->created ?? $t('common.na')) ?>
+    </div>
+  </div>
+</div>
 
-      <div class="row breadcrumbs">
-        <div class="col">
-          <a href="/admins"><?= $te('admin.list_title') ?></a> /
-          <span class="text-light"><?= $e($admin->username) ?></span>
+<?php if (!empty($error)): ?>
+<div class="alert alert-danger"><?= $e($error) ?></div>
+<?php endif; ?>
+<?php if (!empty($success)): ?>
+<div class="alert alert-success"><?= $e($success) ?></div>
+<?php endif; ?>
+
+<ul class="nav nav-tabs">
+  <?php foreach ($tabs as $key => $label): ?>
+  <li class="nav-item"><a class="nav-link<?= $editMode === $key ? ' active' : '' ?>" href="<?= $adminPath ?>/<?= $key ?>"<?= $editMode === $key ? ' aria-current="page"' : '' ?>><?= $e($label) ?></a></li>
+  <?php endforeach; ?>
+</ul>
+
+<div class="row">
+  <div class="col-xl-8">
+    <?php if ($editMode === 'general'): ?>
+    <form method="post" class="card">
+      <?= $csrfField ?>
+      <div class="card-body">
+        <div class="mb-3">
+          <label for="name" class="form-label"><?= $te('admin.display_name') ?></label>
+          <input id="name" type="text" name="name" class="form-control" value="<?= $e($admin->name) ?>" />
+        </div>
+        <div class="form-check form-switch mb-2">
+          <input type="checkbox" class="form-check-input" id="isGlobalAdmin" name="isGlobalAdmin" <?php if ($admin->isGlobalAdmin): ?>checked<?php endif; ?> />
+          <label class="form-check-label" for="isGlobalAdmin"><?= $te('admin.global_administrator') ?></label>
+        </div>
+        <div class="form-check form-switch">
+          <input type="checkbox" class="form-check-input" id="active" name="active" <?php if ($admin->active): ?>checked<?php endif; ?> />
+          <label class="form-check-label" for="active"><?= $te('common.active') ?></label>
         </div>
       </div>
+      <div class="card-footer">
+        <button type="submit" class="btn btn-primary"><?= $te('common.save_changes') ?></button>
+      </div>
+    </form>
 
-      <?php if (!empty($error)): ?>
-      <p class="text-error"><?= $e($error) ?></p>
-      <?php endif; ?>
+    <?php elseif ($editMode === 'password'): ?>
+    <form method="post" class="card">
+      <?= $csrfField ?>
+      <div class="card-body">
+        <div class="row g-3 mb-3">
+          <div class="col-md-6">
+            <label for="password" class="form-label"><?= $te('user.new_password') ?></label>
+            <input id="password" type="password" name="password" required autocomplete="new-password" class="<?= $fieldClass('password') ?>" />
+            <?php if (!empty($validationErrors['password'])): ?>
+            <div class="invalid-feedback"><?= $e($validationErrors['password']) ?></div>
+            <?php endif; ?>
+          </div>
+          <div class="col-md-6">
+            <label for="password_repeat" class="form-label"><?= $te('admin.repeat_password') ?></label>
+            <input id="password_repeat" type="password" name="password_repeat" required class="<?= $fieldClass('password_repeat') ?>" />
+            <?php if (!empty($validationErrors['password_repeat'])): ?>
+            <div class="invalid-feedback"><?= $e($validationErrors['password_repeat']) ?></div>
+            <?php endif; ?>
+          </div>
+        </div>
+        <button type="button" class="btn btn-sm btn-outline-secondary" data-generate-password><i class="bi bi-magic me-1"></i><?= $te('user.generate_password') ?></button>
+      </div>
+      <div class="card-footer">
+        <button type="submit" class="btn btn-primary"><?= $te('user.change_password') ?></button>
+      </div>
+    </form>
 
-      <?php if (!empty($success)): ?>
-      <p class="text-success"><?= $e($success) ?></p>
-      <?php endif; ?>
-
-      <nav class="tabs">
-        <a <?php if ($editMode === 'general'): ?>class="active"<?php endif; ?>
-           href="/admins/<?= $e($admin->username) ?>/general">
-          <?= $te('admin.tab_general') ?>
-        </a>
-        <a <?php if ($editMode === 'password'): ?>class="active"<?php endif; ?>
-           href="/admins/<?= $e($admin->username) ?>/password">
-          <?= $te('common.password') ?>
-        </a>
-        <a <?php if ($editMode === 'domains'): ?>class="active"<?php endif; ?>
-           href="/admins/<?= $e($admin->username) ?>/domains">
-          <?= $te('admin.tab_domains') ?>
-        </a>
-        <a <?php if ($editMode === 'limits'): ?>class="active"<?php endif; ?>
-           href="/admins/<?= $e($admin->username) ?>/limits">
-          <?= $te('admin.tab_limits') ?>
-        </a>
-      </nav>
-
-      <?php if ($editMode === 'general'): ?>
-      <form method="post">
-        <?= $csrfField ?>
-
-        <p>
-          <label for="name"><?= $te('admin.display_name') ?></label>
-          <input id="name" type="text" name="name"
-            value="<?= $e($admin->name) ?>"
-          />
-        </p>
-
-        <p>
-          <label>
-            <input type="checkbox" name="isGlobalAdmin" <?php if ($admin->isGlobalAdmin): ?>checked<?php endif; ?> />
-            <?= $te('admin.global_administrator') ?>
-          </label>
-        </p>
-
-        <p>
-          <label>
-            <input type="checkbox" name="active" <?php if ($admin->active): ?>checked<?php endif; ?> />
-            <?= $te('common.active') ?>
-          </label>
-        </p>
-
-        <p class="text-light">
-          <?= $te('common.type') ?>: <?= $e($admin->isMailboxAdmin ? $t('admin.type_mailbox') : $t('admin.type_standalone')) ?> |
-          <?= $te('admin.created') ?>: <?= $e($admin->created ?? $t('common.na')) ?>
-        </p>
-
-        <button type="submit" class="button primary"><?= $te('common.save_changes') ?></button>
-      </form>
-
-      <?php elseif ($editMode === 'password'): ?>
-      <form method="post">
-        <?= $csrfField ?>
-
-        <p>
-          <label for="password"><?= $te('user.new_password') ?></label>
-          <input id="password" type="password" name="password" required
-            <?php if (!empty($validationErrors['password'])): ?>class="error"<?php endif; ?>
-          />
-          <?php if (!empty($validationErrors['password'])): ?>
-          <span class="text-error"><?= $e($validationErrors['password']) ?></span>
-          <?php endif; ?>
-        </p>
-
-        <p>
-          <label for="password_repeat"><?= $te('admin.repeat_password') ?></label>
-          <input id="password_repeat" type="password" name="password_repeat" required
-            <?php if (!empty($validationErrors['password_repeat'])): ?>class="error"<?php endif; ?>
-          />
-          <?php if (!empty($validationErrors['password_repeat'])): ?>
-          <span class="text-error"><?= $e($validationErrors['password_repeat']) ?></span>
-          <?php endif; ?>
-        </p>
-        <p>
-          <button type="button" class="button outline" data-generate-password><?= $te('user.generate_password') ?></button>
-        </p>
-
-        <button type="submit" class="button primary"><?= $te('user.change_password') ?></button>
-      </form>
-
-      <?php elseif ($editMode === 'domains'): ?>
-      <h3><?= $te('admin.tab_domains') ?></h3>
-
+    <?php elseif ($editMode === 'domains'): ?>
+    <div class="card">
+      <div class="card-header"><?= $te('admin.tab_domains') ?></div>
       <?php if (!empty($managedDomains)): ?>
-      <table class="striped">
-        <thead>
-          <tr>
-            <th><?= $te('common.domain') ?></th>
-            <th><?= $te('common.action') ?></th>
-          </tr>
-        </thead>
-        <tbody>
-          <?php foreach ($managedDomains as $managedDomain): ?>
-          <tr>
-            <td><?= $e($managedDomain) ?></td>
-            <td>
-              <form method="post" style="display:inline">
-                <?= $csrfField ?>
-                <input type="hidden" name="action" value="revoke" />
-                <input type="hidden" name="domain" value="<?= $e($managedDomain) ?>" />
-                <button type="submit" class="button error outline"><?= $te('admin.revoke') ?></button>
-              </form>
-            </td>
-          </tr>
-          <?php endforeach; ?>
-        </tbody>
-      </table>
+      <div class="table-responsive">
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th><?= $te('common.domain') ?></th>
+              <th class="text-end"><?= $te('common.action') ?></th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php foreach ($managedDomains as $managedDomain): ?>
+            <tr>
+              <td><?= $e($managedDomain) ?></td>
+              <td>
+                <form method="post" class="table-actions">
+                  <?= $csrfField ?>
+                  <input type="hidden" name="action" value="revoke" />
+                  <input type="hidden" name="domain" value="<?= $e($managedDomain) ?>" />
+                  <button type="submit" class="btn btn-sm btn-outline-danger"><i class="bi bi-x-lg me-1"></i><?= $te('admin.revoke') ?></button>
+                </form>
+              </td>
+            </tr>
+            <?php endforeach; ?>
+          </tbody>
+        </table>
+      </div>
       <?php else: ?>
-      <p class="text-light"><?= $te('admin.no_domains_assigned') ?></p>
-      <?php endif; ?>
-
-      <h3><?= $te('admin.assign_domain') ?></h3>
-      <form method="post">
-        <?= $csrfField ?>
-        <input type="hidden" name="action" value="assign" />
-        <div class="row">
-          <div class="col-8">
-            <select name="domain">
-              <?php foreach ($allDomainNames as $domainName): ?>
-                <?php if (!in_array($domainName, $managedDomains, true)): ?>
-                <option value="<?= $e($domainName) ?>"><?= $e($domainName) ?></option>
-                <?php endif; ?>
-              <?php endforeach; ?>
-            </select>
-          </div>
-          <div class="col-4">
-            <button type="submit" class="button primary outline"><?= $te('admin.assign') ?></button>
-          </div>
-        </div>
-      </form>
-      <?php endif; ?>
-
-      <?php if ($editMode === 'limits'): ?>
-      <h3><?= $te('admin.resource_limits') ?></h3>
-      <p class="text-light"><?= $te('admin.resource_limits_hint') ?></p>
-
-      <form method="post">
-        <?= $csrfField ?>
-
-        <div class="row">
-          <div class="col-4">
-            <label for="createMaxDomains"><?= $te('admin.max_domains') ?></label>
-            <input type="number" id="createMaxDomains" name="createMaxDomains" min="-1"
-              value="<?= $e($admin->createMaxDomains) ?>" />
-          </div>
-          <div class="col-4">
-            <label for="createMaxUsers"><?= $te('admin.max_users') ?></label>
-            <input type="number" id="createMaxUsers" name="createMaxUsers" min="-1"
-              value="<?= $e($admin->createMaxUsers) ?>" />
-          </div>
-          <div class="col-4">
-            <label for="createMaxAliases"><?= $te('admin.max_aliases') ?></label>
-            <input type="number" id="createMaxAliases" name="createMaxAliases" min="-1"
-              value="<?= $e($admin->createMaxAliases) ?>" />
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-4">
-            <label for="createMaxLists"><?= $te('admin.max_lists') ?></label>
-            <input type="number" id="createMaxLists" name="createMaxLists" min="-1"
-              value="<?= $e($admin->createMaxLists) ?>" />
-          </div>
-          <div class="col-4">
-            <label for="createMaxQuota"><?= $te('admin.max_quota') ?></label>
-            <input type="number" id="createMaxQuota" name="createMaxQuota" min="-1"
-              value="<?= $e($admin->createMaxQuota) ?>" />
-          </div>
-          <div class="col-4">
-            <label>
-              <input type="checkbox" name="createNewDomains" <?= $admin->createNewDomains ? 'checked' : '' ?> />
-              <?= $te('admin.allow_domain_creation') ?>
-            </label>
-          </div>
-        </div>
-
-        <button type="submit" class="button primary"><?= $te('admin.save_limits') ?></button>
-      </form>
+      <div class="card-body text-body-secondary"><?= $te('admin.no_domains_assigned') ?></div>
       <?php endif; ?>
     </div>
+
+    <form method="post" class="card">
+      <?= $csrfField ?>
+      <input type="hidden" name="action" value="assign" />
+      <div class="card-header"><?= $te('admin.assign_domain') ?></div>
+      <div class="card-body d-flex flex-wrap gap-2">
+        <select name="domain" class="form-select flex-grow-1 w-auto" aria-label="<?= $te('common.domain') ?>">
+          <?php foreach ($allDomainNames as $domainName): ?>
+            <?php if (!in_array($domainName, $managedDomains, true)): ?>
+            <option value="<?= $e($domainName) ?>"><?= $e($domainName) ?></option>
+            <?php endif; ?>
+          <?php endforeach; ?>
+        </select>
+        <button type="submit" class="btn btn-primary"><?= $te('admin.assign') ?></button>
+      </div>
+    </form>
+
+    <?php elseif ($editMode === 'limits'): ?>
+    <form method="post" class="card">
+      <?= $csrfField ?>
+      <div class="card-header"><?= $te('admin.resource_limits') ?></div>
+      <div class="card-body">
+        <p class="text-body-secondary"><?= $te('admin.resource_limits_hint') ?></p>
+        <div class="row g-3 mb-3">
+          <?php foreach ($limits as $field => $labelKey): ?>
+          <div class="col-md-4">
+            <label for="<?= $field ?>" class="form-label"><?= $te($labelKey) ?></label>
+            <input type="number" id="<?= $field ?>" name="<?= $field ?>" min="-1" class="form-control" value="<?= $e($admin->$field) ?>" />
+          </div>
+          <?php endforeach; ?>
+        </div>
+        <div class="form-check form-switch">
+          <input type="checkbox" class="form-check-input" id="createNewDomains" name="createNewDomains" <?= $admin->createNewDomains ? 'checked' : '' ?> />
+          <label class="form-check-label" for="createNewDomains"><?= $te('admin.allow_domain_creation') ?></label>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button type="submit" class="btn btn-primary"><?= $te('admin.save_limits') ?></button>
+      </div>
+    </form>
+    <?php endif; ?>
   </div>
 </div>

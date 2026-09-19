@@ -1,82 +1,76 @@
 <?php $pageTitle = $t('mlist.list_title'); ?>
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <h1><?= $te('mlist.list_title') ?></h1>
-
-      <div class="row">
-        <div class="col">
-          <?php if (!empty($session['isGlobalAdmin'])): ?>
-          <a href="/mailing-lists/create" class="button primary outline"><?= $te('mlist.create') ?></a>
-          <?php endif; ?>
-
-          <form method="get" action="/mailing-lists" style="display:inline-block; margin-left:1rem;">
-            <select name="domain" data-autosubmit>
-              <option value=""><?= $te('common.all_domains') ?></option>
-              <?php foreach ($domains as $d): ?>
-              <option value="<?= $e($d['domainName']) ?>"
-                <?= ($filterDomain === $d['domainName']) ? 'selected' : '' ?>>
-                <?= $e($d['domainName']) ?>
-              </option>
-              <?php endforeach; ?>
-            </select>
-          </form>
-        </div>
-      </div>
-
-      <form method="post" action="/mailing-lists/bulk">
-        <?= $csrfField ?>
-        <table class="striped">
-          <thead>
-            <tr>
-              <th><input type="checkbox" data-select-all="selected[]" /></th>
-              <th><?= $te('common.address') ?></th>
-              <th><?= $te('common.name') ?></th>
-              <th><?= $te('common.domain') ?></th>
-              <th><?= $te('mlist.policy') ?></th>
-              <th><?= $te('common.status') ?></th>
-              <th><?= $te('common.actions') ?></th>
-            </tr>
-          </thead>
-          <tbody>
-            <?php foreach ($mailingLists as $ml): ?>
-            <tr>
-              <td><input type="checkbox" name="selected[]" value="<?= $e($ml->address) ?>" /></td>
-              <td><a href="/mailing-lists/<?= $e($ml->address) ?>"><?= $e($ml->address) ?></a></td>
-              <td><?= $e($ml->name) ?></td>
-              <td><a href="/<?= $e($ml->domain) ?>/users"><?= $e($ml->domain) ?></a></td>
-              <td><?= $e($ml->accessPolicy) ?></td>
-              <td><?= $localize($ml->active ? 'active' : 'disabled') ?></td>
-              <td>
-                <?php /* A form cannot nest inside the bulk form: the button posts the bulk form to the delete route. */ ?>
-                <button type="submit" formaction="/mailing-lists/<?= $e($ml->address) ?>/delete" formnovalidate class="button error outline" data-confirm="<?= $te('mlist.delete_confirm', ['address' => $ml->address]) ?>"><?= $te('common.delete') ?></button>
-              </td>
-            </tr>
-            <?php endforeach; ?>
-            <?php if (empty($mailingLists)): ?>
-            <tr><td colspan="7" class="text-light"><?= $te('mlist.empty') ?></td></tr>
-            <?php endif; ?>
-          </tbody>
-        </table>
-
-        <?php if (!empty($mailingLists) && !empty($session['isGlobalAdmin'])): ?>
-        <div class="row" style="margin-top:1rem;">
-          <div class="col">
-            <select name="action">
-              <option value=""><?= $te('common.bulk_action') ?></option>
-              <option value="enable"><?= $te('common.enable') ?></option>
-              <option value="disable"><?= $te('common.disable') ?></option>
-              <option value="delete"><?= $te('common.delete') ?></option>
-            </select>
-            <button type="submit" class="button outline" data-bulk-confirm="<?= $e(json_encode(['*' => $t('common.apply_bulk_confirm')])) ?>"><?= $te('common.apply') ?></button>
-          </div>
-        </div>
-        <?php endif; ?>
-      </form>
-
-      <?php if (isset($paginatedResult)): ?>
-        <?php include __DIR__ . '/pagination.php'; ?>
-      <?php endif; ?>
-    </div>
+<div class="page-header">
+  <h1><?= $te('mlist.list_title') ?></h1>
+  <div class="page-actions">
+    <form method="get" action="/mailing-lists">
+      <select name="domain" class="form-select" data-autosubmit aria-label="<?= $te('common.domain') ?>">
+        <option value=""><?= $te('common.all_domains') ?></option>
+        <?php foreach ($domains as $d): ?>
+        <option value="<?= $e($d['domainName']) ?>"<?= ($filterDomain === $d['domainName']) ? ' selected' : '' ?>><?= $e($d['domainName']) ?></option>
+        <?php endforeach; ?>
+      </select>
+    </form>
+    <?php if (!empty($session['isGlobalAdmin'])): ?>
+    <a href="/mailing-lists/create" class="btn btn-primary"><i class="bi bi-plus-lg me-1"></i><?= $te('mlist.create') ?></a>
+    <?php endif; ?>
   </div>
 </div>
+
+<form method="post" action="/mailing-lists/bulk">
+  <?= $csrfField ?>
+  <div class="card">
+    <div class="table-responsive">
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th><input type="checkbox" class="form-check-input" data-select-all="selected[]" /></th>
+            <th><?= $te('common.address') ?></th>
+            <th><?= $te('common.name') ?></th>
+            <th><?= $te('common.domain') ?></th>
+            <th><?= $te('mlist.policy') ?></th>
+            <th><?= $te('common.status') ?></th>
+            <th class="text-end"><?= $te('common.actions') ?></th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php foreach ($mailingLists as $ml): ?>
+          <tr>
+            <td><input type="checkbox" class="form-check-input" name="selected[]" value="<?= $e($ml->address) ?>" /></td>
+            <td><a href="/mailing-lists/<?= $e($ml->address) ?>" class="fw-medium"><?= $e($ml->address) ?></a></td>
+            <td><?= $e($ml->name) ?></td>
+            <td><a href="/<?= $e($ml->domain) ?>/users"><?= $e($ml->domain) ?></a></td>
+            <td><span class="badge text-bg-secondary badge-status"><?= $e($ml->accessPolicy) ?></span></td>
+            <td><?= $localize($ml->active ? 'active' : 'disabled') ?></td>
+            <td>
+              <div class="table-actions">
+                <a href="/mailing-lists/<?= $e($ml->address) ?>" class="btn btn-sm btn-outline-secondary"><i class="bi bi-pencil me-1"></i><?= $te('common.edit') ?></a>
+                <?php /* A form cannot nest inside the bulk form: the button posts the bulk form to the delete route. */ ?>
+                <button type="submit" formaction="/mailing-lists/<?= $e($ml->address) ?>/delete" formnovalidate class="btn btn-sm btn-outline-danger" data-confirm="<?= $te('mlist.delete_confirm', ['address' => $ml->address]) ?>"><i class="bi bi-trash3 me-1"></i><?= $te('common.delete') ?></button>
+              </div>
+            </td>
+          </tr>
+          <?php endforeach; ?>
+          <?php if (empty($mailingLists)): ?>
+          <tr><td colspan="7" class="text-center text-body-secondary py-4"><?= $te('mlist.empty') ?></td></tr>
+          <?php endif; ?>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <?php if (!empty($mailingLists) && !empty($session['isGlobalAdmin'])): ?>
+  <div class="d-flex flex-wrap gap-2 align-items-center">
+    <select name="action" class="form-select form-select-sm w-auto">
+      <option value=""><?= $te('common.bulk_action') ?></option>
+      <option value="enable"><?= $te('common.enable') ?></option>
+      <option value="disable"><?= $te('common.disable') ?></option>
+      <option value="delete"><?= $te('common.delete') ?></option>
+    </select>
+    <button type="submit" class="btn btn-sm btn-outline-secondary" data-bulk-confirm="<?= $e(json_encode(['*' => $t('common.apply_bulk_confirm')])) ?>"><?= $te('common.apply') ?></button>
+  </div>
+  <?php endif; ?>
+</form>
+
+<?php if (isset($paginatedResult)): ?>
+  <?php include __DIR__ . '/pagination.php'; ?>
+<?php endif; ?>

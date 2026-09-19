@@ -18,7 +18,8 @@
   var Toast = Swal.mixin({
     theme: 'dark',
     toast: true,
-    position: 'top-end',
+    // The page header keeps its action buttons at the top right.
+    position: 'bottom-end',
     showConfirmButton: false,
     timer: 5000,
     timerProgressBar: true,

@@ -26,7 +26,8 @@
     "group_accounts": "Conturi",
     "group_security": "Securitate",
     "group_system": "Sistem",
-    "toggle_menu": "Meniu"
+    "toggle_menu": "Meniu",
+    "compatibility": "Compatibilitate iRedMail"
   },
   "common": {
     "msg_password_updated": "Parola a fost actualizată cu succes!",
@@ -254,19 +255,22 @@
     "uptime": "Timp de funcționare",
     "load": "Încărcare",
     "update_available": "iRedPanel v:version este disponibil. Testat cu iRedMail :iredmail.",
-    "compat_title": "Compatibilitate iRedMail",
-    "compat_installed": "iRedPanel instalat",
-    "compat_tested": "Versiuni iRedMail testate",
-    "compat_backends": "Backend-uri",
-    "compat_not_listed": "Lista de compatibilitate nu are nicio intrare pentru această versiune iRedPanel.",
-    "compat_newer": "Versiuni iRedPanel mai noi",
-    "compat_released": "Lansată",
-    "compat_upgrade_hint": "Înainte de a actualiza iRedMail, găsiți versiunea iRedPanel care listează noua versiune iRedMail. Actualizați mai întâi iRedMail, apoi iRedPanel.",
-    "compat_source_remote": "Sursă: lista de compatibilitate de pe GitHub, verificată :time.",
-    "compat_source_offline": "GitHub nu a putut fi citit. Este afișată lista livrată cu această versiune iRedPanel.",
-    "compat_source_local": "Verificarea actualizărilor este dezactivată. Este afișată lista livrată cu această versiune iRedPanel.",
-    "compat_unavailable": "Lista de compatibilitate nu a putut fi citită. Consultați log-ul serverului.",
-    "compat_up_to_date": "Nu există nicio versiune iRedPanel mai nouă în listă."
+    "compat_view_all": "Vezi lista de compatibilitate"
+  },
+  "compat": {
+    "title": "Compatibilitate iRedMail",
+    "installed": "iRedPanel instalat",
+    "tested": "Versiuni iRedMail testate",
+    "backends": "Backend-uri",
+    "not_listed": "Lista de compatibilitate nu are nicio intrare pentru această versiune iRedPanel.",
+    "released": "Lansată",
+    "upgrade_hint": "Înainte de a actualiza iRedMail, găsiți versiunea iRedPanel care listează noua versiune iRedMail. Actualizați mai întâi iRedMail, apoi iRedPanel.",
+    "source_remote": "Sursă: lista de compatibilitate de pe GitHub, verificată :time.",
+    "source_offline": "GitHub nu a putut fi citit. Este afișată lista livrată cu această versiune iRedPanel.",
+    "source_local": "Verificarea actualizărilor este dezactivată. Este afișată lista livrată cu această versiune iRedPanel.",
+    "unavailable": "Lista de compatibilitate nu a putut fi citită. Consultați log-ul serverului.",
+    "intro": "Versiunile iRedMail cu care a fost testată fiecare versiune iRedPanel.",
+    "installed_badge": "Instalată"
   },
   "fail2ban": {
     "title": "Fail2ban",

@@ -26,7 +26,8 @@
     "group_accounts": "Accounts",
     "group_security": "Beveiliging",
     "group_system": "Systeem",
-    "toggle_menu": "Menu"
+    "toggle_menu": "Menu",
+    "compatibility": "iRedMail-compatibiliteit"
   },
   "common": {
     "msg_password_updated": "Wachtwoord succesvol bijgewerkt!",
@@ -254,19 +255,22 @@
     "uptime": "Bedrijfstijd",
     "load": "Belasting",
     "update_available": "iRedPanel v:version is beschikbaar. Getest met iRedMail :iredmail.",
-    "compat_title": "iRedMail-compatibiliteit",
-    "compat_installed": "Geïnstalleerde iRedPanel",
-    "compat_tested": "Geteste iRedMail-versies",
-    "compat_backends": "Backends",
-    "compat_not_listed": "De compatibiliteitslijst heeft geen vermelding voor deze iRedPanel-versie.",
-    "compat_newer": "Nieuwere iRedPanel-versies",
-    "compat_released": "Uitgebracht",
-    "compat_upgrade_hint": "Zoek vóór een iRedMail-upgrade de iRedPanel-versie die de nieuwe iRedMail-versie vermeldt. Upgrade eerst iRedMail, daarna iRedPanel.",
-    "compat_source_remote": "Bron: compatibiliteitslijst op GitHub, gecontroleerd :time.",
-    "compat_source_offline": "GitHub kon niet worden gelezen. De lijst die bij deze iRedPanel-versie hoort, wordt getoond.",
-    "compat_source_local": "De updatecontrole is uitgeschakeld. De lijst die bij deze iRedPanel-versie hoort, wordt getoond.",
-    "compat_unavailable": "De compatibiliteitslijst kon niet worden gelezen. Zie het serverlog.",
-    "compat_up_to_date": "Er staat geen nieuwere iRedPanel-versie in de lijst."
+    "compat_view_all": "Compatibiliteitslijst bekijken"
+  },
+  "compat": {
+    "title": "iRedMail-compatibiliteit",
+    "installed": "Geïnstalleerde iRedPanel",
+    "tested": "Geteste iRedMail-versies",
+    "backends": "Backends",
+    "not_listed": "De compatibiliteitslijst heeft geen vermelding voor deze iRedPanel-versie.",
+    "released": "Uitgebracht",
+    "upgrade_hint": "Zoek vóór een iRedMail-upgrade de iRedPanel-versie die de nieuwe iRedMail-versie vermeldt. Upgrade eerst iRedMail, daarna iRedPanel.",
+    "source_remote": "Bron: compatibiliteitslijst op GitHub, gecontroleerd :time.",
+    "source_offline": "GitHub kon niet worden gelezen. De lijst die bij deze iRedPanel-versie hoort, wordt getoond.",
+    "source_local": "De updatecontrole is uitgeschakeld. De lijst die bij deze iRedPanel-versie hoort, wordt getoond.",
+    "unavailable": "De compatibiliteitslijst kon niet worden gelezen. Zie het serverlog.",
+    "intro": "De iRedMail-versies waarmee elke iRedPanel-versie is getest.",
+    "installed_badge": "Geïnstalleerd"
   },
   "fail2ban": {
     "title": "Fail2ban",

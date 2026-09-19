@@ -26,7 +26,8 @@
     "group_accounts": "Облікові записи",
     "group_security": "Безпека",
     "group_system": "Система",
-    "toggle_menu": "Меню"
+    "toggle_menu": "Меню",
+    "compatibility": "Сумісність з iRedMail"
   },
   "common": {
     "msg_password_updated": "Пароль успішно оновлено!",
@@ -254,19 +255,22 @@
     "uptime": "Час роботи",
     "load": "Навантаження",
     "update_available": "Доступна iRedPanel v:version. Протестовано з iRedMail :iredmail.",
-    "compat_title": "Сумісність з iRedMail",
-    "compat_installed": "Встановлена iRedPanel",
-    "compat_tested": "Протестовані версії iRedMail",
-    "compat_backends": "Бекенди",
-    "compat_not_listed": "У списку сумісності немає запису для цієї версії iRedPanel.",
-    "compat_newer": "Новіші версії iRedPanel",
-    "compat_released": "Дата випуску",
-    "compat_upgrade_hint": "Перед оновленням iRedMail знайдіть версію iRedPanel, у якій вказано нову версію iRedMail. Спочатку оновіть iRedMail, потім iRedPanel.",
-    "compat_source_remote": "Джерело: список сумісності на GitHub, перевірено :time.",
-    "compat_source_offline": "Не вдалося прочитати GitHub. Показано список, що постачається з цією версією iRedPanel.",
-    "compat_source_local": "Перевірку оновлень вимкнено. Показано список, що постачається з цією версією iRedPanel.",
-    "compat_unavailable": "Не вдалося прочитати список сумісності. Дивіться журнал сервера.",
-    "compat_up_to_date": "Новіших версій iRedPanel у списку немає."
+    "compat_view_all": "Відкрити список сумісності"
+  },
+  "compat": {
+    "title": "Сумісність з iRedMail",
+    "installed": "Встановлена iRedPanel",
+    "tested": "Протестовані версії iRedMail",
+    "backends": "Бекенди",
+    "not_listed": "У списку сумісності немає запису для цієї версії iRedPanel.",
+    "released": "Дата випуску",
+    "upgrade_hint": "Перед оновленням iRedMail знайдіть версію iRedPanel, у якій вказано нову версію iRedMail. Спочатку оновіть iRedMail, потім iRedPanel.",
+    "source_remote": "Джерело: список сумісності на GitHub, перевірено :time.",
+    "source_offline": "Не вдалося прочитати GitHub. Показано список, що постачається з цією версією iRedPanel.",
+    "source_local": "Перевірку оновлень вимкнено. Показано список, що постачається з цією версією iRedPanel.",
+    "unavailable": "Не вдалося прочитати список сумісності. Дивіться журнал сервера.",
+    "intro": "Версії iRedMail, з якими протестовано кожен випуск iRedPanel.",
+    "installed_badge": "Встановлена"
   },
   "fail2ban": {
     "title": "Fail2ban",

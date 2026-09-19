@@ -26,7 +26,8 @@
     "group_accounts": "Λογαριασμοί",
     "group_security": "Ασφάλεια",
     "group_system": "Σύστημα",
-    "toggle_menu": "Μενού"
+    "toggle_menu": "Μενού",
+    "compatibility": "Συμβατότητα με iRedMail"
   },
   "common": {
     "msg_password_updated": "Ο κωδικός πρόσβασης ενημερώθηκε επιτυχώς!",
@@ -254,19 +255,22 @@
     "uptime": "Χρόνος λειτουργίας",
     "load": "Φόρτος",
     "update_available": "Το iRedPanel v:version είναι διαθέσιμο. Δοκιμασμένο με iRedMail :iredmail.",
-    "compat_title": "Συμβατότητα με iRedMail",
-    "compat_installed": "Εγκατεστημένο iRedPanel",
-    "compat_tested": "Δοκιμασμένες εκδόσεις iRedMail",
-    "compat_backends": "Backends",
-    "compat_not_listed": "Η λίστα συμβατότητας δεν έχει εγγραφή για αυτή την έκδοση του iRedPanel.",
-    "compat_newer": "Νεότερες εκδόσεις iRedPanel",
-    "compat_released": "Κυκλοφορία",
-    "compat_upgrade_hint": "Πριν αναβαθμίσετε το iRedMail, βρείτε την έκδοση iRedPanel που αναφέρει τη νέα έκδοση iRedMail. Αναβαθμίστε πρώτα το iRedMail και μετά το iRedPanel.",
-    "compat_source_remote": "Πηγή: η λίστα συμβατότητας στο GitHub, έλεγχος :time.",
-    "compat_source_offline": "Δεν ήταν δυνατή η ανάγνωση του GitHub. Εμφανίζεται η λίστα που συνοδεύει αυτή την έκδοση του iRedPanel.",
-    "compat_source_local": "Ο έλεγχος ενημερώσεων είναι απενεργοποιημένος. Εμφανίζεται η λίστα που συνοδεύει αυτή την έκδοση του iRedPanel.",
-    "compat_unavailable": "Δεν ήταν δυνατή η ανάγνωση της λίστας συμβατότητας. Δείτε το log του διακομιστή.",
-    "compat_up_to_date": "Δεν υπάρχει νεότερη έκδοση iRedPanel στη λίστα."
+    "compat_view_all": "Προβολή λίστας συμβατότητας"
+  },
+  "compat": {
+    "title": "Συμβατότητα με iRedMail",
+    "installed": "Εγκατεστημένο iRedPanel",
+    "tested": "Δοκιμασμένες εκδόσεις iRedMail",
+    "backends": "Backends",
+    "not_listed": "Η λίστα συμβατότητας δεν έχει εγγραφή για αυτή την έκδοση του iRedPanel.",
+    "released": "Κυκλοφορία",
+    "upgrade_hint": "Πριν αναβαθμίσετε το iRedMail, βρείτε την έκδοση iRedPanel που αναφέρει τη νέα έκδοση iRedMail. Αναβαθμίστε πρώτα το iRedMail και μετά το iRedPanel.",
+    "source_remote": "Πηγή: η λίστα συμβατότητας στο GitHub, έλεγχος :time.",
+    "source_offline": "Δεν ήταν δυνατή η ανάγνωση του GitHub. Εμφανίζεται η λίστα που συνοδεύει αυτή την έκδοση του iRedPanel.",
+    "source_local": "Ο έλεγχος ενημερώσεων είναι απενεργοποιημένος. Εμφανίζεται η λίστα που συνοδεύει αυτή την έκδοση του iRedPanel.",
+    "unavailable": "Δεν ήταν δυνατή η ανάγνωση της λίστας συμβατότητας. Δείτε το log του διακομιστή.",
+    "intro": "Οι εκδόσεις iRedMail με τις οποίες δοκιμάστηκε κάθε έκδοση του iRedPanel.",
+    "installed_badge": "Εγκατεστημένη"
   },
   "fail2ban": {
     "title": "Fail2ban",

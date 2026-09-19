@@ -26,7 +26,8 @@
     "group_accounts": "Akun",
     "group_security": "Keamanan",
     "group_system": "Sistem",
-    "toggle_menu": "Menu"
+    "toggle_menu": "Menu",
+    "compatibility": "Kompatibilitas iRedMail"
   },
   "common": {
     "msg_password_updated": "Kata sandi berhasil diperbarui!",
@@ -254,19 +255,22 @@
     "uptime": "Waktu aktif",
     "load": "Beban",
     "update_available": "iRedPanel v:version tersedia. Diuji dengan iRedMail :iredmail.",
-    "compat_title": "Kompatibilitas iRedMail",
-    "compat_installed": "iRedPanel terpasang",
-    "compat_tested": "Versi iRedMail yang diuji",
-    "compat_backends": "Backend",
-    "compat_not_listed": "Daftar kompatibilitas tidak memiliki entri untuk versi iRedPanel ini.",
-    "compat_newer": "Versi iRedPanel yang lebih baru",
-    "compat_released": "Dirilis",
-    "compat_upgrade_hint": "Sebelum meningkatkan iRedMail, temukan versi iRedPanel yang mencantumkan versi iRedMail baru. Tingkatkan iRedMail terlebih dahulu, lalu iRedPanel.",
-    "compat_source_remote": "Sumber: daftar kompatibilitas di GitHub, diperiksa :time.",
-    "compat_source_offline": "GitHub tidak dapat dibaca. Daftar yang disertakan dengan versi iRedPanel ini ditampilkan.",
-    "compat_source_local": "Pemeriksaan pembaruan dinonaktifkan. Daftar yang disertakan dengan versi iRedPanel ini ditampilkan.",
-    "compat_unavailable": "Daftar kompatibilitas tidak dapat dibaca. Lihat log server.",
-    "compat_up_to_date": "Tidak ada versi iRedPanel yang lebih baru dalam daftar."
+    "compat_view_all": "Lihat daftar kompatibilitas"
+  },
+  "compat": {
+    "title": "Kompatibilitas iRedMail",
+    "installed": "iRedPanel terpasang",
+    "tested": "Versi iRedMail yang diuji",
+    "backends": "Backend",
+    "not_listed": "Daftar kompatibilitas tidak memiliki entri untuk versi iRedPanel ini.",
+    "released": "Dirilis",
+    "upgrade_hint": "Sebelum meningkatkan iRedMail, temukan versi iRedPanel yang mencantumkan versi iRedMail baru. Tingkatkan iRedMail terlebih dahulu, lalu iRedPanel.",
+    "source_remote": "Sumber: daftar kompatibilitas di GitHub, diperiksa :time.",
+    "source_offline": "GitHub tidak dapat dibaca. Daftar yang disertakan dengan versi iRedPanel ini ditampilkan.",
+    "source_local": "Pemeriksaan pembaruan dinonaktifkan. Daftar yang disertakan dengan versi iRedPanel ini ditampilkan.",
+    "unavailable": "Daftar kompatibilitas tidak dapat dibaca. Lihat log server.",
+    "intro": "Versi iRedMail yang digunakan untuk menguji setiap versi iRedPanel.",
+    "installed_badge": "Terpasang"
   },
   "fail2ban": {
     "title": "Fail2ban",

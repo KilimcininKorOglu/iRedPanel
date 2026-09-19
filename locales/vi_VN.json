@@ -26,7 +26,8 @@
     "group_accounts": "Tài khoản",
     "group_security": "Bảo mật",
     "group_system": "Hệ thống",
-    "toggle_menu": "Menu"
+    "toggle_menu": "Menu",
+    "compatibility": "Tương thích iRedMail"
   },
   "common": {
     "msg_password_updated": "Mật khẩu đã được cập nhật thành công!",
@@ -254,19 +255,22 @@
     "uptime": "Thời gian hoạt động",
     "load": "Tải",
     "update_available": "Đã có iRedPanel v:version. Đã kiểm thử với iRedMail :iredmail.",
-    "compat_title": "Tương thích iRedMail",
-    "compat_installed": "iRedPanel đã cài đặt",
-    "compat_tested": "Các phiên bản iRedMail đã kiểm thử",
-    "compat_backends": "Backend",
-    "compat_not_listed": "Danh sách tương thích không có mục nào cho phiên bản iRedPanel này.",
-    "compat_newer": "Các phiên bản iRedPanel mới hơn",
-    "compat_released": "Phát hành",
-    "compat_upgrade_hint": "Trước khi nâng cấp iRedMail, hãy tìm phiên bản iRedPanel có liệt kê phiên bản iRedMail mới. Nâng cấp iRedMail trước, sau đó nâng cấp iRedPanel.",
-    "compat_source_remote": "Nguồn: danh sách tương thích trên GitHub, kiểm tra lúc :time.",
-    "compat_source_offline": "Không đọc được GitHub. Đang hiển thị danh sách đi kèm phiên bản iRedPanel này.",
-    "compat_source_local": "Kiểm tra cập nhật đang tắt. Đang hiển thị danh sách đi kèm phiên bản iRedPanel này.",
-    "compat_unavailable": "Không đọc được danh sách tương thích. Xem log của máy chủ.",
-    "compat_up_to_date": "Danh sách không có phiên bản iRedPanel nào mới hơn."
+    "compat_view_all": "Xem danh sách tương thích"
+  },
+  "compat": {
+    "title": "Tương thích iRedMail",
+    "installed": "iRedPanel đã cài đặt",
+    "tested": "Các phiên bản iRedMail đã kiểm thử",
+    "backends": "Backend",
+    "not_listed": "Danh sách tương thích không có mục nào cho phiên bản iRedPanel này.",
+    "released": "Phát hành",
+    "upgrade_hint": "Trước khi nâng cấp iRedMail, hãy tìm phiên bản iRedPanel có liệt kê phiên bản iRedMail mới. Nâng cấp iRedMail trước, sau đó nâng cấp iRedPanel.",
+    "source_remote": "Nguồn: danh sách tương thích trên GitHub, kiểm tra lúc :time.",
+    "source_offline": "Không đọc được GitHub. Đang hiển thị danh sách đi kèm phiên bản iRedPanel này.",
+    "source_local": "Kiểm tra cập nhật đang tắt. Đang hiển thị danh sách đi kèm phiên bản iRedPanel này.",
+    "unavailable": "Không đọc được danh sách tương thích. Xem log của máy chủ.",
+    "intro": "Các phiên bản iRedMail mà mỗi phiên bản iRedPanel đã được kiểm thử.",
+    "installed_badge": "Đã cài đặt"
   },
   "fail2ban": {
     "title": "Fail2ban",

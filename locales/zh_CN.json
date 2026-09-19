@@ -26,7 +26,8 @@
     "group_accounts": "账户",
     "group_security": "安全",
     "group_system": "系统",
-    "toggle_menu": "菜单"
+    "toggle_menu": "菜单",
+    "compatibility": "iRedMail 兼容性"
   },
   "common": {
     "msg_password_updated": "密码更新成功！",
@@ -254,19 +255,22 @@
     "uptime": "运行时间",
     "load": "负载",
     "update_available": "iRedPanel v:version 已发布。已在 iRedMail :iredmail 上测试。",
-    "compat_title": "iRedMail 兼容性",
-    "compat_installed": "已安装的 iRedPanel",
-    "compat_tested": "已测试的 iRedMail 版本",
-    "compat_backends": "后端",
-    "compat_not_listed": "兼容性列表中没有此 iRedPanel 版本的条目。",
-    "compat_newer": "更新的 iRedPanel 版本",
-    "compat_released": "发布日期",
-    "compat_upgrade_hint": "升级 iRedMail 之前，请先找到列出新 iRedMail 版本的 iRedPanel 版本。先升级 iRedMail，再升级 iRedPanel。",
-    "compat_source_remote": "来源：GitHub 上的兼容性列表，检查时间 :time。",
-    "compat_source_offline": "无法读取 GitHub。显示此 iRedPanel 版本附带的列表。",
-    "compat_source_local": "更新检查已关闭。显示此 iRedPanel 版本附带的列表。",
-    "compat_unavailable": "无法读取兼容性列表。请查看服务器日志。",
-    "compat_up_to_date": "列表中没有更新的 iRedPanel 版本。"
+    "compat_view_all": "查看兼容性列表"
+  },
+  "compat": {
+    "title": "iRedMail 兼容性",
+    "installed": "已安装的 iRedPanel",
+    "tested": "已测试的 iRedMail 版本",
+    "backends": "后端",
+    "not_listed": "兼容性列表中没有此 iRedPanel 版本的条目。",
+    "released": "发布日期",
+    "upgrade_hint": "升级 iRedMail 之前，请先找到列出新 iRedMail 版本的 iRedPanel 版本。先升级 iRedMail，再升级 iRedPanel。",
+    "source_remote": "来源：GitHub 上的兼容性列表，检查时间 :time。",
+    "source_offline": "无法读取 GitHub。显示此 iRedPanel 版本附带的列表。",
+    "source_local": "更新检查已关闭。显示此 iRedPanel 版本附带的列表。",
+    "unavailable": "无法读取兼容性列表。请查看服务器日志。",
+    "intro": "每个 iRedPanel 版本经过测试的 iRedMail 版本。",
+    "installed_badge": "已安装"
   },
   "fail2ban": {
     "title": "Fail2ban",

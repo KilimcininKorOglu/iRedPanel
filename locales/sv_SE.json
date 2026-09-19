@@ -26,7 +26,8 @@
     "group_accounts": "Konton",
     "group_security": "Säkerhet",
     "group_system": "System",
-    "toggle_menu": "Meny"
+    "toggle_menu": "Meny",
+    "compatibility": "iRedMail-kompatibilitet"
   },
   "common": {
     "msg_password_updated": "Lösenordet har uppdaterats!",
@@ -254,19 +255,22 @@
     "uptime": "Drifttid",
     "load": "Belastning",
     "update_available": "iRedPanel v:version finns tillgänglig. Testad med iRedMail :iredmail.",
-    "compat_title": "iRedMail-kompatibilitet",
-    "compat_installed": "Installerad iRedPanel",
-    "compat_tested": "Testade iRedMail-versioner",
-    "compat_backends": "Backends",
-    "compat_not_listed": "Kompatibilitetslistan har ingen post för denna iRedPanel-version.",
-    "compat_newer": "Nyare iRedPanel-versioner",
-    "compat_released": "Släppt",
-    "compat_upgrade_hint": "Innan du uppgraderar iRedMail, hitta den iRedPanel-version som listar den nya iRedMail-versionen. Uppgradera först iRedMail och sedan iRedPanel.",
-    "compat_source_remote": "Källa: kompatibilitetslistan på GitHub, kontrollerad :time.",
-    "compat_source_offline": "GitHub kunde inte läsas. Listan som följer med denna iRedPanel-version visas.",
-    "compat_source_local": "Uppdateringskontrollen är avstängd. Listan som följer med denna iRedPanel-version visas.",
-    "compat_unavailable": "Kompatibilitetslistan kunde inte läsas. Se serverloggen.",
-    "compat_up_to_date": "Ingen nyare iRedPanel-version finns i listan."
+    "compat_view_all": "Visa kompatibilitetslistan"
+  },
+  "compat": {
+    "title": "iRedMail-kompatibilitet",
+    "installed": "Installerad iRedPanel",
+    "tested": "Testade iRedMail-versioner",
+    "backends": "Backends",
+    "not_listed": "Kompatibilitetslistan har ingen post för denna iRedPanel-version.",
+    "released": "Släppt",
+    "upgrade_hint": "Innan du uppgraderar iRedMail, hitta den iRedPanel-version som listar den nya iRedMail-versionen. Uppgradera först iRedMail och sedan iRedPanel.",
+    "source_remote": "Källa: kompatibilitetslistan på GitHub, kontrollerad :time.",
+    "source_offline": "GitHub kunde inte läsas. Listan som följer med denna iRedPanel-version visas.",
+    "source_local": "Uppdateringskontrollen är avstängd. Listan som följer med denna iRedPanel-version visas.",
+    "unavailable": "Kompatibilitetslistan kunde inte läsas. Se serverloggen.",
+    "intro": "De iRedMail-versioner som varje iRedPanel-version har testats med.",
+    "installed_badge": "Installerad"
   },
   "fail2ban": {
     "title": "Fail2ban",

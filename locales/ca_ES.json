@@ -26,7 +26,8 @@
     "group_accounts": "Comptes",
     "group_security": "Seguretat",
     "group_system": "Sistema",
-    "toggle_menu": "Menú"
+    "toggle_menu": "Menú",
+    "compatibility": "Compatibilitat amb iRedMail"
   },
   "common": {
     "msg_password_updated": "Contrasenya actualitzada correctament!",
@@ -254,19 +255,22 @@
     "uptime": "Temps actiu",
     "load": "Càrrega",
     "update_available": "iRedPanel v:version està disponible. Provat amb iRedMail :iredmail.",
-    "compat_title": "Compatibilitat amb iRedMail",
-    "compat_installed": "iRedPanel instal·lat",
-    "compat_tested": "Versions d'iRedMail provades",
-    "compat_backends": "Backends",
-    "compat_not_listed": "La llista de compatibilitat no té cap entrada per a aquesta versió d'iRedPanel.",
-    "compat_newer": "Versions més noves d'iRedPanel",
-    "compat_released": "Publicada",
-    "compat_upgrade_hint": "Abans d'actualitzar iRedMail, cerqueu la versió d'iRedPanel que inclou la nova versió d'iRedMail. Actualitzeu primer iRedMail i després iRedPanel.",
-    "compat_source_remote": "Font: llista de compatibilitat a GitHub, comprovada :time.",
-    "compat_source_offline": "No s'ha pogut llegir GitHub. Es mostra la llista inclosa amb aquesta versió d'iRedPanel.",
-    "compat_source_local": "La comprovació d'actualitzacions està desactivada. Es mostra la llista inclosa amb aquesta versió d'iRedPanel.",
-    "compat_unavailable": "No s'ha pogut llegir la llista de compatibilitat. Consulteu el registre del servidor.",
-    "compat_up_to_date": "No hi ha cap versió més nova d'iRedPanel a la llista."
+    "compat_view_all": "Mostra la llista de compatibilitat"
+  },
+  "compat": {
+    "title": "Compatibilitat amb iRedMail",
+    "installed": "iRedPanel instal·lat",
+    "tested": "Versions d'iRedMail provades",
+    "backends": "Backends",
+    "not_listed": "La llista de compatibilitat no té cap entrada per a aquesta versió d'iRedPanel.",
+    "released": "Publicada",
+    "upgrade_hint": "Abans d'actualitzar iRedMail, cerqueu la versió d'iRedPanel que inclou la nova versió d'iRedMail. Actualitzeu primer iRedMail i després iRedPanel.",
+    "source_remote": "Font: llista de compatibilitat a GitHub, comprovada :time.",
+    "source_offline": "No s'ha pogut llegir GitHub. Es mostra la llista inclosa amb aquesta versió d'iRedPanel.",
+    "source_local": "La comprovació d'actualitzacions està desactivada. Es mostra la llista inclosa amb aquesta versió d'iRedPanel.",
+    "unavailable": "No s'ha pogut llegir la llista de compatibilitat. Consulteu el registre del servidor.",
+    "intro": "Les versions d'iRedMail amb què s'ha provat cada versió d'iRedPanel.",
+    "installed_badge": "Instal·lada"
   },
   "fail2ban": {
     "title": "Fail2ban",

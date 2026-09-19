@@ -40,6 +40,7 @@ class Navigation
             ['href' => '/logs', 'label' => 'nav.logs', 'icon' => 'journal-text', 'requires' => ['global'], 'match' => ['/logs']],
             ['href' => '/verify/domain-ownership', 'label' => 'nav.domain_ownership', 'icon' => 'patch-check', 'requires' => ['global', 'domainOwnership'], 'match' => ['/verify']],
             ['href' => '/panel-settings', 'label' => 'nav.panel_settings', 'icon' => 'sliders', 'requires' => ['global'], 'match' => ['/panel-settings']],
+            ['href' => '/compatibility', 'label' => 'nav.compatibility', 'icon' => 'ui-checks-grid', 'requires' => ['global'], 'match' => ['/compatibility']],
             ['href' => '/system-settings', 'label' => 'nav.system', 'icon' => 'cpu', 'requires' => ['global'], 'match' => ['/system-settings', '/last-logins', '/export']],
         ],
     ];

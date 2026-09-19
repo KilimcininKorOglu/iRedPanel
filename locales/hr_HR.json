@@ -26,7 +26,8 @@
     "group_accounts": "Računi",
     "group_security": "Sigurnost",
     "group_system": "Sustav",
-    "toggle_menu": "Izbornik"
+    "toggle_menu": "Izbornik",
+    "compatibility": "Kompatibilnost s iRedMail"
   },
   "common": {
     "msg_password_updated": "Lozinka je uspješno ažurirana!",
@@ -254,19 +255,22 @@
     "uptime": "Vrijeme rada",
     "load": "Opterećenje",
     "update_available": "Dostupan je iRedPanel v:version. Testirano s iRedMail :iredmail.",
-    "compat_title": "Kompatibilnost s iRedMail",
-    "compat_installed": "Instalirani iRedPanel",
-    "compat_tested": "Testirane verzije iRedMail",
-    "compat_backends": "Backendi",
-    "compat_not_listed": "Popis kompatibilnosti nema zapis za ovu verziju iRedPanel.",
-    "compat_newer": "Novije verzije iRedPanel",
-    "compat_released": "Objavljeno",
-    "compat_upgrade_hint": "Prije nadogradnje iRedMail pronađite verziju iRedPanel koja navodi novu verziju iRedMail. Najprije nadogradite iRedMail, zatim iRedPanel.",
-    "compat_source_remote": "Izvor: popis kompatibilnosti na GitHubu, provjereno :time.",
-    "compat_source_offline": "GitHub nije moguće pročitati. Prikazan je popis isporučen s ovom verzijom iRedPanel.",
-    "compat_source_local": "Provjera ažuriranja je isključena. Prikazan je popis isporučen s ovom verzijom iRedPanel.",
-    "compat_unavailable": "Popis kompatibilnosti nije moguće pročitati. Pogledajte zapisnik poslužitelja.",
-    "compat_up_to_date": "Na popisu nema novije verzije iRedPanel."
+    "compat_view_all": "Prikaži popis kompatibilnosti"
+  },
+  "compat": {
+    "title": "Kompatibilnost s iRedMail",
+    "installed": "Instalirani iRedPanel",
+    "tested": "Testirane verzije iRedMail",
+    "backends": "Backendi",
+    "not_listed": "Popis kompatibilnosti nema zapis za ovu verziju iRedPanel.",
+    "released": "Objavljeno",
+    "upgrade_hint": "Prije nadogradnje iRedMail pronađite verziju iRedPanel koja navodi novu verziju iRedMail. Najprije nadogradite iRedMail, zatim iRedPanel.",
+    "source_remote": "Izvor: popis kompatibilnosti na GitHubu, provjereno :time.",
+    "source_offline": "GitHub nije moguće pročitati. Prikazan je popis isporučen s ovom verzijom iRedPanel.",
+    "source_local": "Provjera ažuriranja je isključena. Prikazan je popis isporučen s ovom verzijom iRedPanel.",
+    "unavailable": "Popis kompatibilnosti nije moguće pročitati. Pogledajte zapisnik poslužitelja.",
+    "intro": "Verzije iRedMail s kojima je testirana svaka verzija iRedPanel.",
+    "installed_badge": "Instalirano"
   },
   "fail2ban": {
     "title": "Fail2ban",

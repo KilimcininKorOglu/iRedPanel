@@ -26,7 +26,8 @@
     "group_accounts": "Kontuak",
     "group_security": "Segurtasuna",
     "group_system": "Sistema",
-    "toggle_menu": "Menua"
+    "toggle_menu": "Menua",
+    "compatibility": "iRedMail bateragarritasuna"
   },
   "common": {
     "msg_password_updated": "Pasahitza eguneratu da!",
@@ -254,19 +255,22 @@
     "uptime": "Martxan denbora",
     "load": "Karga",
     "update_available": "iRedPanel v:version eskuragarri dago. iRedMail :iredmail bertsioarekin probatua.",
-    "compat_title": "iRedMail bateragarritasuna",
-    "compat_installed": "Instalatutako iRedPanel",
-    "compat_tested": "Probatutako iRedMail bertsioak",
-    "compat_backends": "Backendak",
-    "compat_not_listed": "Bateragarritasun zerrendak ez du sarrerarik iRedPanel bertsio honetarako.",
-    "compat_newer": "iRedPanel bertsio berriagoak",
-    "compat_released": "Argitaratua",
-    "compat_upgrade_hint": "iRedMail eguneratu aurretik, bilatu iRedMail bertsio berria zerrendatzen duen iRedPanel bertsioa. Eguneratu lehenik iRedMail, gero iRedPanel.",
-    "compat_source_remote": "Iturria: GitHubeko bateragarritasun zerrenda, egiaztatua :time.",
-    "compat_source_offline": "Ezin izan da GitHub irakurri. iRedPanel bertsio honekin datorren zerrenda erakusten da.",
-    "compat_source_local": "Eguneratzeen egiaztapena desgaituta dago. iRedPanel bertsio honekin datorren zerrenda erakusten da.",
-    "compat_unavailable": "Ezin izan da bateragarritasun zerrenda irakurri. Ikusi zerbitzariaren loga.",
-    "compat_up_to_date": "Zerrendan ez dago iRedPanel bertsio berriagorik."
+    "compat_view_all": "Ikusi bateragarritasun zerrenda"
+  },
+  "compat": {
+    "title": "iRedMail bateragarritasuna",
+    "installed": "Instalatutako iRedPanel",
+    "tested": "Probatutako iRedMail bertsioak",
+    "backends": "Backendak",
+    "not_listed": "Bateragarritasun zerrendak ez du sarrerarik iRedPanel bertsio honetarako.",
+    "released": "Argitaratua",
+    "upgrade_hint": "iRedMail eguneratu aurretik, bilatu iRedMail bertsio berria zerrendatzen duen iRedPanel bertsioa. Eguneratu lehenik iRedMail, gero iRedPanel.",
+    "source_remote": "Iturria: GitHubeko bateragarritasun zerrenda, egiaztatua :time.",
+    "source_offline": "Ezin izan da GitHub irakurri. iRedPanel bertsio honekin datorren zerrenda erakusten da.",
+    "source_local": "Eguneratzeen egiaztapena desgaituta dago. iRedPanel bertsio honekin datorren zerrenda erakusten da.",
+    "unavailable": "Ezin izan da bateragarritasun zerrenda irakurri. Ikusi zerbitzariaren loga.",
+    "intro": "iRedPanel bertsio bakoitza probatu den iRedMail bertsioak.",
+    "installed_badge": "Instalatua"
   },
   "fail2ban": {
     "title": "Fail2ban",

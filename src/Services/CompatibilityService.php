@@ -53,6 +53,30 @@ class CompatibilityService
     }
 
     /**
+     * The compatibility list as the dashboard and the compatibility page show it.
+     * A list that cannot be read is logged and reported with `error`, so that the
+     * page still renders.
+     *
+     * @return array{error: bool, releases?: list<array>, current?: ?array, newer?: list<array>, source?: string, checkedAt?: ?int}
+     */
+    public static function report(string $installedVersion): array
+    {
+        try {
+            $list = self::load();
+        } catch (\RuntimeException | \InvalidArgumentException $e) {
+            error_log('iRedPanel: ' . $e->getMessage());
+            return ['error' => true];
+        }
+
+        return self::forVersion($list['releases'], $installedVersion) + [
+            'releases' => $list['releases'],
+            'source' => $list['source'],
+            'checkedAt' => $list['checkedAt'],
+            'error' => false,
+        ];
+    }
+
+    /**
      * Validates a compatibility list and returns its releases, newest first.
      *
      * @return list<array{version: string, date: string, iredmail: list<string>, backends: list<string>}>

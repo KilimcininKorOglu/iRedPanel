@@ -48,6 +48,7 @@ class NavigationTest extends TestCase
             'user pages belong to domains' => ['/example.com/users/john/general', '/domains'],
             'iredapd sub page' => ['/iredapd/greylisting/@.', '/iredapd/throttle/@.'],
             'extra prefix' => ['/last-logins', '/system-settings'],
+            'compatibility list' => ['/compatibility', '/compatibility'],
             'prefix is not a word match' => ['/domains-old', null],
             'unknown page' => ['/nowhere', null],
         ];

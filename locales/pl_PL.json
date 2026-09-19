@@ -26,7 +26,8 @@
     "group_accounts": "Konta",
     "group_security": "Bezpieczeństwo",
     "group_system": "System",
-    "toggle_menu": "Menu"
+    "toggle_menu": "Menu",
+    "compatibility": "Zgodność z iRedMail"
   },
   "common": {
     "msg_password_updated": "Hasło zostało pomyślnie zaktualizowane!",
@@ -254,19 +255,22 @@
     "uptime": "Czas działania",
     "load": "Obciążenie",
     "update_available": "Dostępny jest iRedPanel v:version. Przetestowano z iRedMail :iredmail.",
-    "compat_title": "Zgodność z iRedMail",
-    "compat_installed": "Zainstalowany iRedPanel",
-    "compat_tested": "Przetestowane wersje iRedMail",
-    "compat_backends": "Backendy",
-    "compat_not_listed": "Lista zgodności nie zawiera wpisu dla tej wersji iRedPanel.",
-    "compat_newer": "Nowsze wersje iRedPanel",
-    "compat_released": "Wydano",
-    "compat_upgrade_hint": "Przed aktualizacją iRedMail znajdź wersję iRedPanel, która wymienia nową wersję iRedMail. Najpierw zaktualizuj iRedMail, potem iRedPanel.",
-    "compat_source_remote": "Źródło: lista zgodności na GitHub, sprawdzono :time.",
-    "compat_source_offline": "Nie można odczytać GitHub. Wyświetlana jest lista dołączona do tej wersji iRedPanel.",
-    "compat_source_local": "Sprawdzanie aktualizacji jest wyłączone. Wyświetlana jest lista dołączona do tej wersji iRedPanel.",
-    "compat_unavailable": "Nie można odczytać listy zgodności. Sprawdź log serwera.",
-    "compat_up_to_date": "Na liście nie ma nowszej wersji iRedPanel."
+    "compat_view_all": "Pokaż listę zgodności"
+  },
+  "compat": {
+    "title": "Zgodność z iRedMail",
+    "installed": "Zainstalowany iRedPanel",
+    "tested": "Przetestowane wersje iRedMail",
+    "backends": "Backendy",
+    "not_listed": "Lista zgodności nie zawiera wpisu dla tej wersji iRedPanel.",
+    "released": "Wydano",
+    "upgrade_hint": "Przed aktualizacją iRedMail znajdź wersję iRedPanel, która wymienia nową wersję iRedMail. Najpierw zaktualizuj iRedMail, potem iRedPanel.",
+    "source_remote": "Źródło: lista zgodności na GitHub, sprawdzono :time.",
+    "source_offline": "Nie można odczytać GitHub. Wyświetlana jest lista dołączona do tej wersji iRedPanel.",
+    "source_local": "Sprawdzanie aktualizacji jest wyłączone. Wyświetlana jest lista dołączona do tej wersji iRedPanel.",
+    "unavailable": "Nie można odczytać listy zgodności. Sprawdź log serwera.",
+    "intro": "Wersje iRedMail, z którymi przetestowano każdą wersję iRedPanel.",
+    "installed_badge": "Zainstalowana"
   },
   "fail2ban": {
     "title": "Fail2ban",

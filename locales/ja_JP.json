@@ -26,7 +26,8 @@
     "group_accounts": "アカウント",
     "group_security": "セキュリティ",
     "group_system": "システム",
-    "toggle_menu": "メニュー"
+    "toggle_menu": "メニュー",
+    "compatibility": "iRedMail 互換性"
   },
   "common": {
     "msg_password_updated": "パスワードが正常に更新されました！",
@@ -254,19 +255,22 @@
     "uptime": "稼働時間",
     "load": "負荷",
     "update_available": "iRedPanel v:version が利用可能です。iRedMail :iredmail でテスト済みです。",
-    "compat_title": "iRedMail 互換性",
-    "compat_installed": "インストール済みの iRedPanel",
-    "compat_tested": "テスト済みの iRedMail バージョン",
-    "compat_backends": "バックエンド",
-    "compat_not_listed": "互換性リストにこの iRedPanel バージョンの項目はありません。",
-    "compat_newer": "新しい iRedPanel バージョン",
-    "compat_released": "リリース日",
-    "compat_upgrade_hint": "iRedMail をアップグレードする前に、新しい iRedMail バージョンが記載された iRedPanel バージョンを確認してください。先に iRedMail、次に iRedPanel をアップグレードします。",
-    "compat_source_remote": "ソース: GitHub の互換性リスト、確認日時 :time。",
-    "compat_source_offline": "GitHub を読み込めませんでした。この iRedPanel バージョンに同梱のリストを表示しています。",
-    "compat_source_local": "更新チェックは無効です。この iRedPanel バージョンに同梱のリストを表示しています。",
-    "compat_unavailable": "互換性リストを読み込めませんでした。サーバーログを確認してください。",
-    "compat_up_to_date": "新しい iRedPanel バージョンはリストにありません。"
+    "compat_view_all": "互換性リストを表示"
+  },
+  "compat": {
+    "title": "iRedMail 互換性",
+    "installed": "インストール済みの iRedPanel",
+    "tested": "テスト済みの iRedMail バージョン",
+    "backends": "バックエンド",
+    "not_listed": "互換性リストにこの iRedPanel バージョンの項目はありません。",
+    "released": "リリース日",
+    "upgrade_hint": "iRedMail をアップグレードする前に、新しい iRedMail バージョンが記載された iRedPanel バージョンを確認してください。先に iRedMail、次に iRedPanel をアップグレードします。",
+    "source_remote": "ソース: GitHub の互換性リスト、確認日時 :time。",
+    "source_offline": "GitHub を読み込めませんでした。この iRedPanel バージョンに同梱のリストを表示しています。",
+    "source_local": "更新チェックは無効です。この iRedPanel バージョンに同梱のリストを表示しています。",
+    "unavailable": "互換性リストを読み込めませんでした。サーバーログを確認してください。",
+    "intro": "各 iRedPanel リリースがテストされた iRedMail バージョンです。",
+    "installed_badge": "インストール済み"
   },
   "fail2ban": {
     "title": "Fail2ban",

@@ -26,7 +26,8 @@
     "group_accounts": "Hesablar",
     "group_security": "Təhlükəsizlik",
     "group_system": "Sistem",
-    "toggle_menu": "Menyu"
+    "toggle_menu": "Menyu",
+    "compatibility": "iRedMail uyğunluğu"
   },
   "common": {
     "msg_password_updated": "Parol uğurla yeniləndi!",
@@ -254,19 +255,22 @@
     "uptime": "İşləmə müddəti",
     "load": "Yük",
     "update_available": "iRedPanel v:version mövcuddur. iRedMail :iredmail ilə test edilib.",
-    "compat_title": "iRedMail uyğunluğu",
-    "compat_installed": "Quraşdırılmış iRedPanel",
-    "compat_tested": "Test edilmiş iRedMail versiyaları",
-    "compat_backends": "Backend-lər",
-    "compat_not_listed": "Uyğunluq siyahısında bu iRedPanel versiyası üçün qeyd yoxdur.",
-    "compat_newer": "Daha yeni iRedPanel versiyaları",
-    "compat_released": "Buraxılış tarixi",
-    "compat_upgrade_hint": "iRedMail-i yeniləmədən əvvəl yeni iRedMail versiyasını göstərən iRedPanel versiyasını tapın. Əvvəlcə iRedMail-i, sonra iRedPanel-i yeniləyin.",
-    "compat_source_remote": "Mənbə: GitHub-dakı uyğunluq siyahısı, yoxlanılıb :time.",
-    "compat_source_offline": "GitHub oxuna bilmədi. Bu iRedPanel versiyası ilə gələn siyahı göstərilir.",
-    "compat_source_local": "Yeniləmə yoxlaması söndürülüb. Bu iRedPanel versiyası ilə gələn siyahı göstərilir.",
-    "compat_unavailable": "Uyğunluq siyahısı oxuna bilmədi. Server log-una baxın.",
-    "compat_up_to_date": "Siyahıda daha yeni iRedPanel versiyası yoxdur."
+    "compat_view_all": "Uyğunluq siyahısına bax"
+  },
+  "compat": {
+    "title": "iRedMail uyğunluğu",
+    "installed": "Quraşdırılmış iRedPanel",
+    "tested": "Test edilmiş iRedMail versiyaları",
+    "backends": "Backend-lər",
+    "not_listed": "Uyğunluq siyahısında bu iRedPanel versiyası üçün qeyd yoxdur.",
+    "released": "Buraxılış tarixi",
+    "upgrade_hint": "iRedMail-i yeniləmədən əvvəl yeni iRedMail versiyasını göstərən iRedPanel versiyasını tapın. Əvvəlcə iRedMail-i, sonra iRedPanel-i yeniləyin.",
+    "source_remote": "Mənbə: GitHub-dakı uyğunluq siyahısı, yoxlanılıb :time.",
+    "source_offline": "GitHub oxuna bilmədi. Bu iRedPanel versiyası ilə gələn siyahı göstərilir.",
+    "source_local": "Yeniləmə yoxlaması söndürülüb. Bu iRedPanel versiyası ilə gələn siyahı göstərilir.",
+    "unavailable": "Uyğunluq siyahısı oxuna bilmədi. Server log-una baxın.",
+    "intro": "Hər iRedPanel versiyasının test edildiyi iRedMail versiyaları.",
+    "installed_badge": "Quraşdırılıb"
   },
   "fail2ban": {
     "title": "Fail2ban",

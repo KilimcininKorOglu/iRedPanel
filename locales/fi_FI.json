@@ -26,7 +26,8 @@
     "group_accounts": "Tilit",
     "group_security": "Tietoturva",
     "group_system": "Järjestelmä",
-    "toggle_menu": "Valikko"
+    "toggle_menu": "Valikko",
+    "compatibility": "iRedMail-yhteensopivuus"
   },
   "common": {
     "msg_password_updated": "Salasana päivitetty onnistuneesti!",
@@ -254,19 +255,22 @@
     "uptime": "Käyttöaika",
     "load": "Kuormitus",
     "update_available": "iRedPanel v:version on saatavilla. Testattu iRedMail-versiolla :iredmail.",
-    "compat_title": "iRedMail-yhteensopivuus",
-    "compat_installed": "Asennettu iRedPanel",
-    "compat_tested": "Testatut iRedMail-versiot",
-    "compat_backends": "Taustajärjestelmät",
-    "compat_not_listed": "Yhteensopivuuslistassa ei ole merkintää tälle iRedPanel-versiolle.",
-    "compat_newer": "Uudemmat iRedPanel-versiot",
-    "compat_released": "Julkaistu",
-    "compat_upgrade_hint": "Etsi ennen iRedMailin päivitystä iRedPanel-versio, joka mainitsee uuden iRedMail-version. Päivitä ensin iRedMail ja sitten iRedPanel.",
-    "compat_source_remote": "Lähde: yhteensopivuuslista GitHubissa, tarkistettu :time.",
-    "compat_source_offline": "GitHubia ei voitu lukea. Näytetään tämän iRedPanel-version mukana tullut lista.",
-    "compat_source_local": "Päivitysten tarkistus on pois käytöstä. Näytetään tämän iRedPanel-version mukana tullut lista.",
-    "compat_unavailable": "Yhteensopivuuslistaa ei voitu lukea. Katso palvelimen loki.",
-    "compat_up_to_date": "Listassa ei ole uudempaa iRedPanel-versiota."
+    "compat_view_all": "Näytä yhteensopivuuslista"
+  },
+  "compat": {
+    "title": "iRedMail-yhteensopivuus",
+    "installed": "Asennettu iRedPanel",
+    "tested": "Testatut iRedMail-versiot",
+    "backends": "Taustajärjestelmät",
+    "not_listed": "Yhteensopivuuslistassa ei ole merkintää tälle iRedPanel-versiolle.",
+    "released": "Julkaistu",
+    "upgrade_hint": "Etsi ennen iRedMailin päivitystä iRedPanel-versio, joka mainitsee uuden iRedMail-version. Päivitä ensin iRedMail ja sitten iRedPanel.",
+    "source_remote": "Lähde: yhteensopivuuslista GitHubissa, tarkistettu :time.",
+    "source_offline": "GitHubia ei voitu lukea. Näytetään tämän iRedPanel-version mukana tullut lista.",
+    "source_local": "Päivitysten tarkistus on pois käytöstä. Näytetään tämän iRedPanel-version mukana tullut lista.",
+    "unavailable": "Yhteensopivuuslistaa ei voitu lukea. Katso palvelimen loki.",
+    "intro": "iRedMail-versiot, joilla kukin iRedPanel-versio on testattu.",
+    "installed_badge": "Asennettu"
   },
   "fail2ban": {
     "title": "Fail2ban",

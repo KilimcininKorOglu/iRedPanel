@@ -26,7 +26,8 @@
     "group_accounts": "Налози",
     "group_security": "Безбедност",
     "group_system": "Систем",
-    "toggle_menu": "Мени"
+    "toggle_menu": "Мени",
+    "compatibility": "Компатибилност са iRedMail"
   },
   "common": {
     "msg_password_updated": "Лозинка је успешно ажурирана!",
@@ -254,19 +255,22 @@
     "uptime": "Време рада",
     "load": "Оптерећење",
     "update_available": "Доступан је iRedPanel v:version. Тестирано са iRedMail :iredmail.",
-    "compat_title": "Компатибилност са iRedMail",
-    "compat_installed": "Инсталирани iRedPanel",
-    "compat_tested": "Тестиране верзије iRedMail",
-    "compat_backends": "Бекенди",
-    "compat_not_listed": "Листа компатибилности нема запис за ову верзију iRedPanel.",
-    "compat_newer": "Новије верзије iRedPanel",
-    "compat_released": "Објављено",
-    "compat_upgrade_hint": "Пре надоградње iRedMail пронађите верзију iRedPanel која наводи нову верзију iRedMail. Прво надоградите iRedMail, затим iRedPanel.",
-    "compat_source_remote": "Извор: листа компатибилности на GitHub-у, проверено :time.",
-    "compat_source_offline": "GitHub није могуће прочитати. Приказана је листа испоручена са овом верзијом iRedPanel.",
-    "compat_source_local": "Провера ажурирања је искључена. Приказана је листа испоручена са овом верзијом iRedPanel.",
-    "compat_unavailable": "Листу компатибилности није могуће прочитати. Погледајте лог сервера.",
-    "compat_up_to_date": "На листи нема новије верзије iRedPanel."
+    "compat_view_all": "Прикажи листу компатибилности"
+  },
+  "compat": {
+    "title": "Компатибилност са iRedMail",
+    "installed": "Инсталирани iRedPanel",
+    "tested": "Тестиране верзије iRedMail",
+    "backends": "Бекенди",
+    "not_listed": "Листа компатибилности нема запис за ову верзију iRedPanel.",
+    "released": "Објављено",
+    "upgrade_hint": "Пре надоградње iRedMail пронађите верзију iRedPanel која наводи нову верзију iRedMail. Прво надоградите iRedMail, затим iRedPanel.",
+    "source_remote": "Извор: листа компатибилности на GitHub-у, проверено :time.",
+    "source_offline": "GitHub није могуће прочитати. Приказана је листа испоручена са овом верзијом iRedPanel.",
+    "source_local": "Провера ажурирања је искључена. Приказана је листа испоручена са овом верзијом iRedPanel.",
+    "unavailable": "Листу компатибилности није могуће прочитати. Погледајте лог сервера.",
+    "intro": "Верзије iRedMail са којима је тестирана свака верзија iRedPanel.",
+    "installed_badge": "Инсталирано"
   },
   "fail2ban": {
     "title": "Fail2ban",

@@ -26,7 +26,8 @@
     "group_accounts": "Účty",
     "group_security": "Zabezpečenie",
     "group_system": "Systém",
-    "toggle_menu": "Ponuka"
+    "toggle_menu": "Ponuka",
+    "compatibility": "Kompatibilita s iRedMail"
   },
   "common": {
     "msg_password_updated": "Heslo bolo úspešne aktualizované!",
@@ -254,19 +255,22 @@
     "uptime": "Doba prevádzky",
     "load": "Záťaž",
     "update_available": "K dispozícii je iRedPanel v:version. Testované s iRedMail :iredmail.",
-    "compat_title": "Kompatibilita s iRedMail",
-    "compat_installed": "Nainštalovaný iRedPanel",
-    "compat_tested": "Testované verzie iRedMail",
-    "compat_backends": "Backendy",
-    "compat_not_listed": "Zoznam kompatibility nemá záznam pre túto verziu iRedPanel.",
-    "compat_newer": "Novšie verzie iRedPanel",
-    "compat_released": "Vydané",
-    "compat_upgrade_hint": "Pred upgradom iRedMail nájdite verziu iRedPanel, ktorá uvádza novú verziu iRedMail. Najprv aktualizujte iRedMail, potom iRedPanel.",
-    "compat_source_remote": "Zdroj: zoznam kompatibility na GitHube, skontrolované :time.",
-    "compat_source_offline": "GitHub sa nedá načítať. Zobrazuje sa zoznam dodaný s touto verziou iRedPanel.",
-    "compat_source_local": "Kontrola aktualizácií je vypnutá. Zobrazuje sa zoznam dodaný s touto verziou iRedPanel.",
-    "compat_unavailable": "Zoznam kompatibility sa nedá načítať. Pozrite log servera.",
-    "compat_up_to_date": "V zozname nie je novšia verzia iRedPanel."
+    "compat_view_all": "Zobraziť zoznam kompatibility"
+  },
+  "compat": {
+    "title": "Kompatibilita s iRedMail",
+    "installed": "Nainštalovaný iRedPanel",
+    "tested": "Testované verzie iRedMail",
+    "backends": "Backendy",
+    "not_listed": "Zoznam kompatibility nemá záznam pre túto verziu iRedPanel.",
+    "released": "Vydané",
+    "upgrade_hint": "Pred upgradom iRedMail nájdite verziu iRedPanel, ktorá uvádza novú verziu iRedMail. Najprv aktualizujte iRedMail, potom iRedPanel.",
+    "source_remote": "Zdroj: zoznam kompatibility na GitHube, skontrolované :time.",
+    "source_offline": "GitHub sa nedá načítať. Zobrazuje sa zoznam dodaný s touto verziou iRedPanel.",
+    "source_local": "Kontrola aktualizácií je vypnutá. Zobrazuje sa zoznam dodaný s touto verziou iRedPanel.",
+    "unavailable": "Zoznam kompatibility sa nedá načítať. Pozrite log servera.",
+    "intro": "Verzie iRedMail, s ktorými bola testovaná každá verzia iRedPanel.",
+    "installed_badge": "Nainštalované"
   },
   "fail2ban": {
     "title": "Fail2ban",

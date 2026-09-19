@@ -26,7 +26,8 @@
     "group_accounts": "Računi",
     "group_security": "Varnost",
     "group_system": "Sistem",
-    "toggle_menu": "Meni"
+    "toggle_menu": "Meni",
+    "compatibility": "Združljivost z iRedMail"
   },
   "common": {
     "msg_password_updated": "Geslo uspešno posodobljeno!",
@@ -254,19 +255,22 @@
     "uptime": "Čas delovanja",
     "load": "Obremenitev",
     "update_available": "Na voljo je iRedPanel v:version. Preizkušeno z iRedMail :iredmail.",
-    "compat_title": "Združljivost z iRedMail",
-    "compat_installed": "Nameščen iRedPanel",
-    "compat_tested": "Preizkušene različice iRedMail",
-    "compat_backends": "Zaledja",
-    "compat_not_listed": "Seznam združljivosti nima vnosa za to različico iRedPanel.",
-    "compat_newer": "Novejše različice iRedPanel",
-    "compat_released": "Izdano",
-    "compat_upgrade_hint": "Pred nadgradnjo iRedMail poiščite različico iRedPanel, ki navaja novo različico iRedMail. Najprej nadgradite iRedMail, nato iRedPanel.",
-    "compat_source_remote": "Vir: seznam združljivosti na GitHubu, preverjeno :time.",
-    "compat_source_offline": "GitHuba ni mogoče prebrati. Prikazan je seznam, priložen tej različici iRedPanel.",
-    "compat_source_local": "Preverjanje posodobitev je izklopljeno. Prikazan je seznam, priložen tej različici iRedPanel.",
-    "compat_unavailable": "Seznama združljivosti ni mogoče prebrati. Glejte dnevnik strežnika.",
-    "compat_up_to_date": "Na seznamu ni novejše različice iRedPanel."
+    "compat_view_all": "Prikaži seznam združljivosti"
+  },
+  "compat": {
+    "title": "Združljivost z iRedMail",
+    "installed": "Nameščen iRedPanel",
+    "tested": "Preizkušene različice iRedMail",
+    "backends": "Zaledja",
+    "not_listed": "Seznam združljivosti nima vnosa za to različico iRedPanel.",
+    "released": "Izdano",
+    "upgrade_hint": "Pred nadgradnjo iRedMail poiščite različico iRedPanel, ki navaja novo različico iRedMail. Najprej nadgradite iRedMail, nato iRedPanel.",
+    "source_remote": "Vir: seznam združljivosti na GitHubu, preverjeno :time.",
+    "source_offline": "GitHuba ni mogoče prebrati. Prikazan je seznam, priložen tej različici iRedPanel.",
+    "source_local": "Preverjanje posodobitev je izklopljeno. Prikazan je seznam, priložen tej različici iRedPanel.",
+    "unavailable": "Seznama združljivosti ni mogoče prebrati. Glejte dnevnik strežnika.",
+    "intro": "Različice iRedMail, s katerimi je bila preizkušena vsaka različica iRedPanel.",
+    "installed_badge": "Nameščeno"
   },
   "fail2ban": {
     "title": "Fail2ban",

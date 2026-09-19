@@ -26,7 +26,8 @@
     "group_accounts": "Kontod",
     "group_security": "Turvalisus",
     "group_system": "Süsteem",
-    "toggle_menu": "Menüü"
+    "toggle_menu": "Menüü",
+    "compatibility": "iRedMaili ühilduvus"
   },
   "common": {
     "msg_password_updated": "Parool edukalt uuendatud!",
@@ -254,19 +255,22 @@
     "uptime": "Tööaeg",
     "load": "Koormus",
     "update_available": "Saadaval on iRedPanel v:version. Testitud iRedMail :iredmail versiooniga.",
-    "compat_title": "iRedMaili ühilduvus",
-    "compat_installed": "Paigaldatud iRedPanel",
-    "compat_tested": "Testitud iRedMaili versioonid",
-    "compat_backends": "Taustsüsteemid",
-    "compat_not_listed": "Ühilduvusloendis pole selle iRedPaneli versiooni kirjet.",
-    "compat_newer": "Uuemad iRedPaneli versioonid",
-    "compat_released": "Avaldatud",
-    "compat_upgrade_hint": "Enne iRedMaili uuendamist leidke iRedPaneli versioon, mis loetleb uue iRedMaili versiooni. Uuendage esmalt iRedMail, seejärel iRedPanel.",
-    "compat_source_remote": "Allikas: ühilduvusloend GitHubis, kontrollitud :time.",
-    "compat_source_offline": "GitHubi ei õnnestunud lugeda. Näidatakse selle iRedPaneli versiooniga kaasas olevat loendit.",
-    "compat_source_local": "Uuenduste kontroll on välja lülitatud. Näidatakse selle iRedPaneli versiooniga kaasas olevat loendit.",
-    "compat_unavailable": "Ühilduvusloendit ei õnnestunud lugeda. Vaadake serveri logi.",
-    "compat_up_to_date": "Loendis pole uuemat iRedPaneli versiooni."
+    "compat_view_all": "Kuva ühilduvusloend"
+  },
+  "compat": {
+    "title": "iRedMaili ühilduvus",
+    "installed": "Paigaldatud iRedPanel",
+    "tested": "Testitud iRedMaili versioonid",
+    "backends": "Taustsüsteemid",
+    "not_listed": "Ühilduvusloendis pole selle iRedPaneli versiooni kirjet.",
+    "released": "Avaldatud",
+    "upgrade_hint": "Enne iRedMaili uuendamist leidke iRedPaneli versioon, mis loetleb uue iRedMaili versiooni. Uuendage esmalt iRedMail, seejärel iRedPanel.",
+    "source_remote": "Allikas: ühilduvusloend GitHubis, kontrollitud :time.",
+    "source_offline": "GitHubi ei õnnestunud lugeda. Näidatakse selle iRedPaneli versiooniga kaasas olevat loendit.",
+    "source_local": "Uuenduste kontroll on välja lülitatud. Näidatakse selle iRedPaneli versiooniga kaasas olevat loendit.",
+    "unavailable": "Ühilduvusloendit ei õnnestunud lugeda. Vaadake serveri logi.",
+    "intro": "iRedMaili versioonid, millega iga iRedPaneli versiooni on testitud.",
+    "installed_badge": "Paigaldatud"
   },
   "fail2ban": {
     "title": "Fail2ban",

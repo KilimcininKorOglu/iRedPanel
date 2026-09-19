@@ -10,6 +10,7 @@ use App\Controllers\AliasController;
 use App\Controllers\AmavisdController;
 use App\Controllers\AuthController;
 use App\Controllers\BaseController;
+use App\Controllers\CompatibilityController;
 use App\Controllers\DashboardController;
 use App\Controllers\DeletedMailboxController;
 use App\Api\AdminApiController;
@@ -244,6 +245,11 @@ $router->addRoute(['GET', 'POST'], '/verify/domain-ownership', function () use (
 // System settings
 $router->addRoute('GET', '/system-settings', function () use ($tpl) {
     SystemSettingsController::view($tpl);
+});
+
+// iRedMail compatibility list
+$router->addRoute('GET', '/compatibility', function () use ($tpl) {
+    CompatibilityController::view($tpl);
 });
 
 // Panel settings (editable via DB)

@@ -26,7 +26,8 @@
     "group_accounts": "Konten",
     "group_security": "Sicherheit",
     "group_system": "System",
-    "toggle_menu": "Menü"
+    "toggle_menu": "Menü",
+    "compatibility": "iRedMail-Kompatibilität"
   },
   "common": {
     "msg_password_updated": "Passwort erfolgreich aktualisiert!",
@@ -254,19 +255,22 @@
     "uptime": "Betriebszeit",
     "load": "Auslastung",
     "update_available": "iRedPanel v:version ist verfügbar. Getestet mit iRedMail :iredmail.",
-    "compat_title": "iRedMail-Kompatibilität",
-    "compat_installed": "Installiertes iRedPanel",
-    "compat_tested": "Getestete iRedMail-Versionen",
-    "compat_backends": "Backends",
-    "compat_not_listed": "Die Kompatibilitätsliste enthält keinen Eintrag für diese iRedPanel-Version.",
-    "compat_newer": "Neuere iRedPanel-Versionen",
-    "compat_released": "Veröffentlicht",
-    "compat_upgrade_hint": "Suchen Sie vor einem iRedMail-Upgrade die iRedPanel-Version, die die neue iRedMail-Version aufführt. Aktualisieren Sie zuerst iRedMail, dann iRedPanel.",
-    "compat_source_remote": "Quelle: Kompatibilitätsliste auf GitHub, geprüft :time.",
-    "compat_source_offline": "GitHub konnte nicht gelesen werden. Die mit dieser iRedPanel-Version gelieferte Liste wird angezeigt.",
-    "compat_source_local": "Die Update-Prüfung ist deaktiviert. Die mit dieser iRedPanel-Version gelieferte Liste wird angezeigt.",
-    "compat_unavailable": "Die Kompatibilitätsliste konnte nicht gelesen werden. Siehe Server-Log.",
-    "compat_up_to_date": "Es ist keine neuere iRedPanel-Version aufgeführt."
+    "compat_view_all": "Kompatibilitätsliste anzeigen"
+  },
+  "compat": {
+    "title": "iRedMail-Kompatibilität",
+    "installed": "Installiertes iRedPanel",
+    "tested": "Getestete iRedMail-Versionen",
+    "backends": "Backends",
+    "not_listed": "Die Kompatibilitätsliste enthält keinen Eintrag für diese iRedPanel-Version.",
+    "released": "Veröffentlicht",
+    "upgrade_hint": "Suchen Sie vor einem iRedMail-Upgrade die iRedPanel-Version, die die neue iRedMail-Version aufführt. Aktualisieren Sie zuerst iRedMail, dann iRedPanel.",
+    "source_remote": "Quelle: Kompatibilitätsliste auf GitHub, geprüft :time.",
+    "source_offline": "GitHub konnte nicht gelesen werden. Die mit dieser iRedPanel-Version gelieferte Liste wird angezeigt.",
+    "source_local": "Die Update-Prüfung ist deaktiviert. Die mit dieser iRedPanel-Version gelieferte Liste wird angezeigt.",
+    "unavailable": "Die Kompatibilitätsliste konnte nicht gelesen werden. Siehe Server-Log.",
+    "intro": "Die iRedMail-Versionen, mit denen jede iRedPanel-Version getestet wurde.",
+    "installed_badge": "Installiert"
   },
   "fail2ban": {
     "title": "Fail2ban",

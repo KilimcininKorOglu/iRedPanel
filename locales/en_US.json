@@ -26,7 +26,8 @@
     "group_accounts": "Accounts",
     "group_security": "Security",
     "group_system": "System",
-    "toggle_menu": "Menu"
+    "toggle_menu": "Menu",
+    "compatibility": "iRedMail Compatibility"
   },
   "common": {
     "msg_password_updated": "Password updated successfully!",
@@ -254,19 +255,22 @@
     "uptime": "Uptime",
     "load": "Load",
     "update_available": "iRedPanel v:version is available. Tested with iRedMail :iredmail.",
-    "compat_title": "iRedMail Compatibility",
-    "compat_installed": "Installed iRedPanel",
-    "compat_tested": "Tested iRedMail versions",
-    "compat_backends": "Backends",
-    "compat_not_listed": "The compatibility list has no entry for this iRedPanel version.",
-    "compat_newer": "Newer iRedPanel versions",
-    "compat_released": "Released",
-    "compat_upgrade_hint": "Before you upgrade iRedMail, find the iRedPanel version that lists the new iRedMail version. Upgrade iRedMail first, then iRedPanel.",
-    "compat_source_remote": "Source: the compatibility list on GitHub, checked :time.",
-    "compat_source_offline": "GitHub could not be read. The list bundled with this iRedPanel version is shown.",
-    "compat_source_local": "The update check is disabled. The list bundled with this iRedPanel version is shown.",
-    "compat_unavailable": "The compatibility list could not be read. See the server log.",
-    "compat_up_to_date": "No newer iRedPanel version is listed."
+    "compat_view_all": "View the compatibility list"
+  },
+  "compat": {
+    "title": "iRedMail Compatibility",
+    "installed": "Installed iRedPanel",
+    "tested": "Tested iRedMail versions",
+    "backends": "Backends",
+    "not_listed": "The compatibility list has no entry for this iRedPanel version.",
+    "released": "Released",
+    "upgrade_hint": "Before you upgrade iRedMail, find the iRedPanel version that lists the new iRedMail version. Upgrade iRedMail first, then iRedPanel.",
+    "source_remote": "Source: the compatibility list on GitHub, checked :time.",
+    "source_offline": "GitHub could not be read. The list bundled with this iRedPanel version is shown.",
+    "source_local": "The update check is disabled. The list bundled with this iRedPanel version is shown.",
+    "unavailable": "The compatibility list could not be read. See the server log.",
+    "intro": "The iRedMail versions that each iRedPanel release was tested with.",
+    "installed_badge": "Installed"
   },
   "fail2ban": {
     "title": "Fail2ban",

@@ -84,8 +84,9 @@ class PgsqlWhiteBlacklistRepository implements WhiteBlacklistRepositoryInterface
             return [];
         }
 
+        // mailaddr.email is bytea, which PDO returns as a stream.
         $stmt = $pdo->prepare(
-            "SELECT m.email AS sender, w.wb
+            "SELECT convert_from(m.email, 'UTF8') AS sender, w.wb
              FROM {$table} w
              JOIN mailaddr m ON w.sid = m.id
              WHERE w.rid = :rid

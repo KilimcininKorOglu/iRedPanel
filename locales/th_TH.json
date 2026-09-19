@@ -558,7 +558,21 @@
     "backup_mx": "Backup MX",
     "backup_mx_enable": "เซิร์ฟเวอร์นี้เป็น backup MX ของโดเมน",
     "primary_mx": "Primary MX",
-    "backup_mx_help": "เซิร์ฟเวอร์รับอีเมลและส่งต่อไปยัง primary MX ถ้าเว้นว่าง Postfix จะใช้ระเบียน MX ของโดเมน"
+    "backup_mx_help": "เซิร์ฟเวอร์รับอีเมลและส่งต่อไปยัง primary MX ถ้าเว้นว่าง Postfix จะใช้ระเบียน MX ของโดเมน",
+    "pref_personal_info": "ชื่อและภาษา",
+    "pref_wblist": "Whitelist และ blacklist",
+    "pref_spampolicy": "นโยบายสแปม",
+    "pref_quarantine": "อีเมลที่ถูกกักกัน",
+    "pref_received": "อีเมลที่ได้รับ",
+    "self_service": "บริการตนเอง",
+    "self_service_enable": "ผู้ใช้ของโดเมนนี้สามารถเข้าสู่ระบบเพื่อจัดการการตั้งค่าของตนเอง",
+    "disabled_preferences_help": "ผู้ใช้ไม่สามารถเปลี่ยนการตั้งค่าที่เลือกไว้",
+    "disabled_domain_profiles": "หน้าโดเมนที่ปิดสำหรับผู้ดูแลโดเมน",
+    "disabled_domain_profiles_help": "ผู้ดูแลโดเมนไม่สามารถเปิดหน้าที่เลือกไว้ของโดเมนนี้",
+    "disabled_user_profiles": "หน้าผู้ใช้ที่ปิดสำหรับผู้ดูแลโดเมน",
+    "disabled_user_profiles_help": "ผู้ดูแลโดเมนไม่สามารถเปิดหน้าที่เลือกไว้ของผู้ใช้ในโดเมนนี้",
+    "msg_unknown_profile": "ไม่รู้จักหน้าหรือการตั้งค่า: :name",
+    "msg_min_password_below_global": "ความยาวรหัสผ่านขั้นต่ำต้องไม่น้อยกว่าค่าขั้นต่ำทั่วไป (:min)"
   },
   "admin": {
     "msg_email_required": "จำเป็นต้องมีที่อยู่อีเมลที่ถูกต้อง",

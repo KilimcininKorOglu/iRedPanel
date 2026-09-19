@@ -9,6 +9,21 @@ $tabs = [
     'bcc' => [$domainPath . '/bcc', $t('domain.tab_bcc')],
     'relay' => [$domainPath . '/relay', $t('domain.tab_relay')],
 ];
+// A domain admin sees only the pages that the global admin left open.
+$tabs = array_intersect_key($tabs, array_flip($openPages));
+$domainProfileLabels = array_combine(\App\Models\ProfileToggles::DOMAIN_PROFILES, [$t('common.settings'), $t('domain.tab_catchall'), $t('domain.tab_bcc'), $t('domain.tab_relay')]);
+$userProfileLabels = array_combine(\App\Models\ProfileToggles::USER_PROFILES, [$t('user.tab_general'), $t('common.password'), $t('user.tab_services'), $t('user.tab_forwarding'), $t('user.tab_aliases'), $t('domain.tab_bcc'), $t('domain.tab_relay')]);
+$preferenceLabels = array_combine(\App\Models\ProfileToggles::USER_PREFERENCES, [$t('domain.pref_personal_info'), $t('common.password'), $t('user.tab_forwarding'), $t('domain.pref_wblist'), $t('domain.pref_spampolicy'), $t('domain.pref_quarantine'), $t('domain.pref_received')]);
+$toggleList = function (string $name, array $labels, array $checked) use ($e): string {
+    $html = '<div class="row g-2">';
+    foreach ($labels as $value => $label) {
+        $id = $e($name . '-' . $value);
+        $html .= '<div class="col-md-6"><div class="form-check">'
+            . '<input type="checkbox" class="form-check-input" id="' . $id . '" name="' . $e($name) . '[]" value="' . $e($value) . '"' . (in_array($value, $checked, true) ? ' checked' : '') . ' />'
+            . '<label class="form-check-label" for="' . $id . '">' . $e($label) . '</label></div></div>';
+    }
+    return $html . '</div>';
+};
 ?>
 <div class="page-header">
   <div>
@@ -154,6 +169,30 @@ $tabs = [
           </div>
           <div class="form-text"><?= $te('domain.disabled_services_help') ?></div>
         </fieldset>
+
+        <fieldset class="mb-3">
+          <legend class="form-label fs-6"><?= $te('domain.self_service') ?></legend>
+          <div class="form-check form-switch mb-2">
+            <input type="checkbox" class="form-check-input" id="selfService" name="selfService" value="1" <?php if ($domainSettings->selfService()): ?>checked<?php endif; ?> />
+            <label class="form-check-label" for="selfService"><?= $te('domain.self_service_enable') ?></label>
+          </div>
+          <div class="form-text mb-2"><?= $te('domain.disabled_preferences_help') ?></div>
+          <?= $toggleList('disabledUserPreferences', $preferenceLabels, $domainSettings->disabledUserPreferences) ?>
+        </fieldset>
+
+        <?php if ($isGlobalAdmin): ?>
+        <fieldset class="mb-3">
+          <legend class="form-label fs-6"><?= $te('domain.disabled_domain_profiles') ?></legend>
+          <?= $toggleList('disabledDomainProfiles', $domainProfileLabels, $domainSettings->disabledDomainProfiles) ?>
+          <div class="form-text"><?= $te('domain.disabled_domain_profiles_help') ?></div>
+        </fieldset>
+
+        <fieldset class="mb-3">
+          <legend class="form-label fs-6"><?= $te('domain.disabled_user_profiles') ?></legend>
+          <?= $toggleList('disabledUserProfiles', $userProfileLabels, $domainSettings->disabledUserProfiles) ?>
+          <div class="form-text"><?= $te('domain.disabled_user_profiles_help') ?></div>
+        </fieldset>
+        <?php endif; ?>
 
         <div>
           <label for="disclaimer" class="form-label"><?= $te('domain.disclaimer_text') ?></label>

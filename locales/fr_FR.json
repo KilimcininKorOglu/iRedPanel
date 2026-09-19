@@ -558,7 +558,21 @@
     "backup_mx": "Backup MX",
     "backup_mx_enable": "Ce serveur est le backup MX du domaine",
     "primary_mx": "Primary MX",
-    "backup_mx_help": "Le serveur accepte le courrier et le relaie vers le primary MX. Si le champ est vide, Postfix utilise les enregistrements MX du domaine."
+    "backup_mx_help": "Le serveur accepte le courrier et le relaie vers le primary MX. Si le champ est vide, Postfix utilise les enregistrements MX du domaine.",
+    "pref_personal_info": "Nom et langue",
+    "pref_wblist": "Listes blanches et noires",
+    "pref_spampolicy": "Politique anti-spam",
+    "pref_quarantine": "Mails en quarantaine",
+    "pref_received": "Mails reçus",
+    "self_service": "Self-service",
+    "self_service_enable": "Les utilisateurs de ce domaine peuvent se connecter pour gérer leurs propres préférences",
+    "disabled_preferences_help": "Les utilisateurs ne peuvent pas modifier les préférences cochées.",
+    "disabled_domain_profiles": "Pages de domaine fermées aux admins de domaine",
+    "disabled_domain_profiles_help": "Les admins de domaine ne peuvent pas ouvrir les pages cochées de ce domaine.",
+    "disabled_user_profiles": "Pages utilisateur fermées aux admins de domaine",
+    "disabled_user_profiles_help": "Les admins de domaine ne peuvent pas ouvrir les pages cochées des utilisateurs de ce domaine.",
+    "msg_unknown_profile": "Page ou préférence inconnue : :name",
+    "msg_min_password_below_global": "La longueur minimale du mot de passe ne doit pas être inférieure au minimum global (:min)."
   },
   "admin": {
     "msg_email_required": "Une adresse e-mail valide est requise",

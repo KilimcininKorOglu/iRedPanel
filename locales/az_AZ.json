@@ -558,7 +558,21 @@
     "backup_mx": "Backup MX",
     "backup_mx_enable": "Bu server bu domain üçün backup MX-dir",
     "primary_mx": "Primary MX",
-    "backup_mx_help": "Bu server poçtları qəbul edir və primary MX-ə göndərir. Primary MX boşdursa, Postfix domain-in MX qeydlərini istifadə edir."
+    "backup_mx_help": "Bu server poçtları qəbul edir və primary MX-ə göndərir. Primary MX boşdursa, Postfix domain-in MX qeydlərini istifadə edir.",
+    "pref_personal_info": "Ad və dil",
+    "pref_wblist": "Ağ və qara siyahılar",
+    "pref_spampolicy": "Spam siyasəti",
+    "pref_quarantine": "Karantindəki məktublar",
+    "pref_received": "Gələn məktublar",
+    "self_service": "Özünəxidmət",
+    "self_service_enable": "Bu domain-in istifadəçiləri daxil olub öz ayarlarını idarə edə bilər",
+    "disabled_preferences_help": "İstifadəçilər işarələnmiş ayarları dəyişə bilməz.",
+    "disabled_domain_profiles": "Domain adminləri üçün bağlı domain səhifələri",
+    "disabled_domain_profiles_help": "Domain adminləri bu domain-in işarələnmiş səhifələrini aça bilməz.",
+    "disabled_user_profiles": "Domain adminləri üçün bağlı istifadəçi səhifələri",
+    "disabled_user_profiles_help": "Domain adminləri bu domain-dəki istifadəçilərin işarələnmiş səhifələrini aça bilməz.",
+    "msg_unknown_profile": "Naməlum səhifə və ya ayar: :name",
+    "msg_min_password_below_global": "Minimum parol uzunluğu qlobal minimumdan (:min) az ola bilməz."
   },
   "admin": {
     "msg_email_required": "Etibarlı e-poçt ünvanı tələb olunur",

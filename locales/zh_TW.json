@@ -558,7 +558,21 @@
     "backup_mx": "Backup MX",
     "backup_mx_enable": "此伺服器是該網域的 backup MX",
     "primary_mx": "Primary MX",
-    "backup_mx_help": "伺服器接收郵件並轉送到 primary MX。留空時 Postfix 使用該網域的 MX 記錄。"
+    "backup_mx_help": "伺服器接收郵件並轉送到 primary MX。留空時 Postfix 使用該網域的 MX 記錄。",
+    "pref_personal_info": "姓名和語言",
+    "pref_wblist": "白名單和黑名單",
+    "pref_spampolicy": "垃圾郵件原則",
+    "pref_quarantine": "隔離郵件",
+    "pref_received": "已收郵件",
+    "self_service": "自助服務",
+    "self_service_enable": "此網域的使用者可以登入並管理自己的設定",
+    "disabled_preferences_help": "使用者不能變更勾選的設定。",
+    "disabled_domain_profiles": "對網域管理員關閉的網域頁面",
+    "disabled_domain_profiles_help": "網域管理員不能開啟此網域中勾選的頁面。",
+    "disabled_user_profiles": "對網域管理員關閉的使用者頁面",
+    "disabled_user_profiles_help": "網域管理員不能開啟此網域使用者的勾選頁面。",
+    "msg_unknown_profile": "未知的頁面或設定: :name",
+    "msg_min_password_below_global": "最小密碼長度不能低於全域最小值 (:min)。"
   },
   "admin": {
     "msg_email_required": "需要有效的電子郵件位址",

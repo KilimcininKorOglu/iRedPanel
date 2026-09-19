@@ -558,7 +558,21 @@
     "backup_mx": "Backup MX",
     "backup_mx_enable": "Este servidor é o backup MX do domínio",
     "primary_mx": "Primary MX",
-    "backup_mx_help": "O servidor aceita o correio e reencaminha-o para o primary MX. Com o campo vazio, o Postfix usa os registos MX do domínio."
+    "backup_mx_help": "O servidor aceita o correio e reencaminha-o para o primary MX. Com o campo vazio, o Postfix usa os registos MX do domínio.",
+    "pref_personal_info": "Nome e idioma",
+    "pref_wblist": "Whitelists e blacklists",
+    "pref_spampolicy": "Política de spam",
+    "pref_quarantine": "Mensagens em quarentena",
+    "pref_received": "Mensagens recebidas",
+    "self_service": "Self-service",
+    "self_service_enable": "Os utilizadores deste domínio podem iniciar sessão para gerir as próprias preferências",
+    "disabled_preferences_help": "Os utilizadores não podem alterar as preferências assinaladas.",
+    "disabled_domain_profiles": "Páginas de domínio fechadas aos admins de domínio",
+    "disabled_domain_profiles_help": "Os admins de domínio não podem abrir as páginas assinaladas deste domínio.",
+    "disabled_user_profiles": "Páginas de utilizador fechadas aos admins de domínio",
+    "disabled_user_profiles_help": "Os admins de domínio não podem abrir as páginas assinaladas dos utilizadores deste domínio.",
+    "msg_unknown_profile": "Página ou preferência desconhecida: :name",
+    "msg_min_password_below_global": "O comprimento mínimo da palavra-passe não pode ser inferior ao mínimo global (:min)."
   },
   "admin": {
     "msg_email_required": "É necessário um endereço de e-mail válido",

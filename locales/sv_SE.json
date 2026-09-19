@@ -558,7 +558,21 @@
     "backup_mx": "Backup MX",
     "backup_mx_enable": "Den här servern är backup MX för domänen",
     "primary_mx": "Primary MX",
-    "backup_mx_help": "Servern tar emot e-posten och vidarebefordrar den till primary MX. Om fältet är tomt använder Postfix domänens MX-poster."
+    "backup_mx_help": "Servern tar emot e-posten och vidarebefordrar den till primary MX. Om fältet är tomt använder Postfix domänens MX-poster.",
+    "pref_personal_info": "Namn och språk",
+    "pref_wblist": "Whitelists och blacklists",
+    "pref_spampolicy": "Spampolicy",
+    "pref_quarantine": "Mail i karantän",
+    "pref_received": "Mottagna mail",
+    "self_service": "Självbetjäning",
+    "self_service_enable": "Användare i den här domänen kan logga in och hantera sina egna inställningar",
+    "disabled_preferences_help": "Användare kan inte ändra de markerade inställningarna.",
+    "disabled_domain_profiles": "Domänsidor stängda för domänadministratörer",
+    "disabled_domain_profiles_help": "Domänadministratörer kan inte öppna de markerade sidorna i den här domänen.",
+    "disabled_user_profiles": "Användarsidor stängda för domänadministratörer",
+    "disabled_user_profiles_help": "Domänadministratörer kan inte öppna de markerade sidorna för användarna i den här domänen.",
+    "msg_unknown_profile": "Okänd sida eller inställning: :name",
+    "msg_min_password_below_global": "Minsta lösenordslängd får inte vara lägre än det globala minimum (:min)."
   },
   "admin": {
     "msg_email_required": "En giltig e-postadress krävs",

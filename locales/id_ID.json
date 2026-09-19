@@ -558,7 +558,21 @@
     "backup_mx": "Backup MX",
     "backup_mx_enable": "Server ini adalah backup MX untuk domain",
     "primary_mx": "Primary MX",
-    "backup_mx_help": "Server menerima surat dan meneruskannya ke primary MX. Jika kolom kosong, Postfix memakai record MX domain."
+    "backup_mx_help": "Server menerima surat dan meneruskannya ke primary MX. Jika kolom kosong, Postfix memakai record MX domain.",
+    "pref_personal_info": "Nama dan bahasa",
+    "pref_wblist": "Whitelist dan blacklist",
+    "pref_spampolicy": "Kebijakan spam",
+    "pref_quarantine": "Surat dalam karantina",
+    "pref_received": "Surat masuk",
+    "self_service": "Layanan mandiri",
+    "self_service_enable": "Pengguna domain ini dapat login untuk mengelola preferensi mereka sendiri",
+    "disabled_preferences_help": "Pengguna tidak dapat mengubah preferensi yang dicentang.",
+    "disabled_domain_profiles": "Halaman domain yang ditutup untuk admin domain",
+    "disabled_domain_profiles_help": "Admin domain tidak dapat membuka halaman yang dicentang pada domain ini.",
+    "disabled_user_profiles": "Halaman pengguna yang ditutup untuk admin domain",
+    "disabled_user_profiles_help": "Admin domain tidak dapat membuka halaman yang dicentang dari pengguna di domain ini.",
+    "msg_unknown_profile": "Halaman atau preferensi tidak dikenal: :name",
+    "msg_min_password_below_global": "Panjang minimum password tidak boleh lebih kecil dari minimum global (:min)."
   },
   "admin": {
     "msg_email_required": "Alamat email yang valid diperlukan",

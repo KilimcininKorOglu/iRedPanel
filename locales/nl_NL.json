@@ -558,7 +558,21 @@
     "backup_mx": "Backup MX",
     "backup_mx_enable": "Deze server is backup MX voor het domein",
     "primary_mx": "Primary MX",
-    "backup_mx_help": "De server neemt de mail aan en stuurt hem door naar de primary MX. Bij een leeg veld gebruikt Postfix de MX-records van het domein."
+    "backup_mx_help": "De server neemt de mail aan en stuurt hem door naar de primary MX. Bij een leeg veld gebruikt Postfix de MX-records van het domein.",
+    "pref_personal_info": "Naam en taal",
+    "pref_wblist": "Whitelists en blacklists",
+    "pref_spampolicy": "Spambeleid",
+    "pref_quarantine": "Mails in quarantaine",
+    "pref_received": "Ontvangen mails",
+    "self_service": "Selfservice",
+    "self_service_enable": "Gebruikers van dit domein kunnen inloggen en hun eigen voorkeuren beheren",
+    "disabled_preferences_help": "Gebruikers kunnen de aangevinkte voorkeuren niet wijzigen.",
+    "disabled_domain_profiles": "Domeinpagina's gesloten voor domeinbeheerders",
+    "disabled_domain_profiles_help": "Domeinbeheerders kunnen de aangevinkte pagina's van dit domein niet openen.",
+    "disabled_user_profiles": "Gebruikerspagina's gesloten voor domeinbeheerders",
+    "disabled_user_profiles_help": "Domeinbeheerders kunnen de aangevinkte pagina's van de gebruikers in dit domein niet openen.",
+    "msg_unknown_profile": "Onbekende pagina of voorkeur: :name",
+    "msg_min_password_below_global": "De minimale wachtwoordlengte mag niet lager zijn dan het globale minimum (:min)."
   },
   "admin": {
     "msg_email_required": "Een geldig e-mailadres is vereist",

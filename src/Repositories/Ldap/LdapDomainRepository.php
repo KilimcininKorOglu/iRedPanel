@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Repositories\Ldap;
 
 use App\Models\Domain;
+use App\Models\DomainSettings;
 use App\Models\LdapAccountSetting;
 use App\Models\LdapConnection;
 use App\Models\PaginatedResult;
@@ -15,7 +16,7 @@ use App\Utils\LdapUtils;
 class LdapDomainRepository implements DomainRepositoryInterface
 {
     private const DOMAIN_ATTRS = ['domainName', 'accountStatus', 'domainCurrentUserNumber'];
-    private const DOMAIN_DETAIL_ATTRS = ['domainName', 'accountStatus', 'domainCurrentUserNumber', 'cn', 'description', 'mtaTransport', 'disclaimer', 'accountSetting', 'domainBackupMX'];
+    private const DOMAIN_DETAIL_ATTRS = ['domainName', 'accountStatus', 'domainCurrentUserNumber', 'cn', 'description', 'mtaTransport', 'disclaimer', 'accountSetting', 'domainBackupMX', 'enabledService'];
 
     public function getDomains(): array
     {
@@ -97,7 +98,11 @@ class LdapDomainRepository implements DomainRepositoryInterface
     private static function toDomain(\LDAP\Connection $conn, array $entry): Domain
     {
         $domain = Domain::fromLdapEntry(LdapUtils::normalizeEntry($entry, self::DOMAIN_DETAIL_ATTRS));
-        LdapAccountSetting::applyTo($domain, LdapUtils::allValues($entry, 'accountSetting'));
+        LdapAccountSetting::applyTo(
+            $domain,
+            LdapUtils::allValues($entry, 'accountSetting'),
+            LdapUtils::allValues($entry, 'enabledService'),
+        );
         self::applyMailboxTotals($conn, $domain);
 
         return $domain;
@@ -135,7 +140,7 @@ class LdapDomainRepository implements DomainRepositoryInterface
             'accountStatus' => $domain->active ? 'active' : 'disabled',
             'cn' => $domain->description ?: $domain->domainName,
             'mtaTransport' => $domain->transport ?: 'dovecot',
-            'enabledService' => 'mail',
+            'enabledService' => self::enabledServices($domain),
         ];
         if ($domain->backupMx) {
             $entry['domainBackupMX'] = 'yes';
@@ -163,6 +168,19 @@ class LdapDomainRepository implements DomainRepositoryInterface
         }
     }
 
+    /**
+     * Returns the enabledService values of the domain entry. The settings of a domain read from
+     * LDAP hold every stored value; a new domain always gets "mail", as iRedAdmin creates it.
+     *
+     * @return list<string>
+     */
+    private static function enabledServices(Domain $domain): array
+    {
+        $services = DomainSettings::fromSettingsString($domain->settings)->enabledServices;
+
+        return array_values(array_unique(['mail', ...$services]));
+    }
+
     public function updateDomain(Domain $domain): void
     {
         $conn = LdapConnection::getInstance()->getConn();
@@ -173,6 +191,7 @@ class LdapDomainRepository implements DomainRepositoryInterface
             LdapUtils::modReplace('accountStatus', $domain->active ? 'active' : 'disabled'),
             LdapUtils::modReplace('mtaTransport', $domain->transport ?: 'dovecot'),
             LdapUtils::modReplace('domainBackupMX', $domain->backupMx ? 'yes' : null),
+            ['attrib' => 'enabledService', 'modtype' => LDAP_MODIFY_BATCH_REPLACE, 'values' => self::enabledServices($domain)],
         ];
 
         if (!LdapUtils::modifyBatch($conn, $dn, $mods)) {

@@ -558,7 +558,21 @@
     "backup_mx": "Backup MX",
     "backup_mx_enable": "Denne tenaren er backup MX for domenet",
     "primary_mx": "Primary MX",
-    "backup_mx_help": "Tenaren tek imot e-posten og sender han vidare til primary MX. Er feltet tomt, brukar Postfix MX-postane til domenet."
+    "backup_mx_help": "Tenaren tek imot e-posten og sender han vidare til primary MX. Er feltet tomt, brukar Postfix MX-postane til domenet.",
+    "pref_personal_info": "Namn og språk",
+    "pref_wblist": "Whitelists og blacklists",
+    "pref_spampolicy": "Spampolicy",
+    "pref_quarantine": "E-post i karantene",
+    "pref_received": "Motteken e-post",
+    "self_service": "Sjølvbetening",
+    "self_service_enable": "Brukarar i dette domenet kan logge inn og handtere eigne innstillingar",
+    "disabled_preferences_help": "Brukarar kan ikkje endre dei avkryssa innstillingane.",
+    "disabled_domain_profiles": "Domenesider stengde for domeneadministratorar",
+    "disabled_domain_profiles_help": "Domeneadministratorar kan ikkje opne dei avkryssa sidene i dette domenet.",
+    "disabled_user_profiles": "Brukarsider stengde for domeneadministratorar",
+    "disabled_user_profiles_help": "Domeneadministratorar kan ikkje opne dei avkryssa sidene for brukarane i dette domenet.",
+    "msg_unknown_profile": "Ukjend side eller innstilling: :name",
+    "msg_min_password_below_global": "Minste passordlengd kan ikkje vere lågare enn det globale minimumet (:min)."
   },
   "admin": {
     "msg_email_required": "Ei gyldig e-postadresse er påkravd",

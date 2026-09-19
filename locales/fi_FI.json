@@ -558,7 +558,21 @@
     "backup_mx": "Backup MX",
     "backup_mx_enable": "Tämä palvelin on domainin backup MX",
     "primary_mx": "Primary MX",
-    "backup_mx_help": "Palvelin vastaanottaa postin ja välittää sen primary MX:lle. Jos kenttä on tyhjä, Postfix käyttää domainin MX-tietueita."
+    "backup_mx_help": "Palvelin vastaanottaa postin ja välittää sen primary MX:lle. Jos kenttä on tyhjä, Postfix käyttää domainin MX-tietueita.",
+    "pref_personal_info": "Nimi ja kieli",
+    "pref_wblist": "Whitelistit ja blacklistit",
+    "pref_spampolicy": "Roskapostikäytäntö",
+    "pref_quarantine": "Karanteenissa olevat viestit",
+    "pref_received": "Vastaanotetut viestit",
+    "self_service": "Itsepalvelu",
+    "self_service_enable": "Tämän domainin käyttäjät voivat kirjautua ja hallita omia asetuksiaan",
+    "disabled_preferences_help": "Käyttäjät eivät voi muuttaa valittuja asetuksia.",
+    "disabled_domain_profiles": "Domain-ylläpitäjiltä suljetut domain-sivut",
+    "disabled_domain_profiles_help": "Domain-ylläpitäjät eivät voi avata tämän domainin valittuja sivuja.",
+    "disabled_user_profiles": "Domain-ylläpitäjiltä suljetut käyttäjäsivut",
+    "disabled_user_profiles_help": "Domain-ylläpitäjät eivät voi avata tämän domainin käyttäjien valittuja sivuja.",
+    "msg_unknown_profile": "Tuntematon sivu tai asetus: :name",
+    "msg_min_password_below_global": "Salasanan vähimmäispituus ei voi olla pienempi kuin globaali minimi (:min)."
   },
   "admin": {
     "msg_email_required": "Kelvollinen sähköpostiosoite vaaditaan",

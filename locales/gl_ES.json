@@ -558,7 +558,21 @@
     "backup_mx": "Backup MX",
     "backup_mx_enable": "Este servidor é o backup MX do dominio",
     "primary_mx": "Primary MX",
-    "backup_mx_help": "O servidor acepta o correo e reenvíao ao primary MX. Se o campo está baleiro, Postfix usa os rexistros MX do dominio."
+    "backup_mx_help": "O servidor acepta o correo e reenvíao ao primary MX. Se o campo está baleiro, Postfix usa os rexistros MX do dominio.",
+    "pref_personal_info": "Nome e idioma",
+    "pref_wblist": "Listas brancas e negras",
+    "pref_spampolicy": "Política de spam",
+    "pref_quarantine": "Correos en corentena",
+    "pref_received": "Correos recibidos",
+    "self_service": "Autoservizo",
+    "self_service_enable": "Os usuarios deste dominio poden iniciar sesión para xestionar as súas preferencias",
+    "disabled_preferences_help": "Os usuarios non poden cambiar as preferencias marcadas.",
+    "disabled_domain_profiles": "Páxinas de dominio pechadas para os admins de dominio",
+    "disabled_domain_profiles_help": "Os admins de dominio non poden abrir as páxinas marcadas deste dominio.",
+    "disabled_user_profiles": "Páxinas de usuario pechadas para os admins de dominio",
+    "disabled_user_profiles_help": "Os admins de dominio non poden abrir as páxinas marcadas dos usuarios deste dominio.",
+    "msg_unknown_profile": "Páxina ou preferencia descoñecida: :name",
+    "msg_min_password_below_global": "A lonxitude mínima do contrasinal non pode ser inferior ao mínimo global (:min)."
   },
   "admin": {
     "msg_email_required": "É obrigatorio un enderezo de correo válido",

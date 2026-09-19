@@ -558,7 +558,21 @@
     "backup_mx": "Backup MX",
     "backup_mx_enable": "Ten serwer jest backup MX dla domeny",
     "primary_mx": "Primary MX",
-    "backup_mx_help": "Serwer przyjmuje pocztę i przekazuje ją do primary MX. Gdy pole jest puste, Postfix używa rekordów MX domeny."
+    "backup_mx_help": "Serwer przyjmuje pocztę i przekazuje ją do primary MX. Gdy pole jest puste, Postfix używa rekordów MX domeny.",
+    "pref_personal_info": "Imię i język",
+    "pref_wblist": "Whitelisty i blacklisty",
+    "pref_spampolicy": "Polityka antyspamowa",
+    "pref_quarantine": "Wiadomości w kwarantannie",
+    "pref_received": "Odebrane wiadomości",
+    "self_service": "Samoobsługa",
+    "self_service_enable": "Użytkownicy tej domeny mogą się zalogować i zarządzać własnymi ustawieniami",
+    "disabled_preferences_help": "Użytkownicy nie mogą zmieniać zaznaczonych ustawień.",
+    "disabled_domain_profiles": "Strony domeny zamknięte dla adminów domeny",
+    "disabled_domain_profiles_help": "Admini domeny nie mogą otwierać zaznaczonych stron tej domeny.",
+    "disabled_user_profiles": "Strony użytkownika zamknięte dla adminów domeny",
+    "disabled_user_profiles_help": "Admini domeny nie mogą otwierać zaznaczonych stron użytkowników tej domeny.",
+    "msg_unknown_profile": "Nieznana strona lub ustawienie: :name",
+    "msg_min_password_below_global": "Minimalna długość hasła nie może być mniejsza niż globalne minimum (:min)."
   },
   "admin": {
     "msg_email_required": "Wymagany jest prawidłowy adres e-mail",

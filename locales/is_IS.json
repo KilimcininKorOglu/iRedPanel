@@ -558,7 +558,21 @@
     "backup_mx": "Backup MX",
     "backup_mx_enable": "Þessi þjónn er backup MX lénsins",
     "primary_mx": "Primary MX",
-    "backup_mx_help": "Þjónninn tekur við pósti og sendir hann áfram á primary MX. Ef reiturinn er tómur notar Postfix MX-færslur lénsins."
+    "backup_mx_help": "Þjónninn tekur við pósti og sendir hann áfram á primary MX. Ef reiturinn er tómur notar Postfix MX-færslur lénsins.",
+    "pref_personal_info": "Nafn og tungumál",
+    "pref_wblist": "Hvítlistar og svartlistar",
+    "pref_spampolicy": "Ruslpóststefna",
+    "pref_quarantine": "Póstur í sóttkví",
+    "pref_received": "Móttekinn póstur",
+    "self_service": "Sjálfsafgreiðsla",
+    "self_service_enable": "Notendur þessa léns geta skráð sig inn og stjórnað eigin stillingum",
+    "disabled_preferences_help": "Notendur geta ekki breytt merktum stillingum.",
+    "disabled_domain_profiles": "Lénssíður lokaðar lénsstjórum",
+    "disabled_domain_profiles_help": "Lénsstjórar geta ekki opnað merktar síður þessa léns.",
+    "disabled_user_profiles": "Notendasíður lokaðar lénsstjórum",
+    "disabled_user_profiles_help": "Lénsstjórar geta ekki opnað merktar síður notenda í þessu léni.",
+    "msg_unknown_profile": "Óþekkt síða eða stilling: :name",
+    "msg_min_password_below_global": "Lágmarkslengd lykilorðs má ekki vera lægri en almenna lágmarkið (:min)."
   },
   "admin": {
     "msg_email_required": "Gilt netfang er nauðsynlegt",

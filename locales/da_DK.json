@@ -558,7 +558,21 @@
     "backup_mx": "Backup MX",
     "backup_mx_enable": "Denne server er backup MX for domænet",
     "primary_mx": "Primary MX",
-    "backup_mx_help": "Serveren modtager mailen og sender den videre til primary MX. Er feltet tomt, bruger Postfix domænets MX-poster."
+    "backup_mx_help": "Serveren modtager mailen og sender den videre til primary MX. Er feltet tomt, bruger Postfix domænets MX-poster.",
+    "pref_personal_info": "Navn og sprog",
+    "pref_wblist": "Whitelists og blacklists",
+    "pref_spampolicy": "Spampolitik",
+    "pref_quarantine": "Mails i karantæne",
+    "pref_received": "Modtagne mails",
+    "self_service": "Selvbetjening",
+    "self_service_enable": "Brugere i dette domæne kan logge ind og administrere deres egne indstillinger",
+    "disabled_preferences_help": "Brugere kan ikke ændre de markerede indstillinger.",
+    "disabled_domain_profiles": "Domænesider lukket for domæneadministratorer",
+    "disabled_domain_profiles_help": "Domæneadministratorer kan ikke åbne de markerede sider i dette domæne.",
+    "disabled_user_profiles": "Brugersider lukket for domæneadministratorer",
+    "disabled_user_profiles_help": "Domæneadministratorer kan ikke åbne de markerede sider for brugerne i dette domæne.",
+    "msg_unknown_profile": "Ukendt side eller indstilling: :name",
+    "msg_min_password_below_global": "Den mindste adgangskodelængde må ikke være lavere end det globale minimum (:min)."
   },
   "admin": {
     "msg_email_required": "En gyldig e-mailadresse er påkrævet",

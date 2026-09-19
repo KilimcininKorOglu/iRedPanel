@@ -558,7 +558,21 @@
     "backup_mx": "Backup MX",
     "backup_mx_enable": "Този сървър е backup MX за домейна",
     "primary_mx": "Primary MX",
-    "backup_mx_help": "Сървърът приема пощата и я препраща към primary MX. Ако полето е празно, Postfix използва MX записите на домейна."
+    "backup_mx_help": "Сървърът приема пощата и я препраща към primary MX. Ако полето е празно, Postfix използва MX записите на домейна.",
+    "pref_personal_info": "Име и език",
+    "pref_wblist": "Бели и черни списъци",
+    "pref_spampolicy": "Спам политика",
+    "pref_quarantine": "Писма в карантина",
+    "pref_received": "Получени писма",
+    "self_service": "Самообслужване",
+    "self_service_enable": "Потребителите на този домейн могат да влизат и да управляват своите настройки",
+    "disabled_preferences_help": "Потребителите не могат да променят отметнатите настройки.",
+    "disabled_domain_profiles": "Страници на домейна, затворени за домейн админи",
+    "disabled_domain_profiles_help": "Домейн админите не могат да отварят отметнатите страници на този домейн.",
+    "disabled_user_profiles": "Потребителски страници, затворени за домейн админи",
+    "disabled_user_profiles_help": "Домейн админите не могат да отварят отметнатите страници на потребителите в този домейн.",
+    "msg_unknown_profile": "Непозната страница или настройка: :name",
+    "msg_min_password_below_global": "Минималната дължина на паролата не може да е по-малка от глобалния минимум (:min)."
   },
   "admin": {
     "msg_email_required": "Изисква се валиден имейл адрес",

@@ -8,6 +8,7 @@ use App\CsrfProtection;
 use App\I18n\Translator;
 use App\Middleware;
 use App\Models\DomainSettings;
+use App\Models\ProfileToggles;
 use App\Models\Settings;
 use App\Models\User;
 use App\Models\UserPassword;
@@ -62,6 +63,28 @@ class UserController
      * Displays the user detail/edit page.
      */
     public static function userView(TemplateEngine $tpl, string $domain, string $userUid, string $editMode): void
+    {
+        Middleware::domainAdminRequired($domain);
+
+        // The global admin can close user pages for the domain admins of the domain.
+        $openPages = ProfileToggles::openUserPages(self::domainSettings($domain), Middleware::isGlobalAdmin());
+        if (in_array($editMode, ProfileToggles::USER_PROFILES, true) && !in_array($editMode, $openPages, true)) {
+            if ($editMode === 'general' && $openPages !== []) {
+                header('Location: /' . rawurlencode($domain) . '/users/' . rawurlencode($userUid) . '/' . $openPages[0]);
+                exit;
+            }
+            http_response_code(403);
+            echo 'Access denied: this page is disabled for domain admins';
+            return;
+        }
+
+        self::userPage($tpl, $domain, $userUid, $editMode, $openPages);
+    }
+
+    /**
+     * @param list<string> $openPages user pages that the admin may open
+     */
+    private static function userPage(TemplateEngine $tpl, string $domain, string $userUid, string $editMode, array $openPages): void
     {
         Middleware::domainAdminRequired($domain);
 
@@ -251,6 +274,7 @@ class UserController
             'userRecipientBcc' => $userRecipientBcc,
             'userRelayhost' => $userRelayhost,
             'requireOldPassword' => Settings::getInstance()->requireOldPasswordOnChange,
+            'openPages' => $openPages,
             'managedBy' => ReplicatedAccountGuard::owner("{$userUid}@{$domain}"),
             'lockedFields' => ReplicatedAccountGuard::lockedUserFields("{$userUid}@{$domain}"),
         ]);

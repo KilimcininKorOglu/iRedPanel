@@ -20,6 +20,7 @@ All notable changes to this project will be documented in this file.
 - Mailing list limit per domain (`lists`: SQL `domain.maillists`, LDAP `numberOfLists`), checked when the web form or the REST API creates a list
 - REST API: `GET /api/v1/domains/{domain}` returns and `POST`/`PUT` set `defaultUserQuota`, `minPasswordLength`, `maxPasswordLength`, `disclaimer` and `disabledMailServices`
 - Backup MX per domain (General tab and REST API `backupMx`, `primaryMx`): the domain gets the transport `relay:<primary MX>` (SQL `domain.backupmx`, LDAP `domainBackupMX`), and turning it off restores `dovecot`
+- Page toggles per domain (Settings tab and REST API `disabledDomainProfiles`, `disabledUserProfiles`, `disabledUserPreferences`, `selfService`), stored with the iRedAdmin keys (SQL `disabled_domain_profiles`, `disabled_user_profiles`, `disabled_user_preferences`, `enabled_services`; LDAP `disabledDomainProfile`, `disabledUserProfile`, `disabledUserPreference`, domain `enabledService=self-service`)
 
 ### Changed
 - The dashboard reads new releases from `compatibility.json` on GitHub (24-hour cache) and falls back to the bundled copy; this replaces the GitHub release check
@@ -28,6 +29,8 @@ All notable changes to this project will be documented in this file.
 - Delete and bulk confirmations use SweetAlert2 dialogs, and flash messages show as toasts
 - Bootstrap, Bootstrap Icons, SweetAlert2 and Tom Select are vendored under `public/static/vendor/`; Chota CSS is removed
 - The search page type filter uses toggle chips
+- A domain admin now edits the Settings, Catch-all, BCC and Relay pages of a managed domain, except the pages that the global admin closed; the General page (limits, transport, backup MX) and the page toggles stay global admin only. A domain admin cannot lower the min password length below the global minimum
+- A domain API key can set the fields of these pages with `PUT /api/v1/domains/{domain}`, and a closed domain or user page answers 403 for a domain key
 
 ### Fixed
 - `composer install` failed on PHP 8.1 to 8.3, because PHPUnit 13 needs PHP 8.4.1 and `composer.lock` is not tracked; PHPUnit 10.5 to 13 is now accepted

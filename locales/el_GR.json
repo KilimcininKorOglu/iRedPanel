@@ -558,7 +558,21 @@
     "backup_mx": "Backup MX",
     "backup_mx_enable": "Αυτός ο server είναι backup MX του domain",
     "primary_mx": "Primary MX",
-    "backup_mx_help": "Ο server δέχεται την αλληλογραφία και τη στέλνει στον primary MX. Αν το πεδίο είναι κενό, το Postfix χρησιμοποιεί τις εγγραφές MX του domain."
+    "backup_mx_help": "Ο server δέχεται την αλληλογραφία και τη στέλνει στον primary MX. Αν το πεδίο είναι κενό, το Postfix χρησιμοποιεί τις εγγραφές MX του domain.",
+    "pref_personal_info": "Όνομα και γλώσσα",
+    "pref_wblist": "Λευκές και μαύρες λίστες",
+    "pref_spampolicy": "Πολιτική spam",
+    "pref_quarantine": "Μηνύματα σε καραντίνα",
+    "pref_received": "Ληφθέντα μηνύματα",
+    "self_service": "Αυτοεξυπηρέτηση",
+    "self_service_enable": "Οι χρήστες αυτού του domain μπορούν να συνδεθούν και να διαχειριστούν τις ρυθμίσεις τους",
+    "disabled_preferences_help": "Οι χρήστες δεν μπορούν να αλλάξουν τις επιλεγμένες ρυθμίσεις.",
+    "disabled_domain_profiles": "Σελίδες domain κλειστές για τους admin του domain",
+    "disabled_domain_profiles_help": "Οι admin του domain δεν μπορούν να ανοίξουν τις επιλεγμένες σελίδες αυτού του domain.",
+    "disabled_user_profiles": "Σελίδες χρήστη κλειστές για τους admin του domain",
+    "disabled_user_profiles_help": "Οι admin του domain δεν μπορούν να ανοίξουν τις επιλεγμένες σελίδες των χρηστών αυτού του domain.",
+    "msg_unknown_profile": "Άγνωστη σελίδα ή ρύθμιση: :name",
+    "msg_min_password_below_global": "Το ελάχιστο μήκος κωδικού δεν μπορεί να είναι μικρότερο από το γενικό ελάχιστο (:min)."
   },
   "admin": {
     "msg_email_required": "Απαιτείται έγκυρη διεύθυνση email",

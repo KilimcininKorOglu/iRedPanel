@@ -6,6 +6,7 @@ namespace Tests\Models;
 
 use App\Exceptions\InvalidInputException;
 use App\Models\DomainSettings;
+use App\Models\ProfileToggles;
 use App\Models\Settings;
 use PHPUnit\Framework\TestCase;
 
@@ -23,18 +24,72 @@ class DomainSettingsTest extends TestCase
     }
 
     /**
-     * iRedAdmin stores more keys in domain.settings (default_language, timezone,
-     * disabled_domain_profiles, ...). A save from the settings tab used to delete them.
+     * iRedAdmin stores more keys in domain.settings (default_language, timezone, ...).
+     * A save from the settings tab used to delete them.
      */
     public function testSaveKeepsTheKeysOfOtherTools(): void
     {
         $settings = DomainSettings::fromFormData(['defaultUserQuota' => '100']);
-        $settings->keepOtherKeysOf('default_user_quota:5;default_language:de_DE;disabled_domain_profiles:bcc,relay;');
+        $settings->keepOtherKeysOf('default_user_quota:5;default_language:de_DE;timezone:UTC;');
 
         $this->assertSame(
-            'default_user_quota:100;default_language:de_DE;disabled_domain_profiles:bcc,relay;',
+            'default_user_quota:100;default_language:de_DE;timezone:UTC;',
             $settings->toSettingsString(),
         );
+    }
+
+    /**
+     * The page toggles use the iRedAdmin keys; self-service is an item of enabled_services,
+     * and the other items of that list stay when the form turns self-service on or off.
+     */
+    public function testPageTogglesUseTheIredadminKeys(): void
+    {
+        $settings = DomainSettings::fromFormData([
+            'disabledDomainProfiles' => ['bcc', 'relay'],
+            'disabledUserProfiles' => ['password'],
+            'disabledUserPreferences' => ['forwarding', 'wblist'],
+            'selfService' => true,
+        ]);
+        $settings->keepOtherKeysOf('enabled_services:senderbcc;');
+
+        $this->assertSame(
+            'disabled_domain_profiles:bcc,relay;disabled_user_profiles:password;disabled_user_preferences:forwarding,wblist;enabled_services:senderbcc,self-service;',
+            $settings->toSettingsString(),
+        );
+        $stored = DomainSettings::fromSettingsString($settings->toSettingsString());
+        $this->assertTrue($stored->selfService());
+        $this->assertFalse(ProfileToggles::preferenceOpen($stored, 'wblist'));
+        $this->assertTrue(ProfileToggles::preferenceOpen($stored, 'quarantine'));
+        $this->assertSame(['settings', 'catchall'], ProfileToggles::openDomainPages($stored, false));
+        $this->assertFalse(ProfileToggles::userPageOpen($stored, false, 'password'));
+        $this->assertTrue(ProfileToggles::userPageOpen($stored, true, 'password'));
+    }
+
+    public function testUnknownPageIsRejected(): void
+    {
+        $this->expectException(InvalidInputException::class);
+        DomainSettings::fromFormData(['disabledUserProfiles' => ['general', 'nope']]);
+    }
+
+    /**
+     * A domain admin saves the settings page, but the page toggles bound the domain admin.
+     */
+    public function testDomainAdminSaveKeepsTheGlobalAdminToggles(): void
+    {
+        $stored = DomainSettings::fromSettingsString('disabled_domain_profiles:relay;disabled_user_profiles:bcc;');
+        $posted = DomainSettings::fromFormData(['disabledUserPreferences' => ['received']]);
+        $posted->keepGlobalAdminTogglesOf($stored);
+
+        $this->assertSame(['relay'], $posted->disabledDomainProfiles);
+        $this->assertSame(['bcc'], $posted->disabledUserProfiles);
+        $this->assertSame(['received'], $posted->disabledUserPreferences);
+    }
+
+    public function testDomainAdminCannotLowerTheMinPasswordLengthBelowTheGlobalMin(): void
+    {
+        $globalMin = Settings::getInstance()->passwordMinLength;
+        $this->expectException(InvalidInputException::class);
+        DomainSettings::fromFormData(['minPasswordLength' => (string) ($globalMin - 1)])->assertDomainAdminPasswordPolicy();
     }
 
     /**

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Api;
 
 use App\Models\DomainSettings;
+use App\Models\ProfileToggles;
 use App\Models\User;
 use App\Repositories\RepositoryFactory;
 use App\Services\AccountSettingsService;
@@ -126,6 +127,12 @@ class UserApiController
         // Prevent privilege escalation via API: domainGlobalAdmin cannot be changed via API
         unset($data['domainGlobalAdmin']);
 
+        $pageError = self::closedPageError($data, $domain);
+        if ($pageError !== null) {
+            ApiResponse::error($pageError, 403);
+            return;
+        }
+
         // Validate the body before the password change, so a bad field changes nothing.
         $user = self::userFromBody(array_merge((array) $existing, $data));
         if ($user === null) {
@@ -227,7 +234,33 @@ class UserApiController
         ApiResponse::deleted();
     }
 
-    /** @return array{?string, ?string} */
+    /**
+     * Returns why a domain key may not send $data, or null when it may. The global admin can
+     * close user pages for the domain admins of a domain, and a domain key acts as a domain admin.
+     */
+    private static function closedPageError(array $data, string $domain): ?string
+    {
+        if (ApiMiddleware::getCurrentKey()?->isGlobal() ?? false) {
+            return null;
+        }
+        $settings = DomainSettings::fromSettingsString(
+            RepositoryFactory::getDomainRepository()->getDomain($domain)?->settings ?? ''
+        );
+        $serviceFields = array_values(User::SERVICE_TOGGLES);
+        foreach (array_keys($data) as $field) {
+            $page = match (true) {
+                $field === 'password' => 'password',
+                in_array($field, $serviceFields, true) => 'services',
+                default => 'general',
+            };
+            if (!ProfileToggles::userPageOpen($settings, false, $page)) {
+                return "{$field} is on the user page '{$page}', which is disabled for domain admins";
+            }
+        }
+
+        return null;
+    }
+
     /**
      * Builds a User from a JSON body and answers 400 when a field is invalid.
      *
@@ -269,6 +302,7 @@ class UserApiController
         return null;
     }
 
+    /** @return array{?string, ?string} */
     private static function parseEmail(string $email): array
     {
         if (!str_contains($email, '@')) {

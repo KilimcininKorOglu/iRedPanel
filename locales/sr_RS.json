@@ -558,7 +558,21 @@
     "backup_mx": "Backup MX",
     "backup_mx_enable": "Ovaj server je backup MX za domen",
     "primary_mx": "Primary MX",
-    "backup_mx_help": "Server prima poštu i prosleđuje je na primary MX. Ako je polje prazno, Postfix koristi MX zapise domena."
+    "backup_mx_help": "Server prima poštu i prosleđuje je na primary MX. Ako je polje prazno, Postfix koristi MX zapise domena.",
+    "pref_personal_info": "Ime i jezik",
+    "pref_wblist": "Bele i crne liste",
+    "pref_spampolicy": "Politika neželjene pošte",
+    "pref_quarantine": "Pošta u karantinu",
+    "pref_received": "Primljena pošta",
+    "self_service": "Samousluga",
+    "self_service_enable": "Korisnici ovog domena mogu da se prijave i upravljaju svojim podešavanjima",
+    "disabled_preferences_help": "Korisnici ne mogu da menjaju označena podešavanja.",
+    "disabled_domain_profiles": "Stranice domena zatvorene za administratore domena",
+    "disabled_domain_profiles_help": "Administratori domena ne mogu da otvore označene stranice ovog domena.",
+    "disabled_user_profiles": "Stranice korisnika zatvorene za administratore domena",
+    "disabled_user_profiles_help": "Administratori domena ne mogu da otvore označene stranice korisnika ovog domena.",
+    "msg_unknown_profile": "Nepoznata stranica ili podešavanje: :name",
+    "msg_min_password_below_global": "Najmanja dužina lozinke ne sme biti manja od globalnog minimuma (:min)."
   },
   "admin": {
     "msg_email_required": "Потребна је важећа адреса е-поште",

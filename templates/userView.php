@@ -13,6 +13,8 @@ $tabs = [
     'bcc' => $t('domain.tab_bcc'),
     'relay' => $t('domain.tab_relay'),
 ];
+// A domain admin sees only the pages that the global admin left open.
+$tabs = array_intersect_key($tabs, array_flip($openPages));
 $services = \App\Models\User::SERVICE_LABELS;
 ?>
 <div class="page-header">

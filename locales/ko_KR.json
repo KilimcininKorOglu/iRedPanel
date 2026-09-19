@@ -558,7 +558,21 @@
     "backup_mx": "Backup MX",
     "backup_mx_enable": "이 서버는 도메인의 backup MX입니다",
     "primary_mx": "Primary MX",
-    "backup_mx_help": "서버가 메일을 받아 primary MX로 중계합니다. 비어 있으면 Postfix가 도메인의 MX 레코드를 사용합니다."
+    "backup_mx_help": "서버가 메일을 받아 primary MX로 중계합니다. 비어 있으면 Postfix가 도메인의 MX 레코드를 사용합니다.",
+    "pref_personal_info": "이름과 언어",
+    "pref_wblist": "화이트리스트와 블랙리스트",
+    "pref_spampolicy": "스팸 정책",
+    "pref_quarantine": "격리된 메일",
+    "pref_received": "받은 메일",
+    "self_service": "셀프 서비스",
+    "self_service_enable": "이 도메인의 사용자는 로그인하여 자신의 설정을 관리할 수 있습니다",
+    "disabled_preferences_help": "사용자는 선택한 설정을 변경할 수 없습니다.",
+    "disabled_domain_profiles": "도메인 관리자에게 닫힌 도메인 페이지",
+    "disabled_domain_profiles_help": "도메인 관리자는 이 도메인의 선택한 페이지를 열 수 없습니다.",
+    "disabled_user_profiles": "도메인 관리자에게 닫힌 사용자 페이지",
+    "disabled_user_profiles_help": "도메인 관리자는 이 도메인 사용자의 선택한 페이지를 열 수 없습니다.",
+    "msg_unknown_profile": "알 수 없는 페이지 또는 설정: :name",
+    "msg_min_password_below_global": "최소 비밀번호 길이는 전역 최소값(:min)보다 작을 수 없습니다."
   },
   "admin": {
     "msg_email_required": "유효한 이메일 주소가 필요합니다",

@@ -6,6 +6,7 @@ namespace App\Models;
 
 use App\Exceptions\InvalidInputException;
 use App\Utils\FormValue;
+use App\Utils\NameList;
 use App\Utils\WholeNumber;
 
 /**
@@ -137,17 +138,7 @@ class User
      */
     public static function validServiceNames(mixed $names): array
     {
-        if (!is_array($names)) {
-            throw new InvalidInputException('Mail services must be a list', 'user.msg_unknown_service', ['service' => gettype($names)]);
-        }
-        foreach ($names as $name) {
-            if (!is_string($name) || !isset(self::SERVICE_TOGGLES[$name])) {
-                $shown = is_string($name) ? $name : gettype($name);
-                throw new InvalidInputException("Unknown mail service: {$shown}", 'user.msg_unknown_service', ['service' => $shown]);
-            }
-        }
-
-        return array_values(array_unique($names));
+        return NameList::valid($names, array_keys(self::SERVICE_TOGGLES), 'mail service', 'user.msg_unknown_service', 'service');
     }
 
     /**

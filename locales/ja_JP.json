@@ -558,7 +558,21 @@
     "backup_mx": "Backup MX",
     "backup_mx_enable": "このサーバーはドメインの backup MX です",
     "primary_mx": "Primary MX",
-    "backup_mx_help": "サーバーはメールを受け取り、primary MX に中継します。空欄の場合、Postfix はドメインの MX レコードを使います。"
+    "backup_mx_help": "サーバーはメールを受け取り、primary MX に中継します。空欄の場合、Postfix はドメインの MX レコードを使います。",
+    "pref_personal_info": "名前と言語",
+    "pref_wblist": "ホワイトリストとブラックリスト",
+    "pref_spampolicy": "スパムポリシー",
+    "pref_quarantine": "隔離されたメール",
+    "pref_received": "受信したメール",
+    "self_service": "セルフサービス",
+    "self_service_enable": "このドメインのユーザーはログインして自分の設定を管理できます",
+    "disabled_preferences_help": "ユーザーはチェックした設定を変更できません。",
+    "disabled_domain_profiles": "ドメイン管理者に閉じたドメインページ",
+    "disabled_domain_profiles_help": "ドメイン管理者はこのドメインのチェックしたページを開けません。",
+    "disabled_user_profiles": "ドメイン管理者に閉じたユーザーページ",
+    "disabled_user_profiles_help": "ドメイン管理者はこのドメインのユーザーのチェックしたページを開けません。",
+    "msg_unknown_profile": "不明なページまたは設定: :name",
+    "msg_min_password_below_global": "パスワードの最小長はグローバルの最小値 (:min) より小さくできません。"
   },
   "admin": {
     "msg_email_required": "有効なメールアドレスが必要です",

@@ -14,6 +14,15 @@ use App\Utils\WholeNumber;
  */
 class DomainSettings
 {
+    /** settings key => list property; the items are stored comma-separated, as iRedAdmin does. */
+    private const LIST_KEYS = [
+        'disabled_mail_services' => 'disabledMailServices',
+        'disabled_domain_profiles' => 'disabledDomainProfiles',
+        'disabled_user_profiles' => 'disabledUserProfiles',
+        'disabled_user_preferences' => 'disabledUserPreferences',
+        'enabled_services' => 'enabledServices',
+    ];
+
     public function __construct(
         public int $defaultUserQuota = 0,
         public int $minPasswordLength = 0,
@@ -22,7 +31,20 @@ class DomainSettings
         public array $disabledMailServices = [],
         /** @var array<string, string> keys that the panel does not manage (iRedAdmin), kept on write */
         public array $otherKeys = [],
+        /** @var list<string> ProfileToggles::DOMAIN_PROFILES items closed for domain admins */
+        public array $disabledDomainProfiles = [],
+        /** @var list<string> ProfileToggles::USER_PROFILES items closed for domain admins */
+        public array $disabledUserProfiles = [],
+        /** @var list<string> ProfileToggles::USER_PREFERENCES items closed for self-service users */
+        public array $disabledUserPreferences = [],
+        /** @var list<string> domain services; ProfileToggles::SELF_SERVICE opens self-service */
+        public array $enabledServices = [],
     ) {}
+
+    public function selfService(): bool
+    {
+        return in_array(ProfileToggles::SELF_SERVICE, $this->enabledServices, true);
+    }
 
     /**
      * Returns the fields that fromFormData() reads, with the values of this object.
@@ -36,16 +58,33 @@ class DomainSettings
             'maxPasswordLength' => $this->maxPasswordLength,
             'disclaimer' => $disclaimer,
             'disabledMailServices' => $this->disabledMailServices,
+            'disabledDomainProfiles' => $this->disabledDomainProfiles,
+            'disabledUserProfiles' => $this->disabledUserProfiles,
+            'disabledUserPreferences' => $this->disabledUserPreferences,
+            'selfService' => $this->selfService(),
         ];
     }
 
     /**
-     * Takes the keys that the panel does not manage from a stored settings string,
-     * so that a save from the settings form keeps them.
+     * Takes the keys and the domain services that the panel does not manage from a
+     * stored settings string, so that a save from the settings form keeps them.
      */
     public function keepOtherKeysOf(string $stored): void
     {
-        $this->otherKeys = self::fromSettingsString($stored)->otherKeys;
+        $storedSettings = self::fromSettingsString($stored);
+        $this->otherKeys = $storedSettings->otherKeys;
+        $otherServices = array_diff($storedSettings->enabledServices, [ProfileToggles::SELF_SERVICE]);
+        $this->enabledServices = array_values(array_unique([...$otherServices, ...$this->enabledServices]));
+    }
+
+    /**
+     * Keeps the stored page toggles that only a global admin changes, because they bound
+     * the domain admin who saves the form.
+     */
+    public function keepGlobalAdminTogglesOf(self $stored): void
+    {
+        $this->disabledDomainProfiles = $stored->disabledDomainProfiles;
+        $this->disabledUserProfiles = $stored->disabledUserProfiles;
     }
 
     /**
@@ -55,31 +94,31 @@ class DomainSettings
     {
         $result = new self();
 
-        if (empty($settings)) {
-            return $result;
-        }
-
-        $pairs = array_filter(explode(';', $settings));
-        foreach ($pairs as $pair) {
+        foreach (array_filter(explode(';', $settings)) as $pair) {
             $parts = explode(':', $pair, 2);
             if (count($parts) !== 2) {
                 continue;
             }
-            [$key, $value] = $parts;
-            $key = trim($key);
-            $value = trim($value);
-
-            match ($key) {
-                'default_user_quota' => $result->defaultUserQuota = (int) $value,
-                'min_passwd_length' => $result->minPasswordLength = (int) $value,
-                'max_passwd_length' => $result->maxPasswordLength = (int) $value,
-                'disclaimer' => $result->disclaimer = $value,
-                'disabled_mail_services' => $result->disabledMailServices = array_values(array_filter(explode(',', $value))),
-                default => $result->otherKeys[$key] = $value,
-            };
+            $result->setStoredValue(trim($parts[0]), trim($parts[1]));
         }
 
         return $result;
+    }
+
+    private function setStoredValue(string $key, string $value): void
+    {
+        if (isset(self::LIST_KEYS[$key])) {
+            $this->{self::LIST_KEYS[$key]} = array_values(array_filter(explode(',', $value)));
+            return;
+        }
+
+        match ($key) {
+            'default_user_quota' => $this->defaultUserQuota = (int) $value,
+            'min_passwd_length' => $this->minPasswordLength = (int) $value,
+            'max_passwd_length' => $this->maxPasswordLength = (int) $value,
+            'disclaimer' => $this->disclaimer = $value,
+            default => $this->otherKeys[$key] = $value,
+        };
     }
 
     /**
@@ -87,20 +126,22 @@ class DomainSettings
      */
     public function toSettingsString(): string
     {
+        $numbers = [
+            'default_user_quota' => $this->defaultUserQuota,
+            'min_passwd_length' => $this->minPasswordLength,
+            'max_passwd_length' => $this->maxPasswordLength,
+        ];
         $parts = [];
-
-        if ($this->defaultUserQuota > 0) {
-            $parts[] = "default_user_quota:{$this->defaultUserQuota}";
-        }
-        if ($this->minPasswordLength > 0) {
-            $parts[] = "min_passwd_length:{$this->minPasswordLength}";
-        }
-        if ($this->maxPasswordLength > 0) {
-            $parts[] = "max_passwd_length:{$this->maxPasswordLength}";
+        foreach ($numbers as $key => $number) {
+            if ($number > 0) {
+                $parts[] = "{$key}:{$number}";
+            }
         }
         // The disclaimer lives in Domain::$disclaimer; a ';' in its text would split this format.
-        if (!empty($this->disabledMailServices)) {
-            $parts[] = "disabled_mail_services:" . implode(',', $this->disabledMailServices);
+        foreach (self::LIST_KEYS as $key => $property) {
+            if ($this->$property !== []) {
+                $parts[] = "{$key}:" . implode(',', $this->$property);
+            }
         }
         foreach ($this->otherKeys as $key => $value) {
             if ($key !== '' && $value !== '') {
@@ -113,7 +154,7 @@ class DomainSettings
 
     /**
      * @throws InvalidInputException when a number is not a whole number of 0 or more,
-     *         or the min password length exceeds the max password length
+     *         a list holds an unknown name, or the min password length exceeds the max password length
      */
     public static function fromFormData(array $post): self
     {
@@ -123,6 +164,10 @@ class DomainSettings
             maxPasswordLength: self::number($post, 'maxPasswordLength', 'domain.max_password_length'),
             disclaimer: FormValue::text($post, 'disclaimer'),
             disabledMailServices: User::validServiceNames($post['disabledMailServices'] ?? []),
+            disabledDomainProfiles: ProfileToggles::valid($post['disabledDomainProfiles'] ?? [], ProfileToggles::DOMAIN_PROFILES, 'disabledDomainProfiles'),
+            disabledUserProfiles: ProfileToggles::valid($post['disabledUserProfiles'] ?? [], ProfileToggles::USER_PROFILES, 'disabledUserProfiles'),
+            disabledUserPreferences: ProfileToggles::valid($post['disabledUserPreferences'] ?? [], ProfileToggles::USER_PREFERENCES, 'disabledUserPreferences'),
+            enabledServices: (bool) ($post['selfService'] ?? false) ? [ProfileToggles::SELF_SERVICE] : [],
         );
 
         // No password could satisfy both limits. A min of 0 falls back to the global min, like UserPassword
@@ -139,6 +184,24 @@ class DomainSettings
         }
 
         return $settings;
+    }
+
+    /**
+     * A domain admin may make the password policy of the domain stricter, never weaker
+     * than the global minimum length.
+     *
+     * @throws InvalidInputException
+     */
+    public function assertDomainAdminPasswordPolicy(): void
+    {
+        $globalMin = Settings::getInstance()->passwordMinLength;
+        if ($this->minPasswordLength > 0 && $this->minPasswordLength < $globalMin) {
+            throw new InvalidInputException(
+                "minPasswordLength must not be lower than the global minimum ({$globalMin})",
+                'domain.msg_min_password_below_global',
+                ['min' => $globalMin],
+            );
+        }
     }
 
     /**

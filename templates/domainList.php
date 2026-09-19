@@ -28,9 +28,7 @@
             <th><?= $te('common.description') ?></th>
             <th><?= $te('domain.users') ?></th>
             <th><?= $te('common.status') ?></th>
-            <?php if ($isGlobalAdmin): ?>
             <th class="text-end"><?= $te('common.actions') ?></th>
-            <?php endif; ?>
           </tr>
         </thead>
         <tbody>
@@ -43,13 +41,14 @@
             <td class="text-body-secondary"><?= $e($domain->description) ?></td>
             <td><?= $e($domain->currentUserCount) ?></td>
             <td><?= $localize($domain->active ? 'active' : 'disabled') ?></td>
-            <?php if ($isGlobalAdmin): ?>
             <td>
               <div class="table-actions">
-                <a href="/domains/<?= $e($domain->domainName) ?>/edit" class="btn btn-sm btn-outline-secondary"><i class="bi bi-pencil me-1"></i><?= $te('common.edit') ?></a>
+                <?php $openPages = \App\Models\ProfileToggles::openDomainPages(\App\Models\DomainSettings::fromSettingsString($domain->settings), $isGlobalAdmin); ?>
+                <?php if ($openPages !== []): ?>
+                <a href="/domains/<?= $e($domain->domainName) ?>/<?= $e($openPages[0] === 'general' ? 'edit' : $openPages[0]) ?>" class="btn btn-sm btn-outline-secondary"><i class="bi bi-pencil me-1"></i><?= $te('common.edit') ?></a>
+                <?php endif; ?>
               </div>
             </td>
-            <?php endif; ?>
           </tr>
           <?php endforeach; ?>
         </tbody>

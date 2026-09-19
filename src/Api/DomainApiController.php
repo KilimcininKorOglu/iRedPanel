@@ -6,6 +6,7 @@ namespace App\Api;
 
 use App\Models\Domain;
 use App\Models\DomainSettings;
+use App\Models\ProfileToggles;
 use App\Models\Settings;
 use App\Repositories\RepositoryFactory;
 use App\Services\AccountSettingsService;
@@ -52,12 +53,15 @@ class DomainApiController
      *
      * @throws \InvalidArgumentException for an invalid value
      */
-    private static function applySettings(Domain $domain, array $data): void
+    private static function applySettings(Domain $domain, array $data, bool $isGlobalKey = true): void
     {
         $stored = DomainSettings::fromSettingsString($domain->settings);
         $settings = DomainSettings::fromFormData(
             array_intersect_key($data, $stored->toFormData('')) + $stored->toFormData($domain->disclaimer)
         );
+        if (!$isGlobalKey && $settings->minPasswordLength !== $stored->minPasswordLength) {
+            $settings->assertDomainAdminPasswordPolicy();
+        }
         $settings->keepOtherKeysOf($domain->settings);
         $domain->settings = $settings->toSettingsString();
         $domain->disclaimer = $settings->disclaimer;
@@ -165,11 +169,47 @@ class DomainApiController
         ApiResponse::created(['domainName' => $domain->domainName]);
     }
 
+    /**
+     * Body fields that a domain key may set => the domain page that holds them in the web panel.
+     * The limits, the status and the page toggles bound the domain admin, so only a global key sets them.
+     */
+    private const DOMAIN_KEY_FIELDS = [
+        'defaultUserQuota' => 'settings',
+        'minPasswordLength' => 'settings',
+        'maxPasswordLength' => 'settings',
+        'disclaimer' => 'settings',
+        'disabledMailServices' => 'settings',
+        'disabledUserPreferences' => 'settings',
+        'selfService' => 'settings',
+        'catchall' => 'catchall',
+        'senderBcc' => 'bcc',
+        'recipientBcc' => 'bcc',
+        'relayhost' => 'relay',
+    ];
+
+    /**
+     * Returns why a domain key may not send $data, or null when it may.
+     */
+    private static function domainKeyError(array $data, DomainSettings $settings): ?string
+    {
+        $openPages = ProfileToggles::openDomainPages($settings, false);
+        foreach (array_keys($data) as $field) {
+            $page = self::DOMAIN_KEY_FIELDS[$field] ?? null;
+            if ($page === null) {
+                return "{$field} requires a global API key";
+            }
+            if (!in_array($page, $openPages, true)) {
+                return "{$field} is on the domain page '{$page}', which is disabled for domain admins";
+            }
+        }
+
+        return null;
+    }
+
     public static function update(string $domain): void
     {
-        // The limits and the status bound the domain admin, so only a global key changes
-        // them, as only a global admin edits a domain in the web panel.
-        ApiMiddleware::requireGlobalKey();
+        // A domain key sets the fields of the domain pages that a domain admin edits in the web panel.
+        ApiMiddleware::requireDomainAccess($domain);
         ApiMiddleware::requireWriteAccess();
         $repo = RepositoryFactory::getDomainRepository();
         $existing = $repo->getDomain($domain);
@@ -179,6 +219,12 @@ class DomainApiController
         }
 
         $data = ApiMiddleware::getJsonBody();
+        $isGlobalKey = ApiMiddleware::getCurrentKey()?->isGlobal() ?? false;
+        $keyError = $isGlobalKey ? null : self::domainKeyError($data, DomainSettings::fromSettingsString($existing->settings));
+        if ($keyError !== null) {
+            ApiResponse::error($keyError, 403);
+            return;
+        }
         try {
             // Fields missing from the body keep their stored values.
             $form = Domain::fromFormData($data + [
@@ -194,7 +240,7 @@ class DomainApiController
                 'transport' => $existing->transport,
             ]);
             $routing = self::routingFromBody($data);
-            self::applySettings($existing, $data);
+            self::applySettings($existing, $data, $isGlobalKey);
         } catch (\InvalidArgumentException $e) {
             ApiResponse::error($e->getMessage());
             return;

@@ -29,14 +29,18 @@ final class LdapAccountSetting
     /** DomainSettings list property => accountSetting key with one value per item ("key:item"). */
     private const LIST_KEYS = [
         'disabledMailServices' => 'disabledMailService',
+        'disabledDomainProfiles' => 'disabledDomainProfile',
+        'disabledUserProfiles' => 'disabledUserProfile',
+        'disabledUserPreferences' => 'disabledUserPreference',
     ];
 
     /**
      * Sets the Domain fields from the stored accountSetting values.
      *
      * @param string[] $values
+     * @param string[] $enabledServices values of the domain attribute enabledService
      */
-    public static function applyTo(Domain $domain, array $values): void
+    public static function applyTo(Domain $domain, array $values, array $enabledServices = []): void
     {
         foreach (self::LIMIT_KEYS as $property => $key) {
             $domain->$property = (int) (self::valueOf($values, $key) ?? 0);
@@ -49,6 +53,7 @@ final class LdapAccountSetting
         foreach (self::LIST_KEYS as $property => $key) {
             $settings->$property = self::itemsOf($values, $key);
         }
+        $settings->enabledServices = array_values($enabledServices);
         $domain->settings = $settings->toSettingsString();
     }
 

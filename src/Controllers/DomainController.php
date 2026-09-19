@@ -10,6 +10,7 @@ use App\Middleware;
 use App\Models\Domain;
 use App\Models\DomainSettings;
 use App\Models\PaginatedResult;
+use App\Models\ProfileToggles;
 use App\Models\Settings;
 use App\Repositories\RepositoryFactory;
 use App\Services\AccountSettingsService;
@@ -161,64 +162,34 @@ class DomainController
      */
     public static function domainView(TemplateEngine $tpl, string $domainName, string $editMode = 'general'): void
     {
-        Middleware::globalAdminRequired();
+        // A domain admin edits the pages of a managed domain that the global admin left open;
+        // the general page holds the limits and stays global admin only.
+        Middleware::domainAdminRequired($domainName);
+        $isGlobalAdmin = Middleware::isGlobalAdmin();
 
-        if (!in_array($editMode, ['general', 'settings', 'catchall', 'bcc', 'relay'], true)) {
+        $repo = RepositoryFactory::getDomainRepository();
+        $stored = $repo->getDomain($domainName);
+        if ($stored === null || !in_array($editMode, ['general', ...ProfileToggles::DOMAIN_PROFILES], true)) {
             http_response_code(404);
             $tpl->render('page404.php');
             return;
         }
+        $openPages = ProfileToggles::openDomainPages(DomainSettings::fromSettingsString($stored->settings), $isGlobalAdmin);
+        if (!in_array($editMode, $openPages, true)) {
+            if ($editMode === 'general' && $openPages !== []) {
+                header('Location: /domains/' . rawurlencode($domainName) . '/' . $openPages[0]);
+                exit;
+            }
+            http_response_code(403);
+            echo 'Access denied: this page is disabled for domain admins';
+            return;
+        }
 
-        $repo = RepositoryFactory::getDomainRepository();
         $error = null;
         $success = null;
-
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             try {
-                if ($editMode === 'general') {
-                    $formDomain = Domain::fromFormData($_POST);
-                    // updateDomain() writes every column, so start from the stored domain and change
-                    // only the profile fields; the settings tab values and the disclaimer stay.
-                    $domain = $repo->getDomain($domainName) ?? throw new \RuntimeException(
-                        Translator::translate('common.msg_domain_not_found', ['domain' => $domainName])
-                    );
-                    $domain->applyProfile($formDomain);
-                    $repo->updateDomain($domain);
-                    ActivityLogger::logUpdate($domainName, '', "Domain updated: {$domainName}");
-                    $success = Translator::translate('domain.msg_updated');
-                } elseif ($editMode === 'settings') {
-                    $domainSettings = DomainSettings::fromFormData($_POST);
-                    $currentDomain = $repo->getDomain($domainName);
-                    if ($currentDomain !== null) {
-                        $domainSettings->keepOtherKeysOf($currentDomain->settings);
-                        $currentDomain->settings = $domainSettings->toSettingsString();
-                        $currentDomain->disclaimer = $domainSettings->disclaimer;
-                        $repo->updateDomain($currentDomain);
-                        ActivityLogger::logUpdate($domainName, '', "Domain settings updated: {$domainName}");
-                        $success = Translator::translate('domain.msg_settings_updated');
-                    }
-                } elseif ($editMode === 'catchall') {
-                    CsrfProtection::validateToken();
-                    $aliasRepo = RepositoryFactory::getAliasRepository();
-                    $aliasRepo->setCatchall($domainName, BaseController::postedAddress('catchallTarget'));
-                    ActivityLogger::logUpdate($domainName, '', "Catch-all updated: {$domainName}");
-                    $success = Translator::translate('domain.msg_catchall_updated');
-                } elseif ($editMode === 'bcc') {
-                    CsrfProtection::validateToken();
-                    $bccRepo = RepositoryFactory::getBccRepository();
-                    $senderBcc = BaseController::postedAddress('senderBcc');
-                    $recipientBcc = BaseController::postedAddress('recipientBcc');
-                    $bccRepo->setDomainSenderBcc($domainName, $senderBcc);
-                    $bccRepo->setDomainRecipientBcc($domainName, $recipientBcc);
-                    ActivityLogger::logUpdate($domainName, '', "BCC settings updated: {$domainName}");
-                    $success = Translator::translate('common.msg_bcc_updated');
-                } elseif ($editMode === 'relay') {
-                    CsrfProtection::validateToken();
-                    $relayRepo = RepositoryFactory::getRelayRepository();
-                    $relayRepo->setRelayhost('@' . $domainName, BaseController::postedRelayhost());
-                    ActivityLogger::logUpdate($domainName, '', "Relay settings updated: {$domainName}");
-                    $success = Translator::translate('common.msg_relay_updated');
-                }
+                $success = self::saveDomainPage($domainName, $editMode, $isGlobalAdmin);
             } catch (\Exception $e) {
                 $error = BaseController::errorMessage($e);
             }
@@ -260,9 +231,98 @@ class DomainController
             'recipientBcc' => $recipientBcc,
             'domainRelayhost' => $domainRelayhost,
             'supportsDomainQuota' => $repo->supportsDomainQuota(),
+            'openPages' => ProfileToggles::openDomainPages($domainSettings, $isGlobalAdmin),
+            'isGlobalAdmin' => $isGlobalAdmin,
             'error' => $error,
             'success' => $success,
         ]);
+    }
+
+    /**
+     * Saves the posted form of one domain page.
+     *
+     * @return string the translated success message
+     */
+    private static function saveDomainPage(string $domainName, string $editMode, bool $isGlobalAdmin): string
+    {
+        return match ($editMode) {
+            'general' => self::saveGeneral($domainName),
+            'settings' => self::saveSettings($domainName, $isGlobalAdmin),
+            'catchall' => self::saveCatchall($domainName),
+            'bcc' => self::saveBcc($domainName),
+            'relay' => self::saveRelay($domainName),
+        };
+    }
+
+    private static function saveGeneral(string $domainName): string
+    {
+        $repo = RepositoryFactory::getDomainRepository();
+        $formDomain = Domain::fromFormData($_POST);
+        // updateDomain() writes every column, so start from the stored domain and change
+        // only the profile fields; the settings tab values and the disclaimer stay.
+        $domain = $repo->getDomain($domainName) ?? throw new \RuntimeException(
+            Translator::translate('common.msg_domain_not_found', ['domain' => $domainName])
+        );
+        $domain->applyProfile($formDomain);
+        $repo->updateDomain($domain);
+        ActivityLogger::logUpdate($domainName, '', "Domain updated: {$domainName}");
+
+        return Translator::translate('domain.msg_updated');
+    }
+
+    private static function saveSettings(string $domainName, bool $isGlobalAdmin): string
+    {
+        $repo = RepositoryFactory::getDomainRepository();
+        $domainSettings = DomainSettings::fromFormData($_POST);
+        $currentDomain = $repo->getDomain($domainName) ?? throw new \RuntimeException(
+            Translator::translate('common.msg_domain_not_found', ['domain' => $domainName])
+        );
+        if (!$isGlobalAdmin) {
+            $storedSettings = DomainSettings::fromSettingsString($currentDomain->settings);
+            // A min length that a global admin stored stays; a domain admin cannot lower it below the global min.
+            if ($domainSettings->minPasswordLength !== $storedSettings->minPasswordLength) {
+                $domainSettings->assertDomainAdminPasswordPolicy();
+            }
+            $domainSettings->keepGlobalAdminTogglesOf($storedSettings);
+        }
+        $domainSettings->keepOtherKeysOf($currentDomain->settings);
+        $currentDomain->settings = $domainSettings->toSettingsString();
+        $currentDomain->disclaimer = $domainSettings->disclaimer;
+        $repo->updateDomain($currentDomain);
+        ActivityLogger::logUpdate($domainName, '', "Domain settings updated: {$domainName}");
+
+        return Translator::translate('domain.msg_settings_updated');
+    }
+
+    private static function saveCatchall(string $domainName): string
+    {
+        CsrfProtection::validateToken();
+        RepositoryFactory::getAliasRepository()->setCatchall($domainName, BaseController::postedAddress('catchallTarget'));
+        ActivityLogger::logUpdate($domainName, '', "Catch-all updated: {$domainName}");
+
+        return Translator::translate('domain.msg_catchall_updated');
+    }
+
+    private static function saveBcc(string $domainName): string
+    {
+        CsrfProtection::validateToken();
+        $bccRepo = RepositoryFactory::getBccRepository();
+        $senderBcc = BaseController::postedAddress('senderBcc');
+        $recipientBcc = BaseController::postedAddress('recipientBcc');
+        $bccRepo->setDomainSenderBcc($domainName, $senderBcc);
+        $bccRepo->setDomainRecipientBcc($domainName, $recipientBcc);
+        ActivityLogger::logUpdate($domainName, '', "BCC settings updated: {$domainName}");
+
+        return Translator::translate('common.msg_bcc_updated');
+    }
+
+    private static function saveRelay(string $domainName): string
+    {
+        CsrfProtection::validateToken();
+        RepositoryFactory::getRelayRepository()->setRelayhost('@' . $domainName, BaseController::postedRelayhost());
+        ActivityLogger::logUpdate($domainName, '', "Relay settings updated: {$domainName}");
+
+        return Translator::translate('common.msg_relay_updated');
     }
 
     /**

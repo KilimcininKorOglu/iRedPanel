@@ -62,6 +62,30 @@ class LdapAccountSettingTest extends TestCase
         );
     }
 
+    /**
+     * The page toggles use the iRedAdmin keys with one value per item; self-service is a value
+     * of the domain attribute enabledService.
+     */
+    public function testPageTogglesUseOneValuePerItem(): void
+    {
+        $domain = new Domain('example.com');
+        LdapAccountSetting::applyTo(
+            $domain,
+            ['disabledDomainProfile:relay', 'disabledUserProfile:bcc', 'disabledUserPreference:wblist'],
+            ['mail', 'self-service'],
+        );
+        $settings = DomainSettings::fromSettingsString($domain->settings);
+        $this->assertSame(['relay'], $settings->disabledDomainProfiles);
+        $this->assertSame(['bcc'], $settings->disabledUserProfiles);
+        $this->assertSame(['wblist'], $settings->disabledUserPreferences);
+        $this->assertTrue($settings->selfService());
+
+        $this->assertEqualsCanonicalizing(
+            ['disabledDomainProfile:relay', 'disabledUserProfile:bcc', 'disabledUserPreference:wblist'],
+            LdapAccountSetting::valuesFor($domain, ['disabledUserProfile:password'])
+        );
+    }
+
     public function testWriteKeepsOtherKeysAndDropsUnlimitedLimits(): void
     {
         $domain = new Domain('example.com', maxQuota: 250, mailboxes: 0, aliases: 7, lists: 3);

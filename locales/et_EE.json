@@ -558,7 +558,21 @@
     "backup_mx": "Backup MX",
     "backup_mx_enable": "See server on domeeni backup MX",
     "primary_mx": "Primary MX",
-    "backup_mx_help": "Server võtab posti vastu ja edastab selle primary MX-ile. Kui väli on tühi, kasutab Postfix domeeni MX-kirjeid."
+    "backup_mx_help": "Server võtab posti vastu ja edastab selle primary MX-ile. Kui väli on tühi, kasutab Postfix domeeni MX-kirjeid.",
+    "pref_personal_info": "Nimi ja keel",
+    "pref_wblist": "Valged ja mustad nimekirjad",
+    "pref_spampolicy": "Rämpspostipoliitika",
+    "pref_quarantine": "Karantiinis olevad kirjad",
+    "pref_received": "Saabunud kirjad",
+    "self_service": "Iseteenindus",
+    "self_service_enable": "Selle domeeni kasutajad saavad sisse logida ja oma eelistusi hallata",
+    "disabled_preferences_help": "Kasutajad ei saa märgitud eelistusi muuta.",
+    "disabled_domain_profiles": "Domeeni administraatoritele suletud domeenilehed",
+    "disabled_domain_profiles_help": "Domeeni administraatorid ei saa selle domeeni märgitud lehti avada.",
+    "disabled_user_profiles": "Domeeni administraatoritele suletud kasutajalehed",
+    "disabled_user_profiles_help": "Domeeni administraatorid ei saa selle domeeni kasutajate märgitud lehti avada.",
+    "msg_unknown_profile": "Tundmatu leht või eelistus: :name",
+    "msg_min_password_below_global": "Parooli minimaalne pikkus ei tohi olla väiksem kui globaalne miinimum (:min)."
   },
   "admin": {
     "msg_email_required": "Nõutav on kehtiv e-posti aadress",

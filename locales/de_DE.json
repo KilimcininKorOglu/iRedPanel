@@ -558,7 +558,21 @@
     "backup_mx": "Backup MX",
     "backup_mx_enable": "Dieser Server ist Backup MX der Domain",
     "primary_mx": "Primary MX",
-    "backup_mx_help": "Der Server nimmt die Mails an und leitet sie an den Primary MX weiter. Bei leerem Feld nutzt Postfix die MX-Einträge der Domain."
+    "backup_mx_help": "Der Server nimmt die Mails an und leitet sie an den Primary MX weiter. Bei leerem Feld nutzt Postfix die MX-Einträge der Domain.",
+    "pref_personal_info": "Name und Sprache",
+    "pref_wblist": "Whitelists und Blacklists",
+    "pref_spampolicy": "Spam-Richtlinie",
+    "pref_quarantine": "Quarantänierte Mails",
+    "pref_received": "Empfangene Mails",
+    "self_service": "Self-Service",
+    "self_service_enable": "Benutzer dieser Domain können sich anmelden und ihre eigenen Einstellungen verwalten",
+    "disabled_preferences_help": "Benutzer können die markierten Einstellungen nicht ändern.",
+    "disabled_domain_profiles": "Für Domain-Admins gesperrte Domain-Seiten",
+    "disabled_domain_profiles_help": "Domain-Admins können die markierten Seiten dieser Domain nicht öffnen.",
+    "disabled_user_profiles": "Für Domain-Admins gesperrte Benutzerseiten",
+    "disabled_user_profiles_help": "Domain-Admins können die markierten Seiten der Benutzer dieser Domain nicht öffnen.",
+    "msg_unknown_profile": "Unbekannte Seite oder Einstellung: :name",
+    "msg_min_password_below_global": "Die minimale Passwortlänge darf das globale Minimum (:min) nicht unterschreiten."
   },
   "admin": {
     "msg_email_required": "Eine gültige E-Mail-Adresse ist erforderlich",

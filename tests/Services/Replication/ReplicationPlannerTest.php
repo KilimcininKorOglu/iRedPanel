@@ -145,14 +145,22 @@ class ReplicationPlannerTest extends TestCase
         $this->assertSame([], $this->planner()->plan([$moved], null, self::linksAfter($plan, $links))->actions);
     }
 
+    public function testObjectsWithoutAnAddressAreIgnored(): void
+    {
+        // Built-in groups and computers are not mail accounts, so the log does not list them.
+        $computer = new SourceAccount('g9', ReplicatedAccount::KIND_USER, 'CN=PC', '', SourceAccount::SKIP_NO_ADDRESS);
+
+        $this->assertSame([], $this->planner()->plan([$computer], null, [])->actions);
+    }
+
     public function testSkipsAreLoggedOnceAndForgottenWhenTheObjectIsGone(): void
     {
-        $computer = new SourceAccount('g9', ReplicatedAccount::KIND_USER, 'CN=PC', '', SourceAccount::SKIP_NO_ADDRESS);
-        $plan = $this->planner()->plan([$computer], null, []);
+        $outside = new SourceAccount('g9', ReplicatedAccount::KIND_USER, 'CN=D', 'd@other.test', SourceAccount::SKIP_OTHER_DOMAIN);
+        $plan = $this->planner()->plan([$outside], null, []);
         $this->assertSame(['g9' => 'skip'], self::types($plan));
         $links = self::linksAfter($plan, []);
 
-        $this->assertSame([], $this->planner()->plan([$computer], null, $links)->actions);
+        $this->assertSame([], $this->planner()->plan([$outside], null, $links)->actions);
         $this->assertSame(
             ['g1' => 'create', 'g9' => 'forget'],
             self::types($this->planner()->plan([self::user('g1', 'a@x.test')], null, $links)),

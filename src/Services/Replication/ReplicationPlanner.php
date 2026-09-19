@@ -113,13 +113,21 @@ final class ReplicationPlanner
     }
 
     /**
-     * An owned account whose object lost its address is disabled once; other objects are logged once.
+     * An owned account whose object lost its address is disabled once. An object without
+     * an address is ignored; one with an unusable address is logged once.
      */
     private function planUnusable(SourceAccount $source, ?ReplicatedAccount $link): void
     {
         if ($link !== null && $link->ownsAccount()) {
             if ($link->state === ReplicatedAccount::STATE_ACTIVE) {
                 $this->add(ReplicationAction::DISABLE, $source, $link, $link->fingerprint, detail: $source->skipReason);
+            }
+            return;
+        }
+        if ($source->skipReason === SourceAccount::SKIP_NO_ADDRESS) {
+            // Built-in groups, computers and service accounts have no address: they are not mail accounts.
+            if ($link !== null) {
+                $this->actions[$source->guid] = new ReplicationAction(ReplicationAction::FORGET, $source->kind, $source->guid, $source, $link, '');
             }
             return;
         }

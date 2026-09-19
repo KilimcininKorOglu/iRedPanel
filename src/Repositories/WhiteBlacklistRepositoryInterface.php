@@ -11,6 +11,7 @@ interface WhiteBlacklistRepositoryInterface
 
     public function addInboundEntry(string $account, string $sender, string $wb): bool;
 
+    /** @return bool false when the account has no inbound entry for the sender */
     public function removeInboundEntry(string $account, string $sender): bool;
 
     /** @return array<int, array{recipient: string, wb: string}> */
@@ -18,6 +19,7 @@ interface WhiteBlacklistRepositoryInterface
 
     public function addOutboundEntry(string $account, string $recipient, string $wb): bool;
 
+    /** @return bool false when the account has no outbound entry for the recipient */
     public function removeOutboundEntry(string $account, string $recipient): bool;
 
     public function getOrCreateUserId(string $email): int;

@@ -49,12 +49,13 @@ class WhiteBlacklistController
                     ActivityLogger::logUpdate('', $account, "Added {$wb} entry for {$sender} ({$direction})");
                     $success = Translator::translate('wblist.msg_entry_added');
                 } elseif ($action === 'remove') {
-                    $sender = $_POST['sender'] ?? '';
+                    $sender = (string) ($_POST['sender'] ?? '');
 
-                    if ($direction === 'outbound') {
-                        $repo->removeOutboundEntry($account, $sender);
-                    } else {
-                        $repo->removeInboundEntry($account, $sender);
+                    $removed = $direction === 'outbound'
+                        ? $repo->removeOutboundEntry($account, $sender)
+                        : $repo->removeInboundEntry($account, $sender);
+                    if (!$removed) {
+                        throw new \RuntimeException(BaseController::itemError($sender, BaseController::itemNotFound()));
                     }
                     ActivityLogger::logDelete('', $account, "Removed entry for {$sender} ({$direction})");
                     $success = Translator::translate('wblist.msg_entry_removed');

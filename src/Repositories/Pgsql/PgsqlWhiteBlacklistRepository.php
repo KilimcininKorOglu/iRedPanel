@@ -130,23 +130,15 @@ class PgsqlWhiteBlacklistRepository implements WhiteBlacklistRepositoryInterface
     {
         $pdo = AmavisdPgsqlConnection::getInstance()->getPdo();
 
-        $userId = $this->getUserId($account);
-        if ($userId === null) {
-            return true;
-        }
+        // users.email and mailaddr.email are unique, so each subquery returns at most one ID.
+        $stmt = $pdo->prepare(
+            "DELETE FROM {$table}
+             WHERE rid = (SELECT id FROM users WHERE email = :account)
+               AND sid = (SELECT id FROM mailaddr WHERE email = :sender)"
+        );
+        $stmt->execute(['account' => $account, 'sender' => $sender]);
 
-        $stmt = $pdo->prepare("SELECT id FROM mailaddr WHERE email = :email LIMIT 1");
-        $stmt->execute(['email' => $sender]);
-        $row = $stmt->fetch();
-
-        if ($row === false) {
-            return true;
-        }
-
-        $pdo->prepare("DELETE FROM {$table} WHERE rid = :rid AND sid = :sid")
-            ->execute(['rid' => $userId, 'sid' => $row['id']]);
-
-        return true;
+        return $stmt->rowCount() > 0;
     }
 
     private function getUserId(string $email): ?int

@@ -151,7 +151,15 @@ class BaseController
      */
     public static function flashItemError(string $item, \Throwable $e): void
     {
-        self::flashError(Translator::translate('common.msg_bulk_failed', ['items' => self::itemFailure($item, $e)]));
+        self::flashError(self::itemError($item, $e));
+    }
+
+    /**
+     * Returns the message for a failed action on one item.
+     */
+    public static function itemError(string $item, \Throwable $e): string
+    {
+        return Translator::translate('common.msg_bulk_failed', ['items' => self::itemFailure($item, $e)]);
     }
 
     private static function itemFailure(string $item, \Throwable $e): string

@@ -60,10 +60,12 @@ class WhiteBlacklistApiController
             return;
         }
 
-        if ($direction === 'outbound') {
-            $repo->removeOutboundEntry($account, $sender);
-        } else {
-            $repo->removeInboundEntry($account, $sender);
+        $removed = $direction === 'outbound'
+            ? $repo->removeOutboundEntry($account, $sender)
+            : $repo->removeInboundEntry($account, $sender);
+        if (!$removed) {
+            ApiResponse::error('Entry not found', 404);
+            return;
         }
 
         ApiResponse::deleted();

@@ -19,8 +19,14 @@ if (empty($options['domain'])) {
     exit(1);
 }
 
-$domain = $options['domain'];
+$domain = strtolower($options['domain']);
 $outputFile = $options['output'] ?? null;
+
+// A mistyped domain must not look like a domain without users.
+if (RepositoryFactory::getDomainRepository()->getDomain($domain) === null) {
+    fwrite(STDERR, "Domain not found: {$domain}\n");
+    exit(1);
+}
 
 $userRepo = RepositoryFactory::getUserRepository();
 $users = $userRepo->getUsers($domain);
@@ -28,6 +34,10 @@ $users = $userRepo->getUsers($domain);
 $header = ['email', 'name', 'first_name', 'last_name', 'quota_mb', 'active', 'global_admin'];
 
 $output = fopen($outputFile ?? 'php://stdout', 'w');
+if ($output === false) {
+    fwrite(STDERR, "Cannot write to: {$outputFile}\n");
+    exit(1);
+}
 fputcsv($output, $header, escape: '');
 
 foreach ($users as $user) {

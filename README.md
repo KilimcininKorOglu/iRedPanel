@@ -63,6 +63,7 @@ A new release needs an entry in `compatibility.json` with its `composer.json` ve
 - `ext-ldap` for the LDAP backend
 - `ext-pdo` and `ext-pdo_mysql` for the MySQL/MariaDB backend, and for the SQL integrations of an LDAP installation
 - `ext-pdo` and `ext-pdo_pgsql` for the PostgreSQL backend
+- `ext-sodium` for account replication from Active Directory (included in most PHP builds)
 - [Composer](https://getcomposer.org/) 2
 - An iRedMail server with an OpenLDAP, MySQL/MariaDB or PostgreSQL backend
 - For mailing lists: the [mlmmjadmin](https://github.com/iredmail/mlmmjadmin) API of the mail server
@@ -98,7 +99,7 @@ All settings use the `IREDPANEL_` prefix and are loaded from `.env` or `.env.pro
 | Variable     | Default | Description                                   |
 |--------------|---------|-----------------------------------------------|
 | `BACKEND`    | `ldap`  | `ldap`, `mysql` or `pgsql`                    |
-| `SECRET_KEY` | -       | Application secret key (required)             |
+| `SECRET_KEY` | -       | Application secret key (required). It also encrypts the bind passwords of account resources; after a change, enter them again |
 
 ### LDAP Settings (required when `BACKEND=ldap`)
 
@@ -315,7 +316,7 @@ server {
 - **Layout**: black dark theme on Bootstrap 5.3 with a grouped left sidebar (General, Accounts, Security, System). On small screens the sidebar opens as an offcanvas menu. The menu shows only the pages that the admin role and the enabled integrations allow.
 - **Dialogs and messages**: every delete and bulk action asks for confirmation in a SweetAlert2 dialog. Results appear as toast messages.
 - **Account pickers**: address fields search the account list while you type (Tom Select) and still accept a free-text address. Multi-address fields: alias members and moderators, mailing list owners, moderators and subscribers, forwarding addresses, greylisting whitelisted senders. Single-address fields: domain and user BCC, catch-all target, admin creation, spam policy and white/blacklist accounts, mail log filter, alias quick add. The pickers call `GET /ajax/accounts`, a session endpoint that returns at most 20 active users, aliases and mailing lists, limited to the domains of a domain admin.
-- **Colored badges**: categorical values and counters use one color map (`App\BadgeTone`), so the same meaning has the same color on every page. Allowed or clean values are green, dangerous values are red, restricted values are orange or yellow, and plain information is blue, cyan or purple. This covers activity log events, admin type, access policy, mail content type, throttle kind, white/blacklist entries, domain ownership, setting source and item counters. An unknown value is gray.
+- **Colored badges**: categorical values and counters use one color map (`App\BadgeTone`), so the same meaning has the same color on every page. Allowed or clean values are green, dangerous values are red, restricted values are orange or yellow, and plain information is blue, cyan or purple. This covers activity log events, admin type, access policy, mail content type, throttle kind, white/blacklist entries, domain ownership, setting source, replication events and status, the "Active Directory" badge of replicated accounts, and item counters. An unknown value is gray.
 - **Branding**: panel name, logo, footer text and accent color (`BRAND_*`).
 - **Languages**: 40 UI languages with a switcher in the sidebar and on the login page.
 
@@ -374,6 +375,18 @@ server {
 ### Account Settings Cleanup
 - As in iRedAdmin-Pro, deleting a user, alias, mailing list or domain also deletes its Amavisd policy and white/blacklist and its iRedAPD throttle and greylisting settings. Renaming a user moves them to the new address. Only the enabled integrations are updated.
 
+### Account Replication (Active Directory)
+- **System > Account Resources** (global admin) replicates mail users, and optionally groups as mail aliases, from Active Directory or a Samba AD domain controller into one hosted domain, as the iRedMail Enterprise Edition "Account Resources" feature does
+- Connection over LDAPS (port 636) or StartTLS, with optional certificate verification; the bind password is encrypted in the iRedAdmin database
+- "Test connection" shows the first users and groups with their mapped values
+- The email address comes from `userPrincipalName` (users) and `mail` (groups) by default; the profile fields and the account status (`userAccountControl`) are mapped per resource
+- Created, updated, renamed, disabled and re-enabled accounts are written to a replication log per run and to the activity log
+- A local account that already uses an address is not changed; the run logs a conflict
+- An account that disappears from the directory is disabled, never deleted. When the search returns nothing, or more than half of ten or more accounts disappear at once, nothing is disabled (override with `--allow-mass-disable`)
+- Passwords are not replicated. A new mailbox gets a random password; set the password in the panel
+- The directory-owned fields are read-only in the web UI, kept by the web forms, and rejected by the REST API with 409
+- `cli/replicateAccounts.php` runs from cron every minute and replicates each enabled resource when its interval has passed. A database lock keeps a cron run and a "Replicate now" click apart
+
 ### Global Search
 - Search across domains, users, aliases, mailing lists and admins
 - Account type and status filters
@@ -423,6 +436,7 @@ server {
 - Passwords are piped to external commands through stdin, never passed as arguments
 - API key comparison with `hash_equals()` and optional API IP restriction
 - Configurable LDAP TLS certificate verification
+- Account resource bind passwords are encrypted with libsodium `secretbox`, with a key derived from `SECRET_KEY`, and never written back to the page
 
 ## REST API
 
@@ -480,6 +494,7 @@ php cli/notifyQuarantinedRecipients.php [--force-all]        # Cron: quarantine 
 php cli/dumpDisclaimer.php                                   # Write domain disclaimers to files
 php cli/dumpQuarantinedMails.php                             # Export quarantined messages
 php cli/invalidateSessions.php                               # End all active sessions
+php cli/replicateAccounts.php [--resource=ID] [--force] [--dry-run] [--allow-mass-disable]  # Cron: account replication
 ```
 
 ## Authentication and Access Control
@@ -517,7 +532,7 @@ Controller -> RepositoryInterface -> Ldap implementation   (BACKEND=ldap)
                                   -> Pgsql implementation  (BACKEND=pgsql)
 ```
 
-There are 22 repository interfaces. MySQL and PostgreSQL implement all 22. LDAP implements 15; for the SQL-only data (Amavisd, iRedAPD, spam policy, white/blacklist, domain ownership, API keys, panel settings) an LDAP installation uses the MySQL implementations against its SQL databases.
+There are 23 repository interfaces. MySQL and PostgreSQL implement all 23. LDAP implements 15; for the SQL-only data (Amavisd, iRedAPD, spam policy, white/blacklist, domain ownership, API keys, panel settings, account resources) an LDAP installation uses the MySQL implementations against its SQL databases.
 
 Mailing list writes go through `MailingListService`, which calls `MlmmjadminClient` and the repository. Outgoing mail goes through `App\Services\Mailer` (PHPMailer). Fail2ban is controlled through the `fail2ban-client` command. Quarantined mail is released through the Amavisd AM.PDP protocol.
 
@@ -526,13 +541,13 @@ Mailing list writes go through `MailingListService`, which calls `MlmmjadminClie
 | Connection                                         | Database    | Purpose                                                          |
 |----------------------------------------------------|-------------|------------------------------------------------------------------|
 | `MysqlConnection` / `PgsqlConnection`              | `vmail`     | Mail domains, users, admins, aliases, BCC, relay                 |
-| `IredadminConnection` / `IredadminPgsqlConnection` | `iredadmin` | Activity log, domain ownership, newsletter, panel settings, API keys |
+| `IredadminConnection` / `IredadminPgsqlConnection` | `iredadmin` | Activity log, domain ownership, newsletter, panel settings, API keys, account resources |
 | `AmavisdConnection` / `AmavisdPgsqlConnection`     | `amavisd`   | Quarantine, mail log, spam policy, white/blacklist               |
 | `IredapdConnection` / `IredapdPgsqlConnection`     | `iredapd`   | Throttle, greylisting, rDNS, SenderScore                         |
 
 Each integration uses the MySQL or PostgreSQL connection that matches `IREDPANEL_BACKEND`. All connection classes are singletons.
 
-### Repository Interfaces (22)
+### Repository Interfaces (23)
 
 | Interface                            | Purpose                              |
 |--------------------------------------|--------------------------------------|
@@ -558,6 +573,7 @@ Each integration uses the MySQL or PostgreSQL connection that matches `IREDPANEL
 | `IredapdRepositoryInterface`         | Throttle, greylisting, rDNS, SenderScore |
 | `ApiKeyRepositoryInterface`          | Stored API keys                      |
 | `PanelSettingsRepositoryInterface`   | Stored panel settings                |
+| `AccountResourceRepositoryInterface` | Account resources, replicated accounts, replication log |
 
 `AmavisdRepositoryInterface` and `IredapdRepositoryInterface` extend `AccountSettingsStoreInterface`, which deletes and renames the settings of an account.
 

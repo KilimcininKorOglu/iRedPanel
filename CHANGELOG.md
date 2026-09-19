@@ -11,6 +11,10 @@ All notable changes to this project will be documented in this file.
 - **System > iRedMail Compatibility** page (`/compatibility`) lists every release from `compatibility.json`; the dashboard shows the compatible iRedMail versions of the installed release and a newer release with its iRedMail versions
 - Installation guides for the OpenLDAP, MariaDB/MySQL and PostgreSQL backends in English and Turkish (`docs/install/`), each with a native and a Docker method
 - `cli/deleteUnmatchedThrottles.php [--dry-run]` deletes the iRedAPD throttle rows of CIDR and `user@*` accounts
+- Account replication from Active Directory and Samba AD (**System > Account Resources**, global admin): users, and optionally groups as mail aliases, are created, updated, renamed and disabled in one hosted domain. Each resource has Connection, Replication, Users and Groups settings, a connection test with a preview, "Replicate now" and a replication log per run
+- `cli/replicateAccounts.php [--resource=ID] [--force] [--dry-run] [--allow-mass-disable]` runs the due resources from cron every minute
+- Replicated accounts show an "Active Directory" badge; the directory-owned fields are read-only in the web UI and the REST API answers 409 when a request changes them
+- `App\Utils\SecretBox` encrypts secrets that the panel reads back (libsodium, key derived from `IREDPANEL_SECRET_KEY`)
 
 ### Changed
 - The dashboard reads new releases from `compatibility.json` on GitHub (24-hour cache) and falls back to the bundled copy; this replaces the GitHub release check

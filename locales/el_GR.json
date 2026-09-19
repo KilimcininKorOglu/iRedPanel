@@ -86,7 +86,8 @@
     "msg_item_deleted": "Το :item διαγράφηκε.",
     "msg_address_required": "Η διεύθυνση και ο τομέας είναι υποχρεωτικά.",
     "msg_alias_limit": "Συμπληρώθηκε το όριο ψευδωνύμων του τομέα (:current/:max).",
-    "msg_item_created": "Το :item δημιουργήθηκε."
+    "msg_item_created": "Το :item δημιουργήθηκε.",
+    "msg_invalid_relayhost": "Μη έγκυρος relay host: :relayhost. Χρησιμοποιήστε host, host:port, [host] ή [host]:port."
   },
   "auth": {
     "title": "Έλεγχος ταυτότητας",

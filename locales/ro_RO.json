@@ -86,7 +86,8 @@
     "msg_item_deleted": ":item a fost șters.",
     "msg_address_required": "Adresa și domeniul sunt obligatorii.",
     "msg_alias_limit": "S-a atins limita de aliasuri a domeniului (:current/:max).",
-    "msg_item_created": ":item a fost creat."
+    "msg_item_created": ":item a fost creat.",
+    "msg_invalid_relayhost": "Relay host invalid: :relayhost. Folosiți host, host:port, [host] sau [host]:port."
   },
   "auth": {
     "title": "Autentificare",

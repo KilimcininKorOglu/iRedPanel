@@ -86,7 +86,8 @@
     "msg_item_deleted": "S'ha suprimit :item.",
     "msg_address_required": "L'adreça i el domini són obligatoris.",
     "msg_alias_limit": "S'ha assolit el límit d'àlies del domini (:current/:max).",
-    "msg_item_created": "S'ha creat :item."
+    "msg_item_created": "S'ha creat :item.",
+    "msg_invalid_relayhost": "Relay host no vàlid: :relayhost. Utilitzeu host, host:port, [host] o [host]:port."
   },
   "auth": {
     "title": "Autenticació",

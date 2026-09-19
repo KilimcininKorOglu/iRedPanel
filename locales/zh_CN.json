@@ -86,7 +86,8 @@
     "msg_item_deleted": "已删除 :item。",
     "msg_address_required": "地址和域名为必填项。",
     "msg_alias_limit": "已达到域名的别名上限 (:current/:max)。",
-    "msg_item_created": "已创建 :item。"
+    "msg_item_created": "已创建 :item。",
+    "msg_invalid_relayhost": "无效的 relay host：:relayhost。请使用 host、host:port、[host] 或 [host]:port。"
   },
   "auth": {
     "title": "身份验证",

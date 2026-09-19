@@ -86,7 +86,8 @@
     "msg_item_deleted": "Đã xóa :item.",
     "msg_address_required": "Địa chỉ và tên miền là bắt buộc.",
     "msg_alias_limit": "Đã đạt giới hạn bí danh của tên miền (:current/:max).",
-    "msg_item_created": "Đã tạo :item."
+    "msg_item_created": "Đã tạo :item.",
+    "msg_invalid_relayhost": "Relay host không hợp lệ: :relayhost. Dùng host, host:port, [host] hoặc [host]:port."
   },
   "auth": {
     "title": "Xác thực",

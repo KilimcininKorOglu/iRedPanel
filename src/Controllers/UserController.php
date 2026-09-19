@@ -192,8 +192,7 @@ class UserController
                     CsrfProtection::validateToken();
                     $email = "{$userUid}@{$domain}";
                     $relayRepo = RepositoryFactory::getRelayRepository();
-                    $relayhost = trim($_POST['relayhost'] ?? '');
-                    $relayRepo->setRelayhost($email, $relayhost !== '' ? $relayhost : null);
+                    $relayRepo->setRelayhost($email, BaseController::postedRelayhost());
                     ActivityLogger::logUpdate($domain, $userUid, "Relay settings updated");
                     $success = Translator::translate('common.msg_relay_updated');
                 }

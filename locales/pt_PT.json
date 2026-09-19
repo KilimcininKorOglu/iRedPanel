@@ -86,7 +86,8 @@
     "msg_item_deleted": ":item foi eliminado.",
     "msg_address_required": "O endereço e o domínio são obrigatórios.",
     "msg_alias_limit": "O limite de aliases do domínio foi atingido (:current/:max).",
-    "msg_item_created": ":item foi criado."
+    "msg_item_created": ":item foi criado.",
+    "msg_invalid_relayhost": "Host de relay inválido: :relayhost. Utilize host, host:port, [host] ou [host]:port."
   },
   "auth": {
     "title": "Autenticação",

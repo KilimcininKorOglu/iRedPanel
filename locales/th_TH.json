@@ -86,7 +86,8 @@
     "msg_item_deleted": "ลบ :item แล้ว",
     "msg_address_required": "ต้องระบุที่อยู่และโดเมน",
     "msg_alias_limit": "ถึงขีดจำกัดนามแฝงของโดเมนแล้ว (:current/:max)",
-    "msg_item_created": "สร้าง :item แล้ว"
+    "msg_item_created": "สร้าง :item แล้ว",
+    "msg_invalid_relayhost": "relay host ไม่ถูกต้อง: :relayhost ใช้ host, host:port, [host] หรือ [host]:port"
   },
   "auth": {
     "title": "การยืนยันตัวตน",

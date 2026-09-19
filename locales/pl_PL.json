@@ -86,7 +86,8 @@
     "msg_item_deleted": "Usunięto :item.",
     "msg_address_required": "Adres i domena są wymagane.",
     "msg_alias_limit": "Osiągnięto limit aliasów domeny (:current/:max).",
-    "msg_item_created": "Utworzono :item."
+    "msg_item_created": "Utworzono :item.",
+    "msg_invalid_relayhost": "Nieprawidłowy host relay: :relayhost. Użyj host, host:port, [host] lub [host]:port."
   },
   "auth": {
     "title": "Uwierzytelnianie",

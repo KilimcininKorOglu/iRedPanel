@@ -86,7 +86,8 @@
     "msg_item_deleted": ":item poistettiin.",
     "msg_address_required": "Osoite ja verkkotunnus ovat pakollisia.",
     "msg_alias_limit": "Verkkotunnuksen aliasraja on täynnä (:current/:max).",
-    "msg_item_created": ":item luotiin."
+    "msg_item_created": ":item luotiin.",
+    "msg_invalid_relayhost": "Virheellinen relay host: :relayhost. Käytä muotoa host, host:port, [host] tai [host]:port."
   },
   "auth": {
     "title": "Todennus",

@@ -86,7 +86,8 @@
     "msg_item_deleted": ":item har tagits bort.",
     "msg_address_required": "Adressen och domänen krävs.",
     "msg_alias_limit": "Domänens aliasgräns har nåtts (:current/:max).",
-    "msg_item_created": ":item har skapats."
+    "msg_item_created": ":item har skapats.",
+    "msg_invalid_relayhost": "Ogiltig relay host: :relayhost. Använd host, host:port, [host] eller [host]:port."
   },
   "auth": {
     "title": "Autentisering",

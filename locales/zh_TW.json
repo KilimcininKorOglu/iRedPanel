@@ -86,7 +86,8 @@
     "msg_item_deleted": "已刪除 :item。",
     "msg_address_required": "地址與網域為必填。",
     "msg_alias_limit": "已達到網域的別名上限 (:current/:max)。",
-    "msg_item_created": "已建立 :item。"
+    "msg_item_created": "已建立 :item。",
+    "msg_invalid_relayhost": "無效的 relay host：:relayhost。請使用 host、host:port、[host] 或 [host]:port。"
   },
   "auth": {
     "title": "驗證",

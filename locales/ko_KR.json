@@ -86,7 +86,8 @@
     "msg_item_deleted": ":item을(를) 삭제했습니다.",
     "msg_address_required": "주소와 도메인은 필수입니다.",
     "msg_alias_limit": "도메인 별칭 한도에 도달했습니다 (:current/:max).",
-    "msg_item_created": ":item을(를) 만들었습니다."
+    "msg_item_created": ":item을(를) 만들었습니다.",
+    "msg_invalid_relayhost": "잘못된 relay host: :relayhost. host, host:port, [host] 또는 [host]:port 형식을 사용하십시오."
   },
   "auth": {
     "title": "인증",

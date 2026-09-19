@@ -86,7 +86,8 @@
     "msg_item_deleted": ":item er slettet.",
     "msg_address_required": "Adressen og domenet må fylles ut.",
     "msg_alias_limit": "Domenets aliasgrense er nådd (:current/:max).",
-    "msg_item_created": ":item er opprettet."
+    "msg_item_created": ":item er opprettet.",
+    "msg_invalid_relayhost": "Ugyldig relay host: :relayhost. Bruk host, host:port, [host] eller [host]:port."
   },
   "auth": {
     "title": "Autentisering",

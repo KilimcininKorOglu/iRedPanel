@@ -86,7 +86,8 @@
     "msg_item_deleted": ":item je izbrisan.",
     "msg_address_required": "Adresa i domena su obavezne.",
     "msg_alias_limit": "Dostignuto je ograničenje aliasa domene (:current/:max).",
-    "msg_item_created": ":item je kreiran."
+    "msg_item_created": ":item je kreiran.",
+    "msg_invalid_relayhost": "Neispravan relay host: :relayhost. Koristite host, host:port, [host] ili [host]:port."
   },
   "auth": {
     "title": "Autentifikacija",

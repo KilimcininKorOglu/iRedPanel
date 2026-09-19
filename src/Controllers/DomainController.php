@@ -216,8 +216,7 @@ class DomainController
                 } elseif ($editMode === 'relay') {
                     CsrfProtection::validateToken();
                     $relayRepo = RepositoryFactory::getRelayRepository();
-                    $relayhost = trim($_POST['relayhost'] ?? '');
-                    $relayRepo->setRelayhost('@' . $domainName, $relayhost !== '' ? $relayhost : null);
+                    $relayRepo->setRelayhost('@' . $domainName, BaseController::postedRelayhost());
                     ActivityLogger::logUpdate($domainName, '', "Relay settings updated: {$domainName}");
                     $success = Translator::translate('common.msg_relay_updated');
                 }

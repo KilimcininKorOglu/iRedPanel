@@ -86,7 +86,8 @@
     "msg_item_deleted": ":item видалено.",
     "msg_address_required": "Адреса та домен обов'язкові.",
     "msg_alias_limit": "Досягнуто ліміту псевдонімів домену (:current/:max).",
-    "msg_item_created": ":item створено."
+    "msg_item_created": ":item створено.",
+    "msg_invalid_relayhost": "Неприпустимий relay host: :relayhost. Використовуйте host, host:port, [host] або [host]:port."
   },
   "auth": {
     "title": "Автентифікація",

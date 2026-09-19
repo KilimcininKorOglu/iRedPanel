@@ -86,7 +86,8 @@
     "msg_item_deleted": ":item telah dihapus.",
     "msg_address_required": "Alamat dan domain wajib diisi.",
     "msg_alias_limit": "Batas alias domain telah tercapai (:current/:max).",
-    "msg_item_created": ":item telah dibuat."
+    "msg_item_created": ":item telah dibuat.",
+    "msg_invalid_relayhost": "Relay host tidak valid: :relayhost. Gunakan host, host:port, [host] atau [host]:port."
   },
   "auth": {
     "title": "Autentikasi",

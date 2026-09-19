@@ -86,7 +86,8 @@
     "msg_item_deleted": ":item var eytt.",
     "msg_address_required": "Netfang og lén eru nauðsynleg.",
     "msg_alias_limit": "Hámarki samnefna lénsins er náð (:current/:max).",
-    "msg_item_created": ":item var stofnað."
+    "msg_item_created": ":item var stofnað.",
+    "msg_invalid_relayhost": "Ógildur relay host: :relayhost. Notaðu host, host:port, [host] eða [host]:port."
   },
   "auth": {
     "title": "Auðkenning",

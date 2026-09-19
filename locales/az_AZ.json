@@ -86,7 +86,8 @@
     "msg_item_deleted": ":item silindi.",
     "msg_address_required": "Ünvan və domain tələb olunur.",
     "msg_alias_limit": "Domainin alias limitinə çatıldı (:current/:max).",
-    "msg_item_created": ":item yaradıldı."
+    "msg_item_created": ":item yaradıldı.",
+    "msg_invalid_relayhost": "Yanlış relay host: :relayhost. host, host:port, [host] və ya [host]:port formatından istifadə edin."
   },
   "auth": {
     "title": "Autentifikasiya",

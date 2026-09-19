@@ -86,7 +86,8 @@
     "msg_item_deleted": ":item silindi.",
     "msg_address_required": "Adres ve domain zorunludur.",
     "msg_alias_limit": "Domain alias sınırına ulaşıldı (:current/:max).",
-    "msg_item_created": ":item oluşturuldu."
+    "msg_item_created": ":item oluşturuldu.",
+    "msg_invalid_relayhost": "Geçersiz relay host: :relayhost. host, host:port, [host] veya [host]:port biçimini kullanın."
   },
   "auth": {
     "title": "Kimlik Doğrulama",

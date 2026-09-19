@@ -7,6 +7,7 @@ namespace App\Controllers;
 use App\Exceptions\BackendConnectionException;
 use App\I18n\Translator;
 use App\TemplateEngine;
+use App\Utils\Relayhost;
 
 class BaseController
 {
@@ -27,6 +28,23 @@ class BaseController
     public static function flashSuccess(string $message): void
     {
         $_SESSION['flash_success'] = $message;
+    }
+
+    /**
+     * Reads the posted relay host. An empty field removes the relay.
+     *
+     * @throws \RuntimeException when Postfix cannot use the value as a next hop
+     */
+    public static function postedRelayhost(): ?string
+    {
+        $relayhost = trim((string) ($_POST['relayhost'] ?? ''));
+        if ($relayhost === '') {
+            return null;
+        }
+        if (!Relayhost::isValid($relayhost)) {
+            throw new \RuntimeException(Translator::translate('common.msg_invalid_relayhost', ['relayhost' => $relayhost]));
+        }
+        return $relayhost;
     }
 
     /**

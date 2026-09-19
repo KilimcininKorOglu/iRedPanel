@@ -86,7 +86,8 @@
     "msg_item_deleted": ":item törölve.",
     "msg_address_required": "A cím és a domain megadása kötelező.",
     "msg_alias_limit": "Elérte a domain alias korlátját (:current/:max).",
-    "msg_item_created": ":item létrehozva."
+    "msg_item_created": ":item létrehozva.",
+    "msg_invalid_relayhost": "Érvénytelen relay host: :relayhost. Használja a host, host:port, [host] vagy [host]:port formát."
   },
   "auth": {
     "title": "Hitelesítés",

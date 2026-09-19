@@ -86,7 +86,8 @@
     "msg_item_deleted": ":item ezabatu da.",
     "msg_address_required": "Helbidea eta domeinua derrigorrezkoak dira.",
     "msg_alias_limit": "Domeinuaren alias muga gainditu da (:current/:max).",
-    "msg_item_created": ":item sortu da."
+    "msg_item_created": ":item sortu da.",
+    "msg_invalid_relayhost": "Relay host baliogabea: :relayhost. Erabili host, host:port, [host] edo [host]:port."
   },
   "auth": {
     "title": "Autentifikazioa",

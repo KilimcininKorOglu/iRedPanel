@@ -86,7 +86,8 @@
     "msg_item_deleted": ":item を削除しました。",
     "msg_address_required": "アドレスとドメインは必須です。",
     "msg_alias_limit": "ドメインのエイリアス上限に達しました (:current/:max)。",
-    "msg_item_created": ":item を作成しました。"
+    "msg_item_created": ":item を作成しました。",
+    "msg_invalid_relayhost": "無効な relay host です: :relayhost。host、host:port、[host]、[host]:port のいずれかを使用してください。"
   },
   "auth": {
     "title": "認証",

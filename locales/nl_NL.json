@@ -86,7 +86,8 @@
     "msg_item_deleted": ":item is verwijderd.",
     "msg_address_required": "Het adres en het domein zijn verplicht.",
     "msg_alias_limit": "De aliaslimiet van het domein is bereikt (:current/:max).",
-    "msg_item_created": ":item is aangemaakt."
+    "msg_item_created": ":item is aangemaakt.",
+    "msg_invalid_relayhost": "Ongeldige relayhost: :relayhost. Gebruik host, host:port, [host] of [host]:port."
   },
   "auth": {
     "title": "Authenticatie",

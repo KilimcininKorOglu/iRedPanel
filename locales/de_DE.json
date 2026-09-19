@@ -86,7 +86,8 @@
     "msg_item_deleted": ":item wurde gelöscht.",
     "msg_address_required": "Adresse und Domain sind erforderlich.",
     "msg_alias_limit": "Das Alias-Limit der Domain ist erreicht (:current/:max).",
-    "msg_item_created": ":item wurde erstellt."
+    "msg_item_created": ":item wurde erstellt.",
+    "msg_invalid_relayhost": "Ungültiger Relay-Host: :relayhost. Verwenden Sie host, host:port, [host] oder [host]:port."
   },
   "auth": {
     "title": "Authentifizierung",

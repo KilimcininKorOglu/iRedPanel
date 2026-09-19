@@ -86,7 +86,8 @@
     "msg_item_deleted": ":item bol odstránený.",
     "msg_address_required": "Adresa a doména sú povinné.",
     "msg_alias_limit": "Bol dosiahnutý limit aliasov domény (:current/:max).",
-    "msg_item_created": ":item bol vytvorený."
+    "msg_item_created": ":item bol vytvorený.",
+    "msg_invalid_relayhost": "Neplatný relay host: :relayhost. Použite host, host:port, [host] alebo [host]:port."
   },
   "auth": {
     "title": "Overenie",

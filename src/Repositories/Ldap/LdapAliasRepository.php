@@ -21,13 +21,10 @@ class LdapAliasRepository implements AliasRepositoryInterface
 {
     private const ALIAS_ATTRS = ['mail', 'cn', 'accountStatus', 'accessPolicy'];
 
-    /** LDAP result code "No such object". */
-    private const NO_SUCH_OBJECT = 32;
-
     public function getAliasesPaginated(int $page, int $perPage, ?string $domain = null): PaginatedResult
     {
         $baseDn = $domain !== null
-            ? self::aliasesOu($domain)
+            ? 'ou=Aliases,' . LdapUtils::getDomainDn($domain)
             : 'o=domains,' . Settings::getInstance()->ldapRootDn;
 
         $items = array_map(
@@ -246,41 +243,22 @@ class LdapAliasRepository implements AliasRepositoryInterface
 
     public function countAliasesForDomain(string $domain): int
     {
-        return count(self::searchEntries(self::aliasesOu($domain), '(objectClass=mailAlias)', ['mail']))
+        return count(self::searchEntries('ou=Aliases,' . LdapUtils::getDomainDn($domain), '(objectClass=mailAlias)', ['mail']))
             + count(self::searchEntries('ou=Groups,' . LdapUtils::getDomainDn($domain), '(objectClass=mailList)', ['mail']));
-    }
-
-    private static function aliasesOu(string $domain): string
-    {
-        return 'ou=Aliases,' . LdapUtils::getDomainDn($domain);
     }
 
     private static function aliasDn(string $address): string
     {
-        $domain = explode('@', $address, 2)[1] ?? '';
-
-        return 'mail=' . ldap_escape($address, '', LDAP_ESCAPE_DN) . ',' . self::aliasesOu($domain);
+        return LdapUtils::accountDn($address, 'Aliases');
     }
 
     /**
      * @param string[] $attrs
-     * @return array<int, array<string, mixed>> the entries; none when the base DN does not exist
+     * @return array<int, array<string, mixed>>
      */
     private static function searchEntries(string $baseDn, string $filter, array $attrs): array
     {
-        $conn = LdapConnection::getInstance()->getConn();
-        $result = @ldap_search($conn, $baseDn, $filter, $attrs);
-        if ($result === false) {
-            if (ldap_errno($conn) === self::NO_SUCH_OBJECT) {
-                return [];
-            }
-            throw new \RuntimeException('LDAP alias search failed: ' . ldap_error($conn));
-        }
-
-        $entries = ldap_get_entries($conn, $result);
-        unset($entries['count']);
-
-        return array_values($entries);
+        return LdapUtils::searchEntries(LdapConnection::getInstance()->getConn(), $baseDn, $filter, $attrs);
     }
 
     /**
@@ -289,16 +267,7 @@ class LdapAliasRepository implements AliasRepositoryInterface
      */
     private static function readAlias(string $address, array $attrs): ?array
     {
-        $conn = LdapConnection::getInstance()->getConn();
-        $result = @ldap_read($conn, self::aliasDn($address), '(objectClass=mailAlias)', $attrs);
-        if ($result === false) {
-            if (ldap_errno($conn) === self::NO_SUCH_OBJECT) {
-                return null;
-            }
-            throw new \RuntimeException("LDAP alias read failed for '{$address}': " . ldap_error($conn));
-        }
-
-        return ldap_get_entries($conn, $result)[0] ?? null;
+        return LdapUtils::readEntry(LdapConnection::getInstance()->getConn(), self::aliasDn($address), '(objectClass=mailAlias)', $attrs);
     }
 
     /**
@@ -313,16 +282,11 @@ class LdapAliasRepository implements AliasRepositoryInterface
     }
 
     /**
-     * An empty value list deletes the attribute.
-     *
      * @param array<string, string[]> $values
      */
     private static function replaceAttributes(string $address, array $values): void
     {
-        $conn = LdapConnection::getInstance()->getConn();
-        if (!@ldap_mod_replace($conn, self::aliasDn($address), $values)) {
-            throw new \RuntimeException("LDAP alias update failed for '{$address}': " . ldap_error($conn));
-        }
+        LdapUtils::replaceValues(LdapConnection::getInstance()->getConn(), self::aliasDn($address), $values);
     }
 
     /**

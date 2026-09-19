@@ -8,6 +8,9 @@ use App\Models\Settings;
 
 class LdapUtils
 {
+    /** LDAP result code "No such object". */
+    private const NO_SUCH_OBJECT = 32;
+
     /**
      * Builds LDAP DN for an email-based user.
      * Example: mail=user@example.com,ou=Users,domainName=example.com,o=domains,dc=example,dc=com
@@ -37,6 +40,17 @@ class LdapUtils
         $settings = Settings::getInstance();
         $safeDomain = ldap_escape($domain, '', LDAP_ESCAPE_DN);
         return "domainName={$safeDomain},o=domains,{$settings->ldapRootDn}";
+    }
+
+    /**
+     * Returns the DN of an account entry `mail=<address>,ou=<ou>` under the domain of the address.
+     */
+    public static function accountDn(string $address, string $ou): string
+    {
+        $address = strtolower($address);
+        $domain = explode('@', $address, 2)[1] ?? '';
+
+        return 'mail=' . ldap_escape($address, '', LDAP_ESCAPE_DN) . ",ou={$ou}," . self::getDomainDn($domain);
     }
 
     /**
@@ -97,13 +111,6 @@ class LdapUtils
     }
 
     /**
-     * Normalizes a PHP LDAP entry (from ldap_get_entries) into a clean associative array.
-     *
-     * PHP ldap_get_entries() returns lowercased attribute names with nested arrays
-     * containing 'count' keys. This method converts to simple ['attrName' => 'value']
-     * using the $requestedAttrs list to preserve original casing.
-     */
-    /**
      * Returns every value of a multi-valued attribute of an ldap_get_entries() entry.
      *
      * @return string[]
@@ -116,6 +123,66 @@ class LdapUtils
         return array_values($values);
     }
 
+    /**
+     * Searches below $baseDn. A missing base DN gives no entries; any other error throws.
+     *
+     * @param string[] $attrs
+     * @return array<int, array<string, mixed>>
+     */
+    public static function searchEntries(\LDAP\Connection $conn, string $baseDn, string $filter, array $attrs): array
+    {
+        $result = @ldap_search($conn, $baseDn, $filter, $attrs);
+        if ($result === false) {
+            if (ldap_errno($conn) === self::NO_SUCH_OBJECT) {
+                return [];
+            }
+            throw new \RuntimeException("LDAP search below '{$baseDn}' failed: " . ldap_error($conn));
+        }
+
+        $entries = ldap_get_entries($conn, $result);
+        unset($entries['count']);
+
+        return array_values($entries);
+    }
+
+    /**
+     * Reads one entry. A missing entry gives null; any other error throws.
+     *
+     * @param string[] $attrs
+     * @return array<string, mixed>|null
+     */
+    public static function readEntry(\LDAP\Connection $conn, string $dn, string $filter, array $attrs): ?array
+    {
+        $result = @ldap_read($conn, $dn, $filter, $attrs);
+        if ($result === false) {
+            if (ldap_errno($conn) === self::NO_SUCH_OBJECT) {
+                return null;
+            }
+            throw new \RuntimeException("LDAP read of '{$dn}' failed: " . ldap_error($conn));
+        }
+
+        return ldap_get_entries($conn, $result)[0] ?? null;
+    }
+
+    /**
+     * Replaces attribute values; an empty value list deletes the attribute.
+     *
+     * @param array<string, string[]> $values
+     */
+    public static function replaceValues(\LDAP\Connection $conn, string $dn, array $values): void
+    {
+        if (!@ldap_mod_replace($conn, $dn, $values)) {
+            throw new \RuntimeException("LDAP update of '{$dn}' failed: " . ldap_error($conn));
+        }
+    }
+
+    /**
+     * Normalizes a PHP LDAP entry (from ldap_get_entries) into a clean associative array.
+     *
+     * PHP ldap_get_entries() returns lowercased attribute names with nested arrays
+     * containing 'count' keys. This method converts to simple ['attrName' => 'value']
+     * using the $requestedAttrs list to preserve original casing.
+     */
     public static function normalizeEntry(array $entry, array $requestedAttrs): array
     {
         $result = [];

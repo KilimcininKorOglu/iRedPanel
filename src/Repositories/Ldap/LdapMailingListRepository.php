@@ -11,75 +11,47 @@ use App\Models\Settings;
 use App\Repositories\MailingListRepositoryInterface;
 use App\Utils\LdapUtils;
 
+/**
+ * mlmmj mailing lists in the layout of mlmmjadmin's iRedMail LDAP backend: a `mailList`
+ * entry `mail=<address>,ou=Groups` under the domain, with `enabledService: mail, deliver,
+ * mlmmj`, `mtaTransport: mlmmj:<domain>/<list>` and a `mailingListID`. Owners are stored in
+ * `listOwner` and in `listAllowedUser`, which iRedAPD reads as senders that bypass the
+ * access policy.
+ */
 class LdapMailingListRepository implements MailingListRepositoryInterface
 {
-    private const ATTRS = ['mail', 'cn', 'accountStatus', 'accessPolicy', 'transport', 'maxMessageSize', 'maxMembers', 'mailingListID'];
+    private const ATTRS = ['mail', 'cn', 'accountStatus', 'accessPolicy', 'mtaTransport', 'maxMessageSize', 'mailingListID'];
+
+    private const LIST_FILTER = '(&(objectClass=mailList)(enabledService=mlmmj))';
 
     public function getMailingListsPaginated(int $page, int $perPage, ?string $domain = null): PaginatedResult
     {
-        $conn = LdapConnection::getInstance()->getConn();
-        $settings = Settings::getInstance();
+        $baseDn = $domain !== null
+            ? 'ou=Groups,' . LdapUtils::getDomainDn($domain)
+            : 'o=domains,' . Settings::getInstance()->ldapRootDn;
 
-        if ($domain !== null) {
-            $baseDn = "ou=Groups,domainName=" . ldap_escape($domain, '', LDAP_ESCAPE_DN) . ",o=domains,{$settings->ldapRootDn}";
-        } else {
-            $baseDn = "o=domains,{$settings->ldapRootDn}";
-        }
+        $items = array_map(
+            static fn (array $entry): MailingList => self::toMailingList($entry),
+            LdapUtils::searchEntries(self::conn(), $baseDn, self::LIST_FILTER, self::ATTRS)
+        );
+        usort($items, static fn (MailingList $a, MailingList $b): int => strcmp($a->address, $b->address));
 
-        $filter = '(&(objectClass=mailList)(enabledService=mlmmj))';
-
-        $result = @ldap_search($conn, $baseDn, $filter, self::ATTRS);
-        if ($result === false) {
-            return new PaginatedResult([], 0, $page, $perPage);
-        }
-
-        $entries = ldap_get_entries($conn, $result);
-        $totalCount = $entries['count'] ?? 0;
-
-        $items = [];
-        for ($i = 0; $i < $totalCount; $i++) {
-            $items[] = $this->entryToMailingList($entries[$i]);
-        }
-
-        usort($items, fn(MailingList $a, MailingList $b) => strcmp($a->address, $b->address));
-
-        $offset = ($page - 1) * $perPage;
-        $pageItems = array_slice($items, $offset, $perPage);
-
-        return new PaginatedResult($pageItems, $totalCount, $page, $perPage);
+        return new PaginatedResult(array_slice($items, ($page - 1) * $perPage, $perPage), count($items), $page, $perPage);
     }
 
     public function getMailingList(string $address): ?MailingList
     {
-        $conn = LdapConnection::getInstance()->getConn();
-        $dn = $this->getMailingListDn($address);
+        $entry = LdapUtils::readEntry(self::conn(), self::listDn($address), self::LIST_FILTER, self::ATTRS);
 
-        $result = @ldap_read($conn, $dn, '(&(objectClass=mailList)(enabledService=mlmmj))', self::ATTRS);
-        if ($result === false) {
-            return null;
-        }
-
-        $entries = ldap_get_entries($conn, $result);
-        if (($entries['count'] ?? 0) === 0) {
-            return null;
-        }
-
-        return $this->entryToMailingList($entries[0]);
+        return $entry === null ? null : self::toMailingList($entry);
     }
 
     public function getMailingListById(string $mlid): ?MailingList
     {
-        $conn = LdapConnection::getInstance()->getConn();
-        $baseDn = 'o=domains,' . Settings::getInstance()->ldapRootDn;
-        $filter = '(&(objectClass=mailList)(enabledService=mlmmj)(mailingListID=' . ldap_escape($mlid, '', LDAP_ESCAPE_FILTER) . '))';
+        $filter = '(&' . self::LIST_FILTER . '(mailingListID=' . ldap_escape($mlid, '', LDAP_ESCAPE_FILTER) . '))';
+        $entries = LdapUtils::searchEntries(self::conn(), 'o=domains,' . Settings::getInstance()->ldapRootDn, $filter, self::ATTRS);
 
-        $result = @ldap_search($conn, $baseDn, $filter, self::ATTRS);
-        if ($result === false) {
-            return null;
-        }
-        $entries = ldap_get_entries($conn, $result);
-
-        return ($entries['count'] ?? 0) > 0 ? $this->entryToMailingList($entries[0]) : null;
+        return $entries === [] ? null : self::toMailingList($entries[0]);
     }
 
     /**
@@ -98,18 +70,16 @@ class LdapMailingListRepository implements MailingListRepositoryInterface
     public function createMailingList(string $address, string $domain, string $name,
                                      string $accessPolicy, int $maxMsgSize): bool
     {
-        $conn = LdapConnection::getInstance()->getConn();
-        $dn = $this->getMailingListDn($address);
-
+        $conn = self::conn();
         $entry = [
             'objectClass' => ['mailList'],
-            'mail' => $address,
+            'mail' => strtolower($address),
             'accountStatus' => 'active',
+            'enabledService' => ['mail', 'deliver', 'mlmmj'],
+            'mtaTransport' => MailingList::transportFor($address),
+            'mailingListID' => MailingList::generateId(),
             'accessPolicy' => $accessPolicy,
-            'enabledService' => ['mlmmj'],
-            'transport' => "mlmmj:{$address}",
         ];
-
         if ($name !== '') {
             $entry['cn'] = $name;
         }
@@ -117,114 +87,86 @@ class LdapMailingListRepository implements MailingListRepositoryInterface
             $entry['maxMessageSize'] = (string) $maxMsgSize;
         }
 
-        return @ldap_add($conn, $dn, $entry);
+        if (!@ldap_add($conn, self::listDn($address), $entry)) {
+            throw new \RuntimeException("LDAP mailing list creation failed for '{$address}': " . ldap_error($conn));
+        }
+
+        return true;
     }
 
     public function updateMailingList(string $address, string $name, string $accessPolicy,
                                      int $maxMsgSize, bool $active): bool
     {
-        $conn = LdapConnection::getInstance()->getConn();
-        $dn = $this->getMailingListDn($address);
+        LdapUtils::replaceValues(self::conn(), self::listDn($address), [
+            'accessPolicy' => [$accessPolicy],
+            'accountStatus' => [$active ? 'active' : 'disabled'],
+            'cn' => $name !== '' ? [$name] : [],
+            'maxMessageSize' => $maxMsgSize > 0 ? [(string) $maxMsgSize] : [],
+        ]);
 
-        $modifications = [
-            LdapUtils::modReplace('accessPolicy', $accessPolicy),
-            LdapUtils::modReplace('accountStatus', $active ? 'active' : 'disabled'),
-            LdapUtils::modReplace('cn', $name !== '' ? $name : null),
-            LdapUtils::modReplace('maxMessageSize', $maxMsgSize > 0 ? (string) $maxMsgSize : null),
-        ];
-
-        return LdapUtils::modifyBatch($conn, $dn, $modifications);
+        return true;
     }
 
     public function deleteMailingList(string $address): bool
     {
-        $conn = LdapConnection::getInstance()->getConn();
-        $dn = $this->getMailingListDn($address);
+        $conn = self::conn();
+        if (!@ldap_delete($conn, self::listDn($address))) {
+            throw new \RuntimeException("LDAP mailing list deletion failed for '{$address}': " . ldap_error($conn));
+        }
 
-        return @ldap_delete($conn, $dn);
+        return true;
     }
 
     public function getOwners(string $address): array
     {
-        $conn = LdapConnection::getInstance()->getConn();
-        $dn = $this->getMailingListDn($address);
-
-        $result = @ldap_read($conn, $dn, '(objectClass=*)', ['listOwner']);
-        if ($result === false) {
-            return [];
-        }
-
-        $entries = ldap_get_entries($conn, $result);
-        if (($entries['count'] ?? 0) === 0) {
-            return [];
-        }
-
-        $owners = [];
-        $count = $entries[0]['listowner']['count'] ?? 0;
-        for ($i = 0; $i < $count; $i++) {
-            $owners[] = $entries[0]['listowner'][$i];
-        }
-
+        $entry = LdapUtils::readEntry(self::conn(), self::listDn($address), self::LIST_FILTER, ['listOwner']);
+        $owners = LdapUtils::allValues($entry ?? [], 'listOwner');
         sort($owners);
+
         return $owners;
     }
 
     public function setOwners(string $address, array $owners): bool
     {
-        $conn = LdapConnection::getInstance()->getConn();
-        $dn = $this->getMailingListDn($address);
+        $owners = array_values(array_unique(array_filter(
+            array_map(static fn (string $o): string => strtolower(trim($o)), $owners),
+            static fn (string $o): bool => $o !== ''
+        )));
+        LdapUtils::replaceValues(self::conn(), self::listDn($address), ['listOwner' => $owners, 'listAllowedUser' => $owners]);
 
-        $owners = array_filter(array_map('trim', $owners));
-
-        if (!empty($owners)) {
-            $modification = [
-                'attrib' => 'listOwner',
-                'modtype' => LDAP_MODIFY_BATCH_REPLACE,
-                'values' => array_values($owners),
-            ];
-        } else {
-            $modification = [
-                'attrib' => 'listOwner',
-                'modtype' => LDAP_MODIFY_BATCH_REMOVE_ALL,
-            ];
-        }
-
-        return LdapUtils::modifyBatch($conn, $dn, [$modification]);
+        return true;
     }
 
     public function enableDisableMailingList(string $address, bool $active): bool
     {
-        $conn = LdapConnection::getInstance()->getConn();
-        $dn = $this->getMailingListDn($address);
+        LdapUtils::replaceValues(self::conn(), self::listDn($address), ['accountStatus' => [$active ? 'active' : 'disabled']]);
 
-        $modification = LdapUtils::modReplace('accountStatus', $active ? 'active' : 'disabled');
-        return LdapUtils::modifyBatch($conn, $dn, [$modification]);
+        return true;
     }
 
-    private function getMailingListDn(string $address): string
+    private static function conn(): \LDAP\Connection
     {
-        $settings = Settings::getInstance();
-        $domain = explode('@', $address, 2)[1] ?? '';
-        $safeDomain = ldap_escape($domain, '', LDAP_ESCAPE_DN);
-        $safeAddress = ldap_escape($address, '', LDAP_ESCAPE_DN);
-
-        return "mail={$safeAddress},ou=Groups,domainName={$safeDomain},o=domains,{$settings->ldapRootDn}";
+        return LdapConnection::getInstance()->getConn();
     }
 
-    private function entryToMailingList(array $entry): MailingList
+    private static function listDn(string $address): string
     {
-        $email = $entry['mail'][0] ?? '';
-        $domain = str_contains($email, '@') ? explode('@', $email, 2)[1] : '';
+        return LdapUtils::accountDn($address, 'Groups');
+    }
+
+    private static function toMailingList(array $entry): MailingList
+    {
+        $address = LdapUtils::allValues($entry, 'mail')[0] ?? '';
 
         return new MailingList(
-            address: $email,
-            domain: $domain,
-            name: $entry['cn'][0] ?? '',
-            accessPolicy: $entry['accesspolicy'][0] ?? 'public',
-            transport: $entry['transport'][0] ?? '',
-            maxMsgSize: (int) ($entry['maxmessagesize'][0] ?? 0),
-            active: ($entry['accountstatus'][0] ?? 'active') === 'active',
-            mlid: $entry['mailinglistid'][0] ?? '',
+            address: $address,
+            domain: explode('@', $address, 2)[1] ?? '',
+            name: LdapUtils::allValues($entry, 'cn')[0] ?? '',
+            accessPolicy: LdapUtils::allValues($entry, 'accessPolicy')[0] ?? 'public',
+            transport: LdapUtils::allValues($entry, 'mtaTransport')[0] ?? '',
+            maxMsgSize: (int) (LdapUtils::allValues($entry, 'maxMessageSize')[0] ?? 0),
+            active: (LdapUtils::allValues($entry, 'accountStatus')[0] ?? 'active') === 'active',
+            mlid: LdapUtils::allValues($entry, 'mailingListID')[0] ?? '',
         );
     }
 }

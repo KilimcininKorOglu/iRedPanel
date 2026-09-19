@@ -28,7 +28,7 @@ class LdapUserRepository implements UserRepositoryInterface
     ];
 
     private const ADDRESS_ATTRS = [
-        'mailForwardingAddress', 'listModerator', 'listOwner',
+        'mailForwardingAddress', 'listModerator', 'listOwner', 'listAllowedUser',
         'userSenderBccAddress', 'userRecipientBccAddress', 'domainSenderBccAddress', 'domainRecipientBccAddress',
     ];
 

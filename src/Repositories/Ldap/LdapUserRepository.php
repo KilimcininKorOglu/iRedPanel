@@ -6,7 +6,9 @@ namespace App\Repositories\Ldap;
 
 use App\Models\LdapConnection;
 use App\Models\PaginatedResult;
+use App\Models\Settings;
 use App\Models\User;
+use App\Repositories\Mysql\IredadminConnection;
 use App\Repositories\UserRepositoryInterface;
 use App\Utils\LdapUtils;
 
@@ -16,6 +18,12 @@ class LdapUserRepository implements UserRepositoryInterface
         'mail', 'accountStatus', 'domainGlobalAdmin', 'mailQuota', 'uid',
         'cn', 'givenName', 'sn', 'title', 'telephoneNumber', 'mobile', 'employeeNumber',
         'enabledService',
+    ];
+
+    /** Attributes that store a mail address and must follow a rename. */
+    private const ADDRESS_ATTRS = [
+        'mailForwardingAddress', 'listModerator', 'listOwner',
+        'userSenderBccAddress', 'userRecipientBccAddress', 'domainSenderBccAddress', 'domainRecipientBccAddress',
     ];
 
     private const USER_LIST_ATTRS = [
@@ -275,17 +283,78 @@ class LdapUserRepository implements UserRepositoryInterface
     public function renameUser(string $domain, string $oldUid, string $newUid): void
     {
         $conn = LdapConnection::getInstance()->getConn();
-        $oldDn = LdapUtils::getEmailDn("{$oldUid}@{$domain}");
-        $newRdn = "mail=" . ldap_escape("{$newUid}@{$domain}", '', LDAP_ESCAPE_DN);
-        $settings = \App\Models\Settings::getInstance();
-        $parentDn = "ou=Users,domainName=" . ldap_escape($domain, '', LDAP_ESCAPE_DN) . ",o=domains,{$settings->ldapRootDn}";
+        $oldEmail = "{$oldUid}@{$domain}";
+        $newEmail = "{$newUid}@{$domain}";
+        $newRdn = 'mail=' . ldap_escape($newEmail, '', LDAP_ESCAPE_DN);
+        $parentDn = 'ou=Users,' . LdapUtils::getDomainDn($domain);
 
-        if (!@ldap_rename($conn, $oldDn, $newRdn, $parentDn, true)) {
-            throw new \RuntimeException("LDAP rename failed: " . ldap_error($conn));
+        if (!@ldap_rename($conn, LdapUtils::getEmailDn($oldEmail), $newRdn, $parentDn, true)) {
+            throw new \RuntimeException('LDAP rename failed: ' . ldap_error($conn));
+        }
+        // The panel finds a user by uid, so uid must follow the address.
+        if (!@ldap_mod_replace($conn, "{$newRdn},{$parentDn}", ['mail' => [$newEmail], 'uid' => [$newUid]])) {
+            throw new \RuntimeException('LDAP rename failed: ' . ldap_error($conn));
         }
 
-        // Update mail attribute
-        $newDn = "{$newRdn},{$parentDn}";
-        @ldap_modify($conn, $newDn, ['mail' => "{$newUid}@{$domain}"]);
+        self::replaceAddressReferences($conn, $oldEmail, $newEmail);
+        self::renameIredadminRows($oldEmail, $newEmail);
+    }
+
+    /**
+     * Replaces the old address in every entry attribute that stores an address, as the
+     * SQL backends do for their forwardings, moderator, owner and BCC columns.
+     */
+    private static function replaceAddressReferences(\LDAP\Connection $conn, string $oldEmail, string $newEmail): void
+    {
+        $safeOld = ldap_escape($oldEmail, '', LDAP_ESCAPE_FILTER);
+        $filter = '(|' . implode('', array_map(
+            static fn (string $attr): string => "({$attr}={$safeOld})",
+            self::ADDRESS_ATTRS
+        )) . ')';
+        $result = @ldap_search($conn, 'o=domains,' . Settings::getInstance()->ldapRootDn, $filter, self::ADDRESS_ATTRS);
+        if ($result === false) {
+            throw new \RuntimeException('LDAP search failed: ' . ldap_error($conn));
+        }
+
+        $entries = ldap_get_entries($conn, $result);
+        for ($i = 0; $i < $entries['count']; $i++) {
+            $changes = self::replacedValues($entries[$i], $oldEmail, $newEmail);
+            if ($changes !== [] && !@ldap_mod_replace($conn, $entries[$i]['dn'], $changes)) {
+                throw new \RuntimeException('LDAP update failed: ' . ldap_error($conn));
+            }
+        }
+    }
+
+    /**
+     * @return array<string, string[]> the attributes of the entry that hold $oldEmail, with $newEmail instead
+     */
+    private static function replacedValues(array $entry, string $oldEmail, string $newEmail): array
+    {
+        $changes = [];
+        foreach (self::ADDRESS_ATTRS as $attr) {
+            $values = LdapUtils::allValues($entry, $attr);
+            $kept = array_filter($values, static fn (string $value): bool => strcasecmp($value, $oldEmail) !== 0);
+            if (count($kept) !== count($values)) {
+                $changes[$attr] = array_values(array_unique([...$kept, $newEmail]));
+            }
+        }
+
+        return $changes;
+    }
+
+    /**
+     * With the LDAP backend, Dovecot keeps quota, last login and shared folder rows in the
+     * iredadmin database. Without a configured iredadmin database there are no rows to move.
+     */
+    private static function renameIredadminRows(string $oldEmail, string $newEmail): void
+    {
+        $pdo = IredadminConnection::getInstance()->getPdo();
+        if ($pdo === null) {
+            return;
+        }
+        foreach ([['used_quota', 'username'], ['last_login', 'username'], ['share_folder', 'from_user'], ['share_folder', 'to_user'], ['anyone_shares', 'from_user']] as [$table, $column]) {
+            $pdo->prepare("UPDATE {$table} SET {$column} = :new WHERE {$column} = :old")
+                ->execute(['new' => $newEmail, 'old' => $oldEmail]);
+        }
     }
 }

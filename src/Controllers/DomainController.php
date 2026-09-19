@@ -175,6 +175,7 @@ class DomainController
             try {
                 if ($editMode === 'general') {
                     $formDomain = Domain::fromFormData($_POST);
+                    // updateDomain() writes every column, so the settings tab values must be carried over.
                     $domain = new Domain(
                         domainName: $domainName,
                         description: $formDomain->description,
@@ -184,6 +185,7 @@ class DomainController
                         mailboxes: $formDomain->mailboxes,
                         aliases: $formDomain->aliases,
                         transport: $formDomain->transport,
+                        settings: $repo->getDomain($domainName)?->settings ?? '',
                     );
                     $repo->updateDomain($domain);
                     ActivityLogger::logUpdate($domainName, '', "Domain updated: {$domainName}");

@@ -111,6 +111,8 @@ class DomainApiController
                 mailboxes: Domain::validLimit($data['mailboxes'] ?? $existing->mailboxes, 'mailboxes'),
                 aliases: Domain::validLimit($data['aliases'] ?? $existing->aliases, 'aliases'),
                 transport: $data['transport'] ?? $existing->transport,
+                // updateDomain() writes every column; the API does not edit the settings string.
+                settings: $existing->settings,
             );
         } catch (\InvalidArgumentException $e) {
             ApiResponse::error($e->getMessage());

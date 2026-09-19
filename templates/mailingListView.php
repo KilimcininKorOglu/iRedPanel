@@ -88,7 +88,7 @@
       <div class="card-header"><?= $te('mlist.list_owners') ?></div>
       <div class="card-body">
         <label for="owners" class="form-label"><?= $te('mlist.owners_hint') ?></label>
-        <textarea id="owners" name="owners" rows="4" class="form-control"><?= $e(implode("\n", $owners)) ?></textarea>
+        <textarea id="owners" name="owners" data-account-picker="multi" rows="4" class="form-control"><?= $e(implode("\n", $owners)) ?></textarea>
         <div class="form-text"><?= $te('mlist.owners_desc') ?></div>
       </div>
       <div class="card-footer">
@@ -105,7 +105,7 @@
       <div class="card-header"><?= $te('mlist.list_moderators') ?></div>
       <div class="card-body">
         <label for="moderators" class="form-label"><?= $te('mlist.moderators_hint') ?></label>
-        <textarea id="moderators" name="moderators" rows="4" class="form-control"><?= $e(implode("\n", $moderators)) ?></textarea>
+        <textarea id="moderators" name="moderators" data-account-picker="multi" rows="4" class="form-control"><?= $e(implode("\n", $moderators)) ?></textarea>
         <div class="form-text"><?= $te('mlist.moderators_desc') ?></div>
       </div>
       <div class="card-footer">
@@ -154,7 +154,7 @@
       <div class="card-header"><?= $te('mlist.add_subscribers') ?></div>
       <div class="card-body">
         <label for="subscribersInput" class="form-label"><?= $te('mlist.subscribers_hint') ?></label>
-        <textarea id="subscribersInput" name="subscribers" rows="4" class="form-control" required><?= $e($subscribersDraft) ?></textarea>
+        <textarea id="subscribersInput" name="subscribers" data-account-picker="multi" rows="4" class="form-control" required><?= $e($subscribersDraft) ?></textarea>
       </div>
       <div class="card-footer">
         <button type="submit" class="btn btn-primary"><?= $te('mlist.add_subscribers') ?></button>

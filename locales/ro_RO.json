@@ -105,7 +105,13 @@
     "msg_domain_not_found": "Domeniul :domain nu există.",
     "msg_invalid_whole_number": ":field: introduceți un număr întreg de 0 sau mai mare.",
     "msg_invalid_input": "Formularul conține o valoare cu un format nevalid.",
-    "confirm_title": "Sunteți sigur?"
+    "confirm_title": "Sunteți sigur?",
+    "picker_placeholder": "Căutați conturi sau introduceți o adresă",
+    "picker_no_results": "Niciun cont potrivit",
+    "picker_load_failed": "Căutarea conturilor a eșuat. Puteți introduce în continuare o adresă.",
+    "type_user": "Utilizator",
+    "type_alias": "Alias",
+    "type_ml": "Listă de corespondență"
   },
   "auth": {
     "title": "Autentificare",

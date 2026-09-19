@@ -105,7 +105,13 @@
     "msg_domain_not_found": "O domínio :domain não existe.",
     "msg_invalid_whole_number": ":field: informe um número inteiro igual ou maior que 0.",
     "msg_invalid_input": "O formulário contém um valor com formato inválido.",
-    "confirm_title": "Tem certeza?"
+    "confirm_title": "Tem certeza?",
+    "picker_placeholder": "Pesquise contas ou digite um endereço",
+    "picker_no_results": "Nenhuma conta correspondente",
+    "picker_load_failed": "A pesquisa de contas falhou. Você ainda pode digitar um endereço.",
+    "type_user": "Usuário",
+    "type_alias": "Alias",
+    "type_ml": "Lista de e-mail"
   },
   "auth": {
     "title": "Autenticação",

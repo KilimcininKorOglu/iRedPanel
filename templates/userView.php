@@ -177,7 +177,7 @@ $services = [
         <h2 class="h6 mb-3"><?= $te('user.email_forwarding') ?></h2>
         <div class="mb-3">
           <label for="forwardingAddresses" class="form-label"><?= $te('user.forwarding_addresses') ?></label>
-          <textarea id="forwardingAddresses" name="forwardingAddresses" rows="5" class="form-control" placeholder="user@example.com"><?= $e(implode("\n", $forwardings ?? [])) ?></textarea>
+          <textarea id="forwardingAddresses" name="forwardingAddresses" data-account-picker="multi" rows="5" class="form-control" placeholder="user@example.com"><?= $e(implode("\n", $forwardings ?? [])) ?></textarea>
         </div>
         <div class="form-check form-switch">
           <input type="checkbox" class="form-check-input" id="keepCopy" name="keepCopy" <?php if ($keepCopy ?? true): ?>checked<?php endif; ?> />
@@ -243,13 +243,13 @@ $services = [
         <p class="text-body-secondary"><?= $te('user.bcc_desc') ?></p>
         <div class="mb-3">
           <label for="senderBcc" class="form-label"><?= $te('domain.sender_bcc') ?></label>
-          <input id="senderBcc" type="email" name="senderBcc" class="form-control"
+          <input id="senderBcc" type="email" name="senderBcc" data-account-picker="single" class="form-control"
             value="<?= $e($userSenderBcc ?? '') ?>"
             placeholder="<?= $te('domain.sender_bcc_placeholder') ?>" />
         </div>
         <div>
           <label for="recipientBcc" class="form-label"><?= $te('domain.recipient_bcc') ?></label>
-          <input id="recipientBcc" type="email" name="recipientBcc" class="form-control"
+          <input id="recipientBcc" type="email" name="recipientBcc" data-account-picker="single" class="form-control"
             value="<?= $e($userRecipientBcc ?? '') ?>"
             placeholder="<?= $te('domain.recipient_bcc_placeholder') ?>" />
         </div>

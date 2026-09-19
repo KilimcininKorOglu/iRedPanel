@@ -142,7 +142,7 @@ $tabs = [
       <div class="card-body">
         <p class="text-body-secondary"><?= $te('domain.catchall_desc') ?></p>
         <label for="catchallTarget" class="form-label"><?= $te('domain.forward_to') ?></label>
-        <input id="catchallTarget" type="email" name="catchallTarget" class="form-control"
+        <input id="catchallTarget" type="email" name="catchallTarget" data-account-picker="single" class="form-control"
           value="<?= $e($catchallTarget ?? '') ?>"
           placeholder="<?= $te('domain.catchall_placeholder') ?>" />
         <div class="form-text"><?= $te('domain.catchall_remove_hint') ?></div>
@@ -160,13 +160,13 @@ $tabs = [
         <p class="text-body-secondary"><?= $te('domain.bcc_desc') ?></p>
         <div class="mb-3">
           <label for="senderBcc" class="form-label"><?= $te('domain.sender_bcc') ?></label>
-          <input id="senderBcc" type="email" name="senderBcc" class="form-control"
+          <input id="senderBcc" type="email" name="senderBcc" data-account-picker="single" class="form-control"
             value="<?= $e($senderBcc ?? '') ?>"
             placeholder="<?= $te('domain.sender_bcc_placeholder') ?>" />
         </div>
         <div>
           <label for="recipientBcc" class="form-label"><?= $te('domain.recipient_bcc') ?></label>
-          <input id="recipientBcc" type="email" name="recipientBcc" class="form-control"
+          <input id="recipientBcc" type="email" name="recipientBcc" data-account-picker="single" class="form-control"
             value="<?= $e($recipientBcc ?? '') ?>"
             placeholder="<?= $te('domain.recipient_bcc_placeholder') ?>" />
         </div>

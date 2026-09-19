@@ -105,7 +105,13 @@
     "msg_domain_not_found": "Домен :domain не постоји.",
     "msg_invalid_whole_number": ":field: унесите цео број, 0 или већи.",
     "msg_invalid_input": "Образац садржи вредност у неисправном формату.",
-    "confirm_title": "Да ли сте сигурни?"
+    "confirm_title": "Да ли сте сигурни?",
+    "picker_placeholder": "Претражите налоге или унесите адресу",
+    "picker_no_results": "Нема одговарајућег налога",
+    "picker_load_failed": "Претрага налога није успела. И даље можете унети адресу.",
+    "type_user": "Корисник",
+    "type_alias": "Алијас",
+    "type_ml": "Мејлинг листа"
   },
   "auth": {
     "title": "Аутентификација",

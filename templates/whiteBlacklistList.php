@@ -26,7 +26,7 @@ $sections = [
 <div class="row">
   <div class="col-xl-8">
     <form method="get" action="/amavisd/wblist" class="d-flex flex-wrap gap-2 mb-4">
-      <input type="text" name="account" class="form-control flex-grow-1 w-auto" value="<?= $e($account !== '@.' ? $account : '') ?>" placeholder="<?= $te('spampolicy.account_placeholder') ?>" aria-label="<?= $te('spampolicy.account') ?>" />
+      <input type="text" name="account" data-account-picker="single" data-types="user" class="form-control flex-grow-1 w-auto" value="<?= $e($account !== '@.' ? $account : '') ?>" placeholder="<?= $te('spampolicy.account_placeholder') ?>" aria-label="<?= $te('spampolicy.account') ?>" />
       <button type="submit" class="btn btn-outline-secondary"><?= $te('wblist.load_list') ?></button>
     </form>
 
@@ -38,7 +38,7 @@ $sections = [
           <?= $csrfField ?>
           <input type="hidden" name="action" value="add" />
           <input type="hidden" name="direction" value="<?= $direction ?>" />
-          <input type="text" name="sender" class="form-control flex-grow-1 w-auto" placeholder="<?= $te('wblist.sender_placeholder') ?>" required aria-label="<?= $te($columnKey) ?>" />
+          <input type="text" name="sender" data-account-picker="single" class="form-control flex-grow-1 w-auto" placeholder="<?= $te('wblist.sender_placeholder') ?>" required aria-label="<?= $te($columnKey) ?>" />
           <select name="wb" class="form-select w-auto" aria-label="<?= $te('common.type') ?>">
             <option value="W"><?= $te('wblist.whitelist') ?></option>
             <option value="B"><?= $te('wblist.blacklist') ?></option>

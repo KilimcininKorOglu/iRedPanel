@@ -105,7 +105,13 @@
     "msg_domain_not_found": "Doména :domain neexistuje.",
     "msg_invalid_whole_number": ":field: zadejte celé číslo 0 nebo větší.",
     "msg_invalid_input": "Formulář obsahuje hodnotu v neplatném formátu.",
-    "confirm_title": "Jste si jisti?"
+    "confirm_title": "Jste si jisti?",
+    "picker_placeholder": "Hledejte účty nebo zadejte adresu",
+    "picker_no_results": "Žádný odpovídající účet",
+    "picker_load_failed": "Hledání účtů selhalo. Adresu můžete stále zadat ručně.",
+    "type_user": "Uživatel",
+    "type_alias": "Alias",
+    "type_ml": "E-mailová konference"
   },
   "auth": {
     "title": "Ověření",

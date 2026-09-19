@@ -105,7 +105,13 @@
     "msg_domain_not_found": ":domain domain'i mevcut değil.",
     "msg_invalid_whole_number": ":field: 0 veya daha büyük bir tam sayı girin.",
     "msg_invalid_input": "Formda geçersiz formatta bir değer var.",
-    "confirm_title": "Emin misiniz?"
+    "confirm_title": "Emin misiniz?",
+    "picker_placeholder": "Hesap arayın veya adres yazın",
+    "picker_no_results": "Eşleşen hesap yok",
+    "picker_load_failed": "Hesap araması başarısız oldu. Adresi yine de yazabilirsiniz.",
+    "type_user": "Kullanıcı",
+    "type_alias": "Alias",
+    "type_ml": "Mailing list"
   },
   "auth": {
     "title": "Kimlik Doğrulama",

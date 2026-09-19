@@ -105,7 +105,13 @@
     "msg_domain_not_found": "域名 :domain 不存在。",
     "msg_invalid_whole_number": ":field：请输入 0 或更大的整数。",
     "msg_invalid_input": "表单中有格式无效的值。",
-    "confirm_title": "确定吗?"
+    "confirm_title": "确定吗?",
+    "picker_placeholder": "搜索账户或输入地址",
+    "picker_no_results": "没有匹配的账户",
+    "picker_load_failed": "账户搜索失败。您仍然可以手动输入地址。",
+    "type_user": "用户",
+    "type_alias": "别名",
+    "type_ml": "邮件列表"
   },
   "auth": {
     "title": "身份验证",

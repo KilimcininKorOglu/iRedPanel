@@ -105,7 +105,13 @@
     "msg_domain_not_found": "Domena :domain ne postoji.",
     "msg_invalid_whole_number": ":field: unesite cijeli broj, 0 ili veći.",
     "msg_invalid_input": "Obrazac sadrži vrijednost u neispravnom formatu.",
-    "confirm_title": "Jeste li sigurni?"
+    "confirm_title": "Jeste li sigurni?",
+    "picker_placeholder": "Pretražite račune ili upišite adresu",
+    "picker_no_results": "Nema odgovarajućeg računa",
+    "picker_load_failed": "Pretraga računa nije uspjela. I dalje možete upisati adresu.",
+    "type_user": "Korisnik",
+    "type_alias": "Alias",
+    "type_ml": "Mailing lista"
   },
   "auth": {
     "title": "Autentifikacija",

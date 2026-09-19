@@ -105,7 +105,13 @@
     "msg_domain_not_found": "Domain :domain tidak ada.",
     "msg_invalid_whole_number": ":field: masukkan bilangan bulat 0 atau lebih.",
     "msg_invalid_input": "Formulir berisi nilai dengan format yang tidak valid.",
-    "confirm_title": "Apakah Anda yakin?"
+    "confirm_title": "Apakah Anda yakin?",
+    "picker_placeholder": "Cari akun atau ketik alamat",
+    "picker_no_results": "Tidak ada akun yang cocok",
+    "picker_load_failed": "Pencarian akun gagal. Anda tetap dapat mengetik alamat.",
+    "type_user": "Pengguna",
+    "type_alias": "Alias",
+    "type_ml": "Milis"
   },
   "auth": {
     "title": "Autentikasi",

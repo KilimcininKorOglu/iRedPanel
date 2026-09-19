@@ -619,10 +619,31 @@ pre {
   color: #fff;
 }
 
-.ts-dropdown .option-type {
-  float: right;
-  font-size: 0.75rem;
+.ts-wrapper.plugin-remove_button .item .remove {
+  border-left-color: color-mix(in srgb, var(--app-accent) 45%, transparent);
+}
+
+.ts-wrapper.plugin-remove_button .item .remove:hover {
+  background: color-mix(in srgb, var(--bs-danger) 35%, transparent);
+}
+
+.ts-dropdown .highlight {
+  background: color-mix(in srgb, var(--app-accent) 35%, transparent);
+  color: inherit;
+  border-radius: 2px;
+}
+
+.ts-dropdown .create,
+.ts-dropdown .no-results {
   color: var(--app-muted);
+}
+
+.ts-dropdown .create.active {
+  color: #fff;
+}
+
+.ts-dropdown .no-results.text-danger {
+  color: var(--bs-danger-text-emphasis) !important;
 }
 
 /* ---------- SweetAlert2 ---------- */

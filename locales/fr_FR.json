@@ -105,7 +105,13 @@
     "msg_domain_not_found": "Le domaine :domain n'existe pas.",
     "msg_invalid_whole_number": ":field : saisissez un nombre entier supérieur ou égal à 0.",
     "msg_invalid_input": "Le formulaire contient une valeur dont le format n'est pas valide.",
-    "confirm_title": "Êtes-vous sûr ?"
+    "confirm_title": "Êtes-vous sûr ?",
+    "picker_placeholder": "Rechercher des comptes ou saisir une adresse",
+    "picker_no_results": "Aucun compte correspondant",
+    "picker_load_failed": "La recherche de comptes a échoué. Vous pouvez toujours saisir une adresse.",
+    "type_user": "Utilisateur",
+    "type_alias": "Alias",
+    "type_ml": "Liste de diffusion"
   },
   "auth": {
     "title": "Authentification",

@@ -105,7 +105,13 @@
     "msg_domain_not_found": "Lénið :domain er ekki til.",
     "msg_invalid_whole_number": ":field: sláðu inn heiltölu, 0 eða hærri.",
     "msg_invalid_input": "Eyðublaðið inniheldur gildi á ógildu sniði.",
-    "confirm_title": "Ertu viss?"
+    "confirm_title": "Ertu viss?",
+    "picker_placeholder": "Leitaðu að reikningum eða sláðu inn netfang",
+    "picker_no_results": "Enginn samsvarandi reikningur",
+    "picker_load_failed": "Leit að reikningum mistókst. Þú getur samt slegið inn netfang.",
+    "type_user": "Notandi",
+    "type_alias": "Samnefni",
+    "type_ml": "Póstlisti"
   },
   "auth": {
     "title": "Auðkenning",

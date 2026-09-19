@@ -105,7 +105,13 @@
     "msg_domain_not_found": "El domini :domain no existeix.",
     "msg_invalid_whole_number": ":field: introduïu un nombre enter igual o superior a 0.",
     "msg_invalid_input": "El formulari conté un valor amb un format no vàlid.",
-    "confirm_title": "N’esteu segur?"
+    "confirm_title": "N’esteu segur?",
+    "picker_placeholder": "Cerqueu comptes o escriviu una adreça",
+    "picker_no_results": "Cap compte coincident",
+    "picker_load_failed": "La cerca de comptes ha fallat. Encara podeu escriure una adreça.",
+    "type_user": "Usuari",
+    "type_alias": "Àlies",
+    "type_ml": "Llista de correu"
   },
   "auth": {
     "title": "Autenticació",

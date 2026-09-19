@@ -105,7 +105,13 @@
     "msg_domain_not_found": "Domeeni :domain ei ole olemas.",
     "msg_invalid_whole_number": ":field: sisestage täisarv 0 või suurem.",
     "msg_invalid_input": "Vorm sisaldab vigases vormingus väärtust.",
-    "confirm_title": "Kas olete kindel?"
+    "confirm_title": "Kas olete kindel?",
+    "picker_placeholder": "Otsige kontosid või sisestage aadress",
+    "picker_no_results": "Sobivat kontot pole",
+    "picker_load_failed": "Kontode otsing ebaõnnestus. Aadressi saate siiski sisestada.",
+    "type_user": "Kasutaja",
+    "type_alias": "Alias",
+    "type_ml": "Meililist"
   },
   "auth": {
     "title": "Autentimine",

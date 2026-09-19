@@ -105,7 +105,13 @@
     "msg_domain_not_found": "Domænet :domain findes ikke.",
     "msg_invalid_whole_number": ":field: angiv et heltal på 0 eller mere.",
     "msg_invalid_input": "Formularen indeholder en værdi i et ugyldigt format.",
-    "confirm_title": "Er du sikker?"
+    "confirm_title": "Er du sikker?",
+    "picker_placeholder": "Søg efter konti eller skriv en adresse",
+    "picker_no_results": "Ingen matchende konto",
+    "picker_load_failed": "Kontosøgningen mislykkedes. Du kan stadig skrive en adresse.",
+    "type_user": "Bruger",
+    "type_alias": "Alias",
+    "type_ml": "Mailingliste"
   },
   "auth": {
     "title": "Godkendelse",

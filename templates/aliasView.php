@@ -61,7 +61,7 @@
         </div>
 
         <label for="members" class="form-label"><?= $te('alias.members_oneline') ?></label>
-        <textarea id="members" name="members" rows="8" class="form-control"><?= $e(implode("\n", $members)) ?></textarea>
+        <textarea id="members" name="members" data-account-picker="multi" rows="8" class="form-control"><?= $e(implode("\n", $members)) ?></textarea>
       </div>
       <div class="card-footer">
         <button type="submit" class="btn btn-primary"><?= $te('mlist.save_settings') ?></button>
@@ -74,7 +74,7 @@
         <form method="post" action="/aliases/<?= $e($alias->address) ?>" class="d-flex flex-wrap gap-2">
           <?= $csrfField ?>
           <input type="hidden" name="action" value="addMember" />
-          <input type="email" name="newMember" class="form-control flex-grow-1 w-auto" placeholder="user@example.com" required aria-label="<?= $te('alias.quick_add_member') ?>" />
+          <input type="email" name="newMember" data-account-picker="single" class="form-control flex-grow-1 w-auto" placeholder="user@example.com" required aria-label="<?= $te('alias.quick_add_member') ?>" />
           <button type="submit" class="btn btn-primary"><i class="bi bi-plus-lg me-1"></i><?= $te('alias.add_member') ?></button>
         </form>
       </div>
@@ -113,7 +113,7 @@
       <div class="card-header"><?= $te('alias.moderators') ?></div>
       <div class="card-body">
         <label for="moderators" class="form-label"><?= $te('alias.moderators_hint') ?></label>
-        <textarea id="moderators" name="moderators" rows="4" class="form-control"><?= $e(implode("\n", $moderators)) ?></textarea>
+        <textarea id="moderators" name="moderators" data-account-picker="multi" rows="4" class="form-control"><?= $e(implode("\n", $moderators)) ?></textarea>
         <div class="form-text"><?= $te('alias.moderators_desc') ?></div>
       </div>
       <div class="card-footer">

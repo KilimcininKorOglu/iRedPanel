@@ -34,7 +34,7 @@ $switches = [
 <div class="row">
   <div class="col-xl-8">
     <form method="get" action="/amavisd/spam-policy" class="d-flex flex-wrap gap-2 mb-4">
-      <input type="text" name="account" class="form-control flex-grow-1 w-auto" value="<?= $e($account !== '@.' ? $account : '') ?>" placeholder="<?= $te('spampolicy.account_placeholder') ?>" aria-label="<?= $te('spampolicy.account') ?>" />
+      <input type="text" name="account" data-account-picker="single" data-types="user" class="form-control flex-grow-1 w-auto" value="<?= $e($account !== '@.' ? $account : '') ?>" placeholder="<?= $te('spampolicy.account_placeholder') ?>" aria-label="<?= $te('spampolicy.account') ?>" />
       <button type="submit" class="btn btn-outline-secondary"><?= $te('spampolicy.load_policy') ?></button>
     </form>
 

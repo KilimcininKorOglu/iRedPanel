@@ -105,7 +105,13 @@
     "msg_domain_not_found": "A(z) :domain domain nem létezik.",
     "msg_invalid_whole_number": ":field: adjon meg 0 vagy nagyobb egész számot.",
     "msg_invalid_input": "Az űrlap érvénytelen formátumú értéket tartalmaz.",
-    "confirm_title": "Biztos benne?"
+    "confirm_title": "Biztos benne?",
+    "picker_placeholder": "Fiókok keresése vagy cím megadása",
+    "picker_no_results": "Nincs egyező fiók",
+    "picker_load_failed": "A fiókkeresés nem sikerült. A címet továbbra is beírhatja.",
+    "type_user": "Felhasználó",
+    "type_alias": "Álnév",
+    "type_ml": "Levelezőlista"
   },
   "auth": {
     "title": "Hitelesítés",

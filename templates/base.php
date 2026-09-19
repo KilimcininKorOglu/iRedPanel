@@ -10,6 +10,16 @@ $appData = json_encode([
         'confirmTitle' => $t('common.confirm_title'),
         'confirm' => $t('common.confirm'),
         'cancel' => $t('common.cancel'),
+        'pickerPlaceholder' => $t('common.picker_placeholder'),
+        'pickerNoResults' => $t('common.picker_no_results'),
+        'pickerLoadFailed' => $t('common.picker_load_failed'),
+        'pickerAdd' => $t('common.add'),
+        'pickerRemove' => $t('common.remove'),
+        'types' => [
+            'user' => $t('common.type_user'),
+            'alias' => $t('common.type_alias'),
+            'ml' => $t('common.type_ml'),
+        ],
     ],
 ], JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_THROW_ON_ERROR);
 ?>

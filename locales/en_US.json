@@ -105,7 +105,13 @@
     "msg_domain_not_found": "The domain :domain does not exist.",
     "msg_invalid_whole_number": ":field: enter a whole number of 0 or more.",
     "msg_invalid_input": "The form holds a value with an invalid format.",
-    "confirm_title": "Are you sure?"
+    "confirm_title": "Are you sure?",
+    "picker_placeholder": "Search accounts or type an address",
+    "picker_no_results": "No matching account",
+    "picker_load_failed": "Account search failed. You can still type an address.",
+    "type_user": "User",
+    "type_alias": "Alias",
+    "type_ml": "Mailing list"
   },
   "auth": {
     "title": "Authentication",

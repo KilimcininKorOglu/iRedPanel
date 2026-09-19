@@ -8,7 +8,7 @@ $contentTypes = ['C', 'S', 'Y', 'V', 'B', 'H', 'M', 'O', 'T', 'U'];
 </div>
 
 <form method="get" class="d-flex flex-wrap gap-2 mb-3">
-  <input type="text" name="email" class="form-control w-auto flex-grow-1" style="max-width: 420px" placeholder="<?= $te('maillog.filter_placeholder') ?>" value="<?= $e($filterEmail ?? '') ?>" aria-label="<?= $te('maillog.filter') ?>" />
+  <input type="text" name="email" data-account-picker="single" class="form-control w-auto flex-grow-1" style="max-width: 420px" placeholder="<?= $te('maillog.filter_placeholder') ?>" value="<?= $e($filterEmail ?? '') ?>" aria-label="<?= $te('maillog.filter') ?>" />
   <button type="submit" class="btn btn-outline-secondary"><i class="bi bi-funnel me-1"></i><?= $te('maillog.filter') ?></button>
   <a href="/amavisd/maillog" class="btn btn-outline-secondary"><?= $te('maillog.clear') ?></a>
 </form>

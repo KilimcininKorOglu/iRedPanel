@@ -105,7 +105,13 @@
     "msg_domain_not_found": ":domain domeni mövcud deyil.",
     "msg_invalid_whole_number": ":field: 0 və ya daha böyük tam ədəd daxil edin.",
     "msg_invalid_input": "Formda yanlış formatlı dəyər var.",
-    "confirm_title": "Əminsiniz?"
+    "confirm_title": "Əminsiniz?",
+    "picker_placeholder": "Hesab axtarın və ya ünvan yazın",
+    "picker_no_results": "Uyğun hesab yoxdur",
+    "picker_load_failed": "Hesab axtarışı alınmadı. Ünvanı yenə də yaza bilərsiniz.",
+    "type_user": "İstifadəçi",
+    "type_alias": "Alias",
+    "type_ml": "Poçt siyahısı"
   },
   "auth": {
     "title": "Autentifikasiya",

@@ -105,7 +105,13 @@
     "msg_domain_not_found": "ไม่มีโดเมน :domain",
     "msg_invalid_whole_number": ":field: ป้อนจำนวนเต็มตั้งแต่ 0 ขึ้นไป",
     "msg_invalid_input": "แบบฟอร์มมีค่าที่มีรูปแบบไม่ถูกต้อง",
-    "confirm_title": "คุณแน่ใจหรือไม่?"
+    "confirm_title": "คุณแน่ใจหรือไม่?",
+    "picker_placeholder": "ค้นหาบัญชีหรือพิมพ์ที่อยู่",
+    "picker_no_results": "ไม่มีบัญชีที่ตรงกัน",
+    "picker_load_failed": "การค้นหาบัญชีล้มเหลว คุณยังพิมพ์ที่อยู่เองได้",
+    "type_user": "ผู้ใช้",
+    "type_alias": "นามแฝง",
+    "type_ml": "รายชื่อผู้รับจดหมาย"
   },
   "auth": {
     "title": "การยืนยันตัวตน",

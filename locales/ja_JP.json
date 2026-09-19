@@ -105,7 +105,13 @@
     "msg_domain_not_found": "ドメイン :domain は存在しません。",
     "msg_invalid_whole_number": ":field: 0 以上の整数を入力してください。",
     "msg_invalid_input": "フォームに無効な形式の値があります。",
-    "confirm_title": "よろしいですか?"
+    "confirm_title": "よろしいですか?",
+    "picker_placeholder": "アカウントを検索、またはアドレスを入力",
+    "picker_no_results": "一致するアカウントはありません",
+    "picker_load_failed": "アカウント検索に失敗しました。アドレスは手入力できます。",
+    "type_user": "ユーザー",
+    "type_alias": "エイリアス",
+    "type_ml": "メーリングリスト"
   },
   "auth": {
     "title": "認証",

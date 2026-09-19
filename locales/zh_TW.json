@@ -105,7 +105,13 @@
     "msg_domain_not_found": "網域 :domain 不存在。",
     "msg_invalid_whole_number": ":field：請輸入 0 或更大的整數。",
     "msg_invalid_input": "表單中有格式無效的值。",
-    "confirm_title": "確定嗎?"
+    "confirm_title": "確定嗎?",
+    "picker_placeholder": "搜尋帳號或輸入地址",
+    "picker_no_results": "沒有符合的帳號",
+    "picker_load_failed": "帳號搜尋失敗。您仍然可以手動輸入地址。",
+    "type_user": "使用者",
+    "type_alias": "別名",
+    "type_ml": "郵寄清單"
   },
   "auth": {
     "title": "驗證",

@@ -105,7 +105,13 @@
     "msg_domain_not_found": "Het domein :domain bestaat niet.",
     "msg_invalid_whole_number": ":field: voer een geheel getal van 0 of meer in.",
     "msg_invalid_input": "Het formulier bevat een waarde met een ongeldige indeling.",
-    "confirm_title": "Weet u het zeker?"
+    "confirm_title": "Weet u het zeker?",
+    "picker_placeholder": "Zoek accounts of typ een adres",
+    "picker_no_results": "Geen overeenkomend account",
+    "picker_load_failed": "Zoeken naar accounts is mislukt. U kunt nog steeds een adres typen.",
+    "type_user": "Gebruiker",
+    "type_alias": "Alias",
+    "type_ml": "Mailinglijst"
   },
   "auth": {
     "title": "Authenticatie",

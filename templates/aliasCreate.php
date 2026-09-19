@@ -59,7 +59,7 @@
         <div class="card-header"><?= $te('alias.members') ?></div>
         <div class="card-body">
           <label for="members" class="form-label"><?= $te('alias.members_hint') ?></label>
-          <textarea id="members" name="members" rows="6" class="form-control" placeholder="user1@example.com&#10;user2@example.com"><?= $e($_POST['members'] ?? '') ?></textarea>
+          <textarea id="members" name="members" data-account-picker="multi" rows="6" class="form-control" placeholder="user1@example.com&#10;user2@example.com"><?= $e($_POST['members'] ?? '') ?></textarea>
         </div>
       </div>
 

@@ -105,7 +105,13 @@
     "msg_domain_not_found": "Domena :domain ne obstaja.",
     "msg_invalid_whole_number": ":field: vnesite celo število 0 ali več.",
     "msg_invalid_input": "Obrazec vsebuje vrednost v neveljavni obliki.",
-    "confirm_title": "Ali ste prepričani?"
+    "confirm_title": "Ali ste prepričani?",
+    "picker_placeholder": "Poiščite račune ali vnesite naslov",
+    "picker_no_results": "Ni ustreznega računa",
+    "picker_load_failed": "Iskanje računov ni uspelo. Naslov lahko še vedno vnesete.",
+    "type_user": "Uporabnik",
+    "type_alias": "Vzdevek",
+    "type_ml": "Poštni seznam"
   },
   "auth": {
     "title": "Preverjanje pristnosti",

@@ -105,7 +105,13 @@
     "msg_domain_not_found": "Die Domain :domain existiert nicht.",
     "msg_invalid_whole_number": ":field: Geben Sie eine ganze Zahl von 0 oder mehr ein.",
     "msg_invalid_input": "Das Formular enthält einen Wert in einem ungültigen Format.",
-    "confirm_title": "Sind Sie sicher?"
+    "confirm_title": "Sind Sie sicher?",
+    "picker_placeholder": "Konten suchen oder Adresse eingeben",
+    "picker_no_results": "Kein passendes Konto",
+    "picker_load_failed": "Die Kontosuche ist fehlgeschlagen. Sie können trotzdem eine Adresse eingeben.",
+    "type_user": "Benutzer",
+    "type_alias": "Alias",
+    "type_ml": "Mailingliste"
   },
   "auth": {
     "title": "Authentifizierung",

@@ -105,7 +105,13 @@
     "msg_domain_not_found": "Doména :domain neexistuje.",
     "msg_invalid_whole_number": ":field: zadajte celé číslo 0 alebo väčšie.",
     "msg_invalid_input": "Formulár obsahuje hodnotu v neplatnom formáte.",
-    "confirm_title": "Ste si istí?"
+    "confirm_title": "Ste si istí?",
+    "picker_placeholder": "Vyhľadajte účty alebo zadajte adresu",
+    "picker_no_results": "Žiadny zodpovedajúci účet",
+    "picker_load_failed": "Vyhľadávanie účtov zlyhalo. Adresu môžete stále zadať ručne.",
+    "type_user": "Používateľ",
+    "type_alias": "Alias",
+    "type_ml": "E-mailová konferencia"
   },
   "auth": {
     "title": "Overenie",

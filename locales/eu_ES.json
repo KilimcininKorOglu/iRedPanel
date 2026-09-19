@@ -105,7 +105,13 @@
     "msg_domain_not_found": ":domain domeinua ez da existitzen.",
     "msg_invalid_whole_number": ":field: idatzi 0 edo handiagoa den zenbaki oso bat.",
     "msg_invalid_input": "Inprimakiak formatu baliogabeko balio bat du.",
-    "confirm_title": "Ziur zaude?"
+    "confirm_title": "Ziur zaude?",
+    "picker_placeholder": "Bilatu kontuak edo idatzi helbide bat",
+    "picker_no_results": "Ez dago bat datorren konturik",
+    "picker_load_failed": "Kontuen bilaketak huts egin du. Helbide bat idatz dezakezu oraindik.",
+    "type_user": "Erabiltzailea",
+    "type_alias": "Aliasa",
+    "type_ml": "Posta-zerrenda"
   },
   "auth": {
     "title": "Autentifikazioa",

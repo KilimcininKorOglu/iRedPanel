@@ -105,7 +105,13 @@
     "msg_domain_not_found": "Domänen :domain finns inte.",
     "msg_invalid_whole_number": ":field: ange ett heltal på 0 eller mer.",
     "msg_invalid_input": "Formuläret innehåller ett värde i ett ogiltigt format.",
-    "confirm_title": "Är du säker?"
+    "confirm_title": "Är du säker?",
+    "picker_placeholder": "Sök efter konton eller skriv en adress",
+    "picker_no_results": "Inget matchande konto",
+    "picker_load_failed": "Kontosökningen misslyckades. Du kan fortfarande skriva en adress.",
+    "type_user": "Användare",
+    "type_alias": "Alias",
+    "type_ml": "E-postlista"
   },
   "auth": {
     "title": "Autentisering",

@@ -25,7 +25,7 @@ $fieldClass = fn (string $field): string => 'form-control' . (!empty($validation
       <div class="card-body">
         <div class="mb-3">
           <label for="username" class="form-label"><?= $te('admin.email_address') ?></label>
-          <input id="username" type="email" name="username" required placeholder="admin@example.com" class="<?= $fieldClass('username') ?>" value="<?= $e($admin?->username ?? '') ?>" />
+          <input id="username" type="email" name="username" data-account-picker="single" data-types="user" required placeholder="admin@example.com" class="<?= $fieldClass('username') ?>" value="<?= $e($admin?->username ?? '') ?>" />
           <?php if (!empty($validationErrors['username'])): ?>
           <div class="invalid-feedback"><?= $e($validationErrors['username']) ?></div>
           <?php endif; ?>

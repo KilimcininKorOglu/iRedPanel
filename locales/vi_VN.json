@@ -105,7 +105,13 @@
     "msg_domain_not_found": "Tên miền :domain không tồn tại.",
     "msg_invalid_whole_number": ":field: nhập số nguyên từ 0 trở lên.",
     "msg_invalid_input": "Biểu mẫu có một giá trị sai định dạng.",
-    "confirm_title": "Bạn có chắc không?"
+    "confirm_title": "Bạn có chắc không?",
+    "picker_placeholder": "Tìm tài khoản hoặc nhập địa chỉ",
+    "picker_no_results": "Không có tài khoản phù hợp",
+    "picker_load_failed": "Tìm kiếm tài khoản thất bại. Bạn vẫn có thể nhập địa chỉ.",
+    "type_user": "Người dùng",
+    "type_alias": "Bí danh",
+    "type_ml": "Danh sách thư"
   },
   "auth": {
     "title": "Xác thực",

@@ -42,7 +42,7 @@
       <div class="card-header"><?= $te('greylist.whitelist_heading') ?></div>
       <div class="card-body">
         <label for="whitelistedSenders" class="form-label"><?= $te('greylist.senders_label') ?></label>
-        <textarea id="whitelistedSenders" name="whitelistedSenders" rows="6" class="form-control"><?= $e(implode("\n", $whitelistedSenders ?? [])) ?></textarea>
+        <textarea id="whitelistedSenders" name="whitelistedSenders" data-account-picker="multi" rows="6" class="form-control"><?= $e(implode("\n", $whitelistedSenders ?? [])) ?></textarea>
       </div>
       <div class="card-footer">
         <button type="submit" class="btn btn-primary"><?= $te('greylist.save_whitelist') ?></button>

@@ -105,7 +105,13 @@
     "msg_domain_not_found": "Verkkotunnusta :domain ei ole olemassa.",
     "msg_invalid_whole_number": ":field: anna kokonaisluku 0 tai suurempi.",
     "msg_invalid_input": "Lomakkeessa on arvo, jonka muoto on virheellinen.",
-    "confirm_title": "Oletko varma?"
+    "confirm_title": "Oletko varma?",
+    "picker_placeholder": "Hae tilejä tai kirjoita osoite",
+    "picker_no_results": "Ei vastaavaa tiliä",
+    "picker_load_failed": "Tilihaku epäonnistui. Voit silti kirjoittaa osoitteen.",
+    "type_user": "Käyttäjä",
+    "type_alias": "Alias",
+    "type_ml": "Postituslista"
   },
   "auth": {
     "title": "Todennus",

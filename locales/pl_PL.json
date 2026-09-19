@@ -105,7 +105,13 @@
     "msg_domain_not_found": "Domena :domain nie istnieje.",
     "msg_invalid_whole_number": ":field: wprowadź liczbę całkowitą równą 0 lub większą.",
     "msg_invalid_input": "Formularz zawiera wartość w nieprawidłowym formacie.",
-    "confirm_title": "Czy na pewno?"
+    "confirm_title": "Czy na pewno?",
+    "picker_placeholder": "Wyszukaj konta lub wpisz adres",
+    "picker_no_results": "Brak pasującego konta",
+    "picker_load_failed": "Wyszukiwanie kont nie powiodło się. Nadal możesz wpisać adres.",
+    "type_user": "Użytkownik",
+    "type_alias": "Alias",
+    "type_ml": "Lista mailingowa"
   },
   "auth": {
     "title": "Uwierzytelnianie",

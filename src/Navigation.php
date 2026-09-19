@@ -22,8 +22,8 @@ class Navigation
         ],
         'nav.group_accounts' => [
             ['href' => '/domains', 'label' => 'nav.domains', 'icon' => 'globe2', 'requires' => [], 'match' => ['/domains']],
-            ['href' => '/aliases', 'label' => 'nav.aliases', 'icon' => 'at', 'requires' => ['global'], 'match' => ['/aliases']],
-            ['href' => '/mailing-lists', 'label' => 'nav.mailing_lists', 'icon' => 'people', 'requires' => ['global'], 'match' => ['/mailing-lists']],
+            ['href' => '/aliases', 'label' => 'nav.aliases', 'icon' => 'at', 'requires' => [], 'match' => ['/aliases']],
+            ['href' => '/mailing-lists', 'label' => 'nav.mailing_lists', 'icon' => 'people', 'requires' => [], 'match' => ['/mailing-lists']],
             ['href' => '/domain-aliases', 'label' => 'nav.domain_aliases', 'icon' => 'signpost-split', 'requires' => ['global'], 'match' => ['/domain-aliases']],
             ['href' => '/admins', 'label' => 'nav.admins', 'icon' => 'person-badge', 'requires' => ['global'], 'match' => ['/admins']],
             ['href' => '/deleted-mailboxes', 'label' => 'nav.deleted_mailboxes', 'icon' => 'trash3', 'requires' => ['global'], 'match' => ['/deleted-mailboxes']],

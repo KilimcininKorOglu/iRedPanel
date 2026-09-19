@@ -7,6 +7,7 @@ namespace App\Controllers;
 use App\Exceptions\BackendConnectionException;
 use App\Exceptions\InvalidInputException;
 use App\I18n\Translator;
+use App\Middleware;
 use App\Models\Alias;
 use App\Repositories\RepositoryFactory;
 use App\TemplateEngine;
@@ -64,6 +65,7 @@ class BaseController
         if ($localPart === '' || $domain === '') {
             throw new \RuntimeException(Translator::translate('common.msg_address_required'));
         }
+        Middleware::domainAdminRequired($domain);
 
         $address = strtolower($localPart . '@' . $domain);
         if (filter_var($address, FILTER_VALIDATE_EMAIL) === false) {
@@ -89,6 +91,59 @@ class BaseController
         }
 
         return [$address, $domain];
+    }
+
+    /**
+     * The domains that the admin manages, as getDomains() rows: every domain for a
+     * global admin.
+     *
+     * @return list<array<string, mixed>>
+     */
+    public static function managedDomainRows(): array
+    {
+        $domains = RepositoryFactory::getDomainRepository()->getDomains();
+        if (Middleware::isGlobalAdmin()) {
+            return $domains;
+        }
+
+        return array_values(array_filter($domains, static fn (array $d): bool => Middleware::isDomainAdmin((string) $d['domainName'])));
+    }
+
+    /**
+     * The domain filter of an alias or mailing list page. A global admin may see every
+     * domain (null); a domain admin always sees one of its own domains.
+     */
+    public static function listDomainFilter(): ?string
+    {
+        Middleware::anyDomainAdminRequired();
+        $domain = is_string($_GET['domain'] ?? null) && $_GET['domain'] !== '' ? $_GET['domain'] : null;
+        if (Middleware::isGlobalAdmin()) {
+            return $domain;
+        }
+
+        return Middleware::isDomainAdmin((string) $domain) ? $domain : (string) array_values($_SESSION['managedDomains'])[0];
+    }
+
+    /**
+     * The list page URL, with the domain filter of the posted list form.
+     */
+    public static function listUrl(string $path): string
+    {
+        $domain = is_string($_POST['filterDomain'] ?? null) ? $_POST['filterDomain'] : '';
+
+        return $domain === '' ? $path : $path . '?domain=' . rawurlencode($domain);
+    }
+
+    /**
+     * Throws when the admin does not manage the domain of the address; the address then
+     * counts as not found, so a domain admin learns nothing about other domains.
+     */
+    public static function assertManagedAddress(string $address): void
+    {
+        $domain = str_contains($address, '@') ? explode('@', $address, 2)[1] : '';
+        if (!Middleware::isGlobalAdmin() && !Middleware::isDomainAdmin($domain)) {
+            throw self::itemNotFound();
+        }
     }
 
     /**

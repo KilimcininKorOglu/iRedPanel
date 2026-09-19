@@ -18,16 +18,15 @@ class MailingListController
 {
     public static function list(TemplateEngine $tpl): void
     {
-        Middleware::globalAdminRequired();
+        $domainFilter = BaseController::listDomainFilter();
 
         $settings = Settings::getInstance();
         $page = max(1, (int) ($_GET['page'] ?? 1));
         $perPage = $settings->paginationPerPage;
-        $domainFilter = $_GET['domain'] ?? null;
 
         $repo = RepositoryFactory::getMailingListRepository();
         $paginatedResult = $repo->getMailingListsPaginated($page, $perPage, $domainFilter);
-        $domains = RepositoryFactory::getDomainRepository()->getDomains();
+        $domains = BaseController::managedDomainRows();
 
         $tpl->render('mailingListList.php', [
             'mailingLists' => $paginatedResult->items,
@@ -39,9 +38,9 @@ class MailingListController
 
     public static function createForm(TemplateEngine $tpl): void
     {
-        Middleware::globalAdminRequired();
+        Middleware::anyDomainAdminRequired();
 
-        $domains = RepositoryFactory::getDomainRepository()->getDomains();
+        $domains = BaseController::managedDomainRows();
         $error = null;
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -218,7 +217,7 @@ class MailingListController
 
     public static function delete(TemplateEngine $tpl, string $address): void
     {
-        Middleware::globalAdminRequired();
+        Middleware::domainAdminRequired(str_contains($address, '@') ? explode('@', $address, 2)[1] : '');
         CsrfProtection::validateToken();
 
         $repo = RepositoryFactory::getMailingListRepository();
@@ -231,25 +230,26 @@ class MailingListController
             BaseController::flashItemError($address, $e);
         }
 
-        header("Location: /mailing-lists");
+        header('Location: ' . BaseController::listUrl('/mailing-lists'));
         exit;
     }
 
     public static function bulkAction(TemplateEngine $tpl): void
     {
-        Middleware::globalAdminRequired();
+        Middleware::anyDomainAdminRequired();
         CsrfProtection::validateToken();
 
         $action = $_POST['action'] ?? '';
         $selected = $_POST['selected'] ?? [];
 
         if (!BaseController::isValidBulkRequest($selected, $action)) {
-            header("Location: /mailing-lists");
+            header('Location: ' . BaseController::listUrl('/mailing-lists'));
             exit;
         }
 
         $repo = RepositoryFactory::getMailingListRepository();
         $done = BaseController::runBulk($selected, function (string $address) use ($repo, $action): void {
+            BaseController::assertManagedAddress($address);
             $repo->getMailingList($address) ?? throw BaseController::itemNotFound();
             if ($action === 'delete') {
                 MailingListService::delete($address);
@@ -261,7 +261,7 @@ class MailingListController
         if ($done !== []) {
             ActivityLogger::log($action, '', '', "Bulk {$action} on " . count($done) . " mailing lists");
         }
-        header("Location: /mailing-lists");
+        header('Location: ' . BaseController::listUrl('/mailing-lists'));
         exit;
     }
 }

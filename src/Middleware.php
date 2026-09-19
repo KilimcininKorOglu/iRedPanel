@@ -131,6 +131,20 @@ class Middleware
     }
 
     /**
+     * Requires a global admin or the admin of at least one domain.
+     */
+    public static function anyDomainAdminRequired(): void
+    {
+        self::loginRequired();
+
+        if (!self::isGlobalAdmin() && ($_SESSION['managedDomains'] ?? []) === []) {
+            http_response_code(403);
+            echo 'Access denied: not authorized for any domain';
+            exit;
+        }
+    }
+
+    /**
      * Whether the current session user is a global admin.
      */
     public static function isGlobalAdmin(): bool

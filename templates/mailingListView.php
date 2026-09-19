@@ -3,20 +3,19 @@
   <div>
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/mailing-lists"><?= $te('mlist.list_title') ?></a></li>
+        <li class="breadcrumb-item"><a href="/mailing-lists?domain=<?= $e(rawurlencode($ml->domain)) ?>"><?= $te('mlist.list_title') ?></a></li>
         <li class="breadcrumb-item active" aria-current="page"><?= $e($ml->address) ?></li>
       </ol>
     </nav>
     <h1><?= $te('mlist.view_title', ['address' => $ml->address]) ?></h1>
   </div>
-  <?php if (!empty($session['isGlobalAdmin'])): ?>
   <div class="page-actions">
     <form method="post" action="/mailing-lists/<?= $e($ml->address) ?>/delete" data-confirm="<?= $te('mlist.delete_confirm', ['address' => $ml->address]) ?>">
       <?= $csrfField ?>
+      <input type="hidden" name="filterDomain" value="<?= $e($ml->domain) ?>" />
       <button type="submit" class="btn btn-outline-danger"><i class="bi bi-trash3 me-1"></i><?= $te('mlist.delete_button') ?></button>
     </form>
   </div>
-  <?php endif; ?>
 </div>
 
 <?php if (!empty($success)): ?>

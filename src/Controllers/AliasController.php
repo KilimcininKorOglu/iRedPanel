@@ -21,17 +21,16 @@ class AliasController
 {
     public static function list(TemplateEngine $tpl): void
     {
-        Middleware::globalAdminRequired();
+        $domainFilter = BaseController::listDomainFilter();
 
         $settings = Settings::getInstance();
         $page = max(1, (int) ($_GET['page'] ?? 1));
         $perPage = $settings->paginationPerPage;
-        $domainFilter = $_GET['domain'] ?? null;
 
         $repo = RepositoryFactory::getAliasRepository();
         $paginatedResult = $repo->getAliasesPaginated($page, $perPage, $domainFilter);
 
-        $domains = RepositoryFactory::getDomainRepository()->getDomains();
+        $domains = BaseController::managedDomainRows();
 
         $tpl->render('aliasList.php', [
             'aliases' => $paginatedResult->items,
@@ -43,9 +42,9 @@ class AliasController
 
     public static function createForm(TemplateEngine $tpl): void
     {
-        Middleware::globalAdminRequired();
+        Middleware::anyDomainAdminRequired();
 
-        $domains = RepositoryFactory::getDomainRepository()->getDomains();
+        $domains = BaseController::managedDomainRows();
         $success = null;
         $error = null;
 
@@ -204,7 +203,7 @@ class AliasController
 
     public static function delete(TemplateEngine $tpl, string $address): void
     {
-        Middleware::globalAdminRequired();
+        Middleware::domainAdminRequired(str_contains($address, '@') ? explode('@', $address, 2)[1] : '');
         CsrfProtection::validateToken();
 
         $repo = RepositoryFactory::getAliasRepository();
@@ -218,25 +217,26 @@ class AliasController
             BaseController::flashItemError($address, $e);
         }
 
-        header("Location: /aliases");
+        header('Location: ' . BaseController::listUrl('/aliases'));
         exit;
     }
 
     public static function bulkAction(TemplateEngine $tpl): void
     {
-        Middleware::globalAdminRequired();
+        Middleware::anyDomainAdminRequired();
         CsrfProtection::validateToken();
 
         $action = $_POST['action'] ?? '';
         $selectedAliases = $_POST['selected'] ?? [];
 
         if (!BaseController::isValidBulkRequest($selectedAliases, $action)) {
-            header("Location: /aliases");
+            header('Location: ' . BaseController::listUrl('/aliases'));
             exit;
         }
 
         $repo = RepositoryFactory::getAliasRepository();
         BaseController::runBulk($selectedAliases, function (string $address) use ($repo, $action): void {
+            BaseController::assertManagedAddress($address);
             $alias = $repo->getAlias($address) ?? throw BaseController::itemNotFound();
             if ($action === 'delete') {
                 $repo->deleteAlias($address);
@@ -248,7 +248,7 @@ class AliasController
             ActivityLogger::logUpdate($alias->domain, '', ucfirst($action) . "d alias: {$address}");
         });
 
-        header("Location: /aliases");
+        header('Location: ' . BaseController::listUrl('/aliases'));
         exit;
     }
 }

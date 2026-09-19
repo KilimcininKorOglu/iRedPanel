@@ -4,20 +4,21 @@
   <div class="page-actions">
     <form method="get" action="/mailing-lists">
       <select name="domain" class="form-select" data-autosubmit aria-label="<?= $te('common.domain') ?>">
+        <?php if (!empty($session['isGlobalAdmin'])): ?>
         <option value=""><?= $te('common.all_domains') ?></option>
+        <?php endif; ?>
         <?php foreach ($domains as $d): ?>
         <option value="<?= $e($d['domainName']) ?>"<?= ($filterDomain === $d['domainName']) ? ' selected' : '' ?>><?= $e($d['domainName']) ?></option>
         <?php endforeach; ?>
       </select>
     </form>
-    <?php if (!empty($session['isGlobalAdmin'])): ?>
     <a href="/mailing-lists/create" class="btn btn-primary"><i class="bi bi-plus-lg me-1"></i><?= $te('mlist.create') ?></a>
-    <?php endif; ?>
   </div>
 </div>
 
 <form method="post" action="/mailing-lists/bulk">
   <?= $csrfField ?>
+  <input type="hidden" name="filterDomain" value="<?= $e($filterDomain) ?>" />
   <div class="card">
     <div class="table-responsive">
       <table class="table table-striped table-hover">
@@ -58,7 +59,7 @@
     </div>
   </div>
 
-  <?php if (!empty($mailingLists) && !empty($session['isGlobalAdmin'])): ?>
+  <?php if (!empty($mailingLists)): ?>
   <div class="d-flex flex-wrap gap-2 align-items-center">
     <select name="action" class="form-select form-select-sm w-auto">
       <option value=""><?= $te('common.bulk_action') ?></option>

@@ -3,7 +3,7 @@
   <div>
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/aliases"><?= $te('alias.list_title') ?></a></li>
+        <li class="breadcrumb-item"><a href="/aliases?domain=<?= $e(rawurlencode($alias->domain)) ?>"><?= $te('alias.list_title') ?></a></li>
         <li class="breadcrumb-item active" aria-current="page"><?= $e($alias->address) ?></li>
       </ol>
     </nav>
@@ -13,14 +13,13 @@
       <?php endif; ?>
     </h1>
   </div>
-  <?php if (!empty($session['isGlobalAdmin'])): ?>
   <div class="page-actions">
     <form method="post" action="/aliases/<?= $e($alias->address) ?>/delete" data-confirm="<?= $te('alias.delete_confirm_perm', ['address' => $alias->address]) ?>">
       <?= $csrfField ?>
+      <input type="hidden" name="filterDomain" value="<?= $e($alias->domain) ?>" />
       <button type="submit" class="btn btn-outline-danger"><i class="bi bi-trash3 me-1"></i><?= $te('alias.delete_button') ?></button>
     </form>
   </div>
-  <?php endif; ?>
 </div>
 
 <?php if ($managed): ?>

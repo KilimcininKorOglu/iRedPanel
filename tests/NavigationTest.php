@@ -16,7 +16,8 @@ class NavigationTest extends TestCase
         // A domain admin must not see links to pages that answer 403 for them.
         $hrefs = self::hrefs(Navigation::groups(false, self::ALL_FEATURES));
 
-        $this->assertSame(['/dashboard', '/search', '/domains'], $hrefs);
+        // The alias and mailing list pages show only the domains of the admin.
+        $this->assertSame(['/dashboard', '/search', '/domains', '/aliases', '/mailing-lists'], $hrefs);
     }
 
     public function testDisabledFeatureHidesItsItems(): void

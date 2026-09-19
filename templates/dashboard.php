@@ -1,113 +1,127 @@
 <?php $pageTitle = $t('dashboard.title'); ?>
-<div class="container">
+<div class="page-header">
   <h1><?= $te('dashboard.title') ?></h1>
-
-  <?php if (!empty($newVersion)): ?>
-  <div class="card" style="border-left: 4px solid var(--color-primary, #1a73e8); margin-bottom: 1rem;">
-    <p><?= $te('dashboard.new_version', ['version' => $newVersion]) ?>
-    <a href="https://github.com/KilimcininKorOglu/iRedPanel/releases/latest" target="_blank"><?= $te('dashboard.view_release') ?></a></p>
-  </div>
-  <?php endif; ?>
-
-  <?php if (empty($stats)): ?>
-  <p><a href="/domains" class="button primary outline"><?= $te('dashboard.manage_domains') ?></a></p>
-  <?php else: ?>
-  <div class="row">
-    <div class="col-4">
-      <div class="card">
-        <header>
-          <h4><?= $te('dashboard.domains') ?></h4>
-        </header>
-        <p>
-          <?= $te('dashboard.total') ?>: <strong><?= $e($stats['totalDomains']) ?></strong><br />
-          <?= $te('common.active') ?>: <?= $e($stats['activeDomains']) ?><br />
-          <?= $te('common.disabled') ?>: <?= $e($stats['totalDomains'] - $stats['activeDomains']) ?>
-        </p>
-        <a href="/domains" class="button primary outline"><?= $te('dashboard.manage_domains') ?></a>
-      </div>
-    </div>
-
-    <div class="col-4">
-      <div class="card">
-        <header>
-          <h4><?= $te('dashboard.users') ?></h4>
-        </header>
-        <p>
-          <?= $te('dashboard.total') ?>: <strong><?= $e($stats['totalUsers']) ?></strong><br />
-          <?= $te('common.active') ?>: <?= $e($stats['activeUsers']) ?><br />
-          <?= $te('common.disabled') ?>: <?= $e($stats['totalUsers'] - $stats['activeUsers']) ?>
-        </p>
-      </div>
-    </div>
-
-    <div class="col-4">
-      <div class="card">
-        <header>
-          <h4><?= $te('dashboard.admins') ?></h4>
-        </header>
-        <p>
-          <?= $te('dashboard.total') ?>: <strong><?= $e($stats['totalAdmins']) ?></strong>
-        </p>
-        <a href="/admins" class="button primary outline"><?= $te('dashboard.manage_admins') ?></a>
-      </div>
-    </div>
-  </div>
-
-  <div class="row" style="margin-top: 1rem;">
-    <div class="col-6">
-      <div class="card">
-        <header>
-          <h4><?= $te('common.quota') ?></h4>
-        </header>
-        <p>
-          <?= $te('dashboard.allocated') ?>: <strong><?= $e(number_format($stats['totalQuotaAllocated'])) ?> MB</strong><br />
-          <?= $te('dashboard.used') ?>: <?= $e(number_format($stats['totalQuotaUsed'])) ?> MB
-        </p>
-      </div>
-    </div>
-
-    <div class="col-6">
-      <div class="card">
-        <header>
-          <h4><?= $te('dashboard.messages') ?></h4>
-        </header>
-        <p>
-          <?= $te('dashboard.total_stored') ?>: <strong><?= $e(number_format($stats['totalMessages'])) ?></strong>
-        </p>
-      </div>
-    </div>
-  </div>
-  <?php endif; ?>
-
-  <?php if (!empty($systemInfo)): ?>
-  <div class="row" style="margin-top: 1rem;">
-    <div class="col">
-      <h2><?= $te('dashboard.system_info') ?></h2>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-6">
-      <div class="card">
-        <header><h4><?= $te('dashboard.server') ?></h4></header>
-        <p>
-          <?= $te('dashboard.hostname') ?>: <strong><?= $e($systemInfo['hostname']) ?></strong><br />
-          <?php if ($systemInfo['uptime'] !== null): ?>
-          <?= $te('dashboard.uptime') ?>: <?= $e($systemInfo['uptime']['days']) ?>d <?= $e($systemInfo['uptime']['hours']) ?>h <?= $e($systemInfo['uptime']['minutes']) ?>m<br />
-          <?php endif; ?>
-          <?= $te('dashboard.load') ?>: <?= $e(implode(', ', array_map(fn($v) => number_format((float) $v, 2), $systemInfo['loadAverage']))) ?>
-        </p>
-      </div>
-    </div>
-    <div class="col-6">
-      <div class="card">
-        <header><h4><?= $te('dashboard.software') ?></h4></header>
-        <p>
-          iRedMail: <strong><?= $e($systemInfo['iredmailVersion']) ?></strong><br />
-          PHP: <?= $e($systemInfo['phpVersion']) ?><br />
-          iRedPanel: v<?= $e($systemInfo['iredpanelVersion']) ?>
-        </p>
-      </div>
-    </div>
-  </div>
-  <?php endif; ?>
 </div>
+
+<?php if (!empty($newVersion)): ?>
+<div class="alert alert-info d-flex align-items-center gap-2">
+  <i class="bi bi-arrow-up-circle"></i>
+  <span><?= $te('dashboard.new_version', ['version' => $newVersion]) ?></span>
+  <a href="https://github.com/KilimcininKorOglu/iRedPanel/releases/latest" target="_blank" rel="noopener" class="ms-auto"><?= $te('dashboard.view_release') ?></a>
+</div>
+<?php endif; ?>
+
+<?php if (empty($stats)): ?>
+<a href="/domains" class="btn btn-primary"><?= $te('dashboard.manage_domains') ?></a>
+<?php else: ?>
+<div class="row g-3 mb-4">
+  <div class="col-md-6 col-xl-4">
+    <div class="card stat-card h-100 mb-0">
+      <div class="card-body">
+        <span class="stat-icon"><i class="bi bi-globe2"></i></span>
+        <div class="flex-grow-1">
+          <div class="stat-label"><?= $te('dashboard.domains') ?></div>
+          <div class="stat-value"><?= $e($stats['totalDomains']) ?></div>
+          <div class="small text-body-secondary mt-1">
+            <?= $te('common.active') ?>: <?= $e($stats['activeDomains']) ?> &middot;
+            <?= $te('common.disabled') ?>: <?= $e($stats['totalDomains'] - $stats['activeDomains']) ?>
+          </div>
+          <a href="/domains" class="small d-inline-block mt-2"><?= $te('dashboard.manage_domains') ?> <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6 col-xl-4">
+    <div class="card stat-card h-100 mb-0">
+      <div class="card-body">
+        <span class="stat-icon"><i class="bi bi-people"></i></span>
+        <div class="flex-grow-1">
+          <div class="stat-label"><?= $te('dashboard.users') ?></div>
+          <div class="stat-value"><?= $e($stats['totalUsers']) ?></div>
+          <div class="small text-body-secondary mt-1">
+            <?= $te('common.active') ?>: <?= $e($stats['activeUsers']) ?> &middot;
+            <?= $te('common.disabled') ?>: <?= $e($stats['totalUsers'] - $stats['activeUsers']) ?>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6 col-xl-4">
+    <div class="card stat-card h-100 mb-0">
+      <div class="card-body">
+        <span class="stat-icon"><i class="bi bi-person-badge"></i></span>
+        <div class="flex-grow-1">
+          <div class="stat-label"><?= $te('dashboard.admins') ?></div>
+          <div class="stat-value"><?= $e($stats['totalAdmins']) ?></div>
+          <a href="/admins" class="small d-inline-block mt-2"><?= $te('dashboard.manage_admins') ?> <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card stat-card h-100 mb-0">
+      <div class="card-body">
+        <span class="stat-icon"><i class="bi bi-hdd"></i></span>
+        <div class="flex-grow-1">
+          <div class="stat-label"><?= $te('common.quota') ?></div>
+          <div class="stat-value"><?= $e(number_format($stats['totalQuotaAllocated'])) ?> <small class="fs-6 text-body-secondary">MB</small></div>
+          <div class="small text-body-secondary mt-1">
+            <?= $te('dashboard.allocated') ?> &middot;
+            <?= $te('dashboard.used') ?>: <?= $e(number_format($stats['totalQuotaUsed'])) ?> MB
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card stat-card h-100 mb-0">
+      <div class="card-body">
+        <span class="stat-icon"><i class="bi bi-envelope"></i></span>
+        <div class="flex-grow-1">
+          <div class="stat-label"><?= $te('dashboard.messages') ?></div>
+          <div class="stat-value"><?= $e(number_format($stats['totalMessages'])) ?></div>
+          <div class="small text-body-secondary mt-1"><?= $te('dashboard.total_stored') ?></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<?php endif; ?>
+
+<?php if (!empty($systemInfo)): ?>
+<h2 class="h5 mb-3"><?= $te('dashboard.system_info') ?></h2>
+<div class="row g-3">
+  <div class="col-md-6">
+    <div class="card h-100 mb-0">
+      <div class="card-header"><i class="bi bi-server me-2"></i><?= $te('dashboard.server') ?></div>
+      <div class="card-body">
+        <dl class="row mb-0">
+          <dt class="col-5 text-body-secondary fw-normal"><?= $te('dashboard.hostname') ?></dt>
+          <dd class="col-7"><?= $e($systemInfo['hostname']) ?></dd>
+          <?php if ($systemInfo['uptime'] !== null): ?>
+          <dt class="col-5 text-body-secondary fw-normal"><?= $te('dashboard.uptime') ?></dt>
+          <dd class="col-7"><?= $e($systemInfo['uptime']['days']) ?>d <?= $e($systemInfo['uptime']['hours']) ?>h <?= $e($systemInfo['uptime']['minutes']) ?>m</dd>
+          <?php endif; ?>
+          <dt class="col-5 text-body-secondary fw-normal"><?= $te('dashboard.load') ?></dt>
+          <dd class="col-7 mb-0"><?= $e(implode(', ', array_map(fn($v) => number_format((float) $v, 2), $systemInfo['loadAverage']))) ?></dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card h-100 mb-0">
+      <div class="card-header"><i class="bi bi-box-seam me-2"></i><?= $te('dashboard.software') ?></div>
+      <div class="card-body">
+        <dl class="row mb-0">
+          <dt class="col-5 text-body-secondary fw-normal">iRedMail</dt>
+          <dd class="col-7"><?= $e($systemInfo['iredmailVersion']) ?></dd>
+          <dt class="col-5 text-body-secondary fw-normal">PHP</dt>
+          <dd class="col-7"><?= $e($systemInfo['phpVersion']) ?></dd>
+          <dt class="col-5 text-body-secondary fw-normal">iRedPanel</dt>
+          <dd class="col-7 mb-0">v<?= $e($systemInfo['iredpanelVersion']) ?></dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</div>
+<?php endif; ?>

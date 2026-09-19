@@ -316,6 +316,63 @@ a:hover {
   padding: 1.25rem;
 }
 
+.card-footer {
+  padding: 0.9rem 1.25rem;
+  background: transparent;
+  border-top-color: var(--app-border);
+}
+
+details.card > summary {
+  cursor: pointer;
+  list-style: none;
+}
+
+details.card > summary::-webkit-details-marker {
+  display: none;
+}
+
+details.card > summary::before {
+  content: "\F285";
+  font-family: "bootstrap-icons";
+  display: inline-block;
+  margin-right: 0.5rem;
+  font-size: 0.8rem;
+  transition: transform 0.15s;
+}
+
+details.card[open] > summary::before {
+  transform: rotate(90deg);
+}
+
+details.card:not([open]) > summary {
+  border-bottom: 0;
+}
+
+.letter-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem;
+}
+
+.letter-filter a {
+  min-width: 1.9rem;
+  padding: 0.2rem 0.45rem;
+  border-radius: 0.4rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--app-muted);
+}
+
+.letter-filter a:hover {
+  background: var(--app-card-hover);
+  color: #fafafa;
+}
+
+.letter-filter a.active {
+  background: color-mix(in srgb, var(--app-accent) 18%, transparent);
+  color: #fff;
+}
+
 .stat-card .card-body {
   display: flex;
   align-items: flex-start;

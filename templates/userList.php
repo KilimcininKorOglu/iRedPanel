@@ -1,110 +1,109 @@
-<?php $pageTitle = $t('user.list_title'); ?>
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <h1><?= $te('user.list_title') ?></h1>
+<?php
+$pageTitle = $t('user.list_title');
+$letters = range('A', 'Z');
+$baseUrl = '/' . urlencode($domain) . '/users';
+$sortUrl = function (string $col) use ($baseUrl, $sortBy, $sortDir, $currentLetter) {
+    $newDir = ($sortBy === $col && $sortDir === 'asc') ? 'desc' : 'asc';
+    $params = ['sort' => $col, 'dir' => $newDir];
+    if ($currentLetter) {
+        $params['letter'] = $currentLetter;
+    }
+    return $baseUrl . '?' . http_build_query($params);
+};
+$sortIcon = function (string $col) use ($sortBy, $sortDir) {
+    if ($sortBy !== $col) {
+        return '';
+    }
+    return $sortDir === 'asc' ? ' <i class="bi bi-caret-up-fill"></i>' : ' <i class="bi bi-caret-down-fill"></i>';
+};
+?>
+<div class="page-header">
+  <div>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/domains"><?= $te('domain.list_title') ?></a></li>
+        <li class="breadcrumb-item"><?= $e($domain) ?></li>
+        <li class="breadcrumb-item active" aria-current="page"><?= $te('user.list_title') ?></li>
+      </ol>
+    </nav>
+    <h1><?= $te('user.list_title') ?></h1>
+  </div>
+  <div class="page-actions">
+    <?php if (!empty($supportsCreate)): ?>
+    <a href="/<?= $e($domain) ?>/users/create" class="btn btn-primary"><i class="bi bi-person-plus me-1"></i><?= $te('user.create') ?></a>
+    <?php endif; ?>
+    <a href="/export/domain/<?= $e(rawurlencode($domain)) ?>" class="btn btn-outline-secondary"><i class="bi bi-filetype-csv me-1"></i><?= $te('user.export_csv') ?></a>
+    <a href="/export/domain/<?= $e(rawurlencode($domain)) ?>?format=json" class="btn btn-outline-secondary"><i class="bi bi-filetype-json me-1"></i><?= $te('user.export_json') ?></a>
+  </div>
+</div>
 
-      <div class="row breadcrumbs">
-        <div class="col">
-          <a href="/domains"><?= $e($domain) ?></a> /
-          <span class="text-light"><?= $te('user.list_title') ?></span>
-        </div>
-      </div>
+<ul class="nav nav-pills mb-2">
+  <li class="nav-item"><a class="nav-link<?= empty($statusFilter) ? ' active' : '' ?>" href="<?= $e($baseUrl) ?>"><?= $te('common.all') ?></a></li>
+  <li class="nav-item"><a class="nav-link<?= ($statusFilter ?? '') === 'active' ? ' active' : '' ?>" href="<?= $e($baseUrl) ?>?status=active"><?= $te('common.active') ?></a></li>
+  <li class="nav-item"><a class="nav-link<?= ($statusFilter ?? '') === 'disabled' ? ' active' : '' ?>" href="<?= $e($baseUrl) ?>?status=disabled"><?= $te('common.disabled') ?></a></li>
+</ul>
+<div class="letter-filter mb-3">
+  <a href="<?= $e($baseUrl) ?>"<?= empty($currentLetter) ? ' class="active"' : '' ?>><?= $te('common.all') ?></a>
+  <?php foreach ($letters as $letter): ?>
+  <a href="<?= $e($baseUrl) ?>?letter=<?= $e($letter) ?>"<?= ($currentLetter ?? '') === $letter ? ' class="active"' : '' ?>><?= $letter ?></a>
+  <?php endforeach; ?>
+</div>
 
-      <div class="row">
-        <div class="col">
-          <?php if (!empty($supportsCreate)): ?>
-          <a href="/<?= $e($domain) ?>/users/create" class="button primary outline"><?= $te('user.create') ?></a>
-          <?php endif; ?>
-          <a href="/export/domain/<?= $e(rawurlencode($domain)) ?>" class="button outline"><?= $te('user.export_csv') ?></a>
-          <a href="/export/domain/<?= $e(rawurlencode($domain)) ?>?format=json" class="button outline"><?= $te('user.export_json') ?></a>
-        </div>
-      </div>
-
-      <?php
-      $letters = range('A', 'Z');
-      $baseUrl = '/' . urlencode($domain) . '/users';
-      ?>
-      <div style="margin: 0.5rem 0;">
-        <a href="<?= $e($baseUrl) ?>" <?php if (empty($statusFilter)): ?>style="font-weight:bold"<?php endif; ?>><?= $te('common.all') ?></a> |
-        <a href="<?= $e($baseUrl) ?>?status=active" <?php if (($statusFilter ?? '') === 'active'): ?>style="font-weight:bold"<?php endif; ?>><?= $te('common.active') ?></a> |
-        <a href="<?= $e($baseUrl) ?>?status=disabled" <?php if (($statusFilter ?? '') === 'disabled'): ?>style="font-weight:bold"<?php endif; ?>><?= $te('common.disabled') ?></a>
-      </div>
-      <div style="margin: 0.5rem 0;">
-        <a href="<?= $e($baseUrl) ?>" <?php if (empty($currentLetter)): ?>style="font-weight:bold"<?php endif; ?>><?= $te('common.all') ?></a>
-        <?php foreach ($letters as $letter): ?>
-          <a href="<?= $e($baseUrl) ?>?letter=<?= $e($letter) ?>"
-             <?php if (($currentLetter ?? '') === $letter): ?>style="font-weight:bold"<?php endif; ?>><?= $letter ?></a>
-        <?php endforeach; ?>
-      </div>
-
-      <form method="post" action="/<?= $e($domain) ?>/users/bulk">
-        <?= $csrfField ?>
-
-      <table class="striped">
+<form method="post" action="/<?= $e($domain) ?>/users/bulk">
+  <?= $csrfField ?>
+  <div class="card">
+    <div class="table-responsive">
+      <table class="table table-striped table-hover">
         <thead>
           <tr>
-            <th><input type="checkbox" id="selectAll" data-select-all="selectedUsers[]" /></th>
-            <?php
-            $sortUrl = function(string $col) use ($baseUrl, $sortBy, $sortDir, $currentLetter) {
-                $newDir = ($sortBy === $col && $sortDir === 'asc') ? 'desc' : 'asc';
-                $params = ['sort' => $col, 'dir' => $newDir];
-                if ($currentLetter) $params['letter'] = $currentLetter;
-                return $baseUrl . '?' . http_build_query($params);
-            };
-            $sortIcon = function(string $col) use ($sortBy, $sortDir) {
-                if ($sortBy !== $col) return '';
-                return $sortDir === 'asc' ? ' &#9650;' : ' &#9660;';
-            };
-            ?>
+            <th><input type="checkbox" class="form-check-input" id="selectAll" data-select-all="selectedUsers[]" /></th>
             <th><a href="<?= $e($sortUrl('uid')) ?>"><?= $te('user.identifier') ?><?= $sortIcon('uid') ?></a></th>
             <th><a href="<?= $e($sortUrl('mailQuota')) ?>"><?= $te('user.quota_mb') ?><?= $sortIcon('mailQuota') ?></a></th>
             <th><?= $te('user.used') ?></th>
             <th><?= $te('admin.global_admin') ?></th>
             <th><a href="<?= $e($sortUrl('accountStatus')) ?>"><?= $te('common.status') ?><?= $sortIcon('accountStatus') ?></a></th>
-            <th><?= $te('common.actions') ?></th>
+            <th class="text-end"><?= $te('common.actions') ?></th>
           </tr>
         </thead>
         <tbody>
           <?php foreach ($users as $user): ?>
+          <?php
+            $email = $user->uid . '@' . $domain;
+            $usedBytes = ($usedQuotas[$email]['bytes'] ?? 0);
+            $usedMb = $usedBytes > 0 ? (int) ($usedBytes / 1048576) : 0;
+          ?>
           <tr>
-            <td><input type="checkbox" name="selectedUsers[]" value="<?= $e($user->uid) ?>" /></td>
-            <td>
-              <a href="/<?= $e($domain) ?>/users/<?= $e($user->uid) ?>/general"><?= $e($user->uid) ?></a>
-            </td>
+            <td><input type="checkbox" class="form-check-input" name="selectedUsers[]" value="<?= $e($user->uid) ?>" /></td>
+            <td><a href="/<?= $e($domain) ?>/users/<?= $e($user->uid) ?>/general" class="fw-medium"><?= $e($user->uid) ?></a></td>
             <td><?= $e($user->mailQuota === 0 ? $t('common.unlimited') : $user->mailQuota) ?></td>
-            <?php
-              $email = $user->uid . '@' . $domain;
-              $usedBytes = ($usedQuotas[$email]['bytes'] ?? 0);
-              $usedMb = $usedBytes > 0 ? (int) ($usedBytes / 1048576) : 0;
-            ?>
             <td><?= $e($usedMb) ?> MB</td>
             <td><?= $localize($user->domainGlobalAdmin) ?></td>
             <td><?= $localize($user->accountStatus) ?></td>
             <td>
-              <a href="/<?= $e($domain) ?>/users/<?= $e($user->uid) ?>/general" class="button primary outline"><?= $te('common.edit') ?></a>
-              <?php /* A form cannot nest inside the bulk form: the button posts the bulk form to the delete route. */ ?>
-              <button type="submit" formaction="/<?= $e($domain) ?>/users/<?= $e($user->uid) ?>/delete" formnovalidate class="button error outline" data-confirm="<?= $te('user.delete_confirm', ['uid' => $user->uid]) ?>"><?= $te('common.delete') ?></button>
+              <div class="table-actions">
+                <a href="/<?= $e($domain) ?>/users/<?= $e($user->uid) ?>/general" class="btn btn-sm btn-outline-secondary"><i class="bi bi-pencil me-1"></i><?= $te('common.edit') ?></a>
+                <?php /* A form cannot nest inside the bulk form: the button posts the bulk form to the delete route. */ ?>
+                <button type="submit" formaction="/<?= $e($domain) ?>/users/<?= $e($user->uid) ?>/delete" formnovalidate class="btn btn-sm btn-outline-danger" data-confirm="<?= $te('user.delete_confirm', ['uid' => $user->uid]) ?>"><i class="bi bi-trash3 me-1"></i><?= $te('common.delete') ?></button>
+              </div>
             </td>
           </tr>
           <?php endforeach; ?>
         </tbody>
       </table>
-
-      <div style="margin-top: 0.5rem;">
-        <select name="action" required>
-          <option value=""><?= $te('common.bulk_action') ?></option>
-          <option value="enable"><?= $te('common.enable_selected') ?></option>
-          <option value="disable"><?= $te('common.disable_selected') ?></option>
-          <option value="delete"><?= $te('common.delete_selected') ?></option>
-        </select>
-        <button type="submit" class="button outline" data-bulk-confirm="<?= $e(json_encode(['delete' => $t('user.bulk_delete_confirm')])) ?>"><?= $te('common.apply') ?></button>
-      </div>
-      </form>
-
-      <?php if (isset($paginatedResult)): ?>
-        <?php include __DIR__ . '/pagination.php'; ?>
-      <?php endif; ?>
     </div>
   </div>
-</div>
+
+  <div class="d-flex flex-wrap gap-2 align-items-center">
+    <select name="action" class="form-select form-select-sm w-auto" required>
+      <option value=""><?= $te('common.bulk_action') ?></option>
+      <option value="enable"><?= $te('common.enable_selected') ?></option>
+      <option value="disable"><?= $te('common.disable_selected') ?></option>
+      <option value="delete"><?= $te('common.delete_selected') ?></option>
+    </select>
+    <button type="submit" class="btn btn-sm btn-outline-secondary" data-bulk-confirm="<?= $e(json_encode(['delete' => $t('user.bulk_delete_confirm')])) ?>"><?= $te('common.apply') ?></button>
+  </div>
+</form>
+
+<?php if (isset($paginatedResult)): ?>
+  <?php include __DIR__ . '/pagination.php'; ?>
+<?php endif; ?>

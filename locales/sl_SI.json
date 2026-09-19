@@ -365,7 +365,8 @@
     "relay_desc": "Usmerjaj odhodno pošto tega uporabnika prek določenega strežnika za posredovanje.",
     "export_csv": "Izvozi uporabnike (CSV)",
     "export_json": "Izvozi uporabnike (JSON)",
-    "msg_invalid_quota": "Kvota mora biti celo število 0 ali več (MB)."
+    "msg_invalid_quota": "Kvota mora biti celo število 0 ali več (MB).",
+    "msg_unknown_service": "Neznana poštna storitev: :service"
   },
   "mlist": {
     "msg_updated": "Poštni seznam posodobljen!",
@@ -549,7 +550,9 @@
     "relay_format": "Oblika: <code>[imegostitelja]:vrata</code> — oglati oklepaji preprečijo iskanje MX.",
     "save_relay": "Shrani nastavitve posredovanja",
     "msg_is_alias_domain": "Domena :domain je že domena vzdevka",
-    "msg_password_length_range": "Najmanjša dolžina gesla (:min) presega največjo (:max). Nobeno geslo ne more izpolniti obeh omejitev."
+    "msg_password_length_range": "Najmanjša dolžina gesla (:min) presega največjo (:max). Nobeno geslo ne more izpolniti obeh omejitev.",
+    "disabled_services": "Onemogočene storitve za nove poštne predale",
+    "disabled_services_help": "Nov poštni predal v tej domeni se začne s temi onemogočenimi storitvami. Obstoječi predali se ne spremenijo."
   },
   "admin": {
     "msg_email_required": "Zahtevan je veljaven e-poštni naslov",

@@ -365,7 +365,8 @@
     "relay_desc": "透過特定轉發伺服器路由此使用者的傳出郵件。",
     "export_csv": "匯出使用者 (CSV)",
     "export_json": "匯出使用者 (JSON)",
-    "msg_invalid_quota": "配額必須是 0 或更大的整數（MB）。"
+    "msg_invalid_quota": "配額必須是 0 或更大的整數（MB）。",
+    "msg_unknown_service": "未知的郵件服務：:service"
   },
   "mlist": {
     "msg_updated": "郵件清單已更新！",
@@ -549,7 +550,9 @@
     "relay_format": "格式：<code>[主機名稱]:連接埠</code> — 方括號可防止 MX 查詢。",
     "save_relay": "儲存轉發設定",
     "msg_is_alias_domain": "網域 :domain 已是別名網域",
-    "msg_password_length_range": "最小密碼長度（:min）超過最大密碼長度（:max）。沒有密碼能同時符合這兩個限制。"
+    "msg_password_length_range": "最小密碼長度（:min）超過最大密碼長度（:max）。沒有密碼能同時符合這兩個限制。",
+    "disabled_services": "新信箱停用的服務",
+    "disabled_services_help": "此網域中新建的信箱預設停用這些服務。現有信箱不受影響。"
   },
   "admin": {
     "msg_email_required": "需要有效的電子郵件位址",

@@ -365,7 +365,8 @@
     "relay_desc": "このユーザーの送信メールを特定のリレーサーバー経由でルーティングします。",
     "export_csv": "ユーザーをエクスポート (CSV)",
     "export_json": "ユーザーをエクスポート (JSON)",
-    "msg_invalid_quota": "クォータは 0 以上の整数 (MB) で指定してください。"
+    "msg_invalid_quota": "クォータは 0 以上の整数 (MB) で指定してください。",
+    "msg_unknown_service": "不明なメールサービス: :service"
   },
   "mlist": {
     "msg_updated": "メーリングリストを更新しました！",
@@ -549,7 +550,9 @@
     "relay_format": "形式：<code>[hostname]:port</code> — 角括弧は MX ルックアップを防止します。",
     "save_relay": "リレー設定を保存",
     "msg_is_alias_domain": "ドメイン :domain は既にエイリアスドメインです",
-    "msg_password_length_range": "パスワードの最小長 (:min) が最大長 (:max) を超えています。両方の制限を満たすパスワードはありません。"
+    "msg_password_length_range": "パスワードの最小長 (:min) が最大長 (:max) を超えています。両方の制限を満たすパスワードはありません。",
+    "disabled_services": "新しいメールボックスで無効にするサービス",
+    "disabled_services_help": "このドメインの新しいメールボックスは、これらのサービスが無効の状態で作成されます。既存のメールボックスは変わりません。"
   },
   "admin": {
     "msg_email_required": "有効なメールアドレスが必要です",

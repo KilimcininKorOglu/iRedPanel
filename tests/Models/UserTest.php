@@ -66,6 +66,33 @@ class UserTest extends TestCase
     }
 
     /**
+     * A new mailbox takes the disabled mail services of its domain, as iRedAdmin creates it.
+     * The web create form posts no toggles, so without this call every service was off.
+     */
+    public function testNewMailboxServicesFollowTheDomain(): void
+    {
+        $user = User::fromFormData(['uid' => 'a']);
+        $user->setNewMailboxServices(['pop3', 'pop3secured']);
+
+        $this->assertFalse($user->enablePop3);
+        $this->assertFalse($user->enablePop3Secured);
+        $this->assertTrue($user->enableImap);
+        $this->assertSame(['smtp', 'smtpsecured', 'imap', 'imapsecured', 'managesieve', 'managesievesecured', 'sogo'], $user->enabledServiceNames());
+        $params = $user->sqlServiceParams();
+        $this->assertSame(0, $params['enablePop3']);
+        $this->assertSame(0, $params['enablePop3Tls']);
+        $this->assertSame(1, $params['enableImapTls']);
+        $this->assertNotContains('pop3', $user->toLdapServiceList());
+    }
+
+    public function testUnknownServiceNameIsRejected(): void
+    {
+        $this->assertSame(['imap'], User::validServiceNames(['imap', 'imap']));
+        $this->expectException(\App\Exceptions\InvalidInputException::class);
+        User::validServiceNames(['imap', 'ftp']);
+    }
+
+    /**
      * An update used to replace enabledService with a fixed list, which removed `mail`,
      * `shadowaddress` and every value the panel does not manage.
      */

@@ -365,7 +365,8 @@
     "relay_desc": "Direcționează email-urile de ieșire de la acest utilizator prin intermediul unui server de releu specific.",
     "export_csv": "Exportă utilizatorii (CSV)",
     "export_json": "Exportă utilizatorii (JSON)",
-    "msg_invalid_quota": "Cota trebuie să fie un număr întreg de 0 sau mai mare (MB)."
+    "msg_invalid_quota": "Cota trebuie să fie un număr întreg de 0 sau mai mare (MB).",
+    "msg_unknown_service": "Serviciu de e-mail necunoscut: :service"
   },
   "mlist": {
     "msg_updated": "Lista de corespondență a fost actualizată!",
@@ -549,7 +550,9 @@
     "relay_format": "Format: <code>[nume_gazdă]:port</code> — parantezele pătrate previn căutarea MX.",
     "save_relay": "Salvează setările de releu",
     "msg_is_alias_domain": "Domeniul :domain este deja un domeniu alias",
-    "msg_password_length_range": "Lungimea minimă a parolei (:min) depășește lungimea maximă (:max). Nicio parolă nu poate respecta ambele limite."
+    "msg_password_length_range": "Lungimea minimă a parolei (:min) depășește lungimea maximă (:max). Nicio parolă nu poate respecta ambele limite.",
+    "disabled_services": "Servicii dezactivate pentru căsuțele noi",
+    "disabled_services_help": "O căsuță nouă din acest domain pornește cu aceste servicii dezactivate. Căsuțele existente nu se schimbă."
   },
   "admin": {
     "msg_email_required": "Este necesară o adresă de email validă",

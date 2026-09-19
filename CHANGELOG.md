@@ -16,6 +16,8 @@ All notable changes to this project will be documented in this file.
 - Replicated accounts show an "Active Directory" badge; the directory-owned fields are read-only in the web UI and the REST API answers 409 when a request changes them
 - `App\Utils\SecretBox` encrypts secrets that the panel reads back (libsodium, key derived from `IREDPANEL_SECRET_KEY`)
 - REST API: `GET /api/v1/domains/{domain}` returns and `PUT` sets `catchall`, `senderBcc`, `recipientBcc` and `relayhost` (null removes the value)
+- Disabled mail services per domain (Settings tab and REST API `disabledMailServices`): a new mailbox from the web form, the REST API, `cli/importUsers.php` or account replication starts with these services off, as in iRedAdmin (SQL `disabled_mail_services`, LDAP `disabledMailService`)
+- REST API: `GET /api/v1/domains/{domain}` returns and `POST`/`PUT` set `defaultUserQuota`, `minPasswordLength`, `maxPasswordLength`, `disclaimer` and `disabledMailServices`
 
 ### Changed
 - The dashboard reads new releases from `compatibility.json` on GitHub (24-hour cache) and falls back to the bundled copy; this replaces the GitHub release check

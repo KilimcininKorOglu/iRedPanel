@@ -365,7 +365,8 @@
     "relay_desc": "Ohjaa tämän käyttäjän lähtevä posti tietyn välityspalvelimen kautta.",
     "export_csv": "Vie käyttäjät (CSV)",
     "export_json": "Vie käyttäjät (JSON)",
-    "msg_invalid_quota": "Kiintiön on oltava kokonaisluku 0 tai suurempi (MB)."
+    "msg_invalid_quota": "Kiintiön on oltava kokonaisluku 0 tai suurempi (MB).",
+    "msg_unknown_service": "Tuntematon postipalvelu: :service"
   },
   "mlist": {
     "msg_updated": "Postituslista päivitetty!",
@@ -549,7 +550,9 @@
     "relay_format": "Muoto: <code>[hostname]:port</code> — hakasulkeet estävät MX-haun.",
     "save_relay": "Tallenna välitysasetukset",
     "msg_is_alias_domain": "Verkkotunnus :domain on jo aliasverkkotunnus",
-    "msg_password_length_range": "Salasanan vähimmäispituus (:min) ylittää enimmäispituuden (:max). Mikään salasana ei voi täyttää kumpaakin rajaa."
+    "msg_password_length_range": "Salasanan vähimmäispituus (:min) ylittää enimmäispituuden (:max). Mikään salasana ei voi täyttää kumpaakin rajaa.",
+    "disabled_services": "Uusien postilaatikoiden poistetut palvelut",
+    "disabled_services_help": "Tämän domainin uusi postilaatikko alkaa näiden palvelujen ollessa pois käytöstä. Olemassa olevat postilaatikot eivät muutu."
   },
   "admin": {
     "msg_email_required": "Kelvollinen sähköpostiosoite vaaditaan",

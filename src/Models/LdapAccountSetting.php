@@ -25,6 +25,11 @@ final class LdapAccountSetting
         'maxPasswordLength' => 'maxPasswordLength',
     ];
 
+    /** DomainSettings list property => accountSetting key with one value per item ("key:item"). */
+    private const LIST_KEYS = [
+        'disabledMailServices' => 'disabledMailService',
+    ];
+
     /**
      * Sets the Domain fields from the stored accountSetting values.
      *
@@ -40,6 +45,9 @@ final class LdapAccountSetting
         foreach (self::SETTING_KEYS as $property => $key) {
             $settings->$property = (int) (self::valueOf($values, $key) ?? 0);
         }
+        foreach (self::LIST_KEYS as $property => $key) {
+            $settings->$property = self::itemsOf($values, $key);
+        }
         $domain->settings = $settings->toSettingsString();
     }
 
@@ -52,7 +60,7 @@ final class LdapAccountSetting
      */
     public static function valuesFor(Domain $domain, array $current): array
     {
-        $managed = [...array_values(self::LIMIT_KEYS), ...array_values(self::SETTING_KEYS)];
+        $managed = [...array_values(self::LIMIT_KEYS), ...array_values(self::SETTING_KEYS), ...array_values(self::LIST_KEYS)];
         $values = array_values(array_filter(
             $current,
             static fn (string $value): bool => !in_array(self::keyOf($value), $managed, true)
@@ -71,8 +79,32 @@ final class LdapAccountSetting
                 $values[] = "{$key}:{$number}";
             }
         }
+        foreach (self::LIST_KEYS as $property => $key) {
+            foreach ($settings->$property as $item) {
+                $values[] = "{$key}:{$item}";
+            }
+        }
 
         return $values;
+    }
+
+    /**
+     * Returns the items of a key that has one value per item, lowercased as iRedAdmin reads them.
+     *
+     * @param string[] $values
+     * @return list<string>
+     */
+    private static function itemsOf(array $values, string $key): array
+    {
+        $items = [];
+        foreach ($values as $value) {
+            $parts = explode(':', $value, 2);
+            if ($parts[0] === $key && ($parts[1] ?? '') !== '') {
+                $items[] = strtolower($parts[1]);
+            }
+        }
+
+        return array_values(array_unique($items));
     }
 
     private static function keyOf(string $value): string

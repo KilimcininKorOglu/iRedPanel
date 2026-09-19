@@ -365,7 +365,8 @@
     "relay_desc": "Encaminar el correu de sortida d'aquest usuari a través d'un servidor de retransmissió específic.",
     "export_csv": "Exporta els usuaris (CSV)",
     "export_json": "Exporta els usuaris (JSON)",
-    "msg_invalid_quota": "La quota ha de ser un nombre enter igual o superior a 0 (MB)."
+    "msg_invalid_quota": "La quota ha de ser un nombre enter igual o superior a 0 (MB).",
+    "msg_unknown_service": "Servei de correu desconegut: :service"
   },
   "mlist": {
     "msg_updated": "Llista de correu actualitzada!",
@@ -549,7 +550,9 @@
     "relay_format": "Format: <code>[nomamfitrió]:port</code> — els claudàtors eviten la cerca de MX.",
     "save_relay": "Desar configuració de retransmissió",
     "msg_is_alias_domain": "El domini :domain ja és un domini àlies",
-    "msg_password_length_range": "La longitud mínima de la contrasenya (:min) supera la màxima (:max). Cap contrasenya no pot complir tots dos límits."
+    "msg_password_length_range": "La longitud mínima de la contrasenya (:min) supera la màxima (:max). Cap contrasenya no pot complir tots dos límits.",
+    "disabled_services": "Serveis desactivats per a les bústies noves",
+    "disabled_services_help": "Una bústia nova d'aquest domini comença amb aquests serveis desactivats. Les bústies existents no canvien."
   },
   "admin": {
     "msg_email_required": "Cal una adreça de correu electrònic vàlida",

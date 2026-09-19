@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Api;
 
 use App\Models\Domain;
+use App\Models\DomainSettings;
 use App\Models\Settings;
 use App\Repositories\RepositoryFactory;
 use App\Services\AccountSettingsService;
@@ -41,7 +42,25 @@ class DomainApiController
             ApiResponse::error('Domain not found', 404);
             return;
         }
-        ApiResponse::success((array) $d + self::routing($domain));
+        $settings = DomainSettings::fromSettingsString($d->settings)->toFormData($d->disclaimer);
+        ApiResponse::success((array) $d + $settings + self::routing($domain));
+    }
+
+    /**
+     * Applies the settings fields of the body to $domain. Fields missing from the
+     * body and the settings keys of other tools keep their stored values.
+     *
+     * @throws \InvalidArgumentException for an invalid value
+     */
+    private static function applySettings(Domain $domain, array $data): void
+    {
+        $stored = DomainSettings::fromSettingsString($domain->settings);
+        $settings = DomainSettings::fromFormData(
+            array_intersect_key($data, $stored->toFormData('')) + $stored->toFormData($domain->disclaimer)
+        );
+        $settings->keepOtherKeysOf($domain->settings);
+        $domain->settings = $settings->toSettingsString();
+        $domain->disclaimer = $settings->disclaimer;
     }
 
     /** Body fields that hold one email address; null or '' removes the address. */
@@ -105,6 +124,7 @@ class DomainApiController
         try {
             // A new domain starts active unless the request sets active, as in the web form.
             $domain = Domain::fromFormData($data + ['active' => true]);
+            self::applySettings($domain, $data);
         } catch (\InvalidArgumentException $e) {
             ApiResponse::error($e->getMessage());
             return;
@@ -171,12 +191,13 @@ class DomainApiController
                 'transport' => $existing->transport,
             ]);
             $routing = self::routingFromBody($data);
+            self::applySettings($existing, $data);
         } catch (\InvalidArgumentException $e) {
             ApiResponse::error($e->getMessage());
             return;
         }
 
-        // updateDomain() writes every column; the settings string and the disclaimer stay as stored.
+        // updateDomain() writes every column.
         $existing->applyProfile($form);
         $repo->updateDomain($existing);
         self::writeRouting($domain, $routing);

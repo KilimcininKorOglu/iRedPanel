@@ -365,7 +365,8 @@
     "relay_desc": "Rutekan email keluar pengguna ini melalui server relay tertentu.",
     "export_csv": "Ekspor pengguna (CSV)",
     "export_json": "Ekspor pengguna (JSON)",
-    "msg_invalid_quota": "Kuota harus bilangan bulat 0 atau lebih (MB)."
+    "msg_invalid_quota": "Kuota harus bilangan bulat 0 atau lebih (MB).",
+    "msg_unknown_service": "Layanan surat tidak dikenal: :service"
   },
   "mlist": {
     "msg_updated": "Milis diperbarui!",
@@ -549,7 +550,9 @@
     "relay_format": "Format: <code>[namahost]:port</code> — tanda kurung siku mencegah pencarian MX.",
     "save_relay": "Simpan pengaturan relay",
     "msg_is_alias_domain": "Domain :domain sudah menjadi domain alias",
-    "msg_password_length_range": "Panjang kata sandi minimum (:min) melebihi panjang maksimum (:max). Tidak ada kata sandi yang dapat memenuhi kedua batas."
+    "msg_password_length_range": "Panjang kata sandi minimum (:min) melebihi panjang maksimum (:max). Tidak ada kata sandi yang dapat memenuhi kedua batas.",
+    "disabled_services": "Layanan nonaktif untuk kotak surat baru",
+    "disabled_services_help": "Kotak surat baru di domain ini dimulai dengan layanan ini nonaktif. Kotak surat yang ada tidak berubah."
   },
   "admin": {
     "msg_email_required": "Alamat email yang valid diperlukan",

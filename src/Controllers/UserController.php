@@ -376,9 +376,11 @@ class UserController
                 try {
                     // The create form has no status field; a new mailbox starts active.
                     $user = User::fromFormData(['uid' => $userUid] + $_POST + ['accountStatus' => true]);
+                    $domainSettings = self::domainSettings($domain);
+                    $user->setNewMailboxServices($domainSettings->disabledMailServices);
                     $password = $_POST['password'] ?? '';
                     $passwordRepeat = $_POST['password_repeat'] ?? '';
-                    $validationErrors = UserPassword::validateLocalized($password, $passwordRepeat, self::domainSettings($domain));
+                    $validationErrors = UserPassword::validateLocalized($password, $passwordRepeat, $domainSettings);
 
                     if (empty($validationErrors)) {
                         // Enforce admin resource limits

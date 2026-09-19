@@ -13,13 +13,7 @@ $tabs = [
     'bcc' => $t('domain.tab_bcc'),
     'relay' => $t('domain.tab_relay'),
 ];
-$services = [
-    'enableSmtp' => 'SMTP', 'enableSmtpSecured' => 'SMTP (TLS)',
-    'enablePop3' => 'POP3', 'enablePop3Secured' => 'POP3 (TLS)',
-    'enableImap' => 'IMAP', 'enableImapSecured' => 'IMAP (TLS)',
-    'enableManagesieve' => 'ManageSieve', 'enableManagesieveSecured' => 'ManageSieve (TLS)',
-    'enableSogo' => 'SOGo Webmail',
-];
+$services = \App\Models\User::SERVICE_LABELS;
 ?>
 <div class="page-header">
   <div>

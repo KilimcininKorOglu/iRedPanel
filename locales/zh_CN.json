@@ -365,7 +365,8 @@
     "relay_desc": "将此用户的出站邮件通过特定的中继服务器路由。",
     "export_csv": "导出用户 (CSV)",
     "export_json": "导出用户 (JSON)",
-    "msg_invalid_quota": "配额必须是 0 或更大的整数（MB）。"
+    "msg_invalid_quota": "配额必须是 0 或更大的整数（MB）。",
+    "msg_unknown_service": "未知的邮件服务：:service"
   },
   "mlist": {
     "msg_updated": "邮件列表已更新！",
@@ -549,7 +550,9 @@
     "relay_format": "格式：<code>[hostname]:port</code> — 方括号可防止 MX 查询。",
     "save_relay": "保存中继设置",
     "msg_is_alias_domain": "域名 :domain 已是别名域",
-    "msg_password_length_range": "最小密码长度（:min）超过最大密码长度（:max）。没有密码能同时满足这两个限制。"
+    "msg_password_length_range": "最小密码长度（:min）超过最大密码长度（:max）。没有密码能同时满足这两个限制。",
+    "disabled_services": "新邮箱禁用的服务",
+    "disabled_services_help": "此域中新建的邮箱默认禁用这些服务。现有邮箱不受影响。"
   },
   "admin": {
     "msg_email_required": "需要有效的电子邮件地址",

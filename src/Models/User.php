@@ -40,6 +40,31 @@ class User
         'enableSogo' => ['sogo'],
     ];
 
+    /**
+     * iRedMail service name (as in the disabled_mail_services domain setting and
+     * the iRedAdmin-Pro API) => toggle property.
+     */
+    public const SERVICE_TOGGLES = [
+        'smtp' => 'enableSmtp',
+        'smtpsecured' => 'enableSmtpSecured',
+        'pop3' => 'enablePop3',
+        'pop3secured' => 'enablePop3Secured',
+        'imap' => 'enableImap',
+        'imapsecured' => 'enableImapSecured',
+        'managesieve' => 'enableManagesieve',
+        'managesievesecured' => 'enableManagesieveSecured',
+        'sogo' => 'enableSogo',
+    ];
+
+    /** Toggle property => label in the web UI. */
+    public const SERVICE_LABELS = [
+        'enableSmtp' => 'SMTP', 'enableSmtpSecured' => 'SMTP (TLS)',
+        'enablePop3' => 'POP3', 'enablePop3Secured' => 'POP3 (TLS)',
+        'enableImap' => 'IMAP', 'enableImapSecured' => 'IMAP (TLS)',
+        'enableManagesieve' => 'ManageSieve', 'enableManagesieveSecured' => 'ManageSieve (TLS)',
+        'enableSogo' => 'SOGo Webmail',
+    ];
+
     public function __construct(
         public string $uid,
         public bool $accountStatus = false,
@@ -82,6 +107,50 @@ class User
     }
 
     /**
+     * Sets the services of a new mailbox: every service on except the disabled
+     * mail services of the domain, as iRedAdmin creates a mailbox.
+     *
+     * @param string[] $disabled iRedMail service names
+     */
+    public function setNewMailboxServices(array $disabled): void
+    {
+        foreach (self::SERVICE_TOGGLES as $service => $toggle) {
+            $this->$toggle = !in_array($service, $disabled, true);
+        }
+    }
+
+    /**
+     * Returns the iRedMail names of the enabled services.
+     *
+     * @return list<string>
+     */
+    public function enabledServiceNames(): array
+    {
+        return array_keys(array_filter(self::SERVICE_TOGGLES, fn (string $toggle): bool => $this->$toggle));
+    }
+
+    /**
+     * Checks a list of iRedMail service names.
+     *
+     * @return list<string> the names without duplicates
+     * @throws InvalidInputException naming the first unknown service
+     */
+    public static function validServiceNames(mixed $names): array
+    {
+        if (!is_array($names)) {
+            throw new InvalidInputException('Mail services must be a list', 'user.msg_unknown_service', ['service' => gettype($names)]);
+        }
+        foreach ($names as $name) {
+            if (!is_string($name) || !isset(self::SERVICE_TOGGLES[$name])) {
+                $shown = is_string($name) ? $name : gettype($name);
+                throw new InvalidInputException("Unknown mail service: {$shown}", 'user.msg_unknown_service', ['service' => $shown]);
+            }
+        }
+
+        return array_values(array_unique($names));
+    }
+
+    /**
      * Parameters for the SQL service columns that Dovecot checks besides the ones named after the toggles.
      * Dovecot reads `enable<service><secured|tls>`: a TLS login checks the `*tls` column, and
      * ManageSieve logs in as the service `sieve`, so a toggle must also set these columns to take effect.
@@ -97,6 +166,22 @@ class User
             'enableSieveSecured' => (int) $this->enableManagesieveSecured,
             'enableSieveTls' => (int) $this->enableManagesieveSecured,
         ];
+    }
+
+    /**
+     * Parameters for every SQL service column that the panel writes. The column
+     * name is the lowercased parameter name.
+     *
+     * @return array<string, int>
+     */
+    public function sqlServiceParams(): array
+    {
+        $params = [];
+        foreach (self::SERVICE_TOGGLES as $toggle) {
+            $params[$toggle] = (int) $this->$toggle;
+        }
+
+        return $params + $this->dovecotServiceParams();
     }
 
     /**

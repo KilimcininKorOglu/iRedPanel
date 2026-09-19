@@ -365,7 +365,8 @@
     "relay_desc": "Beina útgangspósti frá þessum notanda í gegnum tiltekinn endurvarpsþjón.",
     "export_csv": "Flytja út notendur (CSV)",
     "export_json": "Flytja út notendur (JSON)",
-    "msg_invalid_quota": "Kvótinn verður að vera heiltala, 0 eða hærri (MB)."
+    "msg_invalid_quota": "Kvótinn verður að vera heiltala, 0 eða hærri (MB).",
+    "msg_unknown_service": "Óþekkt póstþjónusta: :service"
   },
   "mlist": {
     "msg_updated": "Póstlisti uppfærður!",
@@ -549,7 +550,9 @@
     "relay_format": "Snið: <code>[hostname]:port</code> — hornklofar koma í veg fyrir MX-uppflettingu.",
     "save_relay": "Vista endurvarpsstillingar",
     "msg_is_alias_domain": "Lénið :domain er þegar samnefnislén",
-    "msg_password_length_range": "Lágmarkslengd lykilorðs (:min) er meiri en hámarkslengd (:max). Ekkert lykilorð getur uppfyllt bæði mörkin."
+    "msg_password_length_range": "Lágmarkslengd lykilorðs (:min) er meiri en hámarkslengd (:max). Ekkert lykilorð getur uppfyllt bæði mörkin.",
+    "disabled_services": "Óvirkar þjónustur fyrir ný pósthólf",
+    "disabled_services_help": "Nýtt pósthólf í þessu léni byrjar með þessar þjónustur óvirkar. Núverandi pósthólf breytast ekki."
   },
   "admin": {
     "msg_email_required": "Gilt netfang er nauðsynlegt",

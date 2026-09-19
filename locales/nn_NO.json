@@ -365,7 +365,8 @@
     "relay_desc": "Rut utgåande e-post frå denne brukaren gjennom ein bestemt relétenar.",
     "export_csv": "Eksporter brukarar (CSV)",
     "export_json": "Eksporter brukarar (JSON)",
-    "msg_invalid_quota": "Kvoten må vere eit heiltal på 0 eller meir (MB)."
+    "msg_invalid_quota": "Kvoten må vere eit heiltal på 0 eller meir (MB).",
+    "msg_unknown_service": "Ukjend e-postteneste: :service"
   },
   "mlist": {
     "msg_updated": "E-postliste oppdatert!",
@@ -549,7 +550,9 @@
     "relay_format": "Format: <code>[hostname]:port</code> — hakeparentesar hindrar MX-oppslag.",
     "save_relay": "Lagre reléinnstillingar",
     "msg_is_alias_domain": "Domenet :domain er allereie eit aliasdomene",
-    "msg_password_length_range": "Minste passordlengd (:min) er større enn største passordlengd (:max). Ingen passord kan oppfylle begge grensene."
+    "msg_password_length_range": "Minste passordlengd (:min) er større enn største passordlengd (:max). Ingen passord kan oppfylle begge grensene.",
+    "disabled_services": "Deaktiverte tenester for nye postboksar",
+    "disabled_services_help": "Ein ny postboks i dette domenet startar med desse tenestene deaktiverte. Eksisterande postboksar vert ikkje endra."
   },
   "admin": {
     "msg_email_required": "Ei gyldig e-postadresse er påkravd",

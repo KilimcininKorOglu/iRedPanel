@@ -365,7 +365,8 @@
     "relay_desc": "Enrutar el correo saliente de este usuario a través de un servidor de retransmisión específico.",
     "export_csv": "Exportar usuarios (CSV)",
     "export_json": "Exportar usuarios (JSON)",
-    "msg_invalid_quota": "La cuota debe ser un número entero igual o mayor que 0 (MB)."
+    "msg_invalid_quota": "La cuota debe ser un número entero igual o mayor que 0 (MB).",
+    "msg_unknown_service": "Servicio de correo desconocido: :service"
   },
   "mlist": {
     "msg_updated": "¡Lista de correo actualizada!",
@@ -549,7 +550,9 @@
     "relay_format": "Formato: <code>[hostname]:port</code> — los corchetes evitan la búsqueda de MX.",
     "save_relay": "Guardar ajustes de retransmisión",
     "msg_is_alias_domain": "El dominio :domain ya es un dominio alias",
-    "msg_password_length_range": "La longitud mínima de la contraseña (:min) supera la máxima (:max). Ninguna contraseña puede cumplir ambos límites."
+    "msg_password_length_range": "La longitud mínima de la contraseña (:min) supera la máxima (:max). Ninguna contraseña puede cumplir ambos límites.",
+    "disabled_services": "Servicios desactivados para buzones nuevos",
+    "disabled_services_help": "Un buzón nuevo de este dominio empieza con estos servicios desactivados. Los buzones existentes no cambian."
   },
   "admin": {
     "msg_email_required": "Se requiere una dirección de correo válida",

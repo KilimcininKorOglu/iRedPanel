@@ -365,7 +365,8 @@
     "relay_desc": "Kieruj pocztę wychodzącą od tego użytkownika przez określony serwer przekazujący.",
     "export_csv": "Eksportuj użytkowników (CSV)",
     "export_json": "Eksportuj użytkowników (JSON)",
-    "msg_invalid_quota": "Limit musi być liczbą całkowitą równą 0 lub większą (MB)."
+    "msg_invalid_quota": "Limit musi być liczbą całkowitą równą 0 lub większą (MB).",
+    "msg_unknown_service": "Nieznana usługa pocztowa: :service"
   },
   "mlist": {
     "msg_updated": "Lista mailingowa zaktualizowana!",
@@ -549,7 +550,9 @@
     "relay_format": "Format: <code>[nazwa_hosta]:port</code> — nawiasy kwadratowe zapobiegają wyszukiwaniu MX.",
     "save_relay": "Zapisz ustawienia przekazywania",
     "msg_is_alias_domain": "Domena :domain jest już domeną aliasu",
-    "msg_password_length_range": "Minimalna długość hasła (:min) przekracza maksymalną (:max). Żadne hasło nie spełni obu limitów."
+    "msg_password_length_range": "Minimalna długość hasła (:min) przekracza maksymalną (:max). Żadne hasło nie spełni obu limitów.",
+    "disabled_services": "Wyłączone usługi dla nowych skrzynek",
+    "disabled_services_help": "Nowa skrzynka w tej domenie startuje z wyłączonymi tymi usługami. Istniejące skrzynki się nie zmieniają."
   },
   "admin": {
     "msg_email_required": "Wymagany jest prawidłowy adres e-mail",

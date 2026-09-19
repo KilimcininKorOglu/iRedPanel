@@ -365,7 +365,8 @@
     "relay_desc": "Bu istifadəçidən gedən poçtu xüsusi relay serveri üzərindən yönləndirin.",
     "export_csv": "İstifadəçiləri ixrac et (CSV)",
     "export_json": "İstifadəçiləri ixrac et (JSON)",
-    "msg_invalid_quota": "Kvota 0 və ya daha böyük tam ədəd olmalıdır (MB)."
+    "msg_invalid_quota": "Kvota 0 və ya daha böyük tam ədəd olmalıdır (MB).",
+    "msg_unknown_service": "Naməlum poçt xidməti: :service"
   },
   "mlist": {
     "msg_updated": "Poçt siyahısı yeniləndi!",
@@ -549,7 +550,9 @@
     "relay_format": "Format: <code>[hostadı]:port</code> — kvadrat mötərizələr MX axtarışının qarşısını alır.",
     "save_relay": "Relay parametrlərini yadda saxla",
     "msg_is_alias_domain": ":domain artıq alias domendir",
-    "msg_password_length_range": "Minimum şifrə uzunluğu (:min) maksimum şifrə uzunluğundan (:max) böyükdür. Heç bir şifrə hər iki limitə uyğun gəlmir."
+    "msg_password_length_range": "Minimum şifrə uzunluğu (:min) maksimum şifrə uzunluğundan (:max) böyükdür. Heç bir şifrə hər iki limitə uyğun gəlmir.",
+    "disabled_services": "Yeni poçt qutuları üçün söndürülmüş xidmətlər",
+    "disabled_services_help": "Bu domain-də yaradılan yeni poçt qutusu bu xidmətlər söndürülmüş halda başlayır. Mövcud poçt qutuları dəyişmir."
   },
   "admin": {
     "msg_email_required": "Etibarlı e-poçt ünvanı tələb olunur",

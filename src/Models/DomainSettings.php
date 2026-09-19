@@ -25,6 +25,21 @@ class DomainSettings
     ) {}
 
     /**
+     * Returns the fields that fromFormData() reads, with the values of this object.
+     * A JSON body is merged over them, so that a missing field keeps its value.
+     */
+    public function toFormData(string $disclaimer): array
+    {
+        return [
+            'defaultUserQuota' => $this->defaultUserQuota,
+            'minPasswordLength' => $this->minPasswordLength,
+            'maxPasswordLength' => $this->maxPasswordLength,
+            'disclaimer' => $disclaimer,
+            'disabledMailServices' => $this->disabledMailServices,
+        ];
+    }
+
+    /**
      * Takes the keys that the panel does not manage from a stored settings string,
      * so that a save from the settings form keeps them.
      */
@@ -107,7 +122,7 @@ class DomainSettings
             minPasswordLength: self::number($post, 'minPasswordLength', 'domain.min_password_length'),
             maxPasswordLength: self::number($post, 'maxPasswordLength', 'domain.max_password_length'),
             disclaimer: FormValue::text($post, 'disclaimer'),
-            disabledMailServices: $post['disabledMailServices'] ?? [],
+            disabledMailServices: User::validServiceNames($post['disabledMailServices'] ?? []),
         );
 
         // No password could satisfy both limits. A min of 0 falls back to the global min, like UserPassword

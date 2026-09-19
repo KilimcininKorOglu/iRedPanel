@@ -365,7 +365,8 @@
     "relay_desc": "Dirigér udgående mail fra denne bruger gennem en bestemt relæserver.",
     "export_csv": "Eksportér brugere (CSV)",
     "export_json": "Eksportér brugere (JSON)",
-    "msg_invalid_quota": "Kvoten skal være et heltal på 0 eller mere (MB)."
+    "msg_invalid_quota": "Kvoten skal være et heltal på 0 eller mere (MB).",
+    "msg_unknown_service": "Ukendt mailtjeneste: :service"
   },
   "mlist": {
     "msg_updated": "Mailingliste opdateret!",
@@ -549,7 +550,9 @@
     "relay_format": "Format: <code>[hostname]:port</code> — firkantede parenteser forhindrer MX-opslag.",
     "save_relay": "Gem relæindstillinger",
     "msg_is_alias_domain": "Domænet :domain er allerede et aliasdomæne",
-    "msg_password_length_range": "Minimal adgangskodelængde (:min) er større end maksimal (:max). Ingen adgangskode kan opfylde begge grænser."
+    "msg_password_length_range": "Minimal adgangskodelængde (:min) er større end maksimal (:max). Ingen adgangskode kan opfylde begge grænser.",
+    "disabled_services": "Deaktiverede tjenester for nye postkasser",
+    "disabled_services_help": "En ny postkasse i dette domæne starter med disse tjenester deaktiveret. Eksisterende postkasser ændres ikke."
   },
   "admin": {
     "msg_email_required": "En gyldig e-mailadresse er påkrævet",

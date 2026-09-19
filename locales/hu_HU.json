@@ -365,7 +365,8 @@
     "relay_desc": "A felhasználótól kimenő levelek irányítása egy adott továbbító szerveren keresztül.",
     "export_csv": "Felhasználók exportálása (CSV)",
     "export_json": "Felhasználók exportálása (JSON)",
-    "msg_invalid_quota": "A kvótának 0 vagy nagyobb egész számnak kell lennie (MB)."
+    "msg_invalid_quota": "A kvótának 0 vagy nagyobb egész számnak kell lennie (MB).",
+    "msg_unknown_service": "Ismeretlen levelezési szolgáltatás: :service"
   },
   "mlist": {
     "msg_updated": "Levelezőlista frissítve!",
@@ -549,7 +550,9 @@
     "relay_format": "Formátum: <code>[hostname]:port</code> — a szögletes zárójelek megakadályozzák az MX-keresést.",
     "save_relay": "Relébeállítások mentése",
     "msg_is_alias_domain": "A(z) :domain már alias domain",
-    "msg_password_length_range": "A jelszó minimális hossza (:min) nagyobb a maximálisnál (:max). Egyetlen jelszó sem felelhet meg mindkét korlátnak."
+    "msg_password_length_range": "A jelszó minimális hossza (:min) nagyobb a maximálisnál (:max). Egyetlen jelszó sem felelhet meg mindkét korlátnak.",
+    "disabled_services": "Letiltott szolgáltatások új postafiókoknál",
+    "disabled_services_help": "Az ebben a domainben létrehozott új postafiók ezekkel a szolgáltatásokkal letiltva indul. A meglévő postafiókok nem változnak."
   },
   "admin": {
     "msg_email_required": "Érvényes e-mail-cím megadása kötelező",

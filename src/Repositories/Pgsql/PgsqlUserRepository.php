@@ -212,19 +212,22 @@ class PgsqlUserRepository implements UserRepositoryInterface
                 throw new \RuntimeException("Domain '{$domain}' not found");
             }
 
+            $services = $user->sqlServiceParams();
+            $serviceColumns = implode(', ', array_map('strtolower', array_keys($services)));
+            $servicePlaceholders = ':' . implode(', :', array_keys($services));
             $stmt = $pdo->prepare(
                 "INSERT INTO mailbox
                     (username, password, name, first_name, last_name,
                      quota, employeeid, rank, mobile, telephone,
                      domain, active, isglobaladmin, storagebasedirectory,
-                     storagenode, maildir, created, passwordlastchange)
+                     storagenode, maildir, {$serviceColumns}, created, passwordlastchange)
                  VALUES
                     (:username, :password, :cn, :givenName, :sn,
                      :quota, :employeeNumber, :title, :mobile, :telephoneNumber,
                      :domain, :active, :isGlobalAdmin, :storageBase,
-                     :storageNode, :maildir, NOW(), NOW())"
+                     :storageNode, :maildir, {$servicePlaceholders}, NOW(), NOW())"
             );
-            $stmt->execute([
+            $stmt->execute($services + [
                 'username' => $username,
                 'password' => $passwordHash,
                 'cn' => $user->cn,

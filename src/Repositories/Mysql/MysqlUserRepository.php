@@ -216,36 +216,39 @@ class MysqlUserRepository implements UserRepositoryInterface
                 throw new \RuntimeException("Domain '{$domain}' not found");
             }
 
+            $services = $user->sqlServiceParams();
+            $serviceColumns = implode(', ', array_map('strtolower', array_keys($services)));
+            $servicePlaceholders = ':' . implode(', :', array_keys($services));
             $stmt = $pdo->prepare(
-            "INSERT INTO mailbox
-                (username, password, name, first_name, last_name,
-                 quota, employeeid, rank, mobile, telephone,
-                 domain, active, isglobaladmin, storagebasedirectory,
-                 storagenode, maildir, created, passwordlastchange)
-             VALUES
-                (:username, :password, :cn, :givenName, :sn,
-                 :quota, :employeeNumber, :title, :mobile, :telephoneNumber,
-                 :domain, :active, :isGlobalAdmin, :storageBase,
-                 :storageNode, :maildir, NOW(), NOW())"
-        );
-        $stmt->execute([
-            'username' => $username,
-            'password' => $passwordHash,
-            'cn' => $user->cn,
-            'givenName' => $user->givenName,
-            'sn' => $user->sn,
-            'quota' => $user->mailQuota,
-            'employeeNumber' => $user->employeeNumber,
-            'title' => $user->title,
-            'mobile' => $user->mobile,
-            'telephoneNumber' => $user->telephoneNumber,
-            'domain' => $domain,
-            'active' => $user->accountStatus ? 1 : 0,
-            'isGlobalAdmin' => $user->domainGlobalAdmin ? 1 : 0,
-            'storageBase' => $settings->vmailPath,
-            'storageNode' => $settings->storageNode,
-            'maildir' => "{$domain}/{$user->uid}/",
-        ]);
+                "INSERT INTO mailbox
+                    (username, password, name, first_name, last_name,
+                     quota, employeeid, rank, mobile, telephone,
+                     domain, active, isglobaladmin, storagebasedirectory,
+                     storagenode, maildir, {$serviceColumns}, created, passwordlastchange)
+                 VALUES
+                    (:username, :password, :cn, :givenName, :sn,
+                     :quota, :employeeNumber, :title, :mobile, :telephoneNumber,
+                     :domain, :active, :isGlobalAdmin, :storageBase,
+                     :storageNode, :maildir, {$servicePlaceholders}, NOW(), NOW())"
+            );
+            $stmt->execute($services + [
+                'username' => $username,
+                'password' => $passwordHash,
+                'cn' => $user->cn,
+                'givenName' => $user->givenName,
+                'sn' => $user->sn,
+                'quota' => $user->mailQuota,
+                'employeeNumber' => $user->employeeNumber,
+                'title' => $user->title,
+                'mobile' => $user->mobile,
+                'telephoneNumber' => $user->telephoneNumber,
+                'domain' => $domain,
+                'active' => $user->accountStatus ? 1 : 0,
+                'isGlobalAdmin' => $user->domainGlobalAdmin ? 1 : 0,
+                'storageBase' => $settings->vmailPath,
+                'storageNode' => $settings->storageNode,
+                'maildir' => "{$domain}/{$user->uid}/",
+            ]);
 
             // Without the address=forwarding row, Postfix sends the mail of this mailbox
             // to the domain catch-all and does not resolve it through an alias domain.

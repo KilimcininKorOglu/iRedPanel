@@ -365,7 +365,8 @@
     "relay_desc": "Instrada la posta in uscita di questo utente tramite un server relay specifico.",
     "export_csv": "Esporta utenti (CSV)",
     "export_json": "Esporta utenti (JSON)",
-    "msg_invalid_quota": "La quota deve essere un numero intero pari o superiore a 0 (MB)."
+    "msg_invalid_quota": "La quota deve essere un numero intero pari o superiore a 0 (MB).",
+    "msg_unknown_service": "Servizio di posta sconosciuto: :service"
   },
   "mlist": {
     "msg_updated": "Lista di distribuzione aggiornata!",
@@ -549,7 +550,9 @@
     "relay_format": "Formato: <code>[hostname]:port</code> — le parentesi quadre impediscono la ricerca MX.",
     "save_relay": "Salva impostazioni relay",
     "msg_is_alias_domain": "Il dominio :domain è già un dominio alias",
-    "msg_password_length_range": "La lunghezza minima della password (:min) supera quella massima (:max). Nessuna password può rispettare entrambi i limiti."
+    "msg_password_length_range": "La lunghezza minima della password (:min) supera quella massima (:max). Nessuna password può rispettare entrambi i limiti.",
+    "disabled_services": "Servizi disattivati per le nuove caselle",
+    "disabled_services_help": "Una nuova casella di questo dominio parte con questi servizi disattivati. Le caselle esistenti non cambiano."
   },
   "admin": {
     "msg_email_required": "È richiesto un indirizzo e-mail valido",

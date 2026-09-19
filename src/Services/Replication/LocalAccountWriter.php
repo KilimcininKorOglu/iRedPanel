@@ -106,12 +106,14 @@ final class LocalAccountWriter
     private function createUser(SourceAccount $source, string $uid): void
     {
         $domain = $this->domain();
-        $quota = max(0, DomainSettings::fromSettingsString($domain->settings)->defaultUserQuota);
+        $settings = DomainSettings::fromSettingsString($domain->settings);
+        $quota = max(0, $settings->defaultUserQuota);
         $limitError = $domain->newMailboxError($quota);
         if ($limitError !== null) {
             throw $limitError;
         }
         $user = new User(uid: $uid, accountStatus: $source->active ?? true, mailQuota: $quota);
+        $user->setNewMailboxServices($settings->disabledMailServices);
         $this->applyProfile($user, $source);
         // Nobody knows this password: the admin or the user sets one in the panel.
         $hash = PasswordUtils::generatePasswordHash(PasswordUtils::generateRandomPassword(32));

@@ -109,6 +109,7 @@ function prepareLine(array $fields): array|string
             cn: $fields[3] ?? '',
             employeeNumber: $fields[5] ?? '',
         );
+        $user->setNewMailboxServices($settings->disabledMailServices);
         $limitError = $domain->newMailboxError($user->mailQuota);
         if ($limitError !== null) {
             return "{$email}: {$limitError->getMessage()}";

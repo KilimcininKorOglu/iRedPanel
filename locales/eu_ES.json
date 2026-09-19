@@ -365,7 +365,8 @@
     "relay_desc": "Bideratu erabiltzaile honen irteerako posta errele-zerbitzari zehatz baten bidez.",
     "export_csv": "Esportatu erabiltzaileak (CSV)",
     "export_json": "Esportatu erabiltzaileak (JSON)",
-    "msg_invalid_quota": "Kuotak 0 edo handiagoa den zenbaki oso bat izan behar du (MB)."
+    "msg_invalid_quota": "Kuotak 0 edo handiagoa den zenbaki oso bat izan behar du (MB).",
+    "msg_unknown_service": "Posta-zerbitzu ezezaguna: :service"
   },
   "mlist": {
     "msg_updated": "Posta-zerrenda eguneratu da!",
@@ -549,7 +550,9 @@
     "relay_format": "Formatua: <code>[hostname]:port</code> — kortxeteek MX bilaketa saihesten dute.",
     "save_relay": "Gorde errele ezarpenak",
     "msg_is_alias_domain": ":domain domeinua alias domeinua da jada",
-    "msg_password_length_range": "Pasahitzaren gutxieneko luzera (:min) gehienekoa (:max) baino handiagoa da. Ezein pasahitzek ezin ditu bi mugak bete."
+    "msg_password_length_range": "Pasahitzaren gutxieneko luzera (:min) gehienekoa (:max) baino handiagoa da. Ezein pasahitzek ezin ditu bi mugak bete.",
+    "disabled_services": "Postontzi berrientzako desgaitutako zerbitzuak",
+    "disabled_services_help": "Domeinu honetako postontzi berri batek zerbitzu hauek desgaituta ditu hasieran. Lehendik dauden postontziak ez dira aldatzen."
   },
   "admin": {
     "msg_email_required": "Baliozko posta-helbidea beharrezkoa da",

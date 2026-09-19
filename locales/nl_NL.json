@@ -365,7 +365,8 @@
     "relay_desc": "Uitgaande e-mail van deze gebruiker via een specifieke relayserver routeren.",
     "export_csv": "Gebruikers exporteren (CSV)",
     "export_json": "Gebruikers exporteren (JSON)",
-    "msg_invalid_quota": "Het quotum moet een geheel getal van 0 of meer zijn (MB)."
+    "msg_invalid_quota": "Het quotum moet een geheel getal van 0 of meer zijn (MB).",
+    "msg_unknown_service": "Onbekende maildienst: :service"
   },
   "mlist": {
     "msg_updated": "Mailinglijst bijgewerkt!",
@@ -549,7 +550,9 @@
     "relay_format": "Indeling: <code>[hostname]:port</code> — de vierkante haken voorkomen MX-opzoeking.",
     "save_relay": "Relay-instellingen opslaan",
     "msg_is_alias_domain": "Het domein :domain is al een aliasdomein",
-    "msg_password_length_range": "De minimale wachtwoordlengte (:min) is groter dan de maximale (:max). Geen wachtwoord kan aan beide limieten voldoen."
+    "msg_password_length_range": "De minimale wachtwoordlengte (:min) is groter dan de maximale (:max). Geen wachtwoord kan aan beide limieten voldoen.",
+    "disabled_services": "Uitgeschakelde diensten voor nieuwe mailboxen",
+    "disabled_services_help": "Een nieuwe mailbox in dit domein start met deze diensten uitgeschakeld. Bestaande mailboxen veranderen niet."
   },
   "admin": {
     "msg_email_required": "Een geldig e-mailadres is vereist",

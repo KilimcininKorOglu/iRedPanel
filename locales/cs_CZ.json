@@ -365,7 +365,8 @@
     "relay_desc": "Směrujte odchozí poštu od tohoto uživatele přes konkrétní přenosový server.",
     "export_csv": "Exportovat uživatele (CSV)",
     "export_json": "Exportovat uživatele (JSON)",
-    "msg_invalid_quota": "Kvóta musí být celé číslo 0 nebo větší (MB)."
+    "msg_invalid_quota": "Kvóta musí být celé číslo 0 nebo větší (MB).",
+    "msg_unknown_service": "Neznámá poštovní služba: :service"
   },
   "mlist": {
     "msg_updated": "Poštovní konference aktualizována!",
@@ -549,7 +550,9 @@
     "relay_format": "Formát: <code>[nazev_hostitele]:port</code> — hranaté závorky zabraňují vyhledávání MX.",
     "save_relay": "Uložit nastavení přenosu",
     "msg_is_alias_domain": "Doména :domain je již aliasovou doménou",
-    "msg_password_length_range": "Minimální délka hesla (:min) je větší než maximální (:max). Žádné heslo nemůže splnit oba limity."
+    "msg_password_length_range": "Minimální délka hesla (:min) je větší než maximální (:max). Žádné heslo nemůže splnit oba limity.",
+    "disabled_services": "Vypnuté služby pro nové schránky",
+    "disabled_services_help": "Nová schránka v této doméně začíná s vypnutými těmito službami. Existující schránky se nemění."
   },
   "admin": {
     "msg_email_required": "Je vyžadována platná e-mailová adresa",

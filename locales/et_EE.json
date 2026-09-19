@@ -365,7 +365,8 @@
     "relay_desc": "Suuna selle kasutaja väljaminev post läbi kindla edastusserveri.",
     "export_csv": "Ekspordi kasutajad (CSV)",
     "export_json": "Ekspordi kasutajad (JSON)",
-    "msg_invalid_quota": "Kvoot peab olema täisarv 0 või suurem (MB)."
+    "msg_invalid_quota": "Kvoot peab olema täisarv 0 või suurem (MB).",
+    "msg_unknown_service": "Tundmatu meiliteenus: :service"
   },
   "mlist": {
     "msg_updated": "Postiloend uuendatud!",
@@ -549,7 +550,9 @@
     "relay_format": "Vorming: <code>[hostname]:port</code> — nurksulud takistavad MX-otsingut.",
     "save_relay": "Salvesta edastuse seaded",
     "msg_is_alias_domain": "Domeen :domain on juba aliasdomeen",
-    "msg_password_length_range": "Parooli minimaalne pikkus (:min) ületab maksimaalse (:max). Ükski parool ei saa täita mõlemat piirangut."
+    "msg_password_length_range": "Parooli minimaalne pikkus (:min) ületab maksimaalse (:max). Ükski parool ei saa täita mõlemat piirangut.",
+    "disabled_services": "Uute postkastide keelatud teenused",
+    "disabled_services_help": "Selle domeeni uus postkast alustab nende teenustega keelatuna. Olemasolevad postkastid ei muutu."
   },
   "admin": {
     "msg_email_required": "Nõutav on kehtiv e-posti aadress",

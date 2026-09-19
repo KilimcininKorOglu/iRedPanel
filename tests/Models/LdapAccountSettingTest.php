@@ -46,6 +46,22 @@ class LdapAccountSettingTest extends TestCase
         );
     }
 
+    /**
+     * iRedAdmin stores one accountSetting value per disabled service ("disabledMailService:imap").
+     */
+    public function testDisabledMailServicesUseOneValuePerService(): void
+    {
+        $domain = new Domain('example.com');
+        LdapAccountSetting::applyTo($domain, ['disabledMailService:POP3', 'disabledMailService:imap', 'numberOfUsers:2']);
+        $this->assertSame(['pop3', 'imap'], DomainSettings::fromSettingsString($domain->settings)->disabledMailServices);
+
+        $domain->settings = (new DomainSettings(disabledMailServices: ['sogo']))->toSettingsString();
+        $this->assertEqualsCanonicalizing(
+            ['numberOfUsers:2', 'disabledMailService:sogo'],
+            LdapAccountSetting::valuesFor($domain, ['disabledMailService:pop3', 'disabledMailService:imap', 'numberOfUsers:9'])
+        );
+    }
+
     public function testWriteKeepsOtherKeysAndDropsUnlimitedLimits(): void
     {
         $domain = new Domain('example.com', maxQuota: 250, mailboxes: 0, aliases: 7);

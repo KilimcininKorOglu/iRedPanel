@@ -167,8 +167,8 @@ class LdapUserRepository implements UserRepositoryInterface
             'accountStatus' => $user->accountStatus ? 'active' : 'disabled',
             'homeDirectory' => "{$settings->vmailPath}/{$maildir}",
             'amavisLocal' => 'TRUE',
-            // The create form has no service toggles; a new mailbox starts with every service on.
-            'enabledService' => User::defaultLdapServices(),
+            // The caller sets the toggles with setNewMailboxServices().
+            'enabledService' => $user->toLdapServiceList(),
             'storageBaseDirectory' => $settings->vmailPath,
             'mailMessageStore' => $maildir,
         ];

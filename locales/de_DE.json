@@ -365,7 +365,8 @@
     "relay_desc": "Ausgehende Mail dieses Benutzers über einen bestimmten Relay-Server leiten.",
     "export_csv": "Benutzer exportieren (CSV)",
     "export_json": "Benutzer exportieren (JSON)",
-    "msg_invalid_quota": "Das Kontingent muss eine ganze Zahl von 0 oder mehr sein (MB)."
+    "msg_invalid_quota": "Das Kontingent muss eine ganze Zahl von 0 oder mehr sein (MB).",
+    "msg_unknown_service": "Unbekannter Maildienst: :service"
   },
   "mlist": {
     "msg_updated": "Mailingliste aktualisiert!",
@@ -549,7 +550,9 @@
     "relay_format": "Format: <code>[hostname]:port</code> — eckige Klammern verhindern die MX-Abfrage.",
     "save_relay": "Relay-Einstellungen speichern",
     "msg_is_alias_domain": "Die Domain :domain ist bereits eine Alias-Domain",
-    "msg_password_length_range": "Die minimale Passwortlänge (:min) ist größer als die maximale (:max). Kein Passwort kann beide Grenzen erfüllen."
+    "msg_password_length_range": "Die minimale Passwortlänge (:min) ist größer als die maximale (:max). Kein Passwort kann beide Grenzen erfüllen.",
+    "disabled_services": "Deaktivierte Dienste für neue Postfächer",
+    "disabled_services_help": "Ein neues Postfach in dieser Domain beginnt mit diesen deaktivierten Diensten. Bestehende Postfächer bleiben unverändert."
   },
   "admin": {
     "msg_email_required": "Eine gültige E-Mail-Adresse ist erforderlich",

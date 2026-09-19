@@ -365,7 +365,8 @@
     "relay_desc": "Acheminer le courrier sortant de cet utilisateur via un serveur relais spécifique.",
     "export_csv": "Exporter les utilisateurs (CSV)",
     "export_json": "Exporter les utilisateurs (JSON)",
-    "msg_invalid_quota": "Le quota doit être un nombre entier supérieur ou égal à 0 (Mo)."
+    "msg_invalid_quota": "Le quota doit être un nombre entier supérieur ou égal à 0 (Mo).",
+    "msg_unknown_service": "Service de messagerie inconnu : :service"
   },
   "mlist": {
     "msg_updated": "Liste de diffusion mise à jour !",
@@ -549,7 +550,9 @@
     "relay_format": "Format : <code>[hostname]:port</code> — les crochets empêchent la recherche MX.",
     "save_relay": "Enregistrer les paramètres de relais",
     "msg_is_alias_domain": "Le domaine :domain est déjà un domaine alias",
-    "msg_password_length_range": "La longueur minimale du mot de passe (:min) dépasse la longueur maximale (:max). Aucun mot de passe ne peut respecter les deux limites."
+    "msg_password_length_range": "La longueur minimale du mot de passe (:min) dépasse la longueur maximale (:max). Aucun mot de passe ne peut respecter les deux limites.",
+    "disabled_services": "Services désactivés pour les nouvelles boîtes",
+    "disabled_services_help": "Une nouvelle boîte de ce domaine démarre avec ces services désactivés. Les boîtes existantes ne changent pas."
   },
   "admin": {
     "msg_email_required": "Une adresse e-mail valide est requise",

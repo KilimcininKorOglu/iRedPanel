@@ -125,6 +125,21 @@ $tabs = [
           </div>
         </div>
 
+        <fieldset class="mb-3">
+          <legend class="form-label fs-6"><?= $te('domain.disabled_services') ?></legend>
+          <div class="row g-2">
+            <?php foreach (\App\Models\User::SERVICE_TOGGLES as $service => $toggle): ?>
+            <div class="col-md-6">
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="disabled-<?= $e($service) ?>" name="disabledMailServices[]" value="<?= $e($service) ?>" <?php if (in_array($service, $domainSettings->disabledMailServices, true)): ?>checked<?php endif; ?> />
+                <label class="form-check-label" for="disabled-<?= $e($service) ?>"><?= $e(\App\Models\User::SERVICE_LABELS[$toggle]) ?></label>
+              </div>
+            </div>
+            <?php endforeach; ?>
+          </div>
+          <div class="form-text"><?= $te('domain.disabled_services_help') ?></div>
+        </fieldset>
+
         <div>
           <label for="disclaimer" class="form-label"><?= $te('domain.disclaimer_text') ?></label>
           <textarea id="disclaimer" name="disclaimer" rows="5" class="form-control"><?= $e($domain->disclaimer) ?></textarea>

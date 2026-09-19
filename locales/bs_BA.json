@@ -365,7 +365,8 @@
     "relay_desc": "Usmjeri odlazni e-mail ovog korisnika kroz određeni relej server.",
     "export_csv": "Izvezi korisnike (CSV)",
     "export_json": "Izvezi korisnike (JSON)",
-    "msg_invalid_quota": "Kvota mora biti cijeli broj, 0 ili veći (MB)."
+    "msg_invalid_quota": "Kvota mora biti cijeli broj, 0 ili veći (MB).",
+    "msg_unknown_service": "Nepoznata mail usluga: :service"
   },
   "mlist": {
     "msg_updated": "Mailing lista je ažurirana!",
@@ -549,7 +550,9 @@
     "relay_format": "Format: <code>[hostname]:port</code> — uglaste zagrade sprječavaju MX pretragu.",
     "save_relay": "Sačuvaj postavke releja",
     "msg_is_alias_domain": "Domena :domain je već alias domena",
-    "msg_password_length_range": "Minimalna dužina lozinke (:min) veća je od maksimalne (:max). Nijedna lozinka ne može ispuniti oba ograničenja."
+    "msg_password_length_range": "Minimalna dužina lozinke (:min) veća je od maksimalne (:max). Nijedna lozinka ne može ispuniti oba ograničenja.",
+    "disabled_services": "Onemogućene usluge za nove poštanske sandučiće",
+    "disabled_services_help": "Novi poštanski sandučić u ovoj domeni počinje s ovim onemogućenim uslugama. Postojeći sandučići se ne mijenjaju."
   },
   "admin": {
     "msg_email_required": "Ispravna e-mail adresa je obavezna",

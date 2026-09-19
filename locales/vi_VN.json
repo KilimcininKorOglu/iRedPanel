@@ -365,7 +365,8 @@
     "relay_desc": "Định tuyến email đi của người dùng này qua một máy chủ chuyển tiếp cụ thể.",
     "export_csv": "Xuất người dùng (CSV)",
     "export_json": "Xuất người dùng (JSON)",
-    "msg_invalid_quota": "Hạn mức phải là số nguyên từ 0 trở lên (MB)."
+    "msg_invalid_quota": "Hạn mức phải là số nguyên từ 0 trở lên (MB).",
+    "msg_unknown_service": "Dịch vụ thư không xác định: :service"
   },
   "mlist": {
     "msg_updated": "Danh sách gửi thư đã được cập nhật!",
@@ -549,7 +550,9 @@
     "relay_format": "Định dạng: <code>[tên_máy_chủ]:cổng</code> — dấu ngoặc vuông ngăn tra cứu MX.",
     "save_relay": "Lưu cài đặt chuyển tiếp",
     "msg_is_alias_domain": "Tên miền :domain đã là tên miền bí danh",
-    "msg_password_length_range": "Độ dài mật khẩu tối thiểu (:min) lớn hơn độ dài tối đa (:max). Không mật khẩu nào đáp ứng được cả hai giới hạn."
+    "msg_password_length_range": "Độ dài mật khẩu tối thiểu (:min) lớn hơn độ dài tối đa (:max). Không mật khẩu nào đáp ứng được cả hai giới hạn.",
+    "disabled_services": "Dịch vụ bị tắt cho hộp thư mới",
+    "disabled_services_help": "Hộp thư mới trong domain này bắt đầu với các dịch vụ này bị tắt. Các hộp thư hiện có không thay đổi."
   },
   "admin": {
     "msg_email_required": "Cần địa chỉ email hợp lệ",

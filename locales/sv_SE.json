@@ -365,7 +365,8 @@
     "relay_desc": "Dirigera utgående post från denna användare via en specifik reläserver.",
     "export_csv": "Exportera användare (CSV)",
     "export_json": "Exportera användare (JSON)",
-    "msg_invalid_quota": "Kvoten måste vara ett heltal på 0 eller mer (MB)."
+    "msg_invalid_quota": "Kvoten måste vara ett heltal på 0 eller mer (MB).",
+    "msg_unknown_service": "Okänd e-posttjänst: :service"
   },
   "mlist": {
     "msg_updated": "Sändlista uppdaterad!",
@@ -549,7 +550,9 @@
     "relay_format": "Format: <code>[värdnamn]:port</code> — hakparenteser förhindrar MX-uppslagning.",
     "save_relay": "Spara reläinställningar",
     "msg_is_alias_domain": "Domänen :domain är redan en aliasdomän",
-    "msg_password_length_range": "Minsta lösenordslängd (:min) är större än största lösenordslängd (:max). Inget lösenord kan uppfylla båda gränserna."
+    "msg_password_length_range": "Minsta lösenordslängd (:min) är större än största lösenordslängd (:max). Inget lösenord kan uppfylla båda gränserna.",
+    "disabled_services": "Inaktiverade tjänster för nya brevlådor",
+    "disabled_services_help": "En ny brevlåda i den här domänen startar med dessa tjänster inaktiverade. Befintliga brevlådor ändras inte."
   },
   "admin": {
     "msg_email_required": "En giltig e-postadress krävs",

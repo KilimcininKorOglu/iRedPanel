@@ -365,7 +365,8 @@
     "relay_desc": "Bu kullanıcıdan giden postayı belirli bir aktarma sunucusu üzerinden yönlendirin.",
     "export_csv": "Kullanıcıları dışa aktar (CSV)",
     "export_json": "Kullanıcıları dışa aktar (JSON)",
-    "msg_invalid_quota": "Kota 0 veya daha büyük bir tam sayı olmalıdır (MB)."
+    "msg_invalid_quota": "Kota 0 veya daha büyük bir tam sayı olmalıdır (MB).",
+    "msg_unknown_service": "Bilinmeyen posta servisi: :service"
   },
   "mlist": {
     "msg_updated": "Posta listesi güncellendi!",
@@ -549,7 +550,9 @@
     "relay_format": "Biçim: <code>[anasistem]:port</code> — köşeli parantezler MX aramasını engeller.",
     "save_relay": "Aktarma Ayarlarını Kaydet",
     "msg_is_alias_domain": ":domain zaten bir alias domain",
-    "msg_password_length_range": "Minimum şifre uzunluğu (:min), maksimum şifre uzunluğundan (:max) büyük. Hiçbir şifre iki sınırı birden karşılayamaz."
+    "msg_password_length_range": "Minimum şifre uzunluğu (:min), maksimum şifre uzunluğundan (:max) büyük. Hiçbir şifre iki sınırı birden karşılayamaz.",
+    "disabled_services": "Yeni posta kutuları için kapalı servisler",
+    "disabled_services_help": "Bu domain'de oluşturulan yeni posta kutusu bu servisler kapalı olarak başlar. Mevcut posta kutuları değişmez."
   },
   "admin": {
     "msg_email_required": "Geçerli bir e-posta adresi gerekli",

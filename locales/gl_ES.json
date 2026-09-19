@@ -365,7 +365,8 @@
     "relay_desc": "Encamiña o correo saínte deste usuario a través dun servidor de retransmisión específico.",
     "export_csv": "Exportar usuarios (CSV)",
     "export_json": "Exportar usuarios (JSON)",
-    "msg_invalid_quota": "A cota debe ser un número enteiro igual ou maior que 0 (MB)."
+    "msg_invalid_quota": "A cota debe ser un número enteiro igual ou maior que 0 (MB).",
+    "msg_unknown_service": "Servizo de correo descoñecido: :service"
   },
   "mlist": {
     "msg_updated": "Lista de correo actualizada!",
@@ -549,7 +550,9 @@
     "relay_format": "Formato: <code>[hostname]:port</code> — os corchetes evitan a busca de MX.",
     "save_relay": "Gardar configuración de retransmisión",
     "msg_is_alias_domain": "O dominio :domain xa é un dominio alias",
-    "msg_password_length_range": "A lonxitude mínima do contrasinal (:min) supera a máxima (:max). Ningún contrasinal pode cumprir os dous límites."
+    "msg_password_length_range": "A lonxitude mínima do contrasinal (:min) supera a máxima (:max). Ningún contrasinal pode cumprir os dous límites.",
+    "disabled_services": "Servizos desactivados para caixas novas",
+    "disabled_services_help": "Unha caixa nova deste dominio comeza con estes servizos desactivados. As caixas existentes non cambian."
   },
   "admin": {
     "msg_email_required": "É obrigatorio un enderezo de correo válido",

@@ -365,7 +365,8 @@
     "relay_desc": "Smerovať odchádzajúcu poštu od tohto používateľa cez konkrétny relé server.",
     "export_csv": "Exportovať používateľov (CSV)",
     "export_json": "Exportovať používateľov (JSON)",
-    "msg_invalid_quota": "Kvóta musí byť celé číslo 0 alebo väčšie (MB)."
+    "msg_invalid_quota": "Kvóta musí byť celé číslo 0 alebo väčšie (MB).",
+    "msg_unknown_service": "Neznáma poštová služba: :service"
   },
   "mlist": {
     "msg_updated": "Distribučný zoznam aktualizovaný!",
@@ -549,7 +550,9 @@
     "relay_format": "Formát: <code>[hostname]:port</code> — hranaté zátvorky zabránia vyhľadávaniu MX.",
     "save_relay": "Uložiť nastavenia relé",
     "msg_is_alias_domain": "Doména :domain je už aliasovou doménou",
-    "msg_password_length_range": "Minimálna dĺžka hesla (:min) je väčšia ako maximálna (:max). Žiadne heslo nemôže splniť oba limity."
+    "msg_password_length_range": "Minimálna dĺžka hesla (:min) je väčšia ako maximálna (:max). Žiadne heslo nemôže splniť oba limity.",
+    "disabled_services": "Vypnuté služby pre nové schránky",
+    "disabled_services_help": "Nová schránka v tejto doméne začína s vypnutými týmito službami. Existujúce schránky sa nemenia."
   },
   "admin": {
     "msg_email_required": "Vyžaduje sa platná e-mailová adresa",

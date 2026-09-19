@@ -36,7 +36,7 @@ $currentKeys = $categories[$activeTab] ?? [];
               $fieldId = 'field-' . $e($key);
             ?>
             <tr>
-              <td><label for="<?= $fieldId ?>"><?= $e($label) ?></label></td>
+              <td><label for="<?= $fieldId ?>"><?= $e($label) ?></label><?= $help('panelset.label_' . $key) ?></td>
               <td>
                 <?php if ($type === 'bool'): ?>
                 <div class="form-check form-switch mb-0">

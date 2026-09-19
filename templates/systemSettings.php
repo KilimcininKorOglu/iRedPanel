@@ -14,6 +14,20 @@ $rows = [
     'sysset.fail2ban_integration' => $e($onOff($fail2banEnabled)),
     'sysset.iredapd_integration' => $e($onOff($iredapdEnabled)),
 ];
+// A row that a panel setting also carries shares that setting's explanation.
+$rowHelp = [
+    'sysset.backend' => 'sysset.backend',
+    'sysset.password_scheme' => 'panelset.label_passwordDefaultScheme',
+    'sysset.password_min_length' => 'panelset.label_passwordMinLength',
+    'sysset.pagination_per_page' => 'panelset.label_paginationPerPage',
+    'sysset.session_timeout' => 'panelset.label_sessionTimeout',
+    'sysset.allowed_ip_ranges' => 'panelset.label_allowedIpRanges',
+    'sysset.session_ip_validation' => 'panelset.label_sessionValidateIp',
+    'sysset.update_check' => 'panelset.label_checkUpdates',
+    'sysset.amavisd_integration' => 'panelset.label_amavisdEnabled',
+    'sysset.fail2ban_integration' => 'panelset.label_fail2banEnabled',
+    'sysset.iredapd_integration' => 'panelset.label_iredapdEnabled',
+];
 ?>
 <div class="page-header">
   <div>
@@ -36,7 +50,7 @@ $rows = [
           <tbody>
             <?php foreach ($rows as $labelKey => $valueHtml): ?>
             <tr>
-              <td><?= $te($labelKey) ?></td>
+              <td><?= $te($labelKey) ?><?= $help($rowHelp[$labelKey] ?? $labelKey) ?></td>
               <td><?= $valueHtml ?></td>
             </tr>
             <?php endforeach; ?>

@@ -20,6 +20,7 @@ require_once __DIR__ . '/bootstrap.php';
 
 use App\Models\User;
 use App\Repositories\RepositoryFactory;
+use App\Services\MailingListService;
 use App\Utils\PasswordUtils;
 
 if ($argc < 2) {
@@ -113,13 +114,12 @@ while (($line = fgets($handle)) !== false) {
         echo "  Line {$lineNumber}: CREATED — {$email}\n";
         $created++;
 
-        // Subscribe to mailing lists if specified
+        // Subscribe to mailing lists if specified. The subscribers live in mlmmj only.
         if ($mailingLists !== '') {
             $lists = array_filter(array_map('trim', explode(':', $mailingLists)));
-            $aliasRepo = RepositoryFactory::getAliasRepository();
             foreach ($lists as $listAddr) {
                 try {
-                    $aliasRepo->addAliasMember($listAddr, $email);
+                    MailingListService::addSubscribers($listAddr, [$email]);
                     echo "    Subscribed to: {$listAddr}\n";
                 } catch (\Exception $e) {
                     echo "    Warning: Could not subscribe to {$listAddr}: {$e->getMessage()}\n";

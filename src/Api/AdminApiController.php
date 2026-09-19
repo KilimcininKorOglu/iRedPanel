@@ -67,7 +67,7 @@ class AdminApiController
 
         $validationErrors = \App\Models\UserPassword::validate($password, $password);
         if (!empty($validationErrors)) {
-            // The API has no repeat field, so password_repeat only duplicates this error.
+            // The API has no repeat field, so every policy error is under the password key.
             ApiResponse::error('Password policy violation: ' . $validationErrors['password']);
             return;
         }
@@ -99,7 +99,7 @@ class AdminApiController
         if (isset($data['password'])) {
             $validationErrors = \App\Models\UserPassword::validate($data['password'], $data['password']);
             if (!empty($validationErrors)) {
-                // The API has no repeat field, so password_repeat only duplicates this error.
+                // The API has no repeat field, so every policy error is under the password key.
                 ApiResponse::error('Password policy violation: ' . $validationErrors['password']);
                 return;
             }

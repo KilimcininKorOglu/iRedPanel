@@ -59,6 +59,17 @@ class UserPasswordTest extends TestCase
         $this->assertStringContainsString('do not match', $errors['password_repeat']);
     }
 
+    /**
+     * The repeat field used to get its own copy of each policy error, so the form showed it twice.
+     */
+    public function testPolicyErrorIsReportedOnlyOnThePasswordField(): void
+    {
+        $errors = UserPassword::validate('Ab1!', 'Ab1!');
+
+        $this->assertArrayHasKey('password', $errors);
+        $this->assertArrayNotHasKey('password_repeat', $errors);
+    }
+
     public function testNonAsciiCharacterRejected(): void
     {
         $errors = UserPassword::validate("Test1234!\xC3\xBC", "Test1234!\xC3\xBC");

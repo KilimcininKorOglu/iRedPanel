@@ -83,10 +83,8 @@ class UserPassword
             $violations['password'] = $passwordViolation;
         }
 
-        $repeatViolation = self::validateSingle($passwordRepeat, $settings, $minLength, $maxLength);
-        if ($repeatViolation !== null) {
-            $violations['password_repeat'] = $repeatViolation;
-        } elseif ($password !== $passwordRepeat) {
+        // The policy applies to the password field only; the repeat field reports only a mismatch.
+        if ($password !== $passwordRepeat) {
             $violations['password_repeat'] = ['mismatch', []];
         }
 

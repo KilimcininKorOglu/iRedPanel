@@ -13,6 +13,9 @@ use App\Utils\LdapUtils;
 
 class LdapDomainAliasRepository implements DomainAliasRepositoryInterface
 {
+    /** Mailboxes, aliases and mailing lists of a domain; the catch-all entry `mail=@<domain>` has no local part. */
+    private const ACCOUNT_FILTER = '(&(|(objectClass=mailUser)(objectClass=mailAlias)(objectClass=mailList))(!(mail=@*)))';
+
     public function getAliasesForDomain(string $domain): array
     {
         $conn = LdapConnection::getInstance()->getConn();
@@ -107,13 +110,24 @@ class LdapDomainAliasRepository implements DomainAliasRepositoryInterface
         );
     }
 
+    /**
+     * Postfix accepts an alias domain only when the target domain has
+     * `enabledService: domainalias`, and resolves `user@<alias domain>` through the
+     * shadowAddress of each account, so every account of the domain gets one.
+     */
     public function createAlias(DomainAlias $alias): void
     {
         $conn = LdapConnection::getInstance()->getConn();
         $dn = LdapUtils::getDomainDn($alias->targetDomain);
 
-        if (!@ldap_mod_add($conn, $dn, ['domainAliasName' => $alias->aliasDomain])) {
+        if (!@ldap_mod_add($conn, $dn, ['domainAliasName' => [$alias->aliasDomain]])) {
             throw new \RuntimeException('LDAP domain alias creation failed: ' . ldap_error($conn));
+        }
+        LdapUtils::addValues($conn, $dn, 'enabledService', ['domainalias']);
+
+        foreach (LdapUtils::searchEntries($conn, $dn, self::ACCOUNT_FILTER, ['mail']) as $entry) {
+            $local = explode('@', LdapUtils::allValues($entry, 'mail')[0] ?? '', 2)[0];
+            LdapUtils::addValues($conn, $entry['dn'], 'shadowAddress', ["{$local}@{$alias->aliasDomain}"]);
         }
     }
 
@@ -126,9 +140,20 @@ class LdapDomainAliasRepository implements DomainAliasRepositoryInterface
 
         $conn = LdapConnection::getInstance()->getConn();
         $dn = LdapUtils::getDomainDn($alias->targetDomain);
+        $suffix = '@' . strtolower($aliasDomain);
+        $filter = '(shadowAddress=*' . ldap_escape($suffix, '', LDAP_ESCAPE_FILTER) . ')';
 
-        if (!@ldap_mod_del($conn, $dn, ['domainAliasName' => $aliasDomain])) {
-            throw new \RuntimeException('LDAP domain alias deletion failed: ' . ldap_error($conn));
+        foreach (LdapUtils::searchEntries($conn, $dn, $filter, ['shadowAddress']) as $entry) {
+            $values = array_filter(
+                LdapUtils::allValues($entry, 'shadowAddress'),
+                static fn (string $address): bool => str_ends_with(strtolower($address), $suffix)
+            );
+            LdapUtils::deleteValues($conn, $entry['dn'], 'shadowAddress', array_values($values));
+        }
+
+        LdapUtils::deleteValues($conn, $dn, 'domainAliasName', [$aliasDomain]);
+        if ($this->getAliasesForDomain($alias->targetDomain) === []) {
+            LdapUtils::deleteValues($conn, $dn, 'enabledService', ['domainalias']);
         }
     }
 

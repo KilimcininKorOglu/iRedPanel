@@ -60,6 +60,10 @@ class LdapAliasRepository implements AliasRepositoryInterface
         if ($members !== []) {
             $entry['mailForwardingAddress'] = $members;
         }
+        $shadowAddresses = LdapUtils::aliasDomainAddresses($conn, $address);
+        if ($shadowAddresses !== []) {
+            $entry['shadowAddress'] = $shadowAddresses;
+        }
 
         if (!@ldap_add($conn, self::aliasDn($address), $entry)) {
             throw new \RuntimeException("LDAP alias creation failed for '{$address}': " . ldap_error($conn));
@@ -97,16 +101,14 @@ class LdapAliasRepository implements AliasRepositoryInterface
 
     public function addAliasMember(string $address, string $member): bool
     {
-        // Result code 20 ("Type or value exists"): the address is already a member.
-        self::changeValue(self::aliasDn($address), 'mailForwardingAddress', $member, true, 20);
+        LdapUtils::addValues(LdapConnection::getInstance()->getConn(), self::aliasDn($address), 'mailForwardingAddress', [$member]);
 
         return true;
     }
 
     public function removeAliasMember(string $address, string $member): bool
     {
-        // Result code 16 ("No such attribute"): the address is no member.
-        self::changeValue(self::aliasDn($address), 'mailForwardingAddress', $member, false, 16);
+        LdapUtils::deleteValues(LdapConnection::getInstance()->getConn(), self::aliasDn($address), 'mailForwardingAddress', [$member]);
 
         return true;
     }
@@ -150,14 +152,14 @@ class LdapAliasRepository implements AliasRepositoryInterface
 
     public function addUserAlias(string $email, string $aliasAddress): bool
     {
-        self::changeValue(LdapUtils::getEmailDn($email), 'shadowAddress', $aliasAddress, true, null);
+        LdapUtils::addValues(LdapConnection::getInstance()->getConn(), LdapUtils::getEmailDn($email), 'shadowAddress', [$aliasAddress]);
 
         return true;
     }
 
     public function removeUserAlias(string $email, string $aliasAddress): bool
     {
-        self::changeValue(LdapUtils::getEmailDn($email), 'shadowAddress', $aliasAddress, false, null);
+        LdapUtils::deleteValues(LdapConnection::getInstance()->getConn(), LdapUtils::getEmailDn($email), 'shadowAddress', [$aliasAddress]);
 
         return true;
     }
@@ -287,20 +289,6 @@ class LdapAliasRepository implements AliasRepositoryInterface
     private static function replaceAttributes(string $address, array $values): void
     {
         LdapUtils::replaceValues(LdapConnection::getInstance()->getConn(), self::aliasDn($address), $values);
-    }
-
-    /**
-     * Adds or removes one attribute value. A failure with $ignoredCode counts as done.
-     */
-    private static function changeValue(string $dn, string $attr, string $value, bool $add, ?int $ignoredCode): void
-    {
-        $conn = LdapConnection::getInstance()->getConn();
-        $done = $add
-            ? @ldap_mod_add($conn, $dn, [$attr => [$value]])
-            : @ldap_mod_del($conn, $dn, [$attr => [$value]]);
-        if (!$done && ldap_errno($conn) !== $ignoredCode) {
-            throw new \RuntimeException("LDAP update of {$attr} failed for '{$dn}': " . ldap_error($conn));
-        }
     }
 
     /**

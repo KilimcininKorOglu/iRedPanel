@@ -86,6 +86,10 @@ class LdapMailingListRepository implements MailingListRepositoryInterface
         if ($maxMsgSize > 0) {
             $entry['maxMessageSize'] = (string) $maxMsgSize;
         }
+        $shadowAddresses = LdapUtils::aliasDomainAddresses($conn, $address);
+        if ($shadowAddresses !== []) {
+            $entry['shadowAddress'] = $shadowAddresses;
+        }
 
         if (!@ldap_add($conn, self::listDn($address), $entry)) {
             throw new \RuntimeException("LDAP mailing list creation failed for '{$address}': " . ldap_error($conn));

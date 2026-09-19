@@ -190,6 +190,10 @@ class LdapUserRepository implements UserRepositoryInterface
         if ($user->telephoneNumber !== '') {
             $entry['telephoneNumber'] = $user->telephoneNumber;
         }
+        $shadowAddresses = LdapUtils::aliasDomainAddresses($conn, $email);
+        if ($shadowAddresses !== []) {
+            $entry['shadowAddress'] = $shadowAddresses;
+        }
 
         if (!@ldap_add($conn, $dn, $entry)) {
             throw new \RuntimeException('LDAP user creation failed: ' . ldap_error($conn));
@@ -311,6 +315,10 @@ class LdapUserRepository implements UserRepositoryInterface
         if (!@ldap_mod_replace($conn, "{$newRdn},{$parentDn}", ['mail' => [$newEmail], 'uid' => [$newUid]])) {
             throw new \RuntimeException('LDAP rename failed: ' . ldap_error($conn));
         }
+
+        // The addresses in the alias domains follow the new local part.
+        LdapUtils::deleteValues($conn, "{$newRdn},{$parentDn}", 'shadowAddress', LdapUtils::aliasDomainAddresses($conn, $oldEmail));
+        LdapUtils::addValues($conn, "{$newRdn},{$parentDn}", 'shadowAddress', LdapUtils::aliasDomainAddresses($conn, $newEmail));
 
         self::replaceAddressReferences($conn, $oldEmail, $newEmail);
         self::renameIredadminRows($oldEmail, $newEmail);

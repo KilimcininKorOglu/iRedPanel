@@ -8,6 +8,12 @@ use App\Models\Settings;
 
 class LdapUtils
 {
+    /** LDAP result code "No such attribute". */
+    private const NO_SUCH_ATTRIBUTE = 16;
+
+    /** LDAP result code "Type or value exists". */
+    private const TYPE_OR_VALUE_EXISTS = 20;
+
     /** LDAP result code "No such object". */
     private const NO_SUCH_OBJECT = 32;
 
@@ -174,6 +180,51 @@ class LdapUtils
         if (!@ldap_mod_replace($conn, $dn, $values)) {
             throw new \RuntimeException("LDAP update of '{$dn}' failed: " . ldap_error($conn));
         }
+    }
+
+    /**
+     * Adds each value that the attribute does not hold yet (result code 20 counts as done).
+     *
+     * @param string[] $values
+     */
+    public static function addValues(\LDAP\Connection $conn, string $dn, string $attr, array $values): void
+    {
+        foreach ($values as $value) {
+            if (!@ldap_mod_add($conn, $dn, [$attr => [$value]]) && ldap_errno($conn) !== self::TYPE_OR_VALUE_EXISTS) {
+                throw new \RuntimeException("LDAP update of {$attr} failed for '{$dn}': " . ldap_error($conn));
+            }
+        }
+    }
+
+    /**
+     * Deletes each value that the attribute holds (result code 16 counts as done).
+     *
+     * @param string[] $values
+     */
+    public static function deleteValues(\LDAP\Connection $conn, string $dn, string $attr, array $values): void
+    {
+        foreach ($values as $value) {
+            if (!@ldap_mod_del($conn, $dn, [$attr => [$value]]) && ldap_errno($conn) !== self::NO_SUCH_ATTRIBUTE) {
+                throw new \RuntimeException("LDAP update of {$attr} failed for '{$dn}': " . ldap_error($conn));
+            }
+        }
+    }
+
+    /**
+     * Returns `<local part>@<alias domain>` for each alias domain of the address's domain.
+     * iRedMail resolves an address in an alias domain through these shadowAddress values.
+     *
+     * @return string[]
+     */
+    public static function aliasDomainAddresses(\LDAP\Connection $conn, string $address): array
+    {
+        [$local, $domain] = explode('@', strtolower($address), 2) + [1 => ''];
+        $entry = self::readEntry($conn, self::getDomainDn($domain), '(objectClass=mailDomain)', ['domainAliasName']);
+
+        return array_map(
+            static fn (string $aliasDomain): string => "{$local}@{$aliasDomain}",
+            self::allValues($entry ?? [], 'domainAliasName')
+        );
     }
 
     /**

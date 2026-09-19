@@ -632,7 +632,9 @@
     "reschedule": "Yeniden Planla",
     "empty": "Bekleyen posta kutusu silme işlemi yok.",
     "msg_not_found": "Silme kaydı artık yok.",
-    "msg_invalid_date": "Geçersiz tarih: :date"
+    "msg_invalid_date": "Geçersiz tarih: :date",
+    "msg_cancelled": "Posta kutusunun silinmesi iptal edildi.",
+    "msg_rescheduled": "Posta kutusunun silinmesi :date tarihine ertelendi."
   },
   "log": {
     "title": "Etkinlik Günlüğü",

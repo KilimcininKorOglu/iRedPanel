@@ -632,7 +632,9 @@
     "reschedule": "재예약",
     "empty": "대기 중인 메일박스 삭제가 없습니다.",
     "msg_not_found": "삭제 기록이 더 이상 존재하지 않습니다.",
-    "msg_invalid_date": "잘못된 날짜: :date"
+    "msg_invalid_date": "잘못된 날짜: :date",
+    "msg_cancelled": "메일박스 삭제가 취소되었습니다.",
+    "msg_rescheduled": "메일박스 삭제 일정이 :date(으)로 변경되었습니다."
   },
   "log": {
     "title": "활동 로그",

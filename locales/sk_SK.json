@@ -632,7 +632,9 @@
     "reschedule": "Preplánovať",
     "empty": "Žiadne čakajúce odstránenia schránok.",
     "msg_not_found": "Záznam o odstránení už neexistuje.",
-    "msg_invalid_date": "Neplatný dátum: :date"
+    "msg_invalid_date": "Neplatný dátum: :date",
+    "msg_cancelled": "Odstránenie poštovej schránky bolo zrušené.",
+    "msg_rescheduled": "Odstránenie poštovej schránky bolo preplánované na :date."
   },
   "log": {
     "title": "Záznam aktivity",

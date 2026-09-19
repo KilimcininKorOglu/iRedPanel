@@ -632,7 +632,9 @@
     "reschedule": "Jadwalkan ulang",
     "empty": "Tidak ada kotak surat yang menunggu penghapusan.",
     "msg_not_found": "Catatan penghapusan sudah tidak ada.",
-    "msg_invalid_date": "Tanggal tidak valid: :date"
+    "msg_invalid_date": "Tanggal tidak valid: :date",
+    "msg_cancelled": "Penghapusan kotak surat dibatalkan.",
+    "msg_rescheduled": "Penghapusan kotak surat dijadwalkan ulang ke :date."
   },
   "log": {
     "title": "Log Aktivitas",

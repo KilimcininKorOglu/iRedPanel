@@ -632,7 +632,9 @@
     "reschedule": "Planlegg på nytt",
     "empty": "Ingen postkasseslettingar ventar.",
     "msg_not_found": "Slettingsoppføringa finst ikkje lenger.",
-    "msg_invalid_date": "Ugyldig dato: :date"
+    "msg_invalid_date": "Ugyldig dato: :date",
+    "msg_cancelled": "Slettinga av postkassen vart avbroten.",
+    "msg_rescheduled": "Slettinga av postkassen vart flytta til :date."
   },
   "log": {
     "title": "Aktivitetslogg",

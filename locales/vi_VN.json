@@ -632,7 +632,9 @@
     "reschedule": "Lên lịch lại",
     "empty": "Không có hộp thư nào đang chờ xóa.",
     "msg_not_found": "Bản ghi xóa không còn tồn tại.",
-    "msg_invalid_date": "Ngày không hợp lệ: :date"
+    "msg_invalid_date": "Ngày không hợp lệ: :date",
+    "msg_cancelled": "Đã hủy việc xóa hộp thư.",
+    "msg_rescheduled": "Việc xóa hộp thư đã được dời sang ngày :date."
   },
   "log": {
     "title": "Nhật ký hoạt động",

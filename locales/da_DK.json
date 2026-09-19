@@ -632,7 +632,9 @@
     "reschedule": "Omplanlæg",
     "empty": "Ingen afventende postkasseslettelser.",
     "msg_not_found": "Sletningsposten findes ikke længere.",
-    "msg_invalid_date": "Ugyldig dato: :date"
+    "msg_invalid_date": "Ugyldig dato: :date",
+    "msg_cancelled": "Sletningen af postkassen blev annulleret.",
+    "msg_rescheduled": "Sletningen af postkassen blev flyttet til :date."
   },
   "log": {
     "title": "Aktivitetslog",

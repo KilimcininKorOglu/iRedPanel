@@ -632,7 +632,9 @@
     "reschedule": "重新计划",
     "empty": "没有待删除的邮箱。",
     "msg_not_found": "该删除记录已不存在。",
-    "msg_invalid_date": "无效日期：:date"
+    "msg_invalid_date": "无效日期：:date",
+    "msg_cancelled": "已取消删除邮箱。",
+    "msg_rescheduled": "邮箱删除已改期至 :date。"
   },
   "log": {
     "title": "活动日志",

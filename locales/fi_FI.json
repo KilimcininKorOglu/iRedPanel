@@ -632,7 +632,9 @@
     "reschedule": "Ajasta uudelleen",
     "empty": "Ei odottavia postilaatikoiden poistoja.",
     "msg_not_found": "Poistotietuetta ei enää ole.",
-    "msg_invalid_date": "Virheellinen päivämäärä: :date"
+    "msg_invalid_date": "Virheellinen päivämäärä: :date",
+    "msg_cancelled": "Postilaatikon poisto peruttiin.",
+    "msg_rescheduled": "Postilaatikon poisto siirrettiin päivälle :date."
   },
   "log": {
     "title": "Toimintaloki",

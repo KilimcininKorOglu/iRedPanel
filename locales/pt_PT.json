@@ -632,7 +632,9 @@
     "reschedule": "Reagendar",
     "empty": "Nenhuma eliminação de caixa de correio pendente.",
     "msg_not_found": "O registo de eliminação já não existe.",
-    "msg_invalid_date": "Data inválida: :date"
+    "msg_invalid_date": "Data inválida: :date",
+    "msg_cancelled": "A eliminação da caixa de correio foi cancelada.",
+    "msg_rescheduled": "A eliminação da caixa de correio foi reagendada para :date."
   },
   "log": {
     "title": "Registo de atividade",

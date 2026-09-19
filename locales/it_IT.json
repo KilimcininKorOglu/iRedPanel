@@ -632,7 +632,9 @@
     "reschedule": "Ripianifica",
     "empty": "Nessuna eliminazione di casella in attesa.",
     "msg_not_found": "Il record di eliminazione non esiste più.",
-    "msg_invalid_date": "Data non valida: :date"
+    "msg_invalid_date": "Data non valida: :date",
+    "msg_cancelled": "L'eliminazione della casella di posta è stata annullata.",
+    "msg_rescheduled": "L'eliminazione della casella di posta è stata riprogrammata al :date."
   },
   "log": {
     "title": "Registro attività",

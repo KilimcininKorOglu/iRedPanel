@@ -632,7 +632,9 @@
     "reschedule": "Endurskipuleggja",
     "empty": "Engar pósthólfaeyðingar í bið.",
     "msg_not_found": "Eyðingarfærslan er ekki lengur til.",
-    "msg_invalid_date": "Ógild dagsetning: :date"
+    "msg_invalid_date": "Ógild dagsetning: :date",
+    "msg_cancelled": "Hætt var við eyðingu pósthólfsins.",
+    "msg_rescheduled": "Eyðing pósthólfsins var færð til :date."
   },
   "log": {
     "title": "Aðgerðaannáll",

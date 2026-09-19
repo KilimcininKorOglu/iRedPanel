@@ -632,7 +632,9 @@
     "reschedule": "Reprogramar",
     "empty": "Non hai caixas de correo pendentes de eliminación.",
     "msg_not_found": "O rexistro de eliminación xa non existe.",
-    "msg_invalid_date": "Data non válida: :date"
+    "msg_invalid_date": "Data non válida: :date",
+    "msg_cancelled": "Cancelouse a eliminación da caixa de correo.",
+    "msg_rescheduled": "A eliminación da caixa de correo reprogramouse para o :date."
   },
   "log": {
     "title": "Rexistro de actividade",

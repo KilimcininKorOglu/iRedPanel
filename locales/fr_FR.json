@@ -632,7 +632,9 @@
     "reschedule": "Replanifier",
     "empty": "Aucune suppression de boîte en attente.",
     "msg_not_found": "L'enregistrement de suppression n'existe plus.",
-    "msg_invalid_date": "Date non valide : :date"
+    "msg_invalid_date": "Date non valide : :date",
+    "msg_cancelled": "La suppression de la boîte aux lettres a été annulée.",
+    "msg_rescheduled": "La suppression de la boîte aux lettres a été reportée au :date."
   },
   "log": {
     "title": "Journal d'activité",

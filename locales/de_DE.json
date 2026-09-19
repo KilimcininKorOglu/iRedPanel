@@ -632,7 +632,9 @@
     "reschedule": "Neu planen",
     "empty": "Keine ausstehenden Postfachlöschungen.",
     "msg_not_found": "Der Löschungseintrag existiert nicht mehr.",
-    "msg_invalid_date": "Ungültiges Datum: :date"
+    "msg_invalid_date": "Ungültiges Datum: :date",
+    "msg_cancelled": "Die Löschung des Postfachs wurde abgebrochen.",
+    "msg_rescheduled": "Die Löschung des Postfachs wurde auf :date verschoben."
   },
   "log": {
     "title": "Aktivitätsprotokoll",

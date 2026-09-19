@@ -632,7 +632,9 @@
     "reschedule": "Yenidən planlaşdır",
     "empty": "Gözləyən poçt qutusu silməsi yoxdur.",
     "msg_not_found": "Silinmə qeydi artıq mövcud deyil.",
-    "msg_invalid_date": "Yanlış tarix: :date"
+    "msg_invalid_date": "Yanlış tarix: :date",
+    "msg_cancelled": "Poçt qutusunun silinməsi ləğv edildi.",
+    "msg_rescheduled": "Poçt qutusunun silinməsi :date tarixinə köçürüldü."
   },
   "log": {
     "title": "Fəaliyyət jurnalı",

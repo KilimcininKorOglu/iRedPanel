@@ -632,7 +632,9 @@
     "reschedule": "Ponovno zakaži",
     "empty": "Nema poštanskih sandučića koji čekaju brisanje.",
     "msg_not_found": "Zapis o brisanju više ne postoji.",
-    "msg_invalid_date": "Neispravan datum: :date"
+    "msg_invalid_date": "Neispravan datum: :date",
+    "msg_cancelled": "Brisanje poštanskog sandučića je otkazano.",
+    "msg_rescheduled": "Brisanje poštanskog sandučića je pomaknuto na :date."
   },
   "log": {
     "title": "Zapis aktivnosti",

@@ -632,7 +632,9 @@
     "reschedule": "Opnieuw plannen",
     "empty": "Geen mailboxverwijderingen in afwachting.",
     "msg_not_found": "Het verwijderrecord bestaat niet meer.",
-    "msg_invalid_date": "Ongeldige datum: :date"
+    "msg_invalid_date": "Ongeldige datum: :date",
+    "msg_cancelled": "Het verwijderen van de mailbox is geannuleerd.",
+    "msg_rescheduled": "Het verwijderen van de mailbox is verplaatst naar :date."
   },
   "log": {
     "title": "Activiteitenlogboek",

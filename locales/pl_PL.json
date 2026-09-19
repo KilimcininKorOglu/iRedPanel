@@ -632,7 +632,9 @@
     "reschedule": "Zmień termin",
     "empty": "Brak oczekujących usunięć skrzynek.",
     "msg_not_found": "Rekord usunięcia już nie istnieje.",
-    "msg_invalid_date": "Nieprawidłowa data: :date"
+    "msg_invalid_date": "Nieprawidłowa data: :date",
+    "msg_cancelled": "Usunięcie skrzynki pocztowej zostało anulowane.",
+    "msg_rescheduled": "Usunięcie skrzynki pocztowej przełożono na :date."
   },
   "log": {
     "title": "Dziennik aktywności",

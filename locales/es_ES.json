@@ -632,7 +632,9 @@
     "reschedule": "Reprogramar",
     "empty": "No hay eliminaciones de buzones pendientes.",
     "msg_not_found": "El registro de eliminación ya no existe.",
-    "msg_invalid_date": "Fecha no válida: :date"
+    "msg_invalid_date": "Fecha no válida: :date",
+    "msg_cancelled": "Se canceló la eliminación del buzón.",
+    "msg_rescheduled": "La eliminación del buzón se reprogramó para el :date."
   },
   "log": {
     "title": "Registro de actividad",

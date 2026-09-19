@@ -632,7 +632,9 @@
     "reschedule": "Reschedule",
     "empty": "No pending mailbox deletions.",
     "msg_not_found": "The deletion record no longer exists.",
-    "msg_invalid_date": "Invalid date: :date"
+    "msg_invalid_date": "Invalid date: :date",
+    "msg_cancelled": "The mailbox deletion was cancelled.",
+    "msg_rescheduled": "The mailbox deletion was rescheduled to :date."
   },
   "log": {
     "title": "Activity Log",

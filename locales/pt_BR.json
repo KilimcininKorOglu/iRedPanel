@@ -632,7 +632,9 @@
     "reschedule": "Reagendar",
     "empty": "Nenhuma exclusão de caixa de correio pendente.",
     "msg_not_found": "O registro de exclusão não existe mais.",
-    "msg_invalid_date": "Data inválida: :date"
+    "msg_invalid_date": "Data inválida: :date",
+    "msg_cancelled": "A exclusão da caixa postal foi cancelada.",
+    "msg_rescheduled": "A exclusão da caixa postal foi reagendada para :date."
   },
   "log": {
     "title": "Registro de atividades",

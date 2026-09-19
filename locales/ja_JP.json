@@ -632,7 +632,9 @@
     "reschedule": "再スケジュール",
     "empty": "保留中のメールボックス削除はありません。",
     "msg_not_found": "この削除レコードはもう存在しません。",
-    "msg_invalid_date": "無効な日付: :date"
+    "msg_invalid_date": "無効な日付: :date",
+    "msg_cancelled": "メールボックスの削除をキャンセルしました。",
+    "msg_rescheduled": "メールボックスの削除日を :date に変更しました。"
   },
   "log": {
     "title": "アクティビティログ",

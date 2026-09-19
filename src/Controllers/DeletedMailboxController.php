@@ -51,6 +51,7 @@ class DeletedMailboxController
                 throw new \RuntimeException(Translator::translate('deletedmbx.msg_not_found'));
             }
             ActivityLogger::log('update', '', '', "Cancelled mailbox deletion #{$id}");
+            BaseController::flashSuccess(Translator::translate('deletedmbx.msg_cancelled'));
         } catch (\Exception $e) {
             $_SESSION['flash_error'] = BaseController::errorMessage($e);
         }
@@ -67,11 +68,7 @@ class DeletedMailboxController
         Middleware::globalAdminRequired();
         CsrfProtection::validateToken();
 
-        $newDate = $_POST['newDate'] ?? '';
-        if (empty($newDate)) {
-            header("Location: /deleted-mailboxes");
-            exit;
-        }
+        $newDate = (string) ($_POST['newDate'] ?? '');
 
         try {
             $date = \DateTimeImmutable::createFromFormat('!Y-m-d', $newDate);
@@ -82,6 +79,7 @@ class DeletedMailboxController
                 throw new \RuntimeException(Translator::translate('deletedmbx.msg_not_found'));
             }
             ActivityLogger::log('update', '', '', "Rescheduled mailbox deletion #{$id} to {$newDate}");
+            BaseController::flashSuccess(Translator::translate('deletedmbx.msg_rescheduled', ['date' => $newDate]));
         } catch (\Exception $e) {
             $_SESSION['flash_error'] = BaseController::errorMessage($e);
         }

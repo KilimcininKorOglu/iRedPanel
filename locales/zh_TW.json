@@ -632,7 +632,9 @@
     "reschedule": "重新排定",
     "empty": "沒有待處理的信箱刪除。",
     "msg_not_found": "該刪除記錄已不存在。",
-    "msg_invalid_date": "無效日期：:date"
+    "msg_invalid_date": "無效日期：:date",
+    "msg_cancelled": "已取消刪除信箱。",
+    "msg_rescheduled": "信箱刪除已改期至 :date。"
   },
   "log": {
     "title": "活動日誌",

@@ -632,7 +632,9 @@
     "reschedule": "Reprogramar",
     "empty": "No hi ha eliminacions de bústia pendents.",
     "msg_not_found": "El registre d'eliminació ja no existeix.",
-    "msg_invalid_date": "Data no vàlida: :date"
+    "msg_invalid_date": "Data no vàlida: :date",
+    "msg_cancelled": "S'ha cancel·lat l'eliminació de la bústia.",
+    "msg_rescheduled": "L'eliminació de la bústia s'ha reprogramat per al :date."
   },
   "log": {
     "title": "Registre d'activitat",

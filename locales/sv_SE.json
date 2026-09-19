@@ -632,7 +632,9 @@
     "reschedule": "Omschemalägg",
     "empty": "Inga väntande brevlådeborttagningar.",
     "msg_not_found": "Borttagningsposten finns inte längre.",
-    "msg_invalid_date": "Ogiltigt datum: :date"
+    "msg_invalid_date": "Ogiltigt datum: :date",
+    "msg_cancelled": "Borttagningen av brevlådan avbröts.",
+    "msg_rescheduled": "Borttagningen av brevlådan flyttades till :date."
   },
   "log": {
     "title": "Aktivitetslogg",

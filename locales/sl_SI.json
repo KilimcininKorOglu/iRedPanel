@@ -632,7 +632,9 @@
     "reschedule": "Prenačrtuj",
     "empty": "Ni čakajočih izbrisanj poštnih predalov.",
     "msg_not_found": "Zapis o brisanju ne obstaja več.",
-    "msg_invalid_date": "Neveljaven datum: :date"
+    "msg_invalid_date": "Neveljaven datum: :date",
+    "msg_cancelled": "Brisanje poštnega predala je preklicano.",
+    "msg_rescheduled": "Brisanje poštnega predala je prestavljeno na :date."
   },
   "log": {
     "title": "Dnevnik dejavnosti",

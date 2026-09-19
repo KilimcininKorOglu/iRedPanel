@@ -632,7 +632,9 @@
     "reschedule": "Berriz programatu",
     "empty": "Ez dago postontzirik ezabatzeke.",
     "msg_not_found": "Ezabatze-erregistroa jada ez dago.",
-    "msg_invalid_date": "Data baliogabea: :date"
+    "msg_invalid_date": "Data baliogabea: :date",
+    "msg_cancelled": "Postontziaren ezabaketa bertan behera utzi da.",
+    "msg_rescheduled": "Postontziaren ezabaketa :date datarako programatu da berriro."
   },
   "log": {
     "title": "Jarduera-erregistroa",

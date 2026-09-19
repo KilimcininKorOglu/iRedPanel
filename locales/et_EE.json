@@ -632,7 +632,9 @@
     "reschedule": "Ajasta uuesti",
     "empty": "Kustutamist ootavaid postkaste pole.",
     "msg_not_found": "Kustutamise kirjet enam ei ole.",
-    "msg_invalid_date": "Vigane kuupäev: :date"
+    "msg_invalid_date": "Vigane kuupäev: :date",
+    "msg_cancelled": "Postkasti kustutamine tühistati.",
+    "msg_rescheduled": "Postkasti kustutamine lükati kuupäevale :date."
   },
   "log": {
     "title": "Tegevuslogi",

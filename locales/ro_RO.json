@@ -632,7 +632,9 @@
     "reschedule": "Reprogramează",
     "empty": "Nicio ștergere de cutie poștală în așteptare.",
     "msg_not_found": "Înregistrarea de ștergere nu mai există.",
-    "msg_invalid_date": "Dată nevalidă: :date"
+    "msg_invalid_date": "Dată nevalidă: :date",
+    "msg_cancelled": "Ștergerea cutiei poștale a fost anulată.",
+    "msg_rescheduled": "Ștergerea cutiei poștale a fost reprogramată pentru :date."
   },
   "log": {
     "title": "Jurnal de activitate",

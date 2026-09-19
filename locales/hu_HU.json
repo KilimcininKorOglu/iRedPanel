@@ -632,7 +632,9 @@
     "reschedule": "Újraütemezés",
     "empty": "Nincsenek függőben lévő postafiók-törlések.",
     "msg_not_found": "A törlési rekord már nem létezik.",
-    "msg_invalid_date": "Érvénytelen dátum: :date"
+    "msg_invalid_date": "Érvénytelen dátum: :date",
+    "msg_cancelled": "A postafiók törlése megszakítva.",
+    "msg_rescheduled": "A postafiók törlése átütemezve erre a napra: :date."
   },
   "log": {
     "title": "Tevékenységnapló",

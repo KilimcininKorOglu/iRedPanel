@@ -554,7 +554,11 @@
     "msg_password_length_range": "La longitud mínima de la contraseña (:min) supera la máxima (:max). Ninguna contraseña puede cumplir ambos límites.",
     "disabled_services": "Servicios desactivados para buzones nuevos",
     "disabled_services_help": "Un buzón nuevo de este dominio empieza con estos servicios desactivados. Los buzones existentes no cambian.",
-    "max_lists": "Máx. listas de correo (0 = ilimitado)"
+    "max_lists": "Máx. listas de correo (0 = ilimitado)",
+    "backup_mx": "Backup MX",
+    "backup_mx_enable": "Este servidor es el backup MX del dominio",
+    "primary_mx": "Primary MX",
+    "backup_mx_help": "El servidor acepta el correo y lo reenvía al primary MX. Si el campo está vacío, Postfix usa los registros MX del dominio."
   },
   "admin": {
     "msg_email_required": "Se requiere una dirección de correo válida",

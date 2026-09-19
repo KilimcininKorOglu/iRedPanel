@@ -554,7 +554,11 @@
     "msg_password_length_range": "A lonxitude mínima do contrasinal (:min) supera a máxima (:max). Ningún contrasinal pode cumprir os dous límites.",
     "disabled_services": "Servizos desactivados para caixas novas",
     "disabled_services_help": "Unha caixa nova deste dominio comeza con estes servizos desactivados. As caixas existentes non cambian.",
-    "max_lists": "Máx. listas de correo (0 = ilimitado)"
+    "max_lists": "Máx. listas de correo (0 = ilimitado)",
+    "backup_mx": "Backup MX",
+    "backup_mx_enable": "Este servidor é o backup MX do dominio",
+    "primary_mx": "Primary MX",
+    "backup_mx_help": "O servidor acepta o correo e reenvíao ao primary MX. Se o campo está baleiro, Postfix usa os rexistros MX do dominio."
   },
   "admin": {
     "msg_email_required": "É obrigatorio un enderezo de correo válido",

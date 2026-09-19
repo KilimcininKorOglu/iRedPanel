@@ -554,7 +554,11 @@
     "msg_password_length_range": "Độ dài mật khẩu tối thiểu (:min) lớn hơn độ dài tối đa (:max). Không mật khẩu nào đáp ứng được cả hai giới hạn.",
     "disabled_services": "Dịch vụ bị tắt cho hộp thư mới",
     "disabled_services_help": "Hộp thư mới trong domain này bắt đầu với các dịch vụ này bị tắt. Các hộp thư hiện có không thay đổi.",
-    "max_lists": "Số danh sách thư tối đa (0 = không giới hạn)"
+    "max_lists": "Số danh sách thư tối đa (0 = không giới hạn)",
+    "backup_mx": "Backup MX",
+    "backup_mx_enable": "Máy chủ này là backup MX của domain",
+    "primary_mx": "Primary MX",
+    "backup_mx_help": "Máy chủ nhận thư và chuyển tiếp đến primary MX. Nếu để trống, Postfix dùng bản ghi MX của domain."
   },
   "admin": {
     "msg_email_required": "Cần địa chỉ email hợp lệ",

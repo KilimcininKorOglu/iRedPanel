@@ -554,7 +554,11 @@
     "msg_password_length_range": "Minsta lösenordslängd (:min) är större än största lösenordslängd (:max). Inget lösenord kan uppfylla båda gränserna.",
     "disabled_services": "Inaktiverade tjänster för nya brevlådor",
     "disabled_services_help": "En ny brevlåda i den här domänen startar med dessa tjänster inaktiverade. Befintliga brevlådor ändras inte.",
-    "max_lists": "Max e-postlistor (0 = obegränsat)"
+    "max_lists": "Max e-postlistor (0 = obegränsat)",
+    "backup_mx": "Backup MX",
+    "backup_mx_enable": "Den här servern är backup MX för domänen",
+    "primary_mx": "Primary MX",
+    "backup_mx_help": "Servern tar emot e-posten och vidarebefordrar den till primary MX. Om fältet är tomt använder Postfix domänens MX-poster."
   },
   "admin": {
     "msg_email_required": "En giltig e-postadress krävs",

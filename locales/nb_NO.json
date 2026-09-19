@@ -554,7 +554,11 @@
     "msg_password_length_range": "Minste passordlengde (:min) er større enn største passordlengde (:max). Ingen passord kan oppfylle begge grensene.",
     "disabled_services": "Deaktiverte tjenester for nye postbokser",
     "disabled_services_help": "En ny postboks i dette domenet starter med disse tjenestene deaktivert. Eksisterende postbokser endres ikke.",
-    "max_lists": "Maks. e-postlister (0 = ubegrenset)"
+    "max_lists": "Maks. e-postlister (0 = ubegrenset)",
+    "backup_mx": "Backup MX",
+    "backup_mx_enable": "Denne serveren er backup MX for domenet",
+    "primary_mx": "Primary MX",
+    "backup_mx_help": "Serveren tar imot e-posten og videresender den til primary MX. Er feltet tomt, bruker Postfix domenets MX-poster."
   },
   "admin": {
     "msg_email_required": "En gyldig e-postadresse er påkrevd",

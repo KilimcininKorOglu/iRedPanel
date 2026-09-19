@@ -554,7 +554,11 @@
     "msg_password_length_range": "Lungimea minimă a parolei (:min) depășește lungimea maximă (:max). Nicio parolă nu poate respecta ambele limite.",
     "disabled_services": "Servicii dezactivate pentru căsuțele noi",
     "disabled_services_help": "O căsuță nouă din acest domain pornește cu aceste servicii dezactivate. Căsuțele existente nu se schimbă.",
-    "max_lists": "Max. liste de e-mail (0 = nelimitat)"
+    "max_lists": "Max. liste de e-mail (0 = nelimitat)",
+    "backup_mx": "Backup MX",
+    "backup_mx_enable": "Acest server este backup MX pentru domain",
+    "primary_mx": "Primary MX",
+    "backup_mx_help": "Serverul primește e-mailul și îl trimite către primary MX. Dacă câmpul este gol, Postfix folosește înregistrările MX ale domain-ului."
   },
   "admin": {
     "msg_email_required": "Este necesară o adresă de email validă",

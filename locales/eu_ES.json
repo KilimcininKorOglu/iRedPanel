@@ -554,7 +554,11 @@
     "msg_password_length_range": "Pasahitzaren gutxieneko luzera (:min) gehienekoa (:max) baino handiagoa da. Ezein pasahitzek ezin ditu bi mugak bete.",
     "disabled_services": "Postontzi berrientzako desgaitutako zerbitzuak",
     "disabled_services_help": "Domeinu honetako postontzi berri batek zerbitzu hauek desgaituta ditu hasieran. Lehendik dauden postontziak ez dira aldatzen.",
-    "max_lists": "Gehieneko posta-zerrendak (0 = mugagabea)"
+    "max_lists": "Gehieneko posta-zerrendak (0 = mugagabea)",
+    "backup_mx": "Backup MX",
+    "backup_mx_enable": "Zerbitzari hau domeinuaren backup MX da",
+    "primary_mx": "Primary MX",
+    "backup_mx_help": "Zerbitzariak posta onartzen du eta primary MX-era bidaltzen du. Eremua hutsik badago, Postfix-ek domeinuaren MX erregistroak erabiltzen ditu."
   },
   "admin": {
     "msg_email_required": "Baliozko posta-helbidea beharrezkoa da",

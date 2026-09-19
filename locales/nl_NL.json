@@ -554,7 +554,11 @@
     "msg_password_length_range": "De minimale wachtwoordlengte (:min) is groter dan de maximale (:max). Geen wachtwoord kan aan beide limieten voldoen.",
     "disabled_services": "Uitgeschakelde diensten voor nieuwe mailboxen",
     "disabled_services_help": "Een nieuwe mailbox in dit domein start met deze diensten uitgeschakeld. Bestaande mailboxen veranderen niet.",
-    "max_lists": "Max. mailinglijsten (0 = onbeperkt)"
+    "max_lists": "Max. mailinglijsten (0 = onbeperkt)",
+    "backup_mx": "Backup MX",
+    "backup_mx_enable": "Deze server is backup MX voor het domein",
+    "primary_mx": "Primary MX",
+    "backup_mx_help": "De server neemt de mail aan en stuurt hem door naar de primary MX. Bij een leeg veld gebruikt Postfix de MX-records van het domein."
   },
   "admin": {
     "msg_email_required": "Een geldig e-mailadres is vereist",

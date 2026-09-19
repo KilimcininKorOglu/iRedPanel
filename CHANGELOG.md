@@ -19,6 +19,7 @@ All notable changes to this project will be documented in this file.
 - Disabled mail services per domain (Settings tab and REST API `disabledMailServices`): a new mailbox from the web form, the REST API, `cli/importUsers.php` or account replication starts with these services off, as in iRedAdmin (SQL `disabled_mail_services`, LDAP `disabledMailService`)
 - Mailing list limit per domain (`lists`: SQL `domain.maillists`, LDAP `numberOfLists`), checked when the web form or the REST API creates a list
 - REST API: `GET /api/v1/domains/{domain}` returns and `POST`/`PUT` set `defaultUserQuota`, `minPasswordLength`, `maxPasswordLength`, `disclaimer` and `disabledMailServices`
+- Backup MX per domain (General tab and REST API `backupMx`, `primaryMx`): the domain gets the transport `relay:<primary MX>` (SQL `domain.backupmx`, LDAP `domainBackupMX`), and turning it off restores `dovecot`
 
 ### Changed
 - The dashboard reads new releases from `compatibility.json` on GitHub (24-hour cache) and falls back to the bundled copy; this replaces the GitHub release check

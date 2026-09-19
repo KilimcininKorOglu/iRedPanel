@@ -554,7 +554,11 @@
     "msg_password_length_range": "Minimum şifre uzunluğu (:min), maksimum şifre uzunluğundan (:max) büyük. Hiçbir şifre iki sınırı birden karşılayamaz.",
     "disabled_services": "Yeni posta kutuları için kapalı servisler",
     "disabled_services_help": "Bu domain'de oluşturulan yeni posta kutusu bu servisler kapalı olarak başlar. Mevcut posta kutuları değişmez.",
-    "max_lists": "Maks. e-posta listesi (0 = sınırsız)"
+    "max_lists": "Maks. e-posta listesi (0 = sınırsız)",
+    "backup_mx": "Backup MX",
+    "backup_mx_enable": "Bu sunucu domain için backup MX",
+    "primary_mx": "Primary MX",
+    "backup_mx_help": "Sunucu postayı kabul eder ve primary MX'e iletir. Alan boşsa Postfix domain'in MX kayıtlarını kullanır."
   },
   "admin": {
     "msg_email_required": "Geçerli bir e-posta adresi gerekli",

@@ -554,7 +554,11 @@
     "msg_password_length_range": "O comprimento mínimo da senha (:min) excede o máximo (:max). Nenhuma senha pode atender aos dois limites.",
     "disabled_services": "Serviços desativados para novas caixas postais",
     "disabled_services_help": "Uma nova caixa postal neste domínio começa com estes serviços desativados. As caixas existentes não mudam.",
-    "max_lists": "Máx. listas de e-mail (0 = ilimitado)"
+    "max_lists": "Máx. listas de e-mail (0 = ilimitado)",
+    "backup_mx": "Backup MX",
+    "backup_mx_enable": "Este servidor é o backup MX do domínio",
+    "primary_mx": "Primary MX",
+    "backup_mx_help": "O servidor aceita o e-mail e o repassa ao primary MX. Com o campo vazio, o Postfix usa os registros MX do domínio."
   },
   "admin": {
     "msg_email_required": "É necessário um endereço de e-mail válido",

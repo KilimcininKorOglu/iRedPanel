@@ -554,7 +554,11 @@
     "msg_password_length_range": "La longitud mínima de la contrasenya (:min) supera la màxima (:max). Cap contrasenya no pot complir tots dos límits.",
     "disabled_services": "Serveis desactivats per a les bústies noves",
     "disabled_services_help": "Una bústia nova d'aquest domini comença amb aquests serveis desactivats. Les bústies existents no canvien.",
-    "max_lists": "Màx. llistes de correu (0 = il·limitat)"
+    "max_lists": "Màx. llistes de correu (0 = il·limitat)",
+    "backup_mx": "Backup MX",
+    "backup_mx_enable": "Aquest servidor és el backup MX del domini",
+    "primary_mx": "Primary MX",
+    "backup_mx_help": "El servidor accepta el correu i el reenvia al primary MX. Si el camp és buit, Postfix fa servir els registres MX del domini."
   },
   "admin": {
     "msg_email_required": "Cal una adreça de correu electrònic vàlida",

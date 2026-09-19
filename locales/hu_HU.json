@@ -554,7 +554,11 @@
     "msg_password_length_range": "A jelszó minimális hossza (:min) nagyobb a maximálisnál (:max). Egyetlen jelszó sem felelhet meg mindkét korlátnak.",
     "disabled_services": "Letiltott szolgáltatások új postafiókoknál",
     "disabled_services_help": "Az ebben a domainben létrehozott új postafiók ezekkel a szolgáltatásokkal letiltva indul. A meglévő postafiókok nem változnak.",
-    "max_lists": "Max. levelezőlisták (0 = korlátlan)"
+    "max_lists": "Max. levelezőlisták (0 = korlátlan)",
+    "backup_mx": "Backup MX",
+    "backup_mx_enable": "Ez a szerver a domain backup MX-e",
+    "primary_mx": "Primary MX",
+    "backup_mx_help": "A szerver fogadja a leveleket, és továbbítja a primary MX-nek. Üres mező esetén a Postfix a domain MX rekordjait használja."
   },
   "admin": {
     "msg_email_required": "Érvényes e-mail-cím megadása kötelező",

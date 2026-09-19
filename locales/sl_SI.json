@@ -554,7 +554,11 @@
     "msg_password_length_range": "Najmanjša dolžina gesla (:min) presega največjo (:max). Nobeno geslo ne more izpolniti obeh omejitev.",
     "disabled_services": "Onemogočene storitve za nove poštne predale",
     "disabled_services_help": "Nov poštni predal v tej domeni se začne s temi onemogočenimi storitvami. Obstoječi predali se ne spremenijo.",
-    "max_lists": "Najv. poštnih seznamov (0 = neomejeno)"
+    "max_lists": "Najv. poštnih seznamov (0 = neomejeno)",
+    "backup_mx": "Backup MX",
+    "backup_mx_enable": "Ta strežnik je backup MX za domeno",
+    "primary_mx": "Primary MX",
+    "backup_mx_help": "Strežnik sprejme pošto in jo posreduje na primary MX. Če je polje prazno, Postfix uporabi zapise MX domene."
   },
   "admin": {
     "msg_email_required": "Zahtevan je veljaven e-poštni naslov",

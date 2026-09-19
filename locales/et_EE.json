@@ -554,7 +554,11 @@
     "msg_password_length_range": "Parooli minimaalne pikkus (:min) ületab maksimaalse (:max). Ükski parool ei saa täita mõlemat piirangut.",
     "disabled_services": "Uute postkastide keelatud teenused",
     "disabled_services_help": "Selle domeeni uus postkast alustab nende teenustega keelatuna. Olemasolevad postkastid ei muutu.",
-    "max_lists": "Maks. postiloendeid (0 = piiramatu)"
+    "max_lists": "Maks. postiloendeid (0 = piiramatu)",
+    "backup_mx": "Backup MX",
+    "backup_mx_enable": "See server on domeeni backup MX",
+    "primary_mx": "Primary MX",
+    "backup_mx_help": "Server võtab posti vastu ja edastab selle primary MX-ile. Kui väli on tühi, kasutab Postfix domeeni MX-kirjeid."
   },
   "admin": {
     "msg_email_required": "Nõutav on kehtiv e-posti aadress",

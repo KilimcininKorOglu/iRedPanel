@@ -554,7 +554,11 @@
     "msg_password_length_range": "最小密碼長度（:min）超過最大密碼長度（:max）。沒有密碼能同時符合這兩個限制。",
     "disabled_services": "新信箱停用的服務",
     "disabled_services_help": "此網域中新建的信箱預設停用這些服務。現有信箱不受影響。",
-    "max_lists": "最大郵件列表數（0 = 不限）"
+    "max_lists": "最大郵件列表數（0 = 不限）",
+    "backup_mx": "Backup MX",
+    "backup_mx_enable": "此伺服器是該網域的 backup MX",
+    "primary_mx": "Primary MX",
+    "backup_mx_help": "伺服器接收郵件並轉送到 primary MX。留空時 Postfix 使用該網域的 MX 記錄。"
   },
   "admin": {
     "msg_email_required": "需要有效的電子郵件位址",

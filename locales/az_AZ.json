@@ -554,7 +554,11 @@
     "msg_password_length_range": "Minimum şifrə uzunluğu (:min) maksimum şifrə uzunluğundan (:max) böyükdür. Heç bir şifrə hər iki limitə uyğun gəlmir.",
     "disabled_services": "Yeni poçt qutuları üçün söndürülmüş xidmətlər",
     "disabled_services_help": "Bu domain-də yaradılan yeni poçt qutusu bu xidmətlər söndürülmüş halda başlayır. Mövcud poçt qutuları dəyişmir.",
-    "max_lists": "Maks. poçt siyahıları (0 = limitsiz)"
+    "max_lists": "Maks. poçt siyahıları (0 = limitsiz)",
+    "backup_mx": "Backup MX",
+    "backup_mx_enable": "Bu server bu domain üçün backup MX-dir",
+    "primary_mx": "Primary MX",
+    "backup_mx_help": "Bu server poçtları qəbul edir və primary MX-ə göndərir. Primary MX boşdursa, Postfix domain-in MX qeydlərini istifadə edir."
   },
   "admin": {
     "msg_email_required": "Etibarlı e-poçt ünvanı tələb olunur",

@@ -554,7 +554,11 @@
     "msg_password_length_range": "Salasanan vähimmäispituus (:min) ylittää enimmäispituuden (:max). Mikään salasana ei voi täyttää kumpaakin rajaa.",
     "disabled_services": "Uusien postilaatikoiden poistetut palvelut",
     "disabled_services_help": "Tämän domainin uusi postilaatikko alkaa näiden palvelujen ollessa pois käytöstä. Olemassa olevat postilaatikot eivät muutu.",
-    "max_lists": "Postituslistoja enintään (0 = rajaton)"
+    "max_lists": "Postituslistoja enintään (0 = rajaton)",
+    "backup_mx": "Backup MX",
+    "backup_mx_enable": "Tämä palvelin on domainin backup MX",
+    "primary_mx": "Primary MX",
+    "backup_mx_help": "Palvelin vastaanottaa postin ja välittää sen primary MX:lle. Jos kenttä on tyhjä, Postfix käyttää domainin MX-tietueita."
   },
   "admin": {
     "msg_email_required": "Kelvollinen sähköpostiosoite vaaditaan",

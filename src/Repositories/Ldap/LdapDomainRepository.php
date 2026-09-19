@@ -15,7 +15,7 @@ use App\Utils\LdapUtils;
 class LdapDomainRepository implements DomainRepositoryInterface
 {
     private const DOMAIN_ATTRS = ['domainName', 'accountStatus', 'domainCurrentUserNumber'];
-    private const DOMAIN_DETAIL_ATTRS = ['domainName', 'accountStatus', 'domainCurrentUserNumber', 'cn', 'description', 'mtaTransport', 'disclaimer', 'accountSetting'];
+    private const DOMAIN_DETAIL_ATTRS = ['domainName', 'accountStatus', 'domainCurrentUserNumber', 'cn', 'description', 'mtaTransport', 'disclaimer', 'accountSetting', 'domainBackupMX'];
 
     public function getDomains(): array
     {
@@ -137,6 +137,9 @@ class LdapDomainRepository implements DomainRepositoryInterface
             'mtaTransport' => $domain->transport ?: 'dovecot',
             'enabledService' => 'mail',
         ];
+        if ($domain->backupMx) {
+            $entry['domainBackupMX'] = 'yes';
+        }
         $accountSetting = LdapAccountSetting::valuesFor($domain, []);
         if ($accountSetting !== []) {
             $entry['accountSetting'] = $accountSetting;
@@ -169,6 +172,7 @@ class LdapDomainRepository implements DomainRepositoryInterface
             LdapUtils::modReplace('cn', $domain->description ?: null),
             LdapUtils::modReplace('accountStatus', $domain->active ? 'active' : 'disabled'),
             LdapUtils::modReplace('mtaTransport', $domain->transport ?: 'dovecot'),
+            LdapUtils::modReplace('domainBackupMX', $domain->backupMx ? 'yes' : null),
         ];
 
         if (!LdapUtils::modifyBatch($conn, $dn, $mods)) {

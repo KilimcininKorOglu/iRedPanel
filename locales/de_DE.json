@@ -554,7 +554,11 @@
     "msg_password_length_range": "Die minimale Passwortlänge (:min) ist größer als die maximale (:max). Kein Passwort kann beide Grenzen erfüllen.",
     "disabled_services": "Deaktivierte Dienste für neue Postfächer",
     "disabled_services_help": "Ein neues Postfach in dieser Domain beginnt mit diesen deaktivierten Diensten. Bestehende Postfächer bleiben unverändert.",
-    "max_lists": "Max. Mailinglisten (0 = unbegrenzt)"
+    "max_lists": "Max. Mailinglisten (0 = unbegrenzt)",
+    "backup_mx": "Backup MX",
+    "backup_mx_enable": "Dieser Server ist Backup MX der Domain",
+    "primary_mx": "Primary MX",
+    "backup_mx_help": "Der Server nimmt die Mails an und leitet sie an den Primary MX weiter. Bei leerem Feld nutzt Postfix die MX-Einträge der Domain."
   },
   "admin": {
     "msg_email_required": "Eine gültige E-Mail-Adresse ist erforderlich",

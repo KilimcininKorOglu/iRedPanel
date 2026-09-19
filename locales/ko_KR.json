@@ -554,7 +554,11 @@
     "msg_password_length_range": "최소 비밀번호 길이(:min)가 최대 길이(:max)보다 큽니다. 두 제한을 모두 충족하는 비밀번호는 없습니다.",
     "disabled_services": "새 메일함에서 비활성화할 서비스",
     "disabled_services_help": "이 도메인의 새 메일함은 이 서비스들이 비활성화된 상태로 시작합니다. 기존 메일함은 바뀌지 않습니다.",
-    "max_lists": "최대 메일링 리스트 (0 = 무제한)"
+    "max_lists": "최대 메일링 리스트 (0 = 무제한)",
+    "backup_mx": "Backup MX",
+    "backup_mx_enable": "이 서버는 도메인의 backup MX입니다",
+    "primary_mx": "Primary MX",
+    "backup_mx_help": "서버가 메일을 받아 primary MX로 중계합니다. 비어 있으면 Postfix가 도메인의 MX 레코드를 사용합니다."
   },
   "admin": {
     "msg_email_required": "유효한 이메일 주소가 필요합니다",

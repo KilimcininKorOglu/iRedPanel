@@ -6,6 +6,7 @@ namespace App\Models;
 
 use App\Exceptions\InvalidInputException;
 use App\Utils\FormValue;
+use App\Utils\Relayhost;
 use App\Utils\WholeNumber;
 
 class Domain
@@ -28,7 +29,15 @@ class Domain
         public string $disclaimer = '',
         // Max mailing lists (SQL `domain.maillists`, LDAP accountSetting `numberOfLists`); 0 means unlimited.
         public int $lists = 0,
+        // Backup MX (SQL `domain.backupmx`, LDAP `domainBackupMX`): Postfix relays the mail of the
+        // domain through the transport "relay:<primary MX>" instead of delivering it locally.
+        public bool $backupMx = false,
+        // The primary MX of a backup MX domain as the form or the API sent it; not stored as such.
+        public string $primaryMx = '',
     ) {}
+
+    /** iRedMail's transport for local delivery. */
+    public const DEFAULT_TRANSPORT = 'dovecot';
 
     /**
      * Copies the fields of the profile form (general tab) from $form.
@@ -43,7 +52,39 @@ class Domain
         $this->mailboxes = $form->mailboxes;
         $this->aliases = $form->aliases;
         $this->lists = $form->lists;
-        $this->transport = $form->transport;
+        $this->applyTransport($form);
+    }
+
+    /**
+     * A backup MX domain relays to its primary MX; without a primary MX, Postfix looks up
+     * the MX records of the domain. Turning backup MX off restores local delivery when the
+     * form still carries the relay transport.
+     */
+    private function applyTransport(self $form): void
+    {
+        if ($form->backupMx) {
+            $this->transport = 'relay:' . ($form->primaryMx !== '' ? $form->primaryMx : $this->domainName);
+        } elseif ($this->backupMx && str_starts_with($form->transport, 'relay:')) {
+            $this->transport = self::DEFAULT_TRANSPORT;
+        } else {
+            $this->transport = $form->transport;
+        }
+        $this->backupMx = $form->backupMx;
+        $this->primaryMx = $this->storedPrimaryMx();
+    }
+
+    /**
+     * Returns the primary MX of a backup MX domain, or '' when Postfix looks up the MX
+     * records of the domain.
+     */
+    public function storedPrimaryMx(): string
+    {
+        if (!$this->backupMx || !str_starts_with($this->transport, 'relay:')) {
+            return '';
+        }
+        $nextHop = substr($this->transport, strlen('relay:'));
+
+        return $nextHop === $this->domainName ? '' : $nextHop;
     }
 
     /**
@@ -174,7 +215,7 @@ class Domain
      */
     public static function fromFormData(array $post): self
     {
-        return new self(
+        $domain = new self(
             domainName: strtolower(FormValue::text($post, 'domainName')),
             description: FormValue::text($post, 'description'),
             active: (bool) ($post['active'] ?? false),
@@ -182,15 +223,41 @@ class Domain
             quota: self::validLimit($post['quota'] ?? 0, 'quota'),
             mailboxes: self::validLimit($post['mailboxes'] ?? 0, 'mailboxes'),
             aliases: self::validLimit($post['aliases'] ?? 0, 'aliases'),
-            transport: FormValue::text($post, 'transport', 'dovecot'),
+            transport: FormValue::text($post, 'transport', self::DEFAULT_TRANSPORT),
             settings: FormValue::text($post, 'settings'),
             lists: self::validLimit($post['lists'] ?? 0, 'lists'),
+            backupMx: (bool) ($post['backupMx'] ?? false),
+            primaryMx: self::validPrimaryMx(FormValue::text($post, 'primaryMx')),
         );
+        // A new domain gets the relay transport here; applyProfile() sets it on an update.
+        if ($domain->backupMx && $domain->domainName !== '') {
+            $domain->applyTransport(clone $domain);
+            $domain->primaryMx = $domain->storedPrimaryMx();
+        }
+
+        return $domain;
+    }
+
+    /**
+     * @throws InvalidInputException when Postfix cannot use the value as a next hop
+     */
+    private static function validPrimaryMx(string $value): string
+    {
+        $value = trim($value);
+        if ($value !== '' && !Relayhost::isValid($value)) {
+            throw new InvalidInputException(
+                "Invalid primaryMx: {$value}",
+                'common.msg_invalid_relayhost',
+                ['relayhost' => $value],
+            );
+        }
+
+        return $value;
     }
 
     public static function fromMysqlRow(array $row): self
     {
-        return new self(
+        $domain = new self(
             domainName: $row['domain'] ?? '',
             description: $row['description'] ?? '',
             active: (bool) ($row['active'] ?? 1),
@@ -206,18 +273,26 @@ class Domain
             currentQuotaUsed: (int) ($row['quotaUsed'] ?? 0),
             disclaimer: self::storedDisclaimer($row['disclaimer'] ?? null, $row['settings'] ?? ''),
             lists: (int) ($row['maillists'] ?? 0),
+            backupMx: (bool) ($row['backupmx'] ?? 0),
         );
+        $domain->primaryMx = $domain->storedPrimaryMx();
+
+        return $domain;
     }
 
     public static function fromLdapEntry(array $entry): self
     {
-        return new self(
+        $domain = new self(
             domainName: $entry['domainName'] ?? '',
             description: $entry['cn'] ?? $entry['description'] ?? '',
             active: ($entry['accountStatus'] ?? 'active') === 'active',
-            transport: $entry['mtaTransport'] ?? 'dovecot',
+            transport: $entry['mtaTransport'] ?? self::DEFAULT_TRANSPORT,
             currentUserCount: (int) ($entry['domainCurrentUserNumber'] ?? 0),
             disclaimer: $entry['disclaimer'] ?? '',
+            backupMx: strtolower($entry['domainBackupMX'] ?? '') === 'yes',
         );
+        $domain->primaryMx = $domain->storedPrimaryMx();
+
+        return $domain;
     }
 }

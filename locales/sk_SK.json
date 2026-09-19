@@ -554,7 +554,11 @@
     "msg_password_length_range": "Minimálna dĺžka hesla (:min) je väčšia ako maximálna (:max). Žiadne heslo nemôže splniť oba limity.",
     "disabled_services": "Vypnuté služby pre nové schránky",
     "disabled_services_help": "Nová schránka v tejto doméne začína s vypnutými týmito službami. Existujúce schránky sa nemenia.",
-    "max_lists": "Max. poštových konferencií (0 = neobmedzene)"
+    "max_lists": "Max. poštových konferencií (0 = neobmedzene)",
+    "backup_mx": "Backup MX",
+    "backup_mx_enable": "Tento server je backup MX pre doménu",
+    "primary_mx": "Primary MX",
+    "backup_mx_help": "Server prijíma poštu a odovzdáva ju na primary MX. Ak je pole prázdne, Postfix použije MX záznamy domény."
   },
   "admin": {
     "msg_email_required": "Vyžaduje sa platná e-mailová adresa",

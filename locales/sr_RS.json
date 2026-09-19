@@ -554,7 +554,11 @@
     "msg_password_length_range": "Минимална дужина лозинке (:min) већа је од максималне (:max). Ниједна лозинка не може да испуни оба ограничења.",
     "disabled_services": "Onemogućene usluge za nova poštanska sandučeta",
     "disabled_services_help": "Novo poštansko sanduče u ovom domenu počinje sa ovim onemogućenim uslugama. Postojeća sandučeta se ne menjaju.",
-    "max_lists": "Maks. mejling lista (0 = neograničeno)"
+    "max_lists": "Maks. mejling lista (0 = neograničeno)",
+    "backup_mx": "Backup MX",
+    "backup_mx_enable": "Ovaj server je backup MX za domen",
+    "primary_mx": "Primary MX",
+    "backup_mx_help": "Server prima poštu i prosleđuje je na primary MX. Ako je polje prazno, Postfix koristi MX zapise domena."
   },
   "admin": {
     "msg_email_required": "Потребна је важећа адреса е-поште",

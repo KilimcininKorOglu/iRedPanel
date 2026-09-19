@@ -554,7 +554,11 @@
     "msg_password_length_range": "Lágmarkslengd lykilorðs (:min) er meiri en hámarkslengd (:max). Ekkert lykilorð getur uppfyllt bæði mörkin.",
     "disabled_services": "Óvirkar þjónustur fyrir ný pósthólf",
     "disabled_services_help": "Nýtt pósthólf í þessu léni byrjar með þessar þjónustur óvirkar. Núverandi pósthólf breytast ekki.",
-    "max_lists": "Hám. póstlistar (0 = ótakmarkað)"
+    "max_lists": "Hám. póstlistar (0 = ótakmarkað)",
+    "backup_mx": "Backup MX",
+    "backup_mx_enable": "Þessi þjónn er backup MX lénsins",
+    "primary_mx": "Primary MX",
+    "backup_mx_help": "Þjónninn tekur við pósti og sendir hann áfram á primary MX. Ef reiturinn er tómur notar Postfix MX-færslur lénsins."
   },
   "admin": {
     "msg_email_required": "Gilt netfang er nauðsynlegt",

@@ -134,8 +134,32 @@ class DomainTest extends TestCase
     }
 
     /**
-     * Saving the general tab used to erase the settings string.
+     * Postfix relays a backup MX domain through its transport (relay_domains plus
+     * transport_maps), so the transport follows the backup MX fields.
      */
+    public function testBackupMxSetsTheRelayTransport(): void
+    {
+        $created = Domain::fromFormData(['domainName' => 'example.com', 'backupMx' => true, 'primaryMx' => '[mx1.example.net]:25']);
+        $this->assertSame('relay:[mx1.example.net]:25', $created->transport);
+        $this->assertSame('[mx1.example.net]:25', $created->primaryMx);
+
+        $stored = new Domain('example.com');
+        $stored->applyProfile(Domain::fromFormData(['backupMx' => '1', 'transport' => 'dovecot']));
+        $this->assertSame('relay:example.com', $stored->transport);
+        $this->assertSame('', $stored->primaryMx);
+
+        // The edit form still posts the relay transport when the admin turns backup MX off.
+        $stored->applyProfile(Domain::fromFormData(['transport' => 'relay:example.com']));
+        $this->assertFalse($stored->backupMx);
+        $this->assertSame('dovecot', $stored->transport);
+    }
+
+    public function testInvalidPrimaryMxIsRejected(): void
+    {
+        $this->expectException(InvalidInputException::class);
+        Domain::fromFormData(['domainName' => 'example.com', 'backupMx' => true, 'primaryMx' => 'bad host;x']);
+    }
+
     public function testListLimitCountsMailingListsOnly(): void
     {
         $domain = new Domain('example.com', lists: 2);
@@ -145,6 +169,9 @@ class DomainTest extends TestCase
         $this->assertNull((new Domain('example.com'))->newListError(500));
     }
 
+    /**
+     * Saving the general tab used to erase the settings string.
+     */
     public function testApplyProfileKeepsSettingsAndDisclaimer(): void
     {
         $stored = new Domain(domainName: 'd.test', settings: 'default_user_quota:128;', disclaimer: 'Kept');

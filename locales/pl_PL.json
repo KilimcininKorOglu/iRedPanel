@@ -554,7 +554,11 @@
     "msg_password_length_range": "Minimalna długość hasła (:min) przekracza maksymalną (:max). Żadne hasło nie spełni obu limitów.",
     "disabled_services": "Wyłączone usługi dla nowych skrzynek",
     "disabled_services_help": "Nowa skrzynka w tej domenie startuje z wyłączonymi tymi usługami. Istniejące skrzynki się nie zmieniają.",
-    "max_lists": "Maks. list mailingowych (0 = bez limitu)"
+    "max_lists": "Maks. list mailingowych (0 = bez limitu)",
+    "backup_mx": "Backup MX",
+    "backup_mx_enable": "Ten serwer jest backup MX dla domeny",
+    "primary_mx": "Primary MX",
+    "backup_mx_help": "Serwer przyjmuje pocztę i przekazuje ją do primary MX. Gdy pole jest puste, Postfix używa rekordów MX domeny."
   },
   "admin": {
     "msg_email_required": "Wymagany jest prawidłowy adres e-mail",

@@ -554,7 +554,11 @@
     "msg_password_length_range": "Panjang kata sandi minimum (:min) melebihi panjang maksimum (:max). Tidak ada kata sandi yang dapat memenuhi kedua batas.",
     "disabled_services": "Layanan nonaktif untuk kotak surat baru",
     "disabled_services_help": "Kotak surat baru di domain ini dimulai dengan layanan ini nonaktif. Kotak surat yang ada tidak berubah.",
-    "max_lists": "Maks. milis (0 = tanpa batas)"
+    "max_lists": "Maks. milis (0 = tanpa batas)",
+    "backup_mx": "Backup MX",
+    "backup_mx_enable": "Server ini adalah backup MX untuk domain",
+    "primary_mx": "Primary MX",
+    "backup_mx_help": "Server menerima surat dan meneruskannya ke primary MX. Jika kolom kosong, Postfix memakai record MX domain."
   },
   "admin": {
     "msg_email_required": "Alamat email yang valid diperlukan",

@@ -189,6 +189,8 @@ class DomainApiController
                 'mailboxes' => $existing->mailboxes,
                 'aliases' => $existing->aliases,
                 'lists' => $existing->lists,
+                'backupMx' => $existing->backupMx,
+                'primaryMx' => $existing->primaryMx,
                 'transport' => $existing->transport,
             ]);
             $routing = self::routingFromBody($data);

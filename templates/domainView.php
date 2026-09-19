@@ -98,6 +98,17 @@ $tabs = [
           </select>
         </div>
 
+        <fieldset class="border rounded p-3 mb-3">
+          <legend class="float-none w-auto px-2 fs-6 mb-0"><?= $te('domain.backup_mx') ?></legend>
+          <div class="form-check form-switch mb-2">
+            <input type="checkbox" class="form-check-input" id="backupMx" name="backupMx" <?php if ($domain->backupMx): ?>checked<?php endif; ?> />
+            <label class="form-check-label" for="backupMx"><?= $te('domain.backup_mx_enable') ?></label>
+          </div>
+          <label for="primaryMx" class="form-label"><?= $te('domain.primary_mx') ?></label>
+          <input id="primaryMx" type="text" name="primaryMx" class="form-control" value="<?= $e($domain->primaryMx) ?>" placeholder="[mx1.example.com]:25" />
+          <div class="form-text"><?= $te('domain.backup_mx_help') ?></div>
+        </fieldset>
+
         <div class="form-check form-switch">
           <input type="checkbox" class="form-check-input" id="active" name="active" <?php if ($domain->active): ?>checked<?php endif; ?> />
           <label class="form-check-label" for="active"><?= $te('common.active') ?></label>

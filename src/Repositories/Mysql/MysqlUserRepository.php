@@ -33,7 +33,8 @@ class MysqlUserRepository implements UserRepositoryInterface
                     isglobaladmin, rank, domain,
                     enablesmtp, enablesmtpsecured, enablepop3, enablepop3secured,
                     enableimap, enableimapsecured, enablemanagesieve,
-                    enablemanagesievesecured, enablesogo
+                    enablemanagesievesecured, enablesogo,
+                    enablepop3tls, enableimaptls, enablesieve, enablesievesecured, enablesievetls
              FROM mailbox
              WHERE username = :username AND domain = :domain
              LIMIT 1"
@@ -61,7 +62,8 @@ class MysqlUserRepository implements UserRepositoryInterface
                     isglobaladmin, rank, domain,
                     enablesmtp, enablesmtpsecured, enablepop3, enablepop3secured,
                     enableimap, enableimapsecured, enablemanagesieve,
-                    enablemanagesievesecured, enablesogo
+                    enablemanagesievesecured, enablesogo,
+                    enablepop3tls, enableimaptls, enablesieve, enablesievesecured, enablesievetls
              FROM mailbox
              WHERE domain = :domain
              ORDER BY username"
@@ -104,6 +106,11 @@ class MysqlUserRepository implements UserRepositoryInterface
                     enableimapsecured = :enableImapSecured,
                     enablemanagesieve = :enableManagesieve,
                     enablemanagesievesecured = :enableManagesieveSecured,
+                    enablepop3tls = :enablePop3Tls,
+                    enableimaptls = :enableImapTls,
+                    enablesieve = :enableSieve,
+                    enablesievesecured = :enableSieveSecured,
+                    enablesievetls = :enableSieveTls,
                     enablesogo = :enableSogo,
                     modified = NOW()
                  WHERE username = :username AND domain = :domain"
@@ -127,6 +134,7 @@ class MysqlUserRepository implements UserRepositoryInterface
                 'enableImapSecured' => $user->enableImapSecured ? 1 : 0,
                 'enableManagesieve' => $user->enableManagesieve ? 1 : 0,
                 'enableManagesieveSecured' => $user->enableManagesieveSecured ? 1 : 0,
+                ...$user->dovecotServiceParams(),
                 'enableSogo' => $user->enableSogo ? 1 : 0,
                 'username' => $username,
                 'domain' => $domain,
@@ -301,7 +309,8 @@ class MysqlUserRepository implements UserRepositoryInterface
                     isglobaladmin, rank, domain,
                     enablesmtp, enablesmtpsecured, enablepop3, enablepop3secured,
                     enableimap, enableimapsecured, enablemanagesieve,
-                    enablemanagesievesecured, enablesogo
+                    enablemanagesievesecured, enablesogo,
+                    enablepop3tls, enableimaptls, enablesieve, enablesievesecured, enablesievetls
              FROM mailbox
              WHERE {$where}
              ORDER BY {$orderColumn} {$orderDir}
@@ -446,11 +455,11 @@ class MysqlUserRepository implements UserRepositoryInterface
             enableSmtp: (bool) ($row['enablesmtp'] ?? 1),
             enableSmtpSecured: (bool) ($row['enablesmtpsecured'] ?? 1),
             enablePop3: (bool) ($row['enablepop3'] ?? 1),
-            enablePop3Secured: (bool) ($row['enablepop3secured'] ?? 1),
+            enablePop3Secured: User::anySqlServiceEnabled($row, 'enablepop3secured', 'enablepop3tls'),
             enableImap: (bool) ($row['enableimap'] ?? 1),
-            enableImapSecured: (bool) ($row['enableimapsecured'] ?? 1),
-            enableManagesieve: (bool) ($row['enablemanagesieve'] ?? 1),
-            enableManagesieveSecured: (bool) ($row['enablemanagesievesecured'] ?? 1),
+            enableImapSecured: User::anySqlServiceEnabled($row, 'enableimapsecured', 'enableimaptls'),
+            enableManagesieve: User::anySqlServiceEnabled($row, 'enablesieve'),
+            enableManagesieveSecured: User::anySqlServiceEnabled($row, 'enablesievesecured', 'enablesievetls'),
             enableSogo: (bool) ($row['enablesogo'] ?? 1),
         );
     }

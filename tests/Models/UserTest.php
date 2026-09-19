@@ -34,4 +34,29 @@ class UserTest extends TestCase
         $this->expectException(InvalidInputException::class);
         User::fromFormData(['uid' => 'a', 'mailQuota' => 'abc']);
     }
+
+    /**
+     * Dovecot checks enablepop3tls for a TLS login and enablesieve* for ManageSieve,
+     * so turning off the toggles used to leave those logins open.
+     */
+    public function testDisabledTogglesAlsoDisableTheColumnsDovecotChecks(): void
+    {
+        $user = User::fromFormData(['uid' => 'a', 'enablePop3' => '1', 'enableImapSecured' => '1']);
+
+        $this->assertSame([
+            'enablePop3Tls' => 0,
+            'enableImapTls' => 1,
+            'enableSieve' => 0,
+            'enableSieveSecured' => 0,
+            'enableSieveTls' => 0,
+        ], $user->dovecotServiceParams());
+    }
+
+    public function testSecuredToggleShowsAnOpenTlsLogin(): void
+    {
+        $row = ['enablepop3secured' => 0, 'enablepop3tls' => 1, 'enablesievesecured' => 0, 'enablesievetls' => 0];
+
+        $this->assertTrue(User::anySqlServiceEnabled($row, 'enablepop3secured', 'enablepop3tls'));
+        $this->assertFalse(User::anySqlServiceEnabled($row, 'enablesievesecured', 'enablesievetls'));
+    }
 }

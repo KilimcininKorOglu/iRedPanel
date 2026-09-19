@@ -56,6 +56,39 @@ class User
     }
 
     /**
+     * Parameters for the SQL service columns that Dovecot checks besides the ones named after the toggles.
+     * Dovecot reads `enable<service><secured|tls>`: a TLS login checks the `*tls` column, and
+     * ManageSieve logs in as the service `sieve`, so a toggle must also set these columns to take effect.
+     *
+     * @return array<string, int>
+     */
+    public function dovecotServiceParams(): array
+    {
+        return [
+            'enablePop3Tls' => (int) $this->enablePop3Secured,
+            'enableImapTls' => (int) $this->enableImapSecured,
+            'enableSieve' => (int) $this->enableManagesieve,
+            'enableSieveSecured' => (int) $this->enableManagesieveSecured,
+            'enableSieveTls' => (int) $this->enableManagesieveSecured,
+        ];
+    }
+
+    /**
+     * Returns true when any of the given SQL service columns is enabled, so a
+     * toggle shows every login path that Dovecot still accepts. A missing column counts as enabled.
+     */
+    public static function anySqlServiceEnabled(array $row, string ...$columns): bool
+    {
+        foreach ($columns as $column) {
+            if ((bool) ($row[$column] ?? 1)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
      * Creates a User from a normalized LDAP entry array.
      * Converts LDAP quota (bytes) to megabytes at the model boundary.
      */

@@ -31,6 +31,35 @@ class BaseController
     }
 
     /**
+     * Reads one posted email address. An empty field gives null.
+     *
+     * @throws \RuntimeException when the value is not an email address
+     */
+    public static function postedAddress(string $field): ?string
+    {
+        $address = trim((string) ($_POST[$field] ?? ''));
+        if ($address === '') {
+            return null;
+        }
+        return self::validAddresses([$address])[0];
+    }
+
+    /**
+     * @param list<string> $addresses
+     * @return list<string> the addresses, lowercased
+     * @throws \RuntimeException naming the first value that is not an email address
+     */
+    public static function validAddresses(array $addresses): array
+    {
+        foreach ($addresses as $address) {
+            if (filter_var($address, FILTER_VALIDATE_EMAIL) === false) {
+                throw new \RuntimeException(Translator::translate('common.msg_invalid_email', ['address' => $address]));
+            }
+        }
+        return array_map('strtolower', $addresses);
+    }
+
+    /**
      * Reads the posted relay host. An empty field removes the relay.
      *
      * @throws \RuntimeException when Postfix cannot use the value as a next hop

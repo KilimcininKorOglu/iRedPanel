@@ -150,7 +150,7 @@ class UserController
                     $email = "{$userUid}@{$domain}";
                     $forwardingRepo = RepositoryFactory::getForwardingRepository();
                     $addressesRaw = $_POST['forwardingAddresses'] ?? '';
-                    $addresses = array_filter(array_map('trim', explode("\n", $addressesRaw)));
+                    $addresses = BaseController::validAddresses(array_values(array_filter(array_map('trim', explode("\n", $addressesRaw)))));
                     $keepCopy = isset($_POST['keepCopy']);
 
                     $forwardingRepo->setForwardings($email, $domain, $addresses);
@@ -182,10 +182,10 @@ class UserController
                     CsrfProtection::validateToken();
                     $email = "{$userUid}@{$domain}";
                     $bccRepo = RepositoryFactory::getBccRepository();
-                    $senderBcc = trim($_POST['senderBcc'] ?? '');
-                    $recipientBcc = trim($_POST['recipientBcc'] ?? '');
-                    $bccRepo->setUserSenderBcc($email, $senderBcc !== '' ? $senderBcc : null);
-                    $bccRepo->setUserRecipientBcc($email, $recipientBcc !== '' ? $recipientBcc : null);
+                    $senderBcc = BaseController::postedAddress('senderBcc');
+                    $recipientBcc = BaseController::postedAddress('recipientBcc');
+                    $bccRepo->setUserSenderBcc($email, $senderBcc);
+                    $bccRepo->setUserRecipientBcc($email, $recipientBcc);
                     ActivityLogger::logUpdate($domain, $userUid, "BCC settings updated");
                     $success = Translator::translate('common.msg_bcc_updated');
                 } elseif ($editMode === 'relay') {

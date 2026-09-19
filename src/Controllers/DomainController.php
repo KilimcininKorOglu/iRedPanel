@@ -199,18 +199,17 @@ class DomainController
                     }
                 } elseif ($editMode === 'catchall') {
                     CsrfProtection::validateToken();
-                    $catchallTarget = trim($_POST['catchallTarget'] ?? '');
                     $aliasRepo = RepositoryFactory::getAliasRepository();
-                    $aliasRepo->setCatchall($domainName, $catchallTarget !== '' ? $catchallTarget : null);
+                    $aliasRepo->setCatchall($domainName, BaseController::postedAddress('catchallTarget'));
                     ActivityLogger::logUpdate($domainName, '', "Catch-all updated: {$domainName}");
                     $success = Translator::translate('domain.msg_catchall_updated');
                 } elseif ($editMode === 'bcc') {
                     CsrfProtection::validateToken();
                     $bccRepo = RepositoryFactory::getBccRepository();
-                    $senderBcc = trim($_POST['senderBcc'] ?? '');
-                    $recipientBcc = trim($_POST['recipientBcc'] ?? '');
-                    $bccRepo->setDomainSenderBcc($domainName, $senderBcc !== '' ? $senderBcc : null);
-                    $bccRepo->setDomainRecipientBcc($domainName, $recipientBcc !== '' ? $recipientBcc : null);
+                    $senderBcc = BaseController::postedAddress('senderBcc');
+                    $recipientBcc = BaseController::postedAddress('recipientBcc');
+                    $bccRepo->setDomainSenderBcc($domainName, $senderBcc);
+                    $bccRepo->setDomainRecipientBcc($domainName, $recipientBcc);
                     ActivityLogger::logUpdate($domainName, '', "BCC settings updated: {$domainName}");
                     $success = Translator::translate('common.msg_bcc_updated');
                 } elseif ($editMode === 'relay') {

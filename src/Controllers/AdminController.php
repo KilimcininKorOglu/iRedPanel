@@ -132,7 +132,7 @@ class AdminController
                 }
 
                 // Validate password
-                $validationErrors = array_merge($validationErrors, UserPassword::validate($password, $passwordRepeat));
+                $validationErrors = array_merge($validationErrors, UserPassword::validateLocalized($password, $passwordRepeat));
 
                 if (empty($validationErrors)) {
                     $repo = RepositoryFactory::getAdminRepository();
@@ -211,7 +211,7 @@ class AdminController
                 } elseif ($editMode === 'password') {
                     $password = $_POST['password'] ?? '';
                     $passwordRepeat = $_POST['password_repeat'] ?? '';
-                    $validationErrors = UserPassword::validate($password, $passwordRepeat);
+                    $validationErrors = UserPassword::validateLocalized($password, $passwordRepeat);
 
                     if (empty($validationErrors)) {
                         $passwordHash = PasswordUtils::generatePasswordHash($password);

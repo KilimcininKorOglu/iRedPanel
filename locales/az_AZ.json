@@ -87,7 +87,15 @@
     "msg_address_required": "Ünvan və domain tələb olunur.",
     "msg_alias_limit": "Domainin alias limitinə çatıldı (:current/:max).",
     "msg_item_created": ":item yaradıldı.",
-    "msg_invalid_relayhost": "Yanlış relay host: :relayhost. host, host:port, [host] və ya [host]:port formatından istifadə edin."
+    "msg_invalid_relayhost": "Yanlış relay host: :relayhost. host, host:port, [host] və ya [host]:port formatından istifadə edin.",
+    "msg_password_ascii": "Parol yalnız ASCII simvollarından ibarət olmalıdır",
+    "msg_password_min_length": "Parol ən azı :min simvol olmalıdır",
+    "msg_password_max_length": "Parol ən çoxu :max simvol olmalıdır",
+    "msg_password_digit": "Parolda ən azı bir rəqəm olmalıdır",
+    "msg_password_uppercase": "Parolda ən azı bir böyük hərf olmalıdır",
+    "msg_password_lowercase": "Parolda ən azı bir kiçik hərf olmalıdır",
+    "msg_password_special": "Parolda ən azı bir xüsusi simvol olmalıdır (:chars)",
+    "msg_password_mismatch": "Parol və parolun təkrarı eyni deyil"
   },
   "auth": {
     "title": "Autentifikasiya",

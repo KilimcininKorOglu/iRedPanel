@@ -87,7 +87,15 @@
     "msg_address_required": "Netfang og lén eru nauðsynleg.",
     "msg_alias_limit": "Hámarki samnefna lénsins er náð (:current/:max).",
     "msg_item_created": ":item var stofnað.",
-    "msg_invalid_relayhost": "Ógildur relay host: :relayhost. Notaðu host, host:port, [host] eða [host]:port."
+    "msg_invalid_relayhost": "Ógildur relay host: :relayhost. Notaðu host, host:port, [host] eða [host]:port.",
+    "msg_password_ascii": "Lykilorðið má aðeins innihalda ASCII-stafi",
+    "msg_password_min_length": "Lykilorðið verður að vera að minnsta kosti :min stafir",
+    "msg_password_max_length": "Lykilorðið má mest vera :max stafir",
+    "msg_password_digit": "Lykilorðið verður að innihalda að minnsta kosti einn tölustaf",
+    "msg_password_uppercase": "Lykilorðið verður að innihalda að minnsta kosti einn hástaf",
+    "msg_password_lowercase": "Lykilorðið verður að innihalda að minnsta kosti einn lágstaf",
+    "msg_password_special": "Lykilorðið verður að innihalda að minnsta kosti eitt sértákn (:chars)",
+    "msg_password_mismatch": "Lykilorðið og staðfestingin passa ekki saman"
   },
   "auth": {
     "title": "Auðkenning",

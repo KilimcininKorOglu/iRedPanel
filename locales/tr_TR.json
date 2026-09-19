@@ -87,7 +87,15 @@
     "msg_address_required": "Adres ve domain zorunludur.",
     "msg_alias_limit": "Domain alias sınırına ulaşıldı (:current/:max).",
     "msg_item_created": ":item oluşturuldu.",
-    "msg_invalid_relayhost": "Geçersiz relay host: :relayhost. host, host:port, [host] veya [host]:port biçimini kullanın."
+    "msg_invalid_relayhost": "Geçersiz relay host: :relayhost. host, host:port, [host] veya [host]:port biçimini kullanın.",
+    "msg_password_ascii": "Parola yalnızca ASCII karakterler içermelidir",
+    "msg_password_min_length": "Parola en az :min karakter olmalıdır",
+    "msg_password_max_length": "Parola en fazla :max karakter olmalıdır",
+    "msg_password_digit": "Parola en az bir rakam içermelidir",
+    "msg_password_uppercase": "Parola en az bir büyük harf içermelidir",
+    "msg_password_lowercase": "Parola en az bir küçük harf içermelidir",
+    "msg_password_special": "Parola en az bir özel karakter içermelidir (:chars)",
+    "msg_password_mismatch": "Parola ve parola tekrarı aynı değil"
   },
   "auth": {
     "title": "Kimlik Doğrulama",

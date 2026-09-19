@@ -87,7 +87,15 @@
     "msg_address_required": "L'indirizzo e il dominio sono obbligatori.",
     "msg_alias_limit": "Il limite di alias del dominio è stato raggiunto (:current/:max).",
     "msg_item_created": ":item è stato creato.",
-    "msg_invalid_relayhost": "Host relay non valido: :relayhost. Usa host, host:port, [host] o [host]:port."
+    "msg_invalid_relayhost": "Host relay non valido: :relayhost. Usa host, host:port, [host] o [host]:port.",
+    "msg_password_ascii": "La password deve contenere solo caratteri ASCII",
+    "msg_password_min_length": "La password deve contenere almeno :min caratteri",
+    "msg_password_max_length": "La password deve contenere al massimo :max caratteri",
+    "msg_password_digit": "La password deve contenere almeno una cifra",
+    "msg_password_uppercase": "La password deve contenere almeno una lettera maiuscola",
+    "msg_password_lowercase": "La password deve contenere almeno una lettera minuscola",
+    "msg_password_special": "La password deve contenere almeno un carattere speciale (:chars)",
+    "msg_password_mismatch": "La password e la conferma non corrispondono"
   },
   "auth": {
     "title": "Autenticazione",

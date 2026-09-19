@@ -87,7 +87,15 @@
     "msg_address_required": "Adresa a doména sú povinné.",
     "msg_alias_limit": "Bol dosiahnutý limit aliasov domény (:current/:max).",
     "msg_item_created": ":item bol vytvorený.",
-    "msg_invalid_relayhost": "Neplatný relay host: :relayhost. Použite host, host:port, [host] alebo [host]:port."
+    "msg_invalid_relayhost": "Neplatný relay host: :relayhost. Použite host, host:port, [host] alebo [host]:port.",
+    "msg_password_ascii": "Heslo môže obsahovať iba znaky ASCII",
+    "msg_password_min_length": "Heslo musí mať aspoň :min znakov",
+    "msg_password_max_length": "Heslo môže mať najviac :max znakov",
+    "msg_password_digit": "Heslo musí obsahovať aspoň jednu číslicu",
+    "msg_password_uppercase": "Heslo musí obsahovať aspoň jedno veľké písmeno",
+    "msg_password_lowercase": "Heslo musí obsahovať aspoň jedno malé písmeno",
+    "msg_password_special": "Heslo musí obsahovať aspoň jeden špeciálny znak (:chars)",
+    "msg_password_mismatch": "Heslo a potvrdenie hesla sa nezhodujú"
   },
   "auth": {
     "title": "Overenie",

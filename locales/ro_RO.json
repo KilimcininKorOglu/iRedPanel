@@ -87,7 +87,15 @@
     "msg_address_required": "Adresa și domeniul sunt obligatorii.",
     "msg_alias_limit": "S-a atins limita de aliasuri a domeniului (:current/:max).",
     "msg_item_created": ":item a fost creat.",
-    "msg_invalid_relayhost": "Relay host invalid: :relayhost. Folosiți host, host:port, [host] sau [host]:port."
+    "msg_invalid_relayhost": "Relay host invalid: :relayhost. Folosiți host, host:port, [host] sau [host]:port.",
+    "msg_password_ascii": "Parola poate conține doar caractere ASCII",
+    "msg_password_min_length": "Parola trebuie să aibă cel puțin :min caractere",
+    "msg_password_max_length": "Parola poate avea cel mult :max caractere",
+    "msg_password_digit": "Parola trebuie să conțină cel puțin o cifră",
+    "msg_password_uppercase": "Parola trebuie să conțină cel puțin o literă mare",
+    "msg_password_lowercase": "Parola trebuie să conțină cel puțin o literă mică",
+    "msg_password_special": "Parola trebuie să conțină cel puțin un caracter special (:chars)",
+    "msg_password_mismatch": "Parola și confirmarea parolei nu se potrivesc"
   },
   "auth": {
     "title": "Autentificare",

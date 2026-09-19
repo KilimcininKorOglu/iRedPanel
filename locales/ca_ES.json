@@ -87,7 +87,15 @@
     "msg_address_required": "L'adreça i el domini són obligatoris.",
     "msg_alias_limit": "S'ha assolit el límit d'àlies del domini (:current/:max).",
     "msg_item_created": "S'ha creat :item.",
-    "msg_invalid_relayhost": "Relay host no vàlid: :relayhost. Utilitzeu host, host:port, [host] o [host]:port."
+    "msg_invalid_relayhost": "Relay host no vàlid: :relayhost. Utilitzeu host, host:port, [host] o [host]:port.",
+    "msg_password_ascii": "La contrasenya només pot contenir caràcters ASCII",
+    "msg_password_min_length": "La contrasenya ha de tenir almenys :min caràcters",
+    "msg_password_max_length": "La contrasenya ha de tenir com a màxim :max caràcters",
+    "msg_password_digit": "La contrasenya ha de contenir almenys un dígit",
+    "msg_password_uppercase": "La contrasenya ha de contenir almenys una lletra majúscula",
+    "msg_password_lowercase": "La contrasenya ha de contenir almenys una lletra minúscula",
+    "msg_password_special": "La contrasenya ha de contenir almenys un caràcter especial (:chars)",
+    "msg_password_mismatch": "La contrasenya i la confirmació no coincideixen"
   },
   "auth": {
     "title": "Autenticació",

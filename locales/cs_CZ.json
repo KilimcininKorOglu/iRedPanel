@@ -87,7 +87,15 @@
     "msg_address_required": "Adresa a doména jsou povinné.",
     "msg_alias_limit": "Byl dosažen limit aliasů domény (:current/:max).",
     "msg_item_created": ":item byl vytvořen.",
-    "msg_invalid_relayhost": "Neplatný relay host: :relayhost. Použijte host, host:port, [host] nebo [host]:port."
+    "msg_invalid_relayhost": "Neplatný relay host: :relayhost. Použijte host, host:port, [host] nebo [host]:port.",
+    "msg_password_ascii": "Heslo smí obsahovat pouze znaky ASCII",
+    "msg_password_min_length": "Heslo musí mít alespoň :min znaků",
+    "msg_password_max_length": "Heslo smí mít nejvýše :max znaků",
+    "msg_password_digit": "Heslo musí obsahovat alespoň jednu číslici",
+    "msg_password_uppercase": "Heslo musí obsahovat alespoň jedno velké písmeno",
+    "msg_password_lowercase": "Heslo musí obsahovat alespoň jedno malé písmeno",
+    "msg_password_special": "Heslo musí obsahovat alespoň jeden speciální znak (:chars)",
+    "msg_password_mismatch": "Heslo a potvrzení hesla se neshodují"
   },
   "auth": {
     "title": "Ověření",

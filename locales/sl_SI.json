@@ -87,7 +87,15 @@
     "msg_address_required": "Naslov in domena sta obvezna.",
     "msg_alias_limit": "Dosežena je omejitev vzdevkov domene (:current/:max).",
     "msg_item_created": ":item je ustvarjen.",
-    "msg_invalid_relayhost": "Neveljaven relay host: :relayhost. Uporabite host, host:port, [host] ali [host]:port."
+    "msg_invalid_relayhost": "Neveljaven relay host: :relayhost. Uporabite host, host:port, [host] ali [host]:port.",
+    "msg_password_ascii": "Geslo lahko vsebuje samo znake ASCII",
+    "msg_password_min_length": "Geslo mora imeti vsaj :min znakov",
+    "msg_password_max_length": "Geslo ima lahko največ :max znakov",
+    "msg_password_digit": "Geslo mora vsebovati vsaj eno števko",
+    "msg_password_uppercase": "Geslo mora vsebovati vsaj eno veliko črko",
+    "msg_password_lowercase": "Geslo mora vsebovati vsaj eno malo črko",
+    "msg_password_special": "Geslo mora vsebovati vsaj en poseben znak (:chars)",
+    "msg_password_mismatch": "Geslo in potrditev gesla se ne ujemata"
   },
   "auth": {
     "title": "Preverjanje pristnosti",

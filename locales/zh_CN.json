@@ -87,7 +87,15 @@
     "msg_address_required": "地址和域名为必填项。",
     "msg_alias_limit": "已达到域名的别名上限 (:current/:max)。",
     "msg_item_created": "已创建 :item。",
-    "msg_invalid_relayhost": "无效的 relay host：:relayhost。请使用 host、host:port、[host] 或 [host]:port。"
+    "msg_invalid_relayhost": "无效的 relay host：:relayhost。请使用 host、host:port、[host] 或 [host]:port。",
+    "msg_password_ascii": "密码只能包含 ASCII 字符",
+    "msg_password_min_length": "密码长度至少为 :min 个字符",
+    "msg_password_max_length": "密码长度最多为 :max 个字符",
+    "msg_password_digit": "密码必须至少包含一个数字",
+    "msg_password_uppercase": "密码必须至少包含一个大写字母",
+    "msg_password_lowercase": "密码必须至少包含一个小写字母",
+    "msg_password_special": "密码必须至少包含一个特殊字符（:chars）",
+    "msg_password_mismatch": "密码与确认密码不一致"
   },
   "auth": {
     "title": "身份验证",

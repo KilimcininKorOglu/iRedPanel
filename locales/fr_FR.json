@@ -87,7 +87,15 @@
     "msg_address_required": "L'adresse et le domaine sont obligatoires.",
     "msg_alias_limit": "La limite d'alias du domaine est atteinte (:current/:max).",
     "msg_item_created": ":item a été créé.",
-    "msg_invalid_relayhost": "Hôte relais invalide : :relayhost. Utilisez host, host:port, [host] ou [host]:port."
+    "msg_invalid_relayhost": "Hôte relais invalide : :relayhost. Utilisez host, host:port, [host] ou [host]:port.",
+    "msg_password_ascii": "Le mot de passe ne doit contenir que des caractères ASCII",
+    "msg_password_min_length": "Le mot de passe doit contenir au moins :min caractères",
+    "msg_password_max_length": "Le mot de passe doit contenir au plus :max caractères",
+    "msg_password_digit": "Le mot de passe doit contenir au moins un chiffre",
+    "msg_password_uppercase": "Le mot de passe doit contenir au moins une lettre majuscule",
+    "msg_password_lowercase": "Le mot de passe doit contenir au moins une lettre minuscule",
+    "msg_password_special": "Le mot de passe doit contenir au moins un caractère spécial (:chars)",
+    "msg_password_mismatch": "Le mot de passe et sa confirmation ne correspondent pas"
   },
   "auth": {
     "title": "Authentification",

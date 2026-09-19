@@ -87,7 +87,15 @@
     "msg_address_required": "Osoite ja verkkotunnus ovat pakollisia.",
     "msg_alias_limit": "Verkkotunnuksen aliasraja on täynnä (:current/:max).",
     "msg_item_created": ":item luotiin.",
-    "msg_invalid_relayhost": "Virheellinen relay host: :relayhost. Käytä muotoa host, host:port, [host] tai [host]:port."
+    "msg_invalid_relayhost": "Virheellinen relay host: :relayhost. Käytä muotoa host, host:port, [host] tai [host]:port.",
+    "msg_password_ascii": "Salasana saa sisältää vain ASCII-merkkejä",
+    "msg_password_min_length": "Salasanan on oltava vähintään :min merkkiä pitkä",
+    "msg_password_max_length": "Salasana saa olla enintään :max merkkiä pitkä",
+    "msg_password_digit": "Salasanassa on oltava vähintään yksi numero",
+    "msg_password_uppercase": "Salasanassa on oltava vähintään yksi iso kirjain",
+    "msg_password_lowercase": "Salasanassa on oltava vähintään yksi pieni kirjain",
+    "msg_password_special": "Salasanassa on oltava vähintään yksi erikoismerkki (:chars)",
+    "msg_password_mismatch": "Salasana ja salasanan vahvistus eivät täsmää"
   },
   "auth": {
     "title": "Todennus",

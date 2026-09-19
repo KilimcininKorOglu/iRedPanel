@@ -87,7 +87,15 @@
     "msg_address_required": "Адреса и домен су обавезни.",
     "msg_alias_limit": "Достигнуто је ограничење алијаса домена (:current/:max).",
     "msg_item_created": ":item је креиран.",
-    "msg_invalid_relayhost": "Неисправан relay host: :relayhost. Користите host, host:port, [host] или [host]:port."
+    "msg_invalid_relayhost": "Неисправан relay host: :relayhost. Користите host, host:port, [host] или [host]:port.",
+    "msg_password_ascii": "Лозинка сме да садржи само ASCII знакове",
+    "msg_password_min_length": "Лозинка мора имати најмање :min знакова",
+    "msg_password_max_length": "Лозинка сме имати највише :max знакова",
+    "msg_password_digit": "Лозинка мора садржати бар једну цифру",
+    "msg_password_uppercase": "Лозинка мора садржати бар једно велико слово",
+    "msg_password_lowercase": "Лозинка мора садржати бар једно мало слово",
+    "msg_password_special": "Лозинка мора садржати бар један специјални знак (:chars)",
+    "msg_password_mismatch": "Лозинка и потврда лозинке се не поклапају"
   },
   "auth": {
     "title": "Аутентификација",

@@ -87,7 +87,15 @@
     "msg_address_required": "Adressen och domänen krävs.",
     "msg_alias_limit": "Domänens aliasgräns har nåtts (:current/:max).",
     "msg_item_created": ":item har skapats.",
-    "msg_invalid_relayhost": "Ogiltig relay host: :relayhost. Använd host, host:port, [host] eller [host]:port."
+    "msg_invalid_relayhost": "Ogiltig relay host: :relayhost. Använd host, host:port, [host] eller [host]:port.",
+    "msg_password_ascii": "Lösenordet får bara innehålla ASCII-tecken",
+    "msg_password_min_length": "Lösenordet måste vara minst :min tecken långt",
+    "msg_password_max_length": "Lösenordet får vara högst :max tecken långt",
+    "msg_password_digit": "Lösenordet måste innehålla minst en siffra",
+    "msg_password_uppercase": "Lösenordet måste innehålla minst en versal",
+    "msg_password_lowercase": "Lösenordet måste innehålla minst en gemen",
+    "msg_password_special": "Lösenordet måste innehålla minst ett specialtecken (:chars)",
+    "msg_password_mismatch": "Lösenordet och bekräftelsen matchar inte"
   },
   "auth": {
     "title": "Autentisering",

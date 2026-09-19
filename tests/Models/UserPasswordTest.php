@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Tests\Models;
 
+use App\I18n\Translator;
 use App\Models\DomainSettings;
 use App\Models\UserPassword;
 use PHPUnit\Framework\TestCase;
@@ -88,5 +89,22 @@ class UserPasswordTest extends TestCase
     public function testZeroDomainLimitsKeepGlobalRules(): void
     {
         $this->assertEmpty(UserPassword::validate('Test1234!', 'Test1234!', new DomainSettings()));
+    }
+
+    /**
+     * The web UI shows the messages in the admin's language, while the API keeps English.
+     */
+    public function testLocalizedMessagesFollowTheUiLanguage(): void
+    {
+        Translator::init('tr_TR');
+        try {
+            $localized = UserPassword::validateLocalized('Test1234!', 'Test1234!', new DomainSettings(minPasswordLength: 12));
+            $english = UserPassword::validate('Test1234!', 'Test1234!', new DomainSettings(minPasswordLength: 12));
+        } finally {
+            Translator::init(Translator::FALLBACK_LOCALE);
+        }
+
+        $this->assertSame('Parola en az 12 karakter olmalıdır', $localized['password']);
+        $this->assertSame('Password must be at least 12 characters long', $english['password']);
     }
 }

@@ -87,7 +87,15 @@
     "msg_address_required": "Адресът и домейнът са задължителни.",
     "msg_alias_limit": "Достигнат е лимитът на псевдоними за домейна (:current/:max).",
     "msg_item_created": ":item е създаден.",
-    "msg_invalid_relayhost": "Невалиден relay host: :relayhost. Използвайте host, host:port, [host] или [host]:port."
+    "msg_invalid_relayhost": "Невалиден relay host: :relayhost. Използвайте host, host:port, [host] или [host]:port.",
+    "msg_password_ascii": "Паролата може да съдържа само ASCII символи",
+    "msg_password_min_length": "Паролата трябва да е поне :min символа",
+    "msg_password_max_length": "Паролата трябва да е най-много :max символа",
+    "msg_password_digit": "Паролата трябва да съдържа поне една цифра",
+    "msg_password_uppercase": "Паролата трябва да съдържа поне една главна буква",
+    "msg_password_lowercase": "Паролата трябва да съдържа поне една малка буква",
+    "msg_password_special": "Паролата трябва да съдържа поне един специален символ (:chars)",
+    "msg_password_mismatch": "Паролата и потвърждението ѝ не съвпадат"
   },
   "auth": {
     "title": "Удостоверяване",

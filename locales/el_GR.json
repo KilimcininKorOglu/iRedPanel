@@ -87,7 +87,15 @@
     "msg_address_required": "Η διεύθυνση και ο τομέας είναι υποχρεωτικά.",
     "msg_alias_limit": "Συμπληρώθηκε το όριο ψευδωνύμων του τομέα (:current/:max).",
     "msg_item_created": "Το :item δημιουργήθηκε.",
-    "msg_invalid_relayhost": "Μη έγκυρος relay host: :relayhost. Χρησιμοποιήστε host, host:port, [host] ή [host]:port."
+    "msg_invalid_relayhost": "Μη έγκυρος relay host: :relayhost. Χρησιμοποιήστε host, host:port, [host] ή [host]:port.",
+    "msg_password_ascii": "Ο κωδικός πρόσβασης μπορεί να περιέχει μόνο χαρακτήρες ASCII",
+    "msg_password_min_length": "Ο κωδικός πρόσβασης πρέπει να έχει τουλάχιστον :min χαρακτήρες",
+    "msg_password_max_length": "Ο κωδικός πρόσβασης πρέπει να έχει το πολύ :max χαρακτήρες",
+    "msg_password_digit": "Ο κωδικός πρόσβασης πρέπει να περιέχει τουλάχιστον ένα ψηφίο",
+    "msg_password_uppercase": "Ο κωδικός πρόσβασης πρέπει να περιέχει τουλάχιστον ένα κεφαλαίο γράμμα",
+    "msg_password_lowercase": "Ο κωδικός πρόσβασης πρέπει να περιέχει τουλάχιστον ένα πεζό γράμμα",
+    "msg_password_special": "Ο κωδικός πρόσβασης πρέπει να περιέχει τουλάχιστον έναν ειδικό χαρακτήρα (:chars)",
+    "msg_password_mismatch": "Ο κωδικός πρόσβασης και η επιβεβαίωση δεν ταιριάζουν"
   },
   "auth": {
     "title": "Έλεγχος ταυτότητας",

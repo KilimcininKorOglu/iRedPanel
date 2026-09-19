@@ -87,7 +87,15 @@
     "msg_address_required": "Địa chỉ và tên miền là bắt buộc.",
     "msg_alias_limit": "Đã đạt giới hạn bí danh của tên miền (:current/:max).",
     "msg_item_created": "Đã tạo :item.",
-    "msg_invalid_relayhost": "Relay host không hợp lệ: :relayhost. Dùng host, host:port, [host] hoặc [host]:port."
+    "msg_invalid_relayhost": "Relay host không hợp lệ: :relayhost. Dùng host, host:port, [host] hoặc [host]:port.",
+    "msg_password_ascii": "Mật khẩu chỉ được chứa ký tự ASCII",
+    "msg_password_min_length": "Mật khẩu phải có ít nhất :min ký tự",
+    "msg_password_max_length": "Mật khẩu chỉ được có tối đa :max ký tự",
+    "msg_password_digit": "Mật khẩu phải chứa ít nhất một chữ số",
+    "msg_password_uppercase": "Mật khẩu phải chứa ít nhất một chữ hoa",
+    "msg_password_lowercase": "Mật khẩu phải chứa ít nhất một chữ thường",
+    "msg_password_special": "Mật khẩu phải chứa ít nhất một ký tự đặc biệt (:chars)",
+    "msg_password_mismatch": "Mật khẩu và mật khẩu xác nhận không khớp"
   },
   "auth": {
     "title": "Xác thực",

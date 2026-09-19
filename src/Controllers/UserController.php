@@ -121,7 +121,7 @@ class UserController
                     if (empty($validationErrors)) {
                         $password = $_POST['password'] ?? '';
                         $passwordRepeat = $_POST['password_repeat'] ?? '';
-                        $validationErrors = UserPassword::validate($password, $passwordRepeat, self::domainSettings($domain));
+                        $validationErrors = UserPassword::validateLocalized($password, $passwordRepeat, self::domainSettings($domain));
 
                         if (empty($validationErrors)) {
                             $passwordHash = PasswordUtils::generatePasswordHash($password);
@@ -374,7 +374,7 @@ class UserController
                     $user = User::fromFormData($_POST + ['accountStatus' => true]);
                     $password = $_POST['password'] ?? '';
                     $passwordRepeat = $_POST['password_repeat'] ?? '';
-                    $validationErrors = UserPassword::validate($password, $passwordRepeat, self::domainSettings($domain));
+                    $validationErrors = UserPassword::validateLocalized($password, $passwordRepeat, self::domainSettings($domain));
 
                     if (empty($validationErrors)) {
                         // Enforce admin resource limits

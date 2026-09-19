@@ -87,7 +87,15 @@
     "msg_address_required": "Adressen og domænet er påkrævet.",
     "msg_alias_limit": "Domænets aliasgrænse er nået (:current/:max).",
     "msg_item_created": ":item er oprettet.",
-    "msg_invalid_relayhost": "Ugyldig relay host: :relayhost. Brug host, host:port, [host] eller [host]:port."
+    "msg_invalid_relayhost": "Ugyldig relay host: :relayhost. Brug host, host:port, [host] eller [host]:port.",
+    "msg_password_ascii": "Adgangskoden må kun indeholde ASCII-tegn",
+    "msg_password_min_length": "Adgangskoden skal være mindst :min tegn lang",
+    "msg_password_max_length": "Adgangskoden må højst være :max tegn lang",
+    "msg_password_digit": "Adgangskoden skal indeholde mindst ét ciffer",
+    "msg_password_uppercase": "Adgangskoden skal indeholde mindst ét stort bogstav",
+    "msg_password_lowercase": "Adgangskoden skal indeholde mindst ét lille bogstav",
+    "msg_password_special": "Adgangskoden skal indeholde mindst ét specialtegn (:chars)",
+    "msg_password_mismatch": "Adgangskoden og bekræftelsen stemmer ikke overens"
   },
   "auth": {
     "title": "Godkendelse",

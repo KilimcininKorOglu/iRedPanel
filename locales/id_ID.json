@@ -87,7 +87,15 @@
     "msg_address_required": "Alamat dan domain wajib diisi.",
     "msg_alias_limit": "Batas alias domain telah tercapai (:current/:max).",
     "msg_item_created": ":item telah dibuat.",
-    "msg_invalid_relayhost": "Relay host tidak valid: :relayhost. Gunakan host, host:port, [host] atau [host]:port."
+    "msg_invalid_relayhost": "Relay host tidak valid: :relayhost. Gunakan host, host:port, [host] atau [host]:port.",
+    "msg_password_ascii": "Kata sandi hanya boleh berisi karakter ASCII",
+    "msg_password_min_length": "Kata sandi minimal :min karakter",
+    "msg_password_max_length": "Kata sandi maksimal :max karakter",
+    "msg_password_digit": "Kata sandi harus berisi setidaknya satu angka",
+    "msg_password_uppercase": "Kata sandi harus berisi setidaknya satu huruf besar",
+    "msg_password_lowercase": "Kata sandi harus berisi setidaknya satu huruf kecil",
+    "msg_password_special": "Kata sandi harus berisi setidaknya satu karakter khusus (:chars)",
+    "msg_password_mismatch": "Kata sandi dan konfirmasi kata sandi tidak cocok"
   },
   "auth": {
     "title": "Autentikasi",

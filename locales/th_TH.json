@@ -87,7 +87,15 @@
     "msg_address_required": "ต้องระบุที่อยู่และโดเมน",
     "msg_alias_limit": "ถึงขีดจำกัดนามแฝงของโดเมนแล้ว (:current/:max)",
     "msg_item_created": "สร้าง :item แล้ว",
-    "msg_invalid_relayhost": "relay host ไม่ถูกต้อง: :relayhost ใช้ host, host:port, [host] หรือ [host]:port"
+    "msg_invalid_relayhost": "relay host ไม่ถูกต้อง: :relayhost ใช้ host, host:port, [host] หรือ [host]:port",
+    "msg_password_ascii": "รหัสผ่านต้องมีเฉพาะอักขระ ASCII",
+    "msg_password_min_length": "รหัสผ่านต้องมีอย่างน้อย :min ตัวอักษร",
+    "msg_password_max_length": "รหัสผ่านต้องมีไม่เกิน :max ตัวอักษร",
+    "msg_password_digit": "รหัสผ่านต้องมีตัวเลขอย่างน้อยหนึ่งตัว",
+    "msg_password_uppercase": "รหัสผ่านต้องมีตัวพิมพ์ใหญ่อย่างน้อยหนึ่งตัว",
+    "msg_password_lowercase": "รหัสผ่านต้องมีตัวพิมพ์เล็กอย่างน้อยหนึ่งตัว",
+    "msg_password_special": "รหัสผ่านต้องมีอักขระพิเศษอย่างน้อยหนึ่งตัว (:chars)",
+    "msg_password_mismatch": "รหัสผ่านและการยืนยันรหัสผ่านไม่ตรงกัน"
   },
   "auth": {
     "title": "การยืนยันตัวตน",

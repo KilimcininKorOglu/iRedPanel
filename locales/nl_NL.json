@@ -87,7 +87,15 @@
     "msg_address_required": "Het adres en het domein zijn verplicht.",
     "msg_alias_limit": "De aliaslimiet van het domein is bereikt (:current/:max).",
     "msg_item_created": ":item is aangemaakt.",
-    "msg_invalid_relayhost": "Ongeldige relayhost: :relayhost. Gebruik host, host:port, [host] of [host]:port."
+    "msg_invalid_relayhost": "Ongeldige relayhost: :relayhost. Gebruik host, host:port, [host] of [host]:port.",
+    "msg_password_ascii": "Het wachtwoord mag alleen ASCII-tekens bevatten",
+    "msg_password_min_length": "Het wachtwoord moet minstens :min tekens lang zijn",
+    "msg_password_max_length": "Het wachtwoord mag hoogstens :max tekens lang zijn",
+    "msg_password_digit": "Het wachtwoord moet minstens één cijfer bevatten",
+    "msg_password_uppercase": "Het wachtwoord moet minstens één hoofdletter bevatten",
+    "msg_password_lowercase": "Het wachtwoord moet minstens één kleine letter bevatten",
+    "msg_password_special": "Het wachtwoord moet minstens één speciaal teken bevatten (:chars)",
+    "msg_password_mismatch": "Wachtwoord en wachtwoordbevestiging komen niet overeen"
   },
   "auth": {
     "title": "Authenticatie",

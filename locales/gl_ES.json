@@ -87,7 +87,15 @@
     "msg_address_required": "O enderezo e o dominio son obrigatorios.",
     "msg_alias_limit": "Alcanzouse o límite de alias do dominio (:current/:max).",
     "msg_item_created": "Creouse :item.",
-    "msg_invalid_relayhost": "Relay host non válido: :relayhost. Use host, host:port, [host] ou [host]:port."
+    "msg_invalid_relayhost": "Relay host non válido: :relayhost. Use host, host:port, [host] ou [host]:port.",
+    "msg_password_ascii": "O contrasinal só pode conter caracteres ASCII",
+    "msg_password_min_length": "O contrasinal debe ter polo menos :min caracteres",
+    "msg_password_max_length": "O contrasinal debe ter como máximo :max caracteres",
+    "msg_password_digit": "O contrasinal debe conter polo menos un díxito",
+    "msg_password_uppercase": "O contrasinal debe conter polo menos unha letra maiúscula",
+    "msg_password_lowercase": "O contrasinal debe conter polo menos unha letra minúscula",
+    "msg_password_special": "O contrasinal debe conter polo menos un carácter especial (:chars)",
+    "msg_password_mismatch": "O contrasinal e a confirmación non coinciden"
   },
   "auth": {
     "title": "Autenticación",

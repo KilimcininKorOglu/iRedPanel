@@ -207,7 +207,6 @@ class MysqlAdminRepository implements AdminRepositoryInterface
             $isGlobal = $pdo->prepare("SELECT 1 FROM domain_admins WHERE username = :u AND domain = 'ALL'");
             $isGlobal->execute(['u' => $username]);
             if ($isGlobal->fetch() !== false && $globalCount <= 1) {
-                $pdo->rollBack();
                 throw new \RuntimeException("Cannot delete the last global admin");
             }
 

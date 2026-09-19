@@ -205,7 +205,8 @@
     "col_tag": "Marcação",
     "col_tag2": "Marcação 2",
     "col_kill": "Rejeição",
-    "back": "Voltar à quarentena"
+    "back": "Voltar à quarentena",
+    "msg_invalid_level": "Valor inválido: :field"
   },
   "dashboard": {
     "title": "Painel",

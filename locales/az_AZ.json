@@ -205,7 +205,8 @@
     "col_tag": "Etiket",
     "col_tag2": "Etiket2",
     "col_kill": "Kill",
-    "back": "Karantinə qayıt"
+    "back": "Karantinə qayıt",
+    "msg_invalid_level": "Yanlış dəyər: :field"
   },
   "dashboard": {
     "title": "İdarə paneli",

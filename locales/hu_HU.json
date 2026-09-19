@@ -205,7 +205,8 @@
     "col_tag": "Címke",
     "col_tag2": "Címke 2",
     "col_kill": "Elutasítás",
-    "back": "Vissza a karanténba"
+    "back": "Vissza a karanténba",
+    "msg_invalid_level": "Érvénytelen érték: :field"
   },
   "dashboard": {
     "title": "Vezérlőpult",

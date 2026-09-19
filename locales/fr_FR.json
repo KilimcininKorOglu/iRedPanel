@@ -205,7 +205,8 @@
     "col_tag": "Marqueur",
     "col_tag2": "Marqueur 2",
     "col_kill": "Blocage",
-    "back": "Retour à la quarantaine"
+    "back": "Retour à la quarantaine",
+    "msg_invalid_level": "Valeur invalide : :field"
   },
   "dashboard": {
     "title": "Tableau de bord",

@@ -205,7 +205,8 @@
     "col_tag": "タグ",
     "col_tag2": "タグ 2",
     "col_kill": "ブロック",
-    "back": "隔離に戻る"
+    "back": "隔離に戻る",
+    "msg_invalid_level": "無効な値: :field"
   },
   "dashboard": {
     "title": "ダッシュボード",

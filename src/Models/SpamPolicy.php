@@ -41,13 +41,18 @@ class SpamPolicy
         );
     }
 
+    /**
+     * Reads a form or JSON body.
+     *
+     * @throws \InvalidArgumentException with the name of the invalid level field as message
+     */
     public static function fromFormData(array $post): self
     {
         return new self(
             policyName: trim($post['policyName'] ?? ''),
-            spamTagLevel: ($post['spamTagLevel'] ?? '') !== '' ? (float) $post['spamTagLevel'] : null,
-            spamTag2Level: ($post['spamTag2Level'] ?? '') !== '' ? (float) $post['spamTag2Level'] : null,
-            spamKillLevel: ($post['spamKillLevel'] ?? '') !== '' ? (float) $post['spamKillLevel'] : null,
+            spamTagLevel: self::level($post, 'spamTagLevel'),
+            spamTag2Level: self::level($post, 'spamTag2Level'),
+            spamKillLevel: self::level($post, 'spamKillLevel'),
             spamSubjectTag: self::subjectTag($post['spamSubjectTag'] ?? ''),
             spamSubjectTag2: self::subjectTag($post['spamSubjectTag2'] ?? ''),
             bypassVirusChecks: (bool) ($post['bypassVirusChecks'] ?? false),
@@ -57,6 +62,25 @@ class SpamPolicy
             bannedFilesLover: (bool) ($post['bannedFilesLover'] ?? false),
             badHeaderLover: (bool) ($post['badHeaderLover'] ?? false),
         );
+    }
+
+    /**
+     * An empty level inherits the default. Text must not become 0, because
+     * amavisd then tags or blocks almost every message.
+     */
+    private static function level(array $input, string $field): ?float
+    {
+        $raw = $input[$field] ?? null;
+        if (is_string($raw)) {
+            $raw = trim($raw);
+        }
+        if ($raw === null || $raw === '') {
+            return null;
+        }
+        if (!is_numeric($raw) || !is_finite((float) $raw)) {
+            throw new \InvalidArgumentException($field);
+        }
+        return (float) $raw;
     }
 
     /**

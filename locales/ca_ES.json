@@ -205,7 +205,8 @@
     "col_tag": "Etiqueta",
     "col_tag2": "Etiqueta 2",
     "col_kill": "Rebuig",
-    "back": "Tornar a la quarantena"
+    "back": "Tornar a la quarantena",
+    "msg_invalid_level": "Valor no vàlid: :field"
   },
   "dashboard": {
     "title": "Tauler",

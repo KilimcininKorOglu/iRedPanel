@@ -205,7 +205,8 @@
     "col_tag": "Označenie",
     "col_tag2": "Označenie 2",
     "col_kill": "Odmietnutie",
-    "back": "Späť na karanténu"
+    "back": "Späť na karanténu",
+    "msg_invalid_level": "Neplatná hodnota: :field"
   },
   "dashboard": {
     "title": "Nástenka",

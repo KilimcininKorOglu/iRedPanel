@@ -205,7 +205,8 @@
     "col_tag": "Märkning",
     "col_tag2": "Märkning 2",
     "col_kill": "Avvisning",
-    "back": "Tillbaka till karantän"
+    "back": "Tillbaka till karantän",
+    "msg_invalid_level": "Ogiltigt värde: :field"
   },
   "dashboard": {
     "title": "Instrumentpanel",

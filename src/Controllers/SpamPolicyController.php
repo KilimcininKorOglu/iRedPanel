@@ -54,6 +54,8 @@ class SpamPolicyController
                     ActivityLogger::logUpdate('', $account, "Spam policy updated for {$account}");
                     $success = Translator::translate('spampolicy.msg_updated');
                 }
+            } catch (\InvalidArgumentException $e) {
+                $error = self::levelError($e);
             } catch (\Exception $e) {
                 $error = BaseController::errorMessage($e);
             }
@@ -69,6 +71,21 @@ class SpamPolicyController
             'success' => $success,
             'error' => $error,
         ]);
+    }
+
+    private const LEVEL_LABELS = [
+        'spamTagLevel' => 'spampolicy.tag_level',
+        'spamTag2Level' => 'spampolicy.tag2_level',
+        'spamKillLevel' => 'spampolicy.kill_level',
+    ];
+
+    private static function levelError(\InvalidArgumentException $e): string
+    {
+        $labelKey = self::LEVEL_LABELS[$e->getMessage()] ?? null;
+        if ($labelKey === null) {
+            return BaseController::errorMessage($e);
+        }
+        return Translator::translate('spampolicy.msg_invalid_level', ['field' => Translator::translate($labelKey)]);
     }
 
     private static function requireEnabled(): void

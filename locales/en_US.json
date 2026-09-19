@@ -205,7 +205,8 @@
     "col_tag": "Tag",
     "col_tag2": "Tag2",
     "col_kill": "Kill",
-    "back": "Back to quarantine"
+    "back": "Back to quarantine",
+    "msg_invalid_level": "Invalid value: :field"
   },
   "dashboard": {
     "title": "Dashboard",

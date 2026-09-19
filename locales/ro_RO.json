@@ -205,7 +205,8 @@
     "col_tag": "Etichetare",
     "col_tag2": "Etichetare 2",
     "col_kill": "Respingere",
-    "back": "Înapoi la carantină"
+    "back": "Înapoi la carantină",
+    "msg_invalid_level": "Valoare invalidă: :field"
   },
   "dashboard": {
     "title": "Tablou de bord",

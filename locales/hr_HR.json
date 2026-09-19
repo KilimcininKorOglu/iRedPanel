@@ -205,7 +205,8 @@
     "col_tag": "Oznaka",
     "col_tag2": "Oznaka 2",
     "col_kill": "Odbijanje",
-    "back": "Natrag na karantenu"
+    "back": "Natrag na karantenu",
+    "msg_invalid_level": "Neispravna vrijednost: :field"
   },
   "dashboard": {
     "title": "Nadzorna ploča",

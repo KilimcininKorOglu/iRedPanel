@@ -30,7 +30,12 @@ class SpamPolicyApiController
             ApiResponse::error('Invalid account');
             return;
         }
-        $policy = SpamPolicy::fromFormData($data);
+        try {
+            $policy = SpamPolicy::fromFormData($data);
+        } catch (\InvalidArgumentException $e) {
+            ApiResponse::error("{$e->getMessage()} must be a number");
+            return;
+        }
         RepositoryFactory::getSpamPolicyRepository()->createOrUpdatePolicy($account, $policy);
         ApiResponse::success(['message' => 'Spam policy updated']);
     }

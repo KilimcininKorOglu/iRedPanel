@@ -205,7 +205,8 @@
     "col_tag": "Oznaka",
     "col_tag2": "Oznaka 2",
     "col_kill": "Zavrnitev",
-    "back": "Nazaj na karanteno"
+    "back": "Nazaj na karanteno",
+    "msg_invalid_level": "Neveljavna vrednost: :field"
   },
   "dashboard": {
     "title": "Nadzorna plošča",

@@ -205,7 +205,8 @@
     "col_tag": "Etiketa",
     "col_tag2": "Etiketa2",
     "col_kill": "Ezabatu",
-    "back": "Itzuli berrogeialdira"
+    "back": "Itzuli berrogeialdira",
+    "msg_invalid_level": "Balio baliogabea: :field"
   },
   "dashboard": {
     "title": "Aginte-panela",

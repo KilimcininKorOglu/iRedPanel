@@ -205,7 +205,8 @@
     "col_tag": "Gắn thẻ",
     "col_tag2": "Gắn thẻ 2",
     "col_kill": "Từ chối",
-    "back": "Quay lại cách ly"
+    "back": "Quay lại cách ly",
+    "msg_invalid_level": "Giá trị không hợp lệ: :field"
   },
   "dashboard": {
     "title": "Bảng điều khiển",

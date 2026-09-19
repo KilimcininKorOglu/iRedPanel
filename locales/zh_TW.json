@@ -205,7 +205,8 @@
     "col_tag": "標記",
     "col_tag2": "標記 2",
     "col_kill": "拒絕",
-    "back": "返回隔離區"
+    "back": "返回隔離區",
+    "msg_invalid_level": "無效的值：:field"
   },
   "dashboard": {
     "title": "儀表板",

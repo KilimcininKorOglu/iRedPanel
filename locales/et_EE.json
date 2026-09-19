@@ -205,7 +205,8 @@
     "col_tag": "Silt",
     "col_tag2": "Silt 2",
     "col_kill": "Tagasilükkamine",
-    "back": "Tagasi karantiini"
+    "back": "Tagasi karantiini",
+    "msg_invalid_level": "Vigane väärtus: :field"
   },
   "dashboard": {
     "title": "Töölaud",

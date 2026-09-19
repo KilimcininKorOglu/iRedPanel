@@ -205,7 +205,8 @@
     "col_tag": "Merki",
     "col_tag2": "Merki2",
     "col_kill": "Eyðing",
-    "back": "Til baka í sóttkví"
+    "back": "Til baka í sóttkví",
+    "msg_invalid_level": "Ógilt gildi: :field"
   },
   "dashboard": {
     "title": "Stjórnborð",

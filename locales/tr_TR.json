@@ -205,7 +205,8 @@
     "col_tag": "Etiket",
     "col_tag2": "Etiket2",
     "col_kill": "Kill",
-    "back": "Karantinaya dön"
+    "back": "Karantinaya dön",
+    "msg_invalid_level": "Geçersiz değer: :field"
   },
   "dashboard": {
     "title": "Kontrol Paneli",

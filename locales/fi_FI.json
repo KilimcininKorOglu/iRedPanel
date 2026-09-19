@@ -205,7 +205,8 @@
     "col_tag": "Merkintä",
     "col_tag2": "Merkintä 2",
     "col_kill": "Hylkäys",
-    "back": "Takaisin karanteeniin"
+    "back": "Takaisin karanteeniin",
+    "msg_invalid_level": "Virheellinen arvo: :field"
   },
   "dashboard": {
     "title": "Kojelauta",

@@ -205,7 +205,8 @@
     "col_tag": "Tag",
     "col_tag2": "Tag2",
     "col_kill": "Kill",
-    "back": "Tilbage til karantæne"
+    "back": "Tilbage til karantæne",
+    "msg_invalid_level": "Ugyldig værdi: :field"
   },
   "dashboard": {
     "title": "Betjeningspanel",

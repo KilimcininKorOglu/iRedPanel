@@ -205,7 +205,8 @@
     "col_tag": "Oznaczenie",
     "col_tag2": "Oznaczenie 2",
     "col_kill": "Odrzucenie",
-    "back": "Powrót do kwarantanny"
+    "back": "Powrót do kwarantanny",
+    "msg_invalid_level": "Nieprawidłowa wartość: :field"
   },
   "dashboard": {
     "title": "Panel",

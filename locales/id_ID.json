@@ -205,7 +205,8 @@
     "col_tag": "Tag",
     "col_tag2": "Tag 2",
     "col_kill": "Tolak",
-    "back": "Kembali ke karantina"
+    "back": "Kembali ke karantina",
+    "msg_invalid_level": "Nilai tidak valid: :field"
   },
   "dashboard": {
     "title": "Dasbor",

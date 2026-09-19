@@ -205,7 +205,8 @@
     "col_tag": "标记",
     "col_tag2": "标记 2",
     "col_kill": "拦截",
-    "back": "返回隔离区"
+    "back": "返回隔离区",
+    "msg_invalid_level": "无效的值：:field"
   },
   "dashboard": {
     "title": "仪表板",

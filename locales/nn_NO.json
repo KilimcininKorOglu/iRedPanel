@@ -205,7 +205,8 @@
     "col_tag": "Merke",
     "col_tag2": "Merke2",
     "col_kill": "Slett",
-    "back": "Tilbake til karantene"
+    "back": "Tilbake til karantene",
+    "msg_invalid_level": "Ugyldig verdi: :field"
   },
   "dashboard": {
     "title": "Oversikt",

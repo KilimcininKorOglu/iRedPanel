@@ -205,7 +205,8 @@
     "col_tag": "Etiqueta",
     "col_tag2": "Etiqueta2",
     "col_kill": "Eliminar",
-    "back": "Volver á corentena"
+    "back": "Volver á corentena",
+    "msg_invalid_level": "Valor non válido: :field"
   },
   "dashboard": {
     "title": "Panel",

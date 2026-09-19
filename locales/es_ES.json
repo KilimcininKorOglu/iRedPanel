@@ -205,7 +205,8 @@
     "col_tag": "Etiqueta",
     "col_tag2": "Etiqueta 2",
     "col_kill": "Bloqueo",
-    "back": "Volver a la cuarentena"
+    "back": "Volver a la cuarentena",
+    "msg_invalid_level": "Valor no válido: :field"
   },
   "dashboard": {
     "title": "Panel",

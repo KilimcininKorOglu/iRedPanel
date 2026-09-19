@@ -205,7 +205,8 @@
     "col_tag": "Merke",
     "col_tag2": "Merke 2",
     "col_kill": "Avvis",
-    "back": "Tilbake til karantene"
+    "back": "Tilbake til karantene",
+    "msg_invalid_level": "Ugyldig verdi: :field"
   },
   "dashboard": {
     "title": "Kontrollpanel",

@@ -205,7 +205,8 @@
     "col_tag": "Oznaka",
     "col_tag2": "Oznaka2",
     "col_kill": "Uništi",
-    "back": "Nazad na karantin"
+    "back": "Nazad na karantin",
+    "msg_invalid_level": "Neispravna vrijednost: :field"
   },
   "dashboard": {
     "title": "Kontrolna ploča",

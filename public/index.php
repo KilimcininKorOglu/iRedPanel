@@ -254,8 +254,8 @@ $router->addRoute('GET', '/last-logins', function () use ($tpl) {
 });
 
 // Export
-$router->addRoute('GET', '/export/domain/{domain}', function (string $domain) {
-    ExportController::domainExport($domain);
+$router->addRoute('GET', '/export/domain/{domain}', function (string $domain) use ($tpl) {
+    ExportController::domainExport($tpl, $domain);
 });
 
 $router->addRoute('GET', '/export/admins', function () {

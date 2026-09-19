@@ -57,9 +57,37 @@ class PgsqlAmavisdRepository implements AmavisdRepositoryInterface
         $stmt->bindValue('offset', $offset, \PDO::PARAM_INT);
         $stmt->execute();
 
-        $items = $stmt->fetchAll();
+        return new PaginatedResult(self::byteaAsText($stmt->fetchAll()), $totalCount, $page, $perPage);
+    }
 
-        return new PaginatedResult($items, $totalCount, $page, $perPage);
+    /**
+     * PDO returns the bytea columns of the amavisd schema (mail_id, from_addr,
+     * subject, email) as streams, and the templates need their text.
+     *
+     * @param list<array<string, mixed>> $rows
+     * @return list<array<string, mixed>>
+     */
+    private static function byteaAsText(array $rows): array
+    {
+        return array_map(
+            static fn(array $row): array => array_map(
+                static fn(mixed $value): mixed => is_resource($value) ? self::streamText($value) : $value,
+                $row,
+            ),
+            $rows,
+        );
+    }
+
+    /**
+     * @param resource $stream
+     */
+    private static function streamText($stream): string
+    {
+        $text = stream_get_contents($stream);
+        if ($text === false) {
+            throw new \RuntimeException('Cannot read a bytea column from the Amavisd database');
+        }
+        return $text;
     }
 
     public function releaseMessage(string $mailId, string $requestedBy): void
@@ -164,9 +192,7 @@ class PgsqlAmavisdRepository implements AmavisdRepositoryInterface
         $stmt->bindValue('offset', $offset, \PDO::PARAM_INT);
         $stmt->execute();
 
-        $items = $stmt->fetchAll();
-
-        return new PaginatedResult($items, $totalCount, $page, $perPage);
+        return new PaginatedResult(self::byteaAsText($stmt->fetchAll()), $totalCount, $page, $perPage);
     }
 
     public function cleanupQuarantined(int $olderThanDays): int

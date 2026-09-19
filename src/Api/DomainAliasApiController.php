@@ -53,8 +53,14 @@ class DomainAliasApiController
             return;
         }
 
-        $alias = new DomainAlias($aliasDomain, $targetDomain, true);
-        RepositoryFactory::getDomainAliasRepository()->createAlias($alias);
+        $aliasRepo = RepositoryFactory::getDomainAliasRepository();
+        $active = (bool) ($data['active'] ?? true);
+        if (!$active && !$aliasRepo->supportsStatus()) {
+            ApiResponse::error('active=false is not supported by this backend');
+            return;
+        }
+
+        $aliasRepo->createAlias(new DomainAlias($aliasDomain, $targetDomain, $active));
         ApiResponse::created(['aliasDomain' => $aliasDomain]);
     }
 

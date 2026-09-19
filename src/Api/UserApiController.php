@@ -78,7 +78,10 @@ class UserApiController
         if ($domainSettings->defaultUserQuota > 0) {
             $defaults['mailQuota'] = $domainSettings->defaultUserQuota;
         }
-        $user = User::fromFormData($data + $defaults);
+        $user = self::userFromBody($data + $defaults);
+        if ($user === null) {
+            return;
+        }
 
         // Enforce domain limits
         if ($domainObj->mailboxes > 0 && $domainObj->currentUserCount >= $domainObj->mailboxes) {
@@ -128,6 +131,13 @@ class UserApiController
         // Prevent privilege escalation via API: domainGlobalAdmin cannot be changed via API
         unset($data['domainGlobalAdmin']);
 
+        // Validate the body before the password change, so a bad field changes nothing.
+        $user = self::userFromBody(array_merge((array) $existing, $data));
+        if ($user === null) {
+            return;
+        }
+        $user->uid = $uid;
+
         if (isset($data['password'])) {
             $domainSettings = DomainSettings::fromSettingsString(
                 RepositoryFactory::getDomainRepository()->getDomain($domain)?->settings ?? ''
@@ -141,9 +151,6 @@ class UserApiController
             $passwordHash = PasswordUtils::generatePasswordHash($data['password']);
             $repo->updateUserPassword($domain, $uid, $passwordHash);
         }
-
-        $user = User::fromFormData(array_merge((array) $existing, $data));
-        $user->uid = $uid;
 
         // Enforce domain quota limits on update
         $domainObj = RepositoryFactory::getDomainRepository()->getDomain($domain);
@@ -228,6 +235,21 @@ class UserApiController
     }
 
     /** @return array{?string, ?string} */
+    /**
+     * Builds a User from a JSON body and answers 400 when a field is invalid.
+     *
+     * @return ?User null after the error response
+     */
+    private static function userFromBody(array $data): ?User
+    {
+        try {
+            return User::fromFormData($data);
+        } catch (\InvalidArgumentException $e) {
+            ApiResponse::error($e->getMessage());
+            return null;
+        }
+    }
+
     /**
      * Checks the input of a new mailbox.
      *

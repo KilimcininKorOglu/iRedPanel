@@ -332,7 +332,8 @@
     "bcc_desc": "Kirim salinan BCC dari semua email yang dikirim atau diterima ke alamat yang ditentukan.",
     "relay_desc": "Rutekan email keluar pengguna ini melalui server relay tertentu.",
     "export_csv": "Ekspor pengguna (CSV)",
-    "export_json": "Ekspor pengguna (JSON)"
+    "export_json": "Ekspor pengguna (JSON)",
+    "msg_invalid_quota": "Kuota harus bilangan bulat 0 atau lebih (MB)."
   },
   "mlist": {
     "msg_updated": "Milis diperbarui!",

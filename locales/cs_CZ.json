@@ -332,7 +332,8 @@
     "bcc_desc": "Odesílá kopie BCC odeslaných nebo přijatých e-mailů na zadané adresy.",
     "relay_desc": "Směrujte odchozí poštu od tohoto uživatele přes konkrétní přenosový server.",
     "export_csv": "Exportovat uživatele (CSV)",
-    "export_json": "Exportovat uživatele (JSON)"
+    "export_json": "Exportovat uživatele (JSON)",
+    "msg_invalid_quota": "Kvóta musí být celé číslo 0 nebo větší (MB)."
   },
   "mlist": {
     "msg_updated": "Poštovní konference aktualizována!",

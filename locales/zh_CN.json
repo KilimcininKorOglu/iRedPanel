@@ -332,7 +332,8 @@
     "bcc_desc": "将已发送或已接收邮件的密送副本发送到指定地址。",
     "relay_desc": "将此用户的出站邮件通过特定的中继服务器路由。",
     "export_csv": "导出用户 (CSV)",
-    "export_json": "导出用户 (JSON)"
+    "export_json": "导出用户 (JSON)",
+    "msg_invalid_quota": "配额必须是 0 或更大的整数（MB）。"
   },
   "mlist": {
     "msg_updated": "邮件列表已更新！",

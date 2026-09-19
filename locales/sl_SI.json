@@ -332,7 +332,8 @@
     "bcc_desc": "BCC kopije poslanih ali prejetih e-poštnih sporočil na navedene naslove.",
     "relay_desc": "Usmerjaj odhodno pošto tega uporabnika prek določenega strežnika za posredovanje.",
     "export_csv": "Izvozi uporabnike (CSV)",
-    "export_json": "Izvozi uporabnike (JSON)"
+    "export_json": "Izvozi uporabnike (JSON)",
+    "msg_invalid_quota": "Kvota mora biti celo število 0 ali več (MB)."
   },
   "mlist": {
     "msg_updated": "Poštni seznam posodobljen!",

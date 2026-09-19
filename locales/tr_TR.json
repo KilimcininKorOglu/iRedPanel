@@ -332,7 +332,8 @@
     "bcc_desc": "Gönderilen veya alınan e-postaların kopyalarını belirtilen adreslere BCC olarak gönderir.",
     "relay_desc": "Bu kullanıcıdan giden postayı belirli bir aktarma sunucusu üzerinden yönlendirin.",
     "export_csv": "Kullanıcıları dışa aktar (CSV)",
-    "export_json": "Kullanıcıları dışa aktar (JSON)"
+    "export_json": "Kullanıcıları dışa aktar (JSON)",
+    "msg_invalid_quota": "Kota 0 veya daha büyük bir tam sayı olmalıdır (MB)."
   },
   "mlist": {
     "msg_updated": "Posta listesi güncellendi!",

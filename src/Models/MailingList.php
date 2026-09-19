@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Utils\WholeNumber;
+
 class MailingList
 {
     public function __construct(
@@ -39,16 +41,8 @@ class MailingList
      */
     public static function validMaxMsgSize(mixed $value): int
     {
-        if ($value === null || $value === '') {
-            return 0;
-        }
-        if (is_int($value) && $value >= 0) {
-            return $value;
-        }
-        if (is_string($value) && ctype_digit(trim($value))) {
-            return (int) trim($value);
-        }
-        throw new \InvalidArgumentException('maxMsgSize must be a whole number of 0 or more');
+        return WholeNumber::parse($value)
+            ?? throw new \InvalidArgumentException('maxMsgSize must be a whole number of 0 or more');
     }
 
     /**

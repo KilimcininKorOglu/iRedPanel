@@ -332,7 +332,8 @@
     "bcc_desc": "Göndərilən və ya alınan e-poçtların surətlərini göstərilən ünvanlara BCC edir.",
     "relay_desc": "Bu istifadəçidən gedən poçtu xüsusi relay serveri üzərindən yönləndirin.",
     "export_csv": "İstifadəçiləri ixrac et (CSV)",
-    "export_json": "İstifadəçiləri ixrac et (JSON)"
+    "export_json": "İstifadəçiləri ixrac et (JSON)",
+    "msg_invalid_quota": "Kvota 0 və ya daha böyük tam ədəd olmalıdır (MB)."
   },
   "mlist": {
     "msg_updated": "Poçt siyahısı yeniləndi!",

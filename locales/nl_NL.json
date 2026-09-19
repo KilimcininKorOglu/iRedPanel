@@ -332,7 +332,8 @@
     "bcc_desc": "BCC-kopieën van verzonden of ontvangen e-mails naar de opgegeven adressen.",
     "relay_desc": "Uitgaande e-mail van deze gebruiker via een specifieke relayserver routeren.",
     "export_csv": "Gebruikers exporteren (CSV)",
-    "export_json": "Gebruikers exporteren (JSON)"
+    "export_json": "Gebruikers exporteren (JSON)",
+    "msg_invalid_quota": "Het quotum moet een geheel getal van 0 of meer zijn (MB)."
   },
   "mlist": {
     "msg_updated": "Mailinglijst bijgewerkt!",

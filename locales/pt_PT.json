@@ -332,7 +332,8 @@
     "bcc_desc": "Cópias em BCC dos e-mails enviados ou recebidos para os endereços especificados.",
     "relay_desc": "Encaminhar o correio de saída deste utilizador através de um servidor de retransmissão específico.",
     "export_csv": "Exportar utilizadores (CSV)",
-    "export_json": "Exportar utilizadores (JSON)"
+    "export_json": "Exportar utilizadores (JSON)",
+    "msg_invalid_quota": "A quota tem de ser um número inteiro igual ou superior a 0 (MB)."
   },
   "mlist": {
     "msg_updated": "Lista de distribuição atualizada!",

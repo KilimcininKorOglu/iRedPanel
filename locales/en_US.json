@@ -332,7 +332,8 @@
     "bcc_desc": "BCC copies of sent or received emails to the specified addresses.",
     "relay_desc": "Route outbound mail from this user through a specific relay server.",
     "export_csv": "Export users (CSV)",
-    "export_json": "Export users (JSON)"
+    "export_json": "Export users (JSON)",
+    "msg_invalid_quota": "The quota must be a whole number of 0 or more (MB)."
   },
   "mlist": {
     "msg_updated": "Mailing list updated!",

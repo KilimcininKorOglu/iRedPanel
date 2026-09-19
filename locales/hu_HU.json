@@ -332,7 +332,8 @@
     "bcc_desc": "A küldött vagy fogadott e-mailek BCC-másolatai a megadott címekre.",
     "relay_desc": "A felhasználótól kimenő levelek irányítása egy adott továbbító szerveren keresztül.",
     "export_csv": "Felhasználók exportálása (CSV)",
-    "export_json": "Felhasználók exportálása (JSON)"
+    "export_json": "Felhasználók exportálása (JSON)",
+    "msg_invalid_quota": "A kvótának 0 vagy nagyobb egész számnak kell lennie (MB)."
   },
   "mlist": {
     "msg_updated": "Levelezőlista frissítve!",

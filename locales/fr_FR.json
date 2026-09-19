@@ -332,7 +332,8 @@
     "bcc_desc": "Copies CCI des e-mails envoyés ou reçus vers les adresses spécifiées.",
     "relay_desc": "Acheminer le courrier sortant de cet utilisateur via un serveur relais spécifique.",
     "export_csv": "Exporter les utilisateurs (CSV)",
-    "export_json": "Exporter les utilisateurs (JSON)"
+    "export_json": "Exporter les utilisateurs (JSON)",
+    "msg_invalid_quota": "Le quota doit être un nombre entier supérieur ou égal à 0 (Mo)."
   },
   "mlist": {
     "msg_updated": "Liste de diffusion mise à jour !",

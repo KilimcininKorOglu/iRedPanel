@@ -332,7 +332,8 @@
     "bcc_desc": "Bidalitako edo jasotako posten BCC kopiak zehaztutako helbideetara.",
     "relay_desc": "Bideratu erabiltzaile honen irteerako posta errele-zerbitzari zehatz baten bidez.",
     "export_csv": "Esportatu erabiltzaileak (CSV)",
-    "export_json": "Esportatu erabiltzaileak (JSON)"
+    "export_json": "Esportatu erabiltzaileak (JSON)",
+    "msg_invalid_quota": "Kuotak 0 edo handiagoa den zenbaki oso bat izan behar du (MB)."
   },
   "mlist": {
     "msg_updated": "Posta-zerrenda eguneratu da!",

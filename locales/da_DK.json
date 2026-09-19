@@ -332,7 +332,8 @@
     "bcc_desc": "BCC-kopier af sendte eller modtagne e-mails til de angivne adresser.",
     "relay_desc": "Dirigér udgående mail fra denne bruger gennem en bestemt relæserver.",
     "export_csv": "Eksportér brugere (CSV)",
-    "export_json": "Eksportér brugere (JSON)"
+    "export_json": "Eksportér brugere (JSON)",
+    "msg_invalid_quota": "Kvoten skal være et heltal på 0 eller mere (MB)."
   },
   "mlist": {
     "msg_updated": "Mailingliste opdateret!",

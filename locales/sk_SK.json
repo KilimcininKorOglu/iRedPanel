@@ -332,7 +332,8 @@
     "bcc_desc": "BCC kópie odoslaných alebo prijatých e-mailov na zadané adresy.",
     "relay_desc": "Smerovať odchádzajúcu poštu od tohto používateľa cez konkrétny relé server.",
     "export_csv": "Exportovať používateľov (CSV)",
-    "export_json": "Exportovať používateľov (JSON)"
+    "export_json": "Exportovať používateľov (JSON)",
+    "msg_invalid_quota": "Kvóta musí byť celé číslo 0 alebo väčšie (MB)."
   },
   "mlist": {
     "msg_updated": "Distribučný zoznam aktualizovaný!",

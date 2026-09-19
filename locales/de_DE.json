@@ -332,7 +332,8 @@
     "bcc_desc": "BCC-Kopien gesendeter oder empfangener E-Mails an die angegebenen Adressen.",
     "relay_desc": "Ausgehende Mail dieses Benutzers über einen bestimmten Relay-Server leiten.",
     "export_csv": "Benutzer exportieren (CSV)",
-    "export_json": "Benutzer exportieren (JSON)"
+    "export_json": "Benutzer exportieren (JSON)",
+    "msg_invalid_quota": "Das Kontingent muss eine ganze Zahl von 0 oder mehr sein (MB)."
   },
   "mlist": {
     "msg_updated": "Mailingliste aktualisiert!",

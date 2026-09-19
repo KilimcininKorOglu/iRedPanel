@@ -332,7 +332,8 @@
     "bcc_desc": "Copie CCN delle e-mail inviate o ricevute agli indirizzi specificati.",
     "relay_desc": "Instrada la posta in uscita di questo utente tramite un server relay specifico.",
     "export_csv": "Esporta utenti (CSV)",
-    "export_json": "Esporta utenti (JSON)"
+    "export_json": "Esporta utenti (JSON)",
+    "msg_invalid_quota": "La quota deve essere un numero intero pari o superiore a 0 (MB)."
   },
   "mlist": {
     "msg_updated": "Lista di distribuzione aggiornata!",

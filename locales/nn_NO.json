@@ -332,7 +332,8 @@
     "bcc_desc": "BCC-kopiar av sende eller mottekne e-postar til dei oppgjevne adressene.",
     "relay_desc": "Rut utgåande e-post frå denne brukaren gjennom ein bestemt relétenar.",
     "export_csv": "Eksporter brukarar (CSV)",
-    "export_json": "Eksporter brukarar (JSON)"
+    "export_json": "Eksporter brukarar (JSON)",
+    "msg_invalid_quota": "Kvoten må vere eit heiltal på 0 eller meir (MB)."
   },
   "mlist": {
     "msg_updated": "E-postliste oppdatert!",

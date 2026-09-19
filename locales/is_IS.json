@@ -332,7 +332,8 @@
     "bcc_desc": "BCC-afrit af sendum eða mótteknum pósti á tilgreind vistföng.",
     "relay_desc": "Beina útgangspósti frá þessum notanda í gegnum tiltekinn endurvarpsþjón.",
     "export_csv": "Flytja út notendur (CSV)",
-    "export_json": "Flytja út notendur (JSON)"
+    "export_json": "Flytja út notendur (JSON)",
+    "msg_invalid_quota": "Kvótinn verður að vera heiltala, 0 eða hærri (MB)."
   },
   "mlist": {
     "msg_updated": "Póstlisti uppfærður!",

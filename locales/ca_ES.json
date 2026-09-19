@@ -332,7 +332,8 @@
     "bcc_desc": "Còpies CCO dels correus enviats o rebuts a les adreces especificades.",
     "relay_desc": "Encaminar el correu de sortida d'aquest usuari a través d'un servidor de retransmissió específic.",
     "export_csv": "Exporta els usuaris (CSV)",
-    "export_json": "Exporta els usuaris (JSON)"
+    "export_json": "Exporta els usuaris (JSON)",
+    "msg_invalid_quota": "La quota ha de ser un nombre enter igual o superior a 0 (MB)."
   },
   "mlist": {
     "msg_updated": "Llista de correu actualitzada!",

@@ -332,7 +332,8 @@
     "bcc_desc": "BCC-kopiot lähetetyistä tai vastaanotetuista sähköposteista määritettyihin osoitteisiin.",
     "relay_desc": "Ohjaa tämän käyttäjän lähtevä posti tietyn välityspalvelimen kautta.",
     "export_csv": "Vie käyttäjät (CSV)",
-    "export_json": "Vie käyttäjät (JSON)"
+    "export_json": "Vie käyttäjät (JSON)",
+    "msg_invalid_quota": "Kiintiön on oltava kokonaisluku 0 tai suurempi (MB)."
   },
   "mlist": {
     "msg_updated": "Postituslista päivitetty!",

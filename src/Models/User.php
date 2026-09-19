@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Exceptions\InvalidInputException;
+use App\Utils\WholeNumber;
+
 /**
  * User data model. Maps to iRedMail user attributes.
  * mailQuota is always stored in megabytes regardless of backend.
@@ -91,7 +94,20 @@ class User
     }
 
     /**
+     * Validates a mailbox quota in MB. 0 means unlimited.
+     *
+     * @throws InvalidInputException when the value is not a whole number of 0 or more
+     */
+    public static function validMailQuota(mixed $value): int
+    {
+        return WholeNumber::parse($value)
+            ?? throw new InvalidInputException('mailQuota must be a whole number of 0 or more', 'user.msg_invalid_quota');
+    }
+
+    /**
      * Creates a User from $_POST form data.
+     *
+     * @throws InvalidInputException when mailQuota is not a whole number of 0 or more
      */
     public static function fromFormData(array $post): self
     {
@@ -99,7 +115,7 @@ class User
             uid: trim($post['uid'] ?? ''),
             // Use (bool) cast with null coalescing so JSON false is respected, not just key presence.
             accountStatus: (bool) ($post['accountStatus'] ?? false),
-            mailQuota: max(0, (int) ($post['mailQuota'] ?? 100)),
+            mailQuota: self::validMailQuota($post['mailQuota'] ?? 100),
             cn: trim($post['cn'] ?? ''),
             givenName: trim($post['givenName'] ?? ''),
             sn: trim($post['sn'] ?? ''),

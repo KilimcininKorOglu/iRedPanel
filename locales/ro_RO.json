@@ -332,7 +332,8 @@
     "bcc_desc": "Trimite copii BCC ale email-urilor trimise sau primite către adresele specificate.",
     "relay_desc": "Direcționează email-urile de ieșire de la acest utilizator prin intermediul unui server de releu specific.",
     "export_csv": "Exportă utilizatorii (CSV)",
-    "export_json": "Exportă utilizatorii (JSON)"
+    "export_json": "Exportă utilizatorii (JSON)",
+    "msg_invalid_quota": "Cota trebuie să fie un număr întreg de 0 sau mai mare (MB)."
   },
   "mlist": {
     "msg_updated": "Lista de corespondență a fost actualizată!",

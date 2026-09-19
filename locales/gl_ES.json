@@ -332,7 +332,8 @@
     "bcc_desc": "Copias BCC dos correos enviados ou recibidos aos enderezos especificados.",
     "relay_desc": "Encamiña o correo saínte deste usuario a través dun servidor de retransmisión específico.",
     "export_csv": "Exportar usuarios (CSV)",
-    "export_json": "Exportar usuarios (JSON)"
+    "export_json": "Exportar usuarios (JSON)",
+    "msg_invalid_quota": "A cota debe ser un número enteiro igual ou maior que 0 (MB)."
   },
   "mlist": {
     "msg_updated": "Lista de correo actualizada!",

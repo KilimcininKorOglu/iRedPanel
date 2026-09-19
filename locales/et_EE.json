@@ -332,7 +332,8 @@
     "bcc_desc": "BCC koopiad saadetud või vastuvõetud e-postist määratud aadressidele.",
     "relay_desc": "Suuna selle kasutaja väljaminev post läbi kindla edastusserveri.",
     "export_csv": "Ekspordi kasutajad (CSV)",
-    "export_json": "Ekspordi kasutajad (JSON)"
+    "export_json": "Ekspordi kasutajad (JSON)",
+    "msg_invalid_quota": "Kvoot peab olema täisarv 0 või suurem (MB)."
   },
   "mlist": {
     "msg_updated": "Postiloend uuendatud!",

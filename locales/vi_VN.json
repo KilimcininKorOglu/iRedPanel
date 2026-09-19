@@ -332,7 +332,8 @@
     "bcc_desc": "Gửi bản sao BCC của tất cả email đã gửi hoặc nhận đến các địa chỉ chỉ định.",
     "relay_desc": "Định tuyến email đi của người dùng này qua một máy chủ chuyển tiếp cụ thể.",
     "export_csv": "Xuất người dùng (CSV)",
-    "export_json": "Xuất người dùng (JSON)"
+    "export_json": "Xuất người dùng (JSON)",
+    "msg_invalid_quota": "Hạn mức phải là số nguyên từ 0 trở lên (MB)."
   },
   "mlist": {
     "msg_updated": "Danh sách gửi thư đã được cập nhật!",

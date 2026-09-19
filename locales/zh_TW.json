@@ -332,7 +332,8 @@
     "bcc_desc": "將所有傳送或接收的電子郵件的 BCC 副本傳送至指定位址。",
     "relay_desc": "透過特定轉發伺服器路由此使用者的傳出郵件。",
     "export_csv": "匯出使用者 (CSV)",
-    "export_json": "匯出使用者 (JSON)"
+    "export_json": "匯出使用者 (JSON)",
+    "msg_invalid_quota": "配額必須是 0 或更大的整數（MB）。"
   },
   "mlist": {
     "msg_updated": "郵件清單已更新！",

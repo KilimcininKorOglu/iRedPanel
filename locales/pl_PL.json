@@ -332,7 +332,8 @@
     "bcc_desc": "Wysyła kopie BCC wysłanych lub odebranych e-maili na określone adresy.",
     "relay_desc": "Kieruj pocztę wychodzącą od tego użytkownika przez określony serwer przekazujący.",
     "export_csv": "Eksportuj użytkowników (CSV)",
-    "export_json": "Eksportuj użytkowników (JSON)"
+    "export_json": "Eksportuj użytkowników (JSON)",
+    "msg_invalid_quota": "Limit musi być liczbą całkowitą równą 0 lub większą (MB)."
   },
   "mlist": {
     "msg_updated": "Lista mailingowa zaktualizowana!",

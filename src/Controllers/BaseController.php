@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controllers;
 
 use App\Exceptions\BackendConnectionException;
+use App\Exceptions\InvalidInputException;
 use App\I18n\Translator;
 use App\Models\Alias;
 use App\Repositories\RepositoryFactory;
@@ -240,6 +241,9 @@ class BaseController
         if ($e instanceof BackendConnectionException) {
             error_log('Backend connection error: ' . $e->getMessage());
             return Translator::translate('misc.backend_down_body');
+        }
+        if ($e instanceof InvalidInputException) {
+            return Translator::translate($e->translationKey, $e->params);
         }
         if (!$e instanceof \PDOException) {
             return $e->getMessage();

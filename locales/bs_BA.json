@@ -332,7 +332,8 @@
     "bcc_desc": "BCC kopije poslanih ili primljenih e-mailova na navedene adrese.",
     "relay_desc": "Usmjeri odlazni e-mail ovog korisnika kroz određeni relej server.",
     "export_csv": "Izvezi korisnike (CSV)",
-    "export_json": "Izvezi korisnike (JSON)"
+    "export_json": "Izvezi korisnike (JSON)",
+    "msg_invalid_quota": "Kvota mora biti cijeli broj, 0 ili veći (MB)."
   },
   "mlist": {
     "msg_updated": "Mailing lista je ažurirana!",

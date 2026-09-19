@@ -356,7 +356,7 @@ server {
 
 ### Deferred Mailbox Deletion
 - MySQL and PostgreSQL: deleted user mailboxes recorded in the `vmail.deleted_mailboxes` table
-- LDAP: the page manages the `iredadmin.deleted_mailboxes` rows; the panel does not record LDAP user deletions there
+- LDAP: deleted user mailboxes recorded in the `iredadmin.deleted_mailboxes` table
 - Management UI: view, cancel, reschedule pending deletions
 
 ### External Integrations

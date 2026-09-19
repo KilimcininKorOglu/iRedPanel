@@ -277,6 +277,13 @@ server {
 
 ## Features
 
+### Web UI
+- Black dark theme on Bootstrap 5.3 with a left sidebar; on small screens the sidebar opens as an offcanvas menu
+- SweetAlert2 dialogs for every delete and bulk confirmation, and toast messages for results
+- Address fields (members, owners, moderators, subscribers, forwarding, BCC, catch-all, admin, Amavisd and iRedAPD accounts) search the account list with Tom Select and still accept a free-text address
+- The pickers call `GET /ajax/accounts`, a session endpoint that returns active users, aliases and mailing lists, limited to the domains of a domain admin
+- `BRAND_PRIMARY_COLOR` sets the accent color
+
 ### Domain Management
 - Domain CRUD across all three backends (LDAP, MySQL, PostgreSQL)
 - Domain settings: default user quota, password length rules, disclaimer text
@@ -561,7 +568,7 @@ cli/
   invalidateSessions.php               Invalidate all active sessions
   notifyQuarantinedRecipients.php      Cron: quarantine email notifications
 public/
-  index.php                            Front controller (110 routes)
+  index.php                            Front controller (116 routes)
   .htaccess                            Apache URL rewrite rules
   static/                              Vendored UI libraries, dark theme styles, app.js, logo
 src/
@@ -571,6 +578,7 @@ src/
   CsrfProtection.php                  CSRF token generation and validation
   TemplateEngine.php                   Layout inheritance, branding, feature flags
   TemplateFilters.php                  localize() and asMegabytes() helpers
+  Navigation.php                       Sidebar menu groups and active item
   I18n/
     Translator.php                     JSON locale loader, placeholder substitution, AVAILABLE locale registry
     LocaleResolver.php                 Locale resolution (session/cookie/default)
@@ -627,6 +635,7 @@ src/
     SpamPolicyController.php           Spam policy management
     WhiteBlacklistController.php       White/blacklist management
     SearchController.php               Global search
+    AccountLookupController.php        JSON account lookup for form pickers
     SystemSettingsController.php       System settings overview + last logins
     ExportController.php               CSV/JSON export
     NewsletterController.php           Public newsletter subscription
@@ -643,7 +652,7 @@ src/
     PasswordUtils.php                  Password hashing (10+ schemes) + random generation
     PasswordVerifier.php               Password verification utility
     SystemInfo.php                     Hostname, uptime, load, version info
-templates/                             42 native PHP templates
+templates/                             45 native PHP templates
 locales/                               40 locale files (en_US.json is the canonical base)
 tests/
   bootstrap.php                        Test environment setup
@@ -659,7 +668,7 @@ php composer.phar install
 vendor/bin/phpunit --do-not-cache-result
 ```
 
-58 tests covering password hashing schemes, password validation rules, translation/locale resolution, and model factory methods. PHPUnit 13 is used as the test framework.
+242 tests covering password hashing schemes, password validation rules, translation/locale resolution, model factory methods, navigation, the account lookup scope, and the Amavisd/iRedAPD cleanup SQL. PHPUnit 13 is used as the test framework.
 
 ## License
 

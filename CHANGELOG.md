@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [Unreleased]
+
+### Added
+- Account pickers (Tom Select) on address fields: alias members and moderators, mailing list owners, moderators and subscribers, forwarding, BCC, catch-all, admin creation, and the Amavisd and iRedAPD account fields
+- `GET /ajax/accounts` session endpoint for the pickers, limited to the domains of a domain admin
+
+### Changed
+- New web UI: Bootstrap 5.3 black dark theme with a left sidebar menu and an offcanvas menu on small screens
+- Delete and bulk confirmations use SweetAlert2 dialogs, and flash messages show as toasts
+- Bootstrap, Bootstrap Icons, SweetAlert2 and Tom Select are vendored under `public/static/vendor/`; Chota CSS is removed
+- The search page type filter uses toggle chips
+
 ## [1.0.2] - 2026-07-26
 
 ### Added

@@ -10,12 +10,14 @@ The application is vanilla PHP 8.1+ with no framework, no ORM and no template en
 |------------|------------------------------------------------------|
 | Package    | `kilimcininkoroglu/iredpanel`                        |
 | Version    | `1.0.2`                                              |
+| iRedMail   | Tested with `1.7.4`                                  |
 | Repository | `https://github.com/KilimcininKorOglu/iRedPanel.git` |
 | License    | MIT                                                  |
 
 ## Contents
 
 - [Supported Backends](#supported-backends)
+- [iRedMail Compatibility](#iredmail-compatibility)
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [Configuration](#configuration)
@@ -40,22 +42,48 @@ The application is vanilla PHP 8.1+ with no framework, no ORM and no template en
 
 With the LDAP backend, mail accounts live in LDAP, and the iRedAdmin, Amavisd and iRedAPD data live in SQL databases, as in a standard iRedMail LDAP installation.
 
+## iRedMail Compatibility
+
+| iRedPanel | Tested iRedMail versions | Backends                         | Released   |
+|-----------|--------------------------|----------------------------------|------------|
+| 1.0.2     | 1.7.4                    | OpenLDAP, MySQL/MariaDB, PostgreSQL | 2026-07-26 |
+
+[`compatibility.json`](compatibility.json) is the source of this table. It maps every iRedPanel release to the iRedMail versions that the project tested it with. A version enters the list only after a test.
+
+- The panel reads the copy on the `main` branch of GitHub, so an installed panel also sees newer releases. It caches the download for 24 hours. When GitHub cannot be read, or `CHECK_UPDATES=false`, it uses the copy bundled with the installed version.
+- **System > iRedMail Compatibility** (`/compatibility`, global admin) lists every release and marks the installed one. The dashboard shows the tested iRedMail versions of the installed release, and an alert when a newer release exists.
+- The panel does not detect the iRedMail version of the server. Compare it with the list yourself (`cat /etc/iredmail-release` on the mail server).
+- Upgrade order: upgrade iRedMail first, then install the iRedPanel release that lists the new iRedMail version.
+
+A new release needs an entry in `compatibility.json` with its `composer.json` version; a unit test fails otherwise.
+
 ## Requirements
 
 - PHP 8.1 or higher
 - `ext-ldap` for the LDAP backend
 - `ext-pdo` and `ext-pdo_mysql` for the MySQL/MariaDB backend, and for the SQL integrations of an LDAP installation
 - `ext-pdo` and `ext-pdo_pgsql` for the PostgreSQL backend
-- [Composer](https://getcomposer.org/) (included as `composer.phar`)
+- [Composer](https://getcomposer.org/) 2
 - An iRedMail server with an OpenLDAP, MySQL/MariaDB or PostgreSQL backend
 - For mailing lists: the [mlmmjadmin](https://github.com/iredmail/mlmmjadmin) API of the mail server
 
 ## Installation
 
+The installation guides cover a native install on the iRedMail server (Nginx and PHP-FPM, or Apache) and a Docker install, including the credentials to collect from the mail server and the network changes that a container needs:
+
+| Backend | English | Turkish |
+|---------|---------|---------|
+| OpenLDAP | [docs/install/en/ldap.md](docs/install/en/ldap.md) | [docs/install/tr/ldap.md](docs/install/tr/ldap.md) |
+| MariaDB/MySQL | [docs/install/en/mariadb.md](docs/install/en/mariadb.md) | [docs/install/tr/mariadb.md](docs/install/tr/mariadb.md) |
+| PostgreSQL | [docs/install/en/postgresql.md](docs/install/en/postgresql.md) | [docs/install/tr/postgresql.md](docs/install/tr/postgresql.md) |
+
+Short form:
+
 ```bash
 git clone https://github.com/KilimcininKorOglu/iRedPanel.git
 cd iRedPanel
-php composer.phar install
+git checkout v1.0.2
+composer install --no-dev --optimize-autoloader
 cp .env.example .env
 ```
 
@@ -145,7 +173,7 @@ These values are the initial defaults. When the iRedAdmin database is configured
 | `SESSION_TIMEOUT`                       | `1800`    | Session timeout in seconds                                   |
 | `ALLOWED_IP_RANGES`                     | -         | Comma-separated CIDR ranges that may open the panel          |
 | `SESSION_VALIDATE_IP`                   | `false`   | End the session when the client IP changes                   |
-| `CHECK_UPDATES`                         | `true`    | Check GitHub for a new version on the dashboard              |
+| `CHECK_UPDATES`                         | `true`    | Read `compatibility.json` from GitHub for newer releases     |
 | `GEOIP_DB_PATH`                         | -         | Path to a MaxMind GeoLite2-City `.mmdb` file                 |
 | `REQUIRE_DOMAIN_OWNERSHIP_VERIFICATION` | `false`   | Require DNS TXT verification for new domains                 |
 | `NEWSLETTER_EXPIRE_HOURS`               | `24`      | Expiry of newsletter confirmation tokens                     |
@@ -239,7 +267,7 @@ The `Dockerfile` builds a PHP 8.4 + Apache image with the `ldap`, `pdo_mysql` an
 | `prod` | `docker-compose.prod.yml` | `127.0.0.1:8522` | Copied into the image with production Composer dependencies; reads `.env.prod` |
 
 ```bash
-php composer.phar install          # dev only: vendor/ comes from the host
+composer install                   # dev only: vendor/ comes from the host
 make dev-up                        # or: make prod-up
 make dev-up ENV=.env.other         # dev with another env file mounted as .env
 ```
@@ -353,8 +381,8 @@ server {
 ### Dashboard
 - Domain, user and admin counts with active and disabled totals
 - Allocated and used quota, and stored message count
-- System information: hostname, uptime, load, iRedMail, PHP and panel versions
-- GitHub version check for updates
+- System information: hostname, uptime, load, PHP and panel versions
+- Tested iRedMail versions of the installed release, and an alert for a newer release (see [iRedMail Compatibility](#iredmail-compatibility))
 
 ### Activity Log
 - Admin operations are logged to the `log` table of the iRedAdmin database
@@ -558,11 +586,13 @@ Dockerfile                     dev and prod images (PHP 8.4 + Apache)
 docker-compose.dev.yml         Development container (127.0.0.1:8521)
 docker-compose.prod.yml        Production container (127.0.0.1:8522)
 .env.example                   Environment variable template
+compatibility.json             Tested iRedMail versions per iRedPanel release
 cli/                           CLI tools and cron scripts (cli/bootstrap.php loads the environment)
+docs/install/                  Installation guides per backend (en, tr)
 docs/screenshots/              README images
 locales/                       40 locale files (en_US.json is the canonical base)
 public/
-  index.php                    Front controller (116 routes)
+  index.php                    Front controller (117 routes)
   .htaccess                    Apache URL rewrite rules
   static/
     styles.css                 Dark theme, sidebar, tone badges, picker styles
@@ -589,17 +619,17 @@ src/
     Pgsql/                     PostgreSQL implementations and connection singletons
   Services/                    Activity log, account settings cleanup, mailing lists and mlmmjadmin,
                                mailer, newsletter, domain ownership, Amavisd release, Fail2ban,
-                               GeoIP, export, version check
+                               GeoIP, export, compatibility list
   Utils/                       Password hashing and verification, LDAP helpers, input parsing,
                                address and relay host validation, SQL LIKE escaping, system info
-templates/                     45 native PHP templates (base.php is the layout)
+templates/                     47 native PHP templates (base.php is the layout)
 tests/                         PHPUnit tests (tests/bootstrap.php)
 ```
 
 ## Development and Testing
 
 ```bash
-php composer.phar install
+composer install
 vendor/bin/phpunit --do-not-cache-result                 # all tests
 vendor/bin/phpunit --do-not-cache-result --filter Name   # one test class or method
 php scripts/check_locale_parity.php [locale]             # locale key parity with en_US
@@ -608,7 +638,7 @@ find . -name "*.php" ! -path "./vendor/*" -exec php -l {} \;   # syntax check
 
 The `Makefile` wraps the same steps: `make install`, `make test`, `make lint`, `make locale-parity`.
 
-The suite has 247 PHPUnit 13 tests. They cover password hashing and validation, the models, translation and locale resolution, navigation, badge colors, the account lookup scope, address and input parsing, the mlmmjadmin client, the mailer, newsletter confirmations, Amavisd release, and the Amavisd and iRedAPD cleanup SQL (on in-memory SQLite). There are no integration tests against a live backend.
+The suite has 261 tests. It runs on PHPUnit 10.5 to 13, whichever version Composer resolves for the PHP version. They cover password hashing and validation, the models, translation and locale resolution, navigation, badge colors, the account lookup scope, the compatibility list format, address and input parsing, the mlmmjadmin client, the mailer, newsletter confirmations, Amavisd release, and the Amavisd and iRedAPD cleanup SQL (on in-memory SQLite). There are no integration tests against a live backend.
 
 CI (`.github/workflows/ci.yml`) runs `composer validate --strict`, `php -l` on every PHP file and PHPUnit on PHP 8.1 to 8.4 for every push and pull request to `main`. `.github/workflows/cleanup-artifacts.yml` deletes old build artifacts every day.
 

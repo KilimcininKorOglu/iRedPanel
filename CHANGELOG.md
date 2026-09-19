@@ -7,12 +7,21 @@ All notable changes to this project will be documented in this file.
 ### Added
 - Account pickers (Tom Select) on address fields: alias members and moderators, mailing list owners, moderators and subscribers, forwarding, BCC, catch-all, admin creation, and the Amavisd and iRedAPD account fields
 - `GET /ajax/accounts` session endpoint for the pickers, limited to the domains of a domain admin
+- `compatibility.json` lists the iRedMail versions that each iRedPanel release was tested with (1.0.2: iRedMail 1.7.4)
+- **System > iRedMail Compatibility** page (`/compatibility`) lists every release from `compatibility.json`; the dashboard shows the tested iRedMail versions of the installed release and a newer release with its iRedMail versions
+- Installation guides for the OpenLDAP, MariaDB/MySQL and PostgreSQL backends in English and Turkish (`docs/install/`), each with a native and a Docker method
 
 ### Changed
+- The dashboard reads new releases from `compatibility.json` on GitHub (24-hour cache) and falls back to the bundled copy; this replaces the GitHub release check
+- The dashboard no longer shows an iRedMail version row, which read `/etc/iredmail-release` and showed N/A when the panel ran on another host or in a container
 - New web UI: Bootstrap 5.3 black dark theme with a left sidebar menu and an offcanvas menu on small screens
 - Delete and bulk confirmations use SweetAlert2 dialogs, and flash messages show as toasts
 - Bootstrap, Bootstrap Icons, SweetAlert2 and Tom Select are vendored under `public/static/vendor/`; Chota CSS is removed
 - The search page type filter uses toggle chips
+
+### Fixed
+- `composer install` failed on PHP 8.1 to 8.3, because PHPUnit 13 needs PHP 8.4.1 and `composer.lock` is not tracked; PHPUnit 10.5 to 13 is now accepted
+- CI failed in `composer validate --strict` on the intentional `version` field
 
 ## [1.0.2] - 2026-07-26
 

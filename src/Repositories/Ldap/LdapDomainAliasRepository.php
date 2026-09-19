@@ -117,6 +117,9 @@ class LdapDomainAliasRepository implements DomainAliasRepositoryInterface
      */
     public function createAlias(DomainAlias $alias): void
     {
+        if (!$alias->active) {
+            throw new \DomainException('The LDAP backend has no inactive alias domains');
+        }
         $conn = LdapConnection::getInstance()->getConn();
         $dn = LdapUtils::getDomainDn($alias->targetDomain);
 
@@ -157,9 +160,16 @@ class LdapDomainAliasRepository implements DomainAliasRepositoryInterface
         }
     }
 
+    /**
+     * An alias domain in `domainAliasName` is always active; it has no status of its own.
+     */
     public function enableDisableAlias(string $aliasDomain, bool $active): void
     {
-        // LDAP does not support per-alias active/inactive status.
-        // The domainAliasName attribute is either present (active) or not (deleted).
+        throw new \LogicException('The LDAP backend has no status for an alias domain');
+    }
+
+    public function supportsStatus(): bool
+    {
+        return false;
     }
 }

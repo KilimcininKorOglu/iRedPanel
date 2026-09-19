@@ -46,12 +46,14 @@
           <?php endif; ?>
         </p>
 
+        <?php if ($supportsStatus): ?>
         <p>
           <label>
             <input type="checkbox" name="active" <?php if ($alias === null || ($alias->active ?? true)): ?>checked<?php endif; ?> />
             <?= $te('common.active') ?>
           </label>
         </p>
+        <?php endif; ?>
 
         <button type="submit" class="button primary"><?= $te('domainalias.create') ?></button>
         <a href="/domain-aliases" class="button outline"><?= $te('common.cancel') ?></a>

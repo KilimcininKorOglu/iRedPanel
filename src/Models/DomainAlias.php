@@ -21,7 +21,7 @@ class DomainAlias
         return new self(
             aliasDomain: strtolower(FormValue::text($post, 'aliasDomain')),
             targetDomain: strtolower(FormValue::text($post, 'targetDomain')),
-            active: isset($post['active']),
+            active: (bool) ($post['active'] ?? false),
         );
     }
 

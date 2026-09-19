@@ -40,4 +40,9 @@ interface DomainAliasRepositoryInterface
      * Enables or disables a domain alias.
      */
     public function enableDisableAlias(string $aliasDomain, bool $active): void;
+
+    /**
+     * Returns false when the backend stores no active/inactive status for an alias domain.
+     */
+    public function supportsStatus(): bool;
 }

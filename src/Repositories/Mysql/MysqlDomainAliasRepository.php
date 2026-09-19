@@ -108,4 +108,9 @@ class MysqlDomainAliasRepository implements DomainAliasRepositoryInterface
         );
         $stmt->execute(['active' => $active ? 1 : 0, 'aliasDomain' => $aliasDomain]);
     }
+
+    public function supportsStatus(): bool
+    {
+        return true;
+    }
 }

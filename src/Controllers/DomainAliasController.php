@@ -52,6 +52,10 @@ class DomainAliasController
 
             try {
                 $alias = DomainAlias::fromFormData($_POST);
+                if (!RepositoryFactory::getDomainAliasRepository()->supportsStatus()) {
+                    // The form has no status field for this backend: an alias domain is always active.
+                    $alias = new DomainAlias($alias->aliasDomain, $alias->targetDomain, true);
+                }
                 $validationErrors = self::validateAlias($alias);
 
                 if (empty($validationErrors)) {
@@ -70,6 +74,7 @@ class DomainAliasController
 
         $tpl->render('domainAliasCreate.php', [
             'alias' => $alias,
+            'supportsStatus' => RepositoryFactory::getDomainAliasRepository()->supportsStatus(),
             'error' => $error,
             'validationErrors' => $validationErrors,
             'allDomains' => $allDomains,

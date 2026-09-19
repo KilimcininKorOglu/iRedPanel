@@ -60,6 +60,7 @@ class MailingListApiController
 
         try {
             $accessPolicy = Alias::validAccessPolicy($data['accessPolicy'] ?? 'public');
+            $maxMsgSize = MailingList::validMaxMsgSize($data['maxMsgSize'] ?? 0);
         } catch (\InvalidArgumentException $e) {
             ApiResponse::error($e->getMessage());
             return;
@@ -69,7 +70,7 @@ class MailingListApiController
             $address, $domain,
             $data['name'] ?? '',
             $accessPolicy,
-            (int) ($data['maxMsgSize'] ?? 0),
+            $maxMsgSize,
         );
         ApiResponse::created(['address' => $address]);
     }
@@ -93,6 +94,7 @@ class MailingListApiController
         }
         try {
             $accessPolicy = Alias::validAccessPolicy($data['accessPolicy'] ?? $ml->accessPolicy);
+            $maxMsgSize = MailingList::validMaxMsgSize($data['maxMsgSize'] ?? $ml->maxMsgSize);
         } catch (\InvalidArgumentException $e) {
             ApiResponse::error($e->getMessage());
             return;
@@ -101,7 +103,7 @@ class MailingListApiController
             $address,
             $data['name'] ?? $ml->name,
             $accessPolicy,
-            (int) ($data['maxMsgSize'] ?? $ml->maxMsgSize),
+            $maxMsgSize,
             (bool) ($data['active'] ?? $ml->active),
             $newsletter,
         );

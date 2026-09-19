@@ -367,7 +367,8 @@
     "newsletter": "Nyhedsbrev",
     "newsletter_hint": "Alle kan tilmelde eller afmelde sig på en offentlig side. Hver anmodning bekræftes via e-mail.",
     "subscribe_page": "Tilmeldingsside",
-    "unsubscribe_page": "Afmeldingsside"
+    "unsubscribe_page": "Afmeldingsside",
+    "msg_invalid_max_msg_size": "Maksimal beskedstørrelse skal være et heltal på 0 eller mere."
   },
   "search": {
     "title": "Søg",

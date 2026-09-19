@@ -37,4 +37,40 @@ class MailingListTest extends TestCase
         );
         $this->assertNotSame($first, MailingList::generateId());
     }
+
+    /**
+     * An empty form field means unlimited; form strings and JSON integers are both accepted.
+     */
+    public function testMaxMsgSizeAcceptsWholeNumbers(): void
+    {
+        $this->assertSame(0, MailingList::validMaxMsgSize(''));
+        $this->assertSame(0, MailingList::validMaxMsgSize(null));
+        $this->assertSame(1024, MailingList::validMaxMsgSize(' 1024 '));
+        $this->assertSame(2048, MailingList::validMaxMsgSize(2048));
+    }
+
+    /**
+     * mlmmj treats a negative size as unlimited, so storing it would make the
+     * account and the list spool disagree.
+     *
+     * @return array<string, array{mixed}>
+     */
+    public static function invalidMaxMsgSizes(): array
+    {
+        return [
+            'negative string' => ['-5'],
+            'negative int' => [-5],
+            'text' => ['abc'],
+            'decimal' => ['1.5'],
+            'float' => [1.5],
+            'bool' => [true],
+        ];
+    }
+
+    #[\PHPUnit\Framework\Attributes\DataProvider('invalidMaxMsgSizes')]
+    public function testMaxMsgSizeRejectsOtherValues(mixed $value): void
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        MailingList::validMaxMsgSize($value);
+    }
 }

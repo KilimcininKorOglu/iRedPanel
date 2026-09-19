@@ -367,7 +367,8 @@
     "newsletter": "Newsletter",
     "newsletter_hint": "Jeder kann sich auf einer öffentlichen Seite an- oder abmelden. Jede Anfrage wird per E-Mail bestätigt.",
     "subscribe_page": "Anmeldeseite",
-    "unsubscribe_page": "Abmeldeseite"
+    "unsubscribe_page": "Abmeldeseite",
+    "msg_invalid_max_msg_size": "Die maximale Nachrichtengröße muss eine ganze Zahl von 0 oder mehr sein."
   },
   "search": {
     "title": "Suche",

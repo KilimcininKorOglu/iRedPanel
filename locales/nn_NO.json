@@ -367,7 +367,8 @@
     "newsletter": "Nyheitsbrev",
     "newsletter_hint": "Kven som helst kan melde seg på eller av på ei offentleg side. Kvar førespurnad blir stadfesta via e-post.",
     "subscribe_page": "Påmeldingsside",
-    "unsubscribe_page": "Avmeldingsside"
+    "unsubscribe_page": "Avmeldingsside",
+    "msg_invalid_max_msg_size": "Maksimal meldingsstorleik må vere eit heiltal på 0 eller meir."
   },
   "search": {
     "title": "Søk",

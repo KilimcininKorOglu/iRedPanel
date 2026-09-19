@@ -367,7 +367,8 @@
     "newsletter": "電子報",
     "newsletter_hint": "任何人都可以在公開頁面訂閱或取消訂閱。每個要求都會以郵件確認。",
     "subscribe_page": "訂閱頁面",
-    "unsubscribe_page": "取消訂閱頁面"
+    "unsubscribe_page": "取消訂閱頁面",
+    "msg_invalid_max_msg_size": "最大郵件大小必須是 0 或更大的整數。"
   },
   "search": {
     "title": "搜尋",

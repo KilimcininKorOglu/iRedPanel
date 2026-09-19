@@ -367,7 +367,8 @@
     "newsletter": "Boletim",
     "newsletter_hint": "Qualquer pessoa pode subscrever ou cancelar a subscrição numa página pública. Cada pedido é confirmado por e-mail.",
     "subscribe_page": "Página de subscrição",
-    "unsubscribe_page": "Página de cancelamento"
+    "unsubscribe_page": "Página de cancelamento",
+    "msg_invalid_max_msg_size": "O tamanho máximo da mensagem tem de ser um número inteiro igual ou superior a 0."
   },
   "search": {
     "title": "Pesquisar",

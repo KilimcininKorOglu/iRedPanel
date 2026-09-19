@@ -367,7 +367,8 @@
     "newsletter": "Uutiskirje",
     "newsletter_hint": "Kuka tahansa voi tilata tai perua tilauksen julkisella sivulla. Jokainen pyyntö vahvistetaan sähköpostilla.",
     "subscribe_page": "Tilaussivu",
-    "unsubscribe_page": "Tilauksen perumissivu"
+    "unsubscribe_page": "Tilauksen perumissivu",
+    "msg_invalid_max_msg_size": "Viestin enimmäiskoon on oltava kokonaisluku 0 tai suurempi."
   },
   "search": {
     "title": "Haku",

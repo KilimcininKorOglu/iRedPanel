@@ -367,7 +367,8 @@
     "newsletter": "Newsletter",
     "newsletter_hint": "Anyone can subscribe or unsubscribe on a public page. Every request is confirmed by email.",
     "subscribe_page": "Subscribe page",
-    "unsubscribe_page": "Unsubscribe page"
+    "unsubscribe_page": "Unsubscribe page",
+    "msg_invalid_max_msg_size": "The max message size must be a whole number of 0 or more."
   },
   "search": {
     "title": "Search",

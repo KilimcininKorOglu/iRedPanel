@@ -367,7 +367,8 @@
     "newsletter": "Buletin informativ",
     "newsletter_hint": "Oricine se poate abona sau dezabona pe o pagină publică. Fiecare cerere este confirmată prin email.",
     "subscribe_page": "Pagina de abonare",
-    "unsubscribe_page": "Pagina de dezabonare"
+    "unsubscribe_page": "Pagina de dezabonare",
+    "msg_invalid_max_msg_size": "Dimensiunea maximă a mesajului trebuie să fie un număr întreg de 0 sau mai mare."
   },
   "search": {
     "title": "Căutare",

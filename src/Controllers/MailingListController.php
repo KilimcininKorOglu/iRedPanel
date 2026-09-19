@@ -7,6 +7,7 @@ namespace App\Controllers;
 use App\CsrfProtection;
 use App\I18n\Translator;
 use App\Middleware;
+use App\Models\MailingList;
 use App\Models\Settings;
 use App\Repositories\RepositoryFactory;
 use App\Services\ActivityLogger;
@@ -76,7 +77,7 @@ class MailingListController
             $domain,
             trim($_POST['name'] ?? ''),
             BaseController::postedAccessPolicy(),
-            (int) ($_POST['maxMsgSize'] ?? 0),
+            self::postedMaxMsgSize(),
         );
         ActivityLogger::logCreate($domain, '', "Created mailing list: {$address}");
 
@@ -129,6 +130,19 @@ class MailingListController
     }
 
     /**
+     * @throws \RuntimeException when the posted size is not a whole number of 0 or more
+     */
+    private static function postedMaxMsgSize(): int
+    {
+        $value = $_POST['maxMsgSize'] ?? '';
+        try {
+            return MailingList::validMaxMsgSize(is_string($value) ? $value : null);
+        } catch (\InvalidArgumentException) {
+            throw new \RuntimeException(Translator::translate('mlist.msg_invalid_max_msg_size'));
+        }
+    }
+
+    /**
      * Runs one POST action of the list view.
      *
      * @return string the success message
@@ -141,7 +155,7 @@ class MailingListController
                     $address,
                     trim($_POST['name'] ?? ''),
                     BaseController::postedAccessPolicy(),
-                    (int) ($_POST['maxMsgSize'] ?? 0),
+                    self::postedMaxMsgSize(),
                     isset($_POST['active']),
                     RepositoryFactory::getMailingListRepository()->supportsNewsletter() ? isset($_POST['isNewsletter']) : null,
                 );

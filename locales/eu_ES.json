@@ -367,7 +367,8 @@
     "newsletter": "Buletina",
     "newsletter_hint": "Edonork harpidetu edo baja eman dezake orri publiko batean. Eskaera bakoitza posta bidez berresten da.",
     "subscribe_page": "Harpidetza-orria",
-    "unsubscribe_page": "Baja-orria"
+    "unsubscribe_page": "Baja-orria",
+    "msg_invalid_max_msg_size": "Mezuaren gehieneko tamainak 0 edo handiagoa den zenbaki oso bat izan behar du."
   },
   "search": {
     "title": "Bilatu",

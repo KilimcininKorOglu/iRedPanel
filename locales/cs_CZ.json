@@ -367,7 +367,8 @@
     "newsletter": "Zpravodaj",
     "newsletter_hint": "Kdokoli se může přihlásit nebo odhlásit na veřejné stránce. Každá žádost se potvrzuje e-mailem.",
     "subscribe_page": "Stránka přihlášení",
-    "unsubscribe_page": "Stránka odhlášení"
+    "unsubscribe_page": "Stránka odhlášení",
+    "msg_invalid_max_msg_size": "Maximální velikost zprávy musí být celé číslo 0 nebo větší."
   },
   "search": {
     "title": "Hledat",

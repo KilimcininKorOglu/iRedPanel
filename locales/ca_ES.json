@@ -367,7 +367,8 @@
     "newsletter": "Butlletí",
     "newsletter_hint": "Qualsevol persona pot subscriure's o donar-se de baixa en una pàgina pública. Cada sol·licitud es confirma per correu.",
     "subscribe_page": "Pàgina de subscripció",
-    "unsubscribe_page": "Pàgina de baixa"
+    "unsubscribe_page": "Pàgina de baixa",
+    "msg_invalid_max_msg_size": "La mida màxima del missatge ha de ser un nombre enter igual o superior a 0."
   },
   "search": {
     "title": "Cerca",

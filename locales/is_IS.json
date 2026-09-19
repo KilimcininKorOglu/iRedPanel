@@ -367,7 +367,8 @@
     "newsletter": "Fréttabréf",
     "newsletter_hint": "Hver sem er getur skráð sig eða afskráð á opinberri síðu. Hver beiðni er staðfest með tölvupósti.",
     "subscribe_page": "Skráningarsíða",
-    "unsubscribe_page": "Afskráningarsíða"
+    "unsubscribe_page": "Afskráningarsíða",
+    "msg_invalid_max_msg_size": "Hámarksstærð skilaboða verður að vera heiltala, 0 eða hærri."
   },
   "search": {
     "title": "Leita",

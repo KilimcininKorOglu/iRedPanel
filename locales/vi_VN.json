@@ -367,7 +367,8 @@
     "newsletter": "Bản tin",
     "newsletter_hint": "Bất kỳ ai cũng có thể đăng ký hoặc hủy đăng ký trên một trang công khai. Mỗi yêu cầu được xác nhận qua email.",
     "subscribe_page": "Trang đăng ký",
-    "unsubscribe_page": "Trang hủy đăng ký"
+    "unsubscribe_page": "Trang hủy đăng ký",
+    "msg_invalid_max_msg_size": "Kích thước thư tối đa phải là số nguyên từ 0 trở lên."
   },
   "search": {
     "title": "Tìm kiếm",

@@ -367,7 +367,8 @@
     "newsletter": "Nyhetsbrev",
     "newsletter_hint": "Vem som helst kan prenumerera eller avsluta prenumerationen på en offentlig sida. Varje begäran bekräftas via e-post.",
     "subscribe_page": "Prenumerationssida",
-    "unsubscribe_page": "Avprenumerationssida"
+    "unsubscribe_page": "Avprenumerationssida",
+    "msg_invalid_max_msg_size": "Maximal meddelandestorlek måste vara ett heltal på 0 eller mer."
   },
   "search": {
     "title": "Sök",

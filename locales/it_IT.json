@@ -367,7 +367,8 @@
     "newsletter": "Newsletter",
     "newsletter_hint": "Chiunque può iscriversi o annullare l'iscrizione da una pagina pubblica. Ogni richiesta è confermata via e-mail.",
     "subscribe_page": "Pagina di iscrizione",
-    "unsubscribe_page": "Pagina di annullamento iscrizione"
+    "unsubscribe_page": "Pagina di annullamento iscrizione",
+    "msg_invalid_max_msg_size": "La dimensione massima del messaggio deve essere un numero intero pari o superiore a 0."
   },
   "search": {
     "title": "Cerca",

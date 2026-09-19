@@ -367,7 +367,8 @@
     "newsletter": "新闻通讯",
     "newsletter_hint": "任何人都可以在公开页面上订阅或退订。每个请求都需要通过邮件确认。",
     "subscribe_page": "订阅页面",
-    "unsubscribe_page": "退订页面"
+    "unsubscribe_page": "退订页面",
+    "msg_invalid_max_msg_size": "最大邮件大小必须是 0 或更大的整数。"
   },
   "search": {
     "title": "搜索",

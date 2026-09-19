@@ -367,7 +367,8 @@
     "newsletter": "Biuletyn",
     "newsletter_hint": "Każdy może zapisać się lub wypisać na publicznej stronie. Każde żądanie jest potwierdzane e-mailem.",
     "subscribe_page": "Strona zapisu",
-    "unsubscribe_page": "Strona wypisu"
+    "unsubscribe_page": "Strona wypisu",
+    "msg_invalid_max_msg_size": "Maksymalny rozmiar wiadomości musi być liczbą całkowitą równą 0 lub większą."
   },
   "search": {
     "title": "Szukaj",

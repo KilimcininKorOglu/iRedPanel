@@ -367,7 +367,8 @@
     "newsletter": "ニュースレター",
     "newsletter_hint": "誰でも公開ページで購読または購読解除できます。すべてのリクエストはメールで確認されます。",
     "subscribe_page": "購読ページ",
-    "unsubscribe_page": "購読解除ページ"
+    "unsubscribe_page": "購読解除ページ",
+    "msg_invalid_max_msg_size": "最大メッセージサイズは 0 以上の整数で指定してください。"
   },
   "search": {
     "title": "検索",

@@ -367,7 +367,8 @@
     "newsletter": "Boletín",
     "newsletter_hint": "Calquera pode subscribirse ou darse de baixa nunha páxina pública. Cada solicitude confírmase por correo.",
     "subscribe_page": "Páxina de subscrición",
-    "unsubscribe_page": "Páxina de baixa"
+    "unsubscribe_page": "Páxina de baixa",
+    "msg_invalid_max_msg_size": "O tamaño máximo da mensaxe debe ser un número enteiro igual ou maior que 0."
   },
   "search": {
     "title": "Buscar",

@@ -367,7 +367,8 @@
     "newsletter": "Bülleten",
     "newsletter_hint": "Hər kəs ictimai səhifədə abunə ola və ya abunəliyi ləğv edə bilər. Hər sorğu e-poçtla təsdiqlənir.",
     "subscribe_page": "Abunəlik səhifəsi",
-    "unsubscribe_page": "Abunəliyin ləğvi səhifəsi"
+    "unsubscribe_page": "Abunəliyin ləğvi səhifəsi",
+    "msg_invalid_max_msg_size": "Maksimum mesaj ölçüsü 0 və ya daha böyük tam ədəd olmalıdır."
   },
   "search": {
     "title": "Axtarış",

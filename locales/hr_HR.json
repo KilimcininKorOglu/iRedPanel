@@ -367,7 +367,8 @@
     "newsletter": "Bilten",
     "newsletter_hint": "Svatko se može prijaviti ili odjaviti na javnoj stranici. Svaki se zahtjev potvrđuje e-poštom.",
     "subscribe_page": "Stranica za prijavu",
-    "unsubscribe_page": "Stranica za odjavu"
+    "unsubscribe_page": "Stranica za odjavu",
+    "msg_invalid_max_msg_size": "Najveća veličina poruke mora biti cijeli broj, 0 ili veći."
   },
   "search": {
     "title": "Pretraživanje",

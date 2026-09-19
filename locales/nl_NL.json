@@ -367,7 +367,8 @@
     "newsletter": "Nieuwsbrief",
     "newsletter_hint": "Iedereen kan zich op een openbare pagina aan- of afmelden. Elk verzoek wordt per e-mail bevestigd.",
     "subscribe_page": "Aanmeldpagina",
-    "unsubscribe_page": "Afmeldpagina"
+    "unsubscribe_page": "Afmeldpagina",
+    "msg_invalid_max_msg_size": "De maximale berichtgrootte moet een geheel getal van 0 of meer zijn."
   },
   "search": {
     "title": "Zoeken",

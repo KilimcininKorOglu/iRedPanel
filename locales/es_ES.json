@@ -367,7 +367,8 @@
     "newsletter": "Boletín",
     "newsletter_hint": "Cualquiera puede suscribirse o darse de baja en una página pública. Cada solicitud se confirma por correo.",
     "subscribe_page": "Página de suscripción",
-    "unsubscribe_page": "Página de baja"
+    "unsubscribe_page": "Página de baja",
+    "msg_invalid_max_msg_size": "El tamaño máximo del mensaje debe ser un número entero igual o mayor que 0."
   },
   "search": {
     "title": "Buscar",

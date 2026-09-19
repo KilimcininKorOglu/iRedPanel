@@ -32,6 +32,26 @@ class MailingList
     }
 
     /**
+     * Validates a maximum message size in bytes. 0 means unlimited.
+     * An empty value gives 0, like an empty form field.
+     *
+     * @throws \InvalidArgumentException when the value is not a whole number of 0 or more
+     */
+    public static function validMaxMsgSize(mixed $value): int
+    {
+        if ($value === null || $value === '') {
+            return 0;
+        }
+        if (is_int($value) && $value >= 0) {
+            return $value;
+        }
+        if (is_string($value) && ctype_digit(trim($value))) {
+            return (int) trim($value);
+        }
+        throw new \InvalidArgumentException('maxMsgSize must be a whole number of 0 or more');
+    }
+
+    /**
      * Returns the Postfix transport of a list, `mlmmj:<domain>/<listname>`.
      * The Postfix `mlmmj` pipe appends the nexthop to `/var/vmail/mlmmj/`.
      */

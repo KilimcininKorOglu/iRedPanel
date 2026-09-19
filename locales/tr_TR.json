@@ -367,7 +367,8 @@
     "newsletter": "Bülten",
     "newsletter_hint": "Herkes herkese açık bir sayfadan abone olabilir veya aboneliğini kaldırabilir. Her istek e-posta ile onaylanır.",
     "subscribe_page": "Abonelik sayfası",
-    "unsubscribe_page": "Abonelik iptal sayfası"
+    "unsubscribe_page": "Abonelik iptal sayfası",
+    "msg_invalid_max_msg_size": "Maksimum mesaj boyutu 0 veya daha büyük bir tam sayı olmalıdır."
   },
   "search": {
     "title": "Ara",

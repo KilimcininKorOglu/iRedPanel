@@ -367,7 +367,8 @@
     "newsletter": "Buletin",
     "newsletter_hint": "Siapa pun dapat berlangganan atau berhenti berlangganan di halaman publik. Setiap permintaan dikonfirmasi melalui email.",
     "subscribe_page": "Halaman langganan",
-    "unsubscribe_page": "Halaman berhenti berlangganan"
+    "unsubscribe_page": "Halaman berhenti berlangganan",
+    "msg_invalid_max_msg_size": "Ukuran pesan maksimum harus bilangan bulat 0 atau lebih."
   },
   "search": {
     "title": "Cari",

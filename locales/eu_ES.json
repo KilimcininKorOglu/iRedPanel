@@ -119,7 +119,8 @@
     "type_user": "Erabiltzailea",
     "type_alias": "Aliasa",
     "type_ml": "Posta-zerrenda",
-    "msg_invalid_domain": "Domeinu baliogabea: :domain"
+    "msg_invalid_domain": "Domeinu baliogabea: :domain",
+    "help": "Laguntza"
   },
   "auth": {
     "title": "Autentifikazioa",
@@ -258,8 +259,25 @@
     "quarantine_on": "Koarentenara eraman",
     "quarantine_off": "Ez eraman koarentenara",
     "always_insert_x_spam_headers": "Gehitu beti X-Spam header-ak",
-    "always_insert_hint": "Amavisd-ek header-ak tag mailatik gora gehitzen ditu, aukera honek tag maila -999 jartzen du.",
-    "msg_invalid_value": "Balio baliogabea: :field"
+    "msg_invalid_value": "Balio baliogabea: :field",
+    "tag_level_help": "Amavisd-ek X-Spam goiburuak gehitzen dizkio balio hau gainditzen duen puntuazioa duen postari. Banaketa ez da aldatzen. Balio txikiagoak posta gehiago markatzen du. Lehenetsia: 2.0",
+    "tag2_level_help": "Balio hau gainditzen duen puntuazioa duen posta spam gisa hartzen da eta gaiaren etiketa jasotzen du. Balio txikiagoak posta gehiago etiketatzen du, handiagoak gutxiago. Lehenetsia: 6.2",
+    "kill_level_help": "Balio hau gainditzen duen puntuazioa duen posta blokeatu edo koarentenara bidaltzen da, banatu beharrean. Balio txikiagoak posta gehiago blokeatzen du eta nahi diren mezuak gal ditzake. Lehenetsia: 6.9",
+    "subject_tag_help": "Lehen atalasea gainditzen duen postaren gaiaren aurrean jartzen den testua. Utzi hutsik gaia alda ez dadin.",
+    "subject_tag2_help": "Spamaren gaiaren aurrean jartzen den testua, adibidez [SPAM]. Utzi hutsik gaia alda ez dadin.",
+    "always_insert_x_spam_headers_help": "X-Spam goiburuak mezu guztietan idazten ditu, posta garbian ere bai, posta bezeroak puntuazioaren arabera iragazi ahal izateko. Panelak -999 etiketa maila gisa gordetzen du.",
+    "quarantine_spam_help": "Spama nora doan: zerbitzariaren lehenetsia, koarentena edo zuzenean postontzira. Koarentenak mezua gordetzen du administratzaile batek askatu arte.",
+    "quarantine_virus_help": "Aukera bera birusa duen postarako. Koarentenarik gabe mezua ez da gordetzen, eta inork ezin du askatu.",
+    "quarantine_banned_help": "Aukera bera debekatutako eranskin mota duen postarako.",
+    "quarantine_bad_header_help": "Aukera bera posta estandarra hausten duten goiburuak dituen postarako.",
+    "bypass_virus_help": "Kontu honetan birus azterketa saltatzen du. Posta azkarrago eta egiaztatu gabe iristen da. Erabili fidagarria den helbide batekin soilik.",
+    "bypass_spam_help": "Kontu honetan spam azterketa saltatzen du. Mezu bat ere ez da spam gisa etiketatzen edo blokeatzen.",
+    "bypass_banned_help": "Eranskinen egiaztapena saltatzen du, beraz debekatutako fitxategi mota ere iristen da.",
+    "bypass_header_help": "Goiburuen egiaztapena saltatzen du, beraz goiburu hautsiak dituen posta ere iristen da.",
+    "deliver_virus_help": "Birusa duen posta postontzira banatzen du, blokeatu beharrean. Azterketak lanean jarraitzen du eta emaitza goiburuetan idazten du.",
+    "deliver_spam_help": "Spama postontzira banatzen du, blokeatu beharrean, blokeo atalasearen gainetik ere.",
+    "deliver_banned_help": "Debekatutako eranskina duen posta banatzen du, blokeatu beharrean.",
+    "deliver_bad_header_help": "Goiburu hautsiak dituen posta banatzen du, blokeatu beharrean."
   },
   "dashboard": {
     "title": "Aginte-panela",

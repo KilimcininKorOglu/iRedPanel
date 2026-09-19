@@ -45,6 +45,8 @@ class TemplateEngine
         $te = function (string $key, array $params = []) use ($e): string {
             return $e(\App\I18n\Translator::translate($key, $params));
         };
+        // The help icon of a field label; empty when the label has no explanation.
+        $help = [HelpText::class, 'icon'];
         $currentLocale = \App\I18n\Translator::currentLocale();
         $availableLocales = \App\I18n\Translator::availableLocales();
         $csrfToken = CsrfProtection::generateToken();

@@ -119,7 +119,8 @@
     "type_user": "Usuario",
     "type_alias": "Alias",
     "type_ml": "Lista de correo",
-    "msg_invalid_domain": "Dominio no válido: :domain"
+    "msg_invalid_domain": "Dominio no válido: :domain",
+    "help": "Ayuda"
   },
   "auth": {
     "title": "Autenticación",
@@ -258,8 +259,25 @@
     "quarantine_on": "Poner en cuarentena",
     "quarantine_off": "No poner en cuarentena",
     "always_insert_x_spam_headers": "Añadir siempre los headers X-Spam",
-    "always_insert_hint": "Amavisd añade los headers a partir del nivel de tag, esta opción pone el nivel de tag en -999.",
-    "msg_invalid_value": "Valor no válido: :field"
+    "msg_invalid_value": "Valor no válido: :field",
+    "tag_level_help": "Amavisd añade las cabeceras X-Spam al correo con una puntuación superior a este valor. La entrega no cambia. Un valor más bajo marca más correo. Predeterminado: 2.0",
+    "tag2_level_help": "El correo con una puntuación superior a este valor cuenta como spam y recibe la etiqueta en el asunto. Un valor más bajo etiqueta más correo, uno más alto menos. Predeterminado: 6.2",
+    "kill_level_help": "El correo con una puntuación superior a este valor se bloquea o va a la cuarentena en lugar de entregarse. Un valor más bajo bloquea más correo y puede perder mensajes deseados. Predeterminado: 6.9",
+    "subject_tag_help": "Texto que se pone delante del asunto del correo por encima del primer umbral. Déjelo vacío para no cambiar el asunto.",
+    "subject_tag2_help": "Texto que se pone delante del asunto del spam, por ejemplo [SPAM]. Déjelo vacío para no cambiar el asunto.",
+    "always_insert_x_spam_headers_help": "Escribe las cabeceras X-Spam en todos los mensajes, también en el correo limpio, para que un cliente de correo pueda filtrar por la puntuación. El panel lo guarda como un nivel de etiqueta de -999.",
+    "quarantine_spam_help": "Adónde va el spam: el valor predeterminado del servidor, la cuarentena o directamente al buzón. La cuarentena guarda el mensaje hasta que un administrador lo libera.",
+    "quarantine_virus_help": "La misma opción para el correo con un virus. Sin cuarentena el mensaje no se guarda y nadie puede liberarlo.",
+    "quarantine_banned_help": "La misma opción para el correo con un tipo de adjunto prohibido.",
+    "quarantine_bad_header_help": "La misma opción para el correo cuyas cabeceras rompen el estándar de correo.",
+    "bypass_virus_help": "Omite el análisis de virus para esta cuenta. El correo llega más rápido y sin comprobar. Úselo solo con una dirección de confianza.",
+    "bypass_spam_help": "Omite el análisis de spam para esta cuenta. Ningún mensaje se etiqueta ni se bloquea como spam.",
+    "bypass_banned_help": "Omite la comprobación de adjuntos, así que también llega un tipo de archivo prohibido.",
+    "bypass_header_help": "Omite la comprobación de cabeceras, así que también llega el correo con cabeceras rotas.",
+    "deliver_virus_help": "Entrega el correo con un virus en el buzón en lugar de bloquearlo. El análisis sigue ejecutándose y escribe su resultado en las cabeceras.",
+    "deliver_spam_help": "Entrega el spam en el buzón en lugar de bloquearlo, también por encima del umbral de bloqueo.",
+    "deliver_banned_help": "Entrega el correo con un adjunto prohibido en lugar de bloquearlo.",
+    "deliver_bad_header_help": "Entrega el correo con cabeceras rotas en lugar de bloquearlo."
   },
   "dashboard": {
     "title": "Panel",

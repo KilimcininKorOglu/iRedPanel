@@ -119,7 +119,8 @@
     "type_user": "ユーザー",
     "type_alias": "エイリアス",
     "type_ml": "メーリングリスト",
-    "msg_invalid_domain": "無効なドメイン: :domain"
+    "msg_invalid_domain": "無効なドメイン: :domain",
+    "help": "ヘルプ"
   },
   "auth": {
     "title": "認証",
@@ -258,8 +259,25 @@
     "quarantine_on": "隔離する",
     "quarantine_off": "隔離しない",
     "always_insert_x_spam_headers": "X-Spam header を常に追加する",
-    "always_insert_hint": "Amavisd は tag レベル以上で header を追加します。この設定は tag レベルを -999 にします。",
-    "msg_invalid_value": "無効な値: :field"
+    "msg_invalid_value": "無効な値: :field",
+    "tag_level_help": "Amavisd はこの値を超えるスコアのメールに X-Spam ヘッダーを追加します。配送は変わりません。値を下げるとより多くのメールに付きます。既定値: 2.0",
+    "tag2_level_help": "この値を超えるスコアのメールはスパムとして扱われ、件名タグが付きます。値を下げるとより多く、上げるとより少なく付きます。既定値: 6.2",
+    "kill_level_help": "この値を超えるスコアのメールは配送されず、ブロックまたは隔離されます。値を下げるとブロックが増え、必要なメールを失うことがあります。既定値: 6.9",
+    "subject_tag_help": "第一のしきい値を超えたメールの件名の前に付ける文字列。件名を変えない場合は空にします。",
+    "subject_tag2_help": "スパムの件名の前に付ける文字列 (例: [SPAM])。件名を変えない場合は空にします。",
+    "always_insert_x_spam_headers_help": "X-Spam ヘッダーをすべてのメール (正常なメールを含む) に書き込み、メールクライアントがスコアで振り分けられるようにします。パネルはこれをタグレベル -999 として保存します。",
+    "quarantine_spam_help": "スパムの行き先: サーバーの既定、隔離、またはそのままメールボックス。隔離は管理者が解放するまでメールを保持します。",
+    "quarantine_virus_help": "ウイルスを含むメールに対する同じ選択。隔離しない場合メールは保持されず、誰も解放できません。",
+    "quarantine_banned_help": "禁止された添付ファイル形式を含むメールに対する同じ選択。",
+    "quarantine_bad_header_help": "ヘッダーがメール標準に違反するメールに対する同じ選択。",
+    "bypass_virus_help": "このアカウントのウイルス検査を省きます。メールは速く、未検査で届きます。信頼できるアドレスにのみ使用してください。",
+    "bypass_spam_help": "このアカウントのスパム検査を省きます。どのメールもスパムとして印を付けられず、ブロックもされません。",
+    "bypass_banned_help": "添付ファイルの検査を省くため、禁止された形式も届きます。",
+    "bypass_header_help": "ヘッダー検査を省くため、壊れたヘッダーのメールも届きます。",
+    "deliver_virus_help": "ウイルスを含むメールをブロックせずメールボックスへ配送します。検査は実行され、結果はヘッダーに書かれます。",
+    "deliver_spam_help": "スパムをブロックせずメールボックスへ配送します。ブロックのしきい値を超えた場合も配送します。",
+    "deliver_banned_help": "禁止された添付ファイルのあるメールをブロックせず配送します。",
+    "deliver_bad_header_help": "壊れたヘッダーのメールをブロックせず配送します。"
   },
   "dashboard": {
     "title": "ダッシュボード",

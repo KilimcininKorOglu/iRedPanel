@@ -119,7 +119,8 @@
     "type_user": "Usuari",
     "type_alias": "Àlies",
     "type_ml": "Llista de correu",
-    "msg_invalid_domain": "Domini no vàlid: :domain"
+    "msg_invalid_domain": "Domini no vàlid: :domain",
+    "help": "Ajuda"
   },
   "auth": {
     "title": "Autenticació",
@@ -258,8 +259,25 @@
     "quarantine_on": "Posa en quarantena",
     "quarantine_off": "No posis en quarantena",
     "always_insert_x_spam_headers": "Afegeix sempre els headers X-Spam",
-    "always_insert_hint": "Amavisd afegeix els headers a partir del nivell de tag, aquesta opció posa el nivell de tag a -999.",
-    "msg_invalid_value": "Valor no vàlid: :field"
+    "msg_invalid_value": "Valor no vàlid: :field",
+    "tag_level_help": "Amavisd afegeix les capçaleres X-Spam al correu amb una puntuació superior a aquest valor. El lliurament no canvia. Un valor més baix marca més correu. Per defecte: 2.0",
+    "tag2_level_help": "El correu amb una puntuació superior a aquest valor es considera brossa i rep l'etiqueta a l'assumpte. Un valor més baix etiqueta més correu, un de més alt menys. Per defecte: 6.2",
+    "kill_level_help": "El correu amb una puntuació superior a aquest valor es bloqueja o va a la quarantena en lloc de lliurar-se. Un valor més baix bloqueja més correu i pot perdre missatges desitjats. Per defecte: 6.9",
+    "subject_tag_help": "Text que es posa davant de l'assumpte del correu per sobre del primer llindar. Deixeu-ho buit perquè l'assumpte no canviï.",
+    "subject_tag2_help": "Text que es posa davant de l'assumpte del correu brossa, per exemple [SPAM]. Deixeu-ho buit perquè l'assumpte no canviï.",
+    "always_insert_x_spam_headers_help": "Escriu les capçaleres X-Spam a tots els missatges, també al correu net, perquè un client de correu pugui filtrar per puntuació. El tauler ho desa com un nivell d'etiqueta de -999.",
+    "quarantine_spam_help": "On va el correu brossa: el valor per defecte del servidor, la quarantena o directament a la bústia. La quarantena manté el missatge fins que un administrador l'allibera.",
+    "quarantine_virus_help": "La mateixa opció per al correu amb un virus. Sense quarantena el missatge no es guarda i ningú el pot alliberar.",
+    "quarantine_banned_help": "La mateixa opció per al correu amb un tipus d'adjunt prohibit.",
+    "quarantine_bad_header_help": "La mateixa opció per al correu amb capçaleres que trenquen l'estàndard de correu.",
+    "bypass_virus_help": "Omet l'anàlisi de virus per a aquest compte. El correu arriba més ràpid i sense comprovar. Feu-ho servir només per a una adreça de confiança.",
+    "bypass_spam_help": "Omet l'anàlisi de correu brossa per a aquest compte. Cap missatge s'etiqueta ni es bloqueja com a brossa.",
+    "bypass_banned_help": "Omet la comprovació d'adjunts, de manera que també arriba un tipus de fitxer prohibit.",
+    "bypass_header_help": "Omet la comprovació de capçaleres, de manera que també arriba el correu amb capçaleres trencades.",
+    "deliver_virus_help": "Lliura el correu amb virus a la bústia en lloc de bloquejar-lo. L'anàlisi continua i escriu el resultat a les capçaleres.",
+    "deliver_spam_help": "Lliura el correu brossa a la bústia en lloc de bloquejar-lo, també per sobre del llindar de bloqueig.",
+    "deliver_banned_help": "Lliura el correu amb un adjunt prohibit en lloc de bloquejar-lo.",
+    "deliver_bad_header_help": "Lliura el correu amb capçaleres trencades en lloc de bloquejar-lo."
   },
   "dashboard": {
     "title": "Tauler",

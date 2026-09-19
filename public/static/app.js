@@ -274,6 +274,18 @@
     });
   }
 
+  // Bootstrap popovers are opt-in, so every help icon needs its own instance.
+  // The trigger is focus, so a click opens the text and the next click closes it.
+  function initHelpPopovers() {
+    if (typeof bootstrap === 'undefined' || !bootstrap.Popover) {
+      return;
+    }
+    document.querySelectorAll('.help-icon[data-bs-toggle="popover"]').forEach(function (icon) {
+      new bootstrap.Popover(icon, { container: 'body', html: false });
+    });
+  }
+
   initPickers();
+  initHelpPopovers();
   showFlash();
 })();

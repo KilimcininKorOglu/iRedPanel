@@ -495,6 +495,31 @@ details.card:not([open]) > summary {
   color: var(--app-muted);
 }
 
+/* The help icon next to a field label, and the popover that it opens. */
+.help-icon {
+  padding: 0;
+  margin-left: 0.25rem;
+  border: 0;
+  background: none;
+  line-height: 1;
+  font-size: 0.85rem;
+  vertical-align: baseline;
+  color: var(--app-muted);
+}
+
+.help-icon:hover,
+.help-icon:focus {
+  color: var(--app-accent);
+}
+
+.popover {
+  --bs-popover-max-width: 22rem;
+}
+
+.popover-body {
+  font-size: 0.85rem;
+}
+
 .form-check-input {
   background-color: var(--app-surface);
   border-color: #3f3f46;

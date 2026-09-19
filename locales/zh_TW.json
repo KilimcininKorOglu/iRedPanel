@@ -119,7 +119,8 @@
     "type_user": "使用者",
     "type_alias": "別名",
     "type_ml": "郵寄清單",
-    "msg_invalid_domain": "無效的網域：:domain"
+    "msg_invalid_domain": "無效的網域：:domain",
+    "help": "說明"
   },
   "auth": {
     "title": "驗證",
@@ -258,8 +259,25 @@
     "quarantine_on": "隔離",
     "quarantine_off": "不隔離",
     "always_insert_x_spam_headers": "一律加入 X-Spam header",
-    "always_insert_hint": "Amavisd 從 tag 等級開始加入 header，此選項把 tag 等級設為 -999。",
-    "msg_invalid_value": "無效的值：:field"
+    "msg_invalid_value": "無效的值：:field",
+    "tag_level_help": "Amavisd 會為分數高於此值的郵件加上 X-Spam 標頭。投遞不變。數值越低，被標記的郵件越多。預設值：2.0",
+    "tag2_level_help": "分數高於此值的郵件視為垃圾郵件，並在主旨加上標記。數值越低標記越多，越高標記越少。預設值：6.2",
+    "kill_level_help": "分數高於此值的郵件不再投遞，而是被攔截或隔離。數值越低攔截越多，可能遺失需要的郵件。預設值：6.9",
+    "subject_tag_help": "加在超過第一個門檻的郵件主旨前的文字。留空則不更動主旨。",
+    "subject_tag2_help": "加在垃圾郵件主旨前的文字，例如 [SPAM]。留空則不更動主旨。",
+    "always_insert_x_spam_headers_help": "把 X-Spam 標頭寫入每一封郵件，包含乾淨郵件，讓郵件軟體可以依分數過濾。面板將其儲存為標記等級 -999。",
+    "quarantine_spam_help": "垃圾郵件的去向：伺服器預設、隔離區，或直接進入信箱。隔離會保留郵件，直到管理員放行。",
+    "quarantine_virus_help": "對帶有病毒的郵件的相同選擇。不隔離時郵件不會保留，任何人都無法放行。",
+    "quarantine_banned_help": "對帶有禁止附件類型的郵件的相同選擇。",
+    "quarantine_bad_header_help": "對標頭違反郵件標準的郵件的相同選擇。",
+    "bypass_virus_help": "略過此帳號的病毒掃描。郵件到達更快且未經檢查。僅用於你信任的位址。",
+    "bypass_spam_help": "略過此帳號的垃圾郵件掃描。任何郵件都不會被標記或攔截為垃圾郵件。",
+    "bypass_banned_help": "略過附件檢查，禁止的檔案類型也會送達。",
+    "bypass_header_help": "略過標頭檢查，標頭損壞的郵件也會送達。",
+    "deliver_virus_help": "把帶有病毒的郵件投遞到信箱而不是攔截。掃描照常執行，並把結果寫入標頭。",
+    "deliver_spam_help": "把垃圾郵件投遞到信箱而不是攔截，超過攔截門檻時也投遞。",
+    "deliver_banned_help": "把帶有禁止附件的郵件投遞而不是攔截。",
+    "deliver_bad_header_help": "把標頭損壞的郵件投遞而不是攔截。"
   },
   "dashboard": {
     "title": "儀表板",

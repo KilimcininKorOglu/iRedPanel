@@ -119,7 +119,8 @@
     "type_user": "Brukar",
     "type_alias": "Alias",
     "type_ml": "E-postliste",
-    "msg_invalid_domain": "Ugyldig domene: :domain"
+    "msg_invalid_domain": "Ugyldig domene: :domain",
+    "help": "Hjelp"
   },
   "auth": {
     "title": "Autentisering",
@@ -258,8 +259,25 @@
     "quarantine_on": "Set i karantene",
     "quarantine_off": "Ikkje set i karantene",
     "always_insert_x_spam_headers": "Legg alltid til X-Spam-headerar",
-    "always_insert_hint": "Amavisd legg til headerane frå tag-nivået og oppover, dette valet set tag-nivået til -999.",
-    "msg_invalid_value": "Ugyldig verdi: :field"
+    "msg_invalid_value": "Ugyldig verdi: :field",
+    "tag_level_help": "Amavisd legg til X-Spam-hovuda på post med poengsum over denne verdien. Leveringa endrar seg ikkje. Ein lågare verdi merkjer meir post. Standard: 2.0",
+    "tag2_level_help": "Post med poengsum over denne verdien blir rekna som søppelpost og får emnemerket. Ein lågare verdi merkjer meir post, ein høgare mindre. Standard: 6.2",
+    "kill_level_help": "Post med poengsum over denne verdien blir blokkert eller sett i karantene i staden for å bli levert. Ein lågare verdi blokkerer meir post og kan miste ønskt post. Standard: 6.9",
+    "subject_tag_help": "Tekst som blir sett framfor emnet på post over den første grensa. La feltet stå tomt for å halde på emnet.",
+    "subject_tag2_help": "Tekst som blir sett framfor emnet på søppelpost, til dømes [SPAM]. La feltet stå tomt for å halde på emnet.",
+    "always_insert_x_spam_headers_help": "Skriv X-Spam-hovuda i alle meldingar, òg i rein post, slik at eit e-postprogram kan filtrere på poengsummen. Panelet lagrar dette som merkenivå -999.",
+    "quarantine_spam_help": "Kvar søppelposten hamnar: standarden på tenaren, karantenen eller rett i postkassen. Karantene held meldinga til ein administrator slepper henne ut.",
+    "quarantine_virus_help": "Same valet for post som ber eit virus. Utan karantene blir meldinga ikkje teken vare på, og ingen kan sleppe henne ut.",
+    "quarantine_banned_help": "Same valet for post med ein forboden vedleggstype.",
+    "quarantine_bad_header_help": "Same valet for post der hovuda bryt e-poststandarden.",
+    "bypass_virus_help": "Hoppar over virussjekken for denne kontoen. Post kjem raskare og usjekka fram. Bruk det berre for ei adresse du stolar på.",
+    "bypass_spam_help": "Hoppar over søppelpostsjekken for denne kontoen. Inga melding blir merkt eller blokkert som søppelpost.",
+    "bypass_banned_help": "Hoppar over vedleggssjekken, så ein forboden filtype kjem òg fram.",
+    "bypass_header_help": "Hoppar over hovudsjekken, så post med øydelagde hovud kjem òg fram.",
+    "deliver_virus_help": "Leverer post med virus i postkassen i staden for å blokkere han. Sjekken køyrer framleis og skriv resultatet i hovuda.",
+    "deliver_spam_help": "Leverer søppelpost i postkassen i staden for å blokkere han, òg over blokkeringsgrensa.",
+    "deliver_banned_help": "Leverer post med forbode vedlegg i staden for å blokkere han.",
+    "deliver_bad_header_help": "Leverer post med øydelagde hovud i staden for å blokkere han."
   },
   "dashboard": {
     "title": "Oversikt",

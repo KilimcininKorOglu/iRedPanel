@@ -119,7 +119,8 @@
     "type_user": "사용자",
     "type_alias": "별칭",
     "type_ml": "메일링 리스트",
-    "msg_invalid_domain": "잘못된 도메인: :domain"
+    "msg_invalid_domain": "잘못된 도메인: :domain",
+    "help": "도움말"
   },
   "auth": {
     "title": "인증",
@@ -258,8 +259,25 @@
     "quarantine_on": "격리함",
     "quarantine_off": "격리하지 않음",
     "always_insert_x_spam_headers": "X-Spam header를 항상 추가",
-    "always_insert_hint": "Amavisd는 tag 수준부터 header를 추가합니다. 이 설정은 tag 수준을 -999로 만듭니다.",
-    "msg_invalid_value": "잘못된 값: :field"
+    "msg_invalid_value": "잘못된 값: :field",
+    "tag_level_help": "Amavisd는 이 값보다 높은 점수의 메일에 X-Spam 헤더를 추가합니다. 배달은 바뀌지 않습니다. 값이 낮을수록 더 많은 메일에 표시됩니다. 기본값: 2.0",
+    "tag2_level_help": "이 값보다 높은 점수의 메일은 스팸으로 처리되고 제목 태그가 붙습니다. 값이 낮을수록 더 많이, 높을수록 더 적게 붙습니다. 기본값: 6.2",
+    "kill_level_help": "이 값보다 높은 점수의 메일은 배달되지 않고 차단되거나 격리됩니다. 값이 낮을수록 더 많이 차단되어 필요한 메일을 잃을 수 있습니다. 기본값: 6.9",
+    "subject_tag_help": "첫 번째 기준을 넘은 메일의 제목 앞에 붙는 문자열입니다. 제목을 바꾸지 않으려면 비워 두세요.",
+    "subject_tag2_help": "스팸 제목 앞에 붙는 문자열입니다(예: [SPAM]). 제목을 바꾸지 않으려면 비워 두세요.",
+    "always_insert_x_spam_headers_help": "모든 메일에, 깨끗한 메일에도 X-Spam 헤더를 기록하여 메일 클라이언트가 점수로 거를 수 있게 합니다. 패널은 이를 태그 수준 -999로 저장합니다.",
+    "quarantine_spam_help": "스팸이 가는 곳: 서버 기본값, 격리, 또는 바로 사서함. 격리는 관리자가 풀어 줄 때까지 메일을 보관합니다.",
+    "quarantine_virus_help": "바이러스가 든 메일에 대한 같은 선택입니다. 격리하지 않으면 메일이 보관되지 않아 아무도 풀 수 없습니다.",
+    "quarantine_banned_help": "금지된 첨부 파일 형식이 든 메일에 대한 같은 선택입니다.",
+    "quarantine_bad_header_help": "헤더가 메일 표준을 어기는 메일에 대한 같은 선택입니다.",
+    "bypass_virus_help": "이 계정의 바이러스 검사를 건너뜁니다. 메일이 더 빨리, 검사 없이 도착합니다. 신뢰하는 주소에만 사용하세요.",
+    "bypass_spam_help": "이 계정의 스팸 검사를 건너뜁니다. 어떤 메일도 스팸으로 표시되거나 차단되지 않습니다.",
+    "bypass_banned_help": "첨부 파일 검사를 건너뛰므로 금지된 파일 형식도 도착합니다.",
+    "bypass_header_help": "헤더 검사를 건너뛰므로 헤더가 깨진 메일도 도착합니다.",
+    "deliver_virus_help": "바이러스가 든 메일을 차단하지 않고 사서함으로 배달합니다. 검사는 그대로 실행되고 결과를 헤더에 기록합니다.",
+    "deliver_spam_help": "스팸을 차단하지 않고 사서함으로 배달합니다. 차단 기준을 넘어도 배달합니다.",
+    "deliver_banned_help": "금지된 첨부 파일이 있는 메일을 차단하지 않고 배달합니다.",
+    "deliver_bad_header_help": "헤더가 깨진 메일을 차단하지 않고 배달합니다."
   },
   "dashboard": {
     "title": "대시보드",

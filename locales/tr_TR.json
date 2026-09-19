@@ -119,7 +119,8 @@
     "type_user": "Kullanıcı",
     "type_alias": "Alias",
     "type_ml": "Mailing list",
-    "msg_invalid_domain": "Geçersiz domain: :domain"
+    "msg_invalid_domain": "Geçersiz domain: :domain",
+    "help": "Yardım"
   },
   "auth": {
     "title": "Kimlik Doğrulama",
@@ -258,8 +259,25 @@
     "quarantine_on": "Karantinaya al",
     "quarantine_off": "Karantinaya alma",
     "always_insert_x_spam_headers": "X-Spam header'larını her zaman ekle",
-    "always_insert_hint": "Amavisd header'ları tag seviyesinden itibaren ekler, bu seçenek tag seviyesini -999 yapar.",
-    "msg_invalid_value": "Geçersiz değer: :field"
+    "msg_invalid_value": "Geçersiz değer: :field",
+    "tag_level_help": "Amavisd bu değerin üstünde puan alan maile X-Spam headerlarını ekler. Teslim değişmez. Değeri düşürmek daha çok maili işaretler. Varsayılan: 2.0",
+    "tag2_level_help": "Bu değerin üstünde puan alan mail spam sayılır ve konu etiketini alır. Değeri düşürmek daha çok maili etiketler, yükseltmek daha az. Varsayılan: 6.2",
+    "kill_level_help": "Bu değerin üstünde puan alan mail teslim edilmez, bloklanır veya karantinaya alınır. Değeri düşürmek daha çok maili bloklar ve istediğiniz mesajları kaybettirebilir. Varsayılan: 6.9",
+    "subject_tag_help": "İlk eşiği geçen mailin konusunun önüne yazılan metin. Konu değişmesin istiyorsanız boş bırakın.",
+    "subject_tag2_help": "Spam konusunun önüne yazılan metin, örneğin [SPAM]. Konu değişmesin istiyorsanız boş bırakın.",
+    "always_insert_x_spam_headers_help": "X-Spam headerlarını her mesaja, temiz maile de yazar. Böylece mail istemcisi puana göre filtre kurabilir. Panel bunu -999 tag seviyesi olarak saklar.",
+    "quarantine_spam_help": "Spam nereye gider: sunucunun varsayılanı, karantina veya doğrudan mailbox. Karantina, bir admin serbest bırakana kadar mesajı tutar.",
+    "quarantine_virus_help": "Virüs taşıyan mail için aynı seçim. Karantina kapalıyken mesaj saklanmaz, kimse serbest bırakamaz.",
+    "quarantine_banned_help": "Yasaklı ek türü taşıyan mail için aynı seçim.",
+    "quarantine_bad_header_help": "Headerları mail standardını bozan mail için aynı seçim.",
+    "bypass_virus_help": "Bu hesap için virüs taramasını atlar. Mail daha hızlı ve taranmadan gelir. Yalnızca güvendiğiniz bir adres için kullanın.",
+    "bypass_spam_help": "Bu hesap için spam taramasını atlar. Hiçbir mesaj spam olarak etiketlenmez veya bloklanmaz.",
+    "bypass_banned_help": "Ek denetimini atlar, yasaklı dosya türü de gelir.",
+    "bypass_header_help": "Header denetimini atlar, bozuk headerlı mail de gelir.",
+    "deliver_virus_help": "Virüs taşıyan maili bloklamak yerine mailbox'a teslim eder. Tarama yine çalışır ve sonucu headerlara yazar.",
+    "deliver_spam_help": "Spam'i bloklamak yerine mailbox'a teslim eder, blok eşiğinin üstünde olsa bile.",
+    "deliver_banned_help": "Yasaklı ek taşıyan maili bloklamak yerine teslim eder.",
+    "deliver_bad_header_help": "Bozuk headerlı maili bloklamak yerine teslim eder."
   },
   "dashboard": {
     "title": "Kontrol Paneli",

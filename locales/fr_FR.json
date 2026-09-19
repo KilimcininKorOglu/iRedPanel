@@ -119,7 +119,8 @@
     "type_user": "Utilisateur",
     "type_alias": "Alias",
     "type_ml": "Liste de diffusion",
-    "msg_invalid_domain": "Domaine non valide : :domain"
+    "msg_invalid_domain": "Domaine non valide : :domain",
+    "help": "Aide"
   },
   "auth": {
     "title": "Authentification",
@@ -258,8 +259,25 @@
     "quarantine_on": "Mettre en quarantaine",
     "quarantine_off": "Ne pas mettre en quarantaine",
     "always_insert_x_spam_headers": "Toujours ajouter les headers X-Spam",
-    "always_insert_hint": "Amavisd ajoute les headers à partir du niveau de tag, cette option met le niveau de tag à -999.",
-    "msg_invalid_value": "Valeur invalide : :field"
+    "msg_invalid_value": "Valeur invalide : :field",
+    "tag_level_help": "Amavisd ajoute les en-têtes X-Spam au courrier dont le score dépasse cette valeur. La remise ne change pas. Une valeur plus basse marque plus de courrier. Par défaut : 2.0",
+    "tag2_level_help": "Le courrier dont le score dépasse cette valeur compte comme spam et reçoit la balise dans l'objet. Une valeur plus basse marque plus de courrier, une valeur plus haute moins. Par défaut : 6.2",
+    "kill_level_help": "Le courrier dont le score dépasse cette valeur est bloqué ou mis en quarantaine au lieu d'être remis. Une valeur plus basse bloque plus de courrier et peut perdre des messages voulus. Par défaut : 6.9",
+    "subject_tag_help": "Texte placé devant l'objet du courrier au-dessus du premier seuil. Laissez vide pour ne pas modifier l'objet.",
+    "subject_tag2_help": "Texte placé devant l'objet du spam, par exemple [SPAM]. Laissez vide pour ne pas modifier l'objet.",
+    "always_insert_x_spam_headers_help": "Écrit les en-têtes X-Spam dans chaque message, y compris le courrier propre, pour qu'un client mail puisse filtrer sur le score. Le panneau l'enregistre comme un niveau de balise de -999.",
+    "quarantine_spam_help": "Où va le spam : la valeur par défaut du serveur, la quarantaine ou directement la boîte aux lettres. La quarantaine garde le message jusqu'à ce qu'un administrateur le libère.",
+    "quarantine_virus_help": "Le même choix pour le courrier porteur d'un virus. Sans quarantaine le message n'est pas conservé et personne ne peut le libérer.",
+    "quarantine_banned_help": "Le même choix pour le courrier avec un type de pièce jointe interdit.",
+    "quarantine_bad_header_help": "Le même choix pour le courrier dont les en-têtes enfreignent la norme du courrier.",
+    "bypass_virus_help": "Ignore l'analyse antivirus pour ce compte. Le courrier arrive plus vite et sans contrôle. À utiliser uniquement pour une adresse de confiance.",
+    "bypass_spam_help": "Ignore l'analyse antispam pour ce compte. Aucun message n'est marqué ni bloqué comme spam.",
+    "bypass_banned_help": "Ignore le contrôle des pièces jointes, donc un type de fichier interdit arrive aussi.",
+    "bypass_header_help": "Ignore le contrôle des en-têtes, donc le courrier aux en-têtes cassés arrive aussi.",
+    "deliver_virus_help": "Remet le courrier porteur d'un virus dans la boîte aux lettres au lieu de le bloquer. L'analyse continue et écrit son résultat dans les en-têtes.",
+    "deliver_spam_help": "Remet le spam dans la boîte aux lettres au lieu de le bloquer, même au-dessus du seuil de blocage.",
+    "deliver_banned_help": "Remet le courrier avec une pièce jointe interdite au lieu de le bloquer.",
+    "deliver_bad_header_help": "Remet le courrier aux en-têtes cassés au lieu de le bloquer."
   },
   "dashboard": {
     "title": "Tableau de bord",

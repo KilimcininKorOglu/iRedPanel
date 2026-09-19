@@ -119,7 +119,8 @@
     "type_user": "Benutzer",
     "type_alias": "Alias",
     "type_ml": "Mailingliste",
-    "msg_invalid_domain": "Ungültige Domain: :domain"
+    "msg_invalid_domain": "Ungültige Domain: :domain",
+    "help": "Hilfe"
   },
   "auth": {
     "title": "Authentifizierung",
@@ -258,8 +259,25 @@
     "quarantine_on": "In Quarantäne",
     "quarantine_off": "Nicht in Quarantäne",
     "always_insert_x_spam_headers": "X-Spam-Header immer hinzufügen",
-    "always_insert_hint": "Amavisd fügt die Header ab dem Tag-Level hinzu, diese Option setzt das Tag-Level auf -999.",
-    "msg_invalid_value": "Ungültiger Wert: :field"
+    "msg_invalid_value": "Ungültiger Wert: :field",
+    "tag_level_help": "Amavisd fügt die X-Spam-Header bei Mail mit einer Punktzahl über diesem Wert ein. Die Zustellung ändert sich nicht. Ein niedrigerer Wert markiert mehr Mail. Standard: 2.0",
+    "tag2_level_help": "Mail mit einer Punktzahl über diesem Wert gilt als Spam und erhält den Betreff-Tag. Ein niedrigerer Wert markiert mehr Mail, ein höherer weniger. Standard: 6.2",
+    "kill_level_help": "Mail mit einer Punktzahl über diesem Wert wird blockiert oder in die Quarantäne gelegt statt zugestellt. Ein niedrigerer Wert blockiert mehr Mail und kann erwünschte Nachrichten verlieren. Standard: 6.9",
+    "subject_tag_help": "Text vor dem Betreff von Mail über der ersten Schwelle. Leer lassen, damit der Betreff unverändert bleibt.",
+    "subject_tag2_help": "Text vor dem Betreff von Spam, zum Beispiel [SPAM]. Leer lassen, damit der Betreff unverändert bleibt.",
+    "always_insert_x_spam_headers_help": "Schreibt die X-Spam-Header in jede Nachricht, auch in saubere Mail, damit ein Mail-Client nach der Punktzahl filtern kann. Das Panel speichert das als Tag-Level -999.",
+    "quarantine_spam_help": "Wohin Spam geht: Standard des Servers, Quarantäne oder direkt ins Postfach. Die Quarantäne hält die Nachricht, bis ein Administrator sie freigibt.",
+    "quarantine_virus_help": "Dieselbe Wahl für Mail mit einem Virus. Ohne Quarantäne wird die Nachricht nicht aufbewahrt, niemand kann sie freigeben.",
+    "quarantine_banned_help": "Dieselbe Wahl für Mail mit einem verbotenen Anhangstyp.",
+    "quarantine_bad_header_help": "Dieselbe Wahl für Mail, deren Header den Mail-Standard verletzen.",
+    "bypass_virus_help": "Überspringt die Virenprüfung für dieses Konto. Mail kommt schneller und ungeprüft an. Nur für eine Adresse verwenden, der Sie vertrauen.",
+    "bypass_spam_help": "Überspringt die Spam-Prüfung für dieses Konto. Keine Nachricht wird als Spam markiert oder blockiert.",
+    "bypass_banned_help": "Überspringt die Anhangsprüfung, damit auch ein verbotener Dateityp ankommt.",
+    "bypass_header_help": "Überspringt die Header-Prüfung, damit auch Mail mit fehlerhaften Headern ankommt.",
+    "deliver_virus_help": "Stellt Mail mit einem Virus ins Postfach zu, statt sie zu blockieren. Die Prüfung läuft weiter und schreibt ihr Ergebnis in die Header.",
+    "deliver_spam_help": "Stellt Spam ins Postfach zu, statt ihn zu blockieren, auch über der Blockierschwelle.",
+    "deliver_banned_help": "Stellt Mail mit einem verbotenen Anhang zu, statt sie zu blockieren.",
+    "deliver_bad_header_help": "Stellt Mail mit fehlerhaften Headern zu, statt sie zu blockieren."
   },
   "dashboard": {
     "title": "Übersicht",

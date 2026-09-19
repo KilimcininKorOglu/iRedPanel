@@ -119,7 +119,8 @@
     "type_user": "Používateľ",
     "type_alias": "Alias",
     "type_ml": "E-mailová konferencia",
-    "msg_invalid_domain": "Neplatná doména: :domain"
+    "msg_invalid_domain": "Neplatná doména: :domain",
+    "help": "Pomocník"
   },
   "auth": {
     "title": "Overenie",
@@ -258,8 +259,25 @@
     "quarantine_on": "Dať do karantény",
     "quarantine_off": "Nedávať do karantény",
     "always_insert_x_spam_headers": "Vždy pridať headery X-Spam",
-    "always_insert_hint": "Amavisd pridáva headery od úrovne tag, táto voľba nastaví úroveň tag na -999.",
-    "msg_invalid_value": "Neplatná hodnota: :field"
+    "msg_invalid_value": "Neplatná hodnota: :field",
+    "tag_level_help": "Amavisd pridá hlavičky X-Spam k pošte so skóre nad touto hodnotou. Doručenie sa nemení. Nižšia hodnota označí viac pošty. Predvolené: 2.0",
+    "tag2_level_help": "Pošta so skóre nad touto hodnotou sa považuje za spam a dostane značku v predmete. Nižšia hodnota označí viac pošty, vyššia menej. Predvolené: 6.2",
+    "kill_level_help": "Pošta so skóre nad touto hodnotou sa namiesto doručenia zablokuje alebo ide do karantény. Nižšia hodnota blokuje viac pošty a môže stratiť chcené správy. Predvolené: 6.9",
+    "subject_tag_help": "Text pred predmetom pošty nad prvým prahom. Nechajte prázdne, aby sa predmet nemenil.",
+    "subject_tag2_help": "Text pred predmetom spamu, napríklad [SPAM]. Nechajte prázdne, aby sa predmet nemenil.",
+    "always_insert_x_spam_headers_help": "Zapíše hlavičky X-Spam do každej správy, aj do čistej pošty, aby poštový klient mohol filtrovať podľa skóre. Panel to uloží ako úroveň značky -999.",
+    "quarantine_spam_help": "Kam ide spam: predvolené nastavenie servera, karanténa alebo priamo do schránky. Karanténa drží správu, kým ju správca neuvoľní.",
+    "quarantine_virus_help": "Rovnaká voľba pre poštu s vírusom. Bez karantény sa správa neuchová a nikto ju nemôže uvoľniť.",
+    "quarantine_banned_help": "Rovnaká voľba pre poštu so zakázaným typom prílohy.",
+    "quarantine_bad_header_help": "Rovnaká voľba pre poštu, ktorej hlavičky porušujú poštový štandard.",
+    "bypass_virus_help": "Preskočí kontrolu vírusov pre tento účet. Pošta príde rýchlejšie a bez kontroly. Použite len pre adresu, ktorej dôverujete.",
+    "bypass_spam_help": "Preskočí kontrolu spamu pre tento účet. Žiadna správa sa neoznačí ani nezablokuje ako spam.",
+    "bypass_banned_help": "Preskočí kontrolu príloh, takže príde aj zakázaný typ súboru.",
+    "bypass_header_help": "Preskočí kontrolu hlavičiek, takže príde aj pošta s poškodenými hlavičkami.",
+    "deliver_virus_help": "Doručí poštu s vírusom do schránky namiesto zablokovania. Kontrola stále beží a zapíše výsledok do hlavičiek.",
+    "deliver_spam_help": "Doručí spam do schránky namiesto zablokovania, aj nad prahom blokovania.",
+    "deliver_banned_help": "Doručí poštu so zakázanou prílohou namiesto zablokovania.",
+    "deliver_bad_header_help": "Doručí poštu s poškodenými hlavičkami namiesto zablokovania."
   },
   "dashboard": {
     "title": "Nástenka",

@@ -119,7 +119,8 @@
     "type_user": "Pengguna",
     "type_alias": "Alias",
     "type_ml": "Milis",
-    "msg_invalid_domain": "Domain tidak valid: :domain"
+    "msg_invalid_domain": "Domain tidak valid: :domain",
+    "help": "Bantuan"
   },
   "auth": {
     "title": "Autentikasi",
@@ -258,8 +259,25 @@
     "quarantine_on": "Karantinakan",
     "quarantine_off": "Jangan karantinakan",
     "always_insert_x_spam_headers": "Selalu tambahkan header X-Spam",
-    "always_insert_hint": "Amavisd menambahkan header mulai dari level tag, opsi ini menyetel level tag ke -999.",
-    "msg_invalid_value": "Nilai tidak valid: :field"
+    "msg_invalid_value": "Nilai tidak valid: :field",
+    "tag_level_help": "Amavisd menambahkan header X-Spam pada mail dengan skor di atas nilai ini. Pengiriman tidak berubah. Nilai lebih rendah menandai lebih banyak mail. Bawaan: 2.0",
+    "tag2_level_help": "Mail dengan skor di atas nilai ini dihitung sebagai spam dan mendapat tanda pada subjek. Nilai lebih rendah menandai lebih banyak mail, nilai lebih tinggi lebih sedikit. Bawaan: 6.2",
+    "kill_level_help": "Mail dengan skor di atas nilai ini diblokir atau dikarantina, bukan dikirim. Nilai lebih rendah memblokir lebih banyak mail dan dapat menghilangkan pesan yang diinginkan. Bawaan: 6.9",
+    "subject_tag_help": "Teks yang diletakkan di depan subjek mail di atas ambang pertama. Kosongkan agar subjek tidak berubah.",
+    "subject_tag2_help": "Teks yang diletakkan di depan subjek spam, misalnya [SPAM]. Kosongkan agar subjek tidak berubah.",
+    "always_insert_x_spam_headers_help": "Menulis header X-Spam ke setiap pesan, juga ke mail bersih, agar klien mail dapat menyaring berdasarkan skor. Panel menyimpannya sebagai tingkat tanda -999.",
+    "quarantine_spam_help": "Ke mana spam pergi: bawaan server, karantina, atau langsung ke kotak surat. Karantina menyimpan pesan sampai admin melepaskannya.",
+    "quarantine_virus_help": "Pilihan yang sama untuk mail yang membawa virus. Tanpa karantina pesan tidak disimpan, sehingga tidak ada yang bisa melepaskannya.",
+    "quarantine_banned_help": "Pilihan yang sama untuk mail dengan jenis lampiran terlarang.",
+    "quarantine_bad_header_help": "Pilihan yang sama untuk mail yang headernya melanggar standar mail.",
+    "bypass_virus_help": "Melewati pemindaian virus untuk akun ini. Mail datang lebih cepat dan tanpa diperiksa. Gunakan hanya untuk alamat yang Anda percaya.",
+    "bypass_spam_help": "Melewati pemindaian spam untuk akun ini. Tidak ada pesan yang ditandai atau diblokir sebagai spam.",
+    "bypass_banned_help": "Melewati pemeriksaan lampiran, sehingga jenis berkas terlarang juga sampai.",
+    "bypass_header_help": "Melewati pemeriksaan header, sehingga mail dengan header rusak juga sampai.",
+    "deliver_virus_help": "Mengirim mail yang membawa virus ke kotak surat, bukan memblokirnya. Pemindaian tetap berjalan dan menulis hasilnya ke header.",
+    "deliver_spam_help": "Mengirim spam ke kotak surat, bukan memblokirnya, juga di atas ambang blokir.",
+    "deliver_banned_help": "Mengirim mail dengan lampiran terlarang, bukan memblokirnya.",
+    "deliver_bad_header_help": "Mengirim mail dengan header rusak, bukan memblokirnya."
   },
   "dashboard": {
     "title": "Dasbor",

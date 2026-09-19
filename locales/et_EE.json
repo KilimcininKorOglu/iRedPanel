@@ -119,7 +119,8 @@
     "type_user": "Kasutaja",
     "type_alias": "Alias",
     "type_ml": "Meililist",
-    "msg_invalid_domain": "Vigane domeen: :domain"
+    "msg_invalid_domain": "Vigane domeen: :domain",
+    "help": "Abi"
   },
   "auth": {
     "title": "Autentimine",
@@ -258,8 +259,25 @@
     "quarantine_on": "Pane karantiini",
     "quarantine_off": "Ära pane karantiini",
     "always_insert_x_spam_headers": "Lisa alati X-Spam headerid",
-    "always_insert_hint": "Amavisd lisab headerid alates tag-tasemest, see valik seab tag-taseme väärtusele -999.",
-    "msg_invalid_value": "Vigane väärtus: :field"
+    "msg_invalid_value": "Vigane väärtus: :field",
+    "tag_level_help": "Amavisd lisab X-Spam päised kirjale, mille skoor ületab selle väärtuse. Kohaletoimetamine ei muutu. Madalam väärtus märgib rohkem kirju. Vaikimisi: 2.0",
+    "tag2_level_help": "Kiri, mille skoor ületab selle väärtuse, loetakse rämpspostiks ja saab teemasildi. Madalam väärtus märgib rohkem kirju, kõrgem vähem. Vaikimisi: 6.2",
+    "kill_level_help": "Kiri, mille skoor ületab selle väärtuse, blokeeritakse või läheb karantiini, mitte kohale. Madalam väärtus blokeerib rohkem kirju ja võib soovitud sõnumid kaotada. Vaikimisi: 6.9",
+    "subject_tag_help": "Tekst, mis pannakse esimest läve ületava kirja teema ette. Jätke tühjaks, et teema ei muutuks.",
+    "subject_tag2_help": "Tekst, mis pannakse rämpsposti teema ette, näiteks [SPAM]. Jätke tühjaks, et teema ei muutuks.",
+    "always_insert_x_spam_headers_help": "Kirjutab X-Spam päised igasse sõnumisse, ka puhtasse kirja, et meiliklient saaks skoori järgi filtreerida. Paneel salvestab selle sildi tasemena -999.",
+    "quarantine_spam_help": "Kuhu rämpspost läheb: serveri vaikeväärtus, karantiin või otse postkasti. Karantiin hoiab sõnumit, kuni administraator selle vabastab.",
+    "quarantine_virus_help": "Sama valik viirust kandva kirja jaoks. Ilma karantiinita sõnumit ei säilitata ja keegi ei saa seda vabastada.",
+    "quarantine_banned_help": "Sama valik keelatud manuse tüübiga kirja jaoks.",
+    "quarantine_bad_header_help": "Sama valik kirja jaoks, mille päised rikuvad meilistandardit.",
+    "bypass_virus_help": "Jätab selle konto viirusekontrolli vahele. Kiri jõuab kohale kiiremini ja kontrollimata. Kasutage ainult usaldusväärse aadressi puhul.",
+    "bypass_spam_help": "Jätab selle konto rämpspostikontrolli vahele. Ühtegi sõnumit ei märgita ega blokeerita rämpspostina.",
+    "bypass_banned_help": "Jätab manusekontrolli vahele, nii jõuab kohale ka keelatud failitüüp.",
+    "bypass_header_help": "Jätab päisekontrolli vahele, nii jõuab kohale ka katkiste päistega kiri.",
+    "deliver_virus_help": "Toimetab viirusega kirja postkasti, selle asemel et blokeerida. Kontroll töötab edasi ja kirjutab tulemuse päistesse.",
+    "deliver_spam_help": "Toimetab rämpsposti postkasti, selle asemel et blokeerida, ka üle blokeerimisläve.",
+    "deliver_banned_help": "Toimetab keelatud manusega kirja kohale, selle asemel et blokeerida.",
+    "deliver_bad_header_help": "Toimetab katkiste päistega kirja kohale, selle asemel et blokeerida."
   },
   "dashboard": {
     "title": "Töölaud",

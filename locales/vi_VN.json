@@ -119,7 +119,8 @@
     "type_user": "Người dùng",
     "type_alias": "Bí danh",
     "type_ml": "Danh sách thư",
-    "msg_invalid_domain": "Domain không hợp lệ: :domain"
+    "msg_invalid_domain": "Domain không hợp lệ: :domain",
+    "help": "Trợ giúp"
   },
   "auth": {
     "title": "Xác thực",
@@ -258,8 +259,25 @@
     "quarantine_on": "Đưa vào cách ly",
     "quarantine_off": "Không đưa vào cách ly",
     "always_insert_x_spam_headers": "Luôn thêm header X-Spam",
-    "always_insert_hint": "Amavisd thêm header từ mức tag trở lên, tùy chọn này đặt mức tag là -999.",
-    "msg_invalid_value": "Giá trị không hợp lệ: :field"
+    "msg_invalid_value": "Giá trị không hợp lệ: :field",
+    "tag_level_help": "Amavisd thêm header X-Spam vào thư có điểm trên giá trị này. Việc gửi không thay đổi. Giá trị thấp hơn đánh dấu nhiều thư hơn. Mặc định: 2.0",
+    "tag2_level_help": "Thư có điểm trên giá trị này được tính là spam và nhận thẻ ở tiêu đề. Giá trị thấp hơn gắn thẻ nhiều thư hơn, giá trị cao hơn thì ít hơn. Mặc định: 6.2",
+    "kill_level_help": "Thư có điểm trên giá trị này bị chặn hoặc đưa vào cách ly thay vì được gửi. Giá trị thấp hơn chặn nhiều thư hơn và có thể làm mất thư cần thiết. Mặc định: 6.9",
+    "subject_tag_help": "Văn bản đặt trước tiêu đề của thư vượt ngưỡng đầu tiên. Để trống nếu không muốn đổi tiêu đề.",
+    "subject_tag2_help": "Văn bản đặt trước tiêu đề của spam, ví dụ [SPAM]. Để trống nếu không muốn đổi tiêu đề.",
+    "always_insert_x_spam_headers_help": "Ghi header X-Spam vào mọi thư, kể cả thư sạch, để phần mềm thư có thể lọc theo điểm. Panel lưu điều này dưới dạng mức thẻ -999.",
+    "quarantine_spam_help": "Spam đi đâu: mặc định của máy chủ, khu cách ly, hoặc thẳng vào hộp thư. Cách ly giữ thư cho đến khi quản trị viên giải phóng.",
+    "quarantine_virus_help": "Lựa chọn tương tự cho thư mang virus. Không cách ly thì thư không được giữ lại, nên không ai giải phóng được.",
+    "quarantine_banned_help": "Lựa chọn tương tự cho thư có loại tệp đính kèm bị cấm.",
+    "quarantine_bad_header_help": "Lựa chọn tương tự cho thư có header vi phạm chuẩn thư.",
+    "bypass_virus_help": "Bỏ qua quét virus cho tài khoản này. Thư đến nhanh hơn và không được kiểm tra. Chỉ dùng cho địa chỉ bạn tin tưởng.",
+    "bypass_spam_help": "Bỏ qua quét spam cho tài khoản này. Không thư nào bị gắn thẻ hay chặn là spam.",
+    "bypass_banned_help": "Bỏ qua kiểm tra tệp đính kèm, nên loại tệp bị cấm cũng đến.",
+    "bypass_header_help": "Bỏ qua kiểm tra header, nên thư có header hỏng cũng đến.",
+    "deliver_virus_help": "Gửi thư mang virus vào hộp thư thay vì chặn. Việc quét vẫn chạy và ghi kết quả vào header.",
+    "deliver_spam_help": "Gửi spam vào hộp thư thay vì chặn, kể cả khi vượt ngưỡng chặn.",
+    "deliver_banned_help": "Gửi thư có tệp đính kèm bị cấm thay vì chặn.",
+    "deliver_bad_header_help": "Gửi thư có header hỏng thay vì chặn."
   },
   "dashboard": {
     "title": "Bảng điều khiển",

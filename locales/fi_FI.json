@@ -119,7 +119,8 @@
     "type_user": "Käyttäjä",
     "type_alias": "Alias",
     "type_ml": "Postituslista",
-    "msg_invalid_domain": "Virheellinen domain: :domain"
+    "msg_invalid_domain": "Virheellinen domain: :domain",
+    "help": "Ohje"
   },
   "auth": {
     "title": "Todennus",
@@ -258,8 +259,25 @@
     "quarantine_on": "Siirrä karanteeniin",
     "quarantine_off": "Älä siirrä karanteeniin",
     "always_insert_x_spam_headers": "Lisää X-Spam-headerit aina",
-    "always_insert_hint": "Amavisd lisää headerit tag-tasosta alkaen, tämä valinta asettaa tag-tason arvoon -999.",
-    "msg_invalid_value": "Virheellinen arvo: :field"
+    "msg_invalid_value": "Virheellinen arvo: :field",
+    "tag_level_help": "Amavisd lisää X-Spam-otsakkeet postiin, jonka pisteet ylittävät tämän arvon. Toimitus ei muutu. Pienempi arvo merkitsee enemmän postia. Oletus: 2.0",
+    "tag2_level_help": "Posti, jonka pisteet ylittävät tämän arvon, lasketaan roskapostiksi ja saa aihemerkinnän. Pienempi arvo merkitsee enemmän postia, suurempi vähemmän. Oletus: 6.2",
+    "kill_level_help": "Posti, jonka pisteet ylittävät tämän arvon, estetään tai siirretään karanteeniin toimittamisen sijaan. Pienempi arvo estää enemmän postia ja voi hukata halutut viestit. Oletus: 6.9",
+    "subject_tag_help": "Teksti, joka lisätään ensimmäisen rajan ylittävän postin aiheen eteen. Jätä tyhjäksi, jos aihe ei saa muuttua.",
+    "subject_tag2_help": "Teksti, joka lisätään roskapostin aiheen eteen, esimerkiksi [SPAM]. Jätä tyhjäksi, jos aihe ei saa muuttua.",
+    "always_insert_x_spam_headers_help": "Kirjoittaa X-Spam-otsakkeet jokaiseen viestiin, myös puhtaaseen postiin, jotta sähköpostiohjelma voi suodattaa pisteiden mukaan. Paneeli tallentaa tämän merkintätasona -999.",
+    "quarantine_spam_help": "Minne roskaposti menee: palvelimen oletus, karanteeni tai suoraan postilaatikkoon. Karanteeni säilyttää viestin, kunnes ylläpitäjä vapauttaa sen.",
+    "quarantine_virus_help": "Sama valinta viruksen sisältävälle postille. Ilman karanteenia viestiä ei säilytetä, joten kukaan ei voi vapauttaa sitä.",
+    "quarantine_banned_help": "Sama valinta postille, jossa on kielletty liitetiedostotyyppi.",
+    "quarantine_bad_header_help": "Sama valinta postille, jonka otsakkeet rikkovat postistandardia.",
+    "bypass_virus_help": "Ohittaa virustarkistuksen tältä tililtä. Posti saapuu nopeammin ja tarkistamatta. Käytä vain luotettavalle osoitteelle.",
+    "bypass_spam_help": "Ohittaa roskapostitarkistuksen tältä tililtä. Yhtäkään viestiä ei merkitä eikä estetä roskapostina.",
+    "bypass_banned_help": "Ohittaa liitetarkistuksen, joten myös kielletty tiedostotyyppi saapuu.",
+    "bypass_header_help": "Ohittaa otsaketarkistuksen, joten myös rikkinäisillä otsakkeilla varustettu posti saapuu.",
+    "deliver_virus_help": "Toimittaa viruksen sisältävän postin postilaatikkoon estämisen sijaan. Tarkistus tehdään silti ja tulos kirjoitetaan otsakkeisiin.",
+    "deliver_spam_help": "Toimittaa roskapostin postilaatikkoon estämisen sijaan, myös estorajan yläpuolella.",
+    "deliver_banned_help": "Toimittaa kielletyn liitteen sisältävän postin estämisen sijaan.",
+    "deliver_bad_header_help": "Toimittaa rikkinäisillä otsakkeilla varustetun postin estämisen sijaan."
   },
   "dashboard": {
     "title": "Kojelauta",

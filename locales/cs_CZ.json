@@ -119,7 +119,8 @@
     "type_user": "Uživatel",
     "type_alias": "Alias",
     "type_ml": "E-mailová konference",
-    "msg_invalid_domain": "Neplatná doména: :domain"
+    "msg_invalid_domain": "Neplatná doména: :domain",
+    "help": "Nápověda"
   },
   "auth": {
     "title": "Ověření",
@@ -258,8 +259,25 @@
     "quarantine_on": "Dát do karantény",
     "quarantine_off": "Nedávat do karantény",
     "always_insert_x_spam_headers": "Vždy přidat headery X-Spam",
-    "always_insert_hint": "Amavisd přidává headery od úrovně tag, tato volba nastaví úroveň tag na -999.",
-    "msg_invalid_value": "Neplatná hodnota: :field"
+    "msg_invalid_value": "Neplatná hodnota: :field",
+    "tag_level_help": "Amavisd přidá hlavičky X-Spam do pošty se skóre nad touto hodnotou. Doručení se nemění. Nižší hodnota označí více pošty. Výchozí: 2.0",
+    "tag2_level_help": "Pošta se skóre nad touto hodnotou se považuje za spam a dostane značku v předmětu. Nižší hodnota označí více pošty, vyšší méně. Výchozí: 6.2",
+    "kill_level_help": "Pošta se skóre nad touto hodnotou se místo doručení zablokuje nebo jde do karantény. Nižší hodnota blokuje více pošty a může ztratit chtěné zprávy. Výchozí: 6.9",
+    "subject_tag_help": "Text před předmětem pošty nad prvním prahem. Ponechte prázdné, aby se předmět neměnil.",
+    "subject_tag2_help": "Text před předmětem spamu, například [SPAM]. Ponechte prázdné, aby se předmět neměnil.",
+    "always_insert_x_spam_headers_help": "Zapíše hlavičky X-Spam do každé zprávy, i do čisté pošty, aby poštovní klient mohl filtrovat podle skóre. Panel to uloží jako úroveň značky -999.",
+    "quarantine_spam_help": "Kam jde spam: výchozí nastavení serveru, karanténa, nebo rovnou do schránky. Karanténa drží zprávu, dokud ji správce neuvolní.",
+    "quarantine_virus_help": "Stejná volba pro poštu s virem. Bez karantény se zpráva neuchová a nikdo ji nemůže uvolnit.",
+    "quarantine_banned_help": "Stejná volba pro poštu se zakázaným typem přílohy.",
+    "quarantine_bad_header_help": "Stejná volba pro poštu, jejíž hlavičky porušují poštovní standard.",
+    "bypass_virus_help": "Přeskočí kontrolu virů pro tento účet. Pošta přijde rychleji a bez kontroly. Použijte jen pro adresu, které věříte.",
+    "bypass_spam_help": "Přeskočí kontrolu spamu pro tento účet. Žádná zpráva se neoznačí ani nezablokuje jako spam.",
+    "bypass_banned_help": "Přeskočí kontrolu příloh, takže přijde i zakázaný typ souboru.",
+    "bypass_header_help": "Přeskočí kontrolu hlaviček, takže přijde i pošta s rozbitými hlavičkami.",
+    "deliver_virus_help": "Doručí poštu s virem do schránky místo zablokování. Kontrola stále běží a zapíše výsledek do hlaviček.",
+    "deliver_spam_help": "Doručí spam do schránky místo zablokování, i nad prahem pro blokování.",
+    "deliver_banned_help": "Doručí poštu se zakázanou přílohou místo zablokování.",
+    "deliver_bad_header_help": "Doručí poštu s rozbitými hlavičkami místo zablokování."
   },
   "dashboard": {
     "title": "Přehled",

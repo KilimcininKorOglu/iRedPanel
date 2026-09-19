@@ -119,7 +119,8 @@
     "type_user": "User",
     "type_alias": "Alias",
     "type_ml": "Mailing list",
-    "msg_invalid_domain": "Invalid domain: :domain"
+    "msg_invalid_domain": "Invalid domain: :domain",
+    "help": "Help"
   },
   "auth": {
     "title": "Authentication",
@@ -258,8 +259,25 @@
     "quarantine_on": "Quarantine",
     "quarantine_off": "Do not quarantine",
     "always_insert_x_spam_headers": "Always add the X-Spam headers",
-    "always_insert_hint": "Amavisd adds the headers from the tag level on, so this sets the tag level to -999.",
-    "msg_invalid_value": "Invalid value: :field"
+    "msg_invalid_value": "Invalid value: :field",
+    "tag_level_help": "Amavisd adds the X-Spam headers to mail that scores above this value. Delivery does not change. A lower value marks more mail. Default: 2.0",
+    "tag2_level_help": "Mail that scores above this value counts as spam and gets the subject tag. A lower value tags more mail, a higher value less. Default: 6.2",
+    "kill_level_help": "Mail that scores above this value is blocked or quarantined instead of delivered. A lower value blocks more mail and can lose wanted messages. Default: 6.9",
+    "subject_tag_help": "Text put in front of the subject of mail above the first threshold. Leave it empty to keep the subject unchanged.",
+    "subject_tag2_help": "Text put in front of the subject of spam, for example [SPAM]. Leave it empty to keep the subject unchanged.",
+    "always_insert_x_spam_headers_help": "Writes the X-Spam headers into every message, also into clean mail, so a mail client can filter on the score. The panel stores this as a tag level of -999.",
+    "quarantine_spam_help": "Where spam goes: the server default, the quarantine, or straight to the mailbox. Quarantine keeps the message until an admin releases it.",
+    "quarantine_virus_help": "The same choice for mail that carries a virus. Without quarantine the message is not kept, so nobody can release it.",
+    "quarantine_banned_help": "The same choice for mail that carries a banned attachment type.",
+    "quarantine_bad_header_help": "The same choice for mail whose headers break the mail standard.",
+    "bypass_virus_help": "Skips the virus scan for this account. Mail arrives faster and unchecked. Use it only for an address you trust.",
+    "bypass_spam_help": "Skips the spam scan for this account. No message is tagged or blocked as spam.",
+    "bypass_banned_help": "Skips the attachment check, so a banned file type also arrives.",
+    "bypass_header_help": "Skips the header check, so mail with broken headers also arrives.",
+    "deliver_virus_help": "Delivers mail that carries a virus to the mailbox instead of blocking it. The scan still runs and writes its result into the headers.",
+    "deliver_spam_help": "Delivers spam to the mailbox instead of blocking it, also above the block threshold.",
+    "deliver_banned_help": "Delivers mail with a banned attachment instead of blocking it.",
+    "deliver_bad_header_help": "Delivers mail with broken headers instead of blocking it."
   },
   "dashboard": {
     "title": "Dashboard",

@@ -53,6 +53,15 @@ class TranslatorTest extends TestCase
         $this->assertSame('nav.nonexistent', Translator::translate('nav.nonexistent'));
     }
 
+    public function testHasReportsAKeyOfTheActiveOrBaseLocale(): void
+    {
+        Translator::init('tr_TR');
+
+        $this->assertTrue(Translator::has('nav.dashboard'));
+        $this->assertTrue(Translator::has('nav.domains'));
+        $this->assertFalse(Translator::has('nav.nonexistent'));
+    }
+
     public function testSubstitutesPlaceholders(): void
     {
         Translator::init('en_US');

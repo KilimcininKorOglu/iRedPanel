@@ -119,7 +119,8 @@
     "type_user": "Bruger",
     "type_alias": "Alias",
     "type_ml": "Mailingliste",
-    "msg_invalid_domain": "Ugyldigt domæne: :domain"
+    "msg_invalid_domain": "Ugyldigt domæne: :domain",
+    "help": "Hjælp"
   },
   "auth": {
     "title": "Godkendelse",
@@ -258,8 +259,25 @@
     "quarantine_on": "Sæt i karantæne",
     "quarantine_off": "Sæt ikke i karantæne",
     "always_insert_x_spam_headers": "Tilføj altid X-Spam-headers",
-    "always_insert_hint": "Amavisd tilføjer headers fra tag-niveauet og opefter, dette valg sætter tag-niveauet til -999.",
-    "msg_invalid_value": "Ugyldig værdi: :field"
+    "msg_invalid_value": "Ugyldig værdi: :field",
+    "tag_level_help": "Amavisd tilføjer X-Spam-headere til post med en score over denne værdi. Leveringen ændres ikke. En lavere værdi markerer mere post. Standard: 2.0",
+    "tag2_level_help": "Post med en score over denne værdi tæller som spam og får emnemærket. En lavere værdi mærker mere post, en højere mindre. Standard: 6.2",
+    "kill_level_help": "Post med en score over denne værdi blokeres eller sættes i karantæne i stedet for at blive leveret. En lavere værdi blokerer mere post og kan miste ønskede beskeder. Standard: 6.9",
+    "subject_tag_help": "Tekst der sættes foran emnet på post over den første grænse. Lad feltet stå tomt, så emnet ikke ændres.",
+    "subject_tag2_help": "Tekst der sættes foran emnet på spam, for eksempel [SPAM]. Lad feltet stå tomt, så emnet ikke ændres.",
+    "always_insert_x_spam_headers_help": "Skriver X-Spam-headerne i alle beskeder, også i ren post, så et mailprogram kan filtrere på scoren. Panelet gemmer det som et mærkeniveau på -999.",
+    "quarantine_spam_help": "Hvor spam havner: serverens standard, karantænen eller direkte i postkassen. Karantæne holder beskeden, indtil en administrator frigiver den.",
+    "quarantine_virus_help": "Samme valg for post med en virus. Uden karantæne gemmes beskeden ikke, så ingen kan frigive den.",
+    "quarantine_banned_help": "Samme valg for post med en forbudt vedhæftningstype.",
+    "quarantine_bad_header_help": "Samme valg for post hvis headere bryder mailstandarden.",
+    "bypass_virus_help": "Springer virusscanningen over for denne konto. Post kommer hurtigere og ukontrolleret frem. Brug det kun til en adresse du stoler på.",
+    "bypass_spam_help": "Springer spamscanningen over for denne konto. Ingen besked mærkes eller blokeres som spam.",
+    "bypass_banned_help": "Springer vedhæftningskontrollen over, så en forbudt filtype også kommer frem.",
+    "bypass_header_help": "Springer headerkontrollen over, så post med ødelagte headere også kommer frem.",
+    "deliver_virus_help": "Leverer post med en virus til postkassen i stedet for at blokere den. Scanningen kører stadig og skriver resultatet i headerne.",
+    "deliver_spam_help": "Leverer spam til postkassen i stedet for at blokere det, også over blokeringsgrænsen.",
+    "deliver_banned_help": "Leverer post med en forbudt vedhæftning i stedet for at blokere den.",
+    "deliver_bad_header_help": "Leverer post med ødelagte headere i stedet for at blokere den."
   },
   "dashboard": {
     "title": "Betjeningspanel",

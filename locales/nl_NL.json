@@ -119,7 +119,8 @@
     "type_user": "Gebruiker",
     "type_alias": "Alias",
     "type_ml": "Mailinglijst",
-    "msg_invalid_domain": "Ongeldig domein: :domain"
+    "msg_invalid_domain": "Ongeldig domein: :domain",
+    "help": "Help"
   },
   "auth": {
     "title": "Authenticatie",
@@ -258,8 +259,25 @@
     "quarantine_on": "In quarantaine",
     "quarantine_off": "Niet in quarantaine",
     "always_insert_x_spam_headers": "X-Spam-headers altijd toevoegen",
-    "always_insert_hint": "Amavisd voegt de headers toe vanaf het tag-niveau, deze optie zet het tag-niveau op -999.",
-    "msg_invalid_value": "Ongeldige waarde: :field"
+    "msg_invalid_value": "Ongeldige waarde: :field",
+    "tag_level_help": "Amavisd voegt de X-Spam-headers toe aan mail met een score boven deze waarde. De bezorging verandert niet. Een lagere waarde markeert meer mail. Standaard: 2.0",
+    "tag2_level_help": "Mail met een score boven deze waarde telt als spam en krijgt de onderwerptag. Een lagere waarde markeert meer mail, een hogere minder. Standaard: 6.2",
+    "kill_level_help": "Mail met een score boven deze waarde wordt geblokkeerd of in quarantaine gezet in plaats van bezorgd. Een lagere waarde blokkeert meer mail en kan gewenste berichten verliezen. Standaard: 6.9",
+    "subject_tag_help": "Tekst die voor het onderwerp komt van mail boven de eerste drempel. Laat leeg om het onderwerp niet te wijzigen.",
+    "subject_tag2_help": "Tekst die voor het onderwerp van spam komt, bijvoorbeeld [SPAM]. Laat leeg om het onderwerp niet te wijzigen.",
+    "always_insert_x_spam_headers_help": "Schrijft de X-Spam-headers in elk bericht, ook in schone mail, zodat een mailclient op de score kan filteren. Het paneel bewaart dit als tagniveau -999.",
+    "quarantine_spam_help": "Waar spam heen gaat: de standaard van de server, de quarantaine of rechtstreeks de mailbox. Quarantaine bewaart het bericht tot een beheerder het vrijgeeft.",
+    "quarantine_virus_help": "Dezelfde keuze voor mail met een virus. Zonder quarantaine wordt het bericht niet bewaard, dus niemand kan het vrijgeven.",
+    "quarantine_banned_help": "Dezelfde keuze voor mail met een verboden bijlagetype.",
+    "quarantine_bad_header_help": "Dezelfde keuze voor mail waarvan de headers de mailstandaard schenden.",
+    "bypass_virus_help": "Slaat de virusscan voor dit account over. Mail komt sneller en ongecontroleerd aan. Gebruik dit alleen voor een adres dat je vertrouwt.",
+    "bypass_spam_help": "Slaat de spamscan voor dit account over. Geen bericht wordt als spam gemarkeerd of geblokkeerd.",
+    "bypass_banned_help": "Slaat de bijlagecontrole over, zodat ook een verboden bestandstype aankomt.",
+    "bypass_header_help": "Slaat de headercontrole over, zodat ook mail met kapotte headers aankomt.",
+    "deliver_virus_help": "Bezorgt mail met een virus in de mailbox in plaats van die te blokkeren. De scan loopt nog steeds en schrijft het resultaat in de headers.",
+    "deliver_spam_help": "Bezorgt spam in de mailbox in plaats van die te blokkeren, ook boven de blokkeerdrempel.",
+    "deliver_banned_help": "Bezorgt mail met een verboden bijlage in plaats van die te blokkeren.",
+    "deliver_bad_header_help": "Bezorgt mail met kapotte headers in plaats van die te blokkeren."
   },
   "dashboard": {
     "title": "Dashboard",

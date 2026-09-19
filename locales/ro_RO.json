@@ -119,7 +119,8 @@
     "type_user": "Utilizator",
     "type_alias": "Alias",
     "type_ml": "Listă de corespondență",
-    "msg_invalid_domain": "Domeniu nevalid: :domain"
+    "msg_invalid_domain": "Domeniu nevalid: :domain",
+    "help": "Ajutor"
   },
   "auth": {
     "title": "Autentificare",
@@ -258,8 +259,25 @@
     "quarantine_on": "Pune în carantină",
     "quarantine_off": "Nu pune în carantină",
     "always_insert_x_spam_headers": "Adaugă mereu headerele X-Spam",
-    "always_insert_hint": "Amavisd adaugă headerele de la nivelul tag în sus, această opțiune pune nivelul tag la -999.",
-    "msg_invalid_value": "Valoare nevalidă: :field"
+    "msg_invalid_value": "Valoare nevalidă: :field",
+    "tag_level_help": "Amavisd adaugă headerele X-Spam la mailul cu un scor peste această valoare. Livrarea nu se schimbă. O valoare mai mică marchează mai mult mail. Implicit: 2.0",
+    "tag2_level_help": "Mailul cu un scor peste această valoare contează ca spam și primește eticheta în subiect. O valoare mai mică marchează mai mult mail, una mai mare mai puțin. Implicit: 6.2",
+    "kill_level_help": "Mailul cu un scor peste această valoare este blocat sau trimis în carantină în loc să fie livrat. O valoare mai mică blochează mai mult mail și poate pierde mesaje dorite. Implicit: 6.9",
+    "subject_tag_help": "Text pus înaintea subiectului mailului peste primul prag. Lăsați gol pentru a nu schimba subiectul.",
+    "subject_tag2_help": "Text pus înaintea subiectului spamului, de exemplu [SPAM]. Lăsați gol pentru a nu schimba subiectul.",
+    "always_insert_x_spam_headers_help": "Scrie headerele X-Spam în fiecare mesaj, inclusiv în mailul curat, ca un client de mail să poată filtra după scor. Panoul salvează asta ca nivel de etichetă -999.",
+    "quarantine_spam_help": "Unde ajunge spamul: implicitul serverului, carantina sau direct căsuța. Carantina păstrează mesajul până când un administrator îl eliberează.",
+    "quarantine_virus_help": "Aceeași alegere pentru mailul care poartă un virus. Fără carantină mesajul nu se păstrează, deci nimeni nu îl poate elibera.",
+    "quarantine_banned_help": "Aceeași alegere pentru mailul cu un tip de atașament interzis.",
+    "quarantine_bad_header_help": "Aceeași alegere pentru mailul ale cărui headere încalcă standardul de mail.",
+    "bypass_virus_help": "Sare peste scanarea de viruși pentru acest cont. Mailul ajunge mai repede și neverificat. Folosiți doar pentru o adresă de încredere.",
+    "bypass_spam_help": "Sare peste scanarea de spam pentru acest cont. Niciun mesaj nu este marcat sau blocat ca spam.",
+    "bypass_banned_help": "Sare peste verificarea atașamentelor, deci ajunge și un tip de fișier interzis.",
+    "bypass_header_help": "Sare peste verificarea headerelor, deci ajunge și mailul cu headere stricate.",
+    "deliver_virus_help": "Livrează mailul cu virus în căsuță în loc să îl blocheze. Scanarea rulează în continuare și scrie rezultatul în headere.",
+    "deliver_spam_help": "Livrează spamul în căsuță în loc să îl blocheze, chiar și peste pragul de blocare.",
+    "deliver_banned_help": "Livrează mailul cu atașament interzis în loc să îl blocheze.",
+    "deliver_bad_header_help": "Livrează mailul cu headere stricate în loc să îl blocheze."
   },
   "dashboard": {
     "title": "Tablou de bord",

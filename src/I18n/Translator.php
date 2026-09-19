@@ -111,6 +111,20 @@ class Translator
         return $message;
     }
 
+    /**
+     * Reports whether the key exists in the active locale or in the base
+     * locale. `translate()` answers a missing key with the key itself, so a
+     * caller that must know whether a text exists asks here.
+     */
+    public static function has(string $key): bool
+    {
+        if (!self::$initialized) {
+            self::init(self::FALLBACK_LOCALE);
+        }
+
+        return isset(self::$messages[$key]) || isset(self::$fallback[$key]);
+    }
+
     public static function currentLocale(): string
     {
         return self::$locale;

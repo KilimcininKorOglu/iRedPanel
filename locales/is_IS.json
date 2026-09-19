@@ -119,7 +119,8 @@
     "type_user": "Notandi",
     "type_alias": "Samnefni",
     "type_ml": "Póstlisti",
-    "msg_invalid_domain": "Ógilt lén: :domain"
+    "msg_invalid_domain": "Ógilt lén: :domain",
+    "help": "Hjálp"
   },
   "auth": {
     "title": "Auðkenning",
@@ -258,8 +259,25 @@
     "quarantine_on": "Setja í sóttkví",
     "quarantine_off": "Ekki setja í sóttkví",
     "always_insert_x_spam_headers": "Bæta alltaf við X-Spam headerum",
-    "always_insert_hint": "Amavisd bætir headerum við frá tag stigi og upp, þessi valkostur setur tag stigið í -999.",
-    "msg_invalid_value": "Ógilt gildi: :field"
+    "msg_invalid_value": "Ógilt gildi: :field",
+    "tag_level_help": "Amavisd bætir X-Spam hausum við póst sem fær stig yfir þessu gildi. Afhending breytist ekki. Lægra gildi merkir fleiri póst. Sjálfgefið: 2.0",
+    "tag2_level_help": "Póstur með stig yfir þessu gildi telst ruslpóstur og fær merki í efnislínu. Lægra gildi merkir fleiri póst, hærra færri. Sjálfgefið: 6.2",
+    "kill_level_help": "Póstur með stig yfir þessu gildi er lokaður eða settur í sóttkví í stað þess að vera afhentur. Lægra gildi lokar á fleiri póst og getur glatað æskilegum skeytum. Sjálfgefið: 6.9",
+    "subject_tag_help": "Texti sem settur er fyrir framan efnislínu pósts yfir fyrsta þröskuldi. Skildu eftir autt svo efnislínan breytist ekki.",
+    "subject_tag2_help": "Texti sem settur er fyrir framan efnislínu ruslpósts, til dæmis [SPAM]. Skildu eftir autt svo efnislínan breytist ekki.",
+    "always_insert_x_spam_headers_help": "Skrifar X-Spam hausana í öll skeyti, líka í hreinan póst, svo póstforrit geti síað eftir stigum. Stjórnborðið vistar þetta sem merkisstig -999.",
+    "quarantine_spam_help": "Hvert ruslpóstur fer: sjálfgefið á þjóninum, sóttkví eða beint í pósthólfið. Sóttkví geymir skeytið þar til stjórnandi sleppir því.",
+    "quarantine_virus_help": "Sami valkostur fyrir póst sem ber vírus. Án sóttkvíar er skeytið ekki geymt og enginn getur sleppt því.",
+    "quarantine_banned_help": "Sami valkostur fyrir póst með bannaða tegund viðhengis.",
+    "quarantine_bad_header_help": "Sami valkostur fyrir póst þar sem hausar brjóta póststaðalinn.",
+    "bypass_virus_help": "Sleppir vírusskönnun fyrir þennan reikning. Póstur berst hraðar og óskoðaður. Notaðu aðeins fyrir netfang sem þú treystir.",
+    "bypass_spam_help": "Sleppir ruslpóstskönnun fyrir þennan reikning. Ekkert skeyti er merkt eða lokað sem ruslpóstur.",
+    "bypass_banned_help": "Sleppir viðhengjaskoðun, svo bönnuð skráategund berst líka.",
+    "bypass_header_help": "Sleppir hausaskoðun, svo póstur með brotna hausa berst líka.",
+    "deliver_virus_help": "Afhendir póst með vírus í pósthólfið í stað þess að loka á hann. Skönnunin keyrir áfram og skrifar niðurstöðuna í hausana.",
+    "deliver_spam_help": "Afhendir ruslpóst í pósthólfið í stað þess að loka á hann, líka yfir lokunarþröskuldi.",
+    "deliver_banned_help": "Afhendir póst með bönnuðu viðhengi í stað þess að loka á hann.",
+    "deliver_bad_header_help": "Afhendir póst með brotna hausa í stað þess að loka á hann."
   },
   "dashboard": {
     "title": "Stjórnborð",

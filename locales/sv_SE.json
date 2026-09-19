@@ -119,7 +119,8 @@
     "type_user": "Användare",
     "type_alias": "Alias",
     "type_ml": "E-postlista",
-    "msg_invalid_domain": "Ogiltig domän: :domain"
+    "msg_invalid_domain": "Ogiltig domän: :domain",
+    "help": "Hjälp"
   },
   "auth": {
     "title": "Autentisering",
@@ -258,8 +259,25 @@
     "quarantine_on": "Sätt i karantän",
     "quarantine_off": "Sätt inte i karantän",
     "always_insert_x_spam_headers": "Lägg alltid till X-Spam-headers",
-    "always_insert_hint": "Amavisd lägger till headers från tag-nivån och uppåt, det här valet sätter tag-nivån till -999.",
-    "msg_invalid_value": "Ogiltigt värde: :field"
+    "msg_invalid_value": "Ogiltigt värde: :field",
+    "tag_level_help": "Amavisd lägger till X-Spam-huvudena i post med poäng över detta värde. Leveransen ändras inte. Ett lägre värde märker mer post. Standard: 2.0",
+    "tag2_level_help": "Post med poäng över detta värde räknas som skräppost och får ämnesmärket. Ett lägre värde märker mer post, ett högre mindre. Standard: 6.2",
+    "kill_level_help": "Post med poäng över detta värde blockeras eller sätts i karantän i stället för att levereras. Ett lägre värde blockerar mer post och kan förlora önskade meddelanden. Standard: 6.9",
+    "subject_tag_help": "Text som sätts före ämnet på post över den första gränsen. Lämna tomt för att inte ändra ämnet.",
+    "subject_tag2_help": "Text som sätts före ämnet på skräppost, till exempel [SPAM]. Lämna tomt för att inte ändra ämnet.",
+    "always_insert_x_spam_headers_help": "Skriver X-Spam-huvudena i varje meddelande, även i ren post, så att ett e-postprogram kan filtrera på poängen. Panelen sparar detta som märkesnivå -999.",
+    "quarantine_spam_help": "Vart skräpposten går: serverns standard, karantänen eller direkt till brevlådan. Karantän håller meddelandet tills en administratör släpper det.",
+    "quarantine_virus_help": "Samma val för post som bär ett virus. Utan karantän sparas inte meddelandet, så ingen kan släppa det.",
+    "quarantine_banned_help": "Samma val för post med en förbjuden bilagetyp.",
+    "quarantine_bad_header_help": "Samma val för post vars huvuden bryter mot e-poststandarden.",
+    "bypass_virus_help": "Hoppar över virusgranskningen för detta konto. Post kommer fram snabbare och ogranskad. Använd bara för en adress du litar på.",
+    "bypass_spam_help": "Hoppar över skräppostgranskningen för detta konto. Inget meddelande märks eller blockeras som skräppost.",
+    "bypass_banned_help": "Hoppar över bilagekontrollen, så en förbjuden filtyp kommer också fram.",
+    "bypass_header_help": "Hoppar över huvudkontrollen, så post med trasiga huvuden kommer också fram.",
+    "deliver_virus_help": "Levererar post med virus till brevlådan i stället för att blockera den. Granskningen körs ändå och skriver resultatet i huvudena.",
+    "deliver_spam_help": "Levererar skräppost till brevlådan i stället för att blockera den, även över blockeringsgränsen.",
+    "deliver_banned_help": "Levererar post med en förbjuden bilaga i stället för att blockera den.",
+    "deliver_bad_header_help": "Levererar post med trasiga huvuden i stället för att blockera den."
   },
   "dashboard": {
     "title": "Instrumentpanel",

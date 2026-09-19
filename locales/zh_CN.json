@@ -119,7 +119,8 @@
     "type_user": "用户",
     "type_alias": "别名",
     "type_ml": "邮件列表",
-    "msg_invalid_domain": "无效的域名：:domain"
+    "msg_invalid_domain": "无效的域名：:domain",
+    "help": "帮助"
   },
   "auth": {
     "title": "身份验证",
@@ -258,8 +259,25 @@
     "quarantine_on": "隔离",
     "quarantine_off": "不隔离",
     "always_insert_x_spam_headers": "始终添加 X-Spam header",
-    "always_insert_hint": "Amavisd 从 tag 级别开始添加 header，此选项把 tag 级别设为 -999。",
-    "msg_invalid_value": "无效的值：:field"
+    "msg_invalid_value": "无效的值：:field",
+    "tag_level_help": "Amavisd 会给分值高于此值的邮件加上 X-Spam 头。投递不变。数值越低，被标记的邮件越多。默认值：2.0",
+    "tag2_level_help": "分值高于此值的邮件按垃圾邮件处理，并在主题上加标记。数值越低标记越多，越高标记越少。默认值：6.2",
+    "kill_level_help": "分值高于此值的邮件不再投递，而是被拦截或隔离。数值越低拦截越多，可能丢失需要的邮件。默认值：6.9",
+    "subject_tag_help": "加在超过第一个阈值的邮件主题前的文字。留空则不修改主题。",
+    "subject_tag2_help": "加在垃圾邮件主题前的文字，例如 [SPAM]。留空则不修改主题。",
+    "always_insert_x_spam_headers_help": "把 X-Spam 头写入每一封邮件，包括正常邮件，便于邮件客户端按分值过滤。面板将其保存为标记级别 -999。",
+    "quarantine_spam_help": "垃圾邮件的去向：服务器默认、隔离区，或直接进入邮箱。隔离会保留邮件，直到管理员放行。",
+    "quarantine_virus_help": "对携带病毒的邮件的相同选择。不隔离时邮件不会保留，任何人都无法放行。",
+    "quarantine_banned_help": "对携带禁止附件类型的邮件的相同选择。",
+    "quarantine_bad_header_help": "对邮件头违反邮件标准的邮件的相同选择。",
+    "bypass_virus_help": "跳过该账户的病毒扫描。邮件到达更快且未经检查。只用于你信任的地址。",
+    "bypass_spam_help": "跳过该账户的垃圾邮件扫描。任何邮件都不会被标记或拦截为垃圾邮件。",
+    "bypass_banned_help": "跳过附件检查，禁止的文件类型也会送达。",
+    "bypass_header_help": "跳过邮件头检查，邮件头损坏的邮件也会送达。",
+    "deliver_virus_help": "把携带病毒的邮件投递到邮箱而不是拦截。扫描照常进行，并把结果写入邮件头。",
+    "deliver_spam_help": "把垃圾邮件投递到邮箱而不是拦截，超过拦截阈值时也投递。",
+    "deliver_banned_help": "把带有禁止附件的邮件投递而不是拦截。",
+    "deliver_bad_header_help": "把邮件头损坏的邮件投递而不是拦截。"
   },
   "dashboard": {
     "title": "仪表板",

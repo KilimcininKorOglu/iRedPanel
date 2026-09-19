@@ -119,7 +119,8 @@
     "type_user": "Felhasználó",
     "type_alias": "Álnév",
     "type_ml": "Levelezőlista",
-    "msg_invalid_domain": "Érvénytelen domain: :domain"
+    "msg_invalid_domain": "Érvénytelen domain: :domain",
+    "help": "Súgó"
   },
   "auth": {
     "title": "Hitelesítés",
@@ -258,8 +259,25 @@
     "quarantine_on": "Karanténba",
     "quarantine_off": "Ne kerüljön karanténba",
     "always_insert_x_spam_headers": "Mindig adja hozzá az X-Spam headereket",
-    "always_insert_hint": "Az Amavisd a tag szinttől kezdve adja hozzá a headereket, ez a beállítás a tag szintet -999-re állítja.",
-    "msg_invalid_value": "Érvénytelen érték: :field"
+    "msg_invalid_value": "Érvénytelen érték: :field",
+    "tag_level_help": "Az Amavisd hozzáadja az X-Spam fejléceket az e fölötti pontszámú levelekhez. A kézbesítés nem változik. Az alacsonyabb érték több levelet jelöl meg. Alapértelmezett: 2.0",
+    "tag2_level_help": "Az e fölötti pontszámú levél spamnek számít, és tárgycímkét kap. Az alacsonyabb érték több levelet jelöl meg, a magasabb kevesebbet. Alapértelmezett: 6.2",
+    "kill_level_help": "Az e fölötti pontszámú levelet kézbesítés helyett blokkolja vagy karanténba teszi. Az alacsonyabb érték több levelet blokkol, és elveszhetnek kívánt üzenetek. Alapértelmezett: 6.9",
+    "subject_tag_help": "Az első küszöb fölötti levél tárgya elé írt szöveg. Hagyja üresen, hogy a tárgy ne változzon.",
+    "subject_tag2_help": "A spam tárgya elé írt szöveg, például [SPAM]. Hagyja üresen, hogy a tárgy ne változzon.",
+    "always_insert_x_spam_headers_help": "Minden üzenetbe beírja az X-Spam fejléceket, a tiszta levelekbe is, így a levelezőprogram szűrhet a pontszámra. A panel ezt -999 címkeszintként tárolja.",
+    "quarantine_spam_help": "Hová kerül a spam: a szerver alapértelmezése, a karantén, vagy egyenesen a postafiók. A karantén addig őrzi az üzenetet, amíg egy adminisztrátor ki nem engedi.",
+    "quarantine_virus_help": "Ugyanez a választás vírust hordozó levélhez. Karantén nélkül az üzenet nem marad meg, így senki sem engedheti ki.",
+    "quarantine_banned_help": "Ugyanez a választás tiltott csatolmánytípusú levélhez.",
+    "quarantine_bad_header_help": "Ugyanez a választás olyan levélhez, amelynek fejlécei sértik a levelezési szabványt.",
+    "bypass_virus_help": "Kihagyja a vírusellenőrzést ennél a fióknál. A levél gyorsabban és ellenőrzés nélkül érkezik. Csak megbízható címnél használja.",
+    "bypass_spam_help": "Kihagyja a spamellenőrzést ennél a fióknál. Egyetlen üzenetet sem jelöl meg vagy blokkol spamként.",
+    "bypass_banned_help": "Kihagyja a csatolmányellenőrzést, így tiltott fájltípus is megérkezik.",
+    "bypass_header_help": "Kihagyja a fejlécellenőrzést, így hibás fejlécű levél is megérkezik.",
+    "deliver_virus_help": "A vírust hordozó levelet blokkolás helyett a postafiókba kézbesíti. Az ellenőrzés fut, és az eredményt a fejlécekbe írja.",
+    "deliver_spam_help": "A spamet blokkolás helyett a postafiókba kézbesíti, a blokkolási küszöb fölött is.",
+    "deliver_banned_help": "A tiltott csatolmányú levelet blokkolás helyett kézbesíti.",
+    "deliver_bad_header_help": "A hibás fejlécű levelet blokkolás helyett kézbesíti."
   },
   "dashboard": {
     "title": "Vezérlőpult",

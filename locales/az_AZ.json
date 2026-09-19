@@ -119,7 +119,8 @@
     "type_user": "İstifadəçi",
     "type_alias": "Alias",
     "type_ml": "Poçt siyahısı",
-    "msg_invalid_domain": "Yanlış domain: :domain"
+    "msg_invalid_domain": "Yanlış domain: :domain",
+    "help": "Kömək"
   },
   "auth": {
     "title": "Autentifikasiya",
@@ -258,8 +259,25 @@
     "quarantine_on": "Karantinə al",
     "quarantine_off": "Karantinə alma",
     "always_insert_x_spam_headers": "X-Spam header-lərini həmişə əlavə et",
-    "always_insert_hint": "Amavisd header-ləri tag səviyyəsindən başlayaraq əlavə edir, bu seçim tag səviyyəsini -999 edir.",
-    "msg_invalid_value": "Yanlış dəyər: :field"
+    "msg_invalid_value": "Yanlış dəyər: :field",
+    "tag_level_help": "Amavisd bu dəyərdən yuxarı bal alan maila X-Spam headerlərini əlavə edir. Çatdırılma dəyişmir. Aşağı dəyər daha çox maili işarələyir. Varsayılan: 2.0",
+    "tag2_level_help": "Bu dəyərdən yuxarı bal alan mail spam sayılır və mövzu tagı alır. Aşağı dəyər daha çox maili taglayır, yüksək dəyər daha az. Varsayılan: 6.2",
+    "kill_level_help": "Bu dəyərdən yuxarı bal alan mail çatdırılmır, bloklanır və ya karantinə düşür. Aşağı dəyər daha çox maili bloklayır və lazımlı mesajları itirə bilər. Varsayılan: 6.9",
+    "subject_tag_help": "Birinci həddi keçən mailin mövzusunun əvvəlinə yazılan mətn. Mövzu dəyişməsin deyə boş buraxın.",
+    "subject_tag2_help": "Spamın mövzusunun əvvəlinə yazılan mətn, məsələn [SPAM]. Mövzu dəyişməsin deyə boş buraxın.",
+    "always_insert_x_spam_headers_help": "X-Spam headerlərini hər mesaja, təmiz maila da yazır, beləcə mail klienti bala görə filtr qura bilir. Panel bunu -999 tag səviyyəsi kimi saxlayır.",
+    "quarantine_spam_help": "Spam hara gedir: serverin varsayılanı, karantin və ya birbaşa mailbox. Karantin mesajı admin buraxana qədər saxlayır.",
+    "quarantine_virus_help": "Virus daşıyan mail üçün eyni seçim. Karantin olmadan mesaj saxlanmır, heç kim onu buraxa bilməz.",
+    "quarantine_banned_help": "Qadağan olunmuş qoşma növü daşıyan mail üçün eyni seçim.",
+    "quarantine_bad_header_help": "Headerləri mail standartını pozan mail üçün eyni seçim.",
+    "bypass_virus_help": "Bu hesab üçün virus yoxlamasını atlayır. Mail daha tez və yoxlanmadan gəlir. Yalnız etibar etdiyiniz ünvan üçün işlədin.",
+    "bypass_spam_help": "Bu hesab üçün spam yoxlamasını atlayır. Heç bir mesaj spam kimi taglanmır və bloklanmır.",
+    "bypass_banned_help": "Qoşma yoxlamasını atlayır, qadağan olunmuş fayl növü də gəlir.",
+    "bypass_header_help": "Header yoxlamasını atlayır, pozuq headerli mail də gəlir.",
+    "deliver_virus_help": "Virus daşıyan maili bloklamaq əvəzinə mailboxa çatdırır. Yoxlama işləyir və nəticəni headerlərə yazır.",
+    "deliver_spam_help": "Spamı bloklamaq əvəzinə mailboxa çatdırır, blok həddindən yuxarıda da.",
+    "deliver_banned_help": "Qadağan qoşması olan maili bloklamaq əvəzinə çatdırır.",
+    "deliver_bad_header_help": "Pozuq headerli maili bloklamaq əvəzinə çatdırır."
   },
   "dashboard": {
     "title": "İdarə paneli",

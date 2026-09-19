@@ -119,7 +119,8 @@
     "type_user": "Utente",
     "type_alias": "Alias",
     "type_ml": "Mailing list",
-    "msg_invalid_domain": "Dominio non valido: :domain"
+    "msg_invalid_domain": "Dominio non valido: :domain",
+    "help": "Aiuto"
   },
   "auth": {
     "title": "Autenticazione",
@@ -258,8 +259,25 @@
     "quarantine_on": "Metti in quarantena",
     "quarantine_off": "Non mettere in quarantena",
     "always_insert_x_spam_headers": "Aggiungi sempre gli header X-Spam",
-    "always_insert_hint": "Amavisd aggiunge gli header dal livello di tag in poi, questa opzione imposta il livello di tag a -999.",
-    "msg_invalid_value": "Valore non valido: :field"
+    "msg_invalid_value": "Valore non valido: :field",
+    "tag_level_help": "Amavisd aggiunge le intestazioni X-Spam alla posta con un punteggio superiore a questo valore. La consegna non cambia. Un valore più basso segna più posta. Predefinito: 2.0",
+    "tag2_level_help": "La posta con un punteggio superiore a questo valore conta come spam e riceve il tag nell'oggetto. Un valore più basso segna più posta, uno più alto meno. Predefinito: 6.2",
+    "kill_level_help": "La posta con un punteggio superiore a questo valore viene bloccata o messa in quarantena invece di essere consegnata. Un valore più basso blocca più posta e può perdere messaggi voluti. Predefinito: 6.9",
+    "subject_tag_help": "Testo messo davanti all'oggetto della posta sopra la prima soglia. Lascialo vuoto per non cambiare l'oggetto.",
+    "subject_tag2_help": "Testo messo davanti all'oggetto dello spam, per esempio [SPAM]. Lascialo vuoto per non cambiare l'oggetto.",
+    "always_insert_x_spam_headers_help": "Scrive le intestazioni X-Spam in ogni messaggio, anche nella posta pulita, così un client di posta può filtrare sul punteggio. Il pannello lo salva come livello di tag -999.",
+    "quarantine_spam_help": "Dove va lo spam: il valore predefinito del server, la quarantena o direttamente la casella. La quarantena tiene il messaggio finché un amministratore non lo rilascia.",
+    "quarantine_virus_help": "La stessa scelta per la posta che porta un virus. Senza quarantena il messaggio non viene conservato e nessuno può rilasciarlo.",
+    "quarantine_banned_help": "La stessa scelta per la posta con un tipo di allegato vietato.",
+    "quarantine_bad_header_help": "La stessa scelta per la posta le cui intestazioni violano lo standard della posta.",
+    "bypass_virus_help": "Salta la scansione antivirus per questo account. La posta arriva più in fretta e senza controllo. Usalo solo per un indirizzo di cui ti fidi.",
+    "bypass_spam_help": "Salta la scansione antispam per questo account. Nessun messaggio viene segnato o bloccato come spam.",
+    "bypass_banned_help": "Salta il controllo degli allegati, così arriva anche un tipo di file vietato.",
+    "bypass_header_help": "Salta il controllo delle intestazioni, così arriva anche la posta con intestazioni rotte.",
+    "deliver_virus_help": "Consegna la posta che porta un virus nella casella invece di bloccarla. La scansione viene comunque eseguita e scrive il risultato nelle intestazioni.",
+    "deliver_spam_help": "Consegna lo spam nella casella invece di bloccarlo, anche sopra la soglia di blocco.",
+    "deliver_banned_help": "Consegna la posta con un allegato vietato invece di bloccarla.",
+    "deliver_bad_header_help": "Consegna la posta con intestazioni rotte invece di bloccarla."
   },
   "dashboard": {
     "title": "Pannello",

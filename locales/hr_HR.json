@@ -119,7 +119,8 @@
     "type_user": "Korisnik",
     "type_alias": "Alias",
     "type_ml": "Mailing lista",
-    "msg_invalid_domain": "Nevažeća domena: :domain"
+    "msg_invalid_domain": "Nevažeća domena: :domain",
+    "help": "Pomoć"
   },
   "auth": {
     "title": "Autentifikacija",
@@ -258,8 +259,25 @@
     "quarantine_on": "Stavi u karantenu",
     "quarantine_off": "Ne stavljaj u karantenu",
     "always_insert_x_spam_headers": "Uvijek dodaj X-Spam headere",
-    "always_insert_hint": "Amavisd dodaje headere od tag razine naviše, ova opcija postavlja tag razinu na -999.",
-    "msg_invalid_value": "Neispravna vrijednost: :field"
+    "msg_invalid_value": "Neispravna vrijednost: :field",
+    "tag_level_help": "Amavisd dodaje X-Spam zaglavlja pošti s bodovima iznad ove vrijednosti. Isporuka se ne mijenja. Niža vrijednost označava više pošte. Zadano: 2.0",
+    "tag2_level_help": "Pošta s bodovima iznad ove vrijednosti smatra se neželjenom i dobiva oznaku u predmetu. Niža vrijednost označava više pošte, viša manje. Zadano: 6.2",
+    "kill_level_help": "Pošta s bodovima iznad ove vrijednosti blokira se ili ide u karantenu umjesto isporuke. Niža vrijednost blokira više pošte i može izgubiti željene poruke. Zadano: 6.9",
+    "subject_tag_help": "Tekst ispred predmeta pošte iznad prvog praga. Ostavite prazno da predmet ostane nepromijenjen.",
+    "subject_tag2_help": "Tekst ispred predmeta neželjene pošte, na primjer [SPAM]. Ostavite prazno da predmet ostane nepromijenjen.",
+    "always_insert_x_spam_headers_help": "Upisuje X-Spam zaglavlja u svaku poruku, i u čistu poštu, pa klijent e-pošte može filtrirati po bodovima. Ploča to sprema kao razinu oznake -999.",
+    "quarantine_spam_help": "Kamo ide neželjena pošta: zadano poslužitelja, karantena ili izravno u sandučić. Karantena čuva poruku dok je administrator ne otpusti.",
+    "quarantine_virus_help": "Isti izbor za poštu koja nosi virus. Bez karantene poruka se ne čuva pa je nitko ne može otpustiti.",
+    "quarantine_banned_help": "Isti izbor za poštu sa zabranjenom vrstom privitka.",
+    "quarantine_bad_header_help": "Isti izbor za poštu čija zaglavlja krše standard e-pošte.",
+    "bypass_virus_help": "Preskače provjeru virusa za ovaj račun. Pošta stiže brže i neprovjerena. Koristite samo za adresu kojoj vjerujete.",
+    "bypass_spam_help": "Preskače provjeru neželjene pošte za ovaj račun. Nijedna poruka ne označava se niti blokira kao neželjena.",
+    "bypass_banned_help": "Preskače provjeru privitaka pa stiže i zabranjena vrsta datoteke.",
+    "bypass_header_help": "Preskače provjeru zaglavlja pa stiže i pošta s neispravnim zaglavljima.",
+    "deliver_virus_help": "Isporučuje poštu s virusom u sandučić umjesto da je blokira. Provjera i dalje radi i upisuje rezultat u zaglavlja.",
+    "deliver_spam_help": "Isporučuje neželjenu poštu u sandučić umjesto da je blokira, i iznad praga za blokiranje.",
+    "deliver_banned_help": "Isporučuje poštu sa zabranjenim privitkom umjesto da je blokira.",
+    "deliver_bad_header_help": "Isporučuje poštu s neispravnim zaglavljima umjesto da je blokira."
   },
   "dashboard": {
     "title": "Nadzorna ploča",

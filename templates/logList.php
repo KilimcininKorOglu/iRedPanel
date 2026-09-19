@@ -1,23 +1,7 @@
 <?php
 $pageTitle = $t('log.title');
-// Event => badge color modifier. An unknown event stays gray.
-$eventColors = [
-    'login' => 'cyan',
-    'create' => 'green',
-    'active' => 'green',
-    'update' => 'blue',
-    'delete' => 'red',
-    'disable' => 'orange',
-    'backup' => 'purple',
-    'cleanup_db' => 'yellow',
-];
-$eventBadge = static function (array $log) use ($eventColors): string {
-    if (($log['loglevel'] ?? '') === 'error') {
-        return 'event-badge event-red';
-    }
-
-    return 'event-badge event-' . ($eventColors[$log['event'] ?? ''] ?? 'gray');
-};
+// A failed action (loglevel=error) is red whatever its event is.
+$eventBadge = static fn (array $log): string => $tone('log_event', ($log['loglevel'] ?? '') === 'error' ? 'error' : (string) ($log['event'] ?? ''));
 ?>
 <div class="page-header">
   <h1><?= $te('log.title') ?></h1>

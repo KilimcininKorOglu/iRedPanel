@@ -61,7 +61,7 @@ $currentKeys = $categories[$activeTab] ?? [];
                 <input type="text" name="<?= $e($key) ?>" id="<?= $fieldId ?>" class="form-control form-control-sm" value="<?= $e((string) $currentValue) ?>">
                 <?php endif; ?>
               </td>
-              <td><span class="badge <?= $isFromDb ? 'text-bg-success' : 'text-bg-secondary' ?> badge-status"><?= $e($source) ?></span></td>
+              <td><span class="badge badge-status <?= $tone('setting_source', $isFromDb ? 'database' : 'env') ?>"><?= $e($source) ?></span></td>
             </tr>
             <?php endforeach; ?>
           </tbody>

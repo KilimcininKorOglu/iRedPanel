@@ -41,7 +41,7 @@ $limitFields = [
           <tbody>
             <?php foreach ($throttleSettings as $ts): ?>
             <tr>
-              <td><span class="badge text-bg-secondary badge-status"><?= $e($ts['kind'] ?? '') ?></span></td>
+              <td><span class="badge badge-status <?= $tone('throttle_kind', (string) ($ts['kind'] ?? '')) ?>"><?= $e($ts['kind'] ?? '') ?></span></td>
               <td><?= $e($ts['period'] ?? '') ?></td>
               <td><?= $e($ts['max_msgs'] ?? 0) ?></td>
               <td><?= $e($ts['max_quota'] ?? 0) ?></td>

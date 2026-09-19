@@ -40,7 +40,7 @@
             <td><a href="/aliases/<?= $e($alias->address) ?>" class="fw-medium"><?= $e($alias->address) ?></a></td>
             <td><?= $e($alias->name) ?></td>
             <td><a href="/<?= $e($alias->domain) ?>/users"><?= $e($alias->domain) ?></a></td>
-            <td><span class="badge text-bg-secondary badge-status"><?= $e($alias->accessPolicy) ?></span></td>
+            <td><span class="badge badge-status <?= $tone('access_policy', (string) $alias->accessPolicy) ?>"><?= $e($alias->accessPolicy) ?></span></td>
             <td><?= $localize($alias->active ? 'active' : 'disabled') ?></td>
             <td class="text-body-secondary"><?= $e($alias->created ?? '') ?></td>
             <td>

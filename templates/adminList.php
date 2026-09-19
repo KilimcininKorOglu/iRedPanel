@@ -29,7 +29,7 @@
             <td><a href="/admins/<?= $e($admin->username) ?>/general" class="fw-medium"><?= $e($admin->username) ?></a></td>
             <td><?= $e($admin->name) ?></td>
             <td><?= $localize($admin->isGlobalAdmin) ?></td>
-            <td><span class="badge text-bg-secondary badge-status"><?= $e($admin->isMailboxAdmin ? $t('admin.type_mailbox') : $t('admin.type_standalone')) ?></span></td>
+            <td><span class="badge badge-status <?= $tone('admin_type', $admin->isMailboxAdmin ? 'mailbox' : 'standalone') ?>"><?= $e($admin->isMailboxAdmin ? $t('admin.type_mailbox') : $t('admin.type_standalone')) ?></span></td>
             <td><?= $localize($admin->active) ?></td>
             <td>
               <div class="table-actions">

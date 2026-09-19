@@ -171,6 +171,9 @@
      server-side parsing stays the same. data-types limits the account types and
      data-domain limits the domain. A free-text address is always accepted. */
 
+  // Same tones as the "count" category of App\BadgeTone.
+  var TYPE_TONES = { user: 'blue', alias: 'purple', ml: 'green' };
+
   function lookupUrl(field, query) {
     var params = new URLSearchParams({ q: query, types: field.dataset.types || 'user,alias,ml' });
     if (field.dataset.domain) {
@@ -220,7 +223,7 @@
       },
       render: {
         option: function (item, escape) {
-          var type = item.type ? '<span class="badge text-bg-secondary ms-2">' + escape(i18n.types[item.type] || item.type) + '</span>' : '';
+          var type = item.type ? '<span class="badge tone-badge tone-' + (TYPE_TONES[item.type] || 'gray') + ' ms-2">' + escape(i18n.types[item.type] || item.type) + '</span>' : '';
           return '<div class="d-flex align-items-center justify-content-between"><span>' + escape(item.text || item.value) + '</span>' + type + '</div>';
         },
         item: function (item, escape) {

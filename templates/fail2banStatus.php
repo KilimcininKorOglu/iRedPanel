@@ -10,7 +10,7 @@
     <div class="card h-100 mb-0">
       <div class="card-header d-flex align-items-center gap-2">
         <i class="bi bi-shield-lock"></i><?= $e($jail) ?>
-        <span class="badge <?= $ips === [] ? 'text-bg-secondary' : 'text-bg-danger' ?> ms-auto"><?= count($ips) ?></span>
+        <span class="badge tone-badge <?= $ips === [] ? 'tone-gray' : 'tone-red' ?> ms-auto"><?= count($ips) ?></span>
       </div>
       <?php if (!empty($ips)): ?>
       <div class="table-responsive">

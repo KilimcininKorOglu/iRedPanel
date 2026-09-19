@@ -646,23 +646,23 @@ pre {
   color: var(--bs-danger-text-emphasis) !important;
 }
 
-/* ---------- Activity log event badges ---------- */
+/* ---------- Tone badges (App\BadgeTone) ---------- */
 
-.event-badge {
-  --event-color: #a1a1aa;
-  color: var(--event-color);
-  background: color-mix(in srgb, var(--event-color) 16%, transparent);
-  border: 1px solid color-mix(in srgb, var(--event-color) 40%, transparent);
+.tone-badge {
+  --tone-color: #a1a1aa;
+  color: var(--tone-color);
+  background: color-mix(in srgb, var(--tone-color) 16%, transparent);
+  border: 1px solid color-mix(in srgb, var(--tone-color) 40%, transparent);
 }
 
-.event-cyan { --event-color: #22d3ee; }
-.event-green { --event-color: #4ade80; }
-.event-blue { --event-color: #60a5fa; }
-.event-red { --event-color: #f87171; }
-.event-orange { --event-color: #fb923c; }
-.event-purple { --event-color: #c084fc; }
-.event-yellow { --event-color: #facc15; }
-.event-gray { --event-color: #a1a1aa; }
+.tone-cyan { --tone-color: #22d3ee; }
+.tone-green { --tone-color: #4ade80; }
+.tone-blue { --tone-color: #60a5fa; }
+.tone-red { --tone-color: #f87171; }
+.tone-orange { --tone-color: #fb923c; }
+.tone-purple { --tone-color: #c084fc; }
+.tone-yellow { --tone-color: #facc15; }
+.tone-gray { --tone-color: #a1a1aa; }
 
 /* ---------- SweetAlert2 ---------- */
 

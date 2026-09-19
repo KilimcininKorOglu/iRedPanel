@@ -30,7 +30,7 @@
             <tr>
               <td class="fw-medium"><?= $e($pd['domain']) ?></td>
               <td><code><?= $e($pd['verify_code']) ?></code></td>
-              <td><span class="badge <?= $verified ? 'text-bg-success' : 'text-bg-warning' ?> badge-status"><?= $verified ? $te('domainownership.verified') : $te('domainownership.pending') ?></span></td>
+              <td><span class="badge badge-status <?= $tone('ownership', $verified ? 'verified' : 'pending') ?>"><?= $verified ? $te('domainownership.verified') : $te('domainownership.pending') ?></span></td>
               <td>
                 <?php if (!$verified): ?>
                 <div class="table-actions">

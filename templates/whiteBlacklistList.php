@@ -60,7 +60,7 @@ $sections = [
             <?php foreach ($entries as $entry): ?>
             <tr>
               <td><?= $e($entry['sender']) ?></td>
-              <td><span class="badge <?= $entry['wb'] === 'W' ? 'text-bg-success' : 'text-bg-danger' ?> badge-status"><?= $e($wbLabel($entry['wb'])) ?></span></td>
+              <td><span class="badge badge-status <?= $tone('wblist', (string) $entry['wb']) ?>"><?= $e($wbLabel($entry['wb'])) ?></span></td>
               <td>
                 <form method="post" class="table-actions">
                   <?= $csrfField ?>

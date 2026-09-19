@@ -35,7 +35,7 @@ $contentTypes = ['C', 'S', 'Y', 'V', 'B', 'H', 'M', 'O', 'T', 'U'];
           <td><?= $e($entry['recipient'] ?? '') ?></td>
           <td><?= $e($entry['subject'] ?? '') ?></td>
           <td><?= $e($entry['spam_level'] ?? '') ?></td>
-          <td><span class="badge text-bg-secondary badge-status"><?= in_array($content, $contentTypes, true) ? $te("maillog.content_{$content}") : $e($content) ?></span></td>
+          <td><span class="badge badge-status <?= $tone('mail_content', (string) $content) ?>"><?= in_array($content, $contentTypes, true) ? $te("maillog.content_{$content}") : $e($content) ?></span></td>
         </tr>
         <?php endforeach; ?>
         <?php if (empty($entries)): ?>

@@ -28,8 +28,8 @@
 
 <ul class="nav nav-pills mb-4">
   <li class="nav-item"><a class="nav-link" href="#section-settings"><?= $te('common.settings') ?></a></li>
-  <li class="nav-item"><a class="nav-link" href="#section-members"><?= $te('alias.members') ?> <span class="badge text-bg-secondary"><?= count($members) ?></span></a></li>
-  <li class="nav-item"><a class="nav-link" href="#section-moderators"><?= $te('alias.moderators') ?> <span class="badge text-bg-secondary"><?= count($moderators) ?></span></a></li>
+  <li class="nav-item"><a class="nav-link" href="#section-members"><?= $te('alias.members') ?> <span class="badge <?= $tone('count', 'members') ?>"><?= count($members) ?></span></a></li>
+  <li class="nav-item"><a class="nav-link" href="#section-moderators"><?= $te('alias.moderators') ?> <span class="badge <?= $tone('count', 'moderators') ?>"><?= count($moderators) ?></span></a></li>
 </ul>
 
 <div class="row">

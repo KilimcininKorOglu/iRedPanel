@@ -40,7 +40,7 @@ $status = fn (array $row): string => $localize(($row['active'] ?? 1) ? 'active' 
 
 <?php if (!empty($results['domains'])): ?>
 <div class="card">
-  <div class="card-header"><?= $te('domain.list_title') ?> <span class="badge text-bg-secondary"><?= count($results['domains']) ?></span></div>
+  <div class="card-header"><?= $te('domain.list_title') ?> <span class="badge <?= $tone('count', 'domains') ?>"><?= count($results['domains']) ?></span></div>
   <div class="table-responsive">
     <table class="table table-striped table-hover">
       <thead><tr><th><?= $te('common.domain') ?></th><th><?= $te('common.description') ?></th><th><?= $te('common.status') ?></th></tr></thead>
@@ -60,7 +60,7 @@ $status = fn (array $row): string => $localize(($row['active'] ?? 1) ? 'active' 
 
 <?php if (!empty($results['users'])): ?>
 <div class="card">
-  <div class="card-header"><?= $te('user.list_title') ?> <span class="badge text-bg-secondary"><?= count($results['users']) ?></span></div>
+  <div class="card-header"><?= $te('user.list_title') ?> <span class="badge <?= $tone('count', 'users') ?>"><?= count($results['users']) ?></span></div>
   <div class="table-responsive">
     <table class="table table-striped table-hover">
       <thead><tr><th><?= $te('common.email') ?></th><th><?= $te('common.name') ?></th><th><?= $te('common.domain') ?></th><th><?= $te('common.status') ?></th></tr></thead>
@@ -82,7 +82,7 @@ $status = fn (array $row): string => $localize(($row['active'] ?? 1) ? 'active' 
 
 <?php if (!empty($results['aliases'])): ?>
 <div class="card">
-  <div class="card-header"><?= $te('search.type_aliases') ?> <span class="badge text-bg-secondary"><?= count($results['aliases']) ?></span></div>
+  <div class="card-header"><?= $te('search.type_aliases') ?> <span class="badge <?= $tone('count', 'aliases') ?>"><?= count($results['aliases']) ?></span></div>
   <div class="table-responsive">
     <table class="table table-striped table-hover">
       <thead><tr><th><?= $te('common.address') ?></th><th><?= $te('common.name') ?></th><th><?= $te('common.domain') ?></th><th><?= $te('common.status') ?></th></tr></thead>
@@ -103,7 +103,7 @@ $status = fn (array $row): string => $localize(($row['active'] ?? 1) ? 'active' 
 
 <?php if (!empty($results['mailingLists'])): ?>
 <div class="card">
-  <div class="card-header"><?= $te('mlist.list_title') ?> <span class="badge text-bg-secondary"><?= count($results['mailingLists']) ?></span></div>
+  <div class="card-header"><?= $te('mlist.list_title') ?> <span class="badge <?= $tone('count', 'mailing_lists') ?>"><?= count($results['mailingLists']) ?></span></div>
   <div class="table-responsive">
     <table class="table table-striped table-hover">
       <thead><tr><th><?= $te('common.address') ?></th><th><?= $te('common.name') ?></th><th><?= $te('common.domain') ?></th><th><?= $te('common.status') ?></th></tr></thead>
@@ -124,7 +124,7 @@ $status = fn (array $row): string => $localize(($row['active'] ?? 1) ? 'active' 
 
 <?php if (!empty($results['admins'])): ?>
 <div class="card">
-  <div class="card-header"><?= $te('admin.list_title') ?> <span class="badge text-bg-secondary"><?= count($results['admins']) ?></span></div>
+  <div class="card-header"><?= $te('admin.list_title') ?> <span class="badge <?= $tone('count', 'admins') ?>"><?= count($results['admins']) ?></span></div>
   <div class="table-responsive">
     <table class="table table-striped table-hover">
       <thead><tr><th><?= $te('common.email') ?></th><th><?= $te('common.name') ?></th><th><?= $te('common.status') ?></th></tr></thead>

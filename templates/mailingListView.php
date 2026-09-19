@@ -116,7 +116,7 @@
 
     <div class="card" id="subscribers">
       <div class="card-header d-flex align-items-center gap-2">
-        <?= $te('mlist.subscribers') ?> <span class="badge text-bg-secondary"><?= count($subscribers) ?></span>
+        <?= $te('mlist.subscribers') ?> <span class="badge <?= $tone('count', 'subscribers') ?>"><?= count($subscribers) ?></span>
       </div>
       <?php if ($subscribersError !== null): ?>
       <div class="card-body"><div class="alert alert-danger mb-0"><?= $e($subscribersError) ?></div></div>

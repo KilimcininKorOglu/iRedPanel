@@ -36,6 +36,7 @@ class TemplateEngine
         };
         $localize = [TemplateFilters::class, 'localize'];
         $asMegabytes = [TemplateFilters::class, 'asMegabytes'];
+        $tone = [BadgeTone::class, 'classes'];
 
         // Translation helpers: $t() returns raw text, $te() returns HTML-escaped text.
         $t = function (string $key, array $params = []): string {

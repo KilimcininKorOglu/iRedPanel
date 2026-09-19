@@ -39,7 +39,7 @@
             <td><a href="/mailing-lists/<?= $e($ml->address) ?>" class="fw-medium"><?= $e($ml->address) ?></a></td>
             <td><?= $e($ml->name) ?></td>
             <td><a href="/<?= $e($ml->domain) ?>/users"><?= $e($ml->domain) ?></a></td>
-            <td><span class="badge text-bg-secondary badge-status"><?= $e($ml->accessPolicy) ?></span></td>
+            <td><span class="badge badge-status <?= $tone('access_policy', (string) $ml->accessPolicy) ?>"><?= $e($ml->accessPolicy) ?></span></td>
             <td><?= $localize($ml->active ? 'active' : 'disabled') ?></td>
             <td>
               <div class="table-actions">

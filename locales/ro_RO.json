@@ -97,7 +97,8 @@
     "msg_password_special": "Parola trebuie să conțină cel puțin un caracter special (:chars)",
     "msg_password_mismatch": "Parola și confirmarea parolei nu se potrivesc",
     "msg_bulk_select": "Selectați cel puțin un element și o acțiune.",
-    "msg_domain_not_found": "Domeniul :domain nu există."
+    "msg_domain_not_found": "Domeniul :domain nu există.",
+    "msg_invalid_whole_number": ":field: introduceți un număr întreg de 0 sau mai mare."
   },
   "auth": {
     "title": "Autentificare",

@@ -97,7 +97,8 @@
     "msg_password_special": "Heslo musí obsahovať aspoň jeden špeciálny znak (:chars)",
     "msg_password_mismatch": "Heslo a potvrdenie hesla sa nezhodujú",
     "msg_bulk_select": "Vyberte aspoň jednu položku a akciu.",
-    "msg_domain_not_found": "Doména :domain neexistuje."
+    "msg_domain_not_found": "Doména :domain neexistuje.",
+    "msg_invalid_whole_number": ":field: zadajte celé číslo 0 alebo väčšie."
   },
   "auth": {
     "title": "Overenie",

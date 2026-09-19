@@ -97,7 +97,8 @@
     "msg_password_special": "A jelszónak legalább egy speciális karaktert kell tartalmaznia (:chars)",
     "msg_password_mismatch": "A jelszó és a jelszó megerősítése nem egyezik",
     "msg_bulk_select": "Válasszon ki legalább egy elemet és egy műveletet.",
-    "msg_domain_not_found": "A(z) :domain domain nem létezik."
+    "msg_domain_not_found": "A(z) :domain domain nem létezik.",
+    "msg_invalid_whole_number": ":field: adjon meg 0 vagy nagyobb egész számot."
   },
   "auth": {
     "title": "Hitelesítés",

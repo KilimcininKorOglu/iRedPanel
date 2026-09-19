@@ -97,7 +97,8 @@
     "msg_password_special": "La contraseña debe contener al menos un carácter especial (:chars)",
     "msg_password_mismatch": "La contraseña y su confirmación no coinciden",
     "msg_bulk_select": "Seleccione al menos un elemento y una acción.",
-    "msg_domain_not_found": "El dominio :domain no existe."
+    "msg_domain_not_found": "El dominio :domain no existe.",
+    "msg_invalid_whole_number": ":field: introduzca un número entero igual o mayor que 0."
   },
   "auth": {
     "title": "Autenticación",

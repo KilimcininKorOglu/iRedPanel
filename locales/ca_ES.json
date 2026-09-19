@@ -97,7 +97,8 @@
     "msg_password_special": "La contrasenya ha de contenir almenys un caràcter especial (:chars)",
     "msg_password_mismatch": "La contrasenya i la confirmació no coincideixen",
     "msg_bulk_select": "Seleccioneu almenys un element i una acció.",
-    "msg_domain_not_found": "El domini :domain no existeix."
+    "msg_domain_not_found": "El domini :domain no existeix.",
+    "msg_invalid_whole_number": ":field: introduïu un nombre enter igual o superior a 0."
   },
   "auth": {
     "title": "Autenticació",

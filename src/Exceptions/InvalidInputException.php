@@ -12,11 +12,13 @@ class InvalidInputException extends \InvalidArgumentException
 {
     /**
      * @param array<string, string|int> $params placeholders for the translation key
+     * @param string $fieldKey translation key of the field label, passed as the :field placeholder
      */
     public function __construct(
         string $message,
         public readonly string $translationKey,
         public readonly array $params = [],
+        public readonly string $fieldKey = '',
     ) {
         parent::__construct($message);
     }

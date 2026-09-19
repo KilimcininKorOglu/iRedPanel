@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Exceptions\InvalidInputException;
+use App\Utils\WholeNumber;
+
 class Domain
 {
     public function __construct(
@@ -22,16 +25,42 @@ class Domain
         public int $currentQuotaUsed = 0,
     ) {}
 
+    /** Form label of each quota and count limit. */
+    private const LIMIT_LABELS = [
+        'maxQuota' => 'domain.max_quota',
+        'quota' => 'domain.domain_quota',
+        'mailboxes' => 'domain.max_mailboxes',
+        'aliases' => 'domain.max_aliases',
+    ];
+
+    /**
+     * Validates a quota or count limit. 0 means unlimited.
+     *
+     * @param string $field a key of LIMIT_LABELS
+     * @throws InvalidInputException when the value is not a whole number of 0 or more
+     */
+    public static function validLimit(mixed $value, string $field): int
+    {
+        return WholeNumber::parse($value) ?? throw new InvalidInputException(
+            "{$field} must be a whole number of 0 or more",
+            'common.msg_invalid_whole_number',
+            fieldKey: self::LIMIT_LABELS[$field],
+        );
+    }
+
+    /**
+     * @throws InvalidInputException when a limit is not a whole number of 0 or more
+     */
     public static function fromFormData(array $post): self
     {
         return new self(
             domainName: strtolower(trim($post['domainName'] ?? '')),
             description: trim($post['description'] ?? ''),
             active: (bool) ($post['active'] ?? false),
-            maxQuota: max(0, (int) ($post['maxQuota'] ?? 0)),
-            quota: max(0, (int) ($post['quota'] ?? 0)),
-            mailboxes: max(0, (int) ($post['mailboxes'] ?? 0)),
-            aliases: max(0, (int) ($post['aliases'] ?? 0)),
+            maxQuota: self::validLimit($post['maxQuota'] ?? 0, 'maxQuota'),
+            quota: self::validLimit($post['quota'] ?? 0, 'quota'),
+            mailboxes: self::validLimit($post['mailboxes'] ?? 0, 'mailboxes'),
+            aliases: self::validLimit($post['aliases'] ?? 0, 'aliases'),
             transport: trim($post['transport'] ?? 'dovecot'),
             settings: $post['settings'] ?? '',
         );

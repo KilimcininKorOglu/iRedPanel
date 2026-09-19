@@ -97,7 +97,8 @@
     "msg_password_special": "Parola en az bir özel karakter içermelidir (:chars)",
     "msg_password_mismatch": "Parola ve parola tekrarı aynı değil",
     "msg_bulk_select": "En az bir öğe ve bir işlem seçin.",
-    "msg_domain_not_found": ":domain domain'i mevcut değil."
+    "msg_domain_not_found": ":domain domain'i mevcut değil.",
+    "msg_invalid_whole_number": ":field: 0 veya daha büyük bir tam sayı girin."
   },
   "auth": {
     "title": "Kimlik Doğrulama",

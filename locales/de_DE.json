@@ -97,7 +97,8 @@
     "msg_password_special": "Das Passwort muss mindestens ein Sonderzeichen enthalten (:chars)",
     "msg_password_mismatch": "Passwort und Passwortbestätigung stimmen nicht überein",
     "msg_bulk_select": "Wählen Sie mindestens einen Eintrag und eine Aktion aus.",
-    "msg_domain_not_found": "Die Domain :domain existiert nicht."
+    "msg_domain_not_found": "Die Domain :domain existiert nicht.",
+    "msg_invalid_whole_number": ":field: Geben Sie eine ganze Zahl von 0 oder mehr ein."
   },
   "auth": {
     "title": "Authentifizierung",

@@ -97,7 +97,8 @@
     "msg_password_special": "Parool peab sisaldama vähemalt ühte erimärki (:chars)",
     "msg_password_mismatch": "Parool ja parooli kinnitus ei ühti",
     "msg_bulk_select": "Valige vähemalt üks kirje ja toiming.",
-    "msg_domain_not_found": "Domeeni :domain ei ole olemas."
+    "msg_domain_not_found": "Domeeni :domain ei ole olemas.",
+    "msg_invalid_whole_number": ":field: sisestage täisarv 0 või suurem."
   },
   "auth": {
     "title": "Autentimine",

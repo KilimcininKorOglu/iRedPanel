@@ -97,7 +97,8 @@
     "msg_password_special": "Lozinka mora sadržavati najmanje jedan poseban znak (:chars)",
     "msg_password_mismatch": "Lozinka i potvrda lozinke se ne podudaraju",
     "msg_bulk_select": "Odaberite barem jednu stavku i akciju.",
-    "msg_domain_not_found": "Domena :domain ne postoji."
+    "msg_domain_not_found": "Domena :domain ne postoji.",
+    "msg_invalid_whole_number": ":field: unesite cijeli broj, 0 ili veći."
   },
   "auth": {
     "title": "Autentifikacija",

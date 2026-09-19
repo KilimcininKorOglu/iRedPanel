@@ -97,7 +97,8 @@
     "msg_password_special": "Heslo musí obsahovat alespoň jeden speciální znak (:chars)",
     "msg_password_mismatch": "Heslo a potvrzení hesla se neshodují",
     "msg_bulk_select": "Vyberte alespoň jednu položku a akci.",
-    "msg_domain_not_found": "Doména :domain neexistuje."
+    "msg_domain_not_found": "Doména :domain neexistuje.",
+    "msg_invalid_whole_number": ":field: zadejte celé číslo 0 nebo větší."
   },
   "auth": {
     "title": "Ověření",

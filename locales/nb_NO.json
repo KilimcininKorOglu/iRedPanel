@@ -97,7 +97,8 @@
     "msg_password_special": "Passordet må inneholde minst ett spesialtegn (:chars)",
     "msg_password_mismatch": "Passordet og bekreftelsen er ikke like",
     "msg_bulk_select": "Velg minst ett element og en handling.",
-    "msg_domain_not_found": "Domenet :domain finnes ikke."
+    "msg_domain_not_found": "Domenet :domain finnes ikke.",
+    "msg_invalid_whole_number": ":field: skriv inn et heltall på 0 eller mer."
   },
   "auth": {
     "title": "Autentisering",

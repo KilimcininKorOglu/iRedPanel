@@ -243,7 +243,8 @@ class BaseController
             return Translator::translate('misc.backend_down_body');
         }
         if ($e instanceof InvalidInputException) {
-            return Translator::translate($e->translationKey, $e->params);
+            $field = $e->fieldKey !== '' ? ['field' => Translator::translate($e->fieldKey)] : [];
+            return Translator::translate($e->translationKey, $e->params + $field);
         }
         if (!$e instanceof \PDOException) {
             return $e->getMessage();

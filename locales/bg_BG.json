@@ -97,7 +97,8 @@
     "msg_password_special": "Паролата трябва да съдържа поне един специален символ (:chars)",
     "msg_password_mismatch": "Паролата и потвърждението ѝ не съвпадат",
     "msg_bulk_select": "Изберете поне един елемент и действие.",
-    "msg_domain_not_found": "Домейнът :domain не съществува."
+    "msg_domain_not_found": "Домейнът :domain не съществува.",
+    "msg_invalid_whole_number": ":field: въведете цяло число, 0 или по-голямо."
   },
   "auth": {
     "title": "Удостоверяване",

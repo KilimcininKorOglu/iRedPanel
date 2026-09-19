@@ -97,7 +97,8 @@
     "msg_password_special": "Pasahitzak gutxienez karaktere berezi bat izan behar du (:chars)",
     "msg_password_mismatch": "Pasahitza eta berrespena ez datoz bat",
     "msg_bulk_select": "Hautatu gutxienez elementu bat eta ekintza bat.",
-    "msg_domain_not_found": ":domain domeinua ez da existitzen."
+    "msg_domain_not_found": ":domain domeinua ez da existitzen.",
+    "msg_invalid_whole_number": ":field: idatzi 0 edo handiagoa den zenbaki oso bat."
   },
   "auth": {
     "title": "Autentifikazioa",

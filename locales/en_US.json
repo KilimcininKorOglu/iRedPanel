@@ -97,7 +97,8 @@
     "msg_password_special": "Password must contain at least one special character (:chars)",
     "msg_password_mismatch": "Password and password confirmation do not match",
     "msg_bulk_select": "Select at least one item and an action.",
-    "msg_domain_not_found": "The domain :domain does not exist."
+    "msg_domain_not_found": "The domain :domain does not exist.",
+    "msg_invalid_whole_number": ":field: enter a whole number of 0 or more."
   },
   "auth": {
     "title": "Authentication",

@@ -47,7 +47,12 @@ class DomainApiController
         ApiMiddleware::requireGlobalKey();
         ApiMiddleware::requireWriteAccess();
         $data = ApiMiddleware::getJsonBody();
-        $domain = Domain::fromFormData($data);
+        try {
+            $domain = Domain::fromFormData($data);
+        } catch (\InvalidArgumentException $e) {
+            ApiResponse::error($e->getMessage());
+            return;
+        }
 
         if (empty($domain->domainName)) {
             ApiResponse::error('domainName is required');
@@ -92,16 +97,21 @@ class DomainApiController
         }
 
         $data = ApiMiddleware::getJsonBody();
-        $updated = new Domain(
-            domainName: $domain,
-            description: $data['description'] ?? $existing->description,
-            active: $data['active'] ?? $existing->active,
-            maxQuota: max(0, (int) ($data['maxQuota'] ?? $existing->maxQuota)),
-            quota: max(0, (int) ($data['quota'] ?? $existing->quota)),
-            mailboxes: max(0, (int) ($data['mailboxes'] ?? $existing->mailboxes)),
-            aliases: max(0, (int) ($data['aliases'] ?? $existing->aliases)),
-            transport: $data['transport'] ?? $existing->transport,
-        );
+        try {
+            $updated = new Domain(
+                domainName: $domain,
+                description: $data['description'] ?? $existing->description,
+                active: $data['active'] ?? $existing->active,
+                maxQuota: Domain::validLimit($data['maxQuota'] ?? $existing->maxQuota, 'maxQuota'),
+                quota: Domain::validLimit($data['quota'] ?? $existing->quota, 'quota'),
+                mailboxes: Domain::validLimit($data['mailboxes'] ?? $existing->mailboxes, 'mailboxes'),
+                aliases: Domain::validLimit($data['aliases'] ?? $existing->aliases, 'aliases'),
+                transport: $data['transport'] ?? $existing->transport,
+            );
+        } catch (\InvalidArgumentException $e) {
+            ApiResponse::error($e->getMessage());
+            return;
+        }
 
         $repo->updateDomain($updated);
         ApiResponse::success(['message' => 'Domain updated']);

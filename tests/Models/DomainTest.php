@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Tests\Models;
 
+use App\Exceptions\InvalidInputException;
 use App\Models\Domain;
 use PHPUnit\Framework\TestCase;
 
@@ -50,6 +51,26 @@ class DomainTest extends TestCase
         $domain = Domain::fromFormData($post);
 
         $this->assertFalse($domain->active);
+    }
+
+    /**
+     * A negative limit used to become 0, which means unlimited.
+     */
+    public function testNegativeLimitIsRejectedWithItsFieldLabel(): void
+    {
+        try {
+            Domain::fromFormData(['domainName' => 'test.com', 'mailboxes' => '-5']);
+            $this->fail('A negative limit must be rejected');
+        } catch (InvalidInputException $e) {
+            $this->assertSame('domain.max_mailboxes', $e->fieldKey);
+            $this->assertSame('mailboxes must be a whole number of 0 or more', $e->getMessage());
+        }
+    }
+
+    public function testTextLimitIsRejected(): void
+    {
+        $this->expectException(InvalidInputException::class);
+        Domain::validLimit('abc', 'quota');
     }
 
     public function testFromMysqlRow(): void

@@ -85,7 +85,8 @@
     "msg_invalid_address": "Địa chỉ không hợp lệ: :address",
     "msg_item_deleted": "Đã xóa :item.",
     "msg_address_required": "Địa chỉ và tên miền là bắt buộc.",
-    "msg_alias_limit": "Đã đạt giới hạn bí danh của tên miền (:current/:max)."
+    "msg_alias_limit": "Đã đạt giới hạn bí danh của tên miền (:current/:max).",
+    "msg_item_created": "Đã tạo :item."
   },
   "auth": {
     "title": "Xác thực",

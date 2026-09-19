@@ -422,6 +422,7 @@ class UserController
                         $passwordHash = PasswordUtils::generatePasswordHash($password);
                         $userRepo->createUser($domain, $user, $passwordHash);
                         ActivityLogger::logCreate($domain, $user->uid, "User created");
+                        BaseController::flashCreated("{$user->uid}@{$domain}");
                         header("Location: /{$domain}/users");
                         exit;
                     }

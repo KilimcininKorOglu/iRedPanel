@@ -85,7 +85,8 @@
     "msg_invalid_address": "Nieprawidłowy adres: :address",
     "msg_item_deleted": "Usunięto :item.",
     "msg_address_required": "Adres i domena są wymagane.",
-    "msg_alias_limit": "Osiągnięto limit aliasów domeny (:current/:max)."
+    "msg_alias_limit": "Osiągnięto limit aliasów domeny (:current/:max).",
+    "msg_item_created": "Utworzono :item."
   },
   "auth": {
     "title": "Uwierzytelnianie",

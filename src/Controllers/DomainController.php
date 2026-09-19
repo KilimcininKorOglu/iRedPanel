@@ -126,6 +126,7 @@ class DomainController
                                     $pdo->commit();
                                 }
                                 ActivityLogger::logCreate($domain->domainName, '', "Domain created: {$domain->domainName}");
+                                BaseController::flashCreated($domain->domainName);
                                 header("Location: /domains");
                                 exit;
                             }

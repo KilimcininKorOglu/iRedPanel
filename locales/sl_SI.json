@@ -85,7 +85,8 @@
     "msg_invalid_address": "Neveljaven naslov: :address",
     "msg_item_deleted": ":item je izbrisan.",
     "msg_address_required": "Naslov in domena sta obvezna.",
-    "msg_alias_limit": "Dosežena je omejitev vzdevkov domene (:current/:max)."
+    "msg_alias_limit": "Dosežena je omejitev vzdevkov domene (:current/:max).",
+    "msg_item_created": ":item je ustvarjen."
   },
   "auth": {
     "title": "Preverjanje pristnosti",

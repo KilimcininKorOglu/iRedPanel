@@ -85,7 +85,8 @@
     "msg_invalid_address": "Ugyldig adresse: :address",
     "msg_item_deleted": ":item er slettet.",
     "msg_address_required": "Adressen og domænet er påkrævet.",
-    "msg_alias_limit": "Domænets aliasgrænse er nået (:current/:max)."
+    "msg_alias_limit": "Domænets aliasgrænse er nået (:current/:max).",
+    "msg_item_created": ":item er oprettet."
   },
   "auth": {
     "title": "Godkendelse",

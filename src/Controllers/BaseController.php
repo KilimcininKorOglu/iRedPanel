@@ -30,6 +30,14 @@ class BaseController
     }
 
     /**
+     * Stores the success message for a created item.
+     */
+    public static function flashCreated(string $item): void
+    {
+        self::flashSuccess(Translator::translate('common.msg_item_created', ['item' => $item]));
+    }
+
+    /**
      * Stores the success message for a deleted item.
      */
     public static function flashDeleted(string $item): void

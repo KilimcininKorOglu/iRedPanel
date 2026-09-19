@@ -85,7 +85,8 @@
     "msg_invalid_address": "Neplatná adresa: :address",
     "msg_item_deleted": ":item bol odstránený.",
     "msg_address_required": "Adresa a doména sú povinné.",
-    "msg_alias_limit": "Bol dosiahnutý limit aliasov domény (:current/:max)."
+    "msg_alias_limit": "Bol dosiahnutý limit aliasov domény (:current/:max).",
+    "msg_item_created": ":item bol vytvorený."
   },
   "auth": {
     "title": "Overenie",

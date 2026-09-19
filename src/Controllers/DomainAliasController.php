@@ -56,6 +56,7 @@ class DomainAliasController
                 if (empty($validationErrors)) {
                     RepositoryFactory::getDomainAliasRepository()->createAlias($alias);
                     ActivityLogger::logCreate($alias->targetDomain, '', "Domain alias created: {$alias->aliasDomain} -> {$alias->targetDomain}");
+                    BaseController::flashCreated($alias->aliasDomain);
                     header("Location: /domain-aliases");
                     exit;
                 }

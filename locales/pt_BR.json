@@ -85,7 +85,8 @@
     "msg_invalid_address": "Endereço inválido: :address",
     "msg_item_deleted": ":item foi excluído.",
     "msg_address_required": "O endereço e o domínio são obrigatórios.",
-    "msg_alias_limit": "O limite de aliases do domínio foi atingido (:current/:max)."
+    "msg_alias_limit": "O limite de aliases do domínio foi atingido (:current/:max).",
+    "msg_item_created": ":item foi criado."
   },
   "auth": {
     "title": "Autenticação",

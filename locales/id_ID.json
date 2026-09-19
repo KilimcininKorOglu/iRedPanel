@@ -85,7 +85,8 @@
     "msg_invalid_address": "Alamat tidak valid: :address",
     "msg_item_deleted": ":item telah dihapus.",
     "msg_address_required": "Alamat dan domain wajib diisi.",
-    "msg_alias_limit": "Batas alias domain telah tercapai (:current/:max)."
+    "msg_alias_limit": "Batas alias domain telah tercapai (:current/:max).",
+    "msg_item_created": ":item telah dibuat."
   },
   "auth": {
     "title": "Autentikasi",

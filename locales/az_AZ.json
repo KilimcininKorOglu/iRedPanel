@@ -85,7 +85,8 @@
     "msg_invalid_address": "Etibarsız ünvan: :address",
     "msg_item_deleted": ":item silindi.",
     "msg_address_required": "Ünvan və domain tələb olunur.",
-    "msg_alias_limit": "Domainin alias limitinə çatıldı (:current/:max)."
+    "msg_alias_limit": "Domainin alias limitinə çatıldı (:current/:max).",
+    "msg_item_created": ":item yaradıldı."
   },
   "auth": {
     "title": "Autentifikasiya",

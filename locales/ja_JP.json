@@ -85,7 +85,8 @@
     "msg_invalid_address": "無効なアドレス: :address",
     "msg_item_deleted": ":item を削除しました。",
     "msg_address_required": "アドレスとドメインは必須です。",
-    "msg_alias_limit": "ドメインのエイリアス上限に達しました (:current/:max)。"
+    "msg_alias_limit": "ドメインのエイリアス上限に達しました (:current/:max)。",
+    "msg_item_created": ":item を作成しました。"
   },
   "auth": {
     "title": "認証",

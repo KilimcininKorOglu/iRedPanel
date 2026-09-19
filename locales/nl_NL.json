@@ -85,7 +85,8 @@
     "msg_invalid_address": "Ongeldig adres: :address",
     "msg_item_deleted": ":item is verwijderd.",
     "msg_address_required": "Het adres en het domein zijn verplicht.",
-    "msg_alias_limit": "De aliaslimiet van het domein is bereikt (:current/:max)."
+    "msg_alias_limit": "De aliaslimiet van het domein is bereikt (:current/:max).",
+    "msg_item_created": ":item is aangemaakt."
   },
   "auth": {
     "title": "Authenticatie",

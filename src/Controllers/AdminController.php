@@ -146,6 +146,7 @@ class AdminController
                         $passwordHash = PasswordUtils::generatePasswordHash($password);
                         $repo->createAdmin($admin, $passwordHash);
                         ActivityLogger::logCreate('', $admin->username, "Admin created: {$admin->username}");
+                        BaseController::flashCreated($admin->username);
                         header("Location: /admins");
                         exit;
                     }

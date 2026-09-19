@@ -85,7 +85,8 @@
     "msg_invalid_address": "Helbide baliogabea: :address",
     "msg_item_deleted": ":item ezabatu da.",
     "msg_address_required": "Helbidea eta domeinua derrigorrezkoak dira.",
-    "msg_alias_limit": "Domeinuaren alias muga gainditu da (:current/:max)."
+    "msg_alias_limit": "Domeinuaren alias muga gainditu da (:current/:max).",
+    "msg_item_created": ":item sortu da."
   },
   "auth": {
     "title": "Autentifikazioa",

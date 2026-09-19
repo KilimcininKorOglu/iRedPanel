@@ -85,7 +85,8 @@
     "msg_invalid_address": "Geçersiz adres: :address",
     "msg_item_deleted": ":item silindi.",
     "msg_address_required": "Adres ve domain zorunludur.",
-    "msg_alias_limit": "Domain alias sınırına ulaşıldı (:current/:max)."
+    "msg_alias_limit": "Domain alias sınırına ulaşıldı (:current/:max).",
+    "msg_item_created": ":item oluşturuldu."
   },
   "auth": {
     "title": "Kimlik Doğrulama",

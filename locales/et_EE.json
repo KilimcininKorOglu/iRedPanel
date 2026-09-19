@@ -85,7 +85,8 @@
     "msg_invalid_address": "Vigane aadress: :address",
     "msg_item_deleted": ":item kustutati.",
     "msg_address_required": "Aadress ja domeen on kohustuslikud.",
-    "msg_alias_limit": "Domeeni aliaste piirang on täis (:current/:max)."
+    "msg_alias_limit": "Domeeni aliaste piirang on täis (:current/:max).",
+    "msg_item_created": ":item loodi."
   },
   "auth": {
     "title": "Autentimine",

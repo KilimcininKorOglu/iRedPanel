@@ -85,7 +85,8 @@
     "msg_invalid_address": "잘못된 주소: :address",
     "msg_item_deleted": ":item을(를) 삭제했습니다.",
     "msg_address_required": "주소와 도메인은 필수입니다.",
-    "msg_alias_limit": "도메인 별칭 한도에 도달했습니다 (:current/:max)."
+    "msg_alias_limit": "도메인 별칭 한도에 도달했습니다 (:current/:max).",
+    "msg_item_created": ":item을(를) 만들었습니다."
   },
   "auth": {
     "title": "인증",

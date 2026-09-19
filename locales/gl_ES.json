@@ -85,7 +85,8 @@
     "msg_invalid_address": "Enderezo non válido: :address",
     "msg_item_deleted": "Eliminouse :item.",
     "msg_address_required": "O enderezo e o dominio son obrigatorios.",
-    "msg_alias_limit": "Alcanzouse o límite de alias do dominio (:current/:max)."
+    "msg_alias_limit": "Alcanzouse o límite de alias do dominio (:current/:max).",
+    "msg_item_created": "Creouse :item."
   },
   "auth": {
     "title": "Autenticación",

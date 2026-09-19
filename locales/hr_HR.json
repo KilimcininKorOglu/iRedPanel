@@ -85,7 +85,8 @@
     "msg_invalid_address": "Nevažeća adresa: :address",
     "msg_item_deleted": ":item je izbrisan.",
     "msg_address_required": "Adresa i domena su obavezne.",
-    "msg_alias_limit": "Dosegnuto je ograničenje aliasa domene (:current/:max)."
+    "msg_alias_limit": "Dosegnuto je ograničenje aliasa domene (:current/:max).",
+    "msg_item_created": ":item je stvoren."
   },
   "auth": {
     "title": "Autentifikacija",

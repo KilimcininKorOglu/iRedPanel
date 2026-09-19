@@ -85,7 +85,8 @@
     "msg_invalid_address": "Virheellinen osoite: :address",
     "msg_item_deleted": ":item poistettiin.",
     "msg_address_required": "Osoite ja verkkotunnus ovat pakollisia.",
-    "msg_alias_limit": "Verkkotunnuksen aliasraja on täynnä (:current/:max)."
+    "msg_alias_limit": "Verkkotunnuksen aliasraja on täynnä (:current/:max).",
+    "msg_item_created": ":item luotiin."
   },
   "auth": {
     "title": "Todennus",

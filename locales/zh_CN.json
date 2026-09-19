@@ -85,7 +85,8 @@
     "msg_invalid_address": "无效的地址: :address",
     "msg_item_deleted": "已删除 :item。",
     "msg_address_required": "地址和域名为必填项。",
-    "msg_alias_limit": "已达到域名的别名上限 (:current/:max)。"
+    "msg_alias_limit": "已达到域名的别名上限 (:current/:max)。",
+    "msg_item_created": "已创建 :item。"
   },
   "auth": {
     "title": "身份验证",

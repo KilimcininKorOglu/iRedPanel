@@ -85,7 +85,8 @@
     "msg_invalid_address": "Ugyldig adresse: :address",
     "msg_item_deleted": ":item er slettet.",
     "msg_address_required": "Adressen og domenet må fylles ut.",
-    "msg_alias_limit": "Domenets aliasgrense er nådd (:current/:max)."
+    "msg_alias_limit": "Domenets aliasgrense er nådd (:current/:max).",
+    "msg_item_created": ":item er opprettet."
   },
   "auth": {
     "title": "Autentisering",

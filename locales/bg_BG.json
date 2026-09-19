@@ -85,7 +85,8 @@
     "msg_invalid_address": "Невалиден адрес: :address",
     "msg_item_deleted": ":item е изтрит.",
     "msg_address_required": "Адресът и домейнът са задължителни.",
-    "msg_alias_limit": "Достигнат е лимитът на псевдоними за домейна (:current/:max)."
+    "msg_alias_limit": "Достигнат е лимитът на псевдоними за домейна (:current/:max).",
+    "msg_item_created": ":item е създаден."
   },
   "auth": {
     "title": "Удостоверяване",

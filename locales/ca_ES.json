@@ -85,7 +85,8 @@
     "msg_invalid_address": "Adreça no vàlida: :address",
     "msg_item_deleted": "S'ha suprimit :item.",
     "msg_address_required": "L'adreça i el domini són obligatoris.",
-    "msg_alias_limit": "S'ha assolit el límit d'àlies del domini (:current/:max)."
+    "msg_alias_limit": "S'ha assolit el límit d'àlies del domini (:current/:max).",
+    "msg_item_created": "S'ha creat :item."
   },
   "auth": {
     "title": "Autenticació",

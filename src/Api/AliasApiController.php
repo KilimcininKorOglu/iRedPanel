@@ -57,12 +57,12 @@ class AliasApiController
         ApiMiddleware::requireGlobalKey();
         ApiMiddleware::requireWriteAccess();
         $data = ApiMiddleware::getJsonBody();
-        $address = $data['address'] ?? '';
-        $domain = $data['domain'] ?? '';
-        $name = $data['name'] ?? '';
+        $address = strtolower(trim((string) ($data['address'] ?? '')));
+        $domain = strtolower(trim((string) ($data['domain'] ?? '')));
 
-        if ($address === '' || $domain === '') {
-            ApiResponse::error('address and domain are required');
+        $failure = self::newAddressError($address, $domain);
+        if ($failure !== null) {
+            ApiResponse::error($failure[0], $failure[1]);
             return;
         }
 
@@ -74,29 +74,45 @@ class AliasApiController
             return;
         }
 
-        if (!str_ends_with(strtolower($address), '@' . strtolower($domain))) {
-            ApiResponse::error('address must be in domain');
-            return;
+        RepositoryFactory::getAliasRepository()->createAlias($address, $domain, $data['name'] ?? '', $members, $accessPolicy);
+        ApiResponse::created(['address' => $address]);
+    }
+
+    /**
+     * Checks the address of a new alias or mailing list.
+     * Both count against the domain alias limit.
+     *
+     * @param string $address lowercased address
+     * @param string $domain lowercased domain
+     * @return array{0: string, 1: int}|null the error message and HTTP status, or null when the address is valid
+     */
+    public static function newAddressError(string $address, string $domain): ?array
+    {
+        if ($address === '' || $domain === '') {
+            return ['address and domain are required', 400];
+        }
+        if (filter_var($address, FILTER_VALIDATE_EMAIL) === false) {
+            return ['Invalid address', 400];
+        }
+        if (!str_ends_with($address, '@' . $domain)) {
+            return ['address must be in domain', 400];
+        }
+
+        $domainObj = RepositoryFactory::getDomainRepository()->getDomain($domain);
+        if ($domainObj === null) {
+            return ['Domain not found', 404];
         }
 
         $repo = RepositoryFactory::getAliasRepository();
         if ($repo->isAddressInUse($address)) {
-            ApiResponse::error('Address already in use', 409);
-            return;
+            return ['Address already in use', 409];
+        }
+        $aliasCount = $domainObj->aliases > 0 ? $repo->countAliasesForDomain($domain) : 0;
+        if ($domainObj->aliases > 0 && $aliasCount >= $domainObj->aliases) {
+            return ["Domain alias limit reached ({$aliasCount}/{$domainObj->aliases})", 403];
         }
 
-        // Enforce domain alias limit
-        $domainObj = RepositoryFactory::getDomainRepository()->getDomain($domain);
-        if ($domainObj !== null && $domainObj->aliases > 0) {
-            $aliasCount = $repo->countAliasesForDomain($domain);
-            if ($aliasCount >= $domainObj->aliases) {
-                ApiResponse::error("Domain alias limit reached ({$aliasCount}/{$domainObj->aliases})", 403);
-                return;
-            }
-        }
-
-        $repo->createAlias($address, $domain, $name, $members, $accessPolicy);
-        ApiResponse::created(['address' => $address]);
+        return null;
     }
 
     public static function update(string $address): void

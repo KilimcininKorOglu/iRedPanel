@@ -96,7 +96,8 @@
     "msg_password_lowercase": "Le mot de passe doit contenir au moins une lettre minuscule",
     "msg_password_special": "Le mot de passe doit contenir au moins un caractère spécial (:chars)",
     "msg_password_mismatch": "Le mot de passe et sa confirmation ne correspondent pas",
-    "msg_bulk_select": "Sélectionnez au moins un élément et une action."
+    "msg_bulk_select": "Sélectionnez au moins un élément et une action.",
+    "msg_domain_not_found": "Le domaine :domain n'existe pas."
   },
   "auth": {
     "title": "Authentification",

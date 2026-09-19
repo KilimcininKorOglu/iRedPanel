@@ -96,7 +96,8 @@
     "msg_password_lowercase": "Hasło musi zawierać co najmniej jedną małą literę",
     "msg_password_special": "Hasło musi zawierać co najmniej jeden znak specjalny (:chars)",
     "msg_password_mismatch": "Hasło i potwierdzenie hasła nie są zgodne",
-    "msg_bulk_select": "Wybierz co najmniej jeden element i akcję."
+    "msg_bulk_select": "Wybierz co najmniej jeden element i akcję.",
+    "msg_domain_not_found": "Domena :domain nie istnieje."
   },
   "auth": {
     "title": "Uwierzytelnianie",

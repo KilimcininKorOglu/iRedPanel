@@ -52,35 +52,10 @@ class MailingListApiController
         $address = strtolower(trim((string) ($data['address'] ?? '')));
         $domain = strtolower(trim((string) ($data['domain'] ?? '')));
 
-        if ($address === '' || $domain === '') {
-            ApiResponse::error('address and domain are required');
+        $failure = AliasApiController::newAddressError($address, $domain);
+        if ($failure !== null) {
+            ApiResponse::error($failure[0], $failure[1]);
             return;
-        }
-
-        if (filter_var($address, FILTER_VALIDATE_EMAIL) === false) {
-            ApiResponse::error('Invalid address');
-            return;
-        }
-
-        if (!str_ends_with($address, '@' . $domain)) {
-            ApiResponse::error('address must be in domain');
-            return;
-        }
-
-        if (RepositoryFactory::getAliasRepository()->isAddressInUse($address)) {
-            ApiResponse::error('Address already in use', 409);
-            return;
-        }
-
-        // Enforce domain alias limit (mailing lists count as aliases)
-        $domainObj = RepositoryFactory::getDomainRepository()->getDomain($domain);
-        if ($domainObj !== null && $domainObj->aliases > 0) {
-            $aliasRepo = RepositoryFactory::getAliasRepository();
-            $aliasCount = $aliasRepo->countAliasesForDomain($domain);
-            if ($aliasCount >= $domainObj->aliases) {
-                ApiResponse::error("Domain alias limit reached ({$aliasCount}/{$domainObj->aliases})", 403);
-                return;
-            }
         }
 
         try {

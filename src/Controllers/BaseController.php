@@ -7,6 +7,7 @@ namespace App\Controllers;
 use App\Exceptions\BackendConnectionException;
 use App\I18n\Translator;
 use App\Models\Alias;
+use App\Repositories\RepositoryFactory;
 use App\TemplateEngine;
 use App\Utils\AddressList;
 use App\Utils\Relayhost;
@@ -47,6 +48,46 @@ class BaseController
             throw self::invalidAddress($address);
         }
         return $address;
+    }
+
+    /**
+     * Reads the posted local part and domain of a new alias or mailing list.
+     *
+     * @return array{0: string, 1: string} the address and the domain, lowercased
+     * @throws \RuntimeException naming the first failed check
+     */
+    public static function postedNewAliasAddress(): array
+    {
+        $localPart = trim((string) ($_POST['localPart'] ?? ''));
+        $domain = strtolower(trim((string) ($_POST['domain'] ?? '')));
+        if ($localPart === '' || $domain === '') {
+            throw new \RuntimeException(Translator::translate('common.msg_address_required'));
+        }
+
+        $address = strtolower($localPart . '@' . $domain);
+        if (filter_var($address, FILTER_VALIDATE_EMAIL) === false) {
+            throw self::invalidAddress($address);
+        }
+        // The domain select can be edited in the browser, so the domain must exist in the backend.
+        $domainObj = RepositoryFactory::getDomainRepository()->getDomain($domain);
+        if ($domainObj === null) {
+            throw new \RuntimeException(Translator::translate('common.msg_domain_not_found', ['domain' => $domain]));
+        }
+
+        $aliasRepo = RepositoryFactory::getAliasRepository();
+        if ($aliasRepo->isAddressInUse($address)) {
+            throw new \RuntimeException(Translator::translate('common.msg_address_in_use', ['address' => $address]));
+        }
+        // Aliases and mailing lists both count against the domain alias limit.
+        $aliasCount = $domainObj->aliases > 0 ? $aliasRepo->countAliasesForDomain($domain) : 0;
+        if ($domainObj->aliases > 0 && $aliasCount >= $domainObj->aliases) {
+            throw new \RuntimeException(Translator::translate('common.msg_alias_limit', [
+                'current' => $aliasCount,
+                'max' => $domainObj->aliases,
+            ]));
+        }
+
+        return [$address, $domain];
     }
 
     /**

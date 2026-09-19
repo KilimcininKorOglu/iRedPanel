@@ -96,7 +96,8 @@
     "msg_password_lowercase": "Parolda ən azı bir kiçik hərf olmalıdır",
     "msg_password_special": "Parolda ən azı bir xüsusi simvol olmalıdır (:chars)",
     "msg_password_mismatch": "Parol və parolun təkrarı eyni deyil",
-    "msg_bulk_select": "Ən azı bir element və bir əməliyyat seçin."
+    "msg_bulk_select": "Ən azı bir element və bir əməliyyat seçin.",
+    "msg_domain_not_found": ":domain domeni mövcud deyil."
   },
   "auth": {
     "title": "Autentifikasiya",

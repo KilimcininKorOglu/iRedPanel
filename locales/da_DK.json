@@ -96,7 +96,8 @@
     "msg_password_lowercase": "Adgangskoden skal indeholde mindst ét lille bogstav",
     "msg_password_special": "Adgangskoden skal indeholde mindst ét specialtegn (:chars)",
     "msg_password_mismatch": "Adgangskoden og bekræftelsen stemmer ikke overens",
-    "msg_bulk_select": "Vælg mindst ét element og en handling."
+    "msg_bulk_select": "Vælg mindst ét element og en handling.",
+    "msg_domain_not_found": "Domænet :domain findes ikke."
   },
   "auth": {
     "title": "Godkendelse",

@@ -96,7 +96,8 @@
     "msg_password_lowercase": "Lösenordet måste innehålla minst en gemen",
     "msg_password_special": "Lösenordet måste innehålla minst ett specialtecken (:chars)",
     "msg_password_mismatch": "Lösenordet och bekräftelsen matchar inte",
-    "msg_bulk_select": "Välj minst ett objekt och en åtgärd."
+    "msg_bulk_select": "Välj minst ett objekt och en åtgärd.",
+    "msg_domain_not_found": "Domänen :domain finns inte."
   },
   "auth": {
     "title": "Autentisering",

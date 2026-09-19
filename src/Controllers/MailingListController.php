@@ -69,20 +69,7 @@ class MailingListController
      */
     private static function createFromPost(): string
     {
-        $localPart = trim($_POST['localPart'] ?? '');
-        $domain = trim($_POST['domain'] ?? '');
-        if ($localPart === '' || $domain === '') {
-            throw new \RuntimeException(Translator::translate('common.msg_address_required'));
-        }
-
-        $address = strtolower($localPart . '@' . $domain);
-        if (filter_var($address, FILTER_VALIDATE_EMAIL) === false) {
-            throw new \RuntimeException(Translator::translate('common.msg_invalid_email', ['address' => $address]));
-        }
-        if (RepositoryFactory::getAliasRepository()->isAddressInUse($address)) {
-            throw new \RuntimeException(Translator::translate('common.msg_address_in_use', ['address' => $address]));
-        }
-        self::assertAliasLimit($domain);
+        [$address, $domain] = BaseController::postedNewAliasAddress();
 
         MailingListService::create(
             $address,
@@ -94,25 +81,6 @@ class MailingListController
         ActivityLogger::logCreate($domain, '', "Created mailing list: {$address}");
 
         return $address;
-    }
-
-    /**
-     * Mailing lists count against the domain alias limit.
-     */
-    private static function assertAliasLimit(string $domain): void
-    {
-        $domainObj = RepositoryFactory::getDomainRepository()->getDomain($domain);
-        if ($domainObj === null || $domainObj->aliases <= 0) {
-            return;
-        }
-
-        $aliasCount = RepositoryFactory::getAliasRepository()->countAliasesForDomain($domain);
-        if ($aliasCount >= $domainObj->aliases) {
-            throw new \RuntimeException(Translator::translate('common.msg_alias_limit', [
-                'current' => $aliasCount,
-                'max' => $domainObj->aliases,
-            ]));
-        }
     }
 
     public static function view(TemplateEngine $tpl, string $address): void

@@ -48,37 +48,12 @@ class AliasController
             CsrfProtection::validateToken();
 
             try {
-                $localPart = trim($_POST['localPart'] ?? '');
-                $domain = trim($_POST['domain'] ?? '');
                 $name = trim($_POST['name'] ?? '');
                 $accessPolicy = BaseController::postedAccessPolicy();
-
-                if ($localPart === '' || $domain === '') {
-                    throw new \RuntimeException(Translator::translate('common.msg_address_required'));
-                }
-
-                $address = strtolower($localPart . '@' . $domain);
+                [$address, $domain] = BaseController::postedNewAliasAddress();
                 $members = BaseController::postedAddresses('members');
 
-                $repo = RepositoryFactory::getAliasRepository();
-
-                if ($repo->isAddressInUse($address)) {
-                    throw new \RuntimeException(Translator::translate('common.msg_address_in_use', ['address' => $address]));
-                }
-
-                // Enforce domain alias limit
-                $domainObj = RepositoryFactory::getDomainRepository()->getDomain($domain);
-                if ($domainObj !== null && $domainObj->aliases > 0) {
-                    $aliasCount = $repo->countAliasesForDomain($domain);
-                    if ($aliasCount >= $domainObj->aliases) {
-                        throw new \RuntimeException(Translator::translate('common.msg_alias_limit', [
-                            'current' => $aliasCount,
-                            'max' => $domainObj->aliases,
-                        ]));
-                    }
-                }
-
-                $repo->createAlias($address, $domain, $name, $members, $accessPolicy);
+                RepositoryFactory::getAliasRepository()->createAlias($address, $domain, $name, $members, $accessPolicy);
                 ActivityLogger::logCreate($domain, '', "Created mail alias: {$address}");
                 BaseController::flashCreated($address);
 

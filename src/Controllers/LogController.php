@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controllers;
 
 use App\CsrfProtection;
+use App\I18n\Translator;
 use App\Middleware;
 use App\Models\PaginatedResult;
 use App\Models\Settings;
@@ -106,23 +107,25 @@ class LogController
 
         $conn = self::getConnection();
         if (!$conn->isAvailable()) {
+            BaseController::flashError(Translator::translate('log.not_configured'));
             header("Location: /logs");
             exit;
         }
 
         $pdo = $conn->getPdo();
-        $deleteAll = isset($_POST['deleteAll']);
         $ids = $_POST['ids'] ?? [];
 
-        if ($deleteAll) {
-            $pdo->exec("DELETE FROM log");
+        if (isset($_POST['deleteAll'])) {
+            $deleted = (int) $pdo->exec("DELETE FROM log");
             ActivityLogger::log('delete', '', '', 'All log entries deleted');
+            BaseController::flashSuccess(Translator::translate('common.msg_bulk_done', ['count' => $deleted]));
         } elseif (!empty($ids) && is_array($ids)) {
             $safeIds = array_map('intval', $ids);
             $placeholders = implode(',', array_fill(0, count($safeIds), '?'));
             $stmt = $pdo->prepare("DELETE FROM log WHERE id IN ({$placeholders})");
             $stmt->execute($safeIds);
-            ActivityLogger::log('delete', '', '', 'Deleted ' . count($safeIds) . ' log entries');
+            ActivityLogger::log('delete', '', '', 'Deleted ' . $stmt->rowCount() . ' log entries');
+            BaseController::flashSuccess(Translator::translate('common.msg_bulk_done', ['count' => $stmt->rowCount()]));
         }
 
         header("Location: /logs");

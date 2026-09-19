@@ -223,4 +223,24 @@ class DomainTest extends TestCase
 
         $this->assertNull($domain->newMailboxError(100));
     }
+
+    public function testQuotaChangeAboveTheUserMaximumIsRefused(): void
+    {
+        $error = (new Domain(domainName: 'x.test', maxQuota: 100))->quotaChangeError(50, 101);
+
+        $this->assertSame('user.msg_quota_exceeds_max', $error?->translationKey);
+    }
+
+    /**
+     * Only the growth of the quota counts against the total domain quota,
+     * so a mailbox in a full domain can still shrink or keep its quota.
+     */
+    public function testQuotaChangeCountsOnlyTheGrowthAgainstTheDomainQuota(): void
+    {
+        $domain = new Domain(domainName: 'x.test', quota: 500, currentQuotaUsed: 480);
+
+        $this->assertNull($domain->quotaChangeError(100, 120));
+        $this->assertNull($domain->quotaChangeError(100, 50));
+        $this->assertSame('user.msg_total_quota_exceeded', $domain->quotaChangeError(100, 121)?->translationKey);
+    }
 }

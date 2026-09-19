@@ -100,6 +100,30 @@ class Domain
         return null;
     }
 
+    /**
+     * Checks the quota limits of this domain when a mailbox quota changes.
+     *
+     * @param int $oldQuota the stored quota of the mailbox in MB
+     * @param int $newQuota the requested quota in MB
+     * @return ?InvalidInputException the violated limit, or null when the quota fits
+     */
+    public function quotaChangeError(int $oldQuota, int $newQuota): ?InvalidInputException
+    {
+        if ($this->maxQuota > 0 && $newQuota > $this->maxQuota) {
+            return new InvalidInputException(
+                "User quota exceeds domain maximum ({$this->maxQuota} MB)",
+                'user.msg_quota_exceeds_max',
+                ['quota' => $newQuota, 'max' => $this->maxQuota],
+            );
+        }
+        $growth = $newQuota - $oldQuota;
+        if ($this->quota > 0 && $growth > 0 && ($this->currentQuotaUsed + $growth) > $this->quota) {
+            return new InvalidInputException('Total domain quota would be exceeded', 'user.msg_total_quota_exceeded');
+        }
+
+        return null;
+    }
+
     /** Form label of each quota and count limit. */
     private const LIMIT_LABELS = [
         'maxQuota' => 'domain.max_quota',

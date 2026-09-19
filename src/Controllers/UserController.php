@@ -91,17 +91,10 @@ class UserController
                         $user->domainGlobalAdmin = $existingUser ? $existingUser->domainGlobalAdmin : false;
                     }
 
-                    // Enforce domain quota limits on update
-                    $domainObj = RepositoryFactory::getDomainRepository()->getDomain($domain);
-                    if ($domainObj !== null) {
-                        if ($domainObj->maxQuota > 0 && $user->mailQuota > $domainObj->maxQuota) {
-                            $error = Translator::translate('user.msg_quota_exceeds_max', ['quota' => $user->mailQuota, 'max' => $domainObj->maxQuota]);
-                        } elseif ($domainObj->quota > 0 && $existingUser !== null) {
-                            $quotaDiff = $user->mailQuota - $existingUser->mailQuota;
-                            if ($quotaDiff > 0 && ($domainObj->currentQuotaUsed + $quotaDiff) > $domainObj->quota) {
-                                $error = Translator::translate('user.msg_total_quota_exceeded');
-                            }
-                        }
+                    $limitError = RepositoryFactory::getDomainRepository()->getDomain($domain)
+                        ?->quotaChangeError($existingUser?->mailQuota ?? $user->mailQuota, $user->mailQuota);
+                    if ($limitError !== null) {
+                        $error = Translator::translate($limitError->translationKey, $limitError->params);
                     }
 
                     if ($error === null) {

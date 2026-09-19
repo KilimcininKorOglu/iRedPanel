@@ -9,8 +9,8 @@ use App\Utils\FormValue;
 use App\Utils\WholeNumber;
 
 /**
- * Represents per-domain settings stored in domain.settings column (MySQL)
- * or accountSetting attribute (LDAP) as key:value; pairs.
+ * Represents per-domain settings stored in the domain.settings column as key:value; pairs.
+ * LdapAccountSetting maps them to the LDAP accountSetting attribute.
  */
 class DomainSettings
 {
@@ -120,42 +120,5 @@ class DomainSettings
             'common.msg_invalid_whole_number',
             fieldKey: $labelKey,
         );
-    }
-
-    /**
-     * Parse from LDAP multi-valued accountSetting attribute.
-     * Each value is a "key:value" string.
-     *
-     * @param string[] $values
-     */
-    public static function fromLdapAccountSetting(array $values): self
-    {
-        return self::fromSettingsString(implode(';', $values) . ';');
-    }
-
-    /**
-     * Serialize to LDAP multi-valued accountSetting attribute.
-     *
-     * @return string[]
-     */
-    public function toLdapAccountSetting(): array
-    {
-        $parts = [];
-
-        if ($this->defaultUserQuota > 0) {
-            $parts[] = "default_user_quota:{$this->defaultUserQuota}";
-        }
-        if ($this->minPasswordLength > 0) {
-            $parts[] = "min_passwd_length:{$this->minPasswordLength}";
-        }
-        if ($this->maxPasswordLength > 0) {
-            $parts[] = "max_passwd_length:{$this->maxPasswordLength}";
-        }
-        // The disclaimer lives in the LDAP `disclaimer` attribute, see Domain::$disclaimer.
-        if (!empty($this->disabledMailServices)) {
-            $parts[] = "disabled_mail_services:" . implode(',', $this->disabledMailServices);
-        }
-
-        return $parts;
     }
 }

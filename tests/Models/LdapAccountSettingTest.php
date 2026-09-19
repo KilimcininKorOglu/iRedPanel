@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Tests\Models;
 
 use App\Models\Domain;
+use App\Models\DomainSettings;
 use App\Models\LdapAccountSetting;
 use PHPUnit\Framework\TestCase;
 
@@ -24,13 +25,34 @@ class LdapAccountSettingTest extends TestCase
         $this->assertSame(3, $domain->aliases);
     }
 
+    /**
+     * The Settings tab used to show 0 for a domain with iRedAdmin's defaultQuota and
+     * minPasswordLength, and a save did not reach LDAP.
+     */
+    public function testDomainSettingsUseTheIredadminKeys(): void
+    {
+        $domain = new Domain('example.com');
+        LdapAccountSetting::applyTo($domain, ['minPasswordLength:8', 'defaultQuota:1024']);
+
+        $settings = DomainSettings::fromSettingsString($domain->settings);
+        $this->assertSame(1024, $settings->defaultUserQuota);
+        $this->assertSame(8, $settings->minPasswordLength);
+        $this->assertSame(0, $settings->maxPasswordLength);
+
+        $domain->settings = (new DomainSettings(defaultUserQuota: 512, maxPasswordLength: 40))->toSettingsString();
+        $this->assertEqualsCanonicalizing(
+            ['defaultQuota:512', 'maxPasswordLength:40'],
+            LdapAccountSetting::valuesFor($domain, ['minPasswordLength:8', 'defaultQuota:1024'])
+        );
+    }
+
     public function testWriteKeepsOtherKeysAndDropsUnlimitedLimits(): void
     {
         $domain = new Domain('example.com', maxQuota: 250, mailboxes: 0, aliases: 7);
-        $current = ['minPasswordLength:8', 'numberOfUsers:5', 'disabledDomainProfile:bcc', 'disabledDomainProfile:relay'];
+        $current = ['numberOfLists:2', 'numberOfUsers:5', 'disabledDomainProfile:bcc', 'disabledDomainProfile:relay'];
 
         $this->assertEqualsCanonicalizing(
-            ['minPasswordLength:8', 'disabledDomainProfile:bcc', 'disabledDomainProfile:relay', 'maxUserQuota:250', 'numberOfAliases:7'],
+            ['numberOfLists:2', 'disabledDomainProfile:bcc', 'disabledDomainProfile:relay', 'maxUserQuota:250', 'numberOfAliases:7'],
             LdapAccountSetting::valuesFor($domain, $current)
         );
     }

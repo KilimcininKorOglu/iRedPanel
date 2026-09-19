@@ -6,7 +6,8 @@ namespace App\Models;
 
 /**
  * Maps the LDAP domain attribute accountSetting ("key:value" values, the keys that
- * iRedAdmin uses) to Domain fields. Values of other keys are kept on write.
+ * iRedAdmin uses) to the Domain limits and the DomainSettings of Domain::$settings.
+ * Values of other keys are kept on write.
  */
 final class LdapAccountSetting
 {
@@ -15,6 +16,13 @@ final class LdapAccountSetting
         'maxQuota' => 'maxUserQuota',
         'mailboxes' => 'numberOfUsers',
         'aliases' => 'numberOfAliases',
+    ];
+
+    /** DomainSettings property => accountSetting key. 0 means "use the global setting". */
+    private const SETTING_KEYS = [
+        'defaultUserQuota' => 'defaultQuota',
+        'minPasswordLength' => 'minPasswordLength',
+        'maxPasswordLength' => 'maxPasswordLength',
     ];
 
     /**
@@ -27,6 +35,12 @@ final class LdapAccountSetting
         foreach (self::LIMIT_KEYS as $property => $key) {
             $domain->$property = (int) (self::valueOf($values, $key) ?? 0);
         }
+
+        $settings = new DomainSettings();
+        foreach (self::SETTING_KEYS as $property => $key) {
+            $settings->$property = (int) (self::valueOf($values, $key) ?? 0);
+        }
+        $domain->settings = $settings->toSettingsString();
     }
 
     /**
@@ -38,14 +52,23 @@ final class LdapAccountSetting
      */
     public static function valuesFor(Domain $domain, array $current): array
     {
-        $managed = array_values(self::LIMIT_KEYS);
+        $managed = [...array_values(self::LIMIT_KEYS), ...array_values(self::SETTING_KEYS)];
         $values = array_values(array_filter(
             $current,
             static fn (string $value): bool => !in_array(self::keyOf($value), $managed, true)
         ));
+
+        $settings = DomainSettings::fromSettingsString($domain->settings);
+        $numbers = [];
         foreach (self::LIMIT_KEYS as $property => $key) {
-            if ($domain->$property !== 0) {
-                $values[] = "{$key}:{$domain->$property}";
+            $numbers[$key] = $domain->$property;
+        }
+        foreach (self::SETTING_KEYS as $property => $key) {
+            $numbers[$key] = $settings->$property;
+        }
+        foreach ($numbers as $key => $number) {
+            if ($number !== 0) {
+                $values[] = "{$key}:{$number}";
             }
         }
 

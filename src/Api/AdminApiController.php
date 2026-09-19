@@ -67,7 +67,8 @@ class AdminApiController
 
         $validationErrors = \App\Models\UserPassword::validate($password, $password);
         if (!empty($validationErrors)) {
-            ApiResponse::error('Password policy violation: ' . implode(', ', $validationErrors));
+            // The API has no repeat field, so password_repeat only duplicates this error.
+            ApiResponse::error('Password policy violation: ' . $validationErrors['password']);
             return;
         }
 
@@ -98,7 +99,8 @@ class AdminApiController
         if (isset($data['password'])) {
             $validationErrors = \App\Models\UserPassword::validate($data['password'], $data['password']);
             if (!empty($validationErrors)) {
-                ApiResponse::error('Password policy violation: ' . implode(', ', $validationErrors));
+                // The API has no repeat field, so password_repeat only duplicates this error.
+                ApiResponse::error('Password policy violation: ' . $validationErrors['password']);
                 return;
             }
             $passwordHash = PasswordUtils::generatePasswordHash($data['password']);

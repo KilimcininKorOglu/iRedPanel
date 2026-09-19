@@ -993,5 +993,10 @@
     "spam_policy_reset": "使用默认策略",
     "spam_policy_reset_confirm": "删除您自己的垃圾邮件策略并使用默认策略?",
     "no_pages": "您的域名管理员已关闭所有自助服务页面。"
+  },
+  "export": {
+    "ldif_domain": "LDIF",
+    "ldif_tree": "把 LDAP 树导出为 LDIF",
+    "ldif_password_warning": "文件包含 password 的 hash。请像保管 backup 一样妥善保存。"
   }
 }

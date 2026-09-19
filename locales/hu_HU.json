@@ -993,5 +993,10 @@
     "spam_policy_reset": "Alapértelmezett szabályzat használata",
     "spam_policy_reset_confirm": "Törli saját spam szabályzatát, és az alapértelmezettet használja?",
     "no_pages": "A domain adminisztrátora bezárta az összes önkiszolgáló oldalt."
+  },
+  "export": {
+    "ldif_domain": "LDIF",
+    "ldif_tree": "Az LDAP fa exportálása LDIF fájlba",
+    "ldif_password_warning": "A fájl tartalmazza a jelszavak hash értékeit. Őrizze olyan biztonságosan, mint egy mentést."
   }
 }

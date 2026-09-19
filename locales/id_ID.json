@@ -993,5 +993,10 @@
     "spam_policy_reset": "Gunakan kebijakan bawaan",
     "spam_policy_reset_confirm": "Hapus kebijakan spam Anda sendiri dan gunakan kebijakan bawaan?",
     "no_pages": "Admin domain Anda menutup semua halaman layanan mandiri."
+  },
+  "export": {
+    "ldif_domain": "LDIF",
+    "ldif_tree": "Ekspor pohon LDAP sebagai LDIF",
+    "ldif_password_warning": "File ini berisi hash password. Simpan seaman backup."
   }
 }

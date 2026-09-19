@@ -993,5 +993,10 @@
     "spam_policy_reset": "Použít výchozí politiku",
     "spam_policy_reset_confirm": "Smazat vlastní antispamovou politiku a použít výchozí politiku?",
     "no_pages": "Správce domény zavřel všechny samoobslužné stránky."
+  },
+  "export": {
+    "ldif_domain": "LDIF",
+    "ldif_tree": "Exportovat strom LDAP jako LDIF",
+    "ldif_password_warning": "Soubor obsahuje hash hesel. Uchovávejte ho stejně bezpečně jako zálohu."
   }
 }

@@ -993,5 +993,10 @@
     "spam_policy_reset": "Varsayılan policy'yi kullan",
     "spam_policy_reset_confirm": "Kendi spam policy'niz silinsin ve varsayılan policy kullanılsın mı?",
     "no_pages": "Domain admin'iniz tüm self-service sayfalarını kapattı."
+  },
+  "export": {
+    "ldif_domain": "LDIF",
+    "ldif_tree": "LDAP ağacını LDIF olarak indir",
+    "ldif_password_warning": "Dosya password hash'lerini içerir. Bir yedek kadar güvenli saklayın."
   }
 }

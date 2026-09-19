@@ -993,5 +993,10 @@
     "spam_policy_reset": "Standardrichtlinie verwenden",
     "spam_policy_reset_confirm": "Eigene Spam-Richtlinie löschen und die Standardrichtlinie verwenden?",
     "no_pages": "Ihr Domain-Administrator hat alle Self-Service-Seiten geschlossen."
+  },
+  "export": {
+    "ldif_domain": "LDIF",
+    "ldif_tree": "Den LDAP-Baum als LDIF exportieren",
+    "ldif_password_warning": "Die Datei enthält die Password-Hashes. Bewahren Sie sie so sicher auf wie ein Backup."
   }
 }

@@ -993,5 +993,10 @@
     "spam_policy_reset": "Erabili politika lehenetsia",
     "spam_policy_reset_confirm": "Ezabatu zure spam-politika eta erabili politika lehenetsia?",
     "no_pages": "Zure domeinuko administratzaileak autozerbitzuko orri guztiak itxi ditu."
+  },
+  "export": {
+    "ldif_domain": "LDIF",
+    "ldif_tree": "Esportatu LDAP zuhaitza LDIF gisa",
+    "ldif_password_warning": "Fitxategiak pasahitzen hash-ak ditu. Gorde ezazu babeskopia bat bezain seguru."
   }
 }

@@ -993,5 +993,10 @@
     "spam_policy_reset": "Kasuta vaikepoliitikat",
     "spam_policy_reset_confirm": "Kas kustutada oma rämpspostipoliitika ja kasutada vaikepoliitikat?",
     "no_pages": "Sinu domeeni administraator sulges kõik iseteeninduse lehed."
+  },
+  "export": {
+    "ldif_domain": "LDIF",
+    "ldif_tree": "Ekspordi LDAP-puu LDIF-failina",
+    "ldif_password_warning": "Fail sisaldab paroolide hash-väärtusi. Hoia seda sama turvaliselt kui varukoopiat."
   }
 }

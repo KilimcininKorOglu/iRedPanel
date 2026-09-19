@@ -993,5 +993,10 @@
     "spam_policy_reset": "기본 정책 사용",
     "spam_policy_reset_confirm": "자신의 스팸 정책을 삭제하고 기본 정책을 사용하시겠습니까?",
     "no_pages": "도메인 관리자가 모든 셀프 서비스 페이지를 닫았습니다."
+  },
+  "export": {
+    "ldif_domain": "LDIF",
+    "ldif_tree": "LDAP 트리를 LDIF로 내보내기",
+    "ldif_password_warning": "파일에 password hash가 들어 있습니다. backup만큼 안전하게 보관하세요."
   }
 }

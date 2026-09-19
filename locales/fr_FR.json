@@ -993,5 +993,10 @@
     "spam_policy_reset": "Utiliser la politique par défaut",
     "spam_policy_reset_confirm": "Supprimer votre politique anti-spam et utiliser la politique par défaut ?",
     "no_pages": "L'administrateur de votre domaine a fermé toutes les pages libre-service."
+  },
+  "export": {
+    "ldif_domain": "LDIF",
+    "ldif_tree": "Exporter l'arbre LDAP en LDIF",
+    "ldif_password_warning": "Le fichier contient les hashes de password. Conservez-le aussi sûrement qu'une sauvegarde."
   }
 }

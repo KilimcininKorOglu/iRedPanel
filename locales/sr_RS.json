@@ -993,5 +993,10 @@
     "spam_policy_reset": "Користи подразумевану политику",
     "spam_policy_reset_confirm": "Обрисати сопствену политику нежељене поште и користити подразумевану политику?",
     "no_pages": "Администратор домена је затворио све странице самопослуживања."
+  },
+  "export": {
+    "ldif_domain": "LDIF",
+    "ldif_tree": "Izvezi LDAP stablo kao LDIF",
+    "ldif_password_warning": "Datoteka sadrži hash lozinki. Čuvajte je jednako bezbedno kao i rezervnu kopiju."
   }
 }

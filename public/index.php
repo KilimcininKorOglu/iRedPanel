@@ -21,6 +21,7 @@ use App\Api\ApiResponse;
 use App\Api\DomainAliasApiController;
 use App\Api\DomainApiController;
 use App\Api\GreylistApiController;
+use App\Api\LdifApiController;
 use App\Api\MailingListApiController;
 use App\Api\SpamPolicyApiController;
 use App\Api\ThrottleApiController;
@@ -331,6 +332,14 @@ $router->addRoute('GET', '/export/admins', function () {
     ExportController::adminStats();
 });
 
+$router->addRoute('GET', '/export/ldif', function () use ($tpl) {
+    ExportController::treeLdif($tpl);
+});
+
+$router->addRoute('GET', '/export/ldif/{domain}', function (string $domain) use ($tpl) {
+    ExportController::domainLdif($tpl, $domain);
+});
+
 // User rename
 $router->addRoute('POST', '/{domain}/users/{userUid}/rename', function (string $domain, string $userUid) use ($tpl) {
     UserController::renameUser($tpl, $domain, $userUid);
@@ -628,6 +637,14 @@ $router->addRoute('GET', '/api/v1/throttle/{account}', function (string $account
 });
 $router->addRoute('PUT', '/api/v1/throttle/{account}', function (string $account) use ($apiAuth) {
     $apiAuth(); ThrottleApiController::update($account);
+});
+
+// LDIF API (LDAP backend only)
+$router->addRoute('GET', '/api/v1/ldif', function () use ($apiAuth) {
+    $apiAuth(); LdifApiController::tree();
+});
+$router->addRoute('GET', '/api/v1/ldif/{domain}', function (string $domain) use ($apiAuth) {
+    $apiAuth(); LdifApiController::domain($domain);
 });
 
 // Greylist API

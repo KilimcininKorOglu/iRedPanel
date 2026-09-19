@@ -993,5 +993,10 @@
     "spam_policy_reset": "Defolt siyasətdən istifadə et",
     "spam_policy_reset_confirm": "Öz spam siyasətiniz silinsin və defolt siyasətdən istifadə edilsin?",
     "no_pages": "Domen administratorunuz bütün self-service səhifələrini bağladı."
+  },
+  "export": {
+    "ldif_domain": "LDIF",
+    "ldif_tree": "LDAP ağacını LDIF kimi ixrac et",
+    "ldif_password_warning": "Fayl parolların hash dəyərlərini saxlayır. Onu backup qədər təhlükəsiz saxlayın."
   }
 }

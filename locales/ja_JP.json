@@ -993,5 +993,10 @@
     "spam_policy_reset": "既定のポリシーを使用",
     "spam_policy_reset_confirm": "独自のスパムポリシーを削除して既定のポリシーを使用しますか?",
     "no_pages": "ドメイン管理者がすべてのセルフサービスページを閉じました。"
+  },
+  "export": {
+    "ldif_domain": "LDIF",
+    "ldif_tree": "LDAP ツリーを LDIF として書き出す",
+    "ldif_password_warning": "ファイルには password の hash が含まれます。backup と同じくらい安全に保管してください。"
   }
 }

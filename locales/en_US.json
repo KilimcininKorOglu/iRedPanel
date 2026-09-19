@@ -993,5 +993,10 @@
     "spam_policy_reset": "Use the default policy",
     "spam_policy_reset_confirm": "Delete your own spam policy and use the default policy?",
     "no_pages": "Your domain admin closed all self-service pages."
+  },
+  "export": {
+    "ldif_domain": "LDIF",
+    "ldif_tree": "Export the LDAP tree as LDIF",
+    "ldif_password_warning": "The file holds the password hashes. Keep it as safe as a backup."
   }
 }

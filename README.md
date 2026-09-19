@@ -461,11 +461,14 @@ The REST API lives at `/api/v1/*`. It is disabled by default (`API_ENABLED=false
 | Spam policy | `GET, PUT, DELETE /spam-policy/{account}` |
 | White/blacklist | `GET, POST, DELETE /wblist/{account}` |
 | Throttle | `GET, PUT /throttle/{account}` |
+| LDIF export | `GET /ldif`; `GET /ldif/{domain}` (LDAP backend) |
 | Greylisting | `GET /greylist`; `GET, PUT, DELETE /greylist/{account}`; `GET, PUT /greylist-whitelist-domains` |
 
 **Mailing lists**: `GET /mailing-lists/{address}` returns the mlmmj profile under `options`, and `?withSubscribers=yes` adds the subscribers. `PUT` writes the option fields that the body carries. `POST /mailing-lists/{address}/subscribers` accepts `subscription` (`normal`, `digest`, `nomail`) and `requireConfirm`. `DELETE /mailing-lists/{address}?keepArchive=no` removes the messages of the list with the account.
 
 **White/blacklist**: `GET /wblist/{account}?wb=W` (or `B`) returns one kind only. `POST` takes a single `sender` or a `senders` array, with `wb` (`W` or `B`) and `direction` (`inbound` or `outbound`). `DELETE` takes `sender`, `senders`, or `{"all": true}` with the optional `wb` filter, and answers with the number of entries it changed.
+
+**LDIF export**: `GET /ldif` returns the whole LDAP tree and `GET /ldif/{domain}` the subtree of one domain, as LDIF text instead of JSON, so the answer goes straight into `ldapadd`. Both need a global key and the LDAP backend; a SQL backend answers 400. The file holds the password hashes.
 
 **Greylisting**: `GET /greylist` lists the accounts that have an own setting. `PUT /greylist/{account}` sets `enabled` and either replaces `whitelistedSenders` or changes it with `addSenders` and `removeSenders`. `DELETE /greylist/{account}` removes the setting and the whitelisted senders of the account. `GET /greylist-whitelist-domains` returns the whitelisted domains and the senders that the iRedAPD job resolved from their SPF records; `PUT` takes `domains`, `addDomains` or `removeDomains`.
 

@@ -993,5 +993,10 @@
     "spam_policy_reset": "Käytä oletuskäytäntöä",
     "spam_policy_reset_confirm": "Poistetaanko oma roskapostikäytäntösi ja käytetään oletuskäytäntöä?",
     "no_pages": "Verkkotunnuksesi ylläpitäjä on sulkenut kaikki omapalvelusivut."
+  },
+  "export": {
+    "ldif_domain": "LDIF",
+    "ldif_tree": "Vie LDAP-puu LDIF-tiedostoon",
+    "ldif_password_warning": "Tiedosto sisältää salasanojen hash-arvot. Säilytä se yhtä turvallisesti kuin varmuuskopio."
   }
 }

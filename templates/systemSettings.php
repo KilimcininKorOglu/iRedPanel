@@ -52,6 +52,12 @@ $rows = [
         <a href="/last-logins" class="list-group-item list-group-item-action"><i class="bi bi-clock-history me-2"></i><?= $te('sysset.last_login_tracking') ?></a>
         <a href="/export/admins" class="list-group-item list-group-item-action"><i class="bi bi-filetype-csv me-2"></i><?= $te('sysset.export_csv') ?></a>
         <a href="/export/admins?format=json" class="list-group-item list-group-item-action"><i class="bi bi-filetype-json me-2"></i><?= $te('sysset.export_json') ?></a>
+        <?php if ($backend === 'ldap'): ?>
+        <a href="/export/ldif" class="list-group-item list-group-item-action">
+          <i class="bi bi-filetype-txt me-2"></i><?= $te('export.ldif_tree') ?>
+          <div class="small text-body-secondary"><?= $te('export.ldif_password_warning') ?></div>
+        </a>
+        <?php endif; ?>
       </div>
     </div>
   </div>

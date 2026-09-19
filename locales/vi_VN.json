@@ -993,5 +993,10 @@
     "spam_policy_reset": "Dùng chính sách mặc định",
     "spam_policy_reset_confirm": "Xóa chính sách spam riêng và dùng chính sách mặc định?",
     "no_pages": "Quản trị viên tên miền đã đóng tất cả các trang tự phục vụ."
+  },
+  "export": {
+    "ldif_domain": "LDIF",
+    "ldif_tree": "Xuất cây LDAP ra LDIF",
+    "ldif_password_warning": "Tệp chứa hash của password. Hãy giữ nó an toàn như một backup."
   }
 }

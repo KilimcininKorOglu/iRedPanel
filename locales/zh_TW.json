@@ -993,5 +993,10 @@
     "spam_policy_reset": "使用預設政策",
     "spam_policy_reset_confirm": "刪除您自己的垃圾郵件政策並使用預設政策?",
     "no_pages": "您的網域管理員已關閉所有自助服務頁面。"
+  },
+  "export": {
+    "ldif_domain": "LDIF",
+    "ldif_tree": "把 LDAP 樹匯出為 LDIF",
+    "ldif_password_warning": "檔案包含 password 的 hash。請像保管 backup 一樣妥善保存。"
   }
 }

@@ -993,5 +993,10 @@
     "spam_policy_reset": "Bruk standardpolicyen",
     "spam_policy_reset_confirm": "Slette din egen spampolicy og bruke standardpolicyen?",
     "no_pages": "Domeneadministratoren din har stengt alle selvbetjeningssider."
+  },
+  "export": {
+    "ldif_domain": "LDIF",
+    "ldif_tree": "Eksporter LDAP-treet som LDIF",
+    "ldif_password_warning": "Filen inneholder password-hashene. Oppbevar den like trygt som en backup."
   }
 }

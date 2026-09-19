@@ -993,5 +993,10 @@
     "spam_policy_reset": "Fes servir la política per defecte",
     "spam_policy_reset_confirm": "Voleu suprimir la vostra política antispam i fer servir la política per defecte?",
     "no_pages": "L'administrador del vostre domini ha tancat totes les pàgines d'autoservei."
+  },
+  "export": {
+    "ldif_domain": "LDIF",
+    "ldif_tree": "Exporta l'arbre LDAP com a LDIF",
+    "ldif_password_warning": "El fitxer conté els hashes de password. Deseu-lo amb la mateixa seguretat que una còpia de seguretat."
   }
 }

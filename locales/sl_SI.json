@@ -993,5 +993,10 @@
     "spam_policy_reset": "Uporabi privzeto politiko",
     "spam_policy_reset_confirm": "Želite izbrisati lastno politiko za neželeno pošto in uporabiti privzeto politiko?",
     "no_pages": "Skrbnik domene je zaprl vse samopostrežne strani."
+  },
+  "export": {
+    "ldif_domain": "LDIF",
+    "ldif_tree": "Izvozi drevo LDAP kot LDIF",
+    "ldif_password_warning": "Datoteka vsebuje hash gesel. Hranite jo enako varno kot varnostno kopijo."
   }
 }

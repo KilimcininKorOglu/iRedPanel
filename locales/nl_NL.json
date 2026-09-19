@@ -993,5 +993,10 @@
     "spam_policy_reset": "Standaardbeleid gebruiken",
     "spam_policy_reset_confirm": "Uw eigen spambeleid verwijderen en het standaardbeleid gebruiken?",
     "no_pages": "Uw domeinbeheerder heeft alle selfservicepagina's gesloten."
+  },
+  "export": {
+    "ldif_domain": "LDIF",
+    "ldif_tree": "De LDAP-boom als LDIF exporteren",
+    "ldif_password_warning": "Het bestand bevat de password-hashes. Bewaar het net zo veilig als een backup."
   }
 }

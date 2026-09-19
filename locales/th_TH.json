@@ -993,5 +993,10 @@
     "spam_policy_reset": "ใช้นโยบายเริ่มต้น",
     "spam_policy_reset_confirm": "ลบนโยบายสแปมของคุณเองและใช้นโยบายเริ่มต้นหรือไม่?",
     "no_pages": "ผู้ดูแลโดเมนของคุณปิดหน้าบริการตนเองทั้งหมดแล้ว"
+  },
+  "export": {
+    "ldif_domain": "LDIF",
+    "ldif_tree": "ส่งออกทรี LDAP เป็น LDIF",
+    "ldif_password_warning": "ไฟล์มี hash ของ password เก็บไว้ให้ปลอดภัยเท่ากับ backup"
   }
 }

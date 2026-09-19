@@ -20,6 +20,7 @@ use App\Services\AccountRenameService;
 use App\Services\AccountSettingsService;
 use App\Services\ActivityLogger;
 use App\Services\AdminLimits;
+use App\Services\LdifExportService;
 use App\Services\Replication\ReplicatedAccountGuard;
 use App\Services\UserAliasService;
 use App\Services\UserBulkUpdate;
@@ -54,6 +55,7 @@ class UserController
             'users' => $paginatedResult->items,
             'paginatedResult' => $paginatedResult,
             'supportsCreate' => $userRepo->supportsCreateUser(),
+            'supportsLdif' => LdifExportService::available(),
             'usedQuotas' => $usedQuotas,
             'currentLetter' => $startsWith,
             'sortBy' => $sortBy,

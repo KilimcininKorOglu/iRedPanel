@@ -993,5 +993,10 @@
     "spam_policy_reset": "Nota sjálfgefna stefnu",
     "spam_policy_reset_confirm": "Eyða þinni eigin ruslpóststefnu og nota sjálfgefna stefnu?",
     "no_pages": "Lénsstjórinn þinn lokaði öllum sjálfsafgreiðslusíðum."
+  },
+  "export": {
+    "ldif_domain": "LDIF",
+    "ldif_tree": "Flytja LDAP-tréð út sem LDIF",
+    "ldif_password_warning": "Skráin inniheldur hash lykilorðanna. Geymdu hana jafn örugglega og afrit."
   }
 }

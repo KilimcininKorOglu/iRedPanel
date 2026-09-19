@@ -34,6 +34,9 @@ $sortIcon = function (string $col) use ($sortBy, $sortDir) {
     <?php endif; ?>
     <a href="/export/domain/<?= $e(rawurlencode($domain)) ?>" class="btn btn-outline-secondary"><i class="bi bi-filetype-csv me-1"></i><?= $te('user.export_csv') ?></a>
     <a href="/export/domain/<?= $e(rawurlencode($domain)) ?>?format=json" class="btn btn-outline-secondary"><i class="bi bi-filetype-json me-1"></i><?= $te('user.export_json') ?></a>
+    <?php if (!empty($supportsLdif)): ?>
+    <a href="/export/ldif/<?= $e(rawurlencode($domain)) ?>" class="btn btn-outline-secondary" title="<?= $te('export.ldif_password_warning') ?>"><i class="bi bi-filetype-txt me-1"></i><?= $te('export.ldif_domain') ?></a>
+    <?php endif; ?>
   </div>
 </div>
 

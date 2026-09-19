@@ -205,7 +205,8 @@
       maxItems: multi ? null : 1,
       splitOn: multi ? /[\s,;]+/ : null,
       loadThrottle: 250,
-      placeholder: field.getAttribute('placeholder') || i18n.pickerPlaceholder,
+      // A textarea placeholder holds one example per line, which a one-line input cannot show.
+      placeholder: (!multi && field.getAttribute('placeholder')) || i18n.pickerPlaceholder,
       shouldLoad: function (query) {
         return query.length >= 2;
       },

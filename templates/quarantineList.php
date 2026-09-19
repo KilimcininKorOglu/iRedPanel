@@ -1,62 +1,64 @@
 <?php $pageTitle = $t('quarantine.title'); ?>
-<div class="container">
+<div class="page-header">
   <h1><?= $te('quarantine.heading') ?></h1>
-
-  <form method="get" style="margin-bottom: 1rem;">
-    <div class="row">
-      <div class="col-6">
-        <input type="text" name="domain" placeholder="<?= $te('quarantine.filter_placeholder') ?>" value="<?= $e($filterDomain ?? '') ?>" />
-      </div>
-      <div class="col-6">
-        <button type="submit" class="button outline"><?= $te('quarantine.filter') ?></button>
-        <a href="/amavisd/quarantine" class="button outline"><?= $te('quarantine.clear') ?></a>
-        <button type="submit" form="quarantineCleanup" class="button error outline"><?= $te('quarantine.cleanup') ?></button>
-      </div>
-    </div>
-  </form>
-  <?php /* Outside the GET filter form: a form cannot nest inside another form. */ ?>
-  <form id="quarantineCleanup" method="post" action="/amavisd/cleanup" data-confirm="<?= $te('quarantine.cleanup_confirm') ?>">
-    <?= $csrfField ?>
-  </form>
-
-  <table class="striped">
-    <thead>
-      <tr>
-        <th><?= $te('quarantine.date') ?></th>
-        <th><?= $te('quarantine.from') ?></th>
-        <th><?= $te('quarantine.to') ?></th>
-        <th><?= $te('quarantine.subject') ?></th>
-        <th><?= $te('quarantine.spam_level') ?></th>
-        <th><?= $te('common.actions') ?></th>
-      </tr>
-    </thead>
-    <tbody>
-      <?php foreach ($messages as $msg): ?>
-      <tr>
-        <td><?= $e(date('Y-m-d H:i:s', (int) $msg['time_num'])) ?></td>
-        <td><?= $e($msg['from_addr'] ?? '') ?></td>
-        <td><?= $e($msg['recipient'] ?? '') ?></td>
-        <td><?= $e($msg['subject'] ?? '') ?></td>
-        <td><?= $e($msg['spam_level'] ?? '') ?></td>
-        <td>
-          <form method="post" action="/amavisd/quarantine/<?= $e($msg['mail_id'] ?? '') ?>/release" style="display:inline" data-confirm="<?= $te('quarantine.release_confirm') ?>">
-            <?= $csrfField ?>
-            <button type="submit" class="button primary outline"><?= $te('quarantine.release') ?></button>
-          </form>
-          <form method="post" action="/amavisd/quarantine/<?= $e($msg['mail_id'] ?? '') ?>/delete" style="display:inline" data-confirm="<?= $te('quarantine.delete_confirm') ?>">
-            <?= $csrfField ?>
-            <button type="submit" class="button error outline"><?= $te('common.delete') ?></button>
-          </form>
-        </td>
-      </tr>
-      <?php endforeach; ?>
-      <?php if (empty($messages)): ?>
-      <tr><td colspan="6" class="text-light"><?= $te('quarantine.empty') ?></td></tr>
-      <?php endif; ?>
-    </tbody>
-  </table>
-
-  <?php if (isset($paginatedResult)): ?>
-    <?php include __DIR__ . '/pagination.php'; ?>
-  <?php endif; ?>
+  <div class="page-actions">
+    <?php /* A separate form: a form cannot nest inside the GET filter form. */ ?>
+    <form id="quarantineCleanup" method="post" action="/amavisd/cleanup" data-confirm="<?= $te('quarantine.cleanup_confirm') ?>">
+      <?= $csrfField ?>
+      <button type="submit" class="btn btn-outline-danger"><i class="bi bi-eraser me-1"></i><?= $te('quarantine.cleanup') ?></button>
+    </form>
+  </div>
 </div>
+
+<form method="get" class="d-flex flex-wrap gap-2 mb-3">
+  <input type="text" name="domain" class="form-control w-auto flex-grow-1" style="max-width: 420px" placeholder="<?= $te('quarantine.filter_placeholder') ?>" value="<?= $e($filterDomain ?? '') ?>" aria-label="<?= $te('quarantine.filter') ?>" />
+  <button type="submit" class="btn btn-outline-secondary"><i class="bi bi-funnel me-1"></i><?= $te('quarantine.filter') ?></button>
+  <a href="/amavisd/quarantine" class="btn btn-outline-secondary"><?= $te('quarantine.clear') ?></a>
+</form>
+
+<div class="card">
+  <div class="table-responsive">
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th><?= $te('quarantine.date') ?></th>
+          <th><?= $te('quarantine.from') ?></th>
+          <th><?= $te('quarantine.to') ?></th>
+          <th><?= $te('quarantine.subject') ?></th>
+          <th><?= $te('quarantine.spam_level') ?></th>
+          <th class="text-end"><?= $te('common.actions') ?></th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php foreach ($messages as $msg): ?>
+        <tr>
+          <td class="text-nowrap text-body-secondary"><?= $e(date('Y-m-d H:i:s', (int) $msg['time_num'])) ?></td>
+          <td><?= $e($msg['from_addr'] ?? '') ?></td>
+          <td><?= $e($msg['recipient'] ?? '') ?></td>
+          <td><?= $e($msg['subject'] ?? '') ?></td>
+          <td><?= $e($msg['spam_level'] ?? '') ?></td>
+          <td>
+            <div class="table-actions">
+              <form method="post" action="/amavisd/quarantine/<?= $e($msg['mail_id'] ?? '') ?>/release" data-confirm="<?= $te('quarantine.release_confirm') ?>">
+                <?= $csrfField ?>
+                <button type="submit" class="btn btn-sm btn-outline-primary"><i class="bi bi-send-check me-1"></i><?= $te('quarantine.release') ?></button>
+              </form>
+              <form method="post" action="/amavisd/quarantine/<?= $e($msg['mail_id'] ?? '') ?>/delete" data-confirm="<?= $te('quarantine.delete_confirm') ?>">
+                <?= $csrfField ?>
+                <button type="submit" class="btn btn-sm btn-outline-danger"><i class="bi bi-trash3 me-1"></i><?= $te('common.delete') ?></button>
+              </form>
+            </div>
+          </td>
+        </tr>
+        <?php endforeach; ?>
+        <?php if (empty($messages)): ?>
+        <tr><td colspan="6" class="text-center text-body-secondary py-4"><?= $te('quarantine.empty') ?></td></tr>
+        <?php endif; ?>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<?php if (isset($paginatedResult)): ?>
+  <?php include __DIR__ . '/pagination.php'; ?>
+<?php endif; ?>

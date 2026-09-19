@@ -8,8 +8,8 @@ $iredapdTabs = [
     'senderscore' => ['/iredapd/wblist-senderscore', 'wblist.senderscore_title'],
 ];
 ?>
-<nav class="tabs">
+<ul class="nav nav-tabs">
   <?php foreach ($iredapdTabs as $tab => [$href, $label]): ?>
-  <a <?php if (($iredapdTab ?? '') === $tab): ?>class="active"<?php endif; ?> href="<?= $e($href) ?>"><?= $te($label) ?></a>
+  <li class="nav-item"><a class="nav-link<?= ($iredapdTab ?? '') === $tab ? ' active' : '' ?>" href="<?= $e($href) ?>"<?= ($iredapdTab ?? '') === $tab ? ' aria-current="page"' : '' ?>><?= $te($label) ?></a></li>
   <?php endforeach; ?>
-</nav>
+</ul>

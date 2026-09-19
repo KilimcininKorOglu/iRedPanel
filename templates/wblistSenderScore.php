@@ -1,29 +1,32 @@
 <?php $pageTitle = $t('wblist.senderscore_title'); ?>
-<div class="container">
-  <?php $iredapdTab = 'senderscore'; include __DIR__ . '/iredapdNav.php'; ?>
-  <div class="row">
-    <div class="col-8">
-      <h1><?= $te('wblist.senderscore_title') ?></h1>
-      <p class="text-light"><?= $te('wblist.senderscore_intro') ?></p>
+<div class="page-header">
+  <div>
+    <h1><?= $te('wblist.senderscore_title') ?></h1>
+    <div class="small text-body-secondary mt-1"><?= $te('wblist.senderscore_intro') ?></div>
+  </div>
+</div>
 
-      <?php if (!empty($success)): ?>
-      <div class="card bg-success text-white"><?= $e($success) ?></div>
-      <?php endif; ?>
-      <?php if (!empty($error)): ?>
-      <div class="card bg-error text-white"><?= $e($error) ?></div>
-      <?php endif; ?>
+<?php $iredapdTab = 'senderscore'; include __DIR__ . '/iredapdNav.php'; ?>
 
-      <form method="post">
-        <?= $csrfField ?>
+<?php if (!empty($success)): ?>
+<div class="alert alert-success"><?= $e($success) ?></div>
+<?php endif; ?>
+<?php if (!empty($error)): ?>
+<div class="alert alert-danger"><?= $e($error) ?></div>
+<?php endif; ?>
 
-        <fieldset>
-          <legend><?= $te('wblist.senderscore_legend') ?></legend>
-          <textarea name="ips" rows="10" placeholder="192.168.1.1&#10;10.0.0.1"><?= $e(implode("\n", $ips)) ?></textarea>
-          <p class="text-light"><?= $te('wblist.senderscore_hint') ?></p>
-        </fieldset>
-
-        <button type="submit" class="button primary"><?= $te('common.save') ?></button>
-      </form>
-    </div>
+<div class="row">
+  <div class="col-xl-8">
+    <form method="post" class="card">
+      <?= $csrfField ?>
+      <div class="card-header"><?= $te('wblist.senderscore_legend') ?></div>
+      <div class="card-body">
+        <textarea name="ips" rows="10" class="form-control" placeholder="192.168.1.1&#10;10.0.0.1" aria-label="<?= $te('wblist.senderscore_legend') ?>"><?= $e(implode("\n", $ips)) ?></textarea>
+        <div class="form-text"><?= $te('wblist.senderscore_hint') ?></div>
+      </div>
+      <div class="card-footer">
+        <button type="submit" class="btn btn-primary"><?= $te('common.save') ?></button>
+      </div>
+    </form>
   </div>
 </div>

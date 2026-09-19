@@ -1,146 +1,86 @@
 <?php
 $pageTitle = $t('wblist.view_title', ['account' => $account ?? '']);
 $wbLabel = fn(string $wb): string => $wb === 'W' ? $t('wblist.whitelist') : $t('wblist.blacklist');
+$sections = [
+    'inbound' => ['wblist.inbound_title', 'wblist.sender', 'wblist.no_inbound', $inboundList],
+    'outbound' => ['wblist.outbound_title', 'wblist.recipient', 'wblist.no_outbound', $outboundList],
+];
 ?>
-<div class="container">
-  <div class="row">
-    <div class="col-8">
-      <h1><?= $te('wblist.title') ?></h1>
-
-      <?php if (!empty($success)): ?>
-      <div class="card bg-success text-white"><?= $e($success) ?></div>
-      <?php endif; ?>
-      <?php if (!empty($error)): ?>
-      <div class="card bg-error text-white"><?= $e($error) ?></div>
-      <?php endif; ?>
-
-      <p>
-        <strong><?= $te('spampolicy.account') ?>:</strong> <?= $e($account) ?>
-        <?php if ($account === '@.'): ?>(<?= $te('wblist.global') ?>)<?php endif; ?>
-      </p>
-
-      <form method="get" action="/amavisd/wblist" style="margin-bottom:1rem;">
-        <div class="row">
-          <div class="col-8">
-            <input type="text" name="account" value="<?= $e($account !== '@.' ? $account : '') ?>" placeholder="<?= $te('spampolicy.account_placeholder') ?>" />
-          </div>
-          <div class="col-4">
-            <button type="submit" class="button outline"><?= $te('wblist.load_list') ?></button>
-          </div>
-        </div>
-      </form>
-
-      <!-- Inbound -->
-      <h3><?= $te('wblist.inbound_title') ?></h3>
-
-      <form method="post">
-        <?= $csrfField ?>
-        <input type="hidden" name="action" value="add" />
-        <input type="hidden" name="direction" value="inbound" />
-        <div class="row">
-          <div class="col-5">
-            <input type="text" name="sender" placeholder="<?= $te('wblist.sender_placeholder') ?>" required />
-          </div>
-          <div class="col-3">
-            <select name="wb">
-              <option value="W"><?= $te('wblist.whitelist') ?></option>
-              <option value="B"><?= $te('wblist.blacklist') ?></option>
-            </select>
-          </div>
-          <div class="col-4">
-            <button type="submit" class="button primary outline"><?= $te('wblist.add') ?></button>
-          </div>
-        </div>
-      </form>
-
-      <?php if (!empty($inboundList)): ?>
-      <table class="striped" style="margin-top:1rem;">
-        <thead>
-          <tr>
-            <th><?= $te('wblist.sender') ?></th>
-            <th><?= $te('common.type') ?></th>
-            <th><?= $te('common.actions') ?></th>
-          </tr>
-        </thead>
-        <tbody>
-          <?php foreach ($inboundList as $entry): ?>
-          <tr>
-            <td><?= $e($entry['sender']) ?></td>
-            <td><?= $e($wbLabel($entry['wb'])) ?></td>
-            <td>
-              <form method="post" style="display:inline">
-                <?= $csrfField ?>
-                <input type="hidden" name="action" value="remove" />
-                <input type="hidden" name="direction" value="inbound" />
-                <input type="hidden" name="sender" value="<?= $e($entry['sender']) ?>" />
-                <button type="submit" class="button error outline"><?= $te('wblist.remove') ?></button>
-              </form>
-            </td>
-          </tr>
-          <?php endforeach; ?>
-        </tbody>
-      </table>
-      <?php else: ?>
-      <p class="text-light"><?= $te('wblist.no_inbound') ?></p>
-      <?php endif; ?>
-
-      <hr />
-
-      <!-- Outbound -->
-      <h3><?= $te('wblist.outbound_title') ?></h3>
-
-      <form method="post">
-        <?= $csrfField ?>
-        <input type="hidden" name="action" value="add" />
-        <input type="hidden" name="direction" value="outbound" />
-        <div class="row">
-          <div class="col-5">
-            <input type="text" name="sender" placeholder="<?= $te('wblist.sender_placeholder') ?>" required />
-          </div>
-          <div class="col-3">
-            <select name="wb">
-              <option value="W"><?= $te('wblist.whitelist') ?></option>
-              <option value="B"><?= $te('wblist.blacklist') ?></option>
-            </select>
-          </div>
-          <div class="col-4">
-            <button type="submit" class="button primary outline"><?= $te('wblist.add') ?></button>
-          </div>
-        </div>
-      </form>
-
-      <?php if (!empty($outboundList)): ?>
-      <table class="striped" style="margin-top:1rem;">
-        <thead>
-          <tr>
-            <th><?= $te('wblist.recipient') ?></th>
-            <th><?= $te('common.type') ?></th>
-            <th><?= $te('common.actions') ?></th>
-          </tr>
-        </thead>
-        <tbody>
-          <?php foreach ($outboundList as $entry): ?>
-          <tr>
-            <td><?= $e($entry['sender']) ?></td>
-            <td><?= $e($wbLabel($entry['wb'])) ?></td>
-            <td>
-              <form method="post" style="display:inline">
-                <?= $csrfField ?>
-                <input type="hidden" name="action" value="remove" />
-                <input type="hidden" name="direction" value="outbound" />
-                <input type="hidden" name="sender" value="<?= $e($entry['sender']) ?>" />
-                <button type="submit" class="button error outline"><?= $te('wblist.remove') ?></button>
-              </form>
-            </td>
-          </tr>
-          <?php endforeach; ?>
-        </tbody>
-      </table>
-      <?php else: ?>
-      <p class="text-light"><?= $te('wblist.no_outbound') ?></p>
-      <?php endif; ?>
-
-      <p><a href="/amavisd/quarantine">&larr; <?= $te('wblist.back') ?></a></p>
+<div class="page-header">
+  <div>
+    <h1><?= $te('wblist.title') ?></h1>
+    <div class="small text-body-secondary mt-1">
+      <?= $te('spampolicy.account') ?>: <span class="text-body"><?= $e($account) ?></span>
+      <?php if ($account === '@.'): ?>(<?= $te('wblist.global') ?>)<?php endif; ?>
     </div>
+  </div>
+</div>
+
+<?php if (!empty($success)): ?>
+<div class="alert alert-success"><?= $e($success) ?></div>
+<?php endif; ?>
+<?php if (!empty($error)): ?>
+<div class="alert alert-danger"><?= $e($error) ?></div>
+<?php endif; ?>
+
+<div class="row">
+  <div class="col-xl-8">
+    <form method="get" action="/amavisd/wblist" class="d-flex flex-wrap gap-2 mb-4">
+      <input type="text" name="account" class="form-control flex-grow-1 w-auto" value="<?= $e($account !== '@.' ? $account : '') ?>" placeholder="<?= $te('spampolicy.account_placeholder') ?>" aria-label="<?= $te('spampolicy.account') ?>" />
+      <button type="submit" class="btn btn-outline-secondary"><?= $te('wblist.load_list') ?></button>
+    </form>
+
+    <?php foreach ($sections as $direction => [$titleKey, $columnKey, $emptyKey, $entries]): ?>
+    <div class="card">
+      <div class="card-header"><?= $te($titleKey) ?></div>
+      <div class="card-body">
+        <form method="post" class="d-flex flex-wrap gap-2">
+          <?= $csrfField ?>
+          <input type="hidden" name="action" value="add" />
+          <input type="hidden" name="direction" value="<?= $direction ?>" />
+          <input type="text" name="sender" class="form-control flex-grow-1 w-auto" placeholder="<?= $te('wblist.sender_placeholder') ?>" required aria-label="<?= $te($columnKey) ?>" />
+          <select name="wb" class="form-select w-auto" aria-label="<?= $te('common.type') ?>">
+            <option value="W"><?= $te('wblist.whitelist') ?></option>
+            <option value="B"><?= $te('wblist.blacklist') ?></option>
+          </select>
+          <button type="submit" class="btn btn-primary"><i class="bi bi-plus-lg me-1"></i><?= $te('wblist.add') ?></button>
+        </form>
+      </div>
+      <?php if (!empty($entries)): ?>
+      <div class="table-responsive">
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th><?= $te($columnKey) ?></th>
+              <th><?= $te('common.type') ?></th>
+              <th class="text-end"><?= $te('common.actions') ?></th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php foreach ($entries as $entry): ?>
+            <tr>
+              <td><?= $e($entry['sender']) ?></td>
+              <td><span class="badge <?= $entry['wb'] === 'W' ? 'text-bg-success' : 'text-bg-danger' ?> badge-status"><?= $e($wbLabel($entry['wb'])) ?></span></td>
+              <td>
+                <form method="post" class="table-actions">
+                  <?= $csrfField ?>
+                  <input type="hidden" name="action" value="remove" />
+                  <input type="hidden" name="direction" value="<?= $direction ?>" />
+                  <input type="hidden" name="sender" value="<?= $e($entry['sender']) ?>" />
+                  <button type="submit" class="btn btn-sm btn-outline-danger"><i class="bi bi-x-lg me-1"></i><?= $te('wblist.remove') ?></button>
+                </form>
+              </td>
+            </tr>
+            <?php endforeach; ?>
+          </tbody>
+        </table>
+      </div>
+      <?php else: ?>
+      <div class="card-body pt-0 text-body-secondary"><?= $te($emptyKey) ?></div>
+      <?php endif; ?>
+    </div>
+    <?php endforeach; ?>
+
+    <a href="/amavisd/quarantine"><i class="bi bi-arrow-left me-1"></i><?= $te('wblist.back') ?></a>
   </div>
 </div>

@@ -27,3 +27,6 @@ Thumbs.db
 docker-iredmail-mariadb/
 docker-iredmail-postgresql/
 docker-iredmail-ldap/
+
+# Downloaded iRedMail release archives for compatibility analysis
+/iredmail_versions/

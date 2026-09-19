@@ -14,7 +14,7 @@ test:
 	$(PHPUNIT)
 
 lint:
-	find . -name "*.php" ! -path "./vendor/*" ! -path "./docker-iredmail-*" -print0 | xargs -0 -n1 -P4 $(PHP) -l
+	find . -name "*.php" ! -path "./vendor/*" ! -path "./docker-iredmail-*" ! -path "./iredmail_versions/*" -print0 | xargs -0 -n1 -P4 $(PHP) -l
 
 locale-parity:
 	$(PHP) scripts/check_locale_parity.php

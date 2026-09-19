@@ -2,6 +2,7 @@
 $loggedIn = !empty($session['email']);
 $brandName = $brand['name'] ?? 'iRedPanel';
 $logoUrl = $brand['logoUrl'] ?? '/static/logo-iredmail.png';
+$homeHref = !empty($session['selfService']) ? '/self' : '/dashboard';
 // Data for app.js. The HEX flags keep "</script>" and quotes inert inside the script block.
 $appData = json_encode([
     'flash' => ['success' => $flashSuccess, 'error' => $flashError],
@@ -43,12 +44,12 @@ $appData = json_encode([
       <button class="btn btn-icon" type="button" data-bs-toggle="offcanvas" data-bs-target="#appSidebar" aria-controls="appSidebar" aria-label="<?= $te('nav.toggle_menu') ?>">
         <i class="bi bi-list"></i>
       </button>
-      <a class="app-brand" href="/dashboard"><img src="<?= $e($logoUrl) ?>" alt="" /> <?= $e($brandName) ?></a>
+      <a class="app-brand" href="<?= $homeHref ?>"><img src="<?= $e($logoUrl) ?>" alt="" /> <?= $e($brandName) ?></a>
     </header>
 
     <aside class="app-sidebar offcanvas-lg offcanvas-start" id="appSidebar" tabindex="-1" aria-label="<?= $te('nav.toggle_menu') ?>">
       <div class="sidebar-brand">
-        <a class="app-brand" href="/dashboard"><img src="<?= $e($logoUrl) ?>" alt="" /> <?= $e($brandName) ?></a>
+        <a class="app-brand" href="<?= $homeHref ?>"><img src="<?= $e($logoUrl) ?>" alt="" /> <?= $e($brandName) ?></a>
         <button type="button" class="btn-close d-lg-none" data-bs-dismiss="offcanvas" data-bs-target="#appSidebar" aria-label="<?= $te('common.close') ?>"></button>
       </div>
       <nav class="sidebar-nav">

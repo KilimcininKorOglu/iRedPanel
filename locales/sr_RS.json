@@ -28,7 +28,8 @@
     "group_system": "Систем",
     "toggle_menu": "Мени",
     "compatibility": "Компатибилност са iRedMail",
-    "account_resources": "Извори налога"
+    "account_resources": "Извори налога",
+    "group_self_service": "Мој налог"
   },
   "common": {
     "msg_password_updated": "Лозинка је успешно ажурирана!",
@@ -118,9 +119,9 @@
   "auth": {
     "title": "Аутентификација",
     "email": "Е-пошта",
-    "email_placeholder": "Унесите е-пошту администратора",
+    "email_placeholder": "Унесите своју адресу е-поште",
     "password": "Лозинка",
-    "password_placeholder": "Унесите лозинку администратора",
+    "password_placeholder": "Унесите своју лозинку",
     "sign_in": "Пријава",
     "failed_attempts": "Неуспели покушаји пријаве: :count",
     "invalid_credentials": "Неважећи подаци за пријаву!",
@@ -366,7 +367,10 @@
     "export_csv": "Извези кориснике (CSV)",
     "export_json": "Извези кориснике (JSON)",
     "msg_invalid_quota": "Квота мора бити цео број, 0 или већи (MB).",
-    "msg_unknown_service": "Nepoznata usluga pošte: :service"
+    "msg_unknown_service": "Nepoznata usluga pošte: :service",
+    "language": "Језик",
+    "language_default": "Подразумевани језик",
+    "msg_invalid_language": "Неважећи код језика."
   },
   "mlist": {
     "msg_updated": "Мејлинг листа ажурирана!",
@@ -875,5 +879,17 @@
     "managed_help": "Овај налог се реплицира из директоријума. Реплицирана поља могу се мењати само тамо.",
     "msg_managed": "Директоријум управља адресом :address. Промените је у директоријуму.",
     "managed_group_help": "Ова група се реплицира из директоријума. Њен назив и чланови могу се мењати само тамо."
+  },
+  "self": {
+    "msg_released": "Порука је испоручена у ваше поштанско сандуче.",
+    "msg_deleted": "Порука је обрисана.",
+    "msg_sender_blacklisted": "Пошта од :sender је сада блокирана.",
+    "release_confirm": "Испоручити ову поруку у ваше поштанско сандуче?",
+    "blacklist_sender": "Блокирај пошиљаоца",
+    "blacklist_confirm": "Блокирати сву пошту од :sender?",
+    "spam_policy_default": "Користите политику нежељене поште свог домена или сервера. Сачувајте образац да поставите сопствену политику.",
+    "spam_policy_reset": "Користи подразумевану политику",
+    "spam_policy_reset_confirm": "Обрисати сопствену политику нежељене поште и користити подразумевану политику?",
+    "no_pages": "Администратор домена је затворио све странице самопослуживања."
   }
 }

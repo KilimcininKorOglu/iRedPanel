@@ -20,7 +20,7 @@ class AmavisdReleaseClient
     /**
      * @throws \RuntimeException when Amavisd cannot be reached or refuses the release
      */
-    public static function release(string $host, int $port, string $mailId, string $secretId, string $requestedBy): void
+    public static function release(string $host, int $port, string $mailId, string $secretId, string $requestedBy, ?string $recipient = null): void
     {
         $socket = @stream_socket_client("tcp://{$host}:{$port}", $errno, $errstr, self::TIMEOUT_SECONDS);
         if ($socket === false) {
@@ -29,7 +29,7 @@ class AmavisdReleaseClient
 
         try {
             stream_set_timeout($socket, self::TIMEOUT_SECONDS);
-            if (fwrite($socket, self::buildRequest($mailId, $secretId, $requestedBy)) === false) {
+            if (fwrite($socket, self::buildRequest($mailId, $secretId, $requestedBy, $recipient)) === false) {
                 throw new \RuntimeException('Cannot send the release request to Amavisd');
             }
             $reply = self::readReply($socket);
@@ -41,10 +41,14 @@ class AmavisdReleaseClient
     }
 
     /**
-     * Returns the AM.PDP release request for one quarantined message.
+     * Returns the AM.PDP release request for one quarantined message. With $recipient, Amavisd
+     * delivers the message to that address only, as `amavisd-release <id> <secret> <recipient>` does.
      */
-    public static function buildRequest(string $mailId, string $secretId, string $requestedBy): string
+    public static function buildRequest(string $mailId, string $secretId, string $requestedBy, ?string $recipient = null): string
     {
+        if ($recipient !== null && filter_var($recipient, FILTER_VALIDATE_EMAIL) === false) {
+            throw new \InvalidArgumentException('Invalid release recipient');
+        }
         foreach (['mail_id' => $mailId, 'secret_id' => $secretId] as $name => $value) {
             if (preg_match(self::ID_PATTERN, $value) !== 1) {
                 throw new \InvalidArgumentException("Invalid Amavisd {$name}");
@@ -56,6 +60,7 @@ class AmavisdReleaseClient
             . "secret_id={$secretId}\r\n"
             . 'requested_by=' . rawurlencode($requestedBy) . "\r\n"
             . "quar_type=Q\r\n"
+            . ($recipient !== null ? "recipient={$recipient}\r\n" : '')
             . "\r\n";
     }
 

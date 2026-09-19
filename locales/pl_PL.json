@@ -28,7 +28,8 @@
     "group_system": "System",
     "toggle_menu": "Menu",
     "compatibility": "Zgodność z iRedMail",
-    "account_resources": "Źródła kont"
+    "account_resources": "Źródła kont",
+    "group_self_service": "Moje konto"
   },
   "common": {
     "msg_password_updated": "Hasło zostało pomyślnie zaktualizowane!",
@@ -118,9 +119,9 @@
   "auth": {
     "title": "Uwierzytelnianie",
     "email": "E-mail",
-    "email_placeholder": "Wprowadź e-mail administratora",
+    "email_placeholder": "Wpisz swój adres e-mail",
     "password": "Hasło",
-    "password_placeholder": "Wprowadź hasło administratora",
+    "password_placeholder": "Wpisz swoje hasło",
     "sign_in": "Zaloguj się",
     "failed_attempts": "Nieudane próby logowania: :count",
     "invalid_credentials": "Nieprawidłowe dane logowania!",
@@ -366,7 +367,10 @@
     "export_csv": "Eksportuj użytkowników (CSV)",
     "export_json": "Eksportuj użytkowników (JSON)",
     "msg_invalid_quota": "Limit musi być liczbą całkowitą równą 0 lub większą (MB).",
-    "msg_unknown_service": "Nieznana usługa pocztowa: :service"
+    "msg_unknown_service": "Nieznana usługa pocztowa: :service",
+    "language": "Język",
+    "language_default": "Język domyślny",
+    "msg_invalid_language": "Nieprawidłowy kod języka."
   },
   "mlist": {
     "msg_updated": "Lista mailingowa zaktualizowana!",
@@ -875,5 +879,17 @@
     "managed_help": "To konto jest replikowane z katalogu. Replikowane pola można zmienić tylko tam.",
     "msg_managed": "Katalog zarządza adresem :address. Zmień go w katalogu.",
     "managed_group_help": "Ta grupa jest replikowana z katalogu. Jej nazwę i członków można zmienić tylko tam."
+  },
+  "self": {
+    "msg_released": "Wiadomość została dostarczona do Twojej skrzynki.",
+    "msg_deleted": "Wiadomość została usunięta.",
+    "msg_sender_blacklisted": "Poczta od :sender jest teraz blokowana.",
+    "release_confirm": "Dostarczyć tę wiadomość do Twojej skrzynki?",
+    "blacklist_sender": "Zablokuj nadawcę",
+    "blacklist_confirm": "Zablokować całą pocztę od :sender?",
+    "spam_policy_default": "Używasz polityki antyspamowej domeny lub serwera. Zapisz formularz, aby ustawić własną politykę.",
+    "spam_policy_reset": "Użyj polityki domyślnej",
+    "spam_policy_reset_confirm": "Usunąć własną politykę antyspamową i użyć polityki domyślnej?",
+    "no_pages": "Administrator domeny zamknął wszystkie strony samoobsługi."
   }
 }

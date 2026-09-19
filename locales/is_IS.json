@@ -28,7 +28,8 @@
     "group_system": "Kerfi",
     "toggle_menu": "Valmynd",
     "compatibility": "Samhæfni við iRedMail",
-    "account_resources": "Aðgangsuppsprettur"
+    "account_resources": "Aðgangsuppsprettur",
+    "group_self_service": "Aðgangurinn minn"
   },
   "common": {
     "msg_password_updated": "Lykilorð uppfært!",
@@ -118,9 +119,9 @@
   "auth": {
     "title": "Auðkenning",
     "email": "Netfang",
-    "email_placeholder": "Sláðu inn netfang stjórnanda",
+    "email_placeholder": "Sláðu inn netfangið þitt",
     "password": "Lykilorð",
-    "password_placeholder": "Sláðu inn lykilorð stjórnanda",
+    "password_placeholder": "Sláðu inn lykilorðið þitt",
     "sign_in": "Skrá inn",
     "failed_attempts": "Misheppnaðar innskráningartilraunir: :count",
     "invalid_credentials": "Ógild auðkenni!",
@@ -366,7 +367,10 @@
     "export_csv": "Flytja út notendur (CSV)",
     "export_json": "Flytja út notendur (JSON)",
     "msg_invalid_quota": "Kvótinn verður að vera heiltala, 0 eða hærri (MB).",
-    "msg_unknown_service": "Óþekkt póstþjónusta: :service"
+    "msg_unknown_service": "Óþekkt póstþjónusta: :service",
+    "language": "Tungumál",
+    "language_default": "Sjálfgefið tungumál",
+    "msg_invalid_language": "Ógildur tungumálakóði."
   },
   "mlist": {
     "msg_updated": "Póstlisti uppfærður!",
@@ -875,5 +879,17 @@
     "managed_help": "Þessi aðgangur er afritaður úr skráasafninu. Afrituðum reitum er aðeins hægt að breyta þar.",
     "msg_managed": "Skráasafnið stýrir :address. Breyttu því í skráasafninu.",
     "managed_group_help": "Þessi hópur er afritaður úr skráasafninu. Aðeins er hægt að breyta nafni og meðlimum þar."
+  },
+  "self": {
+    "msg_released": "Skilaboðin voru afhent í pósthólfið þitt.",
+    "msg_deleted": "Skilaboðunum var eytt.",
+    "msg_sender_blacklisted": "Póstur frá :sender er nú lokaður.",
+    "release_confirm": "Afhenda þessi skilaboð í pósthólfið þitt?",
+    "blacklist_sender": "Loka á sendanda",
+    "blacklist_confirm": "Loka á allan póst frá :sender?",
+    "spam_policy_default": "Þú notar ruslpóststefnu lénsins eða þjónsins. Vistaðu eyðublaðið til að setja þína eigin stefnu.",
+    "spam_policy_reset": "Nota sjálfgefna stefnu",
+    "spam_policy_reset_confirm": "Eyða þinni eigin ruslpóststefnu og nota sjálfgefna stefnu?",
+    "no_pages": "Lénsstjórinn þinn lokaði öllum sjálfsafgreiðslusíðum."
   }
 }

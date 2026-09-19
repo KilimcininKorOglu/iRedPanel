@@ -28,7 +28,8 @@
     "group_system": "システム",
     "toggle_menu": "メニュー",
     "compatibility": "iRedMail 互換性",
-    "account_resources": "アカウントリソース"
+    "account_resources": "アカウントリソース",
+    "group_self_service": "マイアカウント"
   },
   "common": {
     "msg_password_updated": "パスワードが正常に更新されました！",
@@ -118,9 +119,9 @@
   "auth": {
     "title": "認証",
     "email": "メール",
-    "email_placeholder": "管理者メールを入力してください",
+    "email_placeholder": "メールアドレスを入力",
     "password": "パスワード",
-    "password_placeholder": "管理者パスワードを入力してください",
+    "password_placeholder": "パスワードを入力",
     "sign_in": "サインイン",
     "failed_attempts": "ログイン失敗回数：:count",
     "invalid_credentials": "認証情報が無効です！",
@@ -366,7 +367,10 @@
     "export_csv": "ユーザーをエクスポート (CSV)",
     "export_json": "ユーザーをエクスポート (JSON)",
     "msg_invalid_quota": "クォータは 0 以上の整数 (MB) で指定してください。",
-    "msg_unknown_service": "不明なメールサービス: :service"
+    "msg_unknown_service": "不明なメールサービス: :service",
+    "language": "言語",
+    "language_default": "既定の言語",
+    "msg_invalid_language": "無効な言語コードです。"
   },
   "mlist": {
     "msg_updated": "メーリングリストを更新しました！",
@@ -875,5 +879,17 @@
     "managed_help": "このアカウントはディレクトリから複製されています。複製されたフィールドはディレクトリでのみ変更できます。",
     "msg_managed": ":address はディレクトリで管理されています。ディレクトリで変更してください。",
     "managed_group_help": "このグループはディレクトリからレプリケートされています。名前とメンバーはディレクトリでのみ変更できます。"
+  },
+  "self": {
+    "msg_released": "メッセージをメールボックスに配信しました。",
+    "msg_deleted": "メッセージを削除しました。",
+    "msg_sender_blacklisted": ":sender からのメールをブロックしました。",
+    "release_confirm": "このメッセージをメールボックスに配信しますか?",
+    "blacklist_sender": "送信者をブロック",
+    "blacklist_confirm": ":sender からのすべてのメールをブロックしますか?",
+    "spam_policy_default": "ドメインまたはサーバーのスパムポリシーを使用しています。独自のポリシーを設定するにはフォームを保存してください。",
+    "spam_policy_reset": "既定のポリシーを使用",
+    "spam_policy_reset_confirm": "独自のスパムポリシーを削除して既定のポリシーを使用しますか?",
+    "no_pages": "ドメイン管理者がすべてのセルフサービスページを閉じました。"
   }
 }

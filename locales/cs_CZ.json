@@ -28,7 +28,8 @@
     "group_system": "Systém",
     "toggle_menu": "Nabídka",
     "compatibility": "Kompatibilita s iRedMail",
-    "account_resources": "Zdroje účtů"
+    "account_resources": "Zdroje účtů",
+    "group_self_service": "Můj účet"
   },
   "common": {
     "msg_password_updated": "Heslo bylo úspěšně aktualizováno!",
@@ -118,9 +119,9 @@
   "auth": {
     "title": "Ověření",
     "email": "E-mail",
-    "email_placeholder": "Zadejte e-mail administrátora",
+    "email_placeholder": "Zadejte svou e-mailovou adresu",
     "password": "Heslo",
-    "password_placeholder": "Zadejte heslo administrátora",
+    "password_placeholder": "Zadejte své heslo",
     "sign_in": "Přihlásit se",
     "failed_attempts": "Neúspěšné pokusy o přihlášení: :count",
     "invalid_credentials": "Neplatné přihlašovací údaje!",
@@ -366,7 +367,10 @@
     "export_csv": "Exportovat uživatele (CSV)",
     "export_json": "Exportovat uživatele (JSON)",
     "msg_invalid_quota": "Kvóta musí být celé číslo 0 nebo větší (MB).",
-    "msg_unknown_service": "Neznámá poštovní služba: :service"
+    "msg_unknown_service": "Neznámá poštovní služba: :service",
+    "language": "Jazyk",
+    "language_default": "Výchozí jazyk",
+    "msg_invalid_language": "Neplatný kód jazyka."
   },
   "mlist": {
     "msg_updated": "Poštovní konference aktualizována!",
@@ -875,5 +879,17 @@
     "managed_help": "Tento účet se replikuje z adresáře. Replikovaná pole lze měnit pouze tam.",
     "msg_managed": "Adresu :address spravuje adresář. Změňte ji v adresáři.",
     "managed_group_help": "Tato skupina se replikuje z adresáře. Její název a členy lze změnit pouze tam."
+  },
+  "self": {
+    "msg_released": "Zpráva byla doručena do vaší schránky.",
+    "msg_deleted": "Zpráva byla smazána.",
+    "msg_sender_blacklisted": "Pošta od :sender je nyní blokována.",
+    "release_confirm": "Doručit tuto zprávu do vaší schránky?",
+    "blacklist_sender": "Blokovat odesílatele",
+    "blacklist_confirm": "Blokovat veškerou poštu od :sender?",
+    "spam_policy_default": "Používáte antispamovou politiku své domény nebo serveru. Uložte formulář a nastavte vlastní politiku.",
+    "spam_policy_reset": "Použít výchozí politiku",
+    "spam_policy_reset_confirm": "Smazat vlastní antispamovou politiku a použít výchozí politiku?",
+    "no_pages": "Správce domény zavřel všechny samoobslužné stránky."
   }
 }

@@ -28,7 +28,8 @@
     "group_system": "Sistem",
     "toggle_menu": "Menu",
     "compatibility": "Kompatibilitas iRedMail",
-    "account_resources": "Sumber Akun"
+    "account_resources": "Sumber Akun",
+    "group_self_service": "Akun saya"
   },
   "common": {
     "msg_password_updated": "Kata sandi berhasil diperbarui!",
@@ -118,9 +119,9 @@
   "auth": {
     "title": "Autentikasi",
     "email": "Email",
-    "email_placeholder": "Masukkan email administrator",
+    "email_placeholder": "Masukkan alamat email Anda",
     "password": "Kata sandi",
-    "password_placeholder": "Masukkan kata sandi administrator",
+    "password_placeholder": "Masukkan kata sandi Anda",
     "sign_in": "Masuk",
     "failed_attempts": "Percobaan masuk gagal: :count",
     "invalid_credentials": "Kredensial tidak valid!",
@@ -366,7 +367,10 @@
     "export_csv": "Ekspor pengguna (CSV)",
     "export_json": "Ekspor pengguna (JSON)",
     "msg_invalid_quota": "Kuota harus bilangan bulat 0 atau lebih (MB).",
-    "msg_unknown_service": "Layanan surat tidak dikenal: :service"
+    "msg_unknown_service": "Layanan surat tidak dikenal: :service",
+    "language": "Bahasa",
+    "language_default": "Bahasa bawaan",
+    "msg_invalid_language": "Kode bahasa tidak valid."
   },
   "mlist": {
     "msg_updated": "Milis diperbarui!",
@@ -875,5 +879,17 @@
     "managed_help": "Akun ini direplikasi dari direktori. Kolom yang direplikasi hanya dapat diubah di sana.",
     "msg_managed": "Direktori mengelola :address. Ubah di direktori.",
     "managed_group_help": "Grup ini direplikasi dari direktori. Nama dan anggotanya hanya dapat diubah di sana."
+  },
+  "self": {
+    "msg_released": "Pesan telah dikirim ke kotak surat Anda.",
+    "msg_deleted": "Pesan telah dihapus.",
+    "msg_sender_blacklisted": "Email dari :sender sekarang diblokir.",
+    "release_confirm": "Kirim pesan ini ke kotak surat Anda?",
+    "blacklist_sender": "Blokir pengirim",
+    "blacklist_confirm": "Blokir semua email dari :sender?",
+    "spam_policy_default": "Anda memakai kebijakan spam domain atau server Anda. Simpan formulir untuk menetapkan kebijakan sendiri.",
+    "spam_policy_reset": "Gunakan kebijakan bawaan",
+    "spam_policy_reset_confirm": "Hapus kebijakan spam Anda sendiri dan gunakan kebijakan bawaan?",
+    "no_pages": "Admin domain Anda menutup semua halaman layanan mandiri."
   }
 }

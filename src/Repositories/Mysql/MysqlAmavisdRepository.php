@@ -9,6 +9,7 @@ use App\Models\PaginatedResult;
 use App\Models\Settings;
 use App\Repositories\AccountMatch;
 use App\Repositories\AmavisdAccountSettings;
+use App\Repositories\AmavisdRecipientMail;
 use App\Repositories\AmavisdRepositoryInterface;
 use App\Services\AmavisdReleaseClient;
 use App\Utils\SqlLike;
@@ -245,6 +246,39 @@ class MysqlAmavisdRepository implements AmavisdRepositoryInterface
         $stmt->execute(['mailId' => $mailId]);
 
         return implode('', $stmt->fetchAll(\PDO::FETCH_COLUMN));
+    }
+
+    public function getQuarantinedForUser(string $email, int $page, int $perPage): PaginatedResult
+    {
+        return $this->recipientMail()->quarantined($email, $page, $perPage);
+    }
+
+    public function getReceivedMail(string $email, int $page, int $perPage): PaginatedResult
+    {
+        return $this->recipientMail()->received($email, $page, $perPage);
+    }
+
+    public function releaseForRecipient(string $mailId, string $email): void
+    {
+        $settings = Settings::getInstance();
+        $this->recipientMail()->release($mailId, $email, static fn (string $secretId) => AmavisdReleaseClient::release(
+            $settings->amavisdQuarantineHost,
+            $settings->amavisdQuarantinePort,
+            $mailId,
+            $secretId,
+            $email,
+            $email,
+        ));
+    }
+
+    public function deleteForRecipient(string $mailId, string $email): void
+    {
+        $this->recipientMail()->delete($mailId, $email);
+    }
+
+    private function recipientMail(): AmavisdRecipientMail
+    {
+        return new AmavisdRecipientMail($this->amavisdPdo());
     }
 
     public function deleteAccountSettings(array $accounts): void

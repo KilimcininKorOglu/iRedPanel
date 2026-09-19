@@ -17,7 +17,7 @@ class LdapUserRepository implements UserRepositoryInterface
     private const USER_DETAIL_ATTRS = [
         'mail', 'accountStatus', 'domainGlobalAdmin', 'mailQuota', 'uid',
         'cn', 'givenName', 'sn', 'title', 'telephoneNumber', 'mobile', 'employeeNumber',
-        'enabledService',
+        'enabledService', 'preferredLanguage',
     ];
 
     /** Attributes that store a mail address and must follow a rename. */
@@ -55,6 +55,8 @@ class LdapUserRepository implements UserRepositoryInterface
 
         $entries = ldap_get_entries($conn, $result);
         $normalized = LdapUtils::normalizeEntry($entries[0], self::USER_DETAIL_ATTRS);
+        // A detail read loads the language, so an entry without it has the default ('').
+        $normalized['preferredLanguage'] ??= '';
 
         // enabledService is multi-valued — extract all values
         if (isset($entries[0]['enabledservice'])) {
@@ -112,6 +114,10 @@ class LdapUserRepository implements UserRepositoryInterface
             LdapUtils::modReplace('mobile', $user->mobile ?: null),
             LdapUtils::modReplace('accountStatus', $user->accountStatus ? 'active' : 'disabled'),
         ];
+        // null: the caller did not read the language, so the stored value stays.
+        if ($user->language !== null) {
+            $mods[] = LdapUtils::modReplace('preferredLanguage', $user->language ?: null);
+        }
 
         if (!LdapUtils::modifyBatch($conn, $dn, $mods)) {
             throw new \RuntimeException('LDAP update failed: ' . ldap_error($conn));
@@ -177,21 +183,16 @@ class LdapUserRepository implements UserRepositoryInterface
             $entry['mailQuota'] = (string) ($user->mailQuota * 1048576);
         }
 
-        if ($user->givenName !== '') {
-            $entry['givenName'] = $user->givenName;
-        }
-        if ($user->employeeNumber !== '') {
-            $entry['employeeNumber'] = $user->employeeNumber;
-        }
-        if ($user->title !== '') {
-            $entry['title'] = $user->title;
-        }
-        if ($user->mobile !== '') {
-            $entry['mobile'] = $user->mobile;
-        }
-        if ($user->telephoneNumber !== '') {
-            $entry['telephoneNumber'] = $user->telephoneNumber;
-        }
+        // An empty attribute value is not allowed in an LDAP add, so an empty field is left out.
+        $optional = [
+            'givenName' => $user->givenName,
+            'employeeNumber' => $user->employeeNumber,
+            'title' => $user->title,
+            'mobile' => $user->mobile,
+            'telephoneNumber' => $user->telephoneNumber,
+            'preferredLanguage' => $user->language ?? '',
+        ];
+        $entry += array_filter($optional, static fn (string $value): bool => $value !== '');
         $shadowAddresses = LdapUtils::aliasDomainAddresses($conn, $email);
         if ($shadowAddresses !== []) {
             $entry['shadowAddress'] = $shadowAddresses;

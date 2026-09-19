@@ -31,4 +31,24 @@ interface AmavisdRepositoryInterface extends AccountSettingsStoreInterface
 
     /** The full message: Amavisd stores it in chunks, joined here in chunk order. */
     public function getQuarantinedMailText(string $mailId): string;
+
+    /** Quarantined messages that wait for one recipient (self-service), newest first. */
+    public function getQuarantinedForUser(string $email, int $page, int $perPage): PaginatedResult;
+
+    /** Mail log rows of one recipient (self-service), newest first. */
+    public function getReceivedMail(string $email, int $page, int $perPage): PaginatedResult;
+
+    /**
+     * Releases a quarantined message to one of its recipients only.
+     *
+     * @throws \RuntimeException when the message is not in the quarantine of $email or Amavisd refuses
+     */
+    public function releaseForRecipient(string $mailId, string $email): void;
+
+    /**
+     * Deletes a quarantined message for one of its recipients only.
+     *
+     * @throws \RuntimeException when the message is not in the quarantine of $email
+     */
+    public function deleteForRecipient(string $mailId, string $email): void;
 }

@@ -28,7 +28,8 @@
     "group_system": "Süsteem",
     "toggle_menu": "Menüü",
     "compatibility": "iRedMaili ühilduvus",
-    "account_resources": "Kontoallikad"
+    "account_resources": "Kontoallikad",
+    "group_self_service": "Minu konto"
   },
   "common": {
     "msg_password_updated": "Parool edukalt uuendatud!",
@@ -118,9 +119,9 @@
   "auth": {
     "title": "Autentimine",
     "email": "E-post",
-    "email_placeholder": "Sisestage administraatori e-post",
+    "email_placeholder": "Sisesta oma e-posti aadress",
     "password": "Parool",
-    "password_placeholder": "Sisestage administraatori parool",
+    "password_placeholder": "Sisesta oma parool",
     "sign_in": "Logi sisse",
     "failed_attempts": "Ebaõnnestunud sisselogimiskatsed: :count",
     "invalid_credentials": "Vigased sisselogimisandmed!",
@@ -366,7 +367,10 @@
     "export_csv": "Ekspordi kasutajad (CSV)",
     "export_json": "Ekspordi kasutajad (JSON)",
     "msg_invalid_quota": "Kvoot peab olema täisarv 0 või suurem (MB).",
-    "msg_unknown_service": "Tundmatu meiliteenus: :service"
+    "msg_unknown_service": "Tundmatu meiliteenus: :service",
+    "language": "Keel",
+    "language_default": "Vaikekeel",
+    "msg_invalid_language": "Vigane keelekood."
   },
   "mlist": {
     "msg_updated": "Postiloend uuendatud!",
@@ -875,5 +879,17 @@
     "managed_help": "See konto on replitseeritud kataloogist. Replitseeritud välju saab muuta ainult seal.",
     "msg_managed": ":address on kataloogi hallata. Muutke seda kataloogis.",
     "managed_group_help": "See grupp replitseeritakse kataloogist. Selle nime ja liikmeid saab muuta ainult seal."
+  },
+  "self": {
+    "msg_released": "Kiri toimetati sinu postkasti.",
+    "msg_deleted": "Kiri kustutati.",
+    "msg_sender_blacklisted": "Saatja :sender kirjad on nüüd blokeeritud.",
+    "release_confirm": "Kas toimetada see kiri sinu postkasti?",
+    "blacklist_sender": "Blokeeri saatja",
+    "blacklist_confirm": "Kas blokeerida kõik saatja :sender kirjad?",
+    "spam_policy_default": "Kasutad oma domeeni või serveri rämpspostipoliitikat. Salvesta vorm, et määrata oma poliitika.",
+    "spam_policy_reset": "Kasuta vaikepoliitikat",
+    "spam_policy_reset_confirm": "Kas kustutada oma rämpspostipoliitika ja kasutada vaikepoliitikat?",
+    "no_pages": "Sinu domeeni administraator sulges kõik iseteeninduse lehed."
   }
 }

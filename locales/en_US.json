@@ -28,7 +28,8 @@
     "group_system": "System",
     "toggle_menu": "Menu",
     "compatibility": "iRedMail Compatibility",
-    "account_resources": "Account Resources"
+    "account_resources": "Account Resources",
+    "group_self_service": "My account"
   },
   "common": {
     "msg_password_updated": "Password updated successfully!",
@@ -118,9 +119,9 @@
   "auth": {
     "title": "Authentication",
     "email": "Email",
-    "email_placeholder": "Enter admin email",
+    "email_placeholder": "Enter your email address",
     "password": "Password",
-    "password_placeholder": "Enter admin password",
+    "password_placeholder": "Enter your password",
     "sign_in": "Sign in",
     "failed_attempts": "Failed login attempts: :count",
     "invalid_credentials": "Invalid credentials!",
@@ -366,7 +367,10 @@
     "export_csv": "Export users (CSV)",
     "export_json": "Export users (JSON)",
     "msg_invalid_quota": "The quota must be a whole number of 0 or more (MB).",
-    "msg_unknown_service": "Unknown mail service: :service"
+    "msg_unknown_service": "Unknown mail service: :service",
+    "language": "Language",
+    "language_default": "Default language",
+    "msg_invalid_language": "Invalid language code."
   },
   "mlist": {
     "msg_updated": "Mailing list updated!",
@@ -875,5 +879,17 @@
     "managed_help": "This account is replicated from the directory. The replicated fields can be changed only there.",
     "msg_managed": "The directory manages :address. Change it in the directory.",
     "managed_group_help": "This group is replicated from the directory. Its name and members can be changed only there."
+  },
+  "self": {
+    "msg_released": "The message was released to your mailbox.",
+    "msg_deleted": "The message was deleted.",
+    "msg_sender_blacklisted": "Mail from :sender is now blocked.",
+    "release_confirm": "Deliver this message to your mailbox?",
+    "blacklist_sender": "Block sender",
+    "blacklist_confirm": "Block all mail from :sender?",
+    "spam_policy_default": "You use the spam policy of your domain or of the server. Save the form to set your own policy.",
+    "spam_policy_reset": "Use the default policy",
+    "spam_policy_reset_confirm": "Delete your own spam policy and use the default policy?",
+    "no_pages": "Your domain admin closed all self-service pages."
   }
 }

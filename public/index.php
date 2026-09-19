@@ -37,6 +37,7 @@ use App\Controllers\NewsletterController;
 use App\Controllers\LogController;
 use App\Controllers\MailingListController;
 use App\Controllers\SearchController;
+use App\Controllers\SelfServiceController;
 use App\Controllers\PanelSettingsController;
 use App\Controllers\SystemSettingsController;
 use App\Controllers\UserController;
@@ -72,6 +73,15 @@ $router->addRoute('POST', '/logout', function () {
 // Language switch (available to everyone, including the login page)
 $router->addRoute('POST', '/language', function () {
     AuthController::changeLanguage();
+});
+
+// Self-service pages of mailbox users. Register before the /{domain}/users routes.
+$router->addRoute('GET', '/self', function () use ($tpl) {
+    SelfServiceController::index($tpl);
+});
+
+$router->addRoute(['GET', 'POST'], '/self/{page}', function (string $page) use ($tpl) {
+    SelfServiceController::page($tpl, $page);
 });
 
 // Search

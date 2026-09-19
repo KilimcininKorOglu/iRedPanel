@@ -69,7 +69,10 @@ class TemplateEngine
             'accountResources' => !empty($_SESSION['isGlobalAdmin'])
                 && \App\Repositories\RepositoryFactory::getAccountResourceRepository()->isAvailable(),
         ];
-        $navGroups = Navigation::groups(!empty($_SESSION['isGlobalAdmin']), $features);
+        // A mailbox user sees only the self-service pages that the controller found open.
+        $navGroups = Middleware::isSelfServiceUser()
+            ? Navigation::selfServiceGroups($vars['selfServicePages'] ?? [])
+            : Navigation::groups(!empty($_SESSION['isGlobalAdmin']), $features);
         $navActive = Navigation::activeHref($navGroups, (string) ($_SERVER['REQUEST_URI'] ?? '/'));
         $passwordPolicy = json_encode([
             'minLength' => $settings->passwordMinLength,

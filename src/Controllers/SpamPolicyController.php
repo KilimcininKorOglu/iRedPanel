@@ -79,7 +79,10 @@ class SpamPolicyController
         'spamKillLevel' => 'spampolicy.kill_level',
     ];
 
-    private static function levelError(\InvalidArgumentException $e): string
+    /**
+     * Names the threshold field that SpamPolicy::fromFormData() rejected.
+     */
+    public static function levelError(\InvalidArgumentException $e): string
     {
         $labelKey = self::LEVEL_LABELS[$e->getMessage()] ?? null;
         if ($labelKey === null) {

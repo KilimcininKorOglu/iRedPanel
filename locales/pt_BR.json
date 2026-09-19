@@ -28,7 +28,8 @@
     "group_system": "Sistema",
     "toggle_menu": "Menu",
     "compatibility": "Compatibilidade com iRedMail",
-    "account_resources": "Fontes de contas"
+    "account_resources": "Fontes de contas",
+    "group_self_service": "Minha conta"
   },
   "common": {
     "msg_password_updated": "Senha atualizada com sucesso!",
@@ -118,9 +119,9 @@
   "auth": {
     "title": "Autenticação",
     "email": "E-mail",
-    "email_placeholder": "Digite o e-mail do administrador",
+    "email_placeholder": "Digite seu endereço de e-mail",
     "password": "Senha",
-    "password_placeholder": "Digite a senha do administrador",
+    "password_placeholder": "Digite sua senha",
     "sign_in": "Entrar",
     "failed_attempts": "Tentativas de login com falha: :count",
     "invalid_credentials": "Credenciais inválidas!",
@@ -366,7 +367,10 @@
     "export_csv": "Exportar usuários (CSV)",
     "export_json": "Exportar usuários (JSON)",
     "msg_invalid_quota": "A cota deve ser um número inteiro igual ou maior que 0 (MB).",
-    "msg_unknown_service": "Serviço de e-mail desconhecido: :service"
+    "msg_unknown_service": "Serviço de e-mail desconhecido: :service",
+    "language": "Idioma",
+    "language_default": "Idioma padrão",
+    "msg_invalid_language": "Código de idioma inválido."
   },
   "mlist": {
     "msg_updated": "Lista de distribuição atualizada!",
@@ -875,5 +879,17 @@
     "managed_help": "Esta conta é replicada do diretório. Os campos replicados só podem ser alterados lá.",
     "msg_managed": "O diretório gerencia :address. Altere-o no diretório.",
     "managed_group_help": "Este grupo é replicado do diretório. O nome e os membros só podem ser alterados lá."
+  },
+  "self": {
+    "msg_released": "A mensagem foi entregue na sua caixa de correio.",
+    "msg_deleted": "A mensagem foi excluída.",
+    "msg_sender_blacklisted": "Os e-mails de :sender agora estão bloqueados.",
+    "release_confirm": "Entregar esta mensagem na sua caixa de correio?",
+    "blacklist_sender": "Bloquear remetente",
+    "blacklist_confirm": "Bloquear todos os e-mails de :sender?",
+    "spam_policy_default": "Você usa a política de spam do seu domínio ou do servidor. Salve o formulário para definir sua própria política.",
+    "spam_policy_reset": "Usar a política padrão",
+    "spam_policy_reset_confirm": "Excluir sua própria política de spam e usar a política padrão?",
+    "no_pages": "O administrador do seu domínio fechou todas as páginas de autoatendimento."
   }
 }

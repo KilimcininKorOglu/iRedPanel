@@ -28,7 +28,8 @@
     "group_system": "Sistem",
     "toggle_menu": "Meniu",
     "compatibility": "Compatibilitate iRedMail",
-    "account_resources": "Resurse de conturi"
+    "account_resources": "Resurse de conturi",
+    "group_self_service": "Contul meu"
   },
   "common": {
     "msg_password_updated": "Parola a fost actualizată cu succes!",
@@ -118,9 +119,9 @@
   "auth": {
     "title": "Autentificare",
     "email": "Email",
-    "email_placeholder": "Introduceți email-ul administratorului",
+    "email_placeholder": "Introduceți adresa de email",
     "password": "Parolă",
-    "password_placeholder": "Introduceți parola administratorului",
+    "password_placeholder": "Introduceți parola",
     "sign_in": "Conectare",
     "failed_attempts": "Încercări de conectare eșuate: :count",
     "invalid_credentials": "Credențiale nevalide!",
@@ -366,7 +367,10 @@
     "export_csv": "Exportă utilizatorii (CSV)",
     "export_json": "Exportă utilizatorii (JSON)",
     "msg_invalid_quota": "Cota trebuie să fie un număr întreg de 0 sau mai mare (MB).",
-    "msg_unknown_service": "Serviciu de e-mail necunoscut: :service"
+    "msg_unknown_service": "Serviciu de e-mail necunoscut: :service",
+    "language": "Limbă",
+    "language_default": "Limba implicită",
+    "msg_invalid_language": "Cod de limbă nevalid."
   },
   "mlist": {
     "msg_updated": "Lista de corespondență a fost actualizată!",
@@ -875,5 +879,17 @@
     "managed_help": "Acest cont este replicat din director. Câmpurile replicate pot fi modificate doar acolo.",
     "msg_managed": "Directorul gestionează :address. Modificați-l în director.",
     "managed_group_help": "Acest grup este replicat din director. Numele și membrii pot fi modificați doar acolo."
+  },
+  "self": {
+    "msg_released": "Mesajul a fost livrat în căsuța dvs. poștală.",
+    "msg_deleted": "Mesajul a fost șters.",
+    "msg_sender_blacklisted": "Mailurile de la :sender sunt acum blocate.",
+    "release_confirm": "Livrați acest mesaj în căsuța dvs. poștală?",
+    "blacklist_sender": "Blocați expeditorul",
+    "blacklist_confirm": "Blocați toate mailurile de la :sender?",
+    "spam_policy_default": "Folosiți politica antispam a domeniului sau a serverului. Salvați formularul pentru a seta o politică proprie.",
+    "spam_policy_reset": "Folosiți politica implicită",
+    "spam_policy_reset_confirm": "Ștergeți politica antispam proprie și folosiți politica implicită?",
+    "no_pages": "Administratorul domeniului a închis toate paginile de self-service."
   }
 }

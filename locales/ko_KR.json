@@ -28,7 +28,8 @@
     "group_system": "시스템",
     "toggle_menu": "메뉴",
     "compatibility": "iRedMail 호환성",
-    "account_resources": "계정 리소스"
+    "account_resources": "계정 리소스",
+    "group_self_service": "내 계정"
   },
   "common": {
     "msg_password_updated": "비밀번호가 성공적으로 업데이트되었습니다!",
@@ -118,9 +119,9 @@
   "auth": {
     "title": "인증",
     "email": "이메일",
-    "email_placeholder": "관리자 이메일을 입력하세요",
+    "email_placeholder": "이메일 주소를 입력하세요",
     "password": "비밀번호",
-    "password_placeholder": "관리자 비밀번호를 입력하세요",
+    "password_placeholder": "비밀번호를 입력하세요",
     "sign_in": "로그인",
     "failed_attempts": "로그인 실패 횟수: :count",
     "invalid_credentials": "잘못된 자격 증명입니다!",
@@ -366,7 +367,10 @@
     "export_csv": "사용자 내보내기 (CSV)",
     "export_json": "사용자 내보내기 (JSON)",
     "msg_invalid_quota": "할당량은 0 이상의 정수(MB)여야 합니다.",
-    "msg_unknown_service": "알 수 없는 메일 서비스: :service"
+    "msg_unknown_service": "알 수 없는 메일 서비스: :service",
+    "language": "언어",
+    "language_default": "기본 언어",
+    "msg_invalid_language": "잘못된 언어 코드입니다."
   },
   "mlist": {
     "msg_updated": "메일링 리스트가 업데이트되었습니다!",
@@ -875,5 +879,17 @@
     "managed_help": "이 계정은 디렉터리에서 복제됩니다. 복제된 필드는 디렉터리에서만 변경할 수 있습니다.",
     "msg_managed": ":address 은(는) 디렉터리에서 관리합니다. 디렉터리에서 변경하세요.",
     "managed_group_help": "이 그룹은 디렉터리에서 복제됩니다. 이름과 구성원은 디렉터리에서만 변경할 수 있습니다."
+  },
+  "self": {
+    "msg_released": "메시지를 메일함으로 전달했습니다.",
+    "msg_deleted": "메시지를 삭제했습니다.",
+    "msg_sender_blacklisted": ":sender의 메일을 이제 차단합니다.",
+    "release_confirm": "이 메시지를 메일함으로 전달하시겠습니까?",
+    "blacklist_sender": "발신자 차단",
+    "blacklist_confirm": ":sender의 모든 메일을 차단하시겠습니까?",
+    "spam_policy_default": "도메인 또는 서버의 스팸 정책을 사용하고 있습니다. 자신의 정책을 설정하려면 양식을 저장하세요.",
+    "spam_policy_reset": "기본 정책 사용",
+    "spam_policy_reset_confirm": "자신의 스팸 정책을 삭제하고 기본 정책을 사용하시겠습니까?",
+    "no_pages": "도메인 관리자가 모든 셀프 서비스 페이지를 닫았습니다."
   }
 }

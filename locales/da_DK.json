@@ -28,7 +28,8 @@
     "group_system": "System",
     "toggle_menu": "Menu",
     "compatibility": "iRedMail-kompatibilitet",
-    "account_resources": "Kontokilder"
+    "account_resources": "Kontokilder",
+    "group_self_service": "Min konto"
   },
   "common": {
     "msg_password_updated": "Adgangskoden blev opdateret!",
@@ -118,9 +119,9 @@
   "auth": {
     "title": "Godkendelse",
     "email": "E-mail",
-    "email_placeholder": "Indtast administrator-e-mail",
+    "email_placeholder": "Indtast din e-mailadresse",
     "password": "Adgangskode",
-    "password_placeholder": "Indtast administratoradgangskode",
+    "password_placeholder": "Indtast din adgangskode",
     "sign_in": "Log ind",
     "failed_attempts": "Mislykkede loginforsøg: :count",
     "invalid_credentials": "Ugyldige loginoplysninger!",
@@ -366,7 +367,10 @@
     "export_csv": "Eksportér brugere (CSV)",
     "export_json": "Eksportér brugere (JSON)",
     "msg_invalid_quota": "Kvoten skal være et heltal på 0 eller mere (MB).",
-    "msg_unknown_service": "Ukendt mailtjeneste: :service"
+    "msg_unknown_service": "Ukendt mailtjeneste: :service",
+    "language": "Sprog",
+    "language_default": "Standardsprog",
+    "msg_invalid_language": "Ugyldig sprogkode."
   },
   "mlist": {
     "msg_updated": "Mailingliste opdateret!",
@@ -875,5 +879,17 @@
     "managed_help": "Denne konto replikeres fra kataloget. De replikerede felter kan kun ændres der.",
     "msg_managed": "Kataloget administrerer :address. Foretag ændringen i kataloget.",
     "managed_group_help": "Denne gruppe replikeres fra kataloget. Navn og medlemmer kan kun ændres der."
+  },
+  "self": {
+    "msg_released": "Beskeden blev leveret til din postkasse.",
+    "msg_deleted": "Beskeden blev slettet.",
+    "msg_sender_blacklisted": "Mail fra :sender blokeres nu.",
+    "release_confirm": "Lever denne besked til din postkasse?",
+    "blacklist_sender": "Bloker afsender",
+    "blacklist_confirm": "Bloker al mail fra :sender?",
+    "spam_policy_default": "Du bruger spampolitikken for dit domæne eller serveren. Gem formularen for at angive din egen politik.",
+    "spam_policy_reset": "Brug standardpolitikken",
+    "spam_policy_reset_confirm": "Slet din egen spampolitik og brug standardpolitikken?",
+    "no_pages": "Din domæneadministrator har lukket alle selvbetjeningssider."
   }
 }

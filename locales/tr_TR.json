@@ -28,7 +28,8 @@
     "group_system": "Sistem",
     "toggle_menu": "Menü",
     "compatibility": "iRedMail Uyumluluğu",
-    "account_resources": "Hesap Kaynakları"
+    "account_resources": "Hesap Kaynakları",
+    "group_self_service": "Hesabım"
   },
   "common": {
     "msg_password_updated": "Parola başarıyla güncellendi!",
@@ -118,9 +119,9 @@
   "auth": {
     "title": "Kimlik Doğrulama",
     "email": "E-posta",
-    "email_placeholder": "Yönetici e-postasını girin",
+    "email_placeholder": "E-posta adresinizi girin",
     "password": "Parola",
-    "password_placeholder": "Yönetici parolasını girin",
+    "password_placeholder": "Parolanızı girin",
     "sign_in": "Giriş Yap",
     "failed_attempts": "Başarısız giriş denemesi: :count",
     "invalid_credentials": "Geçersiz kimlik bilgileri!",
@@ -366,7 +367,10 @@
     "export_csv": "Kullanıcıları dışa aktar (CSV)",
     "export_json": "Kullanıcıları dışa aktar (JSON)",
     "msg_invalid_quota": "Kota 0 veya daha büyük bir tam sayı olmalıdır (MB).",
-    "msg_unknown_service": "Bilinmeyen posta servisi: :service"
+    "msg_unknown_service": "Bilinmeyen posta servisi: :service",
+    "language": "Dil",
+    "language_default": "Varsayılan dil",
+    "msg_invalid_language": "Geçersiz dil kodu."
   },
   "mlist": {
     "msg_updated": "Posta listesi güncellendi!",
@@ -875,5 +879,17 @@
     "managed_help": "Bu hesap dizinden replike ediliyor. Replike edilen alanlar yalnızca orada değiştirilebilir.",
     "msg_managed": ":address dizin tarafından yönetiliyor. Değişikliği dizinde yapın.",
     "managed_group_help": "Bu grup dizinden replike ediliyor. Adı ve üyeleri yalnızca orada değiştirilebilir."
+  },
+  "self": {
+    "msg_released": "Mesaj mailbox'ınıza teslim edildi.",
+    "msg_deleted": "Mesaj silindi.",
+    "msg_sender_blacklisted": ":sender adresinden gelen mailler artık engelleniyor.",
+    "release_confirm": "Bu mesaj mailbox'ınıza teslim edilsin mi?",
+    "blacklist_sender": "Göndereni engelle",
+    "blacklist_confirm": ":sender adresinden gelen tüm mailler engellensin mi?",
+    "spam_policy_default": "Domain'inizin veya sunucunun spam policy'sini kullanıyorsunuz. Kendi policy'nizi belirlemek için formu kaydedin.",
+    "spam_policy_reset": "Varsayılan policy'yi kullan",
+    "spam_policy_reset_confirm": "Kendi spam policy'niz silinsin ve varsayılan policy kullanılsın mı?",
+    "no_pages": "Domain admin'iniz tüm self-service sayfalarını kapattı."
   }
 }

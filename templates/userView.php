@@ -117,6 +117,16 @@ $services = \App\Models\User::SERVICE_LABELS;
             <label for="telephoneNumber" class="form-label"><?= $te('user.work_phone') ?></label>
             <input id="telephoneNumber" name="telephoneNumber" type="text" class="form-control" value="<?= $e($user->telephoneNumber) ?>"<?= $locked('telephoneNumber') ?> />
           </div>
+          <div class="col-md-6">
+            <label for="language" class="form-label"><?= $te('user.language') ?></label>
+            <?php // A stored code that the panel has no translation for stays selectable, so a save keeps it. ?>
+            <?php $languages = ['' => $t('user.language_default')] + $availableLocales + [(string) $user->language => (string) $user->language]; ?>
+            <select id="language" name="language" class="form-select">
+              <?php foreach ($languages as $code => $name): ?>
+              <option value="<?= $e($code) ?>"<?= (string) $code === (string) $user->language ? ' selected' : '' ?>><?= $e($name) ?></option>
+              <?php endforeach; ?>
+            </select>
+          </div>
         </div>
         <?php if (!empty($session['isGlobalAdmin'])): ?>
         <div class="form-check form-switch mt-3">

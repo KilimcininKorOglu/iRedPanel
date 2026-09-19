@@ -28,7 +28,8 @@
     "group_system": "System",
     "toggle_menu": "Menü",
     "compatibility": "iRedMail-Kompatibilität",
-    "account_resources": "Kontoquellen"
+    "account_resources": "Kontoquellen",
+    "group_self_service": "Mein Konto"
   },
   "common": {
     "msg_password_updated": "Passwort erfolgreich aktualisiert!",
@@ -118,9 +119,9 @@
   "auth": {
     "title": "Authentifizierung",
     "email": "E-Mail",
-    "email_placeholder": "Administrator-E-Mail eingeben",
+    "email_placeholder": "E-Mail-Adresse eingeben",
     "password": "Passwort",
-    "password_placeholder": "Administrator-Passwort eingeben",
+    "password_placeholder": "Passwort eingeben",
     "sign_in": "Anmelden",
     "failed_attempts": "Fehlgeschlagene Anmeldeversuche: :count",
     "invalid_credentials": "Ungültige Anmeldedaten!",
@@ -366,7 +367,10 @@
     "export_csv": "Benutzer exportieren (CSV)",
     "export_json": "Benutzer exportieren (JSON)",
     "msg_invalid_quota": "Das Kontingent muss eine ganze Zahl von 0 oder mehr sein (MB).",
-    "msg_unknown_service": "Unbekannter Maildienst: :service"
+    "msg_unknown_service": "Unbekannter Maildienst: :service",
+    "language": "Sprache",
+    "language_default": "Standardsprache",
+    "msg_invalid_language": "Ungültiger Sprachcode."
   },
   "mlist": {
     "msg_updated": "Mailingliste aktualisiert!",
@@ -875,5 +879,17 @@
     "managed_help": "Dieses Konto wird aus dem Verzeichnis repliziert. Die replizierten Felder können nur dort geändert werden.",
     "msg_managed": "Das Verzeichnis verwaltet :address. Ändern Sie es im Verzeichnis.",
     "managed_group_help": "Diese Gruppe wird aus dem Verzeichnis repliziert. Name und Mitglieder können nur dort geändert werden."
+  },
+  "self": {
+    "msg_released": "Die Nachricht wurde in Ihr Postfach zugestellt.",
+    "msg_deleted": "Die Nachricht wurde gelöscht.",
+    "msg_sender_blacklisted": "Mails von :sender werden jetzt blockiert.",
+    "release_confirm": "Diese Nachricht in Ihr Postfach zustellen?",
+    "blacklist_sender": "Absender blockieren",
+    "blacklist_confirm": "Alle Mails von :sender blockieren?",
+    "spam_policy_default": "Sie verwenden die Spam-Richtlinie Ihrer Domain oder des Servers. Speichern Sie das Formular, um eine eigene Richtlinie festzulegen.",
+    "spam_policy_reset": "Standardrichtlinie verwenden",
+    "spam_policy_reset_confirm": "Eigene Spam-Richtlinie löschen und die Standardrichtlinie verwenden?",
+    "no_pages": "Ihr Domain-Administrator hat alle Self-Service-Seiten geschlossen."
   }
 }

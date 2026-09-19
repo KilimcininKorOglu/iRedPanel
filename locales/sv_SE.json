@@ -28,7 +28,8 @@
     "group_system": "System",
     "toggle_menu": "Meny",
     "compatibility": "iRedMail-kompatibilitet",
-    "account_resources": "Kontokällor"
+    "account_resources": "Kontokällor",
+    "group_self_service": "Mitt konto"
   },
   "common": {
     "msg_password_updated": "Lösenordet har uppdaterats!",
@@ -118,9 +119,9 @@
   "auth": {
     "title": "Autentisering",
     "email": "E-post",
-    "email_placeholder": "Ange administratörens e-post",
+    "email_placeholder": "Ange din e-postadress",
     "password": "Lösenord",
-    "password_placeholder": "Ange administratörens lösenord",
+    "password_placeholder": "Ange ditt lösenord",
     "sign_in": "Logga in",
     "failed_attempts": "Misslyckade inloggningsförsök: :count",
     "invalid_credentials": "Ogiltiga inloggningsuppgifter!",
@@ -366,7 +367,10 @@
     "export_csv": "Exportera användare (CSV)",
     "export_json": "Exportera användare (JSON)",
     "msg_invalid_quota": "Kvoten måste vara ett heltal på 0 eller mer (MB).",
-    "msg_unknown_service": "Okänd e-posttjänst: :service"
+    "msg_unknown_service": "Okänd e-posttjänst: :service",
+    "language": "Språk",
+    "language_default": "Standardspråk",
+    "msg_invalid_language": "Ogiltig språkkod."
   },
   "mlist": {
     "msg_updated": "Sändlista uppdaterad!",
@@ -875,5 +879,17 @@
     "managed_help": "Det här kontot replikeras från katalogen. De replikerade fälten kan bara ändras där.",
     "msg_managed": "Katalogen hanterar :address. Gör ändringen i katalogen.",
     "managed_group_help": "Den här gruppen replikeras från katalogen. Namn och medlemmar kan bara ändras där."
+  },
+  "self": {
+    "msg_released": "Meddelandet levererades till din brevlåda.",
+    "msg_deleted": "Meddelandet raderades.",
+    "msg_sender_blacklisted": "E-post från :sender blockeras nu.",
+    "release_confirm": "Leverera detta meddelande till din brevlåda?",
+    "blacklist_sender": "Blockera avsändare",
+    "blacklist_confirm": "Blockera all e-post från :sender?",
+    "spam_policy_default": "Du använder spampolicyn för din domän eller servern. Spara formuläret för att ange en egen policy.",
+    "spam_policy_reset": "Använd standardpolicyn",
+    "spam_policy_reset_confirm": "Radera din egen spampolicy och använda standardpolicyn?",
+    "no_pages": "Din domänadministratör har stängt alla självbetjäningssidor."
   }
 }

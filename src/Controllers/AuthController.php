@@ -8,8 +8,10 @@ use App\CsrfProtection;
 use App\Exceptions\BackendConnectionException;
 use App\I18n\LocaleResolver;
 use App\I18n\Translator;
+use App\Middleware;
 use App\Repositories\RepositoryFactory;
 use App\Services\ActivityLogger;
+use App\Services\SelfService;
 use App\TemplateEngine;
 
 class AuthController
@@ -44,30 +46,26 @@ class AuthController
             $password = $_POST['password'] ?? '';
 
             if (self::authenticateUser($email, $password)) {
-                session_regenerate_id(true);
-                $_SESSION['email'] = $email;
-                $_SESSION['lastActivity'] = time();
-                $_SESSION['loginIp'] = $_SERVER['REMOTE_ADDR'] ?? '';
-                $_SESSION['failedLoginAttempts'] = 0;
-
-                // Store RBAC info in session
+                self::startSession($email);
                 $authRepo = RepositoryFactory::getAuthRepository();
                 $_SESSION['isGlobalAdmin'] = $authRepo->isGlobalAdmin($email);
                 $_SESSION['managedDomains'] = $authRepo->getManagedDomains($email);
-
-                // Apply the admin's stored language preference, if any and supported.
-                try {
-                    $storedLang = $authRepo->getLanguage($email);
-                    if ($storedLang !== '' && Translator::isSupported($storedLang)) {
-                        $_SESSION['lang'] = $storedLang;
-                        LocaleResolver::persistCookie($storedLang);
-                    }
-                } catch (\Exception $e) {
-                    error_log("Could not load language preference for {$email}: {$e->getMessage()}");
-                }
+                self::applyStoredLanguage($email, static fn (): string => $authRepo->getLanguage($email));
 
                 ActivityLogger::logLogin($email);
                 header("Location: $next");
+                exit;
+            }
+
+            // A mailbox that is no admin logs in to self-service when its domain allows it.
+            if (SelfService::authenticate($email, $password)) {
+                $email = strtolower(trim($email));
+                self::startSession($email);
+                $_SESSION['selfService'] = true;
+                self::applyStoredLanguage($email, static fn (): string => SelfService::user()?->language ?? '');
+
+                ActivityLogger::log('user_login', '', $email, 'User login (self-service)');
+                header('Location: ' . (str_starts_with($next, '/self') ? $next : '/self'));
                 exit;
             }
 
@@ -90,6 +88,39 @@ class AuthController
             'email' => $email,
             'failedAttempts' => $_SESSION['failedLoginAttempts'] ?? 0,
         ]);
+    }
+
+    /**
+     * Starts a new session after a successful login. The role fields are set by the caller.
+     */
+    private static function startSession(string $email): void
+    {
+        session_regenerate_id(true);
+        $_SESSION['email'] = $email;
+        $_SESSION['lastActivity'] = time();
+        $_SESSION['loginIp'] = $_SERVER['REMOTE_ADDR'] ?? '';
+        $_SESSION['failedLoginAttempts'] = 0;
+        $_SESSION['isGlobalAdmin'] = false;
+        $_SESSION['managedDomains'] = [];
+        unset($_SESSION['selfService']);
+    }
+
+    /**
+     * Applies the stored language preference of the account, if any and supported.
+     *
+     * @param callable(): string $read
+     */
+    private static function applyStoredLanguage(string $email, callable $read): void
+    {
+        try {
+            $storedLang = $read();
+            if ($storedLang !== '' && Translator::isSupported($storedLang)) {
+                $_SESSION['lang'] = $storedLang;
+                LocaleResolver::persistCookie($storedLang);
+            }
+        } catch (\Exception $e) {
+            error_log("Could not load language preference for {$email}: {$e->getMessage()}");
+        }
     }
 
     /**
@@ -129,10 +160,7 @@ class AuthController
             $email = $_SESSION['email'] ?? '';
             if ($email !== '') {
                 try {
-                    $authRepo = RepositoryFactory::getAuthRepository();
-                    if ($authRepo->supportsLanguagePersistence()) {
-                        $authRepo->setLanguage($email, $locale);
-                    }
+                    self::persistLanguage($email, $locale);
                 } catch (\Exception $e) {
                     error_log("Could not persist language for {$email}: {$e->getMessage()}");
                 }
@@ -141,6 +169,25 @@ class AuthController
 
         header('Location: ' . self::safeRedirectTarget());
         exit;
+    }
+
+    /**
+     * Stores the language of the logged-in admin, or of the mailbox of a self-service user.
+     */
+    private static function persistLanguage(string $email, string $locale): void
+    {
+        if (Middleware::isSelfServiceUser()) {
+            $account = SelfService::account();
+            $user = SelfService::user() ?? throw new \RuntimeException("Mailbox '{$email}' not found");
+            $user->language = $locale;
+            RepositoryFactory::getUserRepository()->updateUser($account['domain'], $user);
+            return;
+        }
+
+        $authRepo = RepositoryFactory::getAuthRepository();
+        if ($authRepo->supportsLanguagePersistence()) {
+            $authRepo->setLanguage($email, $locale);
+        }
     }
 
     /**

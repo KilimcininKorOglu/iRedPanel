@@ -28,7 +28,8 @@
     "group_system": "系统",
     "toggle_menu": "菜单",
     "compatibility": "iRedMail 兼容性",
-    "account_resources": "账户源"
+    "account_resources": "账户源",
+    "group_self_service": "我的账户"
   },
   "common": {
     "msg_password_updated": "密码更新成功！",
@@ -118,9 +119,9 @@
   "auth": {
     "title": "身份验证",
     "email": "电子邮件",
-    "email_placeholder": "请输入管理员电子邮件",
+    "email_placeholder": "输入您的邮箱地址",
     "password": "密码",
-    "password_placeholder": "请输入管理员密码",
+    "password_placeholder": "输入您的密码",
     "sign_in": "登录",
     "failed_attempts": "登录失败次数：:count",
     "invalid_credentials": "凭据无效！",
@@ -366,7 +367,10 @@
     "export_csv": "导出用户 (CSV)",
     "export_json": "导出用户 (JSON)",
     "msg_invalid_quota": "配额必须是 0 或更大的整数（MB）。",
-    "msg_unknown_service": "未知的邮件服务：:service"
+    "msg_unknown_service": "未知的邮件服务：:service",
+    "language": "语言",
+    "language_default": "默认语言",
+    "msg_invalid_language": "无效的语言代码。"
   },
   "mlist": {
     "msg_updated": "邮件列表已更新！",
@@ -875,5 +879,17 @@
     "managed_help": "此账户从目录复制而来。已复制的字段只能在目录中更改。",
     "msg_managed": ":address 由目录管理。请在目录中修改。",
     "managed_group_help": "此组从目录复制。其名称和成员只能在目录中修改。"
+  },
+  "self": {
+    "msg_released": "邮件已投递到您的邮箱。",
+    "msg_deleted": "邮件已删除。",
+    "msg_sender_blacklisted": "来自 :sender 的邮件现已被阻止。",
+    "release_confirm": "将此邮件投递到您的邮箱?",
+    "blacklist_sender": "阻止发件人",
+    "blacklist_confirm": "阻止来自 :sender 的所有邮件?",
+    "spam_policy_default": "您正在使用域名或服务器的垃圾邮件策略。保存表单以设置您自己的策略。",
+    "spam_policy_reset": "使用默认策略",
+    "spam_policy_reset_confirm": "删除您自己的垃圾邮件策略并使用默认策略?",
+    "no_pages": "您的域名管理员已关闭所有自助服务页面。"
   }
 }

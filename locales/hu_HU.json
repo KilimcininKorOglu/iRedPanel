@@ -28,7 +28,8 @@
     "group_system": "Rendszer",
     "toggle_menu": "Menü",
     "compatibility": "iRedMail-kompatibilitás",
-    "account_resources": "Fiókforrások"
+    "account_resources": "Fiókforrások",
+    "group_self_service": "Saját fiók"
   },
   "common": {
     "msg_password_updated": "A jelszó sikeresen frissítve!",
@@ -118,9 +119,9 @@
   "auth": {
     "title": "Hitelesítés",
     "email": "E-mail",
-    "email_placeholder": "Adja meg az adminisztrátor e-mail-címét",
+    "email_placeholder": "Adja meg e-mail címét",
     "password": "Jelszó",
-    "password_placeholder": "Adja meg az adminisztrátor jelszavát",
+    "password_placeholder": "Adja meg jelszavát",
     "sign_in": "Bejelentkezés",
     "failed_attempts": "Sikertelen bejelentkezési kísérletek: :count",
     "invalid_credentials": "Érvénytelen hitelesítő adatok!",
@@ -366,7 +367,10 @@
     "export_csv": "Felhasználók exportálása (CSV)",
     "export_json": "Felhasználók exportálása (JSON)",
     "msg_invalid_quota": "A kvótának 0 vagy nagyobb egész számnak kell lennie (MB).",
-    "msg_unknown_service": "Ismeretlen levelezési szolgáltatás: :service"
+    "msg_unknown_service": "Ismeretlen levelezési szolgáltatás: :service",
+    "language": "Nyelv",
+    "language_default": "Alapértelmezett nyelv",
+    "msg_invalid_language": "Érvénytelen nyelvkód."
   },
   "mlist": {
     "msg_updated": "Levelezőlista frissítve!",
@@ -875,5 +879,17 @@
     "managed_help": "Ez a fiók a címtárból replikálódik. A replikált mezők csak ott módosíthatók.",
     "msg_managed": "A(z) :address címet a címtár kezeli. A címtárban módosítsa.",
     "managed_group_help": "Ez a csoport a címtárból replikálódik. A neve és a tagjai csak ott módosíthatók."
+  },
+  "self": {
+    "msg_released": "Az üzenet a postafiókjába lett kézbesítve.",
+    "msg_deleted": "Az üzenet törölve.",
+    "msg_sender_blacklisted": ":sender levelei mostantól tiltva vannak.",
+    "release_confirm": "Kézbesíti ezt az üzenetet a postafiókjába?",
+    "blacklist_sender": "Feladó tiltása",
+    "blacklist_confirm": "Tiltja :sender összes levelét?",
+    "spam_policy_default": "A domain vagy a szerver spam szabályzatát használja. Mentse az űrlapot saját szabályzat beállításához.",
+    "spam_policy_reset": "Alapértelmezett szabályzat használata",
+    "spam_policy_reset_confirm": "Törli saját spam szabályzatát, és az alapértelmezettet használja?",
+    "no_pages": "A domain adminisztrátora bezárta az összes önkiszolgáló oldalt."
   }
 }

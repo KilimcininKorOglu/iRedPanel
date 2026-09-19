@@ -46,6 +46,35 @@ class Navigation
         ],
     ];
 
+    /** Self-service page slug => label and icon; the menu of a mailbox user. */
+    private const SELF_SERVICE_ITEMS = [
+        'profile' => ['domain.pref_personal_info', 'person'],
+        'password' => ['common.password', 'key'],
+        'forwarding' => ['user.tab_forwarding', 'forward'],
+        'wblist' => ['domain.pref_wblist', 'list-check'],
+        'spam-policy' => ['domain.pref_spampolicy', 'funnel'],
+        'quarantine' => ['domain.pref_quarantine', 'shield-exclamation'],
+        'received' => ['domain.pref_received', 'envelope-paper'],
+    ];
+
+    /**
+     * The menu of a self-service session: the open pages of the user, in menu order.
+     *
+     * @param list<string> $pages open page slugs (SelfService::openPages())
+     * @return array<string, list<array{href: string, label: string, icon: string, match: string[]}>>
+     */
+    public static function selfServiceGroups(array $pages): array
+    {
+        $items = [];
+        foreach (self::SELF_SERVICE_ITEMS as $page => [$label, $icon]) {
+            if (in_array($page, $pages, true)) {
+                $items[] = ['href' => "/self/{$page}", 'label' => $label, 'icon' => $icon, 'match' => ["/self/{$page}"]];
+            }
+        }
+
+        return $items === [] ? [] : ['nav.group_self_service' => $items];
+    }
+
     /**
      * @param array<string, bool> $features feature flags as TemplateEngine passes them
      * @return array<string, list<array{href: string, label: string, icon: string, match: string[]}>>

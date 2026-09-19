@@ -28,7 +28,8 @@
     "group_system": "Sistema",
     "toggle_menu": "Menua",
     "compatibility": "iRedMail bateragarritasuna",
-    "account_resources": "Kontu-iturburuak"
+    "account_resources": "Kontu-iturburuak",
+    "group_self_service": "Nire kontua"
   },
   "common": {
     "msg_password_updated": "Pasahitza eguneratu da!",
@@ -118,9 +119,9 @@
   "auth": {
     "title": "Autentifikazioa",
     "email": "Posta",
-    "email_placeholder": "Sartu administratzailearen posta",
+    "email_placeholder": "Idatzi zure helbide elektronikoa",
     "password": "Pasahitza",
-    "password_placeholder": "Sartu administratzailearen pasahitza",
+    "password_placeholder": "Idatzi zure pasahitza",
     "sign_in": "Hasi saioa",
     "failed_attempts": "Saio-hasiera saiakera hutsegin: :count",
     "invalid_credentials": "Kredentzial baliogabeak!",
@@ -366,7 +367,10 @@
     "export_csv": "Esportatu erabiltzaileak (CSV)",
     "export_json": "Esportatu erabiltzaileak (JSON)",
     "msg_invalid_quota": "Kuotak 0 edo handiagoa den zenbaki oso bat izan behar du (MB).",
-    "msg_unknown_service": "Posta-zerbitzu ezezaguna: :service"
+    "msg_unknown_service": "Posta-zerbitzu ezezaguna: :service",
+    "language": "Hizkuntza",
+    "language_default": "Hizkuntza lehenetsia",
+    "msg_invalid_language": "Hizkuntza-kode baliogabea."
   },
   "mlist": {
     "msg_updated": "Posta-zerrenda eguneratu da!",
@@ -875,5 +879,17 @@
     "managed_help": "Kontu hau direktoriotik erreplikatzen da. Erreplikatutako eremuak han soilik alda daitezke.",
     "msg_managed": "Direktorioak kudeatzen du :address. Aldatu direktorioan.",
     "managed_group_help": "Talde hau direktoriotik erreplikatzen da. Izena eta kideak han bakarrik alda daitezke."
+  },
+  "self": {
+    "msg_released": "Mezua zure postontzira entregatu da.",
+    "msg_deleted": "Mezua ezabatu da.",
+    "msg_sender_blacklisted": ":sender helbideko mezuak blokeatuta daude orain.",
+    "release_confirm": "Mezu hau zure postontzira entregatu?",
+    "blacklist_sender": "Blokeatu igorlea",
+    "blacklist_confirm": ":sender helbideko mezu guztiak blokeatu?",
+    "spam_policy_default": "Zure domeinuaren edo zerbitzariaren spam-politika erabiltzen duzu. Gorde formularioa zure politika propioa ezartzeko.",
+    "spam_policy_reset": "Erabili politika lehenetsia",
+    "spam_policy_reset_confirm": "Ezabatu zure spam-politika eta erabili politika lehenetsia?",
+    "no_pages": "Zure domeinuko administratzaileak autozerbitzuko orri guztiak itxi ditu."
   }
 }

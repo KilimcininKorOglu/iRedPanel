@@ -28,7 +28,8 @@
     "group_system": "System",
     "toggle_menu": "Meny",
     "compatibility": "iRedMail-kompatibilitet",
-    "account_resources": "Kontokilder"
+    "account_resources": "Kontokilder",
+    "group_self_service": "Min konto"
   },
   "common": {
     "msg_password_updated": "Passordet ble oppdatert!",
@@ -118,9 +119,9 @@
   "auth": {
     "title": "Autentisering",
     "email": "E-post",
-    "email_placeholder": "Skriv inn administrator-e-post",
+    "email_placeholder": "Skriv inn e-postadressen din",
     "password": "Passord",
-    "password_placeholder": "Skriv inn administratorpassord",
+    "password_placeholder": "Skriv inn passordet ditt",
     "sign_in": "Logg inn",
     "failed_attempts": "Mislykkede påloggingsforsøk: :count",
     "invalid_credentials": "Ugyldige påloggingsdetaljer!",
@@ -366,7 +367,10 @@
     "export_csv": "Eksporter brukere (CSV)",
     "export_json": "Eksporter brukere (JSON)",
     "msg_invalid_quota": "Kvoten må være et heltall på 0 eller mer (MB).",
-    "msg_unknown_service": "Ukjent e-posttjeneste: :service"
+    "msg_unknown_service": "Ukjent e-posttjeneste: :service",
+    "language": "Språk",
+    "language_default": "Standardspråk",
+    "msg_invalid_language": "Ugyldig språkkode."
   },
   "mlist": {
     "msg_updated": "E-postliste oppdatert!",
@@ -875,5 +879,17 @@
     "managed_help": "Denne kontoen replikeres fra katalogen. De replikerte feltene kan bare endres der.",
     "msg_managed": "Katalogen administrerer :address. Gjør endringen i katalogen.",
     "managed_group_help": "Denne gruppen replikeres fra katalogen. Navn og medlemmer kan bare endres der."
+  },
+  "self": {
+    "msg_released": "Meldingen ble levert til postkassen din.",
+    "msg_deleted": "Meldingen ble slettet.",
+    "msg_sender_blacklisted": "E-post fra :sender blokkeres nå.",
+    "release_confirm": "Levere denne meldingen til postkassen din?",
+    "blacklist_sender": "Blokker avsender",
+    "blacklist_confirm": "Blokkere all e-post fra :sender?",
+    "spam_policy_default": "Du bruker spampolicyen til domenet ditt eller serveren. Lagre skjemaet for å angi din egen policy.",
+    "spam_policy_reset": "Bruk standardpolicyen",
+    "spam_policy_reset_confirm": "Slette din egen spampolicy og bruke standardpolicyen?",
+    "no_pages": "Domeneadministratoren din har stengt alle selvbetjeningssider."
   }
 }

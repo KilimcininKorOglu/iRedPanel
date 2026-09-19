@@ -28,7 +28,8 @@
     "group_system": "Sistema",
     "toggle_menu": "Menú",
     "compatibility": "Compatibilitat amb iRedMail",
-    "account_resources": "Orígens de comptes"
+    "account_resources": "Orígens de comptes",
+    "group_self_service": "El meu compte"
   },
   "common": {
     "msg_password_updated": "Contrasenya actualitzada correctament!",
@@ -118,9 +119,9 @@
   "auth": {
     "title": "Autenticació",
     "email": "Correu electrònic",
-    "email_placeholder": "Introduïu el correu de l'administrador",
+    "email_placeholder": "Introduïu la vostra adreça de correu",
     "password": "Contrasenya",
-    "password_placeholder": "Introduïu la contrasenya de l'administrador",
+    "password_placeholder": "Introduïu la vostra contrasenya",
     "sign_in": "Iniciar sessió",
     "failed_attempts": "Intents d'inici de sessió fallits: :count",
     "invalid_credentials": "Credencials no vàlides!",
@@ -366,7 +367,10 @@
     "export_csv": "Exporta els usuaris (CSV)",
     "export_json": "Exporta els usuaris (JSON)",
     "msg_invalid_quota": "La quota ha de ser un nombre enter igual o superior a 0 (MB).",
-    "msg_unknown_service": "Servei de correu desconegut: :service"
+    "msg_unknown_service": "Servei de correu desconegut: :service",
+    "language": "Idioma",
+    "language_default": "Idioma per defecte",
+    "msg_invalid_language": "Codi d'idioma no vàlid."
   },
   "mlist": {
     "msg_updated": "Llista de correu actualitzada!",
@@ -875,5 +879,17 @@
     "managed_help": "Aquest compte es replica des del directori. Els camps replicats només es poden canviar allà.",
     "msg_managed": "El directori gestiona :address. Canvieu-lo al directori.",
     "managed_group_help": "Aquest grup es replica des del directori. El nom i els membres només es poden canviar allà."
+  },
+  "self": {
+    "msg_released": "El missatge s'ha lliurat a la vostra bústia.",
+    "msg_deleted": "El missatge s'ha suprimit.",
+    "msg_sender_blacklisted": "El correu de :sender ara està bloquejat.",
+    "release_confirm": "Voleu lliurar aquest missatge a la vostra bústia?",
+    "blacklist_sender": "Bloqueja el remitent",
+    "blacklist_confirm": "Voleu bloquejar tot el correu de :sender?",
+    "spam_policy_default": "Feu servir la política antispam del vostre domini o del servidor. Deseu el formulari per definir la vostra pròpia política.",
+    "spam_policy_reset": "Fes servir la política per defecte",
+    "spam_policy_reset_confirm": "Voleu suprimir la vostra política antispam i fer servir la política per defecte?",
+    "no_pages": "L'administrador del vostre domini ha tancat totes les pàgines d'autoservei."
   }
 }

@@ -28,7 +28,8 @@
     "group_system": "Systeem",
     "toggle_menu": "Menu",
     "compatibility": "iRedMail-compatibiliteit",
-    "account_resources": "Accountbronnen"
+    "account_resources": "Accountbronnen",
+    "group_self_service": "Mijn account"
   },
   "common": {
     "msg_password_updated": "Wachtwoord succesvol bijgewerkt!",
@@ -118,9 +119,9 @@
   "auth": {
     "title": "Authenticatie",
     "email": "E-mail",
-    "email_placeholder": "Voer het beheerders-e-mailadres in",
+    "email_placeholder": "Voer uw e-mailadres in",
     "password": "Wachtwoord",
-    "password_placeholder": "Voer het beheerderswachtwoord in",
+    "password_placeholder": "Voer uw wachtwoord in",
     "sign_in": "Aanmelden",
     "failed_attempts": "Mislukte aanmeldpogingen: :count",
     "invalid_credentials": "Ongeldige inloggegevens!",
@@ -366,7 +367,10 @@
     "export_csv": "Gebruikers exporteren (CSV)",
     "export_json": "Gebruikers exporteren (JSON)",
     "msg_invalid_quota": "Het quotum moet een geheel getal van 0 of meer zijn (MB).",
-    "msg_unknown_service": "Onbekende maildienst: :service"
+    "msg_unknown_service": "Onbekende maildienst: :service",
+    "language": "Taal",
+    "language_default": "Standaardtaal",
+    "msg_invalid_language": "Ongeldige taalcode."
   },
   "mlist": {
     "msg_updated": "Mailinglijst bijgewerkt!",
@@ -875,5 +879,17 @@
     "managed_help": "Dit account wordt gerepliceerd uit de directory. De gerepliceerde velden kunnen alleen daar worden gewijzigd.",
     "msg_managed": "De directory beheert :address. Wijzig het in de directory.",
     "managed_group_help": "Deze groep wordt gerepliceerd vanuit de directory. Naam en leden kunnen alleen daar worden gewijzigd."
+  },
+  "self": {
+    "msg_released": "Het bericht is in uw mailbox afgeleverd.",
+    "msg_deleted": "Het bericht is verwijderd.",
+    "msg_sender_blacklisted": "Mail van :sender wordt nu geblokkeerd.",
+    "release_confirm": "Dit bericht in uw mailbox afleveren?",
+    "blacklist_sender": "Afzender blokkeren",
+    "blacklist_confirm": "Alle mail van :sender blokkeren?",
+    "spam_policy_default": "U gebruikt het spambeleid van uw domein of van de server. Sla het formulier op om uw eigen beleid in te stellen.",
+    "spam_policy_reset": "Standaardbeleid gebruiken",
+    "spam_policy_reset_confirm": "Uw eigen spambeleid verwijderen en het standaardbeleid gebruiken?",
+    "no_pages": "Uw domeinbeheerder heeft alle selfservicepagina's gesloten."
   }
 }

@@ -28,7 +28,8 @@
     "group_system": "Sistem",
     "toggle_menu": "Menyu",
     "compatibility": "iRedMail uyğunluğu",
-    "account_resources": "Hesab mənbələri"
+    "account_resources": "Hesab mənbələri",
+    "group_self_service": "Hesabım"
   },
   "common": {
     "msg_password_updated": "Parol uğurla yeniləndi!",
@@ -118,9 +119,9 @@
   "auth": {
     "title": "Autentifikasiya",
     "email": "E-poçt",
-    "email_placeholder": "Admin e-poçtunu daxil edin",
+    "email_placeholder": "E-poçt ünvanınızı daxil edin",
     "password": "Parol",
-    "password_placeholder": "Admin parolunu daxil edin",
+    "password_placeholder": "Parolunuzu daxil edin",
     "sign_in": "Daxil ol",
     "failed_attempts": "Uğursuz giriş cəhdləri: :count",
     "invalid_credentials": "Yanlış giriş məlumatları!",
@@ -366,7 +367,10 @@
     "export_csv": "İstifadəçiləri ixrac et (CSV)",
     "export_json": "İstifadəçiləri ixrac et (JSON)",
     "msg_invalid_quota": "Kvota 0 və ya daha böyük tam ədəd olmalıdır (MB).",
-    "msg_unknown_service": "Naməlum poçt xidməti: :service"
+    "msg_unknown_service": "Naməlum poçt xidməti: :service",
+    "language": "Dil",
+    "language_default": "Defolt dil",
+    "msg_invalid_language": "Yanlış dil kodu."
   },
   "mlist": {
     "msg_updated": "Poçt siyahısı yeniləndi!",
@@ -875,5 +879,17 @@
     "managed_help": "Bu hesab kataloqdan replikasiya edilir. Replikasiya edilən sahələr yalnız orada dəyişdirilə bilər.",
     "msg_managed": ":address kataloq tərəfindən idarə olunur. Dəyişikliyi kataloqda edin.",
     "managed_group_help": "Bu qrup kataloqdan replikasiya olunur. Adı və üzvləri yalnız orada dəyişdirilə bilər."
+  },
+  "self": {
+    "msg_released": "Mesaj poçt qutunuza çatdırıldı.",
+    "msg_deleted": "Mesaj silindi.",
+    "msg_sender_blacklisted": ":sender ünvanından gələn məktublar artıq bloklanır.",
+    "release_confirm": "Bu mesaj poçt qutunuza çatdırılsın?",
+    "blacklist_sender": "Göndərəni blokla",
+    "blacklist_confirm": ":sender ünvanından gələn bütün məktublar bloklansın?",
+    "spam_policy_default": "Domeninizin və ya serverin spam siyasətindən istifadə edirsiniz. Öz siyasətinizi təyin etmək üçün formu yadda saxlayın.",
+    "spam_policy_reset": "Defolt siyasətdən istifadə et",
+    "spam_policy_reset_confirm": "Öz spam siyasətiniz silinsin və defolt siyasətdən istifadə edilsin?",
+    "no_pages": "Domen administratorunuz bütün self-service səhifələrini bağladı."
   }
 }

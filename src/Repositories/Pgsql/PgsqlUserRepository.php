@@ -34,7 +34,7 @@ class PgsqlUserRepository implements UserRepositoryInterface
                     enablesmtp, enablesmtpsecured, enablepop3, enablepop3secured,
                     enableimap, enableimapsecured, enablemanagesieve,
                     enablemanagesievesecured, enablesogo,
-                    enablepop3tls, enableimaptls, enablesieve, enablesievesecured, enablesievetls
+                    enablepop3tls, enableimaptls, enablesieve, enablesievesecured, enablesievetls, language
              FROM mailbox
              WHERE username = :username AND domain = :domain
              LIMIT 1"
@@ -112,6 +112,7 @@ class PgsqlUserRepository implements UserRepositoryInterface
                     enablesievesecured = :enableSieveSecured,
                     enablesievetls = :enableSieveTls,
                     enablesogo = :enableSogo,
+                    language = COALESCE(:language, language),
                     modified = NOW()
                  WHERE username = :username AND domain = :domain"
             );
@@ -136,6 +137,7 @@ class PgsqlUserRepository implements UserRepositoryInterface
                 'enableManagesieveSecured' => $user->enableManagesieveSecured ? 1 : 0,
                 ...$user->dovecotServiceParams(),
                 'enableSogo' => $user->enableSogo ? 1 : 0,
+                'language' => $user->language,
                 'username' => $username,
                 'domain' => $domain,
             ]);
@@ -220,12 +222,12 @@ class PgsqlUserRepository implements UserRepositoryInterface
                     (username, password, name, first_name, last_name,
                      quota, employeeid, rank, mobile, telephone,
                      domain, active, isglobaladmin, storagebasedirectory,
-                     storagenode, maildir, {$serviceColumns}, created, passwordlastchange)
+                     storagenode, maildir, language, {$serviceColumns}, created, passwordlastchange)
                  VALUES
                     (:username, :password, :cn, :givenName, :sn,
                      :quota, :employeeNumber, :title, :mobile, :telephoneNumber,
                      :domain, :active, :isGlobalAdmin, :storageBase,
-                     :storageNode, :maildir, {$servicePlaceholders}, NOW(), NOW())"
+                     :storageNode, :maildir, :language, {$servicePlaceholders}, NOW(), NOW())"
             );
             $stmt->execute($services + [
                 'username' => $username,
@@ -244,6 +246,7 @@ class PgsqlUserRepository implements UserRepositoryInterface
                 'storageBase' => $settings->vmailPath,
                 'storageNode' => $settings->storageNode,
                 'maildir' => "{$domain}/{$user->uid}/",
+                'language' => $user->language ?? '',
             ]);
 
             // Without the address=forwarding row, Postfix sends the mail of this mailbox
@@ -464,6 +467,8 @@ class PgsqlUserRepository implements UserRepositoryInterface
             enableManagesieve: User::anySqlServiceEnabled($row, 'enablesieve'),
             enableManagesieveSecured: User::anySqlServiceEnabled($row, 'enablesievesecured', 'enablesievetls'),
             enableSogo: (bool) ($row['enablesogo'] ?? 1),
+            // Only getUser() reads the column; a list row leaves the stored value alone on update.
+            language: array_key_exists('language', $row) ? (string) $row['language'] : null,
         );
     }
 }

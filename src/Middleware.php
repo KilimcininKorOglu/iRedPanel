@@ -9,10 +9,55 @@ use App\Models\Settings;
 class Middleware
 {
     /**
-     * Checks if user is authenticated. Redirects to login page if not.
-     * Must be called at the top of each protected controller method.
+     * Checks if an admin is authenticated. Redirects to login page if not.
+     * Must be called at the top of each protected admin controller method.
+     * A self-service session is a mailbox user, never an admin.
      */
     public static function loginRequired(): void
+    {
+        self::sessionRequired();
+
+        if (self::isSelfServiceUser()) {
+            self::denySelfServiceUser();
+        }
+    }
+
+    /**
+     * Requires the session of a mailbox user who logged in to self-service.
+     */
+    public static function selfServiceRequired(): void
+    {
+        self::sessionRequired();
+
+        if (!self::isSelfServiceUser()) {
+            header('Location: /dashboard');
+            exit;
+        }
+    }
+
+    /**
+     * Whether the current session belongs to a mailbox user of self-service.
+     */
+    public static function isSelfServiceUser(): bool
+    {
+        return !empty($_SESSION['selfService']);
+    }
+
+    private static function denySelfServiceUser(): never
+    {
+        if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'GET') {
+            header('Location: /self');
+            exit;
+        }
+        http_response_code(403);
+        echo 'Access denied: admin required';
+        exit;
+    }
+
+    /**
+     * Checks the session of an admin or a self-service user: login, timeout, IP and CSRF.
+     */
+    private static function sessionRequired(): void
     {
         // A POST-only route answers a GET redirect with 405, so only a GET page is resumed.
         $next = urlencode(($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'GET' ? ($_SERVER['REQUEST_URI'] ?? '/') : '/');

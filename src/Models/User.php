@@ -88,7 +88,24 @@ class User
         public bool $enableManagesieve = true,
         public bool $enableManagesieveSecured = true,
         public bool $enableSogo = true,
+        /** Preferred UI language (xx_YY); '' uses the default, null means not loaded and keeps the stored value on update. */
+        public ?string $language = null,
     ) {}
+
+    /**
+     * @throws InvalidInputException when the value is not '' or a locale code such as de_DE
+     */
+    public static function validLanguage(mixed $value): ?string
+    {
+        if ($value === null || $value === '') {
+            return $value;
+        }
+        if (!is_string($value) || preg_match('/^[a-z]{2}(_[A-Z]{2})?$/', $value) !== 1) {
+            throw new InvalidInputException('language must be a locale code such as en_US', 'user.msg_invalid_language');
+        }
+
+        return $value;
+    }
 
     /**
      * Copies the mail service toggles from another User. The general profile
@@ -217,6 +234,7 @@ class User
             mobile: $entry['mobile'] ?? '',
             telephoneNumber: $entry['telephoneNumber'] ?? '',
             domainGlobalAdmin: ($entry['domainGlobalAdmin'] ?? '') === 'yes',
+            language: $entry['preferredLanguage'] ?? null,
         );
         $user->applyLdapServices($services);
 
@@ -263,6 +281,7 @@ class User
             enableManagesieve: (bool) ($post['enableManagesieve'] ?? false),
             enableManagesieveSecured: (bool) ($post['enableManagesieveSecured'] ?? false),
             enableSogo: (bool) ($post['enableSogo'] ?? false),
+            language: self::validLanguage($post['language'] ?? null),
         );
     }
 

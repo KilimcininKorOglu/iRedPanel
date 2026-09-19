@@ -28,7 +28,8 @@
     "group_system": "ระบบ",
     "toggle_menu": "เมนู",
     "compatibility": "ความเข้ากันได้กับ iRedMail",
-    "account_resources": "แหล่งบัญชี"
+    "account_resources": "แหล่งบัญชี",
+    "group_self_service": "บัญชีของฉัน"
   },
   "common": {
     "msg_password_updated": "อัปเดตรหัสผ่านสำเร็จ!",
@@ -118,9 +119,9 @@
   "auth": {
     "title": "การยืนยันตัวตน",
     "email": "อีเมล",
-    "email_placeholder": "กรอกอีเมลผู้ดูแลระบบ",
+    "email_placeholder": "ป้อนที่อยู่อีเมลของคุณ",
     "password": "รหัสผ่าน",
-    "password_placeholder": "กรอกรหัสผ่านผู้ดูแลระบบ",
+    "password_placeholder": "ป้อนรหัสผ่านของคุณ",
     "sign_in": "เข้าสู่ระบบ",
     "failed_attempts": "ความพยายามเข้าสู่ระบบที่ล้มเหลว: :count",
     "invalid_credentials": "ข้อมูลรับรองไม่ถูกต้อง!",
@@ -366,7 +367,10 @@
     "export_csv": "ส่งออกผู้ใช้ (CSV)",
     "export_json": "ส่งออกผู้ใช้ (JSON)",
     "msg_invalid_quota": "โควตาต้องเป็นจำนวนเต็มตั้งแต่ 0 ขึ้นไป (MB)",
-    "msg_unknown_service": "ไม่รู้จักบริการอีเมล: :service"
+    "msg_unknown_service": "ไม่รู้จักบริการอีเมล: :service",
+    "language": "ภาษา",
+    "language_default": "ภาษาเริ่มต้น",
+    "msg_invalid_language": "รหัสภาษาไม่ถูกต้อง"
   },
   "mlist": {
     "msg_updated": "อัปเดตรายชื่อเมลแล้ว!",
@@ -875,5 +879,17 @@
     "managed_help": "บัญชีนี้จำลองมาจากไดเรกทอรี ฟิลด์ที่จำลองแล้วจะแก้ไขได้เฉพาะที่นั่นเท่านั้น",
     "msg_managed": "ไดเรกทอรีเป็นผู้จัดการ :address เปลี่ยนแปลงได้ที่ไดเรกทอรี",
     "managed_group_help": "กลุ่มนี้ถูกจำลองมาจากไดเรกทอรี ชื่อและสมาชิกเปลี่ยนแปลงได้ที่นั่นเท่านั้น"
+  },
+  "self": {
+    "msg_released": "ส่งข้อความเข้ากล่องจดหมายของคุณแล้ว",
+    "msg_deleted": "ลบข้อความแล้ว",
+    "msg_sender_blacklisted": "อีเมลจาก :sender ถูกบล็อกแล้ว",
+    "release_confirm": "ส่งข้อความนี้เข้ากล่องจดหมายของคุณหรือไม่?",
+    "blacklist_sender": "บล็อกผู้ส่ง",
+    "blacklist_confirm": "บล็อกอีเมลทั้งหมดจาก :sender หรือไม่?",
+    "spam_policy_default": "คุณใช้นโยบายสแปมของโดเมนหรือของเซิร์ฟเวอร์ บันทึกแบบฟอร์มเพื่อกำหนดนโยบายของคุณเอง",
+    "spam_policy_reset": "ใช้นโยบายเริ่มต้น",
+    "spam_policy_reset_confirm": "ลบนโยบายสแปมของคุณเองและใช้นโยบายเริ่มต้นหรือไม่?",
+    "no_pages": "ผู้ดูแลโดเมนของคุณปิดหน้าบริการตนเองทั้งหมดแล้ว"
   }
 }

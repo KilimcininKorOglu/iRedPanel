@@ -28,7 +28,8 @@
     "group_system": "Sistem",
     "toggle_menu": "Meni",
     "compatibility": "Združljivost z iRedMail",
-    "account_resources": "Viri računov"
+    "account_resources": "Viri računov",
+    "group_self_service": "Moj račun"
   },
   "common": {
     "msg_password_updated": "Geslo uspešno posodobljeno!",
@@ -118,9 +119,9 @@
   "auth": {
     "title": "Preverjanje pristnosti",
     "email": "E-pošta",
-    "email_placeholder": "Vnesite e-pošto skrbnika",
+    "email_placeholder": "Vnesite svoj e-poštni naslov",
     "password": "Geslo",
-    "password_placeholder": "Vnesite geslo skrbnika",
+    "password_placeholder": "Vnesite svoje geslo",
     "sign_in": "Prijava",
     "failed_attempts": "Neuspeli poskusi prijave: :count",
     "invalid_credentials": "Neveljavni podatki za prijavo!",
@@ -366,7 +367,10 @@
     "export_csv": "Izvozi uporabnike (CSV)",
     "export_json": "Izvozi uporabnike (JSON)",
     "msg_invalid_quota": "Kvota mora biti celo število 0 ali več (MB).",
-    "msg_unknown_service": "Neznana poštna storitev: :service"
+    "msg_unknown_service": "Neznana poštna storitev: :service",
+    "language": "Jezik",
+    "language_default": "Privzeti jezik",
+    "msg_invalid_language": "Neveljavna koda jezika."
   },
   "mlist": {
     "msg_updated": "Poštni seznam posodobljen!",
@@ -875,5 +879,17 @@
     "managed_help": "Ta račun se replicira iz imenika. Replicirana polja je mogoče spremeniti samo tam.",
     "msg_managed": "Imenik upravlja naslov :address. Spremenite ga v imeniku.",
     "managed_group_help": "Ta skupina se replicira iz imenika. Ime in člane je mogoče spremeniti samo tam."
+  },
+  "self": {
+    "msg_released": "Sporočilo je bilo dostavljeno v vaš poštni predal.",
+    "msg_deleted": "Sporočilo je bilo izbrisano.",
+    "msg_sender_blacklisted": "Pošta od :sender je zdaj blokirana.",
+    "release_confirm": "Želite dostaviti to sporočilo v svoj poštni predal?",
+    "blacklist_sender": "Blokiraj pošiljatelja",
+    "blacklist_confirm": "Želite blokirati vso pošto od :sender?",
+    "spam_policy_default": "Uporabljate politiko za neželeno pošto svoje domene ali strežnika. Shranite obrazec, da nastavite lastno politiko.",
+    "spam_policy_reset": "Uporabi privzeto politiko",
+    "spam_policy_reset_confirm": "Želite izbrisati lastno politiko za neželeno pošto in uporabiti privzeto politiko?",
+    "no_pages": "Skrbnik domene je zaprl vse samopostrežne strani."
   }
 }

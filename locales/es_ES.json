@@ -28,7 +28,8 @@
     "group_system": "Sistema",
     "toggle_menu": "Menú",
     "compatibility": "Compatibilidad con iRedMail",
-    "account_resources": "Orígenes de cuentas"
+    "account_resources": "Orígenes de cuentas",
+    "group_self_service": "Mi cuenta"
   },
   "common": {
     "msg_password_updated": "¡Contraseña actualizada correctamente!",
@@ -118,9 +119,9 @@
   "auth": {
     "title": "Autenticación",
     "email": "Correo electrónico",
-    "email_placeholder": "Introduzca el correo del administrador",
+    "email_placeholder": "Introduzca su dirección de correo",
     "password": "Contraseña",
-    "password_placeholder": "Introduzca la contraseña del administrador",
+    "password_placeholder": "Introduzca su contraseña",
     "sign_in": "Iniciar sesión",
     "failed_attempts": "Intentos de inicio de sesión fallidos: :count",
     "invalid_credentials": "¡Credenciales no válidas!",
@@ -366,7 +367,10 @@
     "export_csv": "Exportar usuarios (CSV)",
     "export_json": "Exportar usuarios (JSON)",
     "msg_invalid_quota": "La cuota debe ser un número entero igual o mayor que 0 (MB).",
-    "msg_unknown_service": "Servicio de correo desconocido: :service"
+    "msg_unknown_service": "Servicio de correo desconocido: :service",
+    "language": "Idioma",
+    "language_default": "Idioma predeterminado",
+    "msg_invalid_language": "Código de idioma no válido."
   },
   "mlist": {
     "msg_updated": "¡Lista de correo actualizada!",
@@ -875,5 +879,17 @@
     "managed_help": "Esta cuenta se replica desde el directorio. Los campos replicados solo se pueden cambiar allí.",
     "msg_managed": "El directorio gestiona :address. Cámbielo en el directorio.",
     "managed_group_help": "Este grupo se replica desde el directorio. Su nombre y sus miembros solo se pueden cambiar allí."
+  },
+  "self": {
+    "msg_released": "El mensaje se entregó en su buzón.",
+    "msg_deleted": "El mensaje se eliminó.",
+    "msg_sender_blacklisted": "El correo de :sender ahora está bloqueado.",
+    "release_confirm": "¿Entregar este mensaje en su buzón?",
+    "blacklist_sender": "Bloquear remitente",
+    "blacklist_confirm": "¿Bloquear todo el correo de :sender?",
+    "spam_policy_default": "Usa la política antispam de su dominio o del servidor. Guarde el formulario para definir su propia política.",
+    "spam_policy_reset": "Usar la política predeterminada",
+    "spam_policy_reset_confirm": "¿Eliminar su propia política antispam y usar la política predeterminada?",
+    "no_pages": "El administrador de su dominio cerró todas las páginas de autoservicio."
   }
 }

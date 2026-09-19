@@ -28,7 +28,8 @@
     "group_system": "Système",
     "toggle_menu": "Menu",
     "compatibility": "Compatibilité iRedMail",
-    "account_resources": "Sources de comptes"
+    "account_resources": "Sources de comptes",
+    "group_self_service": "Mon compte"
   },
   "common": {
     "msg_password_updated": "Mot de passe mis à jour avec succès !",
@@ -118,9 +119,9 @@
   "auth": {
     "title": "Authentification",
     "email": "E-mail",
-    "email_placeholder": "Saisissez l'e-mail de l'administrateur",
+    "email_placeholder": "Saisissez votre adresse e-mail",
     "password": "Mot de passe",
-    "password_placeholder": "Saisissez le mot de passe de l'administrateur",
+    "password_placeholder": "Saisissez votre mot de passe",
     "sign_in": "Se connecter",
     "failed_attempts": "Tentatives de connexion échouées : :count",
     "invalid_credentials": "Identifiants non valides !",
@@ -366,7 +367,10 @@
     "export_csv": "Exporter les utilisateurs (CSV)",
     "export_json": "Exporter les utilisateurs (JSON)",
     "msg_invalid_quota": "Le quota doit être un nombre entier supérieur ou égal à 0 (Mo).",
-    "msg_unknown_service": "Service de messagerie inconnu : :service"
+    "msg_unknown_service": "Service de messagerie inconnu : :service",
+    "language": "Langue",
+    "language_default": "Langue par défaut",
+    "msg_invalid_language": "Code de langue invalide."
   },
   "mlist": {
     "msg_updated": "Liste de diffusion mise à jour !",
@@ -875,5 +879,17 @@
     "managed_help": "Ce compte est répliqué depuis l'annuaire. Les champs répliqués ne peuvent être modifiés que là-bas.",
     "msg_managed": "L'annuaire gère :address. Modifiez-le dans l'annuaire.",
     "managed_group_help": "Ce groupe est répliqué depuis l'annuaire. Son nom et ses membres ne peuvent être modifiés que là-bas."
+  },
+  "self": {
+    "msg_released": "Le message a été remis dans votre boîte aux lettres.",
+    "msg_deleted": "Le message a été supprimé.",
+    "msg_sender_blacklisted": "Les mails de :sender sont désormais bloqués.",
+    "release_confirm": "Remettre ce message dans votre boîte aux lettres ?",
+    "blacklist_sender": "Bloquer l'expéditeur",
+    "blacklist_confirm": "Bloquer tous les mails de :sender ?",
+    "spam_policy_default": "Vous utilisez la politique anti-spam de votre domaine ou du serveur. Enregistrez le formulaire pour définir votre propre politique.",
+    "spam_policy_reset": "Utiliser la politique par défaut",
+    "spam_policy_reset_confirm": "Supprimer votre politique anti-spam et utiliser la politique par défaut ?",
+    "no_pages": "L'administrateur de votre domaine a fermé toutes les pages libre-service."
   }
 }

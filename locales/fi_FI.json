@@ -28,7 +28,8 @@
     "group_system": "Järjestelmä",
     "toggle_menu": "Valikko",
     "compatibility": "iRedMail-yhteensopivuus",
-    "account_resources": "Tililähteet"
+    "account_resources": "Tililähteet",
+    "group_self_service": "Oma tili"
   },
   "common": {
     "msg_password_updated": "Salasana päivitetty onnistuneesti!",
@@ -118,9 +119,9 @@
   "auth": {
     "title": "Todennus",
     "email": "Sähköposti",
-    "email_placeholder": "Anna ylläpitäjän sähköposti",
+    "email_placeholder": "Anna sähköpostiosoitteesi",
     "password": "Salasana",
-    "password_placeholder": "Anna ylläpitäjän salasana",
+    "password_placeholder": "Anna salasanasi",
     "sign_in": "Kirjaudu sisään",
     "failed_attempts": "Epäonnistuneet kirjautumisyritykset: :count",
     "invalid_credentials": "Virheelliset tunnistetiedot!",
@@ -366,7 +367,10 @@
     "export_csv": "Vie käyttäjät (CSV)",
     "export_json": "Vie käyttäjät (JSON)",
     "msg_invalid_quota": "Kiintiön on oltava kokonaisluku 0 tai suurempi (MB).",
-    "msg_unknown_service": "Tuntematon postipalvelu: :service"
+    "msg_unknown_service": "Tuntematon postipalvelu: :service",
+    "language": "Kieli",
+    "language_default": "Oletuskieli",
+    "msg_invalid_language": "Virheellinen kielikoodi."
   },
   "mlist": {
     "msg_updated": "Postituslista päivitetty!",
@@ -875,5 +879,17 @@
     "managed_help": "Tämä tili replikoidaan hakemistosta. Replikoituja kenttiä voi muuttaa vain siellä.",
     "msg_managed": "Hakemisto hallitsee osoitetta :address. Tee muutos hakemistossa.",
     "managed_group_help": "Tämä ryhmä replikoidaan hakemistosta. Sen nimeä ja jäseniä voi muuttaa vain siellä."
+  },
+  "self": {
+    "msg_released": "Viesti toimitettiin postilaatikkoosi.",
+    "msg_deleted": "Viesti poistettiin.",
+    "msg_sender_blacklisted": "Lähettäjän :sender postit estetään nyt.",
+    "release_confirm": "Toimitetaanko tämä viesti postilaatikkoosi?",
+    "blacklist_sender": "Estä lähettäjä",
+    "blacklist_confirm": "Estetäänkö kaikki lähettäjän :sender postit?",
+    "spam_policy_default": "Käytät verkkotunnuksesi tai palvelimen roskapostikäytäntöä. Tallenna lomake asettaaksesi oman käytännön.",
+    "spam_policy_reset": "Käytä oletuskäytäntöä",
+    "spam_policy_reset_confirm": "Poistetaanko oma roskapostikäytäntösi ja käytetään oletuskäytäntöä?",
+    "no_pages": "Verkkotunnuksesi ylläpitäjä on sulkenut kaikki omapalvelusivut."
   }
 }

@@ -28,7 +28,8 @@
     "group_system": "Hệ thống",
     "toggle_menu": "Menu",
     "compatibility": "Tương thích iRedMail",
-    "account_resources": "Nguồn tài khoản"
+    "account_resources": "Nguồn tài khoản",
+    "group_self_service": "Tài khoản của tôi"
   },
   "common": {
     "msg_password_updated": "Mật khẩu đã được cập nhật thành công!",
@@ -118,9 +119,9 @@
   "auth": {
     "title": "Xác thực",
     "email": "Email",
-    "email_placeholder": "Nhập email quản trị viên",
+    "email_placeholder": "Nhập địa chỉ email của bạn",
     "password": "Mật khẩu",
-    "password_placeholder": "Nhập mật khẩu quản trị viên",
+    "password_placeholder": "Nhập mật khẩu của bạn",
     "sign_in": "Đăng nhập",
     "failed_attempts": "Số lần đăng nhập thất bại: :count",
     "invalid_credentials": "Thông tin đăng nhập không hợp lệ!",
@@ -366,7 +367,10 @@
     "export_csv": "Xuất người dùng (CSV)",
     "export_json": "Xuất người dùng (JSON)",
     "msg_invalid_quota": "Hạn mức phải là số nguyên từ 0 trở lên (MB).",
-    "msg_unknown_service": "Dịch vụ thư không xác định: :service"
+    "msg_unknown_service": "Dịch vụ thư không xác định: :service",
+    "language": "Ngôn ngữ",
+    "language_default": "Ngôn ngữ mặc định",
+    "msg_invalid_language": "Mã ngôn ngữ không hợp lệ."
   },
   "mlist": {
     "msg_updated": "Danh sách gửi thư đã được cập nhật!",
@@ -875,5 +879,17 @@
     "managed_help": "Tài khoản này được sao chép từ thư mục. Các trường đã sao chép chỉ có thể thay đổi ở đó.",
     "msg_managed": "Thư mục quản lý :address. Hãy thay đổi trong thư mục.",
     "managed_group_help": "Nhóm này được sao chép từ thư mục. Chỉ có thể thay đổi tên và thành viên tại đó."
+  },
+  "self": {
+    "msg_released": "Thư đã được chuyển vào hộp thư của bạn.",
+    "msg_deleted": "Thư đã bị xóa.",
+    "msg_sender_blacklisted": "Thư từ :sender hiện đã bị chặn.",
+    "release_confirm": "Chuyển thư này vào hộp thư của bạn?",
+    "blacklist_sender": "Chặn người gửi",
+    "blacklist_confirm": "Chặn toàn bộ thư từ :sender?",
+    "spam_policy_default": "Bạn đang dùng chính sách spam của tên miền hoặc của máy chủ. Lưu biểu mẫu để đặt chính sách riêng.",
+    "spam_policy_reset": "Dùng chính sách mặc định",
+    "spam_policy_reset_confirm": "Xóa chính sách spam riêng và dùng chính sách mặc định?",
+    "no_pages": "Quản trị viên tên miền đã đóng tất cả các trang tự phục vụ."
   }
 }

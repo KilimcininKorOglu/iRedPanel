@@ -386,9 +386,10 @@ class LdapUserRepository implements UserRepositoryInterface
 
     /**
      * Records the maildir for deferred deletion and removes the quota, last login and shared
-     * folder rows, as the SQL backends do in the vmail database.
+     * folder rows, as the SQL backends do in the vmail database. Domain deletion calls it
+     * for every mailbox of the domain.
      */
-    private static function deleteIredadminRows(string $email, string $domain, string $maildir, string $adminEmail): void
+    public static function deleteIredadminRows(string $email, string $domain, string $maildir, string $adminEmail): void
     {
         $pdo = IredadminConnection::getInstance()->getPdo();
         if ($pdo === null) {

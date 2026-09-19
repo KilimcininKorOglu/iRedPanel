@@ -183,24 +183,33 @@ class LdapDomainRepository implements DomainRepositoryInterface
         }
     }
 
+    /**
+     * Deletes the domain subtree. As on the SQL backends, the maildir of every mailbox is
+     * recorded for deferred deletion and the iredadmin rows of the mailboxes are removed.
+     * When another domain lists this domain as its alias domain, that alias domain and its
+     * shadow addresses are removed first.
+     */
     public function deleteDomain(string $domainName, string $adminEmail): void
     {
         $conn = LdapConnection::getInstance()->getConn();
-        $settings = Settings::getInstance();
         $dn = LdapUtils::getDomainDn($domainName);
-        $safeDomain = ldap_escape($domainName, '', LDAP_ESCAPE_FILTER);
 
-        // Remove domainAliasName references from other domains pointing to this domain
-        $result = @ldap_search($conn, $settings->ldapRootDn, "(domainAliasName={$safeDomain})", ['dn', 'domainAliasName']);
-        if ($result !== false) {
-            $entries = ldap_get_entries($conn, $result);
-            for ($i = 0; $i < ($entries['count'] ?? 0); $i++) {
-                @ldap_mod_del($conn, $entries[$i]['dn'], ['domainAliasName' => $domainName]);
-            }
+        $aliasRepo = new LdapDomainAliasRepository();
+        if ($aliasRepo->getAlias($domainName) !== null) {
+            $aliasRepo->deleteAlias($domainName);
         }
 
-        // Recursively delete all entries under the domain DN
+        $mailboxes = LdapUtils::searchEntries($conn, $dn, '(&(objectClass=mailUser)(!(mail=@*)))', ['mail', 'homeDirectory']);
         self::deleteRecursive($conn, $dn);
+
+        foreach ($mailboxes as $entry) {
+            LdapUserRepository::deleteIredadminRows(
+                LdapUtils::allValues($entry, 'mail')[0] ?? '',
+                $domainName,
+                LdapUtils::allValues($entry, 'homeDirectory')[0] ?? '',
+                $adminEmail
+            );
+        }
     }
 
     public function enableDisableDomain(string $domainName, bool $active): void
@@ -225,11 +234,12 @@ class LdapDomainRepository implements DomainRepositoryInterface
     private static function deleteRecursive(\LDAP\Connection $conn, string $dn): void
     {
         $result = @ldap_list($conn, $dn, '(objectClass=*)', ['dn']);
-        if ($result !== false) {
-            $entries = ldap_get_entries($conn, $result);
-            for ($i = 0; $i < ($entries['count'] ?? 0); $i++) {
-                self::deleteRecursive($conn, $entries[$i]['dn']);
-            }
+        if ($result === false) {
+            throw new \RuntimeException("LDAP list below '{$dn}' failed: " . ldap_error($conn));
+        }
+        $entries = ldap_get_entries($conn, $result);
+        for ($i = 0; $i < ($entries['count'] ?? 0); $i++) {
+            self::deleteRecursive($conn, $entries[$i]['dn']);
         }
 
         if (!@ldap_delete($conn, $dn)) {

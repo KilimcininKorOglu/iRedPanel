@@ -11,229 +11,119 @@ use App\Models\Settings;
 use App\Repositories\AliasRepositoryInterface;
 use App\Utils\LdapUtils;
 
+/**
+ * Mail aliases in the iRedMail LDAP layout: a `mailAlias` entry `mail=<address>,ou=Aliases`
+ * under the domain, with `enabledService: mail` and `deliver`, the members in
+ * `mailForwardingAddress` and the moderators in `listModerator`. Postfix
+ * virtual_alias_maps.cf reads these entries.
+ */
 class LdapAliasRepository implements AliasRepositoryInterface
 {
+    private const ALIAS_ATTRS = ['mail', 'cn', 'accountStatus', 'accessPolicy'];
+
+    /** LDAP result code "No such object". */
+    private const NO_SUCH_OBJECT = 32;
+
     public function getAliasesPaginated(int $page, int $perPage, ?string $domain = null): PaginatedResult
     {
-        $conn = LdapConnection::getInstance()->getConn();
-        $settings = Settings::getInstance();
+        $baseDn = $domain !== null
+            ? self::aliasesOu($domain)
+            : 'o=domains,' . Settings::getInstance()->ldapRootDn;
 
-        if ($domain !== null) {
-            $baseDn = "ou=Groups,domainName=" . ldap_escape($domain, '', LDAP_ESCAPE_DN) . ",o=domains,{$settings->ldapRootDn}";
-        } else {
-            $baseDn = "o=domains,{$settings->ldapRootDn}";
-        }
+        $items = array_map(
+            static fn (array $entry): Alias => self::toAlias($entry),
+            self::searchEntries($baseDn, '(objectClass=mailAlias)', self::ALIAS_ATTRS)
+        );
+        usort($items, static fn (Alias $a, Alias $b): int => strcmp($a->address, $b->address));
 
-        $filter = '(&(objectClass=mailList)(mail=*))';
-        $attrs = ['mail', 'cn', 'accountStatus', 'accessPolicy'];
-
-        $result = @ldap_search($conn, $baseDn, $filter, $attrs);
-        if ($result === false) {
-            return new PaginatedResult([], 0, $page, $perPage);
-        }
-
-        $entries = ldap_get_entries($conn, $result);
-        $totalCount = $entries['count'] ?? 0;
-
-        $items = [];
-        for ($i = 0; $i < $totalCount; $i++) {
-            $entry = $entries[$i];
-            $email = $entry['mail'][0] ?? '';
-            $aliasDomain = str_contains($email, '@') ? explode('@', $email, 2)[1] : '';
-
-            $items[] = new Alias(
-                address: $email,
-                domain: $aliasDomain,
-                name: $entry['cn'][0] ?? '',
-                accessPolicy: $entry['accesspolicy'][0] ?? 'public',
-                islist: true,
-                active: ($entry['accountstatus'][0] ?? 'active') === 'active',
-            );
-        }
-
-        usort($items, fn(Alias $a, Alias $b) => strcmp($a->address, $b->address));
-
-        $offset = ($page - 1) * $perPage;
-        $pageItems = array_slice($items, $offset, $perPage);
-
-        return new PaginatedResult($pageItems, $totalCount, $page, $perPage);
+        return new PaginatedResult(array_slice($items, ($page - 1) * $perPage, $perPage), count($items), $page, $perPage);
     }
 
     public function getAlias(string $address): ?Alias
     {
-        $conn = LdapConnection::getInstance()->getConn();
-        $dn = $this->getAliasGroupDn($address);
+        $entry = self::readAlias($address, self::ALIAS_ATTRS);
 
-        $attrs = ['mail', 'cn', 'accountStatus', 'accessPolicy'];
-        $result = @ldap_read($conn, $dn, '(objectClass=mailList)', $attrs);
-        if ($result === false) {
-            return null;
-        }
-
-        $entries = ldap_get_entries($conn, $result);
-        if (($entries['count'] ?? 0) === 0) {
-            return null;
-        }
-
-        $entry = $entries[0];
-        $email = $entry['mail'][0] ?? $address;
-        $domain = str_contains($email, '@') ? explode('@', $email, 2)[1] : '';
-
-        return new Alias(
-            address: $email,
-            domain: $domain,
-            name: $entry['cn'][0] ?? '',
-            accessPolicy: $entry['accesspolicy'][0] ?? 'public',
-            islist: true,
-            active: ($entry['accountstatus'][0] ?? 'active') === 'active',
-        );
+        return $entry === null ? null : self::toAlias($entry);
     }
 
     public function createAlias(string $address, string $domain, string $name, array $members, string $accessPolicy): bool
     {
         $conn = LdapConnection::getInstance()->getConn();
-        $dn = $this->getAliasGroupDn($address);
-
         $entry = [
-            'objectClass' => ['mailList'],
+            'objectClass' => ['mailAlias'],
             'mail' => $address,
             'accountStatus' => 'active',
+            'enabledService' => ['mail', 'deliver'],
             'accessPolicy' => $accessPolicy,
         ];
-
         if ($name !== '') {
             $entry['cn'] = $name;
         }
-
-        if (!empty($members)) {
-            $entry['hasMember'] = $members;
+        $members = self::cleanAddresses($members);
+        if ($members !== []) {
+            $entry['mailForwardingAddress'] = $members;
         }
 
-        return @ldap_add($conn, $dn, $entry);
+        if (!@ldap_add($conn, self::aliasDn($address), $entry)) {
+            throw new \RuntimeException("LDAP alias creation failed for '{$address}': " . ldap_error($conn));
+        }
+
+        return true;
     }
 
     public function updateAlias(string $address, string $name, array $members, string $accessPolicy, bool $active): bool
     {
-        $conn = LdapConnection::getInstance()->getConn();
-        $dn = $this->getAliasGroupDn($address);
+        self::replaceAttributes($address, [
+            'accessPolicy' => [$accessPolicy],
+            'accountStatus' => [$active ? 'active' : 'disabled'],
+            'cn' => $name !== '' ? [$name] : [],
+            'mailForwardingAddress' => self::cleanAddresses($members),
+        ]);
 
-        $modifications = [
-            LdapUtils::modReplace('accessPolicy', $accessPolicy),
-            LdapUtils::modReplace('accountStatus', $active ? 'active' : 'disabled'),
-            LdapUtils::modReplace('cn', $name !== '' ? $name : null),
-        ];
-
-        if (!empty($members)) {
-            $modifications[] = [
-                'attrib' => 'hasMember',
-                'modtype' => LDAP_MODIFY_BATCH_REPLACE,
-                'values' => $members,
-            ];
-        } else {
-            $modifications[] = [
-                'attrib' => 'hasMember',
-                'modtype' => LDAP_MODIFY_BATCH_REMOVE_ALL,
-            ];
-        }
-
-        return LdapUtils::modifyBatch($conn, $dn, $modifications);
+        return true;
     }
 
     public function deleteAlias(string $address): bool
     {
         $conn = LdapConnection::getInstance()->getConn();
-        $dn = $this->getAliasGroupDn($address);
+        if (!@ldap_delete($conn, self::aliasDn($address))) {
+            throw new \RuntimeException("LDAP alias deletion failed for '{$address}': " . ldap_error($conn));
+        }
 
-        return @ldap_delete($conn, $dn);
+        return true;
     }
 
     public function getAliasMembers(string $address): array
     {
-        $conn = LdapConnection::getInstance()->getConn();
-        $dn = $this->getAliasGroupDn($address);
-
-        $result = @ldap_read($conn, $dn, '(objectClass=mailList)', ['hasMember']);
-        if ($result === false) {
-            return [];
-        }
-
-        $entries = ldap_get_entries($conn, $result);
-        if (($entries['count'] ?? 0) === 0) {
-            return [];
-        }
-
-        $members = [];
-        $count = $entries[0]['hasmember']['count'] ?? 0;
-        for ($i = 0; $i < $count; $i++) {
-            $members[] = $entries[0]['hasmember'][$i];
-        }
-
-        sort($members);
-        return $members;
+        return self::sortedValues($address, 'mailForwardingAddress');
     }
 
     public function addAliasMember(string $address, string $member): bool
     {
-        $conn = LdapConnection::getInstance()->getConn();
-        $dn = $this->getAliasGroupDn($address);
+        // Result code 20 ("Type or value exists"): the address is already a member.
+        self::changeValue(self::aliasDn($address), 'mailForwardingAddress', $member, true, 20);
 
-        return @ldap_mod_add($conn, $dn, ['hasMember' => [$member]]);
+        return true;
     }
 
     public function removeAliasMember(string $address, string $member): bool
     {
-        $conn = LdapConnection::getInstance()->getConn();
-        $dn = $this->getAliasGroupDn($address);
+        // Result code 16 ("No such attribute"): the address is no member.
+        self::changeValue(self::aliasDn($address), 'mailForwardingAddress', $member, false, 16);
 
-        return @ldap_mod_del($conn, $dn, ['hasMember' => [$member]]);
+        return true;
     }
 
     public function getModerators(string $address): array
     {
-        $conn = LdapConnection::getInstance()->getConn();
-        $dn = $this->getAliasGroupDn($address);
-
-        $result = @ldap_read($conn, $dn, '(objectClass=mailList)', ['listAllowedUser']);
-        if ($result === false) {
-            return [];
-        }
-
-        $entries = ldap_get_entries($conn, $result);
-        if (($entries['count'] ?? 0) === 0) {
-            return [];
-        }
-
-        $moderators = [];
-        $count = $entries[0]['listalloweduser']['count'] ?? 0;
-        for ($i = 0; $i < $count; $i++) {
-            $moderators[] = $entries[0]['listalloweduser'][$i];
-        }
-
-        sort($moderators);
-        return $moderators;
+        return self::sortedValues($address, 'listModerator');
     }
 
     public function setModerators(string $address, array $moderators): bool
     {
-        $conn = LdapConnection::getInstance()->getConn();
-        $dn = $this->getAliasGroupDn($address);
+        self::replaceAttributes($address, ['listModerator' => self::cleanAddresses($moderators)]);
 
-        $moderators = array_filter(array_map('trim', $moderators));
-
-        if (!empty($moderators)) {
-            $modification = [
-                'attrib' => 'listAllowedUser',
-                'modtype' => LDAP_MODIFY_BATCH_REPLACE,
-                'values' => array_values($moderators),
-            ];
-        } else {
-            $modification = [
-                'attrib' => 'listAllowedUser',
-                'modtype' => LDAP_MODIFY_BATCH_REMOVE_ALL,
-            ];
-        }
-
-        return LdapUtils::modifyBatch($conn, $dn, [$modification]);
+        return true;
     }
 
     public function getUserAliases(string $email): array
@@ -263,18 +153,16 @@ class LdapAliasRepository implements AliasRepositoryInterface
 
     public function addUserAlias(string $email, string $aliasAddress): bool
     {
-        $conn = LdapConnection::getInstance()->getConn();
-        $userDn = LdapUtils::getEmailDn($email);
+        self::changeValue(LdapUtils::getEmailDn($email), 'shadowAddress', $aliasAddress, true, null);
 
-        return @ldap_mod_add($conn, $userDn, ['shadowAddress' => [$aliasAddress]]);
+        return true;
     }
 
     public function removeUserAlias(string $email, string $aliasAddress): bool
     {
-        $conn = LdapConnection::getInstance()->getConn();
-        $userDn = LdapUtils::getEmailDn($email);
+        self::changeValue(LdapUtils::getEmailDn($email), 'shadowAddress', $aliasAddress, false, null);
 
-        return @ldap_mod_del($conn, $userDn, ['shadowAddress' => [$aliasAddress]]);
+        return true;
     }
 
     public function isAddressInUse(string $address): bool
@@ -351,34 +239,125 @@ class LdapAliasRepository implements AliasRepositoryInterface
 
     public function enableDisableAlias(string $address, bool $active): bool
     {
-        $conn = LdapConnection::getInstance()->getConn();
-        $dn = $this->getAliasGroupDn($address);
+        self::replaceAttributes($address, ['accountStatus' => [$active ? 'active' : 'disabled']]);
 
-        $modification = LdapUtils::modReplace('accountStatus', $active ? 'active' : 'disabled');
-        return LdapUtils::modifyBatch($conn, $dn, [$modification]);
-    }
-
-    private function getAliasGroupDn(string $address): string
-    {
-        $settings = Settings::getInstance();
-        $domain = explode('@', $address, 2)[1] ?? '';
-        $safeDomain = ldap_escape($domain, '', LDAP_ESCAPE_DN);
-        $safeAddress = ldap_escape($address, '', LDAP_ESCAPE_DN);
-
-        return "mail={$safeAddress},ou=Groups,domainName={$safeDomain},o=domains,{$settings->ldapRootDn}";
+        return true;
     }
 
     public function countAliasesForDomain(string $domain): int
     {
-        $conn = LdapConnection::getInstance();
-        $settings = \App\Models\Settings::getInstance();
-        $safeDomain = ldap_escape($domain, '', LDAP_ESCAPE_FILTER);
-        $baseDn = "ou=Groups,domainName={$safeDomain},o=domains,{$settings->ldapRootDn}";
+        return count(self::searchEntries(self::aliasesOu($domain), '(objectClass=mailAlias)', ['mail']))
+            + count(self::searchEntries('ou=Groups,' . LdapUtils::getDomainDn($domain), '(objectClass=mailList)', ['mail']));
+    }
 
-        $result = @ldap_search($conn->getConnection(), $baseDn, '(objectClass=mailList)', ['dn']);
+    private static function aliasesOu(string $domain): string
+    {
+        return 'ou=Aliases,' . LdapUtils::getDomainDn($domain);
+    }
+
+    private static function aliasDn(string $address): string
+    {
+        $domain = explode('@', $address, 2)[1] ?? '';
+
+        return 'mail=' . ldap_escape($address, '', LDAP_ESCAPE_DN) . ',' . self::aliasesOu($domain);
+    }
+
+    /**
+     * @param string[] $attrs
+     * @return array<int, array<string, mixed>> the entries; none when the base DN does not exist
+     */
+    private static function searchEntries(string $baseDn, string $filter, array $attrs): array
+    {
+        $conn = LdapConnection::getInstance()->getConn();
+        $result = @ldap_search($conn, $baseDn, $filter, $attrs);
         if ($result === false) {
-            return 0;
+            if (ldap_errno($conn) === self::NO_SUCH_OBJECT) {
+                return [];
+            }
+            throw new \RuntimeException('LDAP alias search failed: ' . ldap_error($conn));
         }
-        return ldap_count_entries($conn->getConnection(), $result);
+
+        $entries = ldap_get_entries($conn, $result);
+        unset($entries['count']);
+
+        return array_values($entries);
+    }
+
+    /**
+     * @param string[] $attrs
+     * @return array<string, mixed>|null null when the alias does not exist
+     */
+    private static function readAlias(string $address, array $attrs): ?array
+    {
+        $conn = LdapConnection::getInstance()->getConn();
+        $result = @ldap_read($conn, self::aliasDn($address), '(objectClass=mailAlias)', $attrs);
+        if ($result === false) {
+            if (ldap_errno($conn) === self::NO_SUCH_OBJECT) {
+                return null;
+            }
+            throw new \RuntimeException("LDAP alias read failed for '{$address}': " . ldap_error($conn));
+        }
+
+        return ldap_get_entries($conn, $result)[0] ?? null;
+    }
+
+    /**
+     * @return string[]
+     */
+    private static function sortedValues(string $address, string $attr): array
+    {
+        $values = LdapUtils::allValues(self::readAlias($address, [$attr]) ?? [], $attr);
+        sort($values);
+
+        return $values;
+    }
+
+    /**
+     * An empty value list deletes the attribute.
+     *
+     * @param array<string, string[]> $values
+     */
+    private static function replaceAttributes(string $address, array $values): void
+    {
+        $conn = LdapConnection::getInstance()->getConn();
+        if (!@ldap_mod_replace($conn, self::aliasDn($address), $values)) {
+            throw new \RuntimeException("LDAP alias update failed for '{$address}': " . ldap_error($conn));
+        }
+    }
+
+    /**
+     * Adds or removes one attribute value. A failure with $ignoredCode counts as done.
+     */
+    private static function changeValue(string $dn, string $attr, string $value, bool $add, ?int $ignoredCode): void
+    {
+        $conn = LdapConnection::getInstance()->getConn();
+        $done = $add
+            ? @ldap_mod_add($conn, $dn, [$attr => [$value]])
+            : @ldap_mod_del($conn, $dn, [$attr => [$value]]);
+        if (!$done && ldap_errno($conn) !== $ignoredCode) {
+            throw new \RuntimeException("LDAP update of {$attr} failed for '{$dn}': " . ldap_error($conn));
+        }
+    }
+
+    /**
+     * @param string[] $addresses
+     * @return string[]
+     */
+    private static function cleanAddresses(array $addresses): array
+    {
+        return array_values(array_unique(array_filter(array_map('trim', $addresses), static fn (string $a): bool => $a !== '')));
+    }
+
+    private static function toAlias(array $entry): Alias
+    {
+        $address = LdapUtils::allValues($entry, 'mail')[0] ?? '';
+
+        return new Alias(
+            address: $address,
+            domain: explode('@', $address, 2)[1] ?? '',
+            name: LdapUtils::allValues($entry, 'cn')[0] ?? '',
+            accessPolicy: LdapUtils::allValues($entry, 'accessPolicy')[0] ?? 'public',
+            active: (LdapUtils::allValues($entry, 'accountStatus')[0] ?? 'active') === 'active',
+        );
     }
 }

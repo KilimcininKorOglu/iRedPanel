@@ -5,6 +5,7 @@ declare(strict_types=1);
 require_once __DIR__ . '/../src/bootstrap.php';
 
 use App\Controllers\AccountLookupController;
+use App\Controllers\AccountResourceController;
 use App\Controllers\AdminController;
 use App\Controllers\AliasController;
 use App\Controllers\AmavisdController;
@@ -250,6 +251,43 @@ $router->addRoute('GET', '/system-settings', function () use ($tpl) {
 // iRedMail compatibility list
 $router->addRoute('GET', '/compatibility', function () use ($tpl) {
     CompatibilityController::view($tpl);
+});
+
+// Account resources: replication from Active Directory and Samba AD
+$router->addRoute('GET', '/account-resources', function () use ($tpl) {
+    AccountResourceController::list($tpl);
+});
+
+$router->addRoute('POST', '/account-resources', function () use ($tpl) {
+    AccountResourceController::create($tpl);
+});
+
+$router->addRoute('GET', '/account-resources/{id}', function (string $id) use ($tpl) {
+    AccountResourceController::edit($tpl, $id);
+});
+
+$router->addRoute('POST', '/account-resources/{id}', function (string $id) use ($tpl) {
+    AccountResourceController::save($tpl, $id);
+});
+
+$router->addRoute('POST', '/account-resources/{id}/test', function (string $id) use ($tpl) {
+    AccountResourceController::test($tpl, $id);
+});
+
+$router->addRoute('POST', '/account-resources/{id}/replicate', function (string $id) use ($tpl) {
+    AccountResourceController::replicate($tpl, $id);
+});
+
+$router->addRoute('POST', '/account-resources/{id}/toggle', function (string $id) use ($tpl) {
+    AccountResourceController::toggle($tpl, $id);
+});
+
+$router->addRoute('POST', '/account-resources/{id}/delete', function (string $id) use ($tpl) {
+    AccountResourceController::delete($tpl, $id);
+});
+
+$router->addRoute('GET', '/account-resources/{id}/log', function (string $id) use ($tpl) {
+    AccountResourceController::log($tpl, $id);
 });
 
 // Panel settings (editable via DB)

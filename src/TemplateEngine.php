@@ -65,6 +65,9 @@ class TemplateEngine
             'fail2ban' => $settings->fail2banEnabled,
             'iredapd' => $settings->iredapdEnabled,
             'domainOwnership' => $settings->requireDomainOwnershipVerification,
+            // Account replication stores its settings and log in the iredadmin database.
+            'accountResources' => !empty($_SESSION['isGlobalAdmin'])
+                && \App\Repositories\RepositoryFactory::getAccountResourceRepository()->isAvailable(),
         ];
         $navGroups = Navigation::groups(!empty($_SESSION['isGlobalAdmin']), $features);
         $navActive = Navigation::activeHref($navGroups, (string) ($_SERVER['REQUEST_URI'] ?? '/'));

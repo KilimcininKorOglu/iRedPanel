@@ -35,6 +35,23 @@ final class ReplicationRunner
     }
 
     /**
+     * Connects with the given settings and maps the first users and groups, as the
+     * "Test connection" button shows them. Groups are read even when not replicated.
+     *
+     * @return array{users: SourceAccount[], groups: SourceAccount[]}
+     */
+    public static function preview(AccountResource $resource, string $bindPassword, int $max = 10): array
+    {
+        $client = DirectoryClient::connect($resource, $bindPassword);
+        $mapper = new AdAttributeMapper($resource);
+
+        return [
+            'users' => array_map($mapper->user(...), $client->search($resource->baseDn, $resource->userFilter, $resource->userSearchAttributes(), $max)),
+            'groups' => array_map($mapper->group(...), $client->search($resource->baseDn, $resource->groupFilter, $resource->groupSearchAttributes(), $max)),
+        ];
+    }
+
+    /**
      * Reads the directory and returns the actions of a run without applying them.
      */
     public function plan(AccountResource $resource, bool $allowMassDisable = false): ReplicationPlan

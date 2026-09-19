@@ -69,6 +69,28 @@ class BadgeTone
             'database' => 'green',
             'env' => 'gray',
         ],
+        // Events of the account replication log, colored as the activity log events.
+        'replication_action' => [
+            'create' => 'green',
+            'enable' => 'green',
+            'update' => 'blue',
+            'rename' => 'purple',
+            'disable' => 'orange',
+            'conflict' => 'yellow',
+            'skip' => 'gray',
+            'error' => 'red',
+        ],
+        // Status of the last replication run of an account resource.
+        'replication_status' => [
+            'ok' => 'green',
+            'partial' => 'yellow',
+            'failed' => 'red',
+            'running' => 'cyan',
+        ],
+        // The source that manages a local account.
+        'managed' => [
+            'directory' => 'purple',
+        ],
         // Counters in tabs and section headers, by the kind of item they count.
         'count' => [
             'domains' => 'cyan',

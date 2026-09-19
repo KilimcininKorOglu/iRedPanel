@@ -79,8 +79,8 @@ final class ApiInput
 
     /**
      * The delete_date of the mailboxes of a DELETE request, from the query parameter
-     * `keepMailboxDays` (iRedAdmin-Pro `keep_mailbox_days`). Without it the mailboxes are
-     * kept forever; a domain key chooses from the days of a domain admin.
+     * `keepMailboxDays`. Without it the mailboxes are kept forever; a domain key chooses
+     * from the days of a domain admin.
      *
      * @throws InvalidInputException when the key may not choose the value
      */

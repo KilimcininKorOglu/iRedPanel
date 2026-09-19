@@ -141,7 +141,7 @@ class DomainController
     }
 
     /**
-     * A domain admin that creates a domain becomes its admin, as in iRedAdmin-Pro.
+     * A domain admin that creates a domain becomes its admin.
      */
     private static function assignToCreator(string $domain): void
     {

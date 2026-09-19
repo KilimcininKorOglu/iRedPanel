@@ -9,13 +9,13 @@ use App\Repositories\UserRepositoryInterface;
 use App\Utils\FormValue;
 
 /**
- * The storage settings of a new mailbox, as iRedAdmin reads them on user creation:
- * mailbox format, mailbox folder and an absolute maildir path. A null value uses the
+ * The storage settings of a new mailbox: mailbox format, mailbox folder and an
+ * absolute maildir path. A null value uses the
  * backend default (SQL column default, Dovecot default for LDAP) or the panel layout.
  */
 final class MailboxStorage
 {
-    /** Dovecot mailbox formats that iRedAdmin accepts. */
+    /** The Dovecot mailbox formats that the panel accepts. */
     public const FORMATS = ['maildir', 'mdbox', 'sdbox'];
 
     /** The iRedMail defaults of the SQL columns mailboxformat and mailboxfolder. */

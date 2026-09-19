@@ -10,7 +10,7 @@ use App\Repositories\RepositoryFactory;
 
 /**
  * Keeps the Amavisd and iRedAPD settings in step with the mail accounts, as
- * iRedAdmin-Pro does. Call it after the account itself is deleted or renamed.
+ * Call it after the account itself is deleted or renamed.
  * Only the enabled integrations are touched.
  */
 class AccountSettingsService

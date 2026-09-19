@@ -28,7 +28,7 @@ final class ProfileToggles
 
     /**
      * Domain page with the admins of the domain. It is no toggle: a domain admin always
-     * opens it, as iRedAdmin-Pro lets a domain admin promote the mailboxes of its domains.
+     * opens it, so a domain admin may promote the mailboxes of its domains.
      */
     public const ADMINS_PAGE = 'admins';
 

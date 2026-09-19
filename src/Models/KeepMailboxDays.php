@@ -9,8 +9,8 @@ use App\Utils\WholeNumber;
 
 /**
  * How many days a deleted mailbox stays on disk before cli/deleteExpiredMailboxes.php
- * removes it, as in iRedAdmin (DAYS_TO_KEEP_REMOVED_MAILBOX). The value becomes the
- * delete_date of the deleted_mailboxes row; 0 keeps the mailbox forever.
+ * removes it. The value becomes the delete_date of the deleted_mailboxes row;
+ * 0 keeps the mailbox forever.
  */
 final class KeepMailboxDays
 {

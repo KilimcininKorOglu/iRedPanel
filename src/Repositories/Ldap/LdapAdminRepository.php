@@ -13,7 +13,7 @@ use App\Repositories\RepositoryFactory;
 use App\Utils\LdapUtils;
 
 /**
- * Admins in the iRedAdmin-Pro LDAP layout. A standalone admin is a `mailAdmin` entry
+ * Admins in the LDAP layout. A standalone admin is a `mailAdmin` entry
  * `mail=<address>,o=domainAdmins`; a mailbox admin is a `mailUser` entry. Either one is a
  * global admin with `domainGlobalAdmin: yes`, and a domain admin of every domain whose
  * entry lists its address in `domainAdmin`. Creation limits are `accountSetting` values.

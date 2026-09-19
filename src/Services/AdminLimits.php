@@ -10,7 +10,7 @@ use App\Models\Admin;
 use App\Repositories\RepositoryFactory;
 
 /**
- * The creation limits of a domain admin, as in iRedAdmin-Pro. The counts cover every
+ * The creation limits of a domain admin. The counts cover every
  * domain that the admin manages; the quota limit bounds the sum of the mailbox quotas.
  * A limit of -1 is unlimited, and no limit binds a global admin.
  */

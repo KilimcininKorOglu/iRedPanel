@@ -32,15 +32,14 @@ class UserPassword
         'mismatch' => 'Password and password confirmation do not match',
     ];
 
-    /** Password schemes that iRedAdmin accepts in a given password hash ("{SSHA512}..."). */
+    /** The password schemes that a given password hash may use ("{SSHA512}..."). */
     public const HASH_SCHEMES = [
         'PLAIN', 'CRYPT', 'MD5', 'PLAIN-MD5', 'SHA', 'SSHA', 'SHA512', 'SSHA512',
         'SHA512-CRYPT', 'BCRYPT', 'CRAM-MD5', 'NTLM',
     ];
 
     /**
-     * Checks a given password hash of a new mailbox. The password policy cannot check a
-     * hash, as in iRedAdmin.
+     * Checks a given password hash of a new mailbox. The password policy cannot check a hash.
      *
      * @throws InvalidInputException when a password is also given, or the scheme is not supported
      */

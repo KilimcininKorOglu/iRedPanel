@@ -170,7 +170,7 @@ class PgsqlUserRepository implements UserRepositoryInterface
 
     public function setTransport(string $domain, string $userUid, ?string $transport): void
     {
-        // The column is NOT NULL, so the domain transport is the empty string, as in iRedAdmin.
+        // The column is NOT NULL, so the domain transport is the empty string.
         $stmt = PgsqlConnection::getInstance()->getPdo()
             ->prepare("UPDATE mailbox SET transport = :transport WHERE username = :username AND domain = :domain");
         $stmt->execute(['transport' => $transport ?? '', 'username' => "{$userUid}@{$domain}", 'domain' => $domain]);

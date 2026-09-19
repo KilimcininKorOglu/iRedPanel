@@ -42,8 +42,8 @@ class User
     ];
 
     /**
-     * iRedMail service name (as in the disabled_mail_services domain setting and
-     * the iRedAdmin-Pro API) => toggle property.
+     * Mail service name (as in the disabled_mail_services domain setting and in the
+     * REST API) => toggle property.
      */
     public const SERVICE_TOGGLES = [
         'smtp' => 'enableSmtp',
@@ -126,7 +126,7 @@ class User
 
     /**
      * Sets the services of a new mailbox: every service on except the disabled
-     * mail services of the domain, as iRedAdmin creates a mailbox.
+     * mail services of the domain.
      *
      * @param string[] $disabled iRedMail service names
      */

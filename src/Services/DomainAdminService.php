@@ -9,7 +9,7 @@ use App\Repositories\RepositoryFactory;
 
 /**
  * Adds and removes the admins of a domain, for the domain page and the REST API. A global
- * admin adds an existing admin or a mailbox; as in iRedAdmin-Pro, a domain admin adds and
+ * admin adds an existing admin or a mailbox; a domain admin adds and
  * removes only the mailboxes of the domains that it manages. A mailbox that is added
  * becomes a domain admin and logs in with its own password.
  */

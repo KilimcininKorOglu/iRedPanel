@@ -1,4 +1,24 @@
-<?php $pageTitle = $t('log.title'); ?>
+<?php
+$pageTitle = $t('log.title');
+// Event => badge color modifier. An unknown event stays gray.
+$eventColors = [
+    'login' => 'cyan',
+    'create' => 'green',
+    'active' => 'green',
+    'update' => 'blue',
+    'delete' => 'red',
+    'disable' => 'orange',
+    'backup' => 'purple',
+    'cleanup_db' => 'yellow',
+];
+$eventBadge = static function (array $log) use ($eventColors): string {
+    if (($log['loglevel'] ?? '') === 'error') {
+        return 'event-badge event-red';
+    }
+
+    return 'event-badge event-' . ($eventColors[$log['event'] ?? ''] ?? 'gray');
+};
+?>
 <div class="page-header">
   <h1><?= $te('log.title') ?></h1>
 </div>
@@ -57,7 +77,7 @@
             <td class="text-nowrap text-body-secondary"><?= $e($log['timestamp'] ?? '') ?></td>
             <td><?= $e($log['admin'] ?? '') ?></td>
             <td><code><?= $e($log['ip'] ?? '') ?></code></td>
-            <td><span class="badge text-bg-secondary badge-status"><?= $e($log['event'] ?? '') ?></span></td>
+            <td><span class="badge badge-status <?= $eventBadge($log) ?>"<?php if (($log['loglevel'] ?? '') === 'error'): ?> title="<?= $e($log['loglevel']) ?>"<?php endif; ?>><?php if (($log['loglevel'] ?? '') === 'error'): ?><i class="bi bi-exclamation-triangle-fill me-1"></i><?php endif; ?><?= $e($log['event'] ?? '') ?></span></td>
             <td><?= $e($log['domain'] ?? '') ?></td>
             <td><?= $e($log['username'] ?? '') ?></td>
             <td><?= $e($log['msg'] ?? '') ?></td>

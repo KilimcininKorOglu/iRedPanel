@@ -646,6 +646,24 @@ pre {
   color: var(--bs-danger-text-emphasis) !important;
 }
 
+/* ---------- Activity log event badges ---------- */
+
+.event-badge {
+  --event-color: #a1a1aa;
+  color: var(--event-color);
+  background: color-mix(in srgb, var(--event-color) 16%, transparent);
+  border: 1px solid color-mix(in srgb, var(--event-color) 40%, transparent);
+}
+
+.event-cyan { --event-color: #22d3ee; }
+.event-green { --event-color: #4ade80; }
+.event-blue { --event-color: #60a5fa; }
+.event-red { --event-color: #f87171; }
+.event-orange { --event-color: #fb923c; }
+.event-purple { --event-color: #c084fc; }
+.event-yellow { --event-color: #facc15; }
+.event-gray { --event-color: #a1a1aa; }
+
 /* ---------- SweetAlert2 ---------- */
 
 div:where(.swal2-container) div:where(.swal2-popup) {

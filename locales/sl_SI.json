@@ -29,7 +29,8 @@
     "toggle_menu": "Meni",
     "compatibility": "Združljivost z iRedMail",
     "account_resources": "Viri računov",
-    "group_self_service": "Moj račun"
+    "group_self_service": "Moj račun",
+    "mail_lists": "Poštni seznami"
   },
   "common": {
     "msg_password_updated": "Geslo uspešno posodobljeno!",
@@ -998,5 +999,19 @@
     "ldif_domain": "LDIF",
     "ldif_tree": "Izvozi drevo LDAP kot LDIF",
     "ldif_password_warning": "Datoteka vsebuje hash gesel. Hranite jo enako varno kot varnostno kopijo."
+  },
+  "maillist": {
+    "list_title": "Poštni seznami",
+    "create_title": "Ustvari poštni seznam",
+    "view_title": "Poštni seznam",
+    "intro": "Poštni seznam dostavi sporočilo svojim članom. Člane upravlja skrbnik; član se ne more sam naročiti ali odjaviti.",
+    "empty": "Ni najdenih poštnih seznamov.",
+    "senders": "Pošiljatelji",
+    "allowed_hint": "Naslovi, ki lahko vedno pošiljajo na ta seznam (eden na vrstico)",
+    "max_message_size_hint": "Največja velikost sporočila v bajtih. 0 pomeni brez omejitve.",
+    "delete_confirm": "Izbrišem poštni seznam :address?",
+    "msg_updated": "Poštni seznam je bil posodobljen!",
+    "policy_subdomain": "Domena in poddomene",
+    "policy_allowed": "Samo dovoljeni pošiljatelji"
   }
 }

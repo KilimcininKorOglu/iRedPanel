@@ -29,7 +29,8 @@
     "toggle_menu": "Meni",
     "compatibility": "Kompatibilnost s iRedMail",
     "account_resources": "Izvori naloga",
-    "group_self_service": "Moj račun"
+    "group_self_service": "Moj račun",
+    "mail_lists": "Mail liste"
   },
   "common": {
     "msg_password_updated": "Lozinka je ažurirana!",
@@ -998,5 +999,19 @@
     "ldif_domain": "LDIF",
     "ldif_tree": "Izvezi LDAP stablo kao LDIF",
     "ldif_password_warning": "Datoteka sadrži hash lozinki. Čuvajte je jednako sigurno kao i sigurnosnu kopiju."
+  },
+  "maillist": {
+    "list_title": "Mail liste",
+    "create_title": "Kreiraj mail listu",
+    "view_title": "Mail lista",
+    "intro": "Mail lista dostavlja poruku svojim članovima. Administrator upravlja članovima; član se ne može sam pretplatiti ili odjaviti.",
+    "empty": "Nema pronađenih mail lista.",
+    "senders": "Pošiljaoci",
+    "allowed_hint": "Adrese koje uvijek mogu slati na ovu listu (jedna po redu)",
+    "max_message_size_hint": "Maksimalna veličina poruke u bajtovima. 0 znači bez ograničenja.",
+    "delete_confirm": "Obrisati mail listu :address?",
+    "msg_updated": "Mail lista je uspješno ažurirana!",
+    "policy_subdomain": "Domena i poddomene",
+    "policy_allowed": "Samo dozvoljeni pošiljaoci"
   }
 }

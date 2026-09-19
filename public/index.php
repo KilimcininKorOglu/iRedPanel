@@ -22,6 +22,7 @@ use App\Api\DomainAliasApiController;
 use App\Api\DomainApiController;
 use App\Api\GreylistApiController;
 use App\Api\LdifApiController;
+use App\Api\MailListApiController;
 use App\Api\MailingListApiController;
 use App\Api\SpamPolicyApiController;
 use App\Api\ThrottleApiController;
@@ -36,6 +37,7 @@ use App\Controllers\WhiteBlacklistController;
 use App\Controllers\IredapdController;
 use App\Controllers\NewsletterController;
 use App\Controllers\LogController;
+use App\Controllers\MailListController;
 use App\Controllers\MailingListController;
 use App\Controllers\SearchController;
 use App\Controllers\SelfServiceController;
@@ -321,6 +323,23 @@ $router->addRoute('POST', '/panel-settings', function () use ($tpl) {
 // Last login tracking
 $router->addRoute('GET', '/last-logins', function () use ($tpl) {
     SystemSettingsController::lastLogins($tpl);
+});
+
+// Mail lists (LDAP backend only)
+$router->addRoute('GET', '/mail-lists', function () use ($tpl) {
+    MailListController::list($tpl);
+});
+
+$router->addRoute(['GET', 'POST'], '/mail-lists/create', function () use ($tpl) {
+    MailListController::createForm($tpl);
+});
+
+$router->addRoute('POST', '/mail-lists/{address}/delete', function (string $address) use ($tpl) {
+    MailListController::delete($tpl, $address);
+});
+
+$router->addRoute(['GET', 'POST'], '/mail-lists/{address}', function (string $address) use ($tpl) {
+    MailListController::view($tpl, $address);
 });
 
 // Export
@@ -637,6 +656,23 @@ $router->addRoute('GET', '/api/v1/throttle/{account}', function (string $account
 });
 $router->addRoute('PUT', '/api/v1/throttle/{account}', function (string $account) use ($apiAuth) {
     $apiAuth(); ThrottleApiController::update($account);
+});
+
+// Mail list API (LDAP backend only)
+$router->addRoute('GET', '/api/v1/mail-lists', function () use ($apiAuth) {
+    $apiAuth(); MailListApiController::list();
+});
+$router->addRoute('POST', '/api/v1/mail-lists', function () use ($apiAuth) {
+    $apiAuth(); MailListApiController::create();
+});
+$router->addRoute('GET', '/api/v1/mail-lists/{address}', function (string $address) use ($apiAuth) {
+    $apiAuth(); MailListApiController::get($address);
+});
+$router->addRoute('PUT', '/api/v1/mail-lists/{address}', function (string $address) use ($apiAuth) {
+    $apiAuth(); MailListApiController::update($address);
+});
+$router->addRoute('DELETE', '/api/v1/mail-lists/{address}', function (string $address) use ($apiAuth) {
+    $apiAuth(); MailListApiController::delete($address);
 });
 
 // LDIF API (LDAP backend only)

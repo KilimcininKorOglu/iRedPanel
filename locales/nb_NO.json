@@ -29,7 +29,8 @@
     "toggle_menu": "Meny",
     "compatibility": "iRedMail-kompatibilitet",
     "account_resources": "Kontokilder",
-    "group_self_service": "Min konto"
+    "group_self_service": "Min konto",
+    "mail_lists": "Postlister"
   },
   "common": {
     "msg_password_updated": "Passordet ble oppdatert!",
@@ -998,5 +999,19 @@
     "ldif_domain": "LDIF",
     "ldif_tree": "Eksporter LDAP-treet som LDIF",
     "ldif_password_warning": "Filen inneholder password-hashene. Oppbevar den like trygt som en backup."
+  },
+  "maillist": {
+    "list_title": "Postlister",
+    "create_title": "Opprett postliste",
+    "view_title": "Postliste",
+    "intro": "En postliste leverer meldingen til medlemmene sine. Administratoren styrer medlemmene; et medlem kan ikke melde seg på eller av selv.",
+    "empty": "Ingen postlister funnet.",
+    "senders": "Avsendere",
+    "allowed_hint": "Adresser som alltid kan sende til denne listen (en per linje)",
+    "max_message_size_hint": "Maksimal meldingsstørrelse i byte. 0 betyr ingen grense.",
+    "delete_confirm": "Slette postlisten :address?",
+    "msg_updated": "Postlisten ble oppdatert!",
+    "policy_subdomain": "Domene og underdomener",
+    "policy_allowed": "Bare tillatte avsendere"
   }
 }

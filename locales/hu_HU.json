@@ -29,7 +29,8 @@
     "toggle_menu": "Menü",
     "compatibility": "iRedMail-kompatibilitás",
     "account_resources": "Fiókforrások",
-    "group_self_service": "Saját fiók"
+    "group_self_service": "Saját fiók",
+    "mail_lists": "Mail listák"
   },
   "common": {
     "msg_password_updated": "A jelszó sikeresen frissítve!",
@@ -998,5 +999,19 @@
     "ldif_domain": "LDIF",
     "ldif_tree": "Az LDAP fa exportálása LDIF fájlba",
     "ldif_password_warning": "A fájl tartalmazza a jelszavak hash értékeit. Őrizze olyan biztonságosan, mint egy mentést."
+  },
+  "maillist": {
+    "list_title": "Mail listák",
+    "create_title": "Mail lista létrehozása",
+    "view_title": "Mail lista",
+    "intro": "A mail lista a tagjainak kézbesíti az üzenetet. A tagokat az adminisztrátor kezeli; a tag nem tud feliratkozni vagy leiratkozni.",
+    "empty": "Nem található mail lista.",
+    "senders": "Feladók",
+    "allowed_hint": "Címek, amelyek mindig küldhetnek erre a listára (soronként egy)",
+    "max_message_size_hint": "Maximális üzenetméret bájtban. A 0 korlátlant jelent.",
+    "delete_confirm": "Törli a(z) :address mail listát?",
+    "msg_updated": "A mail lista sikeresen frissítve!",
+    "policy_subdomain": "Domain és aldomainek",
+    "policy_allowed": "Csak engedélyezett feladók"
   }
 }

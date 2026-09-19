@@ -29,7 +29,8 @@
     "toggle_menu": "Valikko",
     "compatibility": "iRedMail-yhteensopivuus",
     "account_resources": "Tililähteet",
-    "group_self_service": "Oma tili"
+    "group_self_service": "Oma tili",
+    "mail_lists": "Postituslistat"
   },
   "common": {
     "msg_password_updated": "Salasana päivitetty onnistuneesti!",
@@ -998,5 +999,19 @@
     "ldif_domain": "LDIF",
     "ldif_tree": "Vie LDAP-puu LDIF-tiedostoon",
     "ldif_password_warning": "Tiedosto sisältää salasanojen hash-arvot. Säilytä se yhtä turvallisesti kuin varmuuskopio."
+  },
+  "maillist": {
+    "list_title": "Postituslistat",
+    "create_title": "Luo postituslista",
+    "view_title": "Postituslista",
+    "intro": "Postituslista toimittaa viestin jäsenilleen. Ylläpitäjä hallitsee jäseniä; jäsen ei voi itse liittyä tai poistua.",
+    "empty": "Postituslistoja ei löytynyt.",
+    "senders": "Lähettäjät",
+    "allowed_hint": "Osoitteet, jotka saavat aina lähettää tälle listalle (yksi riviä kohden)",
+    "max_message_size_hint": "Viestin enimmäiskoko tavuina. 0 tarkoittaa rajoittamatonta.",
+    "delete_confirm": "Poistetaanko postituslista :address?",
+    "msg_updated": "Postituslista päivitettiin onnistuneesti!",
+    "policy_subdomain": "Verkkotunnus ja aliverkkotunnukset",
+    "policy_allowed": "Vain sallitut lähettäjät"
   }
 }

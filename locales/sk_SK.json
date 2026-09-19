@@ -29,7 +29,8 @@
     "toggle_menu": "Ponuka",
     "compatibility": "Kompatibilita s iRedMail",
     "account_resources": "Zdroje účtov",
-    "group_self_service": "Môj účet"
+    "group_self_service": "Môj účet",
+    "mail_lists": "Mailové zoznamy"
   },
   "common": {
     "msg_password_updated": "Heslo bolo úspešne aktualizované!",
@@ -998,5 +999,19 @@
     "ldif_domain": "LDIF",
     "ldif_tree": "Exportovať strom LDAP ako LDIF",
     "ldif_password_warning": "Súbor obsahuje hash hesiel. Uchovávajte ho rovnako bezpečne ako zálohu."
+  },
+  "maillist": {
+    "list_title": "Mailové zoznamy",
+    "create_title": "Vytvoriť mailový zoznam",
+    "view_title": "Mailový zoznam",
+    "intro": "Mailový zoznam doručuje správu svojim členom. Členov spravuje správca; člen sa nemôže sám prihlásiť ani odhlásiť.",
+    "empty": "Nenašli sa žiadne mailové zoznamy.",
+    "senders": "Odosielatelia",
+    "allowed_hint": "Adresy, ktoré môžu vždy posielať do tohto zoznamu (jedna na riadok)",
+    "max_message_size_hint": "Maximálna veľkosť správy v bajtoch. 0 znamená bez obmedzenia.",
+    "delete_confirm": "Odstrániť mailový zoznam :address?",
+    "msg_updated": "Mailový zoznam bol úspešne aktualizovaný!",
+    "policy_subdomain": "Doména a subdomény",
+    "policy_allowed": "Iba povolení odosielatelia"
   }
 }

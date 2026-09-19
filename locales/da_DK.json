@@ -29,7 +29,8 @@
     "toggle_menu": "Menu",
     "compatibility": "iRedMail-kompatibilitet",
     "account_resources": "Kontokilder",
-    "group_self_service": "Min konto"
+    "group_self_service": "Min konto",
+    "mail_lists": "Mailinglister"
   },
   "common": {
     "msg_password_updated": "Adgangskoden blev opdateret!",
@@ -998,5 +999,19 @@
     "ldif_domain": "LDIF",
     "ldif_tree": "Eksportér LDAP-træet som LDIF",
     "ldif_password_warning": "Filen indeholder password-hashene. Opbevar den lige så sikkert som en backup."
+  },
+  "maillist": {
+    "list_title": "Mailinglister",
+    "create_title": "Opret mailingliste",
+    "view_title": "Mailingliste",
+    "intro": "En mailingliste leverer beskeden til sine medlemmer. Administratoren styrer medlemmerne; et medlem kan ikke selv tilmelde eller afmelde sig.",
+    "empty": "Ingen mailinglister fundet.",
+    "senders": "Afsendere",
+    "allowed_hint": "Adresser, der altid må sende til denne liste (en pr. linje)",
+    "max_message_size_hint": "Maksimal beskedstørrelse i bytes. 0 betyder ingen grænse.",
+    "delete_confirm": "Slet mailinglisten :address?",
+    "msg_updated": "Mailinglisten blev opdateret!",
+    "policy_subdomain": "Domæne og underdomæner",
+    "policy_allowed": "Kun tilladte afsendere"
   }
 }

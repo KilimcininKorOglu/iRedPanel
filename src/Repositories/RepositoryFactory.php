@@ -20,6 +20,7 @@ use App\Repositories\Ldap\LdapAliasRepository;
 use App\Repositories\Ldap\LdapBccRepository;
 use App\Repositories\Ldap\LdapDashboardRepository;
 use App\Repositories\Ldap\LdapSearchRepository;
+use App\Repositories\Ldap\LdapMailListRepository;
 use App\Repositories\Ldap\LdapMailingListRepository;
 use App\Repositories\Ldap\LdapDomainAliasRepository;
 use App\Repositories\Ldap\LdapAdminRepository;
@@ -66,6 +67,7 @@ class RepositoryFactory
     private static ?DomainRepositoryInterface $domainRepo = null;
     private static ?UserRepositoryInterface $userRepo = null;
     private static ?AdminRepositoryInterface $adminRepo = null;
+    private static ?MailListRepositoryInterface $mailListRepo = null;
     private static ?ForwardingRepositoryInterface $forwardingRepo = null;
     private static ?QuotaRepositoryInterface $quotaRepo = null;
     private static ?DashboardRepositoryInterface $dashboardRepo = null;
@@ -132,6 +134,16 @@ class RepositoryFactory
             };
         }
         return self::$adminRepo;
+    }
+
+    public static function getMailListRepository(): MailListRepositoryInterface
+    {
+        if (self::$mailListRepo === null) {
+            self::$mailListRepo = Settings::getInstance()->backend === 'ldap'
+                ? new LdapMailListRepository()
+                : new NullMailListRepository();
+        }
+        return self::$mailListRepo;
     }
 
     public static function getForwardingRepository(): ForwardingRepositoryInterface

@@ -29,7 +29,8 @@
     "toggle_menu": "เมนู",
     "compatibility": "ความเข้ากันได้กับ iRedMail",
     "account_resources": "แหล่งบัญชี",
-    "group_self_service": "บัญชีของฉัน"
+    "group_self_service": "บัญชีของฉัน",
+    "mail_lists": "รายชื่อเมล"
   },
   "common": {
     "msg_password_updated": "อัปเดตรหัสผ่านสำเร็จ!",
@@ -998,5 +999,19 @@
     "ldif_domain": "LDIF",
     "ldif_tree": "ส่งออกทรี LDAP เป็น LDIF",
     "ldif_password_warning": "ไฟล์มี hash ของ password เก็บไว้ให้ปลอดภัยเท่ากับ backup"
+  },
+  "maillist": {
+    "list_title": "รายชื่อเมล",
+    "create_title": "สร้างรายชื่อเมล",
+    "view_title": "รายชื่อเมล",
+    "intro": "รายชื่อเมลจะส่งข้อความไปยังสมาชิก ผู้ดูแลระบบเป็นผู้จัดการสมาชิก สมาชิกไม่สามารถสมัครหรือยกเลิกเองได้",
+    "empty": "ไม่พบรายชื่อเมล",
+    "senders": "ผู้ส่ง",
+    "allowed_hint": "ที่อยู่ที่ส่งถึงรายชื่อนี้ได้เสมอ (หนึ่งรายการต่อบรรทัด)",
+    "max_message_size_hint": "ขนาดข้อความสูงสุดเป็นไบต์ 0 หมายถึงไม่จำกัด",
+    "delete_confirm": "ลบรายชื่อเมล :address หรือไม่?",
+    "msg_updated": "อัปเดตรายชื่อเมลเรียบร้อยแล้ว!",
+    "policy_subdomain": "โดเมนและซับโดเมน",
+    "policy_allowed": "เฉพาะผู้ส่งที่อนุญาต"
   }
 }

@@ -29,7 +29,8 @@
     "toggle_menu": "メニュー",
     "compatibility": "iRedMail 互換性",
     "account_resources": "アカウントリソース",
-    "group_self_service": "マイアカウント"
+    "group_self_service": "マイアカウント",
+    "mail_lists": "メールリスト"
   },
   "common": {
     "msg_password_updated": "パスワードが正常に更新されました！",
@@ -998,5 +999,19 @@
     "ldif_domain": "LDIF",
     "ldif_tree": "LDAP ツリーを LDIF として書き出す",
     "ldif_password_warning": "ファイルには password の hash が含まれます。backup と同じくらい安全に保管してください。"
+  },
+  "maillist": {
+    "list_title": "メールリスト",
+    "create_title": "メールリストの作成",
+    "view_title": "メールリスト",
+    "intro": "メールリストはメンバーにメッセージを配信します。メンバーは管理者が管理し、メンバー自身は登録や解除をできません。",
+    "empty": "メールリストがありません。",
+    "senders": "送信者",
+    "allowed_hint": "このリストに常に送信できるアドレス (1行に1つ)",
+    "max_message_size_hint": "メッセージの最大サイズ (バイト)。0 は無制限です。",
+    "delete_confirm": "メールリスト :address を削除しますか?",
+    "msg_updated": "メールリストを更新しました。",
+    "policy_subdomain": "ドメインとサブドメイン",
+    "policy_allowed": "許可された送信者のみ"
   }
 }

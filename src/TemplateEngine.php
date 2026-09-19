@@ -66,6 +66,8 @@ class TemplateEngine
             'fail2ban' => $settings->fail2banEnabled,
             'iredapd' => $settings->iredapdEnabled,
             'domainOwnership' => $settings->requireDomainOwnershipVerification,
+            // Only the LDAP backend has group accounts with managed members.
+            'mailLists' => $settings->backend === 'ldap',
             // Account replication stores its settings and log in the iredadmin database.
             'accountResources' => !empty($_SESSION['isGlobalAdmin'])
                 && \App\Repositories\RepositoryFactory::getAccountResourceRepository()->isAvailable(),

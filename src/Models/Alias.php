@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Utils\AccessPolicy;
+
 class Alias
 {
     /** Posting restrictions that iRedAPD enforces for aliases and mailing lists. */
@@ -14,10 +16,7 @@ class Alias
      */
     public static function validAccessPolicy(mixed $policy): string
     {
-        if (!in_array($policy, self::ACCESS_POLICIES, true)) {
-            throw new \InvalidArgumentException('accessPolicy must be one of: ' . implode(', ', self::ACCESS_POLICIES));
-        }
-        return $policy;
+        return AccessPolicy::validate($policy, self::ACCESS_POLICIES);
     }
 
     public function __construct(

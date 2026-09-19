@@ -29,7 +29,8 @@
     "toggle_menu": "Menu",
     "compatibility": "iRedMail-compatibiliteit",
     "account_resources": "Accountbronnen",
-    "group_self_service": "Mijn account"
+    "group_self_service": "Mijn account",
+    "mail_lists": "Maillijsten"
   },
   "common": {
     "msg_password_updated": "Wachtwoord succesvol bijgewerkt!",
@@ -998,5 +999,19 @@
     "ldif_domain": "LDIF",
     "ldif_tree": "De LDAP-boom als LDIF exporteren",
     "ldif_password_warning": "Het bestand bevat de password-hashes. Bewaar het net zo veilig als een backup."
+  },
+  "maillist": {
+    "list_title": "Maillijsten",
+    "create_title": "Maillijst aanmaken",
+    "view_title": "Maillijst",
+    "intro": "Een maillijst bezorgt het bericht bij haar leden. De beheerder beheert de leden; een lid kan zich niet zelf aan- of afmelden.",
+    "empty": "Geen maillijsten gevonden.",
+    "senders": "Afzenders",
+    "allowed_hint": "Adressen die altijd naar deze lijst mogen sturen (één per regel)",
+    "max_message_size_hint": "Maximale berichtgrootte in bytes. 0 betekent geen limiet.",
+    "delete_confirm": "Maillijst :address verwijderen?",
+    "msg_updated": "Maillijst bijgewerkt!",
+    "policy_subdomain": "Domein en subdomeinen",
+    "policy_allowed": "Alleen toegestane afzenders"
   }
 }

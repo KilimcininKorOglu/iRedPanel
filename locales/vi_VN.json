@@ -29,7 +29,8 @@
     "toggle_menu": "Menu",
     "compatibility": "Tương thích iRedMail",
     "account_resources": "Nguồn tài khoản",
-    "group_self_service": "Tài khoản của tôi"
+    "group_self_service": "Tài khoản của tôi",
+    "mail_lists": "Danh sách mail"
   },
   "common": {
     "msg_password_updated": "Mật khẩu đã được cập nhật thành công!",
@@ -998,5 +999,19 @@
     "ldif_domain": "LDIF",
     "ldif_tree": "Xuất cây LDAP ra LDIF",
     "ldif_password_warning": "Tệp chứa hash của password. Hãy giữ nó an toàn như một backup."
+  },
+  "maillist": {
+    "list_title": "Danh sách mail",
+    "create_title": "Tạo danh sách mail",
+    "view_title": "Danh sách mail",
+    "intro": "Danh sách mail chuyển thư đến các thành viên. Quản trị viên quản lý thành viên; thành viên không thể tự đăng ký hoặc hủy đăng ký.",
+    "empty": "Không tìm thấy danh sách mail.",
+    "senders": "Người gửi",
+    "allowed_hint": "Địa chỉ luôn được gửi đến danh sách này (mỗi dòng một địa chỉ)",
+    "max_message_size_hint": "Kích thước thư tối đa tính bằng byte. 0 nghĩa là không giới hạn.",
+    "delete_confirm": "Xóa danh sách mail :address?",
+    "msg_updated": "Đã cập nhật danh sách mail!",
+    "policy_subdomain": "Domain và subdomain",
+    "policy_allowed": "Chỉ người gửi được phép"
   }
 }

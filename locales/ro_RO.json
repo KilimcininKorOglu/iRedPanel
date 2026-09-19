@@ -29,7 +29,8 @@
     "toggle_menu": "Meniu",
     "compatibility": "Compatibilitate iRedMail",
     "account_resources": "Resurse de conturi",
-    "group_self_service": "Contul meu"
+    "group_self_service": "Contul meu",
+    "mail_lists": "Liste de mail"
   },
   "common": {
     "msg_password_updated": "Parola a fost actualizată cu succes!",
@@ -998,5 +999,19 @@
     "ldif_domain": "LDIF",
     "ldif_tree": "Exportă arborele LDAP ca LDIF",
     "ldif_password_warning": "Fișierul conține hash-urile parolelor. Păstrează-l la fel de sigur ca pe o copie de rezervă."
+  },
+  "maillist": {
+    "list_title": "Liste de mail",
+    "create_title": "Creează listă de mail",
+    "view_title": "Listă de mail",
+    "intro": "O listă de mail livrează mesajul membrilor săi. Administratorul gestionează membrii; un membru nu se poate abona sau dezabona singur.",
+    "empty": "Nu s-au găsit liste de mail.",
+    "senders": "Expeditori",
+    "allowed_hint": "Adrese care pot trimite oricând către această listă (una pe linie)",
+    "max_message_size_hint": "Dimensiunea maximă a mesajului în octeți. 0 înseamnă fără limită.",
+    "delete_confirm": "Ștergeți lista de mail :address?",
+    "msg_updated": "Lista de mail a fost actualizată!",
+    "policy_subdomain": "Domeniu și subdomenii",
+    "policy_allowed": "Doar expeditori permiși"
   }
 }

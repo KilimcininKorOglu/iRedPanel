@@ -29,7 +29,8 @@
     "toggle_menu": "Menu",
     "compatibility": "iRedMail Compatibility",
     "account_resources": "Account Resources",
-    "group_self_service": "My account"
+    "group_self_service": "My account",
+    "mail_lists": "Mail Lists"
   },
   "common": {
     "msg_password_updated": "Password updated successfully!",
@@ -998,5 +999,19 @@
     "ldif_domain": "LDIF",
     "ldif_tree": "Export the LDAP tree as LDIF",
     "ldif_password_warning": "The file holds the password hashes. Keep it as safe as a backup."
+  },
+  "maillist": {
+    "list_title": "Mail Lists",
+    "create_title": "Create Mail List",
+    "view_title": "Mail List",
+    "intro": "A mail list delivers the message to its members. The admin manages the members; a member cannot subscribe or unsubscribe itself.",
+    "empty": "No mail lists found.",
+    "senders": "Senders",
+    "allowed_hint": "Addresses that may always send to this list (one per line)",
+    "max_message_size_hint": "Maximum message size in bytes. 0 means no limit.",
+    "delete_confirm": "Delete mail list :address?",
+    "msg_updated": "Mail list updated successfully!",
+    "policy_subdomain": "Domain and Subdomains",
+    "policy_allowed": "Allowed Senders Only"
   }
 }

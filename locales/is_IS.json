@@ -29,7 +29,8 @@
     "toggle_menu": "Valmynd",
     "compatibility": "Samhæfni við iRedMail",
     "account_resources": "Aðgangsuppsprettur",
-    "group_self_service": "Aðgangurinn minn"
+    "group_self_service": "Aðgangurinn minn",
+    "mail_lists": "Póstlistar"
   },
   "common": {
     "msg_password_updated": "Lykilorð uppfært!",
@@ -998,5 +999,19 @@
     "ldif_domain": "LDIF",
     "ldif_tree": "Flytja LDAP-tréð út sem LDIF",
     "ldif_password_warning": "Skráin inniheldur hash lykilorðanna. Geymdu hana jafn örugglega og afrit."
+  },
+  "maillist": {
+    "list_title": "Póstlistar",
+    "create_title": "Búa til póstlista",
+    "view_title": "Póstlisti",
+    "intro": "Póstlisti afhendir skilaboðin til meðlima sinna. Stjórnandi sér um meðlimi; meðlimur getur ekki skráð sig inn eða út sjálfur.",
+    "empty": "Engir póstlistar fundust.",
+    "senders": "Sendendur",
+    "allowed_hint": "Netföng sem mega alltaf senda á þennan lista (eitt í línu)",
+    "max_message_size_hint": "Hámarksstærð skilaboða í bætum. 0 þýðir engin mörk.",
+    "delete_confirm": "Eyða póstlistanum :address?",
+    "msg_updated": "Póstlistinn var uppfærður!",
+    "policy_subdomain": "Lén og undirlén",
+    "policy_allowed": "Aðeins leyfðir sendendur"
   }
 }

@@ -29,7 +29,8 @@
     "toggle_menu": "Menú",
     "compatibility": "Compatibilitat amb iRedMail",
     "account_resources": "Orígens de comptes",
-    "group_self_service": "El meu compte"
+    "group_self_service": "El meu compte",
+    "mail_lists": "Llistes de correu"
   },
   "common": {
     "msg_password_updated": "Contrasenya actualitzada correctament!",
@@ -998,5 +999,19 @@
     "ldif_domain": "LDIF",
     "ldif_tree": "Exporta l'arbre LDAP com a LDIF",
     "ldif_password_warning": "El fitxer conté els hashes de password. Deseu-lo amb la mateixa seguretat que una còpia de seguretat."
+  },
+  "maillist": {
+    "list_title": "Llistes de correu",
+    "create_title": "Crea una llista de correu",
+    "view_title": "Llista de correu",
+    "intro": "Una llista de correu lliura el missatge als seus membres. L'administrador gestiona els membres; un membre no es pot subscriure ni donar de baixa.",
+    "empty": "No s'ha trobat cap llista de correu.",
+    "senders": "Remitents",
+    "allowed_hint": "Adreces que sempre poden enviar a aquesta llista (una per línia)",
+    "max_message_size_hint": "Mida màxima del missatge en bytes. 0 significa sense límit.",
+    "delete_confirm": "Voleu eliminar la llista de correu :address?",
+    "msg_updated": "La llista de correu s'ha actualitzat correctament!",
+    "policy_subdomain": "Domini i subdominis",
+    "policy_allowed": "Només remitents permesos"
   }
 }

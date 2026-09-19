@@ -29,7 +29,8 @@
     "toggle_menu": "Meny",
     "compatibility": "iRedMail-kompatibilitet",
     "account_resources": "Kontokällor",
-    "group_self_service": "Mitt konto"
+    "group_self_service": "Mitt konto",
+    "mail_lists": "Postlistor"
   },
   "common": {
     "msg_password_updated": "Lösenordet har uppdaterats!",
@@ -998,5 +999,19 @@
     "ldif_domain": "LDIF",
     "ldif_tree": "Exportera LDAP-trädet som LDIF",
     "ldif_password_warning": "Filen innehåller password-hasharna. Förvara den lika säkert som en backup."
+  },
+  "maillist": {
+    "list_title": "Postlistor",
+    "create_title": "Skapa postlista",
+    "view_title": "Postlista",
+    "intro": "En postlista levererar meddelandet till sina medlemmar. Administratören hanterar medlemmarna; en medlem kan inte själv prenumerera eller avsluta.",
+    "empty": "Inga postlistor hittades.",
+    "senders": "Avsändare",
+    "allowed_hint": "Adresser som alltid får skicka till denna lista (en per rad)",
+    "max_message_size_hint": "Maximal meddelandestorlek i byte. 0 betyder ingen gräns.",
+    "delete_confirm": "Ta bort postlistan :address?",
+    "msg_updated": "Postlistan uppdaterades!",
+    "policy_subdomain": "Domän och underdomäner",
+    "policy_allowed": "Endast tillåtna avsändare"
   }
 }

@@ -29,7 +29,8 @@
     "toggle_menu": "메뉴",
     "compatibility": "iRedMail 호환성",
     "account_resources": "계정 리소스",
-    "group_self_service": "내 계정"
+    "group_self_service": "내 계정",
+    "mail_lists": "메일 리스트"
   },
   "common": {
     "msg_password_updated": "비밀번호가 성공적으로 업데이트되었습니다!",
@@ -998,5 +999,19 @@
     "ldif_domain": "LDIF",
     "ldif_tree": "LDAP 트리를 LDIF로 내보내기",
     "ldif_password_warning": "파일에 password hash가 들어 있습니다. backup만큼 안전하게 보관하세요."
+  },
+  "maillist": {
+    "list_title": "메일 리스트",
+    "create_title": "메일 리스트 생성",
+    "view_title": "메일 리스트",
+    "intro": "메일 리스트는 구성원에게 메시지를 전달합니다. 관리자가 구성원을 관리하며 구성원은 직접 가입하거나 탈퇴할 수 없습니다.",
+    "empty": "메일 리스트가 없습니다.",
+    "senders": "발신자",
+    "allowed_hint": "이 리스트로 항상 보낼 수 있는 주소 (한 줄에 하나)",
+    "max_message_size_hint": "최대 메시지 크기(바이트). 0은 제한 없음을 뜻합니다.",
+    "delete_confirm": "메일 리스트 :address 을(를) 삭제할까요?",
+    "msg_updated": "메일 리스트가 업데이트되었습니다!",
+    "policy_subdomain": "도메인 및 서브도메인",
+    "policy_allowed": "허용된 발신자만"
   }
 }

@@ -29,7 +29,8 @@
     "toggle_menu": "Menu",
     "compatibility": "Compatibilidade com iRedMail",
     "account_resources": "Fontes de contas",
-    "group_self_service": "Minha conta"
+    "group_self_service": "Minha conta",
+    "mail_lists": "Listas de mail"
   },
   "common": {
     "msg_password_updated": "Senha atualizada com sucesso!",
@@ -998,5 +999,19 @@
     "ldif_domain": "LDIF",
     "ldif_tree": "Exportar a árvore LDAP como LDIF",
     "ldif_password_warning": "O arquivo contém os hashes de password. Guarde-o de forma tão segura quanto um backup."
+  },
+  "maillist": {
+    "list_title": "Listas de mail",
+    "create_title": "Criar lista de mail",
+    "view_title": "Lista de mail",
+    "intro": "Uma lista de mail entrega a mensagem aos seus membros. O administrador gerencia os membros; um membro não pode se inscrever ou cancelar.",
+    "empty": "Nenhuma lista de mail encontrada.",
+    "senders": "Remetentes",
+    "allowed_hint": "Endereços que sempre podem enviar para esta lista (um por linha)",
+    "max_message_size_hint": "Tamanho máximo da mensagem em bytes. 0 significa sem limite.",
+    "delete_confirm": "Excluir a lista de mail :address?",
+    "msg_updated": "Lista de mail atualizada com sucesso!",
+    "policy_subdomain": "Domínio e subdomínios",
+    "policy_allowed": "Somente remetentes permitidos"
   }
 }

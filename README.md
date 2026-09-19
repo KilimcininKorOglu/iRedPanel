@@ -455,6 +455,7 @@ The REST API lives at `/api/v1/*`. It is disabled by default (`API_ENABLED=false
 | Mailing lists | `GET, POST /mailing-lists`; `GET, PUT, DELETE /mailing-lists/{address}` |
 | List subscribers | `GET, POST, DELETE /mailing-lists/{address}/subscribers` |
 | List moderators | `GET, PUT /mailing-lists/{address}/moderators` |
+| Mail lists | `GET, POST /mail-lists`; `GET, PUT, DELETE /mail-lists/{address}` (LDAP backend) |
 | Admins | `GET, POST /admins`; `GET, PUT, DELETE /admins/{email}` |
 | Domain aliases | `GET, POST /domain-aliases`; `DELETE /domain-aliases/{aliasDomain}` |
 | Password check | `POST /verify-password/{accountType}/{email}` |
@@ -465,6 +466,8 @@ The REST API lives at `/api/v1/*`. It is disabled by default (`API_ENABLED=false
 | Greylisting | `GET /greylist`; `GET, PUT, DELETE /greylist/{account}`; `GET, PUT /greylist-whitelist-domains` |
 
 **Mailing lists**: `GET /mailing-lists/{address}` returns the mlmmj profile under `options`, and `?withSubscribers=yes` adds the subscribers. `PUT` writes the option fields that the body carries. `POST /mailing-lists/{address}/subscribers` accepts `subscription` (`normal`, `digest`, `nomail`) and `requireConfirm`. `DELETE /mailing-lists/{address}?keepArchive=no` removes the messages of the list with the account.
+
+**Mail lists**: a mail list is a group account of the LDAP backend. The admin manages its members, and a member cannot subscribe or unsubscribe itself. A SQL backend has no such account type and answers 400. `PUT /mail-lists/{address}` writes the fields that the body carries, and changes the members with `members`, or with `addMembers` and `removeMembers`. A member address outside the served domains becomes a `mailExternalUser` entry.
 
 **White/blacklist**: `GET /wblist/{account}?wb=W` (or `B`) returns one kind only. `POST` takes a single `sender` or a `senders` array, with `wb` (`W` or `B`) and `direction` (`inbound` or `outbound`). `DELETE` takes `sender`, `senders`, or `{"all": true}` with the optional `wb` filter, and answers with the number of entries it changed.
 

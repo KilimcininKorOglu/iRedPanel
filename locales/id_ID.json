@@ -29,7 +29,8 @@
     "toggle_menu": "Menu",
     "compatibility": "Kompatibilitas iRedMail",
     "account_resources": "Sumber Akun",
-    "group_self_service": "Akun saya"
+    "group_self_service": "Akun saya",
+    "mail_lists": "Daftar mail"
   },
   "common": {
     "msg_password_updated": "Kata sandi berhasil diperbarui!",
@@ -998,5 +999,19 @@
     "ldif_domain": "LDIF",
     "ldif_tree": "Ekspor pohon LDAP sebagai LDIF",
     "ldif_password_warning": "File ini berisi hash password. Simpan seaman backup."
+  },
+  "maillist": {
+    "list_title": "Daftar mail",
+    "create_title": "Buat daftar mail",
+    "view_title": "Daftar mail",
+    "intro": "Daftar mail mengirimkan pesan ke anggotanya. Admin mengelola anggota; anggota tidak dapat berlangganan atau berhenti sendiri.",
+    "empty": "Tidak ada daftar mail.",
+    "senders": "Pengirim",
+    "allowed_hint": "Alamat yang selalu boleh mengirim ke daftar ini (satu per baris)",
+    "max_message_size_hint": "Ukuran pesan maksimum dalam byte. 0 berarti tanpa batas.",
+    "delete_confirm": "Hapus daftar mail :address?",
+    "msg_updated": "Daftar mail berhasil diperbarui!",
+    "policy_subdomain": "Domain dan subdomain",
+    "policy_allowed": "Hanya pengirim yang diizinkan"
   }
 }

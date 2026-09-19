@@ -29,7 +29,8 @@
     "toggle_menu": "Menyu",
     "compatibility": "iRedMail uyğunluğu",
     "account_resources": "Hesab mənbələri",
-    "group_self_service": "Hesabım"
+    "group_self_service": "Hesabım",
+    "mail_lists": "Mail siyahıları"
   },
   "common": {
     "msg_password_updated": "Parol uğurla yeniləndi!",
@@ -998,5 +999,19 @@
     "ldif_domain": "LDIF",
     "ldif_tree": "LDAP ağacını LDIF kimi ixrac et",
     "ldif_password_warning": "Fayl parolların hash dəyərlərini saxlayır. Onu backup qədər təhlükəsiz saxlayın."
+  },
+  "maillist": {
+    "list_title": "Mail siyahıları",
+    "create_title": "Mail siyahısı yarat",
+    "view_title": "Mail siyahısı",
+    "intro": "Mail siyahısı mesajı üzvlərinə çatdırır. Üzvləri admin idarə edir; üzv özü abunə ola və ya abunəlikdən çıxa bilməz.",
+    "empty": "Mail siyahısı tapılmadı.",
+    "senders": "Göndərənlər",
+    "allowed_hint": "Bu siyahıya həmişə göndərə bilən ünvanlar (hər sətirdə bir)",
+    "max_message_size_hint": "Maksimum mesaj ölçüsü (bayt). 0 limitsiz deməkdir.",
+    "delete_confirm": ":address mail siyahısı silinsin?",
+    "msg_updated": "Mail siyahısı uğurla yeniləndi!",
+    "policy_subdomain": "Domen və subdomenlər",
+    "policy_allowed": "Yalnız icazəli göndərənlər"
   }
 }

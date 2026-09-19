@@ -29,7 +29,8 @@
     "toggle_menu": "Menua",
     "compatibility": "iRedMail bateragarritasuna",
     "account_resources": "Kontu-iturburuak",
-    "group_self_service": "Nire kontua"
+    "group_self_service": "Nire kontua",
+    "mail_lists": "Posta zerrendak"
   },
   "common": {
     "msg_password_updated": "Pasahitza eguneratu da!",
@@ -998,5 +999,19 @@
     "ldif_domain": "LDIF",
     "ldif_tree": "Esportatu LDAP zuhaitza LDIF gisa",
     "ldif_password_warning": "Fitxategiak pasahitzen hash-ak ditu. Gorde ezazu babeskopia bat bezain seguru."
+  },
+  "maillist": {
+    "list_title": "Posta zerrendak",
+    "create_title": "Sortu posta zerrenda",
+    "view_title": "Posta zerrenda",
+    "intro": "Posta zerrendak mezua bere kideei banatzen die. Administratzaileak kudeatzen ditu kideak; kide batek ezin du bere burua harpidetu edo harpidetza kendu.",
+    "empty": "Ez da posta zerrendarik aurkitu.",
+    "senders": "Bidaltzaileak",
+    "allowed_hint": "Zerrenda honetara beti bidali dezaketen helbideak (bat lerroko)",
+    "max_message_size_hint": "Mezuaren gehienezko tamaina bytetan. 0 mugarik ez esan nahi du.",
+    "delete_confirm": "Ezabatu :address posta zerrenda?",
+    "msg_updated": "Posta zerrenda ondo eguneratu da!",
+    "policy_subdomain": "Domeinua eta azpidomeinuak",
+    "policy_allowed": "Baimendutako bidaltzaileak soilik"
   }
 }

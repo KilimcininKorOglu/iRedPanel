@@ -29,7 +29,8 @@
     "toggle_menu": "Menüü",
     "compatibility": "iRedMaili ühilduvus",
     "account_resources": "Kontoallikad",
-    "group_self_service": "Minu konto"
+    "group_self_service": "Minu konto",
+    "mail_lists": "Meililistid"
   },
   "common": {
     "msg_password_updated": "Parool edukalt uuendatud!",
@@ -998,5 +999,19 @@
     "ldif_domain": "LDIF",
     "ldif_tree": "Ekspordi LDAP-puu LDIF-failina",
     "ldif_password_warning": "Fail sisaldab paroolide hash-väärtusi. Hoia seda sama turvaliselt kui varukoopiat."
+  },
+  "maillist": {
+    "list_title": "Meililistid",
+    "create_title": "Loo meililist",
+    "view_title": "Meililist",
+    "intro": "Meililist edastab sõnumi oma liikmetele. Liikmeid haldab administraator; liige ei saa ise liituda ega loobuda.",
+    "empty": "Meililiste ei leitud.",
+    "senders": "Saatjad",
+    "allowed_hint": "Aadressid, mis võivad alati sellesse listi saata (üks reale)",
+    "max_message_size_hint": "Sõnumi maksimaalne suurus baitides. 0 tähendab piiranguta.",
+    "delete_confirm": "Kas kustutada meililist :address?",
+    "msg_updated": "Meililist on edukalt uuendatud!",
+    "policy_subdomain": "Domeen ja alamdomeenid",
+    "policy_allowed": "Ainult lubatud saatjad"
   }
 }

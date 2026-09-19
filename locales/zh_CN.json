@@ -29,7 +29,8 @@
     "toggle_menu": "菜单",
     "compatibility": "iRedMail 兼容性",
     "account_resources": "账户源",
-    "group_self_service": "我的账户"
+    "group_self_service": "我的账户",
+    "mail_lists": "邮件组"
   },
   "common": {
     "msg_password_updated": "密码更新成功！",
@@ -998,5 +999,19 @@
     "ldif_domain": "LDIF",
     "ldif_tree": "把 LDAP 树导出为 LDIF",
     "ldif_password_warning": "文件包含 password 的 hash。请像保管 backup 一样妥善保存。"
+  },
+  "maillist": {
+    "list_title": "邮件组",
+    "create_title": "创建邮件组",
+    "view_title": "邮件组",
+    "intro": "邮件组把邮件投递给其成员。成员由管理员管理，成员不能自行订阅或退订。",
+    "empty": "未找到邮件组。",
+    "senders": "发件人",
+    "allowed_hint": "始终允许向该组发信的地址（每行一个）",
+    "max_message_size_hint": "邮件最大大小（字节）。0 表示不限制。",
+    "delete_confirm": "删除邮件组 :address？",
+    "msg_updated": "邮件组已更新！",
+    "policy_subdomain": "域名及子域名",
+    "policy_allowed": "仅允许的发件人"
   }
 }

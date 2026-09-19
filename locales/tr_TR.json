@@ -29,7 +29,8 @@
     "toggle_menu": "Menü",
     "compatibility": "iRedMail Uyumluluğu",
     "account_resources": "Hesap Kaynakları",
-    "group_self_service": "Hesabım"
+    "group_self_service": "Hesabım",
+    "mail_lists": "Mail Listeleri"
   },
   "common": {
     "msg_password_updated": "Parola başarıyla güncellendi!",
@@ -998,5 +999,19 @@
     "ldif_domain": "LDIF",
     "ldif_tree": "LDAP ağacını LDIF olarak indir",
     "ldif_password_warning": "Dosya password hash'lerini içerir. Bir yedek kadar güvenli saklayın."
+  },
+  "maillist": {
+    "list_title": "Mail Listeleri",
+    "create_title": "Mail Listesi Oluştur",
+    "view_title": "Mail Listesi",
+    "intro": "Mail listesi mesajı üyelerine dağıtır. Üyeleri admin yönetir; üye kendisi abone olamaz veya çıkamaz.",
+    "empty": "Mail listesi bulunamadı.",
+    "senders": "Göndericiler",
+    "allowed_hint": "Bu listeye her zaman gönderebilecek adresler (her satıra bir tane)",
+    "max_message_size_hint": "Bayt cinsinden en büyük mesaj boyutu. 0 sınırsız demektir.",
+    "delete_confirm": ":address mail listesi silinsin mi?",
+    "msg_updated": "Mail listesi güncellendi!",
+    "policy_subdomain": "Domain ve subdomainler",
+    "policy_allowed": "Yalnızca izin verilen göndericiler"
   }
 }

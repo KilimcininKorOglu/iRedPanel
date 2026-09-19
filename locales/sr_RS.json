@@ -29,7 +29,8 @@
     "toggle_menu": "Мени",
     "compatibility": "Компатибилност са iRedMail",
     "account_resources": "Извори налога",
-    "group_self_service": "Мој налог"
+    "group_self_service": "Мој налог",
+    "mail_lists": "Поштанске листе"
   },
   "common": {
     "msg_password_updated": "Лозинка је успешно ажурирана!",
@@ -998,5 +999,19 @@
     "ldif_domain": "LDIF",
     "ldif_tree": "Izvezi LDAP stablo kao LDIF",
     "ldif_password_warning": "Datoteka sadrži hash lozinki. Čuvajte je jednako bezbedno kao i rezervnu kopiju."
+  },
+  "maillist": {
+    "list_title": "Поштанске листе",
+    "create_title": "Направи поштанску листу",
+    "view_title": "Поштанска листа",
+    "intro": "Поштанска листа испоручује поруку својим члановима. Члановима управља администратор; члан не може сам да се пријави или одјави.",
+    "empty": "Нема пронађених поштанских листа.",
+    "senders": "Пошиљаоци",
+    "allowed_hint": "Адресе које увек могу да шаљу на ову листу (једна по реду)",
+    "max_message_size_hint": "Максимална величина поруке у бајтовима. 0 значи без ограничења.",
+    "delete_confirm": "Обрисати поштанску листу :address?",
+    "msg_updated": "Поштанска листа је успешно ажурирана!",
+    "policy_subdomain": "Домен и поддомени",
+    "policy_allowed": "Само дозвољени пошиљаоци"
   }
 }

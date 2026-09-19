@@ -94,9 +94,17 @@
 
         <p>
           <label for="transport"><?= $te('domain.transport') ?></label>
+          <?php
+          // Postfix transports of iRedMail; a stored custom transport stays selectable so a save keeps it.
+          $transports = ['dovecot' => 'dovecot', 'lmtp:unix:private/dovecot-lmtp' => 'lmtp'];
+          if (!isset($transports[$domain->transport])) {
+              $transports[$domain->transport] = $domain->transport;
+          }
+          ?>
           <select id="transport" name="transport">
-            <option value="dovecot" <?php if ($domain->transport === 'dovecot'): ?>selected<?php endif; ?>>dovecot</option>
-            <option value="lmtp" <?php if ($domain->transport === 'lmtp'): ?>selected<?php endif; ?>>lmtp</option>
+            <?php foreach ($transports as $value => $label): ?>
+            <option value="<?= $e($value) ?>" <?php if ($domain->transport === $value): ?>selected<?php endif; ?>><?= $e($label) ?></option>
+            <?php endforeach; ?>
           </select>
         </p>
 

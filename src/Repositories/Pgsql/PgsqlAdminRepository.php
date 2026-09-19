@@ -6,6 +6,7 @@ namespace App\Repositories\Pgsql;
 
 use App\Models\Admin;
 use App\Repositories\AdminRepositoryInterface;
+use App\Repositories\SqlDomainAdmins;
 
 class PgsqlAdminRepository implements AdminRepositoryInterface
 {
@@ -251,6 +252,11 @@ class PgsqlAdminRepository implements AdminRepositoryInterface
         return $domains;
     }
 
+    public function getDomainAdmins(string $domain): array
+    {
+        return SqlDomainAdmins::list(PgsqlConnection::getInstance()->getPdo(), $domain);
+    }
+
     public function assignDomainToAdmin(string $adminUsername, string $domain): void
     {
         $pdo = PgsqlConnection::getInstance()->getPdo();
@@ -261,6 +267,7 @@ class PgsqlAdminRepository implements AdminRepositoryInterface
              ON CONFLICT (username, domain) DO NOTHING"
         );
         $stmt->execute(['username' => $adminUsername, 'domain' => $domain]);
+        SqlDomainAdmins::markMailbox($pdo, $adminUsername);
     }
 
     public function revokeDomainFromAdmin(string $adminUsername, string $domain): void
@@ -271,6 +278,7 @@ class PgsqlAdminRepository implements AdminRepositoryInterface
             "DELETE FROM domain_admins WHERE username = :username AND domain = :domain"
         );
         $stmt->execute(['username' => $adminUsername, 'domain' => $domain]);
+        SqlDomainAdmins::unmarkMailboxWithoutDomains($pdo, $adminUsername);
     }
 
     public function enableDisableAdmin(string $username, bool $active): void

@@ -27,6 +27,12 @@ final class ProfileToggles
     public const SELF_SERVICE = 'self-service';
 
     /**
+     * Domain page with the admins of the domain. It is no toggle: a domain admin always
+     * opens it, as iRedAdmin-Pro lets a domain admin promote the mailboxes of its domains.
+     */
+    public const ADMINS_PAGE = 'admins';
+
+    /**
      * Returns the domain pages that the admin may open, in tab order.
      *
      * @return list<string>
@@ -34,10 +40,10 @@ final class ProfileToggles
     public static function openDomainPages(DomainSettings $settings, bool $isGlobalAdmin): array
     {
         if ($isGlobalAdmin) {
-            return ['general', ...self::DOMAIN_PROFILES];
+            return ['general', ...self::DOMAIN_PROFILES, self::ADMINS_PAGE];
         }
 
-        return array_values(array_diff(self::DOMAIN_PROFILES, $settings->disabledDomainProfiles));
+        return [...array_diff(self::DOMAIN_PROFILES, $settings->disabledDomainProfiles), self::ADMINS_PAGE];
     }
 
     public static function userPageOpen(DomainSettings $settings, bool $isGlobalAdmin, string $page): bool

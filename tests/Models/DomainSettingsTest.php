@@ -60,7 +60,7 @@ class DomainSettingsTest extends TestCase
         $this->assertTrue($stored->selfService());
         $this->assertFalse(ProfileToggles::preferenceOpen($stored, 'wblist'));
         $this->assertTrue(ProfileToggles::preferenceOpen($stored, 'quarantine'));
-        $this->assertSame(['settings', 'catchall'], ProfileToggles::openDomainPages($stored, false));
+        $this->assertSame(['settings', 'catchall', 'admins'], ProfileToggles::openDomainPages($stored, false));
         $this->assertFalse(ProfileToggles::userPageOpen($stored, false, 'password'));
         $this->assertTrue(ProfileToggles::userPageOpen($stored, true, 'password'));
     }

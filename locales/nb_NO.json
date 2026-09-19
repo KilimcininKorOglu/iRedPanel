@@ -576,7 +576,19 @@
     "disabled_user_profiles": "Brukersider stengt for domeneadministratorer",
     "disabled_user_profiles_help": "Domeneadministratorer kan ikke åpne de avkryssede sidene for brukerne i dette domenet.",
     "msg_unknown_profile": "Ukjent side eller innstilling: :name",
-    "msg_min_password_below_global": "Minste passordlengde kan ikke være lavere enn det globale minimum (:min)."
+    "msg_min_password_below_global": "Minste passordlengde kan ikke være lavere enn det globale minimum (:min).",
+    "tab_admins": "Administratorer",
+    "admins_desc": "Administratorene for dette domenet administrerer brukerne, aliasene og e-postlistene. Legg til en eksisterende administrator eller en postkasse; en postkasse blir domeneadministrator og logger inn med sitt eget passord.",
+    "admins_desc_domain_admin": "Legg til en postkasse i dette domenet; den blir domeneadministrator og logger inn med sitt eget passord.",
+    "admin_address": "Adresse til administrator eller postkasse",
+    "add_admin": "Legg til administrator",
+    "no_admins": "Dette domenet har ingen administratorer.",
+    "remove_admin_confirm": "Fjerne :address fra administratorene for dette domenet?",
+    "msg_admin_added": ":address er lagt til blant domenets administratorer",
+    "msg_admin_removed": ":address er fjernet fra domenets administratorer",
+    "msg_admin_unknown": "Det finnes ingen administrator eller postkasse med adressen :address",
+    "msg_admin_not_allowed": "En domeneadministrator kan bare legge til eller fjerne postkasser i sine egne domener: :address",
+    "msg_admin_self": "Du kan ikke fjerne deg selv fra domenets administratorer"
   },
   "admin": {
     "msg_email_required": "En gyldig e-postadresse er påkrevd",

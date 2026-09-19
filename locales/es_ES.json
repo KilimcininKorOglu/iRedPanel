@@ -576,7 +576,19 @@
     "disabled_user_profiles": "Páginas de usuario cerradas para los admins de dominio",
     "disabled_user_profiles_help": "Los admins de dominio no pueden abrir las páginas marcadas de los usuarios de este dominio.",
     "msg_unknown_profile": "Página o preferencia desconocida: :name",
-    "msg_min_password_below_global": "La longitud mínima de la contraseña no puede ser inferior al mínimo global (:min)."
+    "msg_min_password_below_global": "La longitud mínima de la contraseña no puede ser inferior al mínimo global (:min).",
+    "tab_admins": "Administradores",
+    "admins_desc": "Los administradores de este dominio gestionan sus usuarios, alias y listas de correo. Añada un administrador existente o un buzón; un buzón pasa a ser administrador del dominio e inicia sesión con su propia contraseña.",
+    "admins_desc_domain_admin": "Añada un buzón de este dominio; pasa a ser administrador del dominio e inicia sesión con su propia contraseña.",
+    "admin_address": "Dirección del administrador o del buzón",
+    "add_admin": "Añadir administrador",
+    "no_admins": "Este dominio no tiene administradores.",
+    "remove_admin_confirm": "¿Quitar :address de los administradores de este dominio?",
+    "msg_admin_added": "Se añadió :address a los administradores del dominio",
+    "msg_admin_removed": "Se quitó :address de los administradores del dominio",
+    "msg_admin_unknown": "No existe ningún administrador ni buzón con la dirección :address",
+    "msg_admin_not_allowed": "Un administrador de dominio solo puede añadir o quitar buzones de sus propios dominios: :address",
+    "msg_admin_self": "No puede quitarse a sí mismo de los administradores del dominio"
   },
   "admin": {
     "msg_email_required": "Se requiere una dirección de correo válida",

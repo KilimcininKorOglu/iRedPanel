@@ -576,7 +576,19 @@
     "disabled_user_profiles": "Páginas de utilizador fechadas aos admins de domínio",
     "disabled_user_profiles_help": "Os admins de domínio não podem abrir as páginas assinaladas dos utilizadores deste domínio.",
     "msg_unknown_profile": "Página ou preferência desconhecida: :name",
-    "msg_min_password_below_global": "O comprimento mínimo da palavra-passe não pode ser inferior ao mínimo global (:min)."
+    "msg_min_password_below_global": "O comprimento mínimo da palavra-passe não pode ser inferior ao mínimo global (:min).",
+    "tab_admins": "Administradores",
+    "admins_desc": "Os administradores deste domínio gerem os seus utilizadores, aliases e listas de correio. Adicione um administrador existente ou uma caixa de correio; a caixa de correio passa a administrador do domínio e inicia sessão com a própria palavra-passe.",
+    "admins_desc_domain_admin": "Adicione uma caixa de correio deste domínio; passa a administrador do domínio e inicia sessão com a própria palavra-passe.",
+    "admin_address": "Endereço do administrador ou da caixa de correio",
+    "add_admin": "Adicionar administrador",
+    "no_admins": "Este domínio não tem administradores.",
+    "remove_admin_confirm": "Remover :address dos administradores deste domínio?",
+    "msg_admin_added": ":address foi adicionado aos administradores do domínio",
+    "msg_admin_removed": ":address foi removido dos administradores do domínio",
+    "msg_admin_unknown": "Não existe nenhum administrador nem caixa de correio com o endereço :address",
+    "msg_admin_not_allowed": "Um administrador de domínio só pode adicionar ou remover caixas de correio dos seus próprios domínios: :address",
+    "msg_admin_self": "Não pode remover-se a si próprio dos administradores do domínio"
   },
   "admin": {
     "msg_email_required": "É necessário um endereço de e-mail válido",

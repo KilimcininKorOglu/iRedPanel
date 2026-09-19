@@ -576,7 +576,19 @@
     "disabled_user_profiles": "Domain-ylläpitäjiltä suljetut käyttäjäsivut",
     "disabled_user_profiles_help": "Domain-ylläpitäjät eivät voi avata tämän domainin käyttäjien valittuja sivuja.",
     "msg_unknown_profile": "Tuntematon sivu tai asetus: :name",
-    "msg_min_password_below_global": "Salasanan vähimmäispituus ei voi olla pienempi kuin globaali minimi (:min)."
+    "msg_min_password_below_global": "Salasanan vähimmäispituus ei voi olla pienempi kuin globaali minimi (:min).",
+    "tab_admins": "Ylläpitäjät",
+    "admins_desc": "Tämän domainin ylläpitäjät hallitsevat sen käyttäjiä, aliaksia ja postituslistoja. Lisää olemassa oleva ylläpitäjä tai postilaatikko; postilaatikosta tulee domainin ylläpitäjä, ja se kirjautuu omalla salasanallaan.",
+    "admins_desc_domain_admin": "Lisää tämän domainin postilaatikko; siitä tulee domainin ylläpitäjä, ja se kirjautuu omalla salasanallaan.",
+    "admin_address": "Ylläpitäjän tai postilaatikon osoite",
+    "add_admin": "Lisää ylläpitäjä",
+    "no_admins": "Tällä domainilla ei ole ylläpitäjiä.",
+    "remove_admin_confirm": "Poistetaanko :address tämän domainin ylläpitäjistä?",
+    "msg_admin_added": ":address lisättiin domainin ylläpitäjiin",
+    "msg_admin_removed": ":address poistettiin domainin ylläpitäjistä",
+    "msg_admin_unknown": "Osoitteella :address ei ole ylläpitäjää eikä postilaatikkoa",
+    "msg_admin_not_allowed": "Domainin ylläpitäjä voi lisätä tai poistaa vain omien domainiensa postilaatikoita: :address",
+    "msg_admin_self": "Et voi poistaa itseäsi domainin ylläpitäjistä"
   },
   "admin": {
     "msg_email_required": "Kelvollinen sähköpostiosoite vaaditaan",

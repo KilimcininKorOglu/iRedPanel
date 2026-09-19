@@ -576,7 +576,19 @@
     "disabled_user_profiles": "Trang người dùng bị đóng với admin domain",
     "disabled_user_profiles_help": "Admin domain không thể mở các trang đã chọn của người dùng trong domain này.",
     "msg_unknown_profile": "Trang hoặc thiết lập không xác định: :name",
-    "msg_min_password_below_global": "Độ dài tối thiểu của mật khẩu không được nhỏ hơn mức tối thiểu chung (:min)."
+    "msg_min_password_below_global": "Độ dài tối thiểu của mật khẩu không được nhỏ hơn mức tối thiểu chung (:min).",
+    "tab_admins": "Quản trị viên",
+    "admins_desc": "Quản trị viên của domain này quản lý người dùng, alias và danh sách thư của domain. Thêm một quản trị viên có sẵn hoặc một hộp thư; hộp thư trở thành quản trị viên domain và đăng nhập bằng mật khẩu riêng.",
+    "admins_desc_domain_admin": "Thêm một hộp thư của domain này; hộp thư trở thành quản trị viên domain và đăng nhập bằng mật khẩu riêng.",
+    "admin_address": "Địa chỉ quản trị viên hoặc hộp thư",
+    "add_admin": "Thêm quản trị viên",
+    "no_admins": "Domain này không có quản trị viên.",
+    "remove_admin_confirm": "Xóa :address khỏi quản trị viên của domain này?",
+    "msg_admin_added": "Đã thêm :address vào quản trị viên của domain",
+    "msg_admin_removed": "Đã xóa :address khỏi quản trị viên của domain",
+    "msg_admin_unknown": "Không có quản trị viên hoặc hộp thư nào với địa chỉ :address",
+    "msg_admin_not_allowed": "Quản trị viên domain chỉ có thể thêm hoặc xóa hộp thư thuộc các domain của mình: :address",
+    "msg_admin_self": "Bạn không thể tự xóa mình khỏi quản trị viên của domain"
   },
   "admin": {
     "msg_email_required": "Cần địa chỉ email hợp lệ",

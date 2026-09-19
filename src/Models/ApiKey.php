@@ -34,8 +34,15 @@ class ApiKey
             return true;
         }
 
-        $allowed = array_filter(array_map('trim', explode(',', $this->domains)));
-        return in_array($domain, $allowed, true);
+        return in_array($domain, $this->domainList(), true);
+    }
+
+    /**
+     * @return list<string> the domains of a domain key
+     */
+    public function domainList(): array
+    {
+        return array_values(array_filter(array_map('trim', explode(',', $this->domains))));
     }
 
     /**

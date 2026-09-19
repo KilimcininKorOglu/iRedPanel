@@ -576,7 +576,19 @@
     "disabled_user_profiles": "Domain adminok elől elzárt felhasználói oldalak",
     "disabled_user_profiles_help": "A domain adminok nem nyithatják meg a domain felhasználóinak bejelölt oldalait.",
     "msg_unknown_profile": "Ismeretlen oldal vagy beállítás: :name",
-    "msg_min_password_below_global": "A jelszó minimális hossza nem lehet kisebb a globális minimumnál (:min)."
+    "msg_min_password_below_global": "A jelszó minimális hossza nem lehet kisebb a globális minimumnál (:min).",
+    "tab_admins": "Adminisztrátorok",
+    "admins_desc": "A domain adminisztrátorai kezelik a felhasználóit, aliasait és levelezőlistáit. Adjon hozzá egy meglévő adminisztrátort vagy egy postafiókot; a postafiók domain-adminisztrátor lesz, és a saját jelszavával jelentkezik be.",
+    "admins_desc_domain_admin": "Adjon hozzá egy postafiókot ebből a domainből; domain-adminisztrátor lesz, és a saját jelszavával jelentkezik be.",
+    "admin_address": "Adminisztrátor vagy postafiók címe",
+    "add_admin": "Adminisztrátor hozzáadása",
+    "no_admins": "Ennek a domainnek nincs adminisztrátora.",
+    "remove_admin_confirm": "Eltávolítja :address címet a domain adminisztrátorai közül?",
+    "msg_admin_added": ":address hozzáadva a domain adminisztrátoraihoz",
+    "msg_admin_removed": ":address eltávolítva a domain adminisztrátorai közül",
+    "msg_admin_unknown": "Nincs adminisztrátor vagy postafiók ezzel a címmel: :address",
+    "msg_admin_not_allowed": "Egy domain-adminisztrátor csak a saját domainjei postafiókjait adhatja hozzá vagy távolíthatja el: :address",
+    "msg_admin_self": "Saját magát nem távolíthatja el a domain adminisztrátorai közül"
   },
   "admin": {
     "msg_email_required": "Érvényes e-mail-cím megadása kötelező",

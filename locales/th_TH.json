@@ -576,7 +576,19 @@
     "disabled_user_profiles": "หน้าผู้ใช้ที่ปิดสำหรับผู้ดูแลโดเมน",
     "disabled_user_profiles_help": "ผู้ดูแลโดเมนไม่สามารถเปิดหน้าที่เลือกไว้ของผู้ใช้ในโดเมนนี้",
     "msg_unknown_profile": "ไม่รู้จักหน้าหรือการตั้งค่า: :name",
-    "msg_min_password_below_global": "ความยาวรหัสผ่านขั้นต่ำต้องไม่น้อยกว่าค่าขั้นต่ำทั่วไป (:min)"
+    "msg_min_password_below_global": "ความยาวรหัสผ่านขั้นต่ำต้องไม่น้อยกว่าค่าขั้นต่ำทั่วไป (:min)",
+    "tab_admins": "ผู้ดูแล",
+    "admins_desc": "ผู้ดูแลของ domain นี้จัดการผู้ใช้ alias และรายชื่อส่งเมลของ domain เพิ่มผู้ดูแลที่มีอยู่หรือกล่องจดหมาย กล่องจดหมายจะเป็นผู้ดูแล domain และเข้าสู่ระบบด้วยรหัสผ่านของตนเอง",
+    "admins_desc_domain_admin": "เพิ่มกล่องจดหมายของ domain นี้ กล่องจดหมายจะเป็นผู้ดูแล domain และเข้าสู่ระบบด้วยรหัสผ่านของตนเอง",
+    "admin_address": "ที่อยู่ผู้ดูแลหรือกล่องจดหมาย",
+    "add_admin": "เพิ่มผู้ดูแล",
+    "no_admins": "domain นี้ไม่มีผู้ดูแล",
+    "remove_admin_confirm": "นำ :address ออกจากผู้ดูแลของ domain นี้หรือไม่?",
+    "msg_admin_added": "เพิ่ม :address เป็นผู้ดูแลของ domain แล้ว",
+    "msg_admin_removed": "นำ :address ออกจากผู้ดูแลของ domain แล้ว",
+    "msg_admin_unknown": "ไม่มีผู้ดูแลหรือกล่องจดหมายที่ใช้ที่อยู่ :address",
+    "msg_admin_not_allowed": "ผู้ดูแล domain เพิ่มหรือนำออกได้เฉพาะกล่องจดหมายของ domain ของตนเอง: :address",
+    "msg_admin_self": "คุณไม่สามารถนำตัวเองออกจากผู้ดูแลของ domain ได้"
   },
   "admin": {
     "msg_email_required": "จำเป็นต้องมีที่อยู่อีเมลที่ถูกต้อง",

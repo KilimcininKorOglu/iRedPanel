@@ -576,7 +576,19 @@
     "disabled_user_profiles": "Páxinas de usuario pechadas para os admins de dominio",
     "disabled_user_profiles_help": "Os admins de dominio non poden abrir as páxinas marcadas dos usuarios deste dominio.",
     "msg_unknown_profile": "Páxina ou preferencia descoñecida: :name",
-    "msg_min_password_below_global": "A lonxitude mínima do contrasinal non pode ser inferior ao mínimo global (:min)."
+    "msg_min_password_below_global": "A lonxitude mínima do contrasinal non pode ser inferior ao mínimo global (:min).",
+    "tab_admins": "Administradores",
+    "admins_desc": "Os administradores deste dominio xestionan os seus usuarios, alias e listas de correo. Engada un administrador existente ou unha caixa de correo; a caixa pasa a ser administradora do dominio e inicia sesión co seu propio contrasinal.",
+    "admins_desc_domain_admin": "Engada unha caixa de correo deste dominio; pasa a ser administradora do dominio e inicia sesión co seu propio contrasinal.",
+    "admin_address": "Enderezo do administrador ou da caixa",
+    "add_admin": "Engadir administrador",
+    "no_admins": "Este dominio non ten administradores.",
+    "remove_admin_confirm": "Quitar :address dos administradores deste dominio?",
+    "msg_admin_added": "Engadiuse :address aos administradores do dominio",
+    "msg_admin_removed": "Quitouse :address dos administradores do dominio",
+    "msg_admin_unknown": "Non existe ningún administrador nin caixa co enderezo :address",
+    "msg_admin_not_allowed": "Un administrador de dominio só pode engadir ou quitar caixas dos seus propios dominios: :address",
+    "msg_admin_self": "Non pode quitarse a si mesmo dos administradores do dominio"
   },
   "admin": {
     "msg_email_required": "É obrigatorio un enderezo de correo válido",

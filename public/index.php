@@ -171,6 +171,10 @@ $router->addRoute(['GET', 'POST'], '/domains/{domain}/relay', function (string $
     DomainController::domainView($tpl, $domain, 'relay');
 });
 
+$router->addRoute(['GET', 'POST'], '/domains/{domain}/admins', function (string $domain) use ($tpl) {
+    DomainController::domainView($tpl, $domain, 'admins');
+});
+
 // Mailing list management
 $router->addRoute('GET', '/mailing-lists', function () use ($tpl) {
     MailingListController::list($tpl);
@@ -479,6 +483,9 @@ $router->addRoute('PUT', '/api/v1/domains/{domain}', function (string $domain) u
 });
 $router->addRoute('DELETE', '/api/v1/domains/{domain}', function (string $domain) use ($apiAuth) {
     $apiAuth(); DomainApiController::delete($domain);
+});
+$router->addRoute('PUT', '/api/v1/domains/{domain}/admins', function (string $domain) use ($apiAuth) {
+    $apiAuth(); DomainApiController::admins($domain);
 });
 
 // Users API

@@ -576,7 +576,19 @@
     "disabled_user_profiles": "ドメイン管理者に閉じたユーザーページ",
     "disabled_user_profiles_help": "ドメイン管理者はこのドメインのユーザーのチェックしたページを開けません。",
     "msg_unknown_profile": "不明なページまたは設定: :name",
-    "msg_min_password_below_global": "パスワードの最小長はグローバルの最小値 (:min) より小さくできません。"
+    "msg_min_password_below_global": "パスワードの最小長はグローバルの最小値 (:min) より小さくできません。",
+    "tab_admins": "管理者",
+    "admins_desc": "このドメインの管理者は、ユーザー、エイリアス、メーリングリストを管理します。既存の管理者またはメールボックスを追加してください。メールボックスはドメイン管理者になり、自分のパスワードでログインします。",
+    "admins_desc_domain_admin": "このドメインのメールボックスを追加してください。ドメイン管理者になり、自分のパスワードでログインします。",
+    "admin_address": "管理者またはメールボックスのアドレス",
+    "add_admin": "管理者を追加",
+    "no_admins": "このドメインには管理者がいません。",
+    "remove_admin_confirm": ":address をこのドメインの管理者から外しますか?",
+    "msg_admin_added": ":address をドメインの管理者に追加しました",
+    "msg_admin_removed": ":address をドメインの管理者から外しました",
+    "msg_admin_unknown": "アドレス :address の管理者またはメールボックスはありません",
+    "msg_admin_not_allowed": "ドメイン管理者は自分のドメインのメールボックスだけを追加・削除できます: :address",
+    "msg_admin_self": "自分自身をドメインの管理者から外すことはできません"
   },
   "admin": {
     "msg_email_required": "有効なメールアドレスが必要です",

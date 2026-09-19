@@ -576,7 +576,19 @@
     "disabled_user_profiles": "對網域管理員關閉的使用者頁面",
     "disabled_user_profiles_help": "網域管理員不能開啟此網域使用者的勾選頁面。",
     "msg_unknown_profile": "未知的頁面或設定: :name",
-    "msg_min_password_below_global": "最小密碼長度不能低於全域最小值 (:min)。"
+    "msg_min_password_below_global": "最小密碼長度不能低於全域最小值 (:min)。",
+    "tab_admins": "管理員",
+    "admins_desc": "此網域的管理員管理其使用者、別名和郵寄清單。新增現有管理員或信箱；信箱將成為網域管理員，並使用自己的密碼登入。",
+    "admins_desc_domain_admin": "新增此網域的信箱；該信箱將成為網域管理員，並使用自己的密碼登入。",
+    "admin_address": "管理員或信箱位址",
+    "add_admin": "新增管理員",
+    "no_admins": "此網域沒有管理員。",
+    "remove_admin_confirm": "要將 :address 從此網域的管理員中移除嗎?",
+    "msg_admin_added": "已將 :address 新增為網域管理員",
+    "msg_admin_removed": "已將 :address 從網域管理員中移除",
+    "msg_admin_unknown": "不存在位址為 :address 的管理員或信箱",
+    "msg_admin_not_allowed": "網域管理員只能新增或移除其所管理網域的信箱: :address",
+    "msg_admin_self": "無法將自己從網域管理員中移除"
   },
   "admin": {
     "msg_email_required": "需要有效的電子郵件位址",

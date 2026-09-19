@@ -576,7 +576,19 @@
     "disabled_user_profiles": "Halaman pengguna yang ditutup untuk admin domain",
     "disabled_user_profiles_help": "Admin domain tidak dapat membuka halaman yang dicentang dari pengguna di domain ini.",
     "msg_unknown_profile": "Halaman atau preferensi tidak dikenal: :name",
-    "msg_min_password_below_global": "Panjang minimum password tidak boleh lebih kecil dari minimum global (:min)."
+    "msg_min_password_below_global": "Panjang minimum password tidak boleh lebih kecil dari minimum global (:min).",
+    "tab_admins": "Admin",
+    "admins_desc": "Admin domain ini mengelola pengguna, alias, dan milis domain ini. Tambahkan admin yang sudah ada atau sebuah kotak surat; kotak surat menjadi admin domain dan masuk dengan kata sandinya sendiri.",
+    "admins_desc_domain_admin": "Tambahkan kotak surat dari domain ini; kotak surat menjadi admin domain dan masuk dengan kata sandinya sendiri.",
+    "admin_address": "Alamat admin atau kotak surat",
+    "add_admin": "Tambah admin",
+    "no_admins": "Domain ini tidak memiliki admin.",
+    "remove_admin_confirm": "Hapus :address dari admin domain ini?",
+    "msg_admin_added": ":address ditambahkan ke admin domain",
+    "msg_admin_removed": ":address dihapus dari admin domain",
+    "msg_admin_unknown": "Tidak ada admin atau kotak surat dengan alamat :address",
+    "msg_admin_not_allowed": "Admin domain hanya dapat menambah atau menghapus kotak surat dari domainnya sendiri: :address",
+    "msg_admin_self": "Anda tidak dapat menghapus diri sendiri dari admin domain"
   },
   "admin": {
     "msg_email_required": "Alamat email yang valid diperlukan",

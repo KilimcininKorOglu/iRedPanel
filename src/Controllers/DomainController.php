@@ -15,9 +15,11 @@ use App\Models\Settings;
 use App\Repositories\RepositoryFactory;
 use App\Services\AccountSettingsService;
 use App\Services\ActivityLogger;
+use App\Services\DomainAdminService;
 use App\Services\DomainOwnershipService;
 use App\Services\MailingListService;
 use App\TemplateEngine;
+use App\Utils\FormValue;
 
 class DomainController
 {
@@ -169,7 +171,7 @@ class DomainController
 
         $repo = RepositoryFactory::getDomainRepository();
         $stored = $repo->getDomain($domainName);
-        if ($stored === null || !in_array($editMode, ['general', ...ProfileToggles::DOMAIN_PROFILES], true)) {
+        if ($stored === null || !in_array($editMode, ProfileToggles::openDomainPages(new DomainSettings(), true), true)) {
             http_response_code(404);
             $tpl->render('page404.php');
             return;
@@ -226,6 +228,7 @@ class DomainController
             'domain' => $domain,
             'domainSettings' => $domainSettings,
             'editMode' => $editMode,
+            'domainAdmins' => $editMode === ProfileToggles::ADMINS_PAGE ? RepositoryFactory::getAdminRepository()->getDomainAdmins($domainName) : [],
             'catchallTarget' => $catchallTarget,
             'senderBcc' => $senderBcc,
             'recipientBcc' => $recipientBcc,
@@ -251,7 +254,27 @@ class DomainController
             'catchall' => self::saveCatchall($domainName),
             'bcc' => self::saveBcc($domainName),
             'relay' => self::saveRelay($domainName),
+            ProfileToggles::ADMINS_PAGE => self::saveAdmins($domainName, $isGlobalAdmin),
         };
+    }
+
+    /**
+     * Adds the posted address to the admins of the domain, or removes one admin.
+     */
+    private static function saveAdmins(string $domainName, bool $isGlobalAdmin): string
+    {
+        $scope = $isGlobalAdmin ? null : ($_SESSION['managedDomains'] ?? []);
+        if (($_POST['action'] ?? '') === 'remove') {
+            $address = FormValue::text($_POST, 'admin');
+            DomainAdminService::change($domainName, [], [$address], false, $scope, $_SESSION['email'] ?? '');
+
+            return Translator::translate('domain.msg_admin_removed', ['address' => $address]);
+        }
+
+        $address = FormValue::text($_POST, 'newAdmin');
+        DomainAdminService::change($domainName, [$address], [], false, $scope);
+
+        return Translator::translate('domain.msg_admin_added', ['address' => strtolower($address)]);
     }
 
     private static function saveGeneral(string $domainName): string

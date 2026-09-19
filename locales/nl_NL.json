@@ -576,7 +576,19 @@
     "disabled_user_profiles": "Gebruikerspagina's gesloten voor domeinbeheerders",
     "disabled_user_profiles_help": "Domeinbeheerders kunnen de aangevinkte pagina's van de gebruikers in dit domein niet openen.",
     "msg_unknown_profile": "Onbekende pagina of voorkeur: :name",
-    "msg_min_password_below_global": "De minimale wachtwoordlengte mag niet lager zijn dan het globale minimum (:min)."
+    "msg_min_password_below_global": "De minimale wachtwoordlengte mag niet lager zijn dan het globale minimum (:min).",
+    "tab_admins": "Beheerders",
+    "admins_desc": "De beheerders van dit domein beheren de gebruikers, aliassen en mailinglijsten. Voeg een bestaande beheerder of een mailbox toe; een mailbox wordt domeinbeheerder en meldt zich aan met het eigen wachtwoord.",
+    "admins_desc_domain_admin": "Voeg een mailbox van dit domein toe; deze wordt domeinbeheerder en meldt zich aan met het eigen wachtwoord.",
+    "admin_address": "Adres van beheerder of mailbox",
+    "add_admin": "Beheerder toevoegen",
+    "no_admins": "Dit domein heeft geen beheerders.",
+    "remove_admin_confirm": ":address verwijderen uit de beheerders van dit domein?",
+    "msg_admin_added": ":address is toegevoegd aan de beheerders van het domein",
+    "msg_admin_removed": ":address is verwijderd uit de beheerders van het domein",
+    "msg_admin_unknown": "Er bestaat geen beheerder of mailbox met het adres :address",
+    "msg_admin_not_allowed": "Een domeinbeheerder kan alleen mailboxen van de eigen domeinen toevoegen of verwijderen: :address",
+    "msg_admin_self": "U kunt uzelf niet verwijderen uit de beheerders van het domein"
   },
   "admin": {
     "msg_email_required": "Een geldig e-mailadres is vereist",

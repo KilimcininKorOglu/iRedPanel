@@ -576,7 +576,19 @@
     "disabled_user_profiles": "Användarsidor stängda för domänadministratörer",
     "disabled_user_profiles_help": "Domänadministratörer kan inte öppna de markerade sidorna för användarna i den här domänen.",
     "msg_unknown_profile": "Okänd sida eller inställning: :name",
-    "msg_min_password_below_global": "Minsta lösenordslängd får inte vara lägre än det globala minimum (:min)."
+    "msg_min_password_below_global": "Minsta lösenordslängd får inte vara lägre än det globala minimum (:min).",
+    "tab_admins": "Administratörer",
+    "admins_desc": "Administratörerna för den här domänen hanterar dess användare, alias och e-postlistor. Lägg till en befintlig administratör eller en brevlåda; en brevlåda blir domänadministratör och loggar in med sitt eget lösenord.",
+    "admins_desc_domain_admin": "Lägg till en brevlåda i den här domänen; den blir domänadministratör och loggar in med sitt eget lösenord.",
+    "admin_address": "Adress till administratör eller brevlåda",
+    "add_admin": "Lägg till administratör",
+    "no_admins": "Den här domänen har inga administratörer.",
+    "remove_admin_confirm": "Ta bort :address från administratörerna för den här domänen?",
+    "msg_admin_added": ":address har lagts till bland domänens administratörer",
+    "msg_admin_removed": ":address har tagits bort från domänens administratörer",
+    "msg_admin_unknown": "Det finns ingen administratör eller brevlåda med adressen :address",
+    "msg_admin_not_allowed": "En domänadministratör kan bara lägga till eller ta bort brevlådor i sina egna domäner: :address",
+    "msg_admin_self": "Du kan inte ta bort dig själv från domänens administratörer"
   },
   "admin": {
     "msg_email_required": "En giltig e-postadress krävs",

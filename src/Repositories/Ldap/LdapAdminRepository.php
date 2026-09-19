@@ -20,6 +20,8 @@ use App\Utils\LdapUtils;
  */
 class LdapAdminRepository implements AdminRepositoryInterface
 {
+    private const DOMAIN_ADMIN_SERVICE = 'domainadmin';
+
     private const ADMIN_ATTRS = ['mail', 'cn', 'accountStatus', 'domainGlobalAdmin', 'accountSetting', 'objectClass'];
 
     public function getAdmins(): array
@@ -123,14 +125,45 @@ class LdapAdminRepository implements AdminRepositoryInterface
         return $domains;
     }
 
+    public function getDomainAdmins(string $domain): array
+    {
+        $entry = LdapUtils::readEntry(self::conn(), LdapUtils::getDomainDn($domain), '(objectClass=mailDomain)', ['domainAdmin']);
+        $admins = array_values(array_unique(array_map('strtolower', LdapUtils::allValues($entry ?? [], 'domainAdmin'))));
+        sort($admins);
+
+        return $admins;
+    }
+
     public function assignDomainToAdmin(string $adminUsername, string $domain): void
     {
-        LdapUtils::addValues(self::conn(), LdapUtils::getDomainDn($domain), 'domainAdmin', [strtolower($adminUsername)]);
+        $conn = self::conn();
+        LdapUtils::addValues($conn, LdapUtils::getDomainDn($domain), 'domainAdmin', [strtolower($adminUsername)]);
+        // iRedAdmin marks a mailbox that administers a domain with this service.
+        $mailbox = self::mailboxEntry($conn, $adminUsername);
+        if ($mailbox !== null) {
+            LdapUtils::addValues($conn, $mailbox['dn'], 'enabledService', [self::DOMAIN_ADMIN_SERVICE]);
+        }
     }
 
     public function revokeDomainFromAdmin(string $adminUsername, string $domain): void
     {
-        LdapUtils::deleteValues(self::conn(), LdapUtils::getDomainDn($domain), 'domainAdmin', [strtolower($adminUsername)]);
+        $conn = self::conn();
+        LdapUtils::deleteValues($conn, LdapUtils::getDomainDn($domain), 'domainAdmin', [strtolower($adminUsername)]);
+        $mailbox = self::mailboxEntry($conn, $adminUsername);
+        $keepsService = $mailbox === null
+            || (LdapUtils::allValues($mailbox, 'domainGlobalAdmin')[0] ?? '') === 'yes'
+            || $this->getManagedDomains($adminUsername) !== [];
+        if (!$keepsService) {
+            LdapUtils::deleteValues($conn, $mailbox['dn'], 'enabledService', [self::DOMAIN_ADMIN_SERVICE]);
+        }
+    }
+
+    /**
+     * @return array<string, mixed>|null the mailbox entry of the address, or null for a standalone admin
+     */
+    private static function mailboxEntry(\LDAP\Connection $conn, string $address): ?array
+    {
+        return LdapUtils::readEntry($conn, LdapUtils::accountDn($address, 'Users'), '(objectClass=mailUser)', ['domainGlobalAdmin']);
     }
 
     public function enableDisableAdmin(string $username, bool $active): void

@@ -576,7 +576,19 @@
     "disabled_user_profiles": "Pagini de utilizator închise pentru adminii de domain",
     "disabled_user_profiles_help": "Adminii de domain nu pot deschide paginile bifate ale utilizatorilor din acest domain.",
     "msg_unknown_profile": "Pagină sau preferință necunoscută: :name",
-    "msg_min_password_below_global": "Lungimea minimă a parolei nu poate fi mai mică decât minimul global (:min)."
+    "msg_min_password_below_global": "Lungimea minimă a parolei nu poate fi mai mică decât minimul global (:min).",
+    "tab_admins": "Administratori",
+    "admins_desc": "Administratorii acestui domeniu gestionează utilizatorii, aliasurile și listele de corespondență. Adăugați un administrator existent sau o căsuță poștală; căsuța devine administrator al domeniului și se autentifică cu propria parolă.",
+    "admins_desc_domain_admin": "Adăugați o căsuță poștală a acestui domeniu; devine administrator al domeniului și se autentifică cu propria parolă.",
+    "admin_address": "Adresa administratorului sau a căsuței",
+    "add_admin": "Adaugă administrator",
+    "no_admins": "Acest domeniu nu are administratori.",
+    "remove_admin_confirm": "Eliminați :address din administratorii acestui domeniu?",
+    "msg_admin_added": ":address a fost adăugat la administratorii domeniului",
+    "msg_admin_removed": ":address a fost eliminat din administratorii domeniului",
+    "msg_admin_unknown": "Nu există niciun administrator sau căsuță cu adresa :address",
+    "msg_admin_not_allowed": "Un administrator de domeniu poate adăuga sau elimina doar căsuțele propriilor domenii: :address",
+    "msg_admin_self": "Nu vă puteți elimina din administratorii domeniului"
   },
   "admin": {
     "msg_email_required": "Este necesară o adresă de email validă",

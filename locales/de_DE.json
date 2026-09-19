@@ -576,7 +576,19 @@
     "disabled_user_profiles": "Für Domain-Admins gesperrte Benutzerseiten",
     "disabled_user_profiles_help": "Domain-Admins können die markierten Seiten der Benutzer dieser Domain nicht öffnen.",
     "msg_unknown_profile": "Unbekannte Seite oder Einstellung: :name",
-    "msg_min_password_below_global": "Die minimale Passwortlänge darf das globale Minimum (:min) nicht unterschreiten."
+    "msg_min_password_below_global": "Die minimale Passwortlänge darf das globale Minimum (:min) nicht unterschreiten.",
+    "tab_admins": "Administratoren",
+    "admins_desc": "Die Administratoren dieser Domain verwalten ihre Benutzer, Aliase und Mailinglisten. Fügen Sie einen bestehenden Administrator oder ein Postfach hinzu; ein Postfach wird Domain-Administrator und meldet sich mit dem eigenen Passwort an.",
+    "admins_desc_domain_admin": "Fügen Sie ein Postfach dieser Domain hinzu; es wird Domain-Administrator und meldet sich mit dem eigenen Passwort an.",
+    "admin_address": "Adresse des Administrators oder Postfachs",
+    "add_admin": "Administrator hinzufügen",
+    "no_admins": "Diese Domain hat keine Administratoren.",
+    "remove_admin_confirm": ":address aus den Administratoren dieser Domain entfernen?",
+    "msg_admin_added": ":address wurde zu den Administratoren der Domain hinzugefügt",
+    "msg_admin_removed": ":address wurde aus den Administratoren der Domain entfernt",
+    "msg_admin_unknown": "Es gibt keinen Administrator und kein Postfach mit der Adresse :address",
+    "msg_admin_not_allowed": "Ein Domain-Administrator kann nur Postfächer seiner eigenen Domains hinzufügen oder entfernen: :address",
+    "msg_admin_self": "Sie können sich nicht selbst aus den Administratoren der Domain entfernen"
   },
   "admin": {
     "msg_email_required": "Eine gültige E-Mail-Adresse ist erforderlich",

@@ -576,7 +576,19 @@
     "disabled_user_profiles": "Strony użytkownika zamknięte dla adminów domeny",
     "disabled_user_profiles_help": "Admini domeny nie mogą otwierać zaznaczonych stron użytkowników tej domeny.",
     "msg_unknown_profile": "Nieznana strona lub ustawienie: :name",
-    "msg_min_password_below_global": "Minimalna długość hasła nie może być mniejsza niż globalne minimum (:min)."
+    "msg_min_password_below_global": "Minimalna długość hasła nie może być mniejsza niż globalne minimum (:min).",
+    "tab_admins": "Administratorzy",
+    "admins_desc": "Administratorzy tej domeny zarządzają jej użytkownikami, aliasami i listami mailingowymi. Dodaj istniejącego administratora lub skrzynkę; skrzynka staje się administratorem domeny i loguje się własnym hasłem.",
+    "admins_desc_domain_admin": "Dodaj skrzynkę tej domeny; staje się administratorem domeny i loguje się własnym hasłem.",
+    "admin_address": "Adres administratora lub skrzynki",
+    "add_admin": "Dodaj administratora",
+    "no_admins": "Ta domena nie ma administratorów.",
+    "remove_admin_confirm": "Usunąć :address z administratorów tej domeny?",
+    "msg_admin_added": "Dodano :address do administratorów domeny",
+    "msg_admin_removed": "Usunięto :address z administratorów domeny",
+    "msg_admin_unknown": "Nie istnieje administrator ani skrzynka o adresie :address",
+    "msg_admin_not_allowed": "Administrator domeny może dodawać lub usuwać tylko skrzynki własnych domen: :address",
+    "msg_admin_self": "Nie możesz usunąć siebie z administratorów domeny"
   },
   "admin": {
     "msg_email_required": "Wymagany jest prawidłowy adres e-mail",

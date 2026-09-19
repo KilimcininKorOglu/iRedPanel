@@ -576,7 +576,19 @@
     "disabled_user_profiles": "Stranice korisnika zatvorene za administratore domena",
     "disabled_user_profiles_help": "Administratori domena ne mogu da otvore označene stranice korisnika ovog domena.",
     "msg_unknown_profile": "Nepoznata stranica ili podešavanje: :name",
-    "msg_min_password_below_global": "Najmanja dužina lozinke ne sme biti manja od globalnog minimuma (:min)."
+    "msg_min_password_below_global": "Najmanja dužina lozinke ne sme biti manja od globalnog minimuma (:min).",
+    "tab_admins": "Администратори",
+    "admins_desc": "Администратори овог домена управљају његовим корисницима, alias-има и mailing листама. Додајте постојећег администратора или поштанско сандуче; сандуче постаје администратор домена и пријављује се сопственом лозинком.",
+    "admins_desc_domain_admin": "Додајте поштанско сандуче овог домена; постаје администратор домена и пријављује се сопственом лозинком.",
+    "admin_address": "Адреса администратора или сандучета",
+    "add_admin": "Додај администратора",
+    "no_admins": "Овај домен нема администратора.",
+    "remove_admin_confirm": "Уклонити :address из администратора овог домена?",
+    "msg_admin_added": ":address је додат администраторима домена",
+    "msg_admin_removed": ":address је уклоњен из администратора домена",
+    "msg_admin_unknown": "Не постоји администратор ни сандуче са адресом :address",
+    "msg_admin_not_allowed": "Администратор домена може да додаје или уклања само сандучад својих домена: :address",
+    "msg_admin_self": "Не можете да уклоните себе из администратора домена"
   },
   "admin": {
     "msg_email_required": "Потребна је важећа адреса е-поште",

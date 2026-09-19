@@ -576,7 +576,19 @@
     "disabled_user_profiles": "Pagine utente chiuse agli admin di dominio",
     "disabled_user_profiles_help": "Gli admin di dominio non possono aprire le pagine selezionate degli utenti di questo dominio.",
     "msg_unknown_profile": "Pagina o preferenza sconosciuta: :name",
-    "msg_min_password_below_global": "La lunghezza minima della password non può essere inferiore al minimo globale (:min)."
+    "msg_min_password_below_global": "La lunghezza minima della password non può essere inferiore al minimo globale (:min).",
+    "tab_admins": "Amministratori",
+    "admins_desc": "Gli amministratori di questo dominio gestiscono i suoi utenti, alias e mailing list. Aggiungi un amministratore esistente o una casella di posta; una casella diventa amministratore del dominio e accede con la propria password.",
+    "admins_desc_domain_admin": "Aggiungi una casella di posta di questo dominio; diventa amministratore del dominio e accede con la propria password.",
+    "admin_address": "Indirizzo dell'amministratore o della casella",
+    "add_admin": "Aggiungi amministratore",
+    "no_admins": "Questo dominio non ha amministratori.",
+    "remove_admin_confirm": "Rimuovere :address dagli amministratori di questo dominio?",
+    "msg_admin_added": ":address è stato aggiunto agli amministratori del dominio",
+    "msg_admin_removed": ":address è stato rimosso dagli amministratori del dominio",
+    "msg_admin_unknown": "Non esiste alcun amministratore o casella con l'indirizzo :address",
+    "msg_admin_not_allowed": "Un amministratore di dominio può aggiungere o rimuovere solo le caselle dei propri domini: :address",
+    "msg_admin_self": "Non puoi rimuovere te stesso dagli amministratori del dominio"
   },
   "admin": {
     "msg_email_required": "È richiesto un indirizzo e-mail valido",

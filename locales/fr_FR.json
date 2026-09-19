@@ -576,7 +576,19 @@
     "disabled_user_profiles": "Pages utilisateur fermées aux admins de domaine",
     "disabled_user_profiles_help": "Les admins de domaine ne peuvent pas ouvrir les pages cochées des utilisateurs de ce domaine.",
     "msg_unknown_profile": "Page ou préférence inconnue : :name",
-    "msg_min_password_below_global": "La longueur minimale du mot de passe ne doit pas être inférieure au minimum global (:min)."
+    "msg_min_password_below_global": "La longueur minimale du mot de passe ne doit pas être inférieure au minimum global (:min).",
+    "tab_admins": "Administrateurs",
+    "admins_desc": "Les administrateurs de ce domaine gèrent ses utilisateurs, alias et listes de diffusion. Ajoutez un administrateur existant ou une boîte aux lettres ; une boîte aux lettres devient administrateur du domaine et se connecte avec son propre mot de passe.",
+    "admins_desc_domain_admin": "Ajoutez une boîte aux lettres de ce domaine ; elle devient administrateur du domaine et se connecte avec son propre mot de passe.",
+    "admin_address": "Adresse de l'administrateur ou de la boîte aux lettres",
+    "add_admin": "Ajouter un administrateur",
+    "no_admins": "Ce domaine n'a aucun administrateur.",
+    "remove_admin_confirm": "Retirer :address des administrateurs de ce domaine ?",
+    "msg_admin_added": ":address a été ajouté aux administrateurs du domaine",
+    "msg_admin_removed": ":address a été retiré des administrateurs du domaine",
+    "msg_admin_unknown": "Aucun administrateur ni boîte aux lettres n'existe avec l'adresse :address",
+    "msg_admin_not_allowed": "Un administrateur de domaine ne peut ajouter ou retirer que les boîtes aux lettres de ses propres domaines : :address",
+    "msg_admin_self": "Vous ne pouvez pas vous retirer des administrateurs du domaine"
   },
   "admin": {
     "msg_email_required": "Une adresse e-mail valide est requise",

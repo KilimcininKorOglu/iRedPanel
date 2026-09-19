@@ -4,12 +4,14 @@ declare(strict_types=1);
 
 namespace App\Api;
 
+use App\Exceptions\InvalidInputException;
 use App\Models\Domain;
 use App\Models\DomainSettings;
 use App\Models\ProfileToggles;
 use App\Models\Settings;
 use App\Repositories\RepositoryFactory;
 use App\Services\AccountSettingsService;
+use App\Services\DomainAdminService;
 use App\Services\DomainOwnershipService;
 use App\Services\MailingListService;
 
@@ -44,7 +46,46 @@ class DomainApiController
             return;
         }
         $settings = DomainSettings::fromSettingsString($d->settings)->toFormData($d->disclaimer);
-        ApiResponse::success((array) $d + $settings + self::routing($domain));
+        $admins = ['admins' => RepositoryFactory::getAdminRepository()->getDomainAdmins($domain)];
+        ApiResponse::success((array) $d + $settings + self::routing($domain) + $admins);
+    }
+
+    /**
+     * Changes the admins of the domain with addAdmins, removeAdmins and removeAllAdmins,
+     * as the Admins tab of the domain page does. A domain key adds and removes only the
+     * mailboxes of its domains; removeAllAdmins needs a global key.
+     */
+    public static function admins(string $domain): void
+    {
+        ApiMiddleware::requireDomainAccess($domain);
+        ApiMiddleware::requireWriteAccess();
+        if (RepositoryFactory::getDomainRepository()->getDomain($domain) === null) {
+            ApiResponse::error('Domain not found', 404);
+            return;
+        }
+
+        $data = ApiMiddleware::getJsonBody();
+        $key = ApiMiddleware::getCurrentKey();
+        try {
+            $add = ApiInput::addresses($data['addAdmins'] ?? [], 'addAdmins');
+            $remove = ApiInput::addresses($data['removeAdmins'] ?? [], 'removeAdmins');
+            $removeAll = ApiInput::bool($data, 'removeAllAdmins', false);
+        } catch (\InvalidArgumentException $e) {
+            ApiResponse::error($e->getMessage());
+            return;
+        }
+        if ($removeAll && !$key->isGlobal()) {
+            ApiResponse::error('removeAllAdmins requires a global API key', 403);
+            return;
+        }
+
+        try {
+            DomainAdminService::change($domain, $add, $remove, $removeAll, $key->isGlobal() ? null : $key->domainList());
+        } catch (InvalidInputException $e) {
+            ApiResponse::invalidInput($e);
+            return;
+        }
+        ApiResponse::success(['message' => 'Domain admins updated', 'admins' => RepositoryFactory::getAdminRepository()->getDomainAdmins($domain)]);
     }
 
     /**

@@ -576,7 +576,19 @@
     "disabled_user_profiles": "Stránky uživatele uzavřené pro adminy domény",
     "disabled_user_profiles_help": "Admini domény nemohou otevřít zaškrtnuté stránky uživatelů této domény.",
     "msg_unknown_profile": "Neznámá stránka nebo nastavení: :name",
-    "msg_min_password_below_global": "Minimální délka hesla nesmí být nižší než globální minimum (:min)."
+    "msg_min_password_below_global": "Minimální délka hesla nesmí být nižší než globální minimum (:min).",
+    "tab_admins": "Správci",
+    "admins_desc": "Správci této domény spravují její uživatele, aliasy a e-mailové konference. Přidejte existujícího správce nebo schránku; schránka se stane správcem domény a přihlašuje se vlastním heslem.",
+    "admins_desc_domain_admin": "Přidejte schránku této domény; stane se správcem domény a přihlašuje se vlastním heslem.",
+    "admin_address": "Adresa správce nebo schránky",
+    "add_admin": "Přidat správce",
+    "no_admins": "Tato doména nemá žádné správce.",
+    "remove_admin_confirm": "Odebrat :address ze správců této domény?",
+    "msg_admin_added": ":address byl přidán ke správcům domény",
+    "msg_admin_removed": ":address byl odebrán ze správců domény",
+    "msg_admin_unknown": "Neexistuje žádný správce ani schránka s adresou :address",
+    "msg_admin_not_allowed": "Správce domény může přidávat nebo odebírat jen schránky vlastních domén: :address",
+    "msg_admin_self": "Nemůžete odebrat sami sebe ze správců domény"
   },
   "admin": {
     "msg_email_required": "Je vyžadována platná e-mailová adresa",

@@ -576,7 +576,19 @@
     "disabled_user_profiles": "User pages closed for domain admins",
     "disabled_user_profiles_help": "Domain admins cannot open the checked pages of the users in this domain.",
     "msg_unknown_profile": "Unknown page or preference: :name",
-    "msg_min_password_below_global": "The min password length must not be lower than the global minimum (:min)."
+    "msg_min_password_below_global": "The min password length must not be lower than the global minimum (:min).",
+    "tab_admins": "Admins",
+    "admins_desc": "The admins of this domain manage its users, aliases and mailing lists. Add an existing admin or a mailbox; a mailbox becomes a domain admin and logs in with its own password.",
+    "admins_desc_domain_admin": "Add a mailbox of this domain; it becomes a domain admin and logs in with its own password.",
+    "admin_address": "Admin or mailbox address",
+    "add_admin": "Add admin",
+    "no_admins": "This domain has no admins.",
+    "remove_admin_confirm": "Remove :address from the admins of this domain?",
+    "msg_admin_added": "Added :address to the admins of the domain",
+    "msg_admin_removed": "Removed :address from the admins of the domain",
+    "msg_admin_unknown": "No admin or mailbox exists with the address :address",
+    "msg_admin_not_allowed": "A domain admin can add or remove only the mailboxes of its own domains: :address",
+    "msg_admin_self": "You cannot remove yourself from the admins of the domain"
   },
   "admin": {
     "msg_email_required": "A valid email address is required",

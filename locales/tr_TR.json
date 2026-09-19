@@ -576,7 +576,19 @@
     "disabled_user_profiles": "Domain admin'e kapalı kullanıcı sayfaları",
     "disabled_user_profiles_help": "Domain admin'ler bu domain'deki kullanıcıların işaretli sayfalarını açamaz.",
     "msg_unknown_profile": "Bilinmeyen sayfa veya ayar: :name",
-    "msg_min_password_below_global": "En kısa parola uzunluğu global minimumdan (:min) düşük olamaz."
+    "msg_min_password_below_global": "En kısa parola uzunluğu global minimumdan (:min) düşük olamaz.",
+    "tab_admins": "Adminler",
+    "admins_desc": "Bu domain'in adminleri kullanıcılarını, alias'larını ve mailing list'lerini yönetir. Mevcut bir admin veya bir mailbox ekleyin; mailbox domain admin olur ve kendi parolasıyla giriş yapar.",
+    "admins_desc_domain_admin": "Bu domain'in bir mailbox'ını ekleyin; mailbox domain admin olur ve kendi parolasıyla giriş yapar.",
+    "admin_address": "Admin veya mailbox adresi",
+    "add_admin": "Admin ekle",
+    "no_admins": "Bu domain'in admini yok.",
+    "remove_admin_confirm": ":address bu domain'in adminlerinden çıkarılsın mı?",
+    "msg_admin_added": ":address domain'in adminlerine eklendi",
+    "msg_admin_removed": ":address domain'in adminlerinden çıkarıldı",
+    "msg_admin_unknown": ":address adresiyle bir admin veya mailbox yok",
+    "msg_admin_not_allowed": "Domain admin yalnızca kendi domain'lerinin mailbox'larını ekleyip çıkarabilir: :address",
+    "msg_admin_self": "Kendinizi domain'in adminlerinden çıkaramazsınız"
   },
   "admin": {
     "msg_email_required": "Geçerli bir e-posta adresi gerekli",

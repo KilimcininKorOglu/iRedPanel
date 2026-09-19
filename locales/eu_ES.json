@@ -576,7 +576,19 @@
     "disabled_user_profiles": "Domeinu-administratzaileentzat itxitako erabiltzaile-orriak",
     "disabled_user_profiles_help": "Domeinu-administratzaileek ezin dituzte domeinu honetako erabiltzaileen markatutako orriak ireki.",
     "msg_unknown_profile": "Orri edo hobespen ezezaguna: :name",
-    "msg_min_password_below_global": "Pasahitzaren gutxieneko luzera ezin da gutxieneko globala (:min) baino txikiagoa izan."
+    "msg_min_password_below_global": "Pasahitzaren gutxieneko luzera ezin da gutxieneko globala (:min) baino txikiagoa izan.",
+    "tab_admins": "Administratzaileak",
+    "admins_desc": "Domeinu honetako administratzaileek bere erabiltzaileak, aliasak eta posta-zerrendak kudeatzen dituzte. Gehitu lehendik dagoen administratzaile bat edo postontzi bat; postontzia domeinuaren administratzaile bihurtzen da eta bere pasahitzarekin hasten du saioa.",
+    "admins_desc_domain_admin": "Gehitu domeinu honetako postontzi bat; domeinuaren administratzaile bihurtzen da eta bere pasahitzarekin hasten du saioa.",
+    "admin_address": "Administratzailearen edo postontziaren helbidea",
+    "add_admin": "Gehitu administratzailea",
+    "no_admins": "Domeinu honek ez du administratzailerik.",
+    "remove_admin_confirm": ":address kendu domeinu honetako administratzaileetatik?",
+    "msg_admin_added": ":address domeinuaren administratzaileei gehitu zaie",
+    "msg_admin_removed": ":address domeinuaren administratzaileetatik kendu da",
+    "msg_admin_unknown": "Ez dago :address helbidea duen administratzaile edo postontzirik",
+    "msg_admin_not_allowed": "Domeinu-administratzaile batek bere domeinuetako postontziak soilik gehitu edo kendu ditzake: :address",
+    "msg_admin_self": "Ezin duzu zure burua kendu domeinuaren administratzaileetatik"
   },
   "admin": {
     "msg_email_required": "Baliozko posta-helbidea beharrezkoa da",

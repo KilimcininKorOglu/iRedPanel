@@ -6,6 +6,7 @@ namespace App\Repositories\Mysql;
 
 use App\Models\Admin;
 use App\Repositories\AdminRepositoryInterface;
+use App\Repositories\SqlDomainAdmins;
 
 class MysqlAdminRepository implements AdminRepositoryInterface
 {
@@ -249,6 +250,11 @@ class MysqlAdminRepository implements AdminRepositoryInterface
         return $domains;
     }
 
+    public function getDomainAdmins(string $domain): array
+    {
+        return SqlDomainAdmins::list(MysqlConnection::getInstance()->getPdo(), $domain);
+    }
+
     public function assignDomainToAdmin(string $adminUsername, string $domain): void
     {
         $pdo = MysqlConnection::getInstance()->getPdo();
@@ -258,6 +264,7 @@ class MysqlAdminRepository implements AdminRepositoryInterface
              VALUES (:username, :domain, NOW(), 1)"
         );
         $stmt->execute(['username' => $adminUsername, 'domain' => $domain]);
+        SqlDomainAdmins::markMailbox($pdo, $adminUsername);
     }
 
     public function revokeDomainFromAdmin(string $adminUsername, string $domain): void
@@ -268,6 +275,7 @@ class MysqlAdminRepository implements AdminRepositoryInterface
             "DELETE FROM domain_admins WHERE username = :username AND domain = :domain"
         );
         $stmt->execute(['username' => $adminUsername, 'domain' => $domain]);
+        SqlDomainAdmins::unmarkMailboxWithoutDomains($pdo, $adminUsername);
     }
 
     public function enableDisableAdmin(string $username, bool $active): void

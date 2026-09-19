@@ -576,7 +576,19 @@
     "disabled_user_profiles": "Pàgines d'usuari tancades als admins de domini",
     "disabled_user_profiles_help": "Els admins de domini no poden obrir les pàgines marcades dels usuaris d'aquest domini.",
     "msg_unknown_profile": "Pàgina o preferència desconeguda: :name",
-    "msg_min_password_below_global": "La longitud mínima de la contrasenya no pot ser inferior al mínim global (:min)."
+    "msg_min_password_below_global": "La longitud mínima de la contrasenya no pot ser inferior al mínim global (:min).",
+    "tab_admins": "Administradors",
+    "admins_desc": "Els administradors d'aquest domini gestionen els seus usuaris, àlies i llistes de correu. Afegiu un administrador existent o una bústia; una bústia esdevé administradora del domini i inicia la sessió amb la seva pròpia contrasenya.",
+    "admins_desc_domain_admin": "Afegiu una bústia d'aquest domini; esdevé administradora del domini i inicia la sessió amb la seva pròpia contrasenya.",
+    "admin_address": "Adreça de l'administrador o de la bústia",
+    "add_admin": "Afegeix un administrador",
+    "no_admins": "Aquest domini no té administradors.",
+    "remove_admin_confirm": "Voleu treure :address dels administradors d'aquest domini?",
+    "msg_admin_added": "S'ha afegit :address als administradors del domini",
+    "msg_admin_removed": "S'ha tret :address dels administradors del domini",
+    "msg_admin_unknown": "No existeix cap administrador ni bústia amb l'adreça :address",
+    "msg_admin_not_allowed": "Un administrador de domini només pot afegir o treure bústies dels seus propis dominis: :address",
+    "msg_admin_self": "No us podeu treure a vosaltres mateixos dels administradors del domini"
   },
   "admin": {
     "msg_email_required": "Cal una adreça de correu electrònic vàlida",

@@ -576,7 +576,19 @@
     "disabled_user_profiles": "对域管理员关闭的用户页面",
     "disabled_user_profiles_help": "域管理员不能打开该域用户的勾选页面。",
     "msg_unknown_profile": "未知的页面或设置: :name",
-    "msg_min_password_below_global": "最小密码长度不能低于全局最小值 (:min)。"
+    "msg_min_password_below_global": "最小密码长度不能低于全局最小值 (:min)。",
+    "tab_admins": "管理员",
+    "admins_desc": "此域的管理员管理其用户、别名和邮件列表。添加现有管理员或邮箱；邮箱将成为域管理员，并使用自己的密码登录。",
+    "admins_desc_domain_admin": "添加此域的邮箱；该邮箱将成为域管理员，并使用自己的密码登录。",
+    "admin_address": "管理员或邮箱地址",
+    "add_admin": "添加管理员",
+    "no_admins": "此域没有管理员。",
+    "remove_admin_confirm": "要将 :address 从此域的管理员中移除吗?",
+    "msg_admin_added": "已将 :address 添加为域管理员",
+    "msg_admin_removed": "已将 :address 从域管理员中移除",
+    "msg_admin_unknown": "不存在地址为 :address 的管理员或邮箱",
+    "msg_admin_not_allowed": "域管理员只能添加或移除其所管理域的邮箱: :address",
+    "msg_admin_self": "不能将自己从域管理员中移除"
   },
   "admin": {
     "msg_email_required": "需要有效的电子邮件地址",

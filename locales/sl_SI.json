@@ -576,7 +576,19 @@
     "disabled_user_profiles": "Strani uporabnika, zaprte za skrbnike domene",
     "disabled_user_profiles_help": "Skrbniki domene ne morejo odpreti označenih strani uporabnikov te domene.",
     "msg_unknown_profile": "Neznana stran ali nastavitev: :name",
-    "msg_min_password_below_global": "Najmanjša dolžina gesla ne sme biti nižja od globalnega minimuma (:min)."
+    "msg_min_password_below_global": "Najmanjša dolžina gesla ne sme biti nižja od globalnega minimuma (:min).",
+    "tab_admins": "Skrbniki",
+    "admins_desc": "Skrbniki te domene upravljajo njene uporabnike, vzdevke in poštne sezname. Dodajte obstoječega skrbnika ali poštni predal; predal postane skrbnik domene in se prijavi z lastnim geslom.",
+    "admins_desc_domain_admin": "Dodajte poštni predal te domene; postane skrbnik domene in se prijavi z lastnim geslom.",
+    "admin_address": "Naslov skrbnika ali predala",
+    "add_admin": "Dodaj skrbnika",
+    "no_admins": "Ta domena nima skrbnikov.",
+    "remove_admin_confirm": "Odstranim :address iz skrbnikov te domene?",
+    "msg_admin_added": ":address je dodan med skrbnike domene",
+    "msg_admin_removed": ":address je odstranjen iz skrbnikov domene",
+    "msg_admin_unknown": "Skrbnik ali predal z naslovom :address ne obstaja",
+    "msg_admin_not_allowed": "Skrbnik domene lahko dodaja ali odstranjuje samo predale svojih domen: :address",
+    "msg_admin_self": "Sebe ne morete odstraniti iz skrbnikov domene"
   },
   "admin": {
     "msg_email_required": "Zahtevan je veljaven e-poštni naslov",

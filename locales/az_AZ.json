@@ -576,7 +576,19 @@
     "disabled_user_profiles": "Domain adminləri üçün bağlı istifadəçi səhifələri",
     "disabled_user_profiles_help": "Domain adminləri bu domain-dəki istifadəçilərin işarələnmiş səhifələrini aça bilməz.",
     "msg_unknown_profile": "Naməlum səhifə və ya ayar: :name",
-    "msg_min_password_below_global": "Minimum parol uzunluğu qlobal minimumdan (:min) az ola bilməz."
+    "msg_min_password_below_global": "Minimum parol uzunluğu qlobal minimumdan (:min) az ola bilməz.",
+    "tab_admins": "Adminlər",
+    "admins_desc": "Bu domain-in adminləri onun istifadəçilərini, alias-larını və poçt siyahılarını idarə edir. Mövcud admin və ya poçt qutusu əlavə edin; poçt qutusu domain admini olur və öz parolu ilə daxil olur.",
+    "admins_desc_domain_admin": "Bu domain-in poçt qutusunu əlavə edin; o, domain admini olur və öz parolu ilə daxil olur.",
+    "admin_address": "Admin və ya poçt qutusu ünvanı",
+    "add_admin": "Admin əlavə et",
+    "no_admins": "Bu domain-in admini yoxdur.",
+    "remove_admin_confirm": ":address bu domain-in adminlərindən çıxarılsın?",
+    "msg_admin_added": ":address domain-in adminlərinə əlavə edildi",
+    "msg_admin_removed": ":address domain-in adminlərindən çıxarıldı",
+    "msg_admin_unknown": ":address ünvanı ilə admin və ya poçt qutusu yoxdur",
+    "msg_admin_not_allowed": "Domain admini yalnız öz domain-lərinin poçt qutularını əlavə edə və ya çıxara bilər: :address",
+    "msg_admin_self": "Özünüzü domain-in adminlərindən çıxara bilməzsiniz"
   },
   "admin": {
     "msg_email_required": "Etibarlı e-poçt ünvanı tələb olunur",

@@ -576,7 +576,19 @@
     "disabled_user_profiles": "Domeeni administraatoritele suletud kasutajalehed",
     "disabled_user_profiles_help": "Domeeni administraatorid ei saa selle domeeni kasutajate märgitud lehti avada.",
     "msg_unknown_profile": "Tundmatu leht või eelistus: :name",
-    "msg_min_password_below_global": "Parooli minimaalne pikkus ei tohi olla väiksem kui globaalne miinimum (:min)."
+    "msg_min_password_below_global": "Parooli minimaalne pikkus ei tohi olla väiksem kui globaalne miinimum (:min).",
+    "tab_admins": "Administraatorid",
+    "admins_desc": "Selle domeeni administraatorid haldavad selle kasutajaid, aliaseid ja meililiste. Lisage olemasolev administraator või postkast; postkastist saab domeeni administraator, kes logib sisse oma parooliga.",
+    "admins_desc_domain_admin": "Lisage selle domeeni postkast; sellest saab domeeni administraator, kes logib sisse oma parooliga.",
+    "admin_address": "Administraatori või postkasti aadress",
+    "add_admin": "Lisa administraator",
+    "no_admins": "Sellel domeenil pole administraatoreid.",
+    "remove_admin_confirm": "Kas eemaldada :address selle domeeni administraatorite hulgast?",
+    "msg_admin_added": ":address lisati domeeni administraatorite hulka",
+    "msg_admin_removed": ":address eemaldati domeeni administraatorite hulgast",
+    "msg_admin_unknown": "Aadressiga :address ei ole administraatorit ega postkasti",
+    "msg_admin_not_allowed": "Domeeni administraator saab lisada või eemaldada ainult oma domeenide postkaste: :address",
+    "msg_admin_self": "Te ei saa ennast domeeni administraatorite hulgast eemaldada"
   },
   "admin": {
     "msg_email_required": "Nõutav on kehtiv e-posti aadress",

@@ -48,12 +48,21 @@ interface AdminRepositoryInterface
     public function getManagedDomains(string $adminUsername): array;
 
     /**
-     * Assigns a domain to an admin for management.
+     * Returns the addresses of the standalone and mailbox admins of a domain, lowercased and sorted.
+     *
+     * @return list<string>
+     */
+    public function getDomainAdmins(string $domain): array;
+
+    /**
+     * Assigns a domain to an admin for management. A mailbox becomes a domain admin, as in
+     * iRedAdmin: SQL sets mailbox.isadmin, LDAP adds enabledService=domainadmin.
      */
     public function assignDomainToAdmin(string $adminUsername, string $domain): void;
 
     /**
-     * Revokes a domain assignment from an admin.
+     * Revokes a domain assignment from an admin. A mailbox loses the domain admin flag with
+     * its last domain.
      */
     public function revokeDomainFromAdmin(string $adminUsername, string $domain): void;
 

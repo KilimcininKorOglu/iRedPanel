@@ -576,7 +576,19 @@
     "disabled_user_profiles": "Notendasíður lokaðar lénsstjórum",
     "disabled_user_profiles_help": "Lénsstjórar geta ekki opnað merktar síður notenda í þessu léni.",
     "msg_unknown_profile": "Óþekkt síða eða stilling: :name",
-    "msg_min_password_below_global": "Lágmarkslengd lykilorðs má ekki vera lægri en almenna lágmarkið (:min)."
+    "msg_min_password_below_global": "Lágmarkslengd lykilorðs má ekki vera lægri en almenna lágmarkið (:min).",
+    "tab_admins": "Stjórnendur",
+    "admins_desc": "Stjórnendur þessa léns stjórna notendum þess, samnefnum og póstlistum. Bættu við núverandi stjórnanda eða pósthólfi; pósthólf verður lénsstjórnandi og skráir sig inn með eigin lykilorði.",
+    "admins_desc_domain_admin": "Bættu við pósthólfi þessa léns; það verður lénsstjórnandi og skráir sig inn með eigin lykilorði.",
+    "admin_address": "Netfang stjórnanda eða pósthólfs",
+    "add_admin": "Bæta við stjórnanda",
+    "no_admins": "Þetta lén hefur enga stjórnendur.",
+    "remove_admin_confirm": "Fjarlægja :address úr stjórnendum þessa léns?",
+    "msg_admin_added": ":address var bætt við stjórnendur lénsins",
+    "msg_admin_removed": ":address var fjarlægt úr stjórnendum lénsins",
+    "msg_admin_unknown": "Enginn stjórnandi eða pósthólf er til með netfangið :address",
+    "msg_admin_not_allowed": "Lénsstjórnandi getur aðeins bætt við eða fjarlægt pósthólf eigin léna: :address",
+    "msg_admin_self": "Þú getur ekki fjarlægt sjálfan þig úr stjórnendum lénsins"
   },
   "admin": {
     "msg_email_required": "Gilt netfang er nauðsynlegt",

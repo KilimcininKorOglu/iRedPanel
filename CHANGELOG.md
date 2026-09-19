@@ -29,6 +29,7 @@ All notable changes to this project will be documented in this file.
 - `composer install` failed on PHP 8.1 to 8.3, because PHPUnit 13 needs PHP 8.4.1 and `composer.lock` is not tracked; PHPUnit 10.5 to 13 is now accepted
 - CI failed in `composer validate --strict` on the intentional `version` field
 - The throttle page and `/api/v1/throttle/{account}` accepted CIDR networks and `user@*` addresses, which the iRedAPD throttle plugin never matches; these accounts are now rejected
+- A save on the domain Settings tab deleted the `domain.settings` keys that the panel does not manage, for example the `default_language`, `timezone` and `disabled_domain_profiles` keys of iRedAdmin; these keys are now kept
 
 ### Security
 - `PUT /api/v1/domains/{domain}` accepted a domain-scoped API key, so that key could raise the mailbox, alias and quota limits of its own domain; the endpoint now requires a global key, as the web panel lets only a global admin edit a domain

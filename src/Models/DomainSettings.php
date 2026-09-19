@@ -20,7 +20,18 @@ class DomainSettings
         public int $maxPasswordLength = 0,
         public string $disclaimer = '',
         public array $disabledMailServices = [],
+        /** @var array<string, string> keys that the panel does not manage (iRedAdmin), kept on write */
+        public array $otherKeys = [],
     ) {}
+
+    /**
+     * Takes the keys that the panel does not manage from a stored settings string,
+     * so that a save from the settings form keeps them.
+     */
+    public function keepOtherKeysOf(string $stored): void
+    {
+        $this->otherKeys = self::fromSettingsString($stored)->otherKeys;
+    }
 
     /**
      * Parse from iRedMail's "key:value;key:value;" format (MySQL domain.settings column).
@@ -48,8 +59,8 @@ class DomainSettings
                 'min_passwd_length' => $result->minPasswordLength = (int) $value,
                 'max_passwd_length' => $result->maxPasswordLength = (int) $value,
                 'disclaimer' => $result->disclaimer = $value,
-                'disabled_mail_services' => $result->disabledMailServices = array_filter(explode(',', $value)),
-                default => null,
+                'disabled_mail_services' => $result->disabledMailServices = array_values(array_filter(explode(',', $value))),
+                default => $result->otherKeys[$key] = $value,
             };
         }
 
@@ -75,6 +86,11 @@ class DomainSettings
         // The disclaimer lives in Domain::$disclaimer; a ';' in its text would split this format.
         if (!empty($this->disabledMailServices)) {
             $parts[] = "disabled_mail_services:" . implode(',', $this->disabledMailServices);
+        }
+        foreach ($this->otherKeys as $key => $value) {
+            if ($key !== '' && $value !== '') {
+                $parts[] = "{$key}:{$value}";
+            }
         }
 
         return empty($parts) ? '' : implode(';', $parts) . ';';

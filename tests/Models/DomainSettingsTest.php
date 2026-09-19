@@ -23,6 +23,21 @@ class DomainSettingsTest extends TestCase
     }
 
     /**
+     * iRedAdmin stores more keys in domain.settings (default_language, timezone,
+     * disabled_domain_profiles, ...). A save from the settings tab used to delete them.
+     */
+    public function testSaveKeepsTheKeysOfOtherTools(): void
+    {
+        $settings = DomainSettings::fromFormData(['defaultUserQuota' => '100']);
+        $settings->keepOtherKeysOf('default_user_quota:5;default_language:de_DE;disabled_domain_profiles:bcc,relay;');
+
+        $this->assertSame(
+            'default_user_quota:100;default_language:de_DE;disabled_domain_profiles:bcc,relay;',
+            $settings->toSettingsString(),
+        );
+    }
+
+    /**
      * The disclaimer lives in its own column, because ';' and ':' in the text break the settings string.
      */
     public function testDisclaimerIsNotWrittenToTheSettingsString(): void

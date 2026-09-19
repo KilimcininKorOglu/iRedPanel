@@ -190,6 +190,7 @@ class DomainController
                     $domainSettings = DomainSettings::fromFormData($_POST);
                     $currentDomain = $repo->getDomain($domainName);
                     if ($currentDomain !== null) {
+                        $domainSettings->keepOtherKeysOf($currentDomain->settings);
                         $currentDomain->settings = $domainSettings->toSettingsString();
                         $currentDomain->disclaimer = $domainSettings->disclaimer;
                         $repo->updateDomain($currentDomain);

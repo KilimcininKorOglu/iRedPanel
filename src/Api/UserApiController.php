@@ -7,6 +7,7 @@ namespace App\Api;
 use App\Models\DomainSettings;
 use App\Models\User;
 use App\Repositories\RepositoryFactory;
+use App\Services\AccountSettingsService;
 use App\Utils\PasswordUtils;
 
 class UserApiController
@@ -231,6 +232,7 @@ class UserApiController
         }
 
         $repo->deleteUser($domain, $uid, 'api');
+        AccountSettingsService::deleteAccounts(["{$uid}@{$domain}"]);
         ApiResponse::deleted();
     }
 

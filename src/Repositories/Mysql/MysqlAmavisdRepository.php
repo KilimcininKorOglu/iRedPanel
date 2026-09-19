@@ -4,8 +4,11 @@ declare(strict_types=1);
 
 namespace App\Repositories\Mysql;
 
+use App\Exceptions\BackendConnectionException;
 use App\Models\PaginatedResult;
 use App\Models\Settings;
+use App\Repositories\AccountMatch;
+use App\Repositories\AmavisdAccountSettings;
 use App\Repositories\AmavisdRepositoryInterface;
 use App\Services\AmavisdReleaseClient;
 use App\Utils\SqlLike;
@@ -201,5 +204,28 @@ class MysqlAmavisdRepository implements AmavisdRepositoryInterface
         $stmt->execute(['days' => $olderThanDays]);
 
         return $stmt->rowCount();
+    }
+
+    public function deleteAccountSettings(array $accounts): void
+    {
+        $this->accountSettings()->delete(AccountMatch::accounts($accounts));
+    }
+
+    public function deleteDomainSettings(string $domain): void
+    {
+        $this->accountSettings()->delete(AccountMatch::domain($domain));
+    }
+
+    public function renameAccountSettings(string $oldAccount, string $newAccount): void
+    {
+        $this->accountSettings()->rename($oldAccount, $newAccount);
+    }
+
+    private function accountSettings(): AmavisdAccountSettings
+    {
+        $pdo = AmavisdConnection::getInstance()->getPdo()
+            ?? throw new BackendConnectionException('Amavisd database not available');
+
+        return new AmavisdAccountSettings($pdo);
     }
 }

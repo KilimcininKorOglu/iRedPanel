@@ -9,6 +9,7 @@ use App\I18n\Translator;
 use App\Middleware;
 use App\Models\Settings;
 use App\Repositories\RepositoryFactory;
+use App\Services\AccountSettingsService;
 use App\Services\ActivityLogger;
 use App\TemplateEngine;
 
@@ -149,6 +150,7 @@ class AliasController
         try {
             $alias = $repo->getAlias($address) ?? throw BaseController::itemNotFound();
             $repo->deleteAlias($address);
+            AccountSettingsService::deleteAccounts([$address]);
             ActivityLogger::logDelete($alias->domain, '', "Deleted mail alias: {$address}");
             BaseController::flashDeleted($address);
         } catch (\Exception $e) {
@@ -177,6 +179,7 @@ class AliasController
             $alias = $repo->getAlias($address) ?? throw BaseController::itemNotFound();
             if ($action === 'delete') {
                 $repo->deleteAlias($address);
+                AccountSettingsService::deleteAccounts([$address]);
                 ActivityLogger::logDelete($alias->domain, '', "Deleted alias: {$address}");
                 return;
             }

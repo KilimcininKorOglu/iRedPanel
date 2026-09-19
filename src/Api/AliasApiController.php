@@ -6,6 +6,7 @@ namespace App\Api;
 
 use App\Models\Alias;
 use App\Repositories\RepositoryFactory;
+use App\Services\AccountSettingsService;
 use App\Utils\AddressList;
 
 class AliasApiController
@@ -172,6 +173,7 @@ class AliasApiController
         }
 
         $repo->deleteAlias($address);
+        AccountSettingsService::deleteAccounts([$address]);
         ApiResponse::deleted();
     }
 }

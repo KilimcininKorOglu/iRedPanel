@@ -6,7 +6,7 @@ namespace App\Repositories;
 
 use App\Models\PaginatedResult;
 
-interface AmavisdRepositoryInterface
+interface AmavisdRepositoryInterface extends AccountSettingsStoreInterface
 {
     public function getQuarantinedMessages(int $page, int $perPage, ?string $domain = null): PaginatedResult;
     public function releaseMessage(string $mailId, string $requestedBy): void;

@@ -363,6 +363,7 @@ server {
 - **Amavisd**: Quarantine viewer with release/delete, mail log, spam policy, white/blacklist, configurable cleanup
 - **Fail2ban**: Jail status, ban/unban IPs with optional GeoIP country/city display
 - **iRedAPD**: Per-account throttle settings, greylisting toggle, sender whitelist, greylisting tracking data, rDNS white/blacklist, SenderScore whitelist
+- As in iRedAdmin-Pro, deleting a user, alias, mailing list or domain also deletes its Amavisd policy and white/blacklist and its iRedAPD throttle and greylisting settings, and renaming a user moves them to the new address. Only the enabled integrations are updated.
 
 ### Export
 - Domain user export (CSV and JSON formats)

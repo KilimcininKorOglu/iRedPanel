@@ -12,6 +12,7 @@ use App\Models\Settings;
 use App\Models\User;
 use App\Models\UserPassword;
 use App\Repositories\RepositoryFactory;
+use App\Services\AccountSettingsService;
 use App\Services\ActivityLogger;
 use App\TemplateEngine;
 use App\Utils\PasswordUtils;
@@ -283,6 +284,7 @@ class UserController
             }
 
             RepositoryFactory::getUserRepository()->renameUser($domain, $userUid, $newUid);
+            AccountSettingsService::renameAccount("{$userUid}@{$domain}", $newEmail);
             ActivityLogger::logUpdate($domain, $newUid, "Renamed user from {$userUid}@{$domain} to {$newEmail}");
             $_SESSION['flash_success'] = Translator::translate('user.msg_renamed', ['address' => $newEmail]);
             header("Location: /{$domain}/users/{$newUid}/general");
@@ -313,6 +315,7 @@ class UserController
             $user = $userRepo->getUser($domain, $uid) ?? throw BaseController::itemNotFound();
             if ($action === 'delete') {
                 $userRepo->deleteUser($domain, $uid, $adminEmail);
+                AccountSettingsService::deleteAccounts(["{$uid}@{$domain}"]);
                 return;
             }
             $user->accountStatus = ($action === 'enable');
@@ -339,6 +342,7 @@ class UserController
             $userRepo = RepositoryFactory::getUserRepository();
             $userRepo->getUser($domain, $userUid) ?? throw BaseController::itemNotFound();
             $userRepo->deleteUser($domain, $userUid, $adminEmail);
+            AccountSettingsService::deleteAccounts(["{$userUid}@{$domain}"]);
             ActivityLogger::logDelete($domain, $userUid, "User deleted");
             BaseController::flashDeleted("{$userUid}@{$domain}");
         } catch (\Exception $e) {

@@ -78,6 +78,7 @@ class MailingListService
     {
         MlmmjadminClient::fromSettings()->deleteList($address);
         self::repo()->deleteMailingList($address);
+        AccountSettingsService::deleteAccounts([$address]);
     }
 
     /**

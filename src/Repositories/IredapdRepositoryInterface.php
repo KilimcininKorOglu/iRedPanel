@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Repositories;
 
-interface IredapdRepositoryInterface
+interface IredapdRepositoryInterface extends AccountSettingsStoreInterface
 {
     public function getThrottleSettings(string $account): array;
     public function setThrottleSettings(string $account, string $kind, int $period, int $maxMsgs, int $maxQuota, int $msgSize): void;

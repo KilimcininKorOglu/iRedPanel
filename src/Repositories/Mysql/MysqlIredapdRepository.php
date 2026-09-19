@@ -6,6 +6,8 @@ namespace App\Repositories\Mysql;
 
 use App\Exceptions\BackendConnectionException;
 use App\Models\PaginatedResult;
+use App\Repositories\AccountMatch;
+use App\Repositories\IredapdAccountSettings;
 use App\Repositories\IredapdRepositoryInterface;
 use App\Utils\IredapdAccount;
 
@@ -216,6 +218,21 @@ class MysqlIredapdRepository implements IredapdRepositoryInterface
                 $stmt->execute(['ip' => $ip]);
             }
         });
+    }
+
+    public function deleteAccountSettings(array $accounts): void
+    {
+        (new IredapdAccountSettings($this->pdo()))->delete(AccountMatch::accounts($accounts));
+    }
+
+    public function deleteDomainSettings(string $domain): void
+    {
+        (new IredapdAccountSettings($this->pdo()))->deleteDomain($domain);
+    }
+
+    public function renameAccountSettings(string $oldAccount, string $newAccount): void
+    {
+        (new IredapdAccountSettings($this->pdo()))->rename($oldAccount, $newAccount);
     }
 
     /**

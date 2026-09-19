@@ -14,6 +14,7 @@ use App\Controllers\DeletedMailboxController;
 use App\Api\AdminApiController;
 use App\Api\AliasApiController;
 use App\Api\ApiMiddleware;
+use App\Api\ApiResponse;
 use App\Api\DomainAliasApiController;
 use App\Api\DomainApiController;
 use App\Api\GreylistApiController;
@@ -544,7 +545,14 @@ $router->addRoute('PUT', '/api/v1/greylist/{account}', function (string $account
     $apiAuth(); GreylistApiController::update($account);
 });
 
-$router->setNotFoundHandler(function () use ($tpl) {
+// API clients parse JSON, so API errors must never render an HTML page.
+$isApiRequest = str_starts_with((string) parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH), '/api/');
+
+$router->setNotFoundHandler(function () use ($tpl, $isApiRequest) {
+    if ($isApiRequest) {
+        ApiResponse::error('Not found', 404);
+        return;
+    }
     BaseController::page404($tpl);
 });
 
@@ -555,7 +563,19 @@ try {
         $_SERVER['REQUEST_METHOD'] ?? 'GET'
     );
 } catch (BackendConnectionException $e) {
-    BaseController::pageBackendDown($tpl, $e);
+    if ($isApiRequest) {
+        error_log('Backend connection error: ' . $e->getMessage());
+        ApiResponse::error('Backend unavailable', 503);
+    } else {
+        BaseController::pageBackendDown($tpl, $e);
+    }
 } catch (CsrfTokenException $e) {
     BaseController::pageCsrf($tpl);
+} catch (\Throwable $e) {
+    if (!$isApiRequest) {
+        throw $e;
+    }
+    // The log keeps the trace; the client gets no internals.
+    error_log('API error: ' . $e);
+    ApiResponse::error('Internal server error', 500);
 }

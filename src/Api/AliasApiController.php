@@ -141,7 +141,12 @@ class AliasApiController
         $data = ApiMiddleware::getJsonBody();
         $storedMembers = $repo->getAliasMembers($address);
         try {
-            $members = array_key_exists('members', $data) ? self::members($data['members']) : $storedMembers;
+            $members = ApiInput::listChange(
+                $data,
+                ['members', 'addMembers', 'removeMembers'],
+                $storedMembers,
+                self::members(...),
+            ) ?? $storedMembers;
             $accessPolicy = Alias::validAccessPolicy($data['accessPolicy'] ?? $alias->accessPolicy);
         } catch (\InvalidArgumentException $e) {
             ApiResponse::error($e->getMessage());
@@ -195,10 +200,10 @@ class AliasApiController
      * @return list<string> the members, lowercased and without duplicates
      * @throws \InvalidArgumentException with the message for the API client
      */
-    private static function members(mixed $input): array
+    private static function members(mixed $input, string $field = 'members'): array
     {
         if (!is_array($input) || array_filter($input, 'is_string') !== $input) {
-            throw new \InvalidArgumentException('members must be an array of email addresses');
+            throw new \InvalidArgumentException("{$field} must be an array of email addresses");
         }
         try {
             return AddressList::parse(implode("\n", $input));

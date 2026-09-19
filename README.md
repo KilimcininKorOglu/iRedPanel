@@ -462,6 +462,8 @@ The REST API lives at `/api/v1/*`. It is disabled by default (`API_ENABLED=false
 | Throttle | `GET, PUT /throttle/{account}` |
 | Greylisting | `GET, PUT /greylist/{account}` |
 
+**Incremental list fields**: a `PUT` body either replaces a list or changes it one item at a time: `forwardings`/`addForwardings`/`removeForwardings` and `aliases`/`addAliases`/`removeAliases` and `services`/`addServices`/`removeServices` on a user, `members`/`addMembers`/`removeMembers` on a mail alias, and `addAdmins`/`removeAdmins` on a domain. The full field and its add/remove pair are refused together.
+
 **List filters**: every list endpoint pages with `?page` and `?perPage`. `?disabledOnly=yes` returns only the disabled accounts, and `?emailOnly=yes` (`?nameOnly=yes` for domains) returns the addresses instead of the profiles.
 
 Responses are JSON. An unknown API route returns a JSON 404, an unreachable backend a JSON 503, and any other error a logged JSON 500.

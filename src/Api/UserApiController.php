@@ -63,8 +63,15 @@ class UserApiController
             unset($data['domainGlobalAdmin']);
         }
 
+        $data['uid'] = strtolower(trim((string) ($data['uid'] ?? '')));
+        $password = (string) ($data['password'] ?? '');
         $domainObj = RepositoryFactory::getDomainRepository()->getDomain($domain);
-        $domainSettings = DomainSettings::fromSettingsString($domainObj?->settings ?? '');
+        $failure = self::newUserError($data['uid'], $password, $domain, $domainObj !== null);
+        if ($failure !== null) {
+            ApiResponse::error($failure[0], $failure[1]);
+            return;
+        }
+        $domainSettings = DomainSettings::fromSettingsString($domainObj->settings);
 
         // A new mailbox starts active unless the request sets accountStatus.
         $defaults = ['accountStatus' => true];
@@ -72,32 +79,19 @@ class UserApiController
             $defaults['mailQuota'] = $domainSettings->defaultUserQuota;
         }
         $user = User::fromFormData($data + $defaults);
-        $password = $data['password'] ?? '';
-
-        if ($user->uid === '' || $password === '') {
-            ApiResponse::error('uid and password are required');
-            return;
-        }
-
-        if (RepositoryFactory::getAliasRepository()->isAddressInUse(strtolower("{$user->uid}@{$domain}"))) {
-            ApiResponse::error('Address already in use', 409);
-            return;
-        }
 
         // Enforce domain limits
-        if ($domainObj !== null) {
-            if ($domainObj->mailboxes > 0 && $domainObj->currentUserCount >= $domainObj->mailboxes) {
-                ApiResponse::error("Domain mailbox limit reached ({$domainObj->currentUserCount}/{$domainObj->mailboxes})", 403);
-                return;
-            }
-            if ($domainObj->maxQuota > 0 && $user->mailQuota > $domainObj->maxQuota) {
-                ApiResponse::error("User quota exceeds domain maximum ({$domainObj->maxQuota} MB)", 403);
-                return;
-            }
-            if ($domainObj->quota > 0 && ($domainObj->currentQuotaUsed + $user->mailQuota) > $domainObj->quota) {
-                ApiResponse::error("Total domain quota would be exceeded", 403);
-                return;
-            }
+        if ($domainObj->mailboxes > 0 && $domainObj->currentUserCount >= $domainObj->mailboxes) {
+            ApiResponse::error("Domain mailbox limit reached ({$domainObj->currentUserCount}/{$domainObj->mailboxes})", 403);
+            return;
+        }
+        if ($domainObj->maxQuota > 0 && $user->mailQuota > $domainObj->maxQuota) {
+            ApiResponse::error("User quota exceeds domain maximum ({$domainObj->maxQuota} MB)", 403);
+            return;
+        }
+        if ($domainObj->quota > 0 && ($domainObj->currentQuotaUsed + $user->mailQuota) > $domainObj->quota) {
+            ApiResponse::error("Total domain quota would be exceeded", 403);
+            return;
         }
 
         $validationErrors = \App\Models\UserPassword::validate($password, $password, $domainSettings);
@@ -234,6 +228,32 @@ class UserApiController
     }
 
     /** @return array{?string, ?string} */
+    /**
+     * Checks the input of a new mailbox.
+     *
+     * @param string $uid lowercased local part
+     * @return array{0: string, 1: int}|null the error message and HTTP status, or null when the input is valid
+     */
+    private static function newUserError(string $uid, string $password, string $domain, bool $domainExists): ?array
+    {
+        if ($uid === '' || $password === '') {
+            return ['uid and password are required', 400];
+        }
+        $address = "{$uid}@{$domain}";
+        if (filter_var($address, FILTER_VALIDATE_EMAIL) === false) {
+            return ['Invalid uid', 400];
+        }
+        // A global key passes the domain access check for any domain name.
+        if (!$domainExists) {
+            return ['Domain not found', 404];
+        }
+        if (RepositoryFactory::getAliasRepository()->isAddressInUse($address)) {
+            return ['Address already in use', 409];
+        }
+
+        return null;
+    }
+
     private static function parseEmail(string $email): array
     {
         if (!str_contains($email, '@')) {

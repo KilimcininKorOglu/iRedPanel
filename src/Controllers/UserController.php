@@ -361,17 +361,15 @@ class UserController
         $user = null;
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $userUid = $_POST['uid'] ?? '';
-            $user = $userRepo->getUser($domain, $userUid);
+            $userUid = strtolower(trim((string) ($_POST['uid'] ?? '')));
+            $uidError = self::newUserUidError($domain, $userUid);
 
-            if ($user !== null) {
-                $validationErrors['uid'] = Translator::translate('user.msg_exists', ['uid' => $userUid]);
-            } elseif (RepositoryFactory::getAliasRepository()->isAddressInUse(strtolower("{$userUid}@{$domain}"))) {
-                $validationErrors['uid'] = Translator::translate('common.msg_address_in_use', ['address' => "{$userUid}@{$domain}"]);
+            if ($uidError !== null) {
+                $validationErrors['uid'] = $uidError;
             } else {
                 try {
                     // The create form has no status field; a new mailbox starts active.
-                    $user = User::fromFormData($_POST + ['accountStatus' => true]);
+                    $user = User::fromFormData(['uid' => $userUid] + $_POST + ['accountStatus' => true]);
                     $password = $_POST['password'] ?? '';
                     $passwordRepeat = $_POST['password_repeat'] ?? '';
                     $validationErrors = UserPassword::validateLocalized($password, $passwordRepeat, self::domainSettings($domain));
@@ -439,6 +437,31 @@ class UserController
             'user' => $user,
             'defaultQuota' => $defaultQuota > 0 ? $defaultQuota : 100,
         ]);
+    }
+
+    /**
+     * Checks the lowercased local part of a new mailbox.
+     *
+     * @return ?string the translated error, or null when the address is valid and free
+     */
+    private static function newUserUidError(string $domain, string $uid): ?string
+    {
+        $address = "{$uid}@{$domain}";
+        if ($uid === '' || filter_var($address, FILTER_VALIDATE_EMAIL) === false) {
+            return Translator::translate('common.msg_invalid_email', ['address' => $address]);
+        }
+        // A global admin reaches the create page for any domain name.
+        if (RepositoryFactory::getDomainRepository()->getDomain($domain) === null) {
+            return Translator::translate('common.msg_domain_not_found', ['domain' => $domain]);
+        }
+        if (RepositoryFactory::getUserRepository()->getUser($domain, $uid) !== null) {
+            return Translator::translate('user.msg_exists', ['uid' => $uid]);
+        }
+        if (RepositoryFactory::getAliasRepository()->isAddressInUse($address)) {
+            return Translator::translate('common.msg_address_in_use', ['address' => $address]);
+        }
+
+        return null;
     }
 
     /**

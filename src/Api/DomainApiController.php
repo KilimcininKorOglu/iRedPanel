@@ -50,7 +50,8 @@ class DomainApiController
         ApiMiddleware::requireWriteAccess();
         $data = ApiMiddleware::getJsonBody();
         try {
-            $domain = Domain::fromFormData($data);
+            // A new domain starts active unless the request sets active, as in the web form.
+            $domain = Domain::fromFormData($data + ['active' => true]);
         } catch (\InvalidArgumentException $e) {
             ApiResponse::error($e->getMessage());
             return;

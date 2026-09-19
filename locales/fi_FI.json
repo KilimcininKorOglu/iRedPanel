@@ -98,7 +98,8 @@
     "msg_password_mismatch": "Salasana ja salasanan vahvistus eivät täsmää",
     "msg_bulk_select": "Valitse vähintään yksi kohde ja toiminto.",
     "msg_domain_not_found": "Verkkotunnusta :domain ei ole olemassa.",
-    "msg_invalid_whole_number": ":field: anna kokonaisluku 0 tai suurempi."
+    "msg_invalid_whole_number": ":field: anna kokonaisluku 0 tai suurempi.",
+    "msg_invalid_input": "Lomakkeessa on arvo, jonka muoto on virheellinen."
   },
   "auth": {
     "title": "Todennus",

@@ -98,7 +98,8 @@
     "msg_password_mismatch": "A palavra-passe e a confirmação não coincidem",
     "msg_bulk_select": "Selecione pelo menos um item e uma ação.",
     "msg_domain_not_found": "O domínio :domain não existe.",
-    "msg_invalid_whole_number": ":field: introduza um número inteiro igual ou superior a 0."
+    "msg_invalid_whole_number": ":field: introduza um número inteiro igual ou superior a 0.",
+    "msg_invalid_input": "O formulário contém um valor com um formato inválido."
   },
   "auth": {
     "title": "Autenticação",

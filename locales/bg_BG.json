@@ -98,7 +98,8 @@
     "msg_password_mismatch": "Паролата и потвърждението ѝ не съвпадат",
     "msg_bulk_select": "Изберете поне един елемент и действие.",
     "msg_domain_not_found": "Домейнът :domain не съществува.",
-    "msg_invalid_whole_number": ":field: въведете цяло число, 0 или по-голямо."
+    "msg_invalid_whole_number": ":field: въведете цяло число, 0 или по-голямо.",
+    "msg_invalid_input": "Формулярът съдържа стойност с невалиден формат."
   },
   "auth": {
     "title": "Удостоверяване",

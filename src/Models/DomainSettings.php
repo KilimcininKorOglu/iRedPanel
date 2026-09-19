@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Utils\FormValue;
+
 /**
  * Represents per-domain settings stored in domain.settings column (MySQL)
  * or accountSetting attribute (LDAP) as key:value; pairs.
@@ -84,7 +86,7 @@ class DomainSettings
             defaultUserQuota: (int) ($post['defaultUserQuota'] ?? 0),
             minPasswordLength: (int) ($post['minPasswordLength'] ?? 0),
             maxPasswordLength: (int) ($post['maxPasswordLength'] ?? 0),
-            disclaimer: trim($post['disclaimer'] ?? ''),
+            disclaimer: FormValue::text($post, 'disclaimer'),
             disabledMailServices: $post['disabledMailServices'] ?? [],
         );
     }

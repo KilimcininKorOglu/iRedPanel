@@ -98,7 +98,8 @@
     "msg_password_mismatch": "Pasahitza eta berrespena ez datoz bat",
     "msg_bulk_select": "Hautatu gutxienez elementu bat eta ekintza bat.",
     "msg_domain_not_found": ":domain domeinua ez da existitzen.",
-    "msg_invalid_whole_number": ":field: idatzi 0 edo handiagoa den zenbaki oso bat."
+    "msg_invalid_whole_number": ":field: idatzi 0 edo handiagoa den zenbaki oso bat.",
+    "msg_invalid_input": "Inprimakiak formatu baliogabeko balio bat du."
   },
   "auth": {
     "title": "Autentifikazioa",

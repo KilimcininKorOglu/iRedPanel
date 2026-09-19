@@ -98,7 +98,8 @@
     "msg_password_mismatch": "Lösenordet och bekräftelsen matchar inte",
     "msg_bulk_select": "Välj minst ett objekt och en åtgärd.",
     "msg_domain_not_found": "Domänen :domain finns inte.",
-    "msg_invalid_whole_number": ":field: ange ett heltal på 0 eller mer."
+    "msg_invalid_whole_number": ":field: ange ett heltal på 0 eller mer.",
+    "msg_invalid_input": "Formuläret innehåller ett värde i ett ogiltigt format."
   },
   "auth": {
     "title": "Autentisering",

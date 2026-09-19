@@ -98,7 +98,8 @@
     "msg_password_mismatch": "Parola ve parola tekrarı aynı değil",
     "msg_bulk_select": "En az bir öğe ve bir işlem seçin.",
     "msg_domain_not_found": ":domain domain'i mevcut değil.",
-    "msg_invalid_whole_number": ":field: 0 veya daha büyük bir tam sayı girin."
+    "msg_invalid_whole_number": ":field: 0 veya daha büyük bir tam sayı girin.",
+    "msg_invalid_input": "Formda geçersiz formatta bir değer var."
   },
   "auth": {
     "title": "Kimlik Doğrulama",

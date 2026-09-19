@@ -98,7 +98,8 @@
     "msg_password_mismatch": "Parol və parolun təkrarı eyni deyil",
     "msg_bulk_select": "Ən azı bir element və bir əməliyyat seçin.",
     "msg_domain_not_found": ":domain domeni mövcud deyil.",
-    "msg_invalid_whole_number": ":field: 0 və ya daha böyük tam ədəd daxil edin."
+    "msg_invalid_whole_number": ":field: 0 və ya daha böyük tam ədəd daxil edin.",
+    "msg_invalid_input": "Formda yanlış formatlı dəyər var."
   },
   "auth": {
     "title": "Autentifikasiya",

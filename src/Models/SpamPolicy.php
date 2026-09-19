@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Utils\FormValue;
+
 class SpamPolicy
 {
     public function __construct(
@@ -49,7 +51,7 @@ class SpamPolicy
     public static function fromFormData(array $post): self
     {
         return new self(
-            policyName: trim($post['policyName'] ?? ''),
+            policyName: FormValue::text($post, 'policyName'),
             spamTagLevel: self::level($post, 'spamTagLevel'),
             spamTag2Level: self::level($post, 'spamTag2Level'),
             spamKillLevel: self::level($post, 'spamKillLevel'),

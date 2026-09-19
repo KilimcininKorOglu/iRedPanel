@@ -98,7 +98,8 @@
     "msg_password_mismatch": "Lykilorðið og staðfestingin passa ekki saman",
     "msg_bulk_select": "Veldu að minnsta kosti eitt atriði og eina aðgerð.",
     "msg_domain_not_found": "Lénið :domain er ekki til.",
-    "msg_invalid_whole_number": ":field: sláðu inn heiltölu, 0 eða hærri."
+    "msg_invalid_whole_number": ":field: sláðu inn heiltölu, 0 eða hærri.",
+    "msg_invalid_input": "Eyðublaðið inniheldur gildi á ógildu sniði."
   },
   "auth": {
     "title": "Auðkenning",

@@ -98,7 +98,8 @@
     "msg_password_mismatch": "Пароль і підтвердження пароля не збігаються",
     "msg_bulk_select": "Виберіть щонайменше один елемент і дію.",
     "msg_domain_not_found": "Домен :domain не існує.",
-    "msg_invalid_whole_number": ":field: введіть ціле число, не менше за 0."
+    "msg_invalid_whole_number": ":field: введіть ціле число, не менше за 0.",
+    "msg_invalid_input": "Форма містить значення в недійсному форматі."
   },
   "auth": {
     "title": "Автентифікація",

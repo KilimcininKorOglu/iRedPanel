@@ -98,7 +98,8 @@
     "msg_password_mismatch": "Parool ja parooli kinnitus ei ühti",
     "msg_bulk_select": "Valige vähemalt üks kirje ja toiming.",
     "msg_domain_not_found": "Domeeni :domain ei ole olemas.",
-    "msg_invalid_whole_number": ":field: sisestage täisarv 0 või suurem."
+    "msg_invalid_whole_number": ":field: sisestage täisarv 0 või suurem.",
+    "msg_invalid_input": "Vorm sisaldab vigases vormingus väärtust."
   },
   "auth": {
     "title": "Autentimine",

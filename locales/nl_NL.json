@@ -98,7 +98,8 @@
     "msg_password_mismatch": "Wachtwoord en wachtwoordbevestiging komen niet overeen",
     "msg_bulk_select": "Selecteer minstens één item en een actie.",
     "msg_domain_not_found": "Het domein :domain bestaat niet.",
-    "msg_invalid_whole_number": ":field: voer een geheel getal van 0 of meer in."
+    "msg_invalid_whole_number": ":field: voer een geheel getal van 0 of meer in.",
+    "msg_invalid_input": "Het formulier bevat een waarde met een ongeldige indeling."
   },
   "auth": {
     "title": "Authenticatie",

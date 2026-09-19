@@ -98,7 +98,8 @@
     "msg_password_mismatch": "Parola și confirmarea parolei nu se potrivesc",
     "msg_bulk_select": "Selectați cel puțin un element și o acțiune.",
     "msg_domain_not_found": "Domeniul :domain nu există.",
-    "msg_invalid_whole_number": ":field: introduceți un număr întreg de 0 sau mai mare."
+    "msg_invalid_whole_number": ":field: introduceți un număr întreg de 0 sau mai mare.",
+    "msg_invalid_input": "Formularul conține o valoare cu un format nevalid."
   },
   "auth": {
     "title": "Autentificare",

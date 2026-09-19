@@ -98,7 +98,8 @@
     "msg_password_mismatch": "Лозинка и потврда лозинке се не поклапају",
     "msg_bulk_select": "Изаберите бар једну ставку и радњу.",
     "msg_domain_not_found": "Домен :domain не постоји.",
-    "msg_invalid_whole_number": ":field: унесите цео број, 0 или већи."
+    "msg_invalid_whole_number": ":field: унесите цео број, 0 или већи.",
+    "msg_invalid_input": "Образац садржи вредност у неисправном формату."
   },
   "auth": {
     "title": "Аутентификација",

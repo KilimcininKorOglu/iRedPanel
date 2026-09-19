@@ -98,7 +98,8 @@
     "msg_password_mismatch": "Mật khẩu và mật khẩu xác nhận không khớp",
     "msg_bulk_select": "Chọn ít nhất một mục và một thao tác.",
     "msg_domain_not_found": "Tên miền :domain không tồn tại.",
-    "msg_invalid_whole_number": ":field: nhập số nguyên từ 0 trở lên."
+    "msg_invalid_whole_number": ":field: nhập số nguyên từ 0 trở lên.",
+    "msg_invalid_input": "Biểu mẫu có một giá trị sai định dạng."
   },
   "auth": {
     "title": "Xác thực",

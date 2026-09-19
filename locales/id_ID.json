@@ -98,7 +98,8 @@
     "msg_password_mismatch": "Kata sandi dan konfirmasi kata sandi tidak cocok",
     "msg_bulk_select": "Pilih setidaknya satu item dan satu tindakan.",
     "msg_domain_not_found": "Domain :domain tidak ada.",
-    "msg_invalid_whole_number": ":field: masukkan bilangan bulat 0 atau lebih."
+    "msg_invalid_whole_number": ":field: masukkan bilangan bulat 0 atau lebih.",
+    "msg_invalid_input": "Formulir berisi nilai dengan format yang tidak valid."
   },
   "auth": {
     "title": "Autentikasi",

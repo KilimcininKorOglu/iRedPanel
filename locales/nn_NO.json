@@ -98,7 +98,8 @@
     "msg_password_mismatch": "Passordet og stadfestinga er ikkje like",
     "msg_bulk_select": "Vel minst eitt element og ei handling.",
     "msg_domain_not_found": "Domenet :domain finst ikkje.",
-    "msg_invalid_whole_number": ":field: skriv inn eit heiltal på 0 eller meir."
+    "msg_invalid_whole_number": ":field: skriv inn eit heiltal på 0 eller meir.",
+    "msg_invalid_input": "Skjemaet inneheld ein verdi i eit ugyldig format."
   },
   "auth": {
     "title": "Autentisering",

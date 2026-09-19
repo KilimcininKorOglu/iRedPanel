@@ -98,7 +98,8 @@
     "msg_password_mismatch": "รหัสผ่านและการยืนยันรหัสผ่านไม่ตรงกัน",
     "msg_bulk_select": "เลือกอย่างน้อยหนึ่งรายการและหนึ่งการดำเนินการ",
     "msg_domain_not_found": "ไม่มีโดเมน :domain",
-    "msg_invalid_whole_number": ":field: ป้อนจำนวนเต็มตั้งแต่ 0 ขึ้นไป"
+    "msg_invalid_whole_number": ":field: ป้อนจำนวนเต็มตั้งแต่ 0 ขึ้นไป",
+    "msg_invalid_input": "แบบฟอร์มมีค่าที่มีรูปแบบไม่ถูกต้อง"
   },
   "auth": {
     "title": "การยืนยันตัวตน",

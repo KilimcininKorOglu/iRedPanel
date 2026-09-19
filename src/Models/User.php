@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Models;
 
 use App\Exceptions\InvalidInputException;
+use App\Utils\FormValue;
 use App\Utils\WholeNumber;
 
 /**
@@ -107,22 +108,22 @@ class User
     /**
      * Creates a User from $_POST form data.
      *
-     * @throws InvalidInputException when mailQuota is not a whole number of 0 or more
+     * @throws InvalidInputException when mailQuota is not a whole number of 0 or more, or a text field is not text
      */
     public static function fromFormData(array $post): self
     {
         return new self(
-            uid: trim($post['uid'] ?? ''),
+            uid: FormValue::text($post, 'uid'),
             // Use (bool) cast with null coalescing so JSON false is respected, not just key presence.
             accountStatus: (bool) ($post['accountStatus'] ?? false),
             mailQuota: self::validMailQuota($post['mailQuota'] ?? 100),
-            cn: trim($post['cn'] ?? ''),
-            givenName: trim($post['givenName'] ?? ''),
-            sn: trim($post['sn'] ?? ''),
-            employeeNumber: trim($post['employeeNumber'] ?? ''),
-            title: trim($post['title'] ?? ''),
-            mobile: trim($post['mobile'] ?? ''),
-            telephoneNumber: trim($post['telephoneNumber'] ?? ''),
+            cn: FormValue::text($post, 'cn'),
+            givenName: FormValue::text($post, 'givenName'),
+            sn: FormValue::text($post, 'sn'),
+            employeeNumber: FormValue::text($post, 'employeeNumber'),
+            title: FormValue::text($post, 'title'),
+            mobile: FormValue::text($post, 'mobile'),
+            telephoneNumber: FormValue::text($post, 'telephoneNumber'),
             domainGlobalAdmin: (bool) ($post['domainGlobalAdmin'] ?? false),
             enableSmtp: (bool) ($post['enableSmtp'] ?? false),
             enableSmtpSecured: (bool) ($post['enableSmtpSecured'] ?? false),

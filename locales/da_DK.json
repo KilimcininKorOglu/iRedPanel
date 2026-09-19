@@ -98,7 +98,8 @@
     "msg_password_mismatch": "Adgangskoden og bekræftelsen stemmer ikke overens",
     "msg_bulk_select": "Vælg mindst ét element og en handling.",
     "msg_domain_not_found": "Domænet :domain findes ikke.",
-    "msg_invalid_whole_number": ":field: angiv et heltal på 0 eller mere."
+    "msg_invalid_whole_number": ":field: angiv et heltal på 0 eller mere.",
+    "msg_invalid_input": "Formularen indeholder en værdi i et ugyldigt format."
   },
   "auth": {
     "title": "Godkendelse",

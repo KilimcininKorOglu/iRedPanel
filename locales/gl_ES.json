@@ -98,7 +98,8 @@
     "msg_password_mismatch": "O contrasinal e a confirmación non coinciden",
     "msg_bulk_select": "Seleccione polo menos un elemento e unha acción.",
     "msg_domain_not_found": "O dominio :domain non existe.",
-    "msg_invalid_whole_number": ":field: introduza un número enteiro igual ou maior que 0."
+    "msg_invalid_whole_number": ":field: introduza un número enteiro igual ou maior que 0.",
+    "msg_invalid_input": "O formulario contén un valor cun formato non válido."
   },
   "auth": {
     "title": "Autenticación",

@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Utils\FormValue;
+
 class Admin
 {
     public function __construct(
@@ -25,8 +27,8 @@ class Admin
     public static function fromFormData(array $post): self
     {
         return new self(
-            username: strtolower(trim($post['username'] ?? '')),
-            name: trim($post['name'] ?? ''),
+            username: strtolower(FormValue::text($post, 'username')),
+            name: FormValue::text($post, 'name'),
             active: isset($post['active']),
             isGlobalAdmin: isset($post['isGlobalAdmin']),
         );

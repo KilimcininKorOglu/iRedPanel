@@ -98,7 +98,8 @@
     "msg_password_mismatch": "パスワードと確認用パスワードが一致しません",
     "msg_bulk_select": "項目を 1 つ以上と操作を選択してください。",
     "msg_domain_not_found": "ドメイン :domain は存在しません。",
-    "msg_invalid_whole_number": ":field: 0 以上の整数を入力してください。"
+    "msg_invalid_whole_number": ":field: 0 以上の整数を入力してください。",
+    "msg_invalid_input": "フォームに無効な形式の値があります。"
   },
   "auth": {
     "title": "認証",

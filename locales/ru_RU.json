@@ -98,7 +98,8 @@
     "msg_password_mismatch": "Пароль и подтверждение пароля не совпадают",
     "msg_bulk_select": "Выберите хотя бы один элемент и действие.",
     "msg_domain_not_found": "Домен :domain не существует.",
-    "msg_invalid_whole_number": ":field: введите целое число не меньше 0."
+    "msg_invalid_whole_number": ":field: введите целое число не меньше 0.",
+    "msg_invalid_input": "Форма содержит значение в недопустимом формате."
   },
   "auth": {
     "title": "Аутентификация",

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Api;
 
+use App\Exceptions\InvalidInputException;
 use App\Models\SpamPolicy;
 use App\Repositories\RepositoryFactory;
 use App\Utils\AmavisdAddress;
@@ -32,6 +33,9 @@ class SpamPolicyApiController
         }
         try {
             $policy = SpamPolicy::fromFormData($data);
+        } catch (InvalidInputException $e) {
+            ApiResponse::error($e->getMessage());
+            return;
         } catch (\InvalidArgumentException $e) {
             ApiResponse::error("{$e->getMessage()} must be a number");
             return;

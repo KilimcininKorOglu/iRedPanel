@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Models;
 
 use App\Exceptions\InvalidInputException;
+use App\Utils\FormValue;
 use App\Utils\WholeNumber;
 
 class Domain
@@ -60,20 +61,20 @@ class Domain
     }
 
     /**
-     * @throws InvalidInputException when a limit is not a whole number of 0 or more
+     * @throws InvalidInputException when a limit is not a whole number of 0 or more, or a text field is not text
      */
     public static function fromFormData(array $post): self
     {
         return new self(
-            domainName: strtolower(trim($post['domainName'] ?? '')),
-            description: trim($post['description'] ?? ''),
+            domainName: strtolower(FormValue::text($post, 'domainName')),
+            description: FormValue::text($post, 'description'),
             active: (bool) ($post['active'] ?? false),
             maxQuota: self::validLimit($post['maxQuota'] ?? 0, 'maxQuota'),
             quota: self::validLimit($post['quota'] ?? 0, 'quota'),
             mailboxes: self::validLimit($post['mailboxes'] ?? 0, 'mailboxes'),
             aliases: self::validLimit($post['aliases'] ?? 0, 'aliases'),
-            transport: trim($post['transport'] ?? 'dovecot'),
-            settings: $post['settings'] ?? '',
+            transport: FormValue::text($post, 'transport', 'dovecot'),
+            settings: FormValue::text($post, 'settings'),
         );
     }
 

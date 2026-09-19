@@ -98,7 +98,8 @@
     "msg_password_mismatch": "Le mot de passe et sa confirmation ne correspondent pas",
     "msg_bulk_select": "Sélectionnez au moins un élément et une action.",
     "msg_domain_not_found": "Le domaine :domain n'existe pas.",
-    "msg_invalid_whole_number": ":field : saisissez un nombre entier supérieur ou égal à 0."
+    "msg_invalid_whole_number": ":field : saisissez un nombre entier supérieur ou égal à 0.",
+    "msg_invalid_input": "Le formulaire contient une valeur dont le format n'est pas valide."
   },
   "auth": {
     "title": "Authentification",

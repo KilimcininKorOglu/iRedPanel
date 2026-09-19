@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Utils\FormValue;
+
 class DomainAlias
 {
     public function __construct(
@@ -17,8 +19,8 @@ class DomainAlias
     public static function fromFormData(array $post): self
     {
         return new self(
-            aliasDomain: strtolower(trim($post['aliasDomain'] ?? '')),
-            targetDomain: strtolower(trim($post['targetDomain'] ?? '')),
+            aliasDomain: strtolower(FormValue::text($post, 'aliasDomain')),
+            targetDomain: strtolower(FormValue::text($post, 'targetDomain')),
             active: isset($post['active']),
         );
     }

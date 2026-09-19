@@ -238,7 +238,20 @@
     "col_tag2": "Silt 2",
     "col_kill": "Tagasilükkamine",
     "back": "Tagasi karantiini",
-    "msg_invalid_level": "Vigane väärtus: :field"
+    "msg_invalid_level": "Vigane väärtus: :field",
+    "bypass_banned": "Jäta keelatud failide kontroll vahele",
+    "bypass_header": "Jäta vigaste headerite kontroll vahele",
+    "quarantine": "Karantiin",
+    "quarantine_spam": "Rämpspost",
+    "quarantine_virus": "Viirus",
+    "quarantine_banned": "Keelatud failid",
+    "quarantine_bad_header": "Vigane header",
+    "quarantine_default": "Amavisdi vaikeväärtus",
+    "quarantine_on": "Pane karantiini",
+    "quarantine_off": "Ära pane karantiini",
+    "always_insert_x_spam_headers": "Lisa alati X-Spam headerid",
+    "always_insert_hint": "Amavisd lisab headerid alates tag-tasemest, see valik seab tag-taseme väärtusele -999.",
+    "msg_invalid_value": "Vigane väärtus: :field"
   },
   "dashboard": {
     "title": "Töölaud",

@@ -238,7 +238,20 @@
     "col_tag2": "Gắn thẻ 2",
     "col_kill": "Từ chối",
     "back": "Quay lại cách ly",
-    "msg_invalid_level": "Giá trị không hợp lệ: :field"
+    "msg_invalid_level": "Giá trị không hợp lệ: :field",
+    "bypass_banned": "Bỏ qua kiểm tra tệp bị cấm",
+    "bypass_header": "Bỏ qua kiểm tra header hỏng",
+    "quarantine": "Cách ly",
+    "quarantine_spam": "Thư rác",
+    "quarantine_virus": "Vi-rút",
+    "quarantine_banned": "Tệp bị cấm",
+    "quarantine_bad_header": "Header hỏng",
+    "quarantine_default": "Mặc định của Amavisd",
+    "quarantine_on": "Đưa vào cách ly",
+    "quarantine_off": "Không đưa vào cách ly",
+    "always_insert_x_spam_headers": "Luôn thêm header X-Spam",
+    "always_insert_hint": "Amavisd thêm header từ mức tag trở lên, tùy chọn này đặt mức tag là -999.",
+    "msg_invalid_value": "Giá trị không hợp lệ: :field"
   },
   "dashboard": {
     "title": "Bảng điều khiển",

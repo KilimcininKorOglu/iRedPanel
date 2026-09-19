@@ -79,16 +79,27 @@ class SpamPolicyController
         'spamKillLevel' => 'spampolicy.kill_level',
     ];
 
+    private const QUARANTINE_LABELS = [
+        'spamQuarantine' => 'spampolicy.quarantine_spam',
+        'virusQuarantine' => 'spampolicy.quarantine_virus',
+        'bannedQuarantine' => 'spampolicy.quarantine_banned',
+        'badHeaderQuarantine' => 'spampolicy.quarantine_bad_header',
+    ];
+
     /**
-     * Names the threshold field that SpamPolicy::fromFormData() rejected.
+     * Names the field that SpamPolicy::fromFormData() rejected.
      */
     public static function levelError(\InvalidArgumentException $e): string
     {
-        $labelKey = self::LEVEL_LABELS[$e->getMessage()] ?? null;
-        if ($labelKey === null) {
-            return BaseController::errorMessage($e);
+        $field = $e->getMessage();
+        if (isset(self::LEVEL_LABELS[$field])) {
+            return Translator::translate('spampolicy.msg_invalid_level', ['field' => Translator::translate(self::LEVEL_LABELS[$field])]);
         }
-        return Translator::translate('spampolicy.msg_invalid_level', ['field' => Translator::translate($labelKey)]);
+        if (isset(self::QUARANTINE_LABELS[$field])) {
+            return Translator::translate('spampolicy.msg_invalid_value', ['field' => Translator::translate(self::QUARANTINE_LABELS[$field])]);
+        }
+
+        return BaseController::errorMessage($e);
     }
 
     private static function requireEnabled(): void

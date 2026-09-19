@@ -238,7 +238,20 @@
     "col_tag2": "標記 2",
     "col_kill": "拒絕",
     "back": "返回隔離區",
-    "msg_invalid_level": "無效的值：:field"
+    "msg_invalid_level": "無效的值：:field",
+    "bypass_banned": "略過禁止檔案檢查",
+    "bypass_header": "略過錯誤 header 檢查",
+    "quarantine": "隔離",
+    "quarantine_spam": "垃圾郵件",
+    "quarantine_virus": "病毒",
+    "quarantine_banned": "禁止檔案",
+    "quarantine_bad_header": "錯誤 header",
+    "quarantine_default": "Amavisd 預設值",
+    "quarantine_on": "隔離",
+    "quarantine_off": "不隔離",
+    "always_insert_x_spam_headers": "一律加入 X-Spam header",
+    "always_insert_hint": "Amavisd 從 tag 等級開始加入 header，此選項把 tag 等級設為 -999。",
+    "msg_invalid_value": "無效的值：:field"
   },
   "dashboard": {
     "title": "儀表板",

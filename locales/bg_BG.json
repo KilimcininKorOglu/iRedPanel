@@ -238,7 +238,20 @@
     "col_tag2": "Маркер 2",
     "col_kill": "Отхвърляне",
     "back": "Назад към карантината",
-    "msg_invalid_level": "Невалидна стойност: :field"
+    "msg_invalid_level": "Невалидна стойност: :field",
+    "bypass_banned": "Пропусни проверката на забранени файлове",
+    "bypass_header": "Пропусни проверката на повредени header",
+    "quarantine": "Карантина",
+    "quarantine_spam": "Спам",
+    "quarantine_virus": "Вирус",
+    "quarantine_banned": "Забранени файлове",
+    "quarantine_bad_header": "Повреден header",
+    "quarantine_default": "Стойност на Amavisd по подразбиране",
+    "quarantine_on": "Постави в карантина",
+    "quarantine_off": "Не поставяй в карантина",
+    "always_insert_x_spam_headers": "Винаги добавяй header X-Spam",
+    "always_insert_hint": "Amavisd добавя header от нивото tag нагоре, тази опция задава ниво tag -999.",
+    "msg_invalid_value": "Невалидна стойност: :field"
   },
   "dashboard": {
     "title": "Табло",

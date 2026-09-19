@@ -238,7 +238,20 @@
     "col_tag2": "タグ 2",
     "col_kill": "ブロック",
     "back": "隔離に戻る",
-    "msg_invalid_level": "無効な値: :field"
+    "msg_invalid_level": "無効な値: :field",
+    "bypass_banned": "禁止ファイルの検査をスキップ",
+    "bypass_header": "不正な header の検査をスキップ",
+    "quarantine": "隔離",
+    "quarantine_spam": "スパム",
+    "quarantine_virus": "ウイルス",
+    "quarantine_banned": "禁止ファイル",
+    "quarantine_bad_header": "不正な header",
+    "quarantine_default": "Amavisd の既定値",
+    "quarantine_on": "隔離する",
+    "quarantine_off": "隔離しない",
+    "always_insert_x_spam_headers": "X-Spam header を常に追加する",
+    "always_insert_hint": "Amavisd は tag レベル以上で header を追加します。この設定は tag レベルを -999 にします。",
+    "msg_invalid_value": "無効な値: :field"
   },
   "dashboard": {
     "title": "ダッシュボード",

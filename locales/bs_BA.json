@@ -238,7 +238,20 @@
     "col_tag2": "Oznaka2",
     "col_kill": "Uništi",
     "back": "Nazad na karantin",
-    "msg_invalid_level": "Neispravna vrijednost: :field"
+    "msg_invalid_level": "Neispravna vrijednost: :field",
+    "bypass_banned": "Preskoči provjeru zabranjenih datoteka",
+    "bypass_header": "Preskoči provjeru neispravnih headera",
+    "quarantine": "Karantin",
+    "quarantine_spam": "Neželjena pošta",
+    "quarantine_virus": "Virus",
+    "quarantine_banned": "Zabranjene datoteke",
+    "quarantine_bad_header": "Neispravan header",
+    "quarantine_default": "Zadana vrijednost Amavisd",
+    "quarantine_on": "Stavi u karantin",
+    "quarantine_off": "Ne stavljaj u karantin",
+    "always_insert_x_spam_headers": "Uvijek dodaj X-Spam headere",
+    "always_insert_hint": "Amavisd dodaje headere od tag nivoa naviše, ova opcija postavlja tag nivo na -999.",
+    "msg_invalid_value": "Neispravna vrijednost: :field"
   },
   "dashboard": {
     "title": "Kontrolna ploča",

@@ -238,7 +238,20 @@
     "col_tag2": "Merki2",
     "col_kill": "Eyðing",
     "back": "Til baka í sóttkví",
-    "msg_invalid_level": "Ógilt gildi: :field"
+    "msg_invalid_level": "Ógilt gildi: :field",
+    "bypass_banned": "Sleppa athugun á bönnuðum skrám",
+    "bypass_header": "Sleppa athugun á gölluðum headerum",
+    "quarantine": "Sóttkví",
+    "quarantine_spam": "Ruslpóstur",
+    "quarantine_virus": "Vírus",
+    "quarantine_banned": "Bannaðar skrár",
+    "quarantine_bad_header": "Gallaður header",
+    "quarantine_default": "Sjálfgefið gildi Amavisd",
+    "quarantine_on": "Setja í sóttkví",
+    "quarantine_off": "Ekki setja í sóttkví",
+    "always_insert_x_spam_headers": "Bæta alltaf við X-Spam headerum",
+    "always_insert_hint": "Amavisd bætir headerum við frá tag stigi og upp, þessi valkostur setur tag stigið í -999.",
+    "msg_invalid_value": "Ógilt gildi: :field"
   },
   "dashboard": {
     "title": "Stjórnborð",

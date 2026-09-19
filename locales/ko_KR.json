@@ -238,7 +238,20 @@
     "col_tag2": "태그 2",
     "col_kill": "거부",
     "back": "격리로 돌아가기",
-    "msg_invalid_level": "잘못된 값: :field"
+    "msg_invalid_level": "잘못된 값: :field",
+    "bypass_banned": "금지된 파일 검사 건너뛰기",
+    "bypass_header": "잘못된 header 검사 건너뛰기",
+    "quarantine": "격리",
+    "quarantine_spam": "스팸",
+    "quarantine_virus": "바이러스",
+    "quarantine_banned": "금지된 파일",
+    "quarantine_bad_header": "잘못된 header",
+    "quarantine_default": "Amavisd 기본값",
+    "quarantine_on": "격리함",
+    "quarantine_off": "격리하지 않음",
+    "always_insert_x_spam_headers": "X-Spam header를 항상 추가",
+    "always_insert_hint": "Amavisd는 tag 수준부터 header를 추가합니다. 이 설정은 tag 수준을 -999로 만듭니다.",
+    "msg_invalid_value": "잘못된 값: :field"
   },
   "dashboard": {
     "title": "대시보드",

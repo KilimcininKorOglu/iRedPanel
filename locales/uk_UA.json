@@ -238,7 +238,20 @@
     "col_tag2": "Позначка 2",
     "col_kill": "Відхилення",
     "back": "Назад до карантину",
-    "msg_invalid_level": "Неприпустиме значення: :field"
+    "msg_invalid_level": "Неприпустиме значення: :field",
+    "bypass_banned": "Пропустити перевірку заборонених файлів",
+    "bypass_header": "Пропустити перевірку зіпсованих header",
+    "quarantine": "Карантин",
+    "quarantine_spam": "Спам",
+    "quarantine_virus": "Вірус",
+    "quarantine_banned": "Заборонені файли",
+    "quarantine_bad_header": "Зіпсований header",
+    "quarantine_default": "Значення Amavisd за замовчуванням",
+    "quarantine_on": "Поміщати в карантин",
+    "quarantine_off": "Не поміщати в карантин",
+    "always_insert_x_spam_headers": "Завжди додавати header X-Spam",
+    "always_insert_hint": "Amavisd додає header починаючи з рівня tag, цей параметр ставить рівень tag на -999.",
+    "msg_invalid_value": "Неправильне значення: :field"
   },
   "dashboard": {
     "title": "Панель керування",

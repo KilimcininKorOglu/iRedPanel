@@ -238,7 +238,20 @@
     "col_tag2": "Etiqueta2",
     "col_kill": "Eliminar",
     "back": "Volver á corentena",
-    "msg_invalid_level": "Valor non válido: :field"
+    "msg_invalid_level": "Valor non válido: :field",
+    "bypass_banned": "Omitir a comprobación de ficheiros prohibidos",
+    "bypass_header": "Omitir a comprobación de headers incorrectos",
+    "quarantine": "Corentena",
+    "quarantine_spam": "Spam",
+    "quarantine_virus": "Virus",
+    "quarantine_banned": "Ficheiros prohibidos",
+    "quarantine_bad_header": "Header incorrecto",
+    "quarantine_default": "Valor por defecto de Amavisd",
+    "quarantine_on": "Poñer en corentena",
+    "quarantine_off": "Non poñer en corentena",
+    "always_insert_x_spam_headers": "Engadir sempre os headers X-Spam",
+    "always_insert_hint": "Amavisd engade os headers a partir do nivel de tag, esta opción pon o nivel de tag en -999.",
+    "msg_invalid_value": "Valor non válido: :field"
   },
   "dashboard": {
     "title": "Panel",

@@ -280,7 +280,8 @@ class SelfServiceController
             return Translator::translate('spampolicy.msg_deleted');
         }
 
-        $repo->createOrUpdatePolicy($account['email'], SpamPolicy::fromFormData($_POST));
+        $policy = SpamPolicy::fromFormData($_POST)->keepAdminFields($repo->getPolicy($account['email']));
+        $repo->createOrUpdatePolicy($account['email'], $policy);
         ActivityLogger::logUpdate($account['domain'], $account['email'], 'Spam policy updated (self-service)');
 
         return Translator::translate('spampolicy.msg_updated');

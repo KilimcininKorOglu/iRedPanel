@@ -457,7 +457,7 @@ The REST API lives at `/api/v1/*`. It is disabled by default (`API_ENABLED=false
 | Admins | `GET, POST /admins`; `GET, PUT, DELETE /admins/{email}` |
 | Domain aliases | `GET, POST /domain-aliases`; `DELETE /domain-aliases/{aliasDomain}` |
 | Password check | `POST /verify-password/{accountType}/{email}` |
-| Spam policy | `GET, PUT /spam-policy/{account}` |
+| Spam policy | `GET, PUT, DELETE /spam-policy/{account}` |
 | White/blacklist | `GET, POST, DELETE /wblist/{account}` |
 | Throttle | `GET, PUT /throttle/{account}` |
 | Greylisting | `GET, PUT /greylist/{account}` |

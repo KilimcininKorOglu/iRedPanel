@@ -238,7 +238,20 @@
     "col_tag2": "แท็ก 2",
     "col_kill": "ปฏิเสธ",
     "back": "กลับไปที่การกักกัน",
-    "msg_invalid_level": "ค่าไม่ถูกต้อง: :field"
+    "msg_invalid_level": "ค่าไม่ถูกต้อง: :field",
+    "bypass_banned": "ข้ามการตรวจไฟล์ต้องห้าม",
+    "bypass_header": "ข้ามการตรวจ header ที่ผิด",
+    "quarantine": "การกักกัน",
+    "quarantine_spam": "สแปม",
+    "quarantine_virus": "ไวรัส",
+    "quarantine_banned": "ไฟล์ต้องห้าม",
+    "quarantine_bad_header": "header ที่ผิด",
+    "quarantine_default": "ค่าเริ่มต้นของ Amavisd",
+    "quarantine_on": "กักกันไว้",
+    "quarantine_off": "ไม่กักกัน",
+    "always_insert_x_spam_headers": "เพิ่ม header X-Spam เสมอ",
+    "always_insert_hint": "Amavisd เพิ่ม header ตั้งแต่ระดับ tag ขึ้นไป ตัวเลือกนี้ตั้งระดับ tag เป็น -999",
+    "msg_invalid_value": "ค่าไม่ถูกต้อง: :field"
   },
   "dashboard": {
     "title": "แดชบอร์ด",

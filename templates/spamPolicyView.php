@@ -8,11 +8,21 @@ $thresholds = [
 $switches = [
     'bypassVirusChecks' => 'spampolicy.bypass_virus',
     'bypassSpamChecks' => 'spampolicy.bypass_spam',
+    'bypassBannedChecks' => 'spampolicy.bypass_banned',
+    'bypassHeaderChecks' => 'spampolicy.bypass_header',
     'virusLover' => 'spampolicy.deliver_virus',
     'spamLover' => 'spampolicy.deliver_spam',
     'bannedFilesLover' => 'spampolicy.deliver_banned',
     'badHeaderLover' => 'spampolicy.deliver_bad_header',
 ];
+$quarantines = [
+    'spamQuarantine' => 'spampolicy.quarantine_spam',
+    'virusQuarantine' => 'spampolicy.quarantine_virus',
+    'bannedQuarantine' => 'spampolicy.quarantine_banned',
+    'badHeaderQuarantine' => 'spampolicy.quarantine_bad_header',
+];
+$quarantineChoices = ['default' => 'spampolicy.quarantine_default', 'yes' => 'spampolicy.quarantine_on', 'no' => 'spampolicy.quarantine_off'];
+$quarantineValue = static fn (?bool $stored): string => $stored === null ? 'default' : ($stored ? 'yes' : 'no');
 ?>
 <div class="page-header">
   <div>
@@ -63,6 +73,29 @@ $switches = [
               <label for="spamSubjectTag2" class="form-label"><?= $te('spampolicy.subject_tag2') ?></label>
               <input id="spamSubjectTag2" type="text" name="spamSubjectTag2" class="form-control" value="<?= $e($policy->spamSubjectTag2 ?? '') ?>" placeholder="e.g. [SPAM]" />
             </div>
+          </div>
+          <div class="form-check form-switch mt-3">
+            <input type="checkbox" class="form-check-input" id="alwaysInsertXSpamHeaders" name="alwaysInsertXSpamHeaders" <?= ($policy?->alwaysInsertXSpamHeaders() ?? false) ? 'checked' : '' ?> />
+            <label class="form-check-label" for="alwaysInsertXSpamHeaders"><?= $te('spampolicy.always_insert_x_spam_headers') ?></label>
+          </div>
+          <div class="form-text"><?= $te('spampolicy.always_insert_hint') ?></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header"><?= $te('spampolicy.quarantine') ?></div>
+        <div class="card-body">
+          <div class="row g-3">
+            <?php foreach ($quarantines as $field => $labelKey): ?>
+            <div class="col-md-6">
+              <label for="<?= $field ?>" class="form-label"><?= $te($labelKey) ?></label>
+              <select id="<?= $field ?>" name="<?= $field ?>" class="form-select">
+                <?php foreach ($quarantineChoices as $choice => $choiceKey): ?>
+                <option value="<?= $choice ?>"<?= $quarantineValue($policy->$field ?? null) === $choice ? ' selected' : '' ?>><?= $te($choiceKey) ?></option>
+                <?php endforeach; ?>
+              </select>
+            </div>
+            <?php endforeach; ?>
           </div>
         </div>
       </div>

@@ -238,7 +238,20 @@
     "col_tag2": "Marqueur 2",
     "col_kill": "Blocage",
     "back": "Retour à la quarantaine",
-    "msg_invalid_level": "Valeur invalide : :field"
+    "msg_invalid_level": "Valeur invalide : :field",
+    "bypass_banned": "Ignorer la vérification des fichiers interdits",
+    "bypass_header": "Ignorer la vérification des headers incorrects",
+    "quarantine": "Quarantaine",
+    "quarantine_spam": "Spam",
+    "quarantine_virus": "Virus",
+    "quarantine_banned": "Fichiers interdits",
+    "quarantine_bad_header": "Header incorrect",
+    "quarantine_default": "Défaut d'Amavisd",
+    "quarantine_on": "Mettre en quarantaine",
+    "quarantine_off": "Ne pas mettre en quarantaine",
+    "always_insert_x_spam_headers": "Toujours ajouter les headers X-Spam",
+    "always_insert_hint": "Amavisd ajoute les headers à partir du niveau de tag, cette option met le niveau de tag à -999.",
+    "msg_invalid_value": "Valeur invalide : :field"
   },
   "dashboard": {
     "title": "Tableau de bord",

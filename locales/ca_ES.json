@@ -238,7 +238,20 @@
     "col_tag2": "Etiqueta 2",
     "col_kill": "Rebuig",
     "back": "Tornar a la quarantena",
-    "msg_invalid_level": "Valor no vàlid: :field"
+    "msg_invalid_level": "Valor no vàlid: :field",
+    "bypass_banned": "Omet la comprovació de fitxers prohibits",
+    "bypass_header": "Omet la comprovació de headers incorrectes",
+    "quarantine": "Quarantena",
+    "quarantine_spam": "Spam",
+    "quarantine_virus": "Virus",
+    "quarantine_banned": "Fitxers prohibits",
+    "quarantine_bad_header": "Header incorrecte",
+    "quarantine_default": "Valor per defecte d'Amavisd",
+    "quarantine_on": "Posa en quarantena",
+    "quarantine_off": "No posis en quarantena",
+    "always_insert_x_spam_headers": "Afegeix sempre els headers X-Spam",
+    "always_insert_hint": "Amavisd afegeix els headers a partir del nivell de tag, aquesta opció posa el nivell de tag a -999.",
+    "msg_invalid_value": "Valor no vàlid: :field"
   },
   "dashboard": {
     "title": "Tauler",

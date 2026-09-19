@@ -238,7 +238,20 @@
     "col_tag2": "标记 2",
     "col_kill": "拦截",
     "back": "返回隔离区",
-    "msg_invalid_level": "无效的值：:field"
+    "msg_invalid_level": "无效的值：:field",
+    "bypass_banned": "跳过禁止文件检查",
+    "bypass_header": "跳过错误 header 检查",
+    "quarantine": "隔离",
+    "quarantine_spam": "垃圾邮件",
+    "quarantine_virus": "病毒",
+    "quarantine_banned": "禁止文件",
+    "quarantine_bad_header": "错误 header",
+    "quarantine_default": "Amavisd 默认值",
+    "quarantine_on": "隔离",
+    "quarantine_off": "不隔离",
+    "always_insert_x_spam_headers": "始终添加 X-Spam header",
+    "always_insert_hint": "Amavisd 从 tag 级别开始添加 header，此选项把 tag 级别设为 -999。",
+    "msg_invalid_value": "无效的值：:field"
   },
   "dashboard": {
     "title": "仪表板",

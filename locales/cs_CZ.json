@@ -238,7 +238,20 @@
     "col_tag2": "Označení 2",
     "col_kill": "Odmítnutí",
     "back": "Zpět na karanténu",
-    "msg_invalid_level": "Neplatná hodnota: :field"
+    "msg_invalid_level": "Neplatná hodnota: :field",
+    "bypass_banned": "Přeskočit kontrolu zakázaných souborů",
+    "bypass_header": "Přeskočit kontrolu vadných headerů",
+    "quarantine": "Karanténa",
+    "quarantine_spam": "Spam",
+    "quarantine_virus": "Virus",
+    "quarantine_banned": "Zakázané soubory",
+    "quarantine_bad_header": "Vadný header",
+    "quarantine_default": "Výchozí hodnota Amavisd",
+    "quarantine_on": "Dát do karantény",
+    "quarantine_off": "Nedávat do karantény",
+    "always_insert_x_spam_headers": "Vždy přidat headery X-Spam",
+    "always_insert_hint": "Amavisd přidává headery od úrovně tag, tato volba nastaví úroveň tag na -999.",
+    "msg_invalid_value": "Neplatná hodnota: :field"
   },
   "dashboard": {
     "title": "Přehled",

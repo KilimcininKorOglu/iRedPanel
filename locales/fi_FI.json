@@ -238,7 +238,20 @@
     "col_tag2": "Merkintä 2",
     "col_kill": "Hylkäys",
     "back": "Takaisin karanteeniin",
-    "msg_invalid_level": "Virheellinen arvo: :field"
+    "msg_invalid_level": "Virheellinen arvo: :field",
+    "bypass_banned": "Ohita kiellettyjen tiedostojen tarkistus",
+    "bypass_header": "Ohita virheellisten headerien tarkistus",
+    "quarantine": "Karanteeni",
+    "quarantine_spam": "Roskaposti",
+    "quarantine_virus": "Virus",
+    "quarantine_banned": "Kielletyt tiedostot",
+    "quarantine_bad_header": "Virheellinen header",
+    "quarantine_default": "Amavisdin oletus",
+    "quarantine_on": "Siirrä karanteeniin",
+    "quarantine_off": "Älä siirrä karanteeniin",
+    "always_insert_x_spam_headers": "Lisää X-Spam-headerit aina",
+    "always_insert_hint": "Amavisd lisää headerit tag-tasosta alkaen, tämä valinta asettaa tag-tason arvoon -999.",
+    "msg_invalid_value": "Virheellinen arvo: :field"
   },
   "dashboard": {
     "title": "Kojelauta",

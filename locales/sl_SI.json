@@ -238,7 +238,20 @@
     "col_tag2": "Oznaka 2",
     "col_kill": "Zavrnitev",
     "back": "Nazaj na karanteno",
-    "msg_invalid_level": "Neveljavna vrednost: :field"
+    "msg_invalid_level": "Neveljavna vrednost: :field",
+    "bypass_banned": "Preskoči preverjanje prepovedanih datotek",
+    "bypass_header": "Preskoči preverjanje napačnih headerjev",
+    "quarantine": "Karantena",
+    "quarantine_spam": "Neželena pošta",
+    "quarantine_virus": "Virus",
+    "quarantine_banned": "Prepovedane datoteke",
+    "quarantine_bad_header": "Napačen header",
+    "quarantine_default": "Privzeta vrednost Amavisd",
+    "quarantine_on": "Daj v karanteno",
+    "quarantine_off": "Ne daj v karanteno",
+    "always_insert_x_spam_headers": "Vedno dodaj headerje X-Spam",
+    "always_insert_hint": "Amavisd doda headerje od ravni tag naprej, ta možnost nastavi raven tag na -999.",
+    "msg_invalid_value": "Neveljavna vrednost: :field"
   },
   "dashboard": {
     "title": "Nadzorna plošča",

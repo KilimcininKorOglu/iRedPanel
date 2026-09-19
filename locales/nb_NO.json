@@ -238,7 +238,20 @@
     "col_tag2": "Merke 2",
     "col_kill": "Avvis",
     "back": "Tilbake til karantene",
-    "msg_invalid_level": "Ugyldig verdi: :field"
+    "msg_invalid_level": "Ugyldig verdi: :field",
+    "bypass_banned": "Hopp over kontroll av forbudte filer",
+    "bypass_header": "Hopp over kontroll av feil headere",
+    "quarantine": "Karantene",
+    "quarantine_spam": "Spam",
+    "quarantine_virus": "Virus",
+    "quarantine_banned": "Forbudte filer",
+    "quarantine_bad_header": "Feil header",
+    "quarantine_default": "Amavisd-standard",
+    "quarantine_on": "Sett i karantene",
+    "quarantine_off": "Ikke sett i karantene",
+    "always_insert_x_spam_headers": "Legg alltid til X-Spam-headere",
+    "always_insert_hint": "Amavisd legger til headerne fra tag-nivået og oppover, dette valget setter tag-nivået til -999.",
+    "msg_invalid_value": "Ugyldig verdi: :field"
   },
   "dashboard": {
     "title": "Kontrollpanel",

@@ -238,7 +238,20 @@
     "col_tag2": "Tag 2",
     "col_kill": "Blokkeren",
     "back": "Terug naar quarantaine",
-    "msg_invalid_level": "Ongeldige waarde: :field"
+    "msg_invalid_level": "Ongeldige waarde: :field",
+    "bypass_banned": "Controle op verboden bestanden overslaan",
+    "bypass_header": "Controle op foute headers overslaan",
+    "quarantine": "Quarantaine",
+    "quarantine_spam": "Spam",
+    "quarantine_virus": "Virus",
+    "quarantine_banned": "Verboden bestanden",
+    "quarantine_bad_header": "Foute header",
+    "quarantine_default": "Standaard van Amavisd",
+    "quarantine_on": "In quarantaine",
+    "quarantine_off": "Niet in quarantaine",
+    "always_insert_x_spam_headers": "X-Spam-headers altijd toevoegen",
+    "always_insert_hint": "Amavisd voegt de headers toe vanaf het tag-niveau, deze optie zet het tag-niveau op -999.",
+    "msg_invalid_value": "Ongeldige waarde: :field"
   },
   "dashboard": {
     "title": "Dashboard",

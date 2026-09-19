@@ -238,7 +238,20 @@
     "col_tag2": "Etichetare 2",
     "col_kill": "Respingere",
     "back": "Înapoi la carantină",
-    "msg_invalid_level": "Valoare invalidă: :field"
+    "msg_invalid_level": "Valoare invalidă: :field",
+    "bypass_banned": "Sari peste verificarea fișierelor interzise",
+    "bypass_header": "Sari peste verificarea headerelor greșite",
+    "quarantine": "Carantină",
+    "quarantine_spam": "Spam",
+    "quarantine_virus": "Virus",
+    "quarantine_banned": "Fișiere interzise",
+    "quarantine_bad_header": "Header greșit",
+    "quarantine_default": "Valoarea implicită Amavisd",
+    "quarantine_on": "Pune în carantină",
+    "quarantine_off": "Nu pune în carantină",
+    "always_insert_x_spam_headers": "Adaugă mereu headerele X-Spam",
+    "always_insert_hint": "Amavisd adaugă headerele de la nivelul tag în sus, această opțiune pune nivelul tag la -999.",
+    "msg_invalid_value": "Valoare nevalidă: :field"
   },
   "dashboard": {
     "title": "Tablou de bord",

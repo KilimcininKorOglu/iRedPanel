@@ -603,6 +603,9 @@ $router->addRoute('GET', '/api/v1/spam-policy/{account}', function (string $acco
 $router->addRoute('PUT', '/api/v1/spam-policy/{account}', function (string $account) use ($apiAuth) {
     $apiAuth(); SpamPolicyApiController::update($account);
 });
+$router->addRoute('DELETE', '/api/v1/spam-policy/{account}', function (string $account) use ($apiAuth) {
+    $apiAuth(); SpamPolicyApiController::delete($account);
+});
 
 // White/Blacklist API
 $router->addRoute('GET', '/api/v1/wblist/{account}', function (string $account) use ($apiAuth) {

@@ -238,7 +238,20 @@
     "col_tag2": "Címke 2",
     "col_kill": "Elutasítás",
     "back": "Vissza a karanténba",
-    "msg_invalid_level": "Érvénytelen érték: :field"
+    "msg_invalid_level": "Érvénytelen érték: :field",
+    "bypass_banned": "Tiltott fájlok ellenőrzésének kihagyása",
+    "bypass_header": "Hibás headerek ellenőrzésének kihagyása",
+    "quarantine": "Karantén",
+    "quarantine_spam": "Spam",
+    "quarantine_virus": "Vírus",
+    "quarantine_banned": "Tiltott fájlok",
+    "quarantine_bad_header": "Hibás header",
+    "quarantine_default": "Amavisd alapértelmezés",
+    "quarantine_on": "Karanténba",
+    "quarantine_off": "Ne kerüljön karanténba",
+    "always_insert_x_spam_headers": "Mindig adja hozzá az X-Spam headereket",
+    "always_insert_hint": "Az Amavisd a tag szinttől kezdve adja hozzá a headereket, ez a beállítás a tag szintet -999-re állítja.",
+    "msg_invalid_value": "Érvénytelen érték: :field"
   },
   "dashboard": {
     "title": "Vezérlőpult",

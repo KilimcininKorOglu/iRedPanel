@@ -108,62 +108,22 @@ class PgsqlSpamPolicyRepository implements SpamPolicyRepositoryInterface
 
     private function insertPolicyRow(\PDO $pdo, SpamPolicy $policy, string $account): int
     {
-        $stmt = $pdo->prepare(
-            "INSERT INTO policy (policy_name, spam_tag_level, spam_tag2_level, spam_kill_level,
-             spam_subject_tag, spam_subject_tag2, bypass_virus_checks, bypass_spam_checks,
-             virus_lover, spam_lover, banned_files_lover, bad_header_lover)
-             VALUES (:name, :tag, :tag2, :kill, :subj, :subj2, :bvc, :bsc, :vl, :sl, :bfl, :bhl)
-             RETURNING id"
-        );
         // getPolicy() finds the policy by this name, so it is always the account.
-        $stmt->execute($this->policyParams($policy, $account));
+        $columns = ['policy_name' => $account] + $policy->columns();
+        $names = implode(', ', array_keys($columns));
+        $placeholders = implode(', ', array_map(static fn (string $column): string => ':' . $column, array_keys($columns)));
+
+        $stmt = $pdo->prepare("INSERT INTO policy ({$names}) VALUES ({$placeholders}) RETURNING id");
+        $stmt->execute($columns);
 
         return (int) $stmt->fetchColumn();
     }
 
     private function updatePolicyRow(\PDO $pdo, int $policyId, SpamPolicy $policy): void
     {
-        $pdo->prepare(
-            "UPDATE policy SET spam_tag_level = :tag, spam_tag2_level = :tag2, spam_kill_level = :kill,
-             spam_subject_tag = :subj, spam_subject_tag2 = :subj2, bypass_virus_checks = :bvc,
-             bypass_spam_checks = :bsc, virus_lover = :vl, spam_lover = :sl,
-             banned_files_lover = :bfl, bad_header_lover = :bhl
-             WHERE id = :id"
-        )->execute(array_merge($this->policyUpdateParams($policy), ['id' => $policyId]));
-    }
+        $columns = $policy->columns();
+        $assignments = implode(', ', array_map(static fn (string $column): string => "{$column} = :{$column}", array_keys($columns)));
 
-    private function policyParams(SpamPolicy $policy, string $name): array
-    {
-        return [
-            'name' => $name,
-            'tag' => $policy->spamTagLevel,
-            'tag2' => $policy->spamTag2Level,
-            'kill' => $policy->spamKillLevel,
-            'subj' => $policy->spamSubjectTag,
-            'subj2' => $policy->spamSubjectTag2,
-            'bvc' => SpamPolicy::boolToYn($policy->bypassVirusChecks),
-            'bsc' => SpamPolicy::boolToYn($policy->bypassSpamChecks),
-            'vl' => SpamPolicy::boolToYn($policy->virusLover),
-            'sl' => SpamPolicy::boolToYn($policy->spamLover),
-            'bfl' => SpamPolicy::boolToYn($policy->bannedFilesLover),
-            'bhl' => SpamPolicy::boolToYn($policy->badHeaderLover),
-        ];
-    }
-
-    private function policyUpdateParams(SpamPolicy $policy): array
-    {
-        return [
-            'tag' => $policy->spamTagLevel,
-            'tag2' => $policy->spamTag2Level,
-            'kill' => $policy->spamKillLevel,
-            'subj' => $policy->spamSubjectTag,
-            'subj2' => $policy->spamSubjectTag2,
-            'bvc' => SpamPolicy::boolToYn($policy->bypassVirusChecks),
-            'bsc' => SpamPolicy::boolToYn($policy->bypassSpamChecks),
-            'vl' => SpamPolicy::boolToYn($policy->virusLover),
-            'sl' => SpamPolicy::boolToYn($policy->spamLover),
-            'bfl' => SpamPolicy::boolToYn($policy->bannedFilesLover),
-            'bhl' => SpamPolicy::boolToYn($policy->badHeaderLover),
-        ];
+        $pdo->prepare("UPDATE policy SET {$assignments} WHERE id = :id")->execute($columns + ['id' => $policyId]);
     }
 }

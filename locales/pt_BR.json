@@ -238,7 +238,20 @@
     "col_tag2": "Marcação 2",
     "col_kill": "Rejeição",
     "back": "Voltar à quarentena",
-    "msg_invalid_level": "Valor inválido: :field"
+    "msg_invalid_level": "Valor inválido: :field",
+    "bypass_banned": "Ignorar a verificação de arquivos proibidos",
+    "bypass_header": "Ignorar a verificação de headers incorretos",
+    "quarantine": "Quarentena",
+    "quarantine_spam": "Spam",
+    "quarantine_virus": "Vírus",
+    "quarantine_banned": "Arquivos proibidos",
+    "quarantine_bad_header": "Header incorreto",
+    "quarantine_default": "Padrão do Amavisd",
+    "quarantine_on": "Colocar em quarentena",
+    "quarantine_off": "Não colocar em quarentena",
+    "always_insert_x_spam_headers": "Adicionar sempre os headers X-Spam",
+    "always_insert_hint": "O Amavisd adiciona os headers a partir do nível de tag, esta opção coloca o nível de tag em -999.",
+    "msg_invalid_value": "Valor inválido: :field"
   },
   "dashboard": {
     "title": "Painel",

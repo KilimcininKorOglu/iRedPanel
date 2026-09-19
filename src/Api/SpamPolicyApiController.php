@@ -19,7 +19,7 @@ class SpamPolicyApiController
             ApiResponse::error('No policy found for account', 404);
             return;
         }
-        ApiResponse::success((array) $policy);
+        ApiResponse::success(['account' => $account, 'alwaysInsertXSpamHeaders' => $policy->alwaysInsertXSpamHeaders()] + $policy->toArray());
     }
 
     public static function update(string $account): void
@@ -31,16 +31,50 @@ class SpamPolicyApiController
             ApiResponse::error('Invalid account');
             return;
         }
+
+        $repo = RepositoryFactory::getSpamPolicyRepository();
+        $stored = $repo->getPolicy($account);
         try {
-            $policy = SpamPolicy::fromFormData($data);
+            // The body changes single fields; the stored policy carries the rest.
+            $policy = SpamPolicy::fromFormData($data + ($stored?->toArray() ?? []));
         } catch (InvalidInputException $e) {
             ApiResponse::error($e->getMessage());
             return;
         } catch (\InvalidArgumentException $e) {
-            ApiResponse::error("{$e->getMessage()} must be a number");
+            ApiResponse::error(self::fieldError($e->getMessage()));
             return;
         }
-        RepositoryFactory::getSpamPolicyRepository()->createOrUpdatePolicy($account, $policy);
+        $repo->createOrUpdatePolicy($account, $policy);
         ApiResponse::success(['message' => 'Spam policy updated']);
+    }
+
+    /**
+     * The message for a field that SpamPolicy::fromFormData() rejected.
+     */
+    private static function fieldError(string $field): string
+    {
+        if (array_key_exists($field, SpamPolicy::QUARANTINE_COLUMNS)) {
+            return "{$field} must be default, yes or no";
+        }
+
+        return "{$field} must be a number";
+    }
+
+    /**
+     * Removes the policy of the account, which then follows the policy of its
+     * domain or the global one again.
+     */
+    public static function delete(string $account): void
+    {
+        ApiMiddleware::requireGlobalKey();
+        ApiMiddleware::requireWriteAccess();
+        $repo = RepositoryFactory::getSpamPolicyRepository();
+        if ($repo->getPolicy($account) === null) {
+            ApiResponse::error('No policy found for account', 404);
+            return;
+        }
+
+        $repo->deletePolicy($account);
+        ApiResponse::deleted();
     }
 }

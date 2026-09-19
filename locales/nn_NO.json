@@ -238,7 +238,20 @@
     "col_tag2": "Merke2",
     "col_kill": "Slett",
     "back": "Tilbake til karantene",
-    "msg_invalid_level": "Ugyldig verdi: :field"
+    "msg_invalid_level": "Ugyldig verdi: :field",
+    "bypass_banned": "Hopp over kontroll av forbodne filer",
+    "bypass_header": "Hopp over kontroll av feil headerar",
+    "quarantine": "Karantene",
+    "quarantine_spam": "Spam",
+    "quarantine_virus": "Virus",
+    "quarantine_banned": "Forbodne filer",
+    "quarantine_bad_header": "Feil header",
+    "quarantine_default": "Amavisd-standard",
+    "quarantine_on": "Set i karantene",
+    "quarantine_off": "Ikkje set i karantene",
+    "always_insert_x_spam_headers": "Legg alltid til X-Spam-headerar",
+    "always_insert_hint": "Amavisd legg til headerane frå tag-nivået og oppover, dette valet set tag-nivået til -999.",
+    "msg_invalid_value": "Ugyldig verdi: :field"
   },
   "dashboard": {
     "title": "Oversikt",

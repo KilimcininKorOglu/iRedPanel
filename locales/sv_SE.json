@@ -238,7 +238,20 @@
     "col_tag2": "Märkning 2",
     "col_kill": "Avvisning",
     "back": "Tillbaka till karantän",
-    "msg_invalid_level": "Ogiltigt värde: :field"
+    "msg_invalid_level": "Ogiltigt värde: :field",
+    "bypass_banned": "Hoppa över kontrollen av förbjudna filer",
+    "bypass_header": "Hoppa över kontrollen av felaktiga headers",
+    "quarantine": "Karantän",
+    "quarantine_spam": "Spam",
+    "quarantine_virus": "Virus",
+    "quarantine_banned": "Förbjudna filer",
+    "quarantine_bad_header": "Felaktig header",
+    "quarantine_default": "Amavisd-standard",
+    "quarantine_on": "Sätt i karantän",
+    "quarantine_off": "Sätt inte i karantän",
+    "always_insert_x_spam_headers": "Lägg alltid till X-Spam-headers",
+    "always_insert_hint": "Amavisd lägger till headers från tag-nivån och uppåt, det här valet sätter tag-nivån till -999.",
+    "msg_invalid_value": "Ogiltigt värde: :field"
   },
   "dashboard": {
     "title": "Instrumentpanel",

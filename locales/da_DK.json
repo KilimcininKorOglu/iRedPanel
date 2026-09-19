@@ -238,7 +238,20 @@
     "col_tag2": "Tag2",
     "col_kill": "Kill",
     "back": "Tilbage til karantæne",
-    "msg_invalid_level": "Ugyldig værdi: :field"
+    "msg_invalid_level": "Ugyldig værdi: :field",
+    "bypass_banned": "Spring kontrollen af forbudte filer over",
+    "bypass_header": "Spring kontrollen af forkerte headers over",
+    "quarantine": "Karantæne",
+    "quarantine_spam": "Spam",
+    "quarantine_virus": "Virus",
+    "quarantine_banned": "Forbudte filer",
+    "quarantine_bad_header": "Forkert header",
+    "quarantine_default": "Amavisd-standard",
+    "quarantine_on": "Sæt i karantæne",
+    "quarantine_off": "Sæt ikke i karantæne",
+    "always_insert_x_spam_headers": "Tilføj altid X-Spam-headers",
+    "always_insert_hint": "Amavisd tilføjer headers fra tag-niveauet og opefter, dette valg sætter tag-niveauet til -999.",
+    "msg_invalid_value": "Ugyldig værdi: :field"
   },
   "dashboard": {
     "title": "Betjeningspanel",

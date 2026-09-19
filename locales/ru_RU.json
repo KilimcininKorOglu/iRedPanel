@@ -238,7 +238,20 @@
     "col_tag2": "Метка 2",
     "col_kill": "Блокировка",
     "back": "Назад к карантину",
-    "msg_invalid_level": "Недопустимое значение: :field"
+    "msg_invalid_level": "Недопустимое значение: :field",
+    "bypass_banned": "Пропустить проверку запрещённых файлов",
+    "bypass_header": "Пропустить проверку испорченных header",
+    "quarantine": "Карантин",
+    "quarantine_spam": "Спам",
+    "quarantine_virus": "Вирус",
+    "quarantine_banned": "Запрещённые файлы",
+    "quarantine_bad_header": "Испорченный header",
+    "quarantine_default": "Значение Amavisd по умолчанию",
+    "quarantine_on": "Помещать в карантин",
+    "quarantine_off": "Не помещать в карантин",
+    "always_insert_x_spam_headers": "Всегда добавлять header X-Spam",
+    "always_insert_hint": "Amavisd добавляет header начиная с уровня tag, этот параметр ставит уровень tag в -999.",
+    "msg_invalid_value": "Неверное значение: :field"
   },
   "dashboard": {
     "title": "Панель",

@@ -238,7 +238,20 @@
     "col_tag2": "Tag2",
     "col_kill": "Kill",
     "back": "Zurück zur Quarantäne",
-    "msg_invalid_level": "Ungültiger Wert: :field"
+    "msg_invalid_level": "Ungültiger Wert: :field",
+    "bypass_banned": "Prüfung verbotener Dateien überspringen",
+    "bypass_header": "Prüfung fehlerhafter Header überspringen",
+    "quarantine": "Quarantäne",
+    "quarantine_spam": "Spam",
+    "quarantine_virus": "Virus",
+    "quarantine_banned": "Verbotene Dateien",
+    "quarantine_bad_header": "Fehlerhafter Header",
+    "quarantine_default": "Amavisd-Standard",
+    "quarantine_on": "In Quarantäne",
+    "quarantine_off": "Nicht in Quarantäne",
+    "always_insert_x_spam_headers": "X-Spam-Header immer hinzufügen",
+    "always_insert_hint": "Amavisd fügt die Header ab dem Tag-Level hinzu, diese Option setzt das Tag-Level auf -999.",
+    "msg_invalid_value": "Ungültiger Wert: :field"
   },
   "dashboard": {
     "title": "Übersicht",

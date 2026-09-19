@@ -238,7 +238,20 @@
     "col_tag2": "Označenie 2",
     "col_kill": "Odmietnutie",
     "back": "Späť na karanténu",
-    "msg_invalid_level": "Neplatná hodnota: :field"
+    "msg_invalid_level": "Neplatná hodnota: :field",
+    "bypass_banned": "Preskočiť kontrolu zakázaných súborov",
+    "bypass_header": "Preskočiť kontrolu chybných headerov",
+    "quarantine": "Karanténa",
+    "quarantine_spam": "Spam",
+    "quarantine_virus": "Vírus",
+    "quarantine_banned": "Zakázané súbory",
+    "quarantine_bad_header": "Chybný header",
+    "quarantine_default": "Predvolená hodnota Amavisd",
+    "quarantine_on": "Dať do karantény",
+    "quarantine_off": "Nedávať do karantény",
+    "always_insert_x_spam_headers": "Vždy pridať headery X-Spam",
+    "always_insert_hint": "Amavisd pridáva headery od úrovne tag, táto voľba nastaví úroveň tag na -999.",
+    "msg_invalid_value": "Neplatná hodnota: :field"
   },
   "dashboard": {
     "title": "Nástenka",

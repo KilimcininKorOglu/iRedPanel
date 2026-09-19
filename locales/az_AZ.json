@@ -238,7 +238,20 @@
     "col_tag2": "Etiket2",
     "col_kill": "Kill",
     "back": "Karantinə qayıt",
-    "msg_invalid_level": "Yanlış dəyər: :field"
+    "msg_invalid_level": "Yanlış dəyər: :field",
+    "bypass_banned": "Qadağan olunmuş fayl yoxlamasını atla",
+    "bypass_header": "Pozulmuş header yoxlamasını atla",
+    "quarantine": "Karantin",
+    "quarantine_spam": "Spam",
+    "quarantine_virus": "Virus",
+    "quarantine_banned": "Qadağan olunmuş fayllar",
+    "quarantine_bad_header": "Pozulmuş header",
+    "quarantine_default": "Amavisd standartı",
+    "quarantine_on": "Karantinə al",
+    "quarantine_off": "Karantinə alma",
+    "always_insert_x_spam_headers": "X-Spam header-lərini həmişə əlavə et",
+    "always_insert_hint": "Amavisd header-ləri tag səviyyəsindən başlayaraq əlavə edir, bu seçim tag səviyyəsini -999 edir.",
+    "msg_invalid_value": "Yanlış dəyər: :field"
   },
   "dashboard": {
     "title": "İdarə paneli",

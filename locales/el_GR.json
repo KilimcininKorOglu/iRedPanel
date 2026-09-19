@@ -238,7 +238,20 @@
     "col_tag2": "Επισήμανση 2",
     "col_kill": "Απόρριψη",
     "back": "Πίσω στην καραντίνα",
-    "msg_invalid_level": "Μη έγκυρη τιμή: :field"
+    "msg_invalid_level": "Μη έγκυρη τιμή: :field",
+    "bypass_banned": "Παράλειψη ελέγχου απαγορευμένων αρχείων",
+    "bypass_header": "Παράλειψη ελέγχου λανθασμένων header",
+    "quarantine": "Καραντίνα",
+    "quarantine_spam": "Spam",
+    "quarantine_virus": "Ιός",
+    "quarantine_banned": "Απαγορευμένα αρχεία",
+    "quarantine_bad_header": "Λανθασμένο header",
+    "quarantine_default": "Προεπιλογή του Amavisd",
+    "quarantine_on": "Σε καραντίνα",
+    "quarantine_off": "Χωρίς καραντίνα",
+    "always_insert_x_spam_headers": "Να προστίθενται πάντα τα header X-Spam",
+    "always_insert_hint": "Το Amavisd προσθέτει τα header από το επίπεδο tag και πάνω, αυτή η επιλογή ορίζει το επίπεδο tag σε -999.",
+    "msg_invalid_value": "Μη έγκυρη τιμή: :field"
   },
   "dashboard": {
     "title": "Πίνακας ελέγχου",

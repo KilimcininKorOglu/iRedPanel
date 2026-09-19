@@ -238,7 +238,20 @@
     "col_tag2": "Tag2",
     "col_kill": "Kill",
     "back": "Back to quarantine",
-    "msg_invalid_level": "Invalid value: :field"
+    "msg_invalid_level": "Invalid value: :field",
+    "bypass_banned": "Bypass banned file checks",
+    "bypass_header": "Bypass bad header checks",
+    "quarantine": "Quarantine",
+    "quarantine_spam": "Spam",
+    "quarantine_virus": "Virus",
+    "quarantine_banned": "Banned files",
+    "quarantine_bad_header": "Bad header",
+    "quarantine_default": "Amavisd default",
+    "quarantine_on": "Quarantine",
+    "quarantine_off": "Do not quarantine",
+    "always_insert_x_spam_headers": "Always add the X-Spam headers",
+    "always_insert_hint": "Amavisd adds the headers from the tag level on, so this sets the tag level to -999.",
+    "msg_invalid_value": "Invalid value: :field"
   },
   "dashboard": {
     "title": "Dashboard",

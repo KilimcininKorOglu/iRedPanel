@@ -238,7 +238,20 @@
     "col_tag2": "Etiketa2",
     "col_kill": "Ezabatu",
     "back": "Itzuli berrogeialdira",
-    "msg_invalid_level": "Balio baliogabea: :field"
+    "msg_invalid_level": "Balio baliogabea: :field",
+    "bypass_banned": "Saltatu debekatutako fitxategien egiaztapena",
+    "bypass_header": "Saltatu header okerren egiaztapena",
+    "quarantine": "Koarentena",
+    "quarantine_spam": "Spam",
+    "quarantine_virus": "Birusa",
+    "quarantine_banned": "Debekatutako fitxategiak",
+    "quarantine_bad_header": "Header okerra",
+    "quarantine_default": "Amavisd-en balio lehenetsia",
+    "quarantine_on": "Koarentenara eraman",
+    "quarantine_off": "Ez eraman koarentenara",
+    "always_insert_x_spam_headers": "Gehitu beti X-Spam header-ak",
+    "always_insert_hint": "Amavisd-ek header-ak tag mailatik gora gehitzen ditu, aukera honek tag maila -999 jartzen du.",
+    "msg_invalid_value": "Balio baliogabea: :field"
   },
   "dashboard": {
     "title": "Aginte-panela",

@@ -238,7 +238,20 @@
     "col_tag2": "Etiket2",
     "col_kill": "Kill",
     "back": "Karantinaya dön",
-    "msg_invalid_level": "Geçersiz değer: :field"
+    "msg_invalid_level": "Geçersiz değer: :field",
+    "bypass_banned": "Yasaklı dosya kontrolünü atla",
+    "bypass_header": "Bozuk header kontrolünü atla",
+    "quarantine": "Karantina",
+    "quarantine_spam": "Spam",
+    "quarantine_virus": "Virüs",
+    "quarantine_banned": "Yasaklı dosyalar",
+    "quarantine_bad_header": "Bozuk header",
+    "quarantine_default": "Amavisd varsayılanı",
+    "quarantine_on": "Karantinaya al",
+    "quarantine_off": "Karantinaya alma",
+    "always_insert_x_spam_headers": "X-Spam header'larını her zaman ekle",
+    "always_insert_hint": "Amavisd header'ları tag seviyesinden itibaren ekler, bu seçenek tag seviyesini -999 yapar.",
+    "msg_invalid_value": "Geçersiz değer: :field"
   },
   "dashboard": {
     "title": "Kontrol Paneli",

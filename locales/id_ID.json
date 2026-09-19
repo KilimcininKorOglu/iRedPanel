@@ -238,7 +238,20 @@
     "col_tag2": "Tag 2",
     "col_kill": "Tolak",
     "back": "Kembali ke karantina",
-    "msg_invalid_level": "Nilai tidak valid: :field"
+    "msg_invalid_level": "Nilai tidak valid: :field",
+    "bypass_banned": "Lewati pemeriksaan berkas terlarang",
+    "bypass_header": "Lewati pemeriksaan header rusak",
+    "quarantine": "Karantina",
+    "quarantine_spam": "Spam",
+    "quarantine_virus": "Virus",
+    "quarantine_banned": "Berkas terlarang",
+    "quarantine_bad_header": "Header rusak",
+    "quarantine_default": "Bawaan Amavisd",
+    "quarantine_on": "Karantinakan",
+    "quarantine_off": "Jangan karantinakan",
+    "always_insert_x_spam_headers": "Selalu tambahkan header X-Spam",
+    "always_insert_hint": "Amavisd menambahkan header mulai dari level tag, opsi ini menyetel level tag ke -999.",
+    "msg_invalid_value": "Nilai tidak valid: :field"
   },
   "dashboard": {
     "title": "Dasbor",

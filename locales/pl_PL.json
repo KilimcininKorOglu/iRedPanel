@@ -238,7 +238,20 @@
     "col_tag2": "Oznaczenie 2",
     "col_kill": "Odrzucenie",
     "back": "Powrót do kwarantanny",
-    "msg_invalid_level": "Nieprawidłowa wartość: :field"
+    "msg_invalid_level": "Nieprawidłowa wartość: :field",
+    "bypass_banned": "Pomiń kontrolę zabronionych plików",
+    "bypass_header": "Pomiń kontrolę błędnych headerów",
+    "quarantine": "Kwarantanna",
+    "quarantine_spam": "Spam",
+    "quarantine_virus": "Wirus",
+    "quarantine_banned": "Zabronione pliki",
+    "quarantine_bad_header": "Błędny header",
+    "quarantine_default": "Domyślna wartość Amavisd",
+    "quarantine_on": "Przenieś do kwarantanny",
+    "quarantine_off": "Nie przenoś do kwarantanny",
+    "always_insert_x_spam_headers": "Zawsze dodawaj headery X-Spam",
+    "always_insert_hint": "Amavisd dodaje headery od poziomu tag, ta opcja ustawia poziom tag na -999.",
+    "msg_invalid_value": "Nieprawidłowa wartość: :field"
   },
   "dashboard": {
     "title": "Panel",

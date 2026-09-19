@@ -97,7 +97,7 @@ class LdapUserRepository implements UserRepositoryInterface
             LdapUtils::modReplace('accountStatus', $user->accountStatus ? 'active' : 'disabled'),
         ];
 
-        if (!ldap_modify_batch($conn, $dn, $mods)) {
+        if (!LdapUtils::modifyBatch($conn, $dn, $mods)) {
             throw new \RuntimeException('LDAP update failed: ' . ldap_error($conn));
         }
 

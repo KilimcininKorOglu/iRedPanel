@@ -88,7 +88,7 @@ class LdapAuthRepository implements AuthRepositoryInterface
         $conn = LdapConnection::getInstance()->getConn();
         $dn = LdapUtils::getEmailDn($email);
 
-        @ldap_modify_batch($conn, $dn, [LdapUtils::modReplace('preferredLanguage', $locale)]);
+        LdapUtils::modifyBatch($conn, $dn, [LdapUtils::modReplace('preferredLanguage', $locale)]);
     }
 
     public function supportsLanguagePersistence(): bool

@@ -135,7 +135,7 @@ class LdapDomainRepository implements DomainRepositoryInterface
             LdapUtils::modReplace('accountStatus', $domain->active ? 'active' : 'disabled'),
         ];
 
-        if (!ldap_modify_batch($conn, $dn, $mods)) {
+        if (!LdapUtils::modifyBatch($conn, $dn, $mods)) {
             throw new \RuntimeException('LDAP domain update failed: ' . ldap_error($conn));
         }
 

@@ -133,7 +133,7 @@ class LdapMailingListRepository implements MailingListRepositoryInterface
             LdapUtils::modReplace('maxMessageSize', $maxMsgSize > 0 ? (string) $maxMsgSize : null),
         ];
 
-        return @ldap_modify_batch($conn, $dn, $modifications);
+        return LdapUtils::modifyBatch($conn, $dn, $modifications);
     }
 
     public function deleteMailingList(string $address): bool
@@ -189,7 +189,7 @@ class LdapMailingListRepository implements MailingListRepositoryInterface
             ];
         }
 
-        return @ldap_modify_batch($conn, $dn, [$modification]);
+        return LdapUtils::modifyBatch($conn, $dn, [$modification]);
     }
 
     public function enableDisableMailingList(string $address, bool $active): bool
@@ -198,7 +198,7 @@ class LdapMailingListRepository implements MailingListRepositoryInterface
         $dn = $this->getMailingListDn($address);
 
         $modification = LdapUtils::modReplace('accountStatus', $active ? 'active' : 'disabled');
-        return @ldap_modify_batch($conn, $dn, [$modification]);
+        return LdapUtils::modifyBatch($conn, $dn, [$modification]);
     }
 
     private function getMailingListDn(string $address): string

@@ -85,6 +85,6 @@ class LdapBccRepository implements BccRepositoryInterface
         $conn = LdapConnection::getInstance()->getConn();
 
         $modification = LdapUtils::modReplace($attribute, $value);
-        return @ldap_modify_batch($conn, $dn, [$modification]);
+        return LdapUtils::modifyBatch($conn, $dn, [$modification]);
     }
 }

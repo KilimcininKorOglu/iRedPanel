@@ -99,7 +99,7 @@ class LdapAdminRepository implements AdminRepositoryInterface
             LdapUtils::modReplace('domainGlobalAdmin', $admin->isGlobalAdmin ? 'yes' : null),
         ];
 
-        if (!ldap_modify_batch($conn, $dn, $mods)) {
+        if (!LdapUtils::modifyBatch($conn, $dn, $mods)) {
             throw new \RuntimeException('LDAP admin update failed: ' . ldap_error($conn));
         }
     }
@@ -152,7 +152,7 @@ class LdapAdminRepository implements AdminRepositoryInterface
 
         $mods = [LdapUtils::modReplace('domainGlobalAdmin', null)];
 
-        if (!ldap_modify_batch($conn, $dn, $mods)) {
+        if (!LdapUtils::modifyBatch($conn, $dn, $mods)) {
             throw new \RuntimeException('LDAP admin revocation failed: ' . ldap_error($conn));
         }
     }

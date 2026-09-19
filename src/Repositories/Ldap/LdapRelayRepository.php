@@ -34,7 +34,7 @@ class LdapRelayRepository implements RelayRepositoryInterface
         $dn = $this->getDnForAccount($account);
 
         $modification = LdapUtils::modReplace('senderRelayHost', $relayhost);
-        return @ldap_modify_batch($conn, $dn, [$modification]);
+        return LdapUtils::modifyBatch($conn, $dn, [$modification]);
     }
 
     public function getAllRelayhosts(?string $domain = null): array

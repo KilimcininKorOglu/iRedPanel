@@ -136,7 +136,7 @@ class LdapAliasRepository implements AliasRepositoryInterface
             ];
         }
 
-        return @ldap_modify_batch($conn, $dn, $modifications);
+        return LdapUtils::modifyBatch($conn, $dn, $modifications);
     }
 
     public function deleteAlias(string $address): bool
@@ -233,7 +233,7 @@ class LdapAliasRepository implements AliasRepositoryInterface
             ];
         }
 
-        return @ldap_modify_batch($conn, $dn, [$modification]);
+        return LdapUtils::modifyBatch($conn, $dn, [$modification]);
     }
 
     public function getUserAliases(string $email): array
@@ -321,7 +321,7 @@ class LdapAliasRepository implements AliasRepositoryInterface
         $domainDn = LdapUtils::getDomainDn($domain);
 
         $modification = LdapUtils::modReplace('catchallAddress', $targetEmail);
-        return @ldap_modify_batch($conn, $domainDn, [$modification]);
+        return LdapUtils::modifyBatch($conn, $domainDn, [$modification]);
     }
 
     public function enableDisableAlias(string $address, bool $active): bool
@@ -330,7 +330,7 @@ class LdapAliasRepository implements AliasRepositoryInterface
         $dn = $this->getAliasGroupDn($address);
 
         $modification = LdapUtils::modReplace('accountStatus', $active ? 'active' : 'disabled');
-        return @ldap_modify_batch($conn, $dn, [$modification]);
+        return LdapUtils::modifyBatch($conn, $dn, [$modification]);
     }
 
     private function getAliasGroupDn(string $address): string

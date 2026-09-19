@@ -329,7 +329,9 @@
     "alias_remove_confirm": "Retirer :alias ?",
     "no_aliases": "Aucune adresse d'alias configurée pour cet utilisateur.",
     "bcc_desc": "Copies CCI des e-mails envoyés ou reçus vers les adresses spécifiées.",
-    "relay_desc": "Acheminer le courrier sortant de cet utilisateur via un serveur relais spécifique."
+    "relay_desc": "Acheminer le courrier sortant de cet utilisateur via un serveur relais spécifique.",
+    "export_csv": "Exporter les utilisateurs (CSV)",
+    "export_json": "Exporter les utilisateurs (JSON)"
   },
   "mlist": {
     "msg_updated": "Liste de diffusion mise à jour !",

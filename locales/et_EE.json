@@ -329,7 +329,9 @@
     "alias_remove_confirm": "Kas eemaldada :alias?",
     "no_aliases": "Selle kasutaja jaoks pole aliasaadresse seadistatud.",
     "bcc_desc": "BCC koopiad saadetud või vastuvõetud e-postist määratud aadressidele.",
-    "relay_desc": "Suuna selle kasutaja väljaminev post läbi kindla edastusserveri."
+    "relay_desc": "Suuna selle kasutaja väljaminev post läbi kindla edastusserveri.",
+    "export_csv": "Ekspordi kasutajad (CSV)",
+    "export_json": "Ekspordi kasutajad (JSON)"
   },
   "mlist": {
     "msg_updated": "Postiloend uuendatud!",

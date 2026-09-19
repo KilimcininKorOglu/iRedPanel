@@ -329,7 +329,9 @@
     "alias_remove_confirm": "Eltávolítja a(z) :alias címet?",
     "no_aliases": "Ehhez a felhasználóhoz nincs beállítva álnév-cím.",
     "bcc_desc": "A küldött vagy fogadott e-mailek BCC-másolatai a megadott címekre.",
-    "relay_desc": "A felhasználótól kimenő levelek irányítása egy adott továbbító szerveren keresztül."
+    "relay_desc": "A felhasználótól kimenő levelek irányítása egy adott továbbító szerveren keresztül.",
+    "export_csv": "Felhasználók exportálása (CSV)",
+    "export_json": "Felhasználók exportálása (JSON)"
   },
   "mlist": {
     "msg_updated": "Levelezőlista frissítve!",

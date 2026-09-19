@@ -329,7 +329,9 @@
     "alias_remove_confirm": "Odstranim :alias?",
     "no_aliases": "Za tega uporabnika ni konfiguriranih naslovov vzdevkov.",
     "bcc_desc": "BCC kopije poslanih ali prejetih e-poštnih sporočil na navedene naslove.",
-    "relay_desc": "Usmerjaj odhodno pošto tega uporabnika prek določenega strežnika za posredovanje."
+    "relay_desc": "Usmerjaj odhodno pošto tega uporabnika prek določenega strežnika za posredovanje.",
+    "export_csv": "Izvozi uporabnike (CSV)",
+    "export_json": "Izvozi uporabnike (JSON)"
   },
   "mlist": {
     "msg_updated": "Poštni seznam posodobljen!",

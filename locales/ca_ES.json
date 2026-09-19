@@ -329,7 +329,9 @@
     "alias_remove_confirm": "Treure :alias?",
     "no_aliases": "No hi ha adreces d'àlies configurades per a aquest usuari.",
     "bcc_desc": "Còpies CCO dels correus enviats o rebuts a les adreces especificades.",
-    "relay_desc": "Encaminar el correu de sortida d'aquest usuari a través d'un servidor de retransmissió específic."
+    "relay_desc": "Encaminar el correu de sortida d'aquest usuari a través d'un servidor de retransmissió específic.",
+    "export_csv": "Exporta els usuaris (CSV)",
+    "export_json": "Exporta els usuaris (JSON)"
   },
   "mlist": {
     "msg_updated": "Llista de correu actualitzada!",

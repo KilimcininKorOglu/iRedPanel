@@ -329,7 +329,9 @@
     "alias_remove_confirm": "Odebrat :alias?",
     "no_aliases": "Pro tohoto uživatele nejsou nakonfigurovány žádné adresy aliasů.",
     "bcc_desc": "Odesílá kopie BCC odeslaných nebo přijatých e-mailů na zadané adresy.",
-    "relay_desc": "Směrujte odchozí poštu od tohoto uživatele přes konkrétní přenosový server."
+    "relay_desc": "Směrujte odchozí poštu od tohoto uživatele přes konkrétní přenosový server.",
+    "export_csv": "Exportovat uživatele (CSV)",
+    "export_json": "Exportovat uživatele (JSON)"
   },
   "mlist": {
     "msg_updated": "Poštovní konference aktualizována!",

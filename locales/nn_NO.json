@@ -329,7 +329,9 @@
     "alias_remove_confirm": "Fjerne :alias?",
     "no_aliases": "Ingen aliasadresser konfigurerte for denne brukaren.",
     "bcc_desc": "BCC-kopiar av sende eller mottekne e-postar til dei oppgjevne adressene.",
-    "relay_desc": "Rut utgåande e-post frå denne brukaren gjennom ein bestemt relétenar."
+    "relay_desc": "Rut utgåande e-post frå denne brukaren gjennom ein bestemt relétenar.",
+    "export_csv": "Eksporter brukarar (CSV)",
+    "export_json": "Eksporter brukarar (JSON)"
   },
   "mlist": {
     "msg_updated": "E-postliste oppdatert!",

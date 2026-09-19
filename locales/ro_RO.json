@@ -329,7 +329,9 @@
     "alias_remove_confirm": "Eliminați :alias?",
     "no_aliases": "Nu sunt configurate adrese de alias pentru acest utilizator.",
     "bcc_desc": "Trimite copii BCC ale email-urilor trimise sau primite către adresele specificate.",
-    "relay_desc": "Direcționează email-urile de ieșire de la acest utilizator prin intermediul unui server de releu specific."
+    "relay_desc": "Direcționează email-urile de ieșire de la acest utilizator prin intermediul unui server de releu specific.",
+    "export_csv": "Exportă utilizatorii (CSV)",
+    "export_json": "Exportă utilizatorii (JSON)"
   },
   "mlist": {
     "msg_updated": "Lista de corespondență a fost actualizată!",

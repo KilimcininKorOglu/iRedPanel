@@ -329,7 +329,9 @@
     "alias_remove_confirm": "Ta bort :alias?",
     "no_aliases": "Inga aliasadresser konfigurerade för denna användare.",
     "bcc_desc": "Skickar BCC-kopior av skickade eller mottagna e-postmeddelanden till angivna adresser.",
-    "relay_desc": "Dirigera utgående post från denna användare via en specifik reläserver."
+    "relay_desc": "Dirigera utgående post från denna användare via en specifik reläserver.",
+    "export_csv": "Exportera användare (CSV)",
+    "export_json": "Exportera användare (JSON)"
   },
   "mlist": {
     "msg_updated": "Sändlista uppdaterad!",

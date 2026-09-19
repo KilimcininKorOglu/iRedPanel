@@ -329,7 +329,9 @@
     "alias_remove_confirm": ":alias kaldırılsın mı?",
     "no_aliases": "Bu kullanıcı için yapılandırılmış takma adres yok.",
     "bcc_desc": "Gönderilen veya alınan e-postaların kopyalarını belirtilen adreslere BCC olarak gönderir.",
-    "relay_desc": "Bu kullanıcıdan giden postayı belirli bir aktarma sunucusu üzerinden yönlendirin."
+    "relay_desc": "Bu kullanıcıdan giden postayı belirli bir aktarma sunucusu üzerinden yönlendirin.",
+    "export_csv": "Kullanıcıları dışa aktar (CSV)",
+    "export_json": "Kullanıcıları dışa aktar (JSON)"
   },
   "mlist": {
     "msg_updated": "Posta listesi güncellendi!",

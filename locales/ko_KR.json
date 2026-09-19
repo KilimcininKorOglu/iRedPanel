@@ -329,7 +329,9 @@
     "alias_remove_confirm": ":alias를 제거하시겠습니까?",
     "no_aliases": "이 사용자에 대해 구성된 별칭 주소가 없습니다.",
     "bcc_desc": "보내거나 받은 모든 이메일의 BCC 사본을 지정된 주소로 보냅니다.",
-    "relay_desc": "이 사용자의 발신 메일을 특정 릴레이 서버를 통해 라우팅합니다."
+    "relay_desc": "이 사용자의 발신 메일을 특정 릴레이 서버를 통해 라우팅합니다.",
+    "export_csv": "사용자 내보내기 (CSV)",
+    "export_json": "사용자 내보내기 (JSON)"
   },
   "mlist": {
     "msg_updated": "메일링 리스트가 업데이트되었습니다!",

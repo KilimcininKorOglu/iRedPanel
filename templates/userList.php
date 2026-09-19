@@ -11,13 +11,15 @@
         </div>
       </div>
 
-      <?php if (!empty($supportsCreate)): ?>
       <div class="row">
         <div class="col">
+          <?php if (!empty($supportsCreate)): ?>
           <a href="/<?= $e($domain) ?>/users/create" class="button primary outline"><?= $te('user.create') ?></a>
+          <?php endif; ?>
+          <a href="/export/domain/<?= $e(rawurlencode($domain)) ?>" class="button outline"><?= $te('user.export_csv') ?></a>
+          <a href="/export/domain/<?= $e(rawurlencode($domain)) ?>?format=json" class="button outline"><?= $te('user.export_json') ?></a>
         </div>
       </div>
-      <?php endif; ?>
 
       <?php
       $letters = range('A', 'Z');

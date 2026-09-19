@@ -329,7 +329,9 @@
     "alias_remove_confirm": "¿Quitar :alias?",
     "no_aliases": "No hay direcciones de alias configuradas para este usuario.",
     "bcc_desc": "Copias en CCO de los correos enviados o recibidos a las direcciones especificadas.",
-    "relay_desc": "Enrutar el correo saliente de este usuario a través de un servidor de retransmisión específico."
+    "relay_desc": "Enrutar el correo saliente de este usuario a través de un servidor de retransmisión específico.",
+    "export_csv": "Exportar usuarios (CSV)",
+    "export_json": "Exportar usuarios (JSON)"
   },
   "mlist": {
     "msg_updated": "¡Lista de correo actualizada!",

@@ -329,7 +329,9 @@
     "alias_remove_confirm": ":alias çıxarılsın?",
     "no_aliases": "Bu istifadəçi üçün təxəllüs ünvanı konfiqurasiya edilməyib.",
     "bcc_desc": "Göndərilən və ya alınan e-poçtların surətlərini göstərilən ünvanlara BCC edir.",
-    "relay_desc": "Bu istifadəçidən gedən poçtu xüsusi relay serveri üzərindən yönləndirin."
+    "relay_desc": "Bu istifadəçidən gedən poçtu xüsusi relay serveri üzərindən yönləndirin.",
+    "export_csv": "İstifadəçiləri ixrac et (CSV)",
+    "export_json": "İstifadəçiləri ixrac et (JSON)"
   },
   "mlist": {
     "msg_updated": "Poçt siyahısı yeniləndi!",

@@ -20,6 +20,7 @@ use App\Services\AccountSettingsService;
 use App\Services\ActivityLogger;
 use App\Services\AdminLimits;
 use App\Services\Replication\ReplicatedAccountGuard;
+use App\Services\UserAliasService;
 use App\TemplateEngine;
 use App\Utils\FormValue;
 use App\Utils\PasswordUtils;
@@ -41,12 +42,7 @@ class UserController
         $startsWith = $_GET['letter'] ?? null;
         $sortBy = $_GET['sort'] ?? 'uid';
         $sortDir = $_GET['dir'] ?? 'asc';
-        $statusFilter = $_GET['status'] ?? null;
-        $activeOnly = match ($statusFilter) {
-            'active' => true,
-            'disabled' => false,
-            default => null,
-        };
+        [$statusFilter, $activeOnly] = BaseController::statusFilter();
 
         $paginatedResult = $userRepo->getUsersPaginated($domain, $page, $perPage, $startsWith, $activeOnly, $sortBy, $sortDir);
         $usedQuotas = RepositoryFactory::getQuotaRepository()->getDomainUsedQuotas($domain);
@@ -183,10 +179,9 @@ class UserController
                     $action = $_POST['action'] ?? '';
 
                     if ($action === 'add') {
-                        $newAlias = strtolower(trim($_POST['newAlias'] ?? ''));
+                        $newAlias = strtolower(FormValue::text($_POST, 'newAlias'));
                         if ($newAlias !== '') {
-                            self::assertUserAliasAvailable($domain, $newAlias);
-                            $aliasRepo->addUserAlias($email, $newAlias);
+                            UserAliasService::add($email, $domain, $newAlias);
                             ActivityLogger::logUpdate($domain, $userUid, "Added alias: {$newAlias}");
                         }
                     } elseif ($action === 'remove') {
@@ -501,23 +496,6 @@ class UserController
         }
 
         return null;
-    }
-
-    /**
-     * A per-user alias delivers every message for the address to the user, so it
-     * must stay inside the user's domain and must not take over an existing address.
-     */
-    private static function assertUserAliasAvailable(string $domain, string $address): void
-    {
-        if (filter_var($address, FILTER_VALIDATE_EMAIL) === false) {
-            throw new \RuntimeException(Translator::translate('user.msg_alias_invalid', ['address' => $address]));
-        }
-        if (explode('@', $address, 2)[1] !== $domain) {
-            throw new \RuntimeException(Translator::translate('user.msg_alias_domain_mismatch', ['domain' => $domain]));
-        }
-        if (RepositoryFactory::getAliasRepository()->isAddressInUse($address)) {
-            throw new \RuntimeException(Translator::translate('common.msg_address_in_use', ['address' => $address]));
-        }
     }
 
     private static function domainSettings(string $domain): DomainSettings

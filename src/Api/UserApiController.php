@@ -14,6 +14,7 @@ use App\Repositories\RepositoryFactory;
 use App\Services\AccountRenameService;
 use App\Services\AccountSettingsService;
 use App\Services\Replication\ReplicatedAccountGuard;
+use App\Services\UserAliasService;
 use App\Utils\FormValue;
 use App\Utils\PasswordUtils;
 
@@ -156,6 +157,9 @@ class UserApiController
             return;
         }
         $user->uid = $uid;
+        if (!self::applyServices($data, $user)) {
+            return;
+        }
 
         $locked = ReplicatedAccountGuard::changedUserFields("{$uid}@{$domain}", $user, $existing);
         if ($locked !== []) {
@@ -177,6 +181,35 @@ class UserApiController
         $repo->updateUser($domain, $user);
         self::writeRouting("{$uid}@{$domain}", $domain, $routing);
         ApiResponse::success(['message' => 'User updated']);
+    }
+
+    /**
+     * Applies `services`, `addServices` and `removeServices` to the mail service toggles
+     * of $user. The toggle fields (`enableSmtp` and the others) also stay accepted.
+     *
+     * @return bool false after the error response
+     */
+    private static function applyServices(array $data, User $user): bool
+    {
+        try {
+            $services = ApiInput::listChange(
+                $data,
+                ['services', 'addServices', 'removeServices'],
+                $user->enabledServiceNames(),
+                static fn (mixed $value, string $field): array => User::validServiceNames($value),
+            );
+        } catch (InvalidInputException $e) {
+            ApiResponse::invalidInput($e);
+            return false;
+        } catch (\InvalidArgumentException $e) {
+            ApiResponse::error($e->getMessage());
+            return false;
+        }
+        if ($services !== null) {
+            $user->setEnabledServiceNames($services);
+        }
+
+        return true;
     }
 
     /**
@@ -209,6 +242,7 @@ class UserApiController
         return [
             'forwardings' => $forwarding->getForwardings($email),
             'keepCopy' => $forwarding->getKeepCopy($email),
+            'aliases' => RepositoryFactory::getAliasRepository()->getUserAliases($email),
             'senderBcc' => $bcc->getUserSenderBcc($email),
             'recipientBcc' => $bcc->getUserRecipientBcc($email),
             'relayhost' => RepositoryFactory::getRelayRepository()->getRelayhost($email),
@@ -235,6 +269,20 @@ class UserApiController
             if ($forwardings !== null) {
                 $routing['forwardings'] = $forwardings;
             }
+            $aliases = ApiInput::listChange(
+                $data,
+                ['aliases', 'addAliases', 'removeAliases'],
+                RepositoryFactory::getAliasRepository()->getUserAliases($email),
+                ApiInput::addresses(...),
+            );
+            if ($aliases !== null) {
+                // Refuse an alias of another domain or account before anything is written.
+                $domain = explode('@', $email, 2)[1];
+                foreach (array_diff($aliases, RepositoryFactory::getAliasRepository()->getUserAliases($email)) as $address) {
+                    UserAliasService::assertAvailable($domain, $address);
+                }
+                $routing['aliases'] = $aliases;
+            }
             if (array_key_exists('keepCopy', $data)) {
                 $routing['keepCopy'] = ApiInput::bool($data, 'keepCopy', true);
             }
@@ -247,6 +295,9 @@ class UserApiController
                 $routing['relayhost'] = ApiInput::relayhost($data, 'relayhost');
             }
             return $routing;
+        } catch (InvalidInputException $e) {
+            ApiResponse::invalidInput($e);
+            return null;
         } catch (\InvalidArgumentException $e) {
             ApiResponse::error($e->getMessage());
             return null;
@@ -263,6 +314,7 @@ class UserApiController
         foreach ($routing as $field => $value) {
             match ($field) {
                 'forwardings' => $forwarding->setForwardings($email, $domain, $value),
+                'aliases' => UserAliasService::setAliases($email, $domain, $value),
                 'keepCopy' => $forwarding->setKeepCopy($email, $domain, $value),
                 'senderBcc' => $bcc->setUserSenderBcc($email, $value),
                 'recipientBcc' => $bcc->setUserRecipientBcc($email, $value),
@@ -380,6 +432,12 @@ class UserApiController
         'addForwardings' => 'forwarding',
         'removeForwardings' => 'forwarding',
         'keepCopy' => 'forwarding',
+        'aliases' => 'aliases',
+        'addAliases' => 'aliases',
+        'removeAliases' => 'aliases',
+        'services' => 'services',
+        'addServices' => 'services',
+        'removeServices' => 'services',
         'senderBcc' => 'bcc',
         'recipientBcc' => 'bcc',
         'relayhost' => 'relay',

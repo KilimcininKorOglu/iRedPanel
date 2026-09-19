@@ -132,8 +132,18 @@ class User
      */
     public function setNewMailboxServices(array $disabled): void
     {
+        $this->setEnabledServiceNames(array_diff(array_keys(self::SERVICE_TOGGLES), $disabled));
+    }
+
+    /**
+     * Turns the named services on and every other service off.
+     *
+     * @param string[] $names iRedMail service names, as validServiceNames() returns them
+     */
+    public function setEnabledServiceNames(array $names): void
+    {
         foreach (self::SERVICE_TOGGLES as $service => $toggle) {
-            $this->$toggle = !in_array($service, $disabled, true);
+            $this->$toggle = in_array($service, $names, true);
         }
     }
 

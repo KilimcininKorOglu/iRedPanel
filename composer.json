@@ -10,9 +10,11 @@
         "phpmailer/phpmailer": "^7.1"
     },
     "suggest": {
-        "ext-ldap": "Required for LDAP backend",
-        "ext-pdo": "Required for MySQL backend",
-        "ext-pdo_mysql": "Required for MySQL backend"
+        "ext-ldap": "Required for LDAP backend and for Active Directory replication",
+        "ext-pdo": "Required for MySQL and PostgreSQL backends",
+        "ext-pdo_mysql": "Required for MySQL backend",
+        "ext-pdo_pgsql": "Required for PostgreSQL backend",
+        "ext-sodium": "Required for Active Directory replication (encrypted bind password)"
     },
     "autoload": {
         "psr-4": {

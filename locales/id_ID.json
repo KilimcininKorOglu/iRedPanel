@@ -217,7 +217,9 @@
     "msg_sender_required": "Masukkan setidaknya satu alamat.",
     "rdns_whitelist_legend_help": "Satu domain per baris. Mail dari server dengan DNS balik yang cocok melewati greylisting.",
     "rdns_blacklist_legend_help": "Satu domain per baris. Mail dari server dengan DNS balik yang cocok ditolak.",
-    "senderscore_legend_help": "Satu alamat IP per baris, IPv4 atau IPv6. Alamat ini selalu melewati pemeriksaan SenderScore."
+    "senderscore_legend_help": "Satu alamat IP per baris, IPv4 atau IPv6. Alamat ini selalu melewati pemeriksaan SenderScore.",
+    "inbound_title_help": "Aturan di sini berlaku untuk mail yang masuk ke alamat ini. Pengirim di whitelist selalu lolos, pengirim di blacklist ditolak.",
+    "outbound_title_help": "Aturan di sini berlaku untuk mail yang dikirim alamat ini. Penerima di whitelist selalu menerima mail, penerima di blacklist tidak."
   },
   "spampolicy": {
     "msg_deleted": "Kebijakan spam dihapus!",
@@ -230,11 +232,8 @@
     "load_policy": "Muat kebijakan",
     "thresholds": "Ambang batas spam",
     "tag_level": "Level tag",
-    "tag_level_hint": "Tambahkan header spam",
     "tag2_level": "Level tag 2",
-    "tag2_level_hint": "Tandai sebagai spam",
     "kill_level": "Level tolak",
-    "kill_level_hint": "Karantina/tolak",
     "subject_tag": "Tag subjek",
     "subject_tag2": "Tag subjek 2",
     "bypass_delivery": "Opsi lewati dan pengiriman",

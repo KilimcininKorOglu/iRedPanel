@@ -217,7 +217,9 @@
     "msg_sender_required": "アドレスを 1 つ以上入力してください。",
     "rdns_whitelist_legend_help": "1 行に 1 ドメインです。逆引き DNS が一致するサーバーからのメールは greylisting を回避します。",
     "rdns_blacklist_legend_help": "1 行に 1 ドメインです。逆引き DNS が一致するサーバーからのメールは拒否されます。",
-    "senderscore_legend_help": "1 行に 1 つの IP アドレス (IPv4 または IPv6) です。これらのアドレスは常に SenderScore の確認を回避します。"
+    "senderscore_legend_help": "1 行に 1 つの IP アドレス (IPv4 または IPv6) です。これらのアドレスは常に SenderScore の確認を回避します。",
+    "inbound_title_help": "ここのルールはこのアドレス宛に届くメールに適用します。ホワイトリストの送信者は常に通り、ブラックリストの送信者は拒否します。",
+    "outbound_title_help": "ここのルールはこのアドレスが送るメールに適用します。ホワイトリストの宛先は常にメールを受け取り、ブラックリストの宛先は受け取りません。"
   },
   "spampolicy": {
     "msg_deleted": "スパムポリシーを削除しました！",
@@ -230,11 +232,8 @@
     "load_policy": "ポリシーを読み込む",
     "thresholds": "スパムしきい値",
     "tag_level": "タグレベル",
-    "tag_level_hint": "スパムヘッダーを追加",
     "tag2_level": "タグレベル 2",
-    "tag2_level_hint": "スパムとしてマーク",
     "kill_level": "ブロックレベル",
-    "kill_level_hint": "隔離/拒否",
     "subject_tag": "件名タグ",
     "subject_tag2": "件名タグ 2",
     "bypass_delivery": "バイパスと配信のオプション",

@@ -217,7 +217,9 @@
     "msg_sender_required": "Sláðu inn að minnsta kosti eitt netfang.",
     "rdns_whitelist_legend_help": "Eitt lén í línu. Póstur frá þjóni með samsvarandi öfugt DNS sleppur við greylisting.",
     "rdns_blacklist_legend_help": "Eitt lén í línu. Pósti frá þjóni með samsvarandi öfugt DNS er hafnað.",
-    "senderscore_legend_help": "Ein IP-tala í línu, IPv4 eða IPv6. Þessar tölur sleppa alltaf við SenderScore athugun."
+    "senderscore_legend_help": "Ein IP-tala í línu, IPv4 eða IPv6. Þessar tölur sleppa alltaf við SenderScore athugun.",
+    "inbound_title_help": "Regla hér gildir um póstinn sem berst á þetta netfang. Sendandi á hvítlista kemst alltaf í gegn, sendanda á svartlista er hafnað.",
+    "outbound_title_help": "Regla hér gildir um póstinn sem þetta netfang sendir. Viðtakandi á hvítlista fær póstinn alltaf, viðtakandi á svartlista ekki."
   },
   "spampolicy": {
     "msg_deleted": "Ruslpóststefnu eytt!",
@@ -230,11 +232,8 @@
     "load_policy": "Hlaða stefnu",
     "thresholds": "Ruslpóstsþröskuldar",
     "tag_level": "Merkjastig",
-    "tag_level_hint": "Bæta við ruslpósthaus",
     "tag2_level": "Merkjastig2",
-    "tag2_level_hint": "Merkja sem ruslpóst",
     "kill_level": "Eyðingarstig",
-    "kill_level_hint": "Sóttkví/hafna",
     "subject_tag": "Efnismerki",
     "subject_tag2": "Efnismerki2",
     "bypass_delivery": "Framhjá- og afhendingarvalkostir",

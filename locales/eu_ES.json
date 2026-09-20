@@ -217,7 +217,9 @@
     "msg_sender_required": "Sartu gutxienez helbide bat.",
     "rdns_whitelist_legend_help": "Domeinu bat lerroko. Alderantzizko DNS bat datorren zerbitzaritik datorren postak greylisting saltatzen du.",
     "rdns_blacklist_legend_help": "Domeinu bat lerroko. Alderantzizko DNS bat datorren zerbitzaritik datorren posta baztertzen da.",
-    "senderscore_legend_help": "IP helbide bat lerroko, IPv4 edo IPv6. Helbide hauek beti saltatzen dute SenderScore egiaztapena."
+    "senderscore_legend_help": "IP helbide bat lerroko, IPv4 edo IPv6. Helbide hauek beti saltatzen dute SenderScore egiaztapena.",
+    "inbound_title_help": "Hemengo arau bat helbide honetara iristen den mailari aplikatzen zaio. Whitelist-eko bidaltzaile batek beti pasatzen du, blacklist-eko bidaltzaile bat ukatzen da.",
+    "outbound_title_help": "Hemengo arau bat helbide honek bidaltzen duen mailari aplikatzen zaio. Whitelist-eko hartzaile batek maila beti jasotzen du, blacklist-ekoak ez."
   },
   "spampolicy": {
     "msg_deleted": "Spam politika ezabatu da!",
@@ -230,11 +232,8 @@
     "load_policy": "Kargatu politika",
     "thresholds": "Spam atalaseak",
     "tag_level": "Etiketa maila",
-    "tag_level_hint": "Gehitu spam goiburua",
     "tag2_level": "Etiketa2 maila",
-    "tag2_level_hint": "Markatu spam gisa",
     "kill_level": "Ezabatze maila",
-    "kill_level_hint": "Berrogeialdia/ukatu",
     "subject_tag": "Gaiaren etiketa",
     "subject_tag2": "Gaiaren etiketa2",
     "bypass_delivery": "Saihesteko eta bidaltzeko aukerak",

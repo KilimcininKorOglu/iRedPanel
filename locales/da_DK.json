@@ -217,7 +217,9 @@
     "msg_sender_required": "Angiv mindst én adresse.",
     "rdns_whitelist_legend_help": "Et domæne pr. linje. Post fra en server med matchende omvendt DNS springer greylisting over.",
     "rdns_blacklist_legend_help": "Et domæne pr. linje. Post fra en server med matchende omvendt DNS afvises.",
-    "senderscore_legend_help": "En IP-adresse pr. linje, IPv4 eller IPv6. Disse adresser springer altid SenderScore-kontrollen over."
+    "senderscore_legend_help": "En IP-adresse pr. linje, IPv4 eller IPv6. Disse adresser springer altid SenderScore-kontrollen over.",
+    "inbound_title_help": "En regel her gælder den mail, der kommer til denne adresse. En afsender på whitelisten kommer altid igennem, en afsender på blacklisten afvises.",
+    "outbound_title_help": "En regel her gælder den mail, som denne adresse sender. En modtager på whitelisten får altid mailen, en modtager på blacklisten gør ikke."
   },
   "spampolicy": {
     "msg_deleted": "Spampolitik slettet!",
@@ -230,11 +232,8 @@
     "load_policy": "Indlæs politik",
     "thresholds": "Spamtærskler",
     "tag_level": "Tag-niveau",
-    "tag_level_hint": "Tilføj spamheader",
     "tag2_level": "Tag2-niveau",
-    "tag2_level_hint": "Markér som spam",
     "kill_level": "Kill-niveau",
-    "kill_level_hint": "Karantæne/afvis",
     "subject_tag": "Emne-tag",
     "subject_tag2": "Emne-tag2",
     "bypass_delivery": "Omgåelses- og leveringsindstillinger",

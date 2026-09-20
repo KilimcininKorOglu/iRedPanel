@@ -217,7 +217,9 @@
     "msg_sender_required": "Zadajte aspoň jednu adresu.",
     "rdns_whitelist_legend_help": "Jedna doména na riadok. Pošta zo servera so zhodným reverzným DNS preskočí greylisting.",
     "rdns_blacklist_legend_help": "Jedna doména na riadok. Pošta zo servera so zhodným reverzným DNS je odmietnutá.",
-    "senderscore_legend_help": "Jedna IP adresa na riadok, IPv4 alebo IPv6. Tieto adresy vždy preskočia kontrolu SenderScore."
+    "senderscore_legend_help": "Jedna IP adresa na riadok, IPv4 alebo IPv6. Tieto adresy vždy preskočia kontrolu SenderScore.",
+    "inbound_title_help": "Pravidlo tu platí pre mail, ktorý prichádza na túto adresu. Odosielateľ z whitelistu vždy prejde, odosielateľ z blacklistu sa odmietne.",
+    "outbound_title_help": "Pravidlo tu platí pre mail, ktorý táto adresa posiela. Príjemca z whitelistu mail vždy dostane, príjemca z blacklistu nie."
   },
   "spampolicy": {
     "msg_deleted": "Zásady spamu odstránené!",
@@ -230,11 +232,8 @@
     "load_policy": "Načítať zásady",
     "thresholds": "Prahy spamu",
     "tag_level": "Úroveň označenia",
-    "tag_level_hint": "Pridať hlavičku spamu",
     "tag2_level": "Úroveň označenia 2",
-    "tag2_level_hint": "Označiť ako spam",
     "kill_level": "Úroveň odmietnutia",
-    "kill_level_hint": "Karanténa/odmietnutie",
     "subject_tag": "Označenie predmetu",
     "subject_tag2": "Označenie predmetu 2",
     "bypass_delivery": "Možnosti obídenia a doručenia",

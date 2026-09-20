@@ -217,7 +217,9 @@
     "msg_sender_required": "Oppgje minst éi adresse.",
     "rdns_whitelist_legend_help": "Eitt domene per linje. Post frå ein server med samsvarande omvendt DNS hoppar over greylisting.",
     "rdns_blacklist_legend_help": "Eitt domene per linje. Post frå ein server med samsvarande omvendt DNS vert avvist.",
-    "senderscore_legend_help": "Éi IP-adresse per linje, IPv4 eller IPv6. Desse adressene hoppar alltid over SenderScore-kontrollen."
+    "senderscore_legend_help": "Éi IP-adresse per linje, IPv4 eller IPv6. Desse adressene hoppar alltid over SenderScore-kontrollen.",
+    "inbound_title_help": "Ein regel her gjeld mailen som kjem til denne adressa. Ein avsendar på whitelista kjem alltid gjennom, ein avsendar på blacklista vert avvist.",
+    "outbound_title_help": "Ein regel her gjeld mailen som denne adressa sender. Ein mottakar på whitelista får alltid mailen, ein mottakar på blacklista gjer det ikkje."
   },
   "spampolicy": {
     "msg_deleted": "Spamretningslinje sletta!",
@@ -230,11 +232,8 @@
     "load_policy": "Last retningslinje",
     "thresholds": "Spamterskler",
     "tag_level": "Merkenivå",
-    "tag_level_hint": "Legg til spam-hovud",
     "tag2_level": "Merkenivå2",
-    "tag2_level_hint": "Merk som spam",
     "kill_level": "Slettenivå",
-    "kill_level_hint": "Karantene/avvis",
     "subject_tag": "Emnemerke",
     "subject_tag2": "Emnemerke2",
     "bypass_delivery": "Forbigå- og leveringsval",

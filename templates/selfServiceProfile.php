@@ -21,11 +21,11 @@ $cnLocked = in_array('cn', $lockedFields, true);
       <div class="card-body">
         <div class="row g-3">
           <div class="col-md-6">
-            <label for="cn" class="form-label"><?= $te('user.full_name') ?></label>
+            <label for="cn" class="form-label"><?= $te('user.full_name') ?></label><?= $help('user.full_name') ?>
             <input id="cn" name="cn" type="text" class="form-control" value="<?= $e($user->cn) ?>"<?= $cnLocked ? ' readonly' : '' ?> />
           </div>
           <div class="col-md-6">
-            <label for="language" class="form-label"><?= $te('user.language') ?></label>
+            <label for="language" class="form-label"><?= $te('user.language') ?></label><?= $help('user.language') ?>
             <select id="language" name="language" class="form-select">
               <?php foreach ($languages as $code => $name): ?>
               <option value="<?= $e($code) ?>"<?= (string) $code === (string) $user->language ? ' selected' : '' ?>><?= $e($name) ?></option>

@@ -217,7 +217,9 @@
     "msg_sender_required": "Anna vähintään yksi osoite.",
     "rdns_whitelist_legend_help": "Yksi verkkotunnus riviä kohden. Posti palvelimelta, jonka käänteinen DNS täsmää, ohittaa greylistingin.",
     "rdns_blacklist_legend_help": "Yksi verkkotunnus riviä kohden. Posti palvelimelta, jonka käänteinen DNS täsmää, hylätään.",
-    "senderscore_legend_help": "Yksi IP-osoite riviä kohden, IPv4 tai IPv6. Nämä osoitteet ohittavat aina SenderScore-tarkistuksen."
+    "senderscore_legend_help": "Yksi IP-osoite riviä kohden, IPv4 tai IPv6. Nämä osoitteet ohittavat aina SenderScore-tarkistuksen.",
+    "inbound_title_help": "Tämän kohdan sääntö koskee mailia, joka saapuu tähän osoitteeseen. Whitelistillä oleva lähettäjä pääsee aina läpi, blacklistillä oleva lähettäjä torjutaan.",
+    "outbound_title_help": "Tämän kohdan sääntö koskee mailia, jonka tämä osoite lähettää. Whitelistillä oleva vastaanottaja saa mailin aina, blacklistillä oleva ei."
   },
   "spampolicy": {
     "msg_deleted": "Roskapostikäytäntö poistettu!",
@@ -230,11 +232,8 @@
     "load_policy": "Lataa käytäntö",
     "thresholds": "Roskapostin kynnysarvot",
     "tag_level": "Merkintätaso",
-    "tag_level_hint": "Lisää roskapostiotsikko",
     "tag2_level": "Merkintätaso 2",
-    "tag2_level_hint": "Merkitse roskapostiksi",
     "kill_level": "Hylkäystaso",
-    "kill_level_hint": "Karanteeni/hylkäys",
     "subject_tag": "Aihemerkintä",
     "subject_tag2": "Aihemerkintä 2",
     "bypass_delivery": "Ohitus- ja toimitusasetukset",

@@ -217,7 +217,9 @@
     "msg_sender_required": "Введіть хоча б одну адресу.",
     "rdns_whitelist_legend_help": "По одному домену в рядку. Пошта із сервера зі збіжним зворотним DNS пропускає greylisting.",
     "rdns_blacklist_legend_help": "По одному домену в рядку. Пошта із сервера зі збіжним зворотним DNS відхиляється.",
-    "senderscore_legend_help": "По одній IP-адресі в рядку, IPv4 або IPv6. Ці адреси завжди пропускають перевірку SenderScore."
+    "senderscore_legend_help": "По одній IP-адресі в рядку, IPv4 або IPv6. Ці адреси завжди пропускають перевірку SenderScore.",
+    "inbound_title_help": "Правило тут діє на пошту, яка приходить на цю адресу. Відправник із whitelist проходить завжди, відправника з blacklist відхиляють.",
+    "outbound_title_help": "Правило тут діє на пошту, яку надсилає ця адреса. Одержувач із whitelist завжди отримує лист, одержувач із blacklist ні."
   },
   "spampolicy": {
     "msg_deleted": "Політику спаму видалено!",
@@ -230,11 +232,8 @@
     "load_policy": "Завантажити політику",
     "thresholds": "Пороги спаму",
     "tag_level": "Рівень позначки",
-    "tag_level_hint": "Додати заголовок спаму",
     "tag2_level": "Рівень позначки 2",
-    "tag2_level_hint": "Позначити як спам",
     "kill_level": "Рівень відхилення",
-    "kill_level_hint": "Карантин/відхилення",
     "subject_tag": "Позначка теми",
     "subject_tag2": "Позначка теми 2",
     "bypass_delivery": "Параметри оминання та доставки",

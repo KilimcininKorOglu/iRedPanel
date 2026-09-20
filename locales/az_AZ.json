@@ -217,7 +217,9 @@
     "msg_sender_required": "Ən azı bir ünvan daxil edin.",
     "rdns_whitelist_legend_help": "Hər sətirdə bir domen. Tərs DNS-i uyğun gələn serverdən gələn mail greylisting-i keçir.",
     "rdns_blacklist_legend_help": "Hər sətirdə bir domen. Tərs DNS-i uyğun gələn serverdən gələn mail rədd edilir.",
-    "senderscore_legend_help": "Hər sətirdə bir IP ünvanı, IPv4 və ya IPv6. Bu ünvanlar həmişə SenderScore yoxlamasını keçir."
+    "senderscore_legend_help": "Hər sətirdə bir IP ünvanı, IPv4 və ya IPv6. Bu ünvanlar həmişə SenderScore yoxlamasını keçir.",
+    "inbound_title_help": "Buradakı qayda bu ünvana gələn mailə tətbiq olunur. Whitelist-dəki göndərən həmişə keçir, blacklist-dəki göndərən rədd olunur.",
+    "outbound_title_help": "Buradakı qayda bu ünvanın göndərdiyi mailə tətbiq olunur. Whitelist-dəki alıcı maili həmişə alır, blacklist-dəki alıcı almır."
   },
   "spampolicy": {
     "msg_deleted": "Spam siyasəti silindi!",
@@ -230,11 +232,8 @@
     "load_policy": "Siyasəti yüklə",
     "thresholds": "Spam həddləri",
     "tag_level": "Etiket səviyyəsi",
-    "tag_level_hint": "Spam başlığı əlavə et",
     "tag2_level": "Etiket2 səviyyəsi",
-    "tag2_level_hint": "Spam kimi işarələ",
     "kill_level": "Kill səviyyəsi",
-    "kill_level_hint": "Karantinə al/rədd et",
     "subject_tag": "Mövzu etiketi",
     "subject_tag2": "Mövzu etiketi2",
     "bypass_delivery": "Keçmə və çatdırılma seçimləri",

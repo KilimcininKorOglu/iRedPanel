@@ -217,7 +217,9 @@
     "msg_sender_required": "請至少輸入一個位址。",
     "rdns_whitelist_legend_help": "每行一個網域。反向 DNS 相符的伺服器寄來的郵件略過 greylisting。",
     "rdns_blacklist_legend_help": "每行一個網域。反向 DNS 相符的伺服器寄來的郵件會被拒收。",
-    "senderscore_legend_help": "每行一個 IP 位址，IPv4 或 IPv6。這些位址一律略過 SenderScore 檢查。"
+    "senderscore_legend_help": "每行一個 IP 位址，IPv4 或 IPv6。這些位址一律略過 SenderScore 檢查。",
+    "inbound_title_help": "這裡的規則作用於寄往該位址的郵件。白名單中的寄件者一律通過，黑名單中的寄件者會被拒絕。",
+    "outbound_title_help": "這裡的規則作用於該位址寄出的郵件。白名單中的收件者一律收得到郵件，黑名單中的收件者收不到。"
   },
   "spampolicy": {
     "msg_deleted": "垃圾郵件政策已刪除！",
@@ -230,11 +232,8 @@
     "load_policy": "載入政策",
     "thresholds": "垃圾郵件閾值",
     "tag_level": "標記等級",
-    "tag_level_hint": "新增垃圾郵件標頭",
     "tag2_level": "標記等級 2",
-    "tag2_level_hint": "標記為垃圾郵件",
     "kill_level": "拒絕等級",
-    "kill_level_hint": "隔離/拒絕",
     "subject_tag": "主旨標籤",
     "subject_tag2": "主旨標籤 2",
     "bypass_delivery": "略過與傳遞選項",

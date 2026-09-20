@@ -217,7 +217,9 @@
     "msg_sender_required": "Adjon meg legalább egy címet.",
     "rdns_whitelist_legend_help": "Soronként egy tartomány. Az egyező fordított DNS-ű szerverről érkező levél kihagyja a greylistinget.",
     "rdns_blacklist_legend_help": "Soronként egy tartomány. Az egyező fordított DNS-ű szerverről érkező levelet elutasítja.",
-    "senderscore_legend_help": "Soronként egy IP-cím, IPv4 vagy IPv6. Ezek a címek mindig kihagyják a SenderScore ellenőrzést."
+    "senderscore_legend_help": "Soronként egy IP-cím, IPv4 vagy IPv6. Ezek a címek mindig kihagyják a SenderScore ellenőrzést.",
+    "inbound_title_help": "Az itteni szabály a címre érkező mailre vonatkozik. A whitelistán szereplő feladó mindig átmegy, a blacklistán szereplő feladót a rendszer elutasítja.",
+    "outbound_title_help": "Az itteni szabály arra a mailre vonatkozik, amelyet ez a cím küld. A whitelistán szereplő címzett mindig megkapja a mailt, a blacklistán szereplő nem."
   },
   "spampolicy": {
     "msg_deleted": "Spamszabályzat törölve!",
@@ -230,11 +232,8 @@
     "load_policy": "Szabályzat betöltése",
     "thresholds": "Spamküszöbök",
     "tag_level": "Címkeszint",
-    "tag_level_hint": "Spam fejléc hozzáadása",
     "tag2_level": "Címkeszint 2",
-    "tag2_level_hint": "Megjelölés spamként",
     "kill_level": "Elutasítási szint",
-    "kill_level_hint": "Karantén/elutasítás",
     "subject_tag": "Tárgycímke",
     "subject_tag2": "Tárgycímke 2",
     "bypass_delivery": "Megkerülési és kézbesítési beállítások",

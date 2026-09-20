@@ -217,7 +217,9 @@
     "msg_sender_required": "Въведете поне един адрес.",
     "rdns_whitelist_legend_help": "По един домейн на ред. Поща от сървър със съвпадащ обратен DNS пропуска greylisting.",
     "rdns_blacklist_legend_help": "По един домейн на ред. Поща от сървър със съвпадащ обратен DNS се отказва.",
-    "senderscore_legend_help": "По един IP адрес на ред, IPv4 или IPv6. Тези адреси винаги пропускат проверката SenderScore."
+    "senderscore_legend_help": "По един IP адрес на ред, IPv4 или IPv6. Тези адреси винаги пропускат проверката SenderScore.",
+    "inbound_title_help": "Правило тук важи за пощата, която идва за този адрес. Подател в whitelist винаги минава, подател в blacklist се отказва.",
+    "outbound_title_help": "Правило тук важи за пощата, която този адрес изпраща. Получател в whitelist винаги получава пощата, получател в blacklist не."
   },
   "spampolicy": {
     "msg_deleted": "Политиката за спам е изтрита!",
@@ -230,11 +232,8 @@
     "load_policy": "Зареди политика",
     "thresholds": "Прагове за спам",
     "tag_level": "Ниво на маркиране",
-    "tag_level_hint": "Добавяне на заглавка за спам",
     "tag2_level": "Ниво на маркиране 2",
-    "tag2_level_hint": "Маркиране като спам",
     "kill_level": "Ниво на отхвърляне",
-    "kill_level_hint": "Карантина/отхвърляне",
     "subject_tag": "Маркер на темата",
     "subject_tag2": "Маркер на темата 2",
     "bypass_delivery": "Опции за заобикаляне и доставка",

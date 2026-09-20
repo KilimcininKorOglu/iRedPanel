@@ -17,7 +17,7 @@ $sections = [
   <div class="col-xl-8">
     <?php foreach ($sections as $direction => [$titleKey, $columnKey, $emptyKey, $entries]): ?>
     <div class="card">
-      <div class="card-header"><?= $te($titleKey) ?></div>
+      <div class="card-header"><?= $te($titleKey) ?></div><?= $help($titleKey) ?>
       <div class="card-body">
         <form method="post" class="d-flex flex-wrap gap-2">
           <?= $csrfField ?>

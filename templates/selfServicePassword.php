@@ -14,16 +14,16 @@
       <input type="text" class="d-none" autocomplete="username" value="<?= $e($session['email']) ?>" readonly aria-hidden="true" tabindex="-1" />
       <div class="card-body">
         <div class="mb-3">
-          <label for="old_password" class="form-label"><?= $te('user.current_password') ?></label>
+          <label for="old_password" class="form-label"><?= $te('user.current_password') ?></label><?= $help('user.current_password') ?>
           <input name="old_password" type="password" id="old_password" required autocomplete="current-password" class="form-control" />
         </div>
         <div class="row g-3 mb-3">
           <div class="col-md-6">
-            <label for="password" class="form-label"><?= $te('user.new_password') ?></label>
+            <label for="password" class="form-label"><?= $te('user.new_password') ?></label><?= $help('user.new_password') ?>
             <input name="password" type="password" id="password" required autocomplete="new-password" class="form-control" />
           </div>
           <div class="col-md-6">
-            <label for="password_repeat" class="form-label"><?= $te('user.password_repeat') ?></label>
+            <label for="password_repeat" class="form-label"><?= $te('user.password_repeat') ?></label><?= $help('user.password_repeat') ?>
             <input name="password_repeat" type="password" id="password_repeat" required autocomplete="new-password" class="form-control" />
           </div>
         </div>

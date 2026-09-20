@@ -217,7 +217,9 @@
     "msg_sender_required": "En az bir adres girin.",
     "rdns_whitelist_legend_help": "Her satıra bir domain. Reverse DNS'i eşleşen sunucudan gelen mail greylisting'i atlar.",
     "rdns_blacklist_legend_help": "Her satıra bir domain. Reverse DNS'i eşleşen sunucudan gelen mail reddedilir.",
-    "senderscore_legend_help": "Her satıra bir IP adresi, IPv4 veya IPv6. Bu adresler SenderScore kontrolünü her zaman atlar."
+    "senderscore_legend_help": "Her satıra bir IP adresi, IPv4 veya IPv6. Bu adresler SenderScore kontrolünü her zaman atlar.",
+    "inbound_title_help": "Buradaki bir kural bu adrese gelen maile uygulanır. Whitelist'teki bir gönderen her zaman geçer, blacklist'teki bir gönderen reddedilir.",
+    "outbound_title_help": "Buradaki bir kural bu adresin gönderdiği maile uygulanır. Whitelist'teki bir alıcı maili her zaman alır, blacklist'teki bir alıcı almaz."
   },
   "spampolicy": {
     "msg_deleted": "Spam politikası silindi!",
@@ -230,11 +232,8 @@
     "load_policy": "Politikayı Yükle",
     "thresholds": "Spam Eşikleri",
     "tag_level": "Etiket Düzeyi",
-    "tag_level_hint": "Spam başlığı ekle",
     "tag2_level": "Etiket2 Düzeyi",
-    "tag2_level_hint": "Spam olarak işaretle",
     "kill_level": "Kill Düzeyi",
-    "kill_level_hint": "Karantinaya al/reddet",
     "subject_tag": "Konu Etiketi",
     "subject_tag2": "Konu Etiketi2",
     "bypass_delivery": "Atlama ve Teslim Seçenekleri",

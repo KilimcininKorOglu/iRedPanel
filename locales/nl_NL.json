@@ -217,7 +217,9 @@
     "msg_sender_required": "Voer minstens één adres in.",
     "rdns_whitelist_legend_help": "Eén domein per regel. Mail van een server met een overeenkomende reverse DNS slaat greylisting over.",
     "rdns_blacklist_legend_help": "Eén domein per regel. Mail van een server met een overeenkomende reverse DNS wordt geweigerd.",
-    "senderscore_legend_help": "Eén IP-adres per regel, IPv4 of IPv6. Deze adressen slaan de SenderScore-controle altijd over."
+    "senderscore_legend_help": "Eén IP-adres per regel, IPv4 of IPv6. Deze adressen slaan de SenderScore-controle altijd over.",
+    "inbound_title_help": "Een regel hier geldt voor de mail die bij dit adres aankomt. Een afzender op de whitelist komt altijd door, een afzender op de blacklist wordt geweigerd.",
+    "outbound_title_help": "Een regel hier geldt voor de mail die dit adres verstuurt. Een ontvanger op de whitelist krijgt de mail altijd, een ontvanger op de blacklist niet."
   },
   "spampolicy": {
     "msg_deleted": "Spambeleid verwijderd!",
@@ -230,11 +232,8 @@
     "load_policy": "Beleid laden",
     "thresholds": "Spamdrempels",
     "tag_level": "Tagniveau",
-    "tag_level_hint": "Spamkoptekst toevoegen",
     "tag2_level": "Tagniveau 2",
-    "tag2_level_hint": "Als spam markeren",
     "kill_level": "Blokkeerniveau",
-    "kill_level_hint": "Quarantaine/weigering",
     "subject_tag": "Onderwerptag",
     "subject_tag2": "Onderwerptag 2",
     "bypass_delivery": "Omzeil- en bezorgingsopties",

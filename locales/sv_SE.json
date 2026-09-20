@@ -217,7 +217,9 @@
     "msg_sender_required": "Ange minst en adress.",
     "rdns_whitelist_legend_help": "En domän per rad. Post från en server med matchande omvänd DNS hoppar över greylisting.",
     "rdns_blacklist_legend_help": "En domän per rad. Post från en server med matchande omvänd DNS avvisas.",
-    "senderscore_legend_help": "En IP-adress per rad, IPv4 eller IPv6. Dessa adresser hoppar alltid över SenderScore-kontrollen."
+    "senderscore_legend_help": "En IP-adress per rad, IPv4 eller IPv6. Dessa adresser hoppar alltid över SenderScore-kontrollen.",
+    "inbound_title_help": "En regel här gäller mailen som kommer till den här adressen. En avsändare på whitelistan kommer alltid igenom, en avsändare på blacklistan avvisas.",
+    "outbound_title_help": "En regel här gäller mailen som den här adressen skickar. En mottagare på whitelistan får alltid mailen, en mottagare på blacklistan gör det inte."
   },
   "spampolicy": {
     "msg_deleted": "Skräppostpolicy borttagen!",
@@ -230,11 +232,8 @@
     "load_policy": "Ladda policy",
     "thresholds": "Skräpposttrösklar",
     "tag_level": "Märkningsnivå",
-    "tag_level_hint": "Lägg till skräppostrubrik",
     "tag2_level": "Märkningsnivå 2",
-    "tag2_level_hint": "Markera som skräppost",
     "kill_level": "Avvisningsnivå",
-    "kill_level_hint": "Karantän/avvisa",
     "subject_tag": "Ämnesmärkning",
     "subject_tag2": "Ämnesmärkning 2",
     "bypass_delivery": "Kringgångs- och leveransalternativ",

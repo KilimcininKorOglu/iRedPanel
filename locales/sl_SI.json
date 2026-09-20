@@ -217,7 +217,9 @@
     "msg_sender_required": "Vnesite vsaj en naslov.",
     "rdns_whitelist_legend_help": "Ena domena na vrstico. Pošta s strežnika z ujemajočim obratnim DNS preskoči greylisting.",
     "rdns_blacklist_legend_help": "Ena domena na vrstico. Pošta s strežnika z ujemajočim obratnim DNS je zavrnjena.",
-    "senderscore_legend_help": "En naslov IP na vrstico, IPv4 ali IPv6. Ti naslovi vedno preskočijo preverjanje SenderScore."
+    "senderscore_legend_help": "En naslov IP na vrstico, IPv4 ali IPv6. Ti naslovi vedno preskočijo preverjanje SenderScore.",
+    "inbound_title_help": "Pravilo tukaj velja za mail, ki prispe na ta naslov. Pošiljatelj z whitelista vedno pride skozi, pošiljatelj z blacklista je zavrnjen.",
+    "outbound_title_help": "Pravilo tukaj velja za mail, ki ga ta naslov pošlje. Prejemnik z whitelista mail vedno dobi, prejemnik z blacklista ne."
   },
   "spampolicy": {
     "msg_deleted": "Pravilnik o neželeni pošti izbrisan!",
@@ -230,11 +232,8 @@
     "load_policy": "Naloži pravilnik",
     "thresholds": "Pragovi neželene pošte",
     "tag_level": "Raven oznake",
-    "tag_level_hint": "Dodaj glavo neželene pošte",
     "tag2_level": "Raven oznake 2",
-    "tag2_level_hint": "Označi kot neželeno",
     "kill_level": "Raven zavrnitve",
-    "kill_level_hint": "Karantena/zavrnitev",
     "subject_tag": "Oznaka zadeve",
     "subject_tag2": "Oznaka zadeve 2",
     "bypass_delivery": "Možnosti obhoda in dostave",

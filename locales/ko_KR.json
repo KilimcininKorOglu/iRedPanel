@@ -217,7 +217,9 @@
     "msg_sender_required": "주소를 하나 이상 입력하세요.",
     "rdns_whitelist_legend_help": "한 줄에 도메인 하나입니다. 역방향 DNS가 일치하는 서버에서 온 메일은 greylisting을 건너뜁니다.",
     "rdns_blacklist_legend_help": "한 줄에 도메인 하나입니다. 역방향 DNS가 일치하는 서버에서 온 메일은 거부됩니다.",
-    "senderscore_legend_help": "한 줄에 IP 주소 하나(IPv4 또는 IPv6)입니다. 이 주소들은 항상 SenderScore 검사를 건너뜁니다."
+    "senderscore_legend_help": "한 줄에 IP 주소 하나(IPv4 또는 IPv6)입니다. 이 주소들은 항상 SenderScore 검사를 건너뜁니다.",
+    "inbound_title_help": "여기의 규칙은 이 주소로 오는 메일에 적용됩니다. 화이트리스트의 발신자는 항상 통과하고, 블랙리스트의 발신자는 거부됩니다.",
+    "outbound_title_help": "여기의 규칙은 이 주소가 보내는 메일에 적용됩니다. 화이트리스트의 수신자는 항상 메일을 받고, 블랙리스트의 수신자는 받지 못합니다."
   },
   "spampolicy": {
     "msg_deleted": "스팸 정책이 삭제되었습니다!",
@@ -230,11 +232,8 @@
     "load_policy": "정책 불러오기",
     "thresholds": "스팸 임계값",
     "tag_level": "태그 수준",
-    "tag_level_hint": "스팸 헤더 추가",
     "tag2_level": "태그 수준 2",
-    "tag2_level_hint": "스팸으로 표시",
     "kill_level": "거부 수준",
-    "kill_level_hint": "격리/거부",
     "subject_tag": "제목 태그",
     "subject_tag2": "제목 태그 2",
     "bypass_delivery": "우회 및 전달 옵션",

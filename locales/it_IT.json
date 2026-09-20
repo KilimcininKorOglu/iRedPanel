@@ -217,7 +217,9 @@
     "msg_sender_required": "Inserisci almeno un indirizzo.",
     "rdns_whitelist_legend_help": "Un dominio per riga. La posta da un server con DNS inverso corrispondente salta il greylisting.",
     "rdns_blacklist_legend_help": "Un dominio per riga. La posta da un server con DNS inverso corrispondente viene rifiutata.",
-    "senderscore_legend_help": "Un indirizzo IP per riga, IPv4 o IPv6. Questi indirizzi saltano sempre il controllo SenderScore."
+    "senderscore_legend_help": "Un indirizzo IP per riga, IPv4 o IPv6. Questi indirizzi saltano sempre il controllo SenderScore.",
+    "inbound_title_help": "Una regola qui vale per la mail che arriva a questo indirizzo. Un mittente in whitelist passa sempre, un mittente in blacklist viene rifiutato.",
+    "outbound_title_help": "Una regola qui vale per la mail che questo indirizzo invia. Un destinatario in whitelist riceve sempre la mail, uno in blacklist no."
   },
   "spampolicy": {
     "msg_deleted": "Politica antispam eliminata!",
@@ -230,11 +232,8 @@
     "load_policy": "Carica politica",
     "thresholds": "Soglie di spam",
     "tag_level": "Livello di tag",
-    "tag_level_hint": "Aggiungi intestazione spam",
     "tag2_level": "Livello di tag 2",
-    "tag2_level_hint": "Contrassegna come spam",
     "kill_level": "Livello di blocco",
-    "kill_level_hint": "Quarantena/rifiuto",
     "subject_tag": "Tag oggetto",
     "subject_tag2": "Tag oggetto 2",
     "bypass_delivery": "Opzioni di bypass e consegna",

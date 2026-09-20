@@ -217,7 +217,9 @@
     "msg_sender_required": "Introduïu com a mínim una adreça.",
     "rdns_whitelist_legend_help": "Un domini per línia. El correu d'un servidor amb un DNS invers coincident se salta el greylisting.",
     "rdns_blacklist_legend_help": "Un domini per línia. El correu d'un servidor amb un DNS invers coincident es rebutja.",
-    "senderscore_legend_help": "Una adreça IP per línia, IPv4 o IPv6. Aquestes adreces se salten sempre la comprovació de SenderScore."
+    "senderscore_legend_help": "Una adreça IP per línia, IPv4 o IPv6. Aquestes adreces se salten sempre la comprovació de SenderScore.",
+    "inbound_title_help": "Una regla d'aquí s'aplica al mail que arriba a aquesta adreça. Un remitent de la llista blanca sempre passa, un remitent de la llista negra es rebutja.",
+    "outbound_title_help": "Una regla d'aquí s'aplica al mail que envia aquesta adreça. Un destinatari de la llista blanca sempre rep el mail, un de la llista negra no."
   },
   "spampolicy": {
     "msg_deleted": "Política de correu brossa eliminada!",
@@ -230,11 +232,8 @@
     "load_policy": "Carregar política",
     "thresholds": "Llindars de correu brossa",
     "tag_level": "Nivell d'etiqueta",
-    "tag_level_hint": "Afegir capçalera de correu brossa",
     "tag2_level": "Nivell d'etiqueta 2",
-    "tag2_level_hint": "Marcar com a correu brossa",
     "kill_level": "Nivell de rebuig",
-    "kill_level_hint": "Quarantena/rebuig",
     "subject_tag": "Etiqueta d'assumpte",
     "subject_tag2": "Etiqueta d'assumpte 2",
     "bypass_delivery": "Opcions d'omissió i lliurament",

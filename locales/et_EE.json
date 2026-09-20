@@ -217,7 +217,9 @@
     "msg_sender_required": "Sisesta vähemalt üks aadress.",
     "rdns_whitelist_legend_help": "Üks domeen reale. Kiri serverist, mille pöörd-DNS sobib, jätab greylistingu vahele.",
     "rdns_blacklist_legend_help": "Üks domeen reale. Kiri serverist, mille pöörd-DNS sobib, lükatakse tagasi.",
-    "senderscore_legend_help": "Üks IP-aadress reale, IPv4 või IPv6. Need aadressid jätavad SenderScore kontrolli alati vahele."
+    "senderscore_legend_help": "Üks IP-aadress reale, IPv4 või IPv6. Need aadressid jätavad SenderScore kontrolli alati vahele.",
+    "inbound_title_help": "Siinne reegel kehtib sellele aadressile saabuva meili kohta. Whitelistis olev saatja pääseb alati läbi, blacklistis olev saatja lükatakse tagasi.",
+    "outbound_title_help": "Siinne reegel kehtib meili kohta, mille see aadress saadab. Whitelistis olev saaja saab meili alati, blacklistis olev saaja mitte."
   },
   "spampolicy": {
     "msg_deleted": "Rämpsposti poliitika kustutatud!",
@@ -230,11 +232,8 @@
     "load_policy": "Laadi poliitika",
     "thresholds": "Rämpsposti läved",
     "tag_level": "Sildistamise tase",
-    "tag_level_hint": "Lisa rämpsposti päis",
     "tag2_level": "Sildistamise tase 2",
-    "tag2_level_hint": "Märgi rämpspostiks",
     "kill_level": "Tagasilükkamise tase",
-    "kill_level_hint": "Karantiin/tagasilükkamine",
     "subject_tag": "Teema silt",
     "subject_tag2": "Teema silt 2",
     "bypass_delivery": "Möödumise ja edastuse valikud",

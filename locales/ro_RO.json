@@ -217,7 +217,9 @@
     "msg_sender_required": "Introdu cel puțin o adresă.",
     "rdns_whitelist_legend_help": "Un domeniu pe linie. Mailul de la un server cu DNS invers care se potrivește sare peste greylisting.",
     "rdns_blacklist_legend_help": "Un domeniu pe linie. Mailul de la un server cu DNS invers care se potrivește este refuzat.",
-    "senderscore_legend_help": "O adresă IP pe linie, IPv4 sau IPv6. Aceste adrese sar întotdeauna peste verificarea SenderScore."
+    "senderscore_legend_help": "O adresă IP pe linie, IPv4 sau IPv6. Aceste adrese sar întotdeauna peste verificarea SenderScore.",
+    "inbound_title_help": "O regulă de aici se aplică mailului care ajunge la această adresă. Un expeditor din whitelist trece întotdeauna, un expeditor din blacklist este refuzat.",
+    "outbound_title_help": "O regulă de aici se aplică mailului pe care îl trimite această adresă. Un destinatar din whitelist primește mereu mailul, unul din blacklist nu."
   },
   "spampolicy": {
     "msg_deleted": "Politica spam a fost ștearsă!",
@@ -230,11 +232,8 @@
     "load_policy": "Încarcă politica",
     "thresholds": "Praguri spam",
     "tag_level": "Nivel de etichetare",
-    "tag_level_hint": "Adaugă antet spam",
     "tag2_level": "Nivel de etichetare 2",
-    "tag2_level_hint": "Marchează ca spam",
     "kill_level": "Nivel de respingere",
-    "kill_level_hint": "Carantină/respingere",
     "subject_tag": "Etichetă subiect",
     "subject_tag2": "Etichetă subiect 2",
     "bypass_delivery": "Opțiuni de ocolire și livrare",

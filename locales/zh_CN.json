@@ -217,7 +217,9 @@
     "msg_sender_required": "请至少输入一个地址。",
     "rdns_whitelist_legend_help": "每行一个域名。反向 DNS 匹配的服务器发来的邮件跳过 greylisting。",
     "rdns_blacklist_legend_help": "每行一个域名。反向 DNS 匹配的服务器发来的邮件被拒收。",
-    "senderscore_legend_help": "每行一个 IP 地址，IPv4 或 IPv6。这些地址始终跳过 SenderScore 检查。"
+    "senderscore_legend_help": "每行一个 IP 地址，IPv4 或 IPv6。这些地址始终跳过 SenderScore 检查。",
+    "inbound_title_help": "这里的规则作用于发往该地址的邮件。白名单中的发件人总能通过，黑名单中的发件人会被拒绝。",
+    "outbound_title_help": "这里的规则作用于该地址发出的邮件。白名单中的收件人总能收到邮件，黑名单中的收件人收不到。"
   },
   "spampolicy": {
     "msg_deleted": "垃圾邮件策略已删除！",
@@ -230,11 +232,8 @@
     "load_policy": "加载策略",
     "thresholds": "垃圾邮件阈值",
     "tag_level": "标记级别",
-    "tag_level_hint": "添加垃圾邮件标头",
     "tag2_level": "标记级别 2",
-    "tag2_level_hint": "标记为垃圾邮件",
     "kill_level": "拦截级别",
-    "kill_level_hint": "隔离/拒绝",
     "subject_tag": "主题标记",
     "subject_tag2": "主题标记 2",
     "bypass_delivery": "绕过和投递选项",

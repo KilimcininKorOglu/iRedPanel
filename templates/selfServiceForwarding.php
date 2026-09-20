@@ -12,12 +12,12 @@
       <?= $csrfField ?>
       <div class="card-body">
         <div class="mb-3">
-          <label for="forwardingAddresses" class="form-label"><?= $te('user.forwarding_addresses') ?></label>
+          <label for="forwardingAddresses" class="form-label"><?= $te('user.forwarding_addresses') ?></label><?= $help('user.forwarding_addresses') ?>
           <textarea id="forwardingAddresses" name="forwardingAddresses" rows="5" class="form-control" placeholder="user@example.com"><?= $e(implode("\n", $forwardings)) ?></textarea>
         </div>
         <div class="form-check form-switch">
           <input type="checkbox" class="form-check-input" id="keepCopy" name="keepCopy" <?= $keepCopy ? 'checked' : '' ?> />
-          <label class="form-check-label" for="keepCopy"><?= $te('user.keep_copy') ?></label>
+          <label class="form-check-label" for="keepCopy"><?= $te('user.keep_copy') ?></label><?= $help('user.keep_copy') ?>
         </div>
       </div>
       <div class="card-footer">

@@ -217,7 +217,9 @@
     "msg_sender_required": "ใส่อย่างน้อยหนึ่งที่อยู่",
     "rdns_whitelist_legend_help": "หนึ่งโดเมนต่อบรรทัด เมลจากเซิร์ฟเวอร์ที่ reverse DNS ตรงกันจะข้าม greylisting",
     "rdns_blacklist_legend_help": "หนึ่งโดเมนต่อบรรทัด เมลจากเซิร์ฟเวอร์ที่ reverse DNS ตรงกันจะถูกปฏิเสธ",
-    "senderscore_legend_help": "หนึ่งหมายเลข IP ต่อบรรทัด ทั้ง IPv4 และ IPv6 หมายเลขเหล่านี้ข้ามการตรวจ SenderScore เสมอ"
+    "senderscore_legend_help": "หนึ่งหมายเลข IP ต่อบรรทัด ทั้ง IPv4 และ IPv6 หมายเลขเหล่านี้ข้ามการตรวจ SenderScore เสมอ",
+    "inbound_title_help": "กฎที่นี่ใช้กับเมลที่ส่งเข้ามาที่ที่อยู่นี้ ผู้ส่งใน whitelist ผ่านเสมอ ส่วนผู้ส่งใน blacklist ถูกปฏิเสธ",
+    "outbound_title_help": "กฎที่นี่ใช้กับเมลที่ที่อยู่นี้ส่งออก ผู้รับใน whitelist ได้รับเมลเสมอ ส่วนผู้รับใน blacklist ไม่ได้รับ"
   },
   "spampolicy": {
     "msg_deleted": "ลบนโยบายสแปมแล้ว!",
@@ -230,11 +232,8 @@
     "load_policy": "โหลดนโยบาย",
     "thresholds": "เกณฑ์สแปม",
     "tag_level": "ระดับแท็ก",
-    "tag_level_hint": "เพิ่มส่วนหัวสแปม",
     "tag2_level": "ระดับแท็ก 2",
-    "tag2_level_hint": "ทำเครื่องหมายเป็นสแปม",
     "kill_level": "ระดับปฏิเสธ",
-    "kill_level_hint": "กักกัน/ปฏิเสธ",
     "subject_tag": "แท็กหัวข้อ",
     "subject_tag2": "แท็กหัวข้อ 2",
     "bypass_delivery": "ตัวเลือกการข้ามและการส่ง",

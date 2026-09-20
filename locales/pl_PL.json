@@ -217,7 +217,9 @@
     "msg_sender_required": "Podaj co najmniej jeden adres.",
     "rdns_whitelist_legend_help": "Jedna domena w wierszu. Poczta z serwera o pasującym odwrotnym DNS pomija greylisting.",
     "rdns_blacklist_legend_help": "Jedna domena w wierszu. Poczta z serwera o pasującym odwrotnym DNS jest odrzucana.",
-    "senderscore_legend_help": "Jeden adres IP w wierszu, IPv4 lub IPv6. Te adresy zawsze pomijają sprawdzenie SenderScore."
+    "senderscore_legend_help": "Jeden adres IP w wierszu, IPv4 lub IPv6. Te adresy zawsze pomijają sprawdzenie SenderScore.",
+    "inbound_title_help": "Reguła tutaj dotyczy poczty przychodzącej na ten adres. Nadawca z whitelisty zawsze przechodzi, nadawca z blacklisty jest odrzucany.",
+    "outbound_title_help": "Reguła tutaj dotyczy poczty, którą ten adres wysyła. Odbiorca z whitelisty zawsze dostaje mail, odbiorca z blacklisty nie."
   },
   "spampolicy": {
     "msg_deleted": "Polityka spamu usunięta!",
@@ -230,11 +232,8 @@
     "load_policy": "Wczytaj politykę",
     "thresholds": "Progi spamu",
     "tag_level": "Poziom oznaczenia",
-    "tag_level_hint": "Dodaj nagłówek spamu",
     "tag2_level": "Poziom oznaczenia 2",
-    "tag2_level_hint": "Oznacz jako spam",
     "kill_level": "Poziom odrzucenia",
-    "kill_level_hint": "Kwarantanna/odrzucenie",
     "subject_tag": "Znacznik tematu",
     "subject_tag2": "Znacznik tematu 2",
     "bypass_delivery": "Opcje pomijania i dostarczania",

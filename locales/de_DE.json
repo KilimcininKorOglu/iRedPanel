@@ -217,7 +217,9 @@
     "msg_sender_required": "Geben Sie mindestens eine Adresse ein.",
     "rdns_whitelist_legend_help": "Eine Domain pro Zeile. Mail von einem Server mit passendem Reverse-DNS überspringt Greylisting.",
     "rdns_blacklist_legend_help": "Eine Domain pro Zeile. Mail von einem Server mit passendem Reverse-DNS wird abgewiesen.",
-    "senderscore_legend_help": "Eine IP-Adresse pro Zeile, IPv4 oder IPv6. Diese Adressen überspringen die SenderScore-Prüfung immer."
+    "senderscore_legend_help": "Eine IP-Adresse pro Zeile, IPv4 oder IPv6. Diese Adressen überspringen die SenderScore-Prüfung immer.",
+    "inbound_title_help": "Eine Regel hier gilt für die Mail, die an diese Adresse kommt. Ein Absender auf der Whitelist kommt immer durch, ein Absender auf der Blacklist wird abgelehnt.",
+    "outbound_title_help": "Eine Regel hier gilt für die Mail, die diese Adresse sendet. Ein Empfänger auf der Whitelist erhält die Mail immer, ein Empfänger auf der Blacklist nicht."
   },
   "spampolicy": {
     "msg_deleted": "Spam-Richtlinie gelöscht!",
@@ -230,11 +232,8 @@
     "load_policy": "Richtlinie laden",
     "thresholds": "Spam-Schwellenwerte",
     "tag_level": "Tag-Level",
-    "tag_level_hint": "Spam-Kopfzeile hinzufügen",
     "tag2_level": "Tag2-Level",
-    "tag2_level_hint": "Als Spam markieren",
     "kill_level": "Kill-Level",
-    "kill_level_hint": "Quarantäne/Abweisen",
     "subject_tag": "Betreff-Tag",
     "subject_tag2": "Betreff-Tag2",
     "bypass_delivery": "Umgehungs- & Zustelloptionen",

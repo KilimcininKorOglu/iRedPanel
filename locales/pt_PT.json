@@ -217,7 +217,9 @@
     "msg_sender_required": "Introduza pelo menos um endereço.",
     "rdns_whitelist_legend_help": "Um domínio por linha. O correio de um servidor com DNS inverso correspondente salta o greylisting.",
     "rdns_blacklist_legend_help": "Um domínio por linha. O correio de um servidor com DNS inverso correspondente é recusado.",
-    "senderscore_legend_help": "Um endereço IP por linha, IPv4 ou IPv6. Estes endereços saltam sempre a verificação do SenderScore."
+    "senderscore_legend_help": "Um endereço IP por linha, IPv4 ou IPv6. Estes endereços saltam sempre a verificação do SenderScore.",
+    "inbound_title_help": "Uma regra aqui vale para o mail que chega a este endereço. Um remetente na whitelist passa sempre, um remetente na blacklist é recusado.",
+    "outbound_title_help": "Uma regra aqui vale para o mail que este endereço envia. Um destinatário na whitelist recebe sempre o mail, um na blacklist não."
   },
   "spampolicy": {
     "msg_deleted": "Política antispam eliminada!",
@@ -230,11 +232,8 @@
     "load_policy": "Carregar política",
     "thresholds": "Limites de spam",
     "tag_level": "Nível de etiqueta",
-    "tag_level_hint": "Adicionar cabeçalho de spam",
     "tag2_level": "Nível de etiqueta 2",
-    "tag2_level_hint": "Marcar como spam",
     "kill_level": "Nível de bloqueio",
-    "kill_level_hint": "Quarentena/rejeição",
     "subject_tag": "Etiqueta de assunto",
     "subject_tag2": "Etiqueta 2 de assunto",
     "bypass_delivery": "Opções de ignorar e entregar",

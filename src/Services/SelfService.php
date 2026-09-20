@@ -9,6 +9,7 @@ use App\Models\DomainSettings;
 use App\Models\ProfileToggles;
 use App\Models\User;
 use App\Repositories\RepositoryFactory;
+use App\Utils\ExpiryDate;
 
 /**
  * Login and account context of a mailbox user in self-service. A user logs in when the
@@ -42,16 +43,29 @@ final class SelfService
         }
         [$uid, $domainName] = explode('@', $email, 2);
 
-        $domain = RepositoryFactory::getDomainRepository()->getDomain($domainName);
-        if ($domain === null || !$domain->active || !DomainSettings::fromSettingsString($domain->settings)->selfService()) {
+        if (!self::domainOpen($domainName)) {
             return false;
         }
         $user = RepositoryFactory::getUserRepository()->getUser($domainName, $uid);
-        if ($user === null || !$user->accountStatus) {
+        if ($user === null || !$user->accountStatus || ExpiryDate::isExpired($user->expiredDate)) {
             return false;
         }
 
         return RepositoryFactory::getUserRepository()->verifyUserPassword($domainName, $uid, $password);
+    }
+
+    /**
+     * Whether the domain serves self-service: it exists, it is active, its expiry date
+     * has not passed and the self-service option is on.
+     */
+    private static function domainOpen(string $domainName): bool
+    {
+        $domain = RepositoryFactory::getDomainRepository()->getDomain($domainName);
+
+        return $domain !== null
+            && $domain->active
+            && !ExpiryDate::isExpired($domain->expiredDate)
+            && DomainSettings::fromSettingsString($domain->settings)->selfService();
     }
 
     /**

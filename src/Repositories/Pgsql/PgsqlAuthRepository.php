@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Repositories\Pgsql;
 
 use App\Repositories\AuthRepositoryInterface;
+use App\Utils\ExpiryDate;
 use App\Utils\PasswordVerifier;
 
 class PgsqlAuthRepository implements AuthRepositoryInterface
@@ -14,11 +15,12 @@ class PgsqlAuthRepository implements AuthRepositoryInterface
         $pdo = PgsqlConnection::getInstance()->getPdo();
 
         // Try standalone admin table first
-        $stmt = $pdo->prepare('SELECT password FROM admin WHERE username = :username AND active = 1');
+        $stmt = $pdo->prepare('SELECT password, expired FROM admin WHERE username = :username AND active = 1');
         $stmt->execute(['username' => $email]);
         $row = $stmt->fetch();
 
         if ($row !== false) {
+            ExpiryDate::assertNotExpired($email, ExpiryDate::fromSql($row['expired'] ?? null));
             if (!self::verifyPassword($password, $row['password'])) {
                 throw new \Exception("Invalid password for {$email}");
             }
@@ -35,7 +37,7 @@ class PgsqlAuthRepository implements AuthRepositoryInterface
 
         // Try mailbox-based admin
         $stmt = $pdo->prepare(
-            'SELECT password FROM mailbox WHERE username = :username AND active = 1 AND (isadmin = 1 OR isglobaladmin = 1)'
+            'SELECT password, expired FROM mailbox WHERE username = :username AND active = 1 AND (isadmin = 1 OR isglobaladmin = 1)'
         );
         $stmt->execute(['username' => $email]);
         $row = $stmt->fetch();
@@ -44,6 +46,7 @@ class PgsqlAuthRepository implements AuthRepositoryInterface
             throw new \Exception("Admin user {$email} not found or inactive");
         }
 
+        ExpiryDate::assertNotExpired($email, ExpiryDate::fromSql($row['expired'] ?? null));
         if (!self::verifyPassword($password, $row['password'])) {
             throw new \Exception("Invalid password for {$email}");
         }

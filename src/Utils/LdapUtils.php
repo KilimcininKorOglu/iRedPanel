@@ -55,6 +55,18 @@ class LdapUtils
         return "domainName={$safeDomain},o=domains,{$settings->ldapRootDn}";
     }
 
+    /** The base DN that holds every mail domain. */
+    public static function domainsBase(): string
+    {
+        return 'o=domains,' . Settings::getInstance()->ldapRootDn;
+    }
+
+    /** The base DN that holds every standalone admin. */
+    public static function adminsBase(): string
+    {
+        return 'o=domainAdmins,' . Settings::getInstance()->ldapRootDn;
+    }
+
     /**
      * Returns the DN of an account entry `mail=<address>,ou=<ou>` under the domain of the address.
      */

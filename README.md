@@ -424,6 +424,12 @@ server {
 - View, cancel and reschedule pending deletions
 - `cli/deleteExpiredMailboxes.php` removes the maildirs when the date is reached
 
+### Account Expiry
+- A mailbox, a domain and an admin carry an expiry date, the last day the account works
+- `cli/disableExpiredAccounts.php` runs from cron and disables every expired account that is still active. It only disables, because it cannot know why an account is off
+- The sign-in refuses an expired admin and an expired self-service mailbox, so a date that passes between two cron runs holds at once
+- No open source iRedMail component reads the date, so the panel enforces it itself
+
 ### Export
 - Users of a domain as CSV or JSON
 - Admin statistics as CSV or JSON
@@ -525,6 +531,7 @@ php cli/bulkQuotaUpdate.php --file=quotas.csv                # Bulk quota update
 php cli/exportUsers.php --domain=example.com                 # Export users to CSV
 php cli/promoteToGlobalAdmin.php --email=admin@example.com   # Promote to global admin
 php cli/deleteExpiredMailboxes.php [--dry-run]               # Cron: delete expired mailboxes
+php cli/disableExpiredAccounts.php [--dry-run]               # Cron: disable expired mailboxes, domains and admins
 php cli/cleanupAmavisdDb.php [--quarantine-days=7]           # Cron: Amavisd cleanup
 php cli/deleteUnmatchedThrottles.php [--dry-run]            # Delete throttle rows iRedAPD never applies
 php cli/notifyQuarantinedRecipients.php [--force-all]        # Cron: quarantine notifications

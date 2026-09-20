@@ -73,6 +73,31 @@ final class ExpiryDate
     }
 
     /**
+     * Refuses an account whose expiry date has passed. The login paths call it, because
+     * the cron script runs once a day and a date passes between two runs.
+     *
+     * @param string $date the model value (YYYY-MM-DD or '')
+     * @throws \RuntimeException when the date has passed
+     */
+    public static function assertNotExpired(string $account, string $date): void
+    {
+        if (self::isExpired($date)) {
+            throw new \RuntimeException("Account {$account} expired on {$date}");
+        }
+    }
+
+    /**
+     * The value that `expired < :cutoff` compares against, so that the SQL answer
+     * matches isExpired(): every date before today has passed.
+     *
+     * @param ?int $now unix timestamp, the current time when null
+     */
+    public static function sqlCutoff(?int $now = null): string
+    {
+        return date('Y-m-d', $now ?? time()) . ' 00:00:00';
+    }
+
+    /**
      * Whether the account is expired. The date is the last valid day, so the
      * account expires at the start of the next day.
      *

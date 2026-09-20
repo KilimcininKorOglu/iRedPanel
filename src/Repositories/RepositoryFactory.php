@@ -325,6 +325,19 @@ class RepositoryFactory
         return $pdo === null ? null : new SqlMailboxSharing($pdo);
     }
 
+    /**
+     * The expired accounts of the backend. The SQL backends share the query, and
+     * the LDAP backend reads the expiredDate attribute of the tree.
+     */
+    public static function getExpiredAccountRepository(): ExpiredAccountRepositoryInterface
+    {
+        return match (Settings::getInstance()->backend) {
+            'mysql' => new SqlExpiredAccounts(Mysql\MysqlConnection::getInstance()->getPdo()),
+            'pgsql' => new SqlExpiredAccounts(Pgsql\PgsqlConnection::getInstance()->getPdo()),
+            default => new Ldap\LdapExpiredAccounts(),
+        };
+    }
+
     public static function getPanelSettingsRepository(): PanelSettingsRepositoryInterface
     {
         self::$panelSettingsRepo ??= match (Settings::getInstance()->backend) {

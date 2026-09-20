@@ -306,11 +306,15 @@ Bakım script'lerini mail sunucusunda `root` kullanıcısının crontab'ına ekl
 0 8 * * * cd /opt/www/iredpanel && php cli/notifyQuarantinedRecipients.php
 # Replicate accounts from Active Directory (System > Account Resources)
 * * * * * cd /opt/www/iredpanel && php cli/replicateAccounts.php
+# Disable every mailbox, domain and admin whose expiry date has passed
+10 4 * * * cd /opt/www/iredpanel && php cli/disableExpiredAccounts.php
 ```
 
 `replicateAccounts.php`, **Sistem > Hesap Kaynakları** sayfasındaki hesap kaynaklarını replike eder. Replikasyon aralığı dolmuş her etkin kaynağı çalıştırır. Aralığı dolmamış bir kaynakta hiçbir şey yapmaz. Script iredadmin veritabanı ayarlarını ve PHP `sodium` extension'ını ister. Panel domain controller'a port 636 (LDAPS) veya 389 (StartTLS) üzerinden bağlanabilmelidir. Bind parolası `IREDPANEL_SECRET_KEY` ile şifrelenir. Bu key değişirse her kaynağın bind parolasını yeniden girin.
 
 `deleteExpiredMailboxes.php`, `IREDPANEL_VMAIL_PATH` dizinine yazma izni ister. Storage node dizini (`vmail1`) yoksa script bütün kayıtları tutar, çünkü mount edilmemiş bir dizin her maildir'i silinmiş gibi gösterir. Script'i önce `--dry-run` ile çalıştırın.
+
+`disableExpiredAccounts.php`, sona erme tarihi geçmiş hesabı devre dışı bırakır. Yalnız devre dışı bırakır, bu yüzden tarihi ileri alınan bir hesabı admin kendisi açar. Önce `--dry-run` ile çalıştırın.
 
 ## Yükseltme
 

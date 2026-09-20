@@ -277,12 +277,12 @@ class LdapAdminRepository implements AdminRepositoryInterface
 
     private static function adminsBase(): string
     {
-        return 'o=domainAdmins,' . Settings::getInstance()->ldapRootDn;
+        return LdapUtils::adminsBase();
     }
 
     private static function domainsBase(): string
     {
-        return 'o=domains,' . Settings::getInstance()->ldapRootDn;
+        return LdapUtils::domainsBase();
     }
 
     private static function standaloneDn(string $username): string

@@ -6,6 +6,7 @@ namespace App\Repositories\Ldap;
 
 use App\Models\LdapConnection;
 use App\Repositories\AuthRepositoryInterface;
+use App\Utils\ExpiryDate;
 use App\Utils\LdapUtils;
 
 class LdapAuthRepository implements AuthRepositoryInterface
@@ -21,6 +22,7 @@ class LdapAuthRepository implements AuthRepositoryInterface
         if ((LdapUtils::allValues($entry, 'accountStatus')[0] ?? '') !== 'active') {
             throw new \Exception("Administrator {$email} is disabled");
         }
+        ExpiryDate::assertNotExpired($email, ExpiryDate::fromLdap(LdapUtils::allValues($entry, 'expiredDate')[0] ?? ''));
         LdapConnection::verifyPassword($entry['dn'], $password);
 
         return true;

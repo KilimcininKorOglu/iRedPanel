@@ -314,11 +314,15 @@ Add the maintenance scripts to the crontab of `root` on the mail server. For Doc
 0 8 * * * cd /opt/www/iredpanel && php cli/notifyQuarantinedRecipients.php
 # Replicate accounts from Active Directory (System > Account Resources)
 * * * * * cd /opt/www/iredpanel && php cli/replicateAccounts.php
+# Disable every mailbox, domain and admin whose expiry date has passed
+10 4 * * * cd /opt/www/iredpanel && php cli/disableExpiredAccounts.php
 ```
 
 `replicateAccounts.php` replicates the account resources of **System > Account Resources**. It runs every enabled resource whose replication interval has passed, and does nothing otherwise. It needs the iredadmin database settings and the PHP `sodium` extension. The panel must reach the domain controller on port 636 (LDAPS) or 389 (StartTLS). The bind password is encrypted with `IREDPANEL_SECRET_KEY`. After a change of that key, enter the bind password of every resource again.
 
 `deleteExpiredMailboxes.php` needs write access to `IREDPANEL_VMAIL_PATH`. It keeps every record when the storage node directory (`vmail1`) is missing, because a missing mount makes every maildir look deleted. Run it with `--dry-run` first.
+
+`disableExpiredAccounts.php` disables an account whose expiry date has passed. It only disables, so an account that gets a later date stays disabled until an admin enables it again. Run it with `--dry-run` first.
 
 ## Upgrade
 

@@ -723,7 +723,9 @@
     "label_mlmmjadminApiUrl": "URL dell'API mlmmjadmin",
     "label_mlmmjadminApiUrl_help": "Indirizzo dell'API mlmmjadmin che gestisce lo spool di mlmmj, per esempio http://127.0.0.1:7790/api. Vuoto blocca ogni operazione di mailing list.",
     "label_mlmmjadminApiToken": "Token dell'API mlmmjadmin",
-    "label_mlmmjadminApiToken_help": "Uno degli api_auth_tokens in /opt/mlmmjadmin/settings.py sul server di posta. Viene salvato cifrato con IREDPANEL_SECRET_KEY e non viene più mostrato."
+    "label_mlmmjadminApiToken_help": "Uno degli api_auth_tokens in /opt/mlmmjadmin/settings.py sul server di posta. Viene salvato cifrato con IREDPANEL_SECRET_KEY e non viene più mostrato.",
+    "label_passwordRecoveryEnabled": "Recupero password",
+    "label_passwordRecoveryEnabled_help": "Pubblica la pagina /forgot-password e il suo link nella pagina di accesso. Una mailbox con indirizzo di recupero riceve per mail un link di reimpostazione. Richiede l'URL pubblico, le impostazioni SMTP e il database iredadmin. Predefinito: disattivato."
   },
   "quarantine": {
     "title": "Quarantena",
@@ -1243,5 +1245,21 @@
     "policy_allowed": "Solo mittenti consentiti",
     "max_message_size_help": "Dimensione massima del messaggio in byte. 0 significa nessun limite.",
     "allowed_hint_help": "Questi indirizzi possono sempre scrivere alla lista, anche se l'access policy li rifiuta. Un indirizzo per riga."
+  },
+  "recovery": {
+    "forgot_title": "Password dimenticata",
+    "forgot_hint": "Inserisci l'indirizzo della tua mailbox. Se ha un indirizzo di recupero, il link di reimpostazione verrà inviato lì.",
+    "mailbox_address": "Indirizzo della mailbox",
+    "mailbox_address_help": "La mailbox di cui vuoi reimpostare la password. Il link di reimpostazione va all'indirizzo di recupero della mailbox, mai alla mailbox stessa. La pagina risponde allo stesso modo per un indirizzo noto e uno sconosciuto.",
+    "send_link": "Invia il link",
+    "msg_link_sent": "Se la mailbox esiste e ha un indirizzo di recupero, il link di reimpostazione è stato inviato lì. Il link scade tra :hours ore.",
+    "back_to_login": "Torna all'accesso",
+    "reset_title": "Imposta una nuova password",
+    "reset_hint": "Imposta una nuova password per :email.",
+    "msg_invalid_token": "Questo link di reimpostazione non è valido o è scaduto.",
+    "msg_password_updated": "La tua password è stata cambiata. Ora puoi accedere.",
+    "msg_disabled": "Il recupero della password non è disponibile.",
+    "mail_subject": "Reimpostazione della password per :email",
+    "mail_body": "Qualcuno, probabilmente tu, ha chiesto di reimpostare la password di :email.\n\nPer impostare una nuova password, apri questo link:\n:link\n\nIl link scade tra :hours ore. Se non hai richiesto questo, ignora il messaggio: la password resta invariata."
   }
 }

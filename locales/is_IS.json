@@ -723,7 +723,9 @@
     "label_mlmmjadminApiUrl": "mlmmjadmin API slóð",
     "label_mlmmjadminApiUrl_help": "Slóð mlmmjadmin API sem stýrir mlmmj spool, til dæmis http://127.0.0.1:7790/api. Autt stöðvar allar mailing list aðgerðir.",
     "label_mlmmjadminApiToken": "mlmmjadmin API token",
-    "label_mlmmjadminApiToken_help": "Eitt af api_auth_tokens í /opt/mlmmjadmin/settings.py á póstþjóninum. Það er geymt dulkóðað með IREDPANEL_SECRET_KEY og er aldrei sýnt aftur."
+    "label_mlmmjadminApiToken_help": "Eitt af api_auth_tokens í /opt/mlmmjadmin/settings.py á póstþjóninum. Það er geymt dulkóðað með IREDPANEL_SECRET_KEY og er aldrei sýnt aftur.",
+    "label_passwordRecoveryEnabled": "Endurheimt lykilorðs",
+    "label_passwordRecoveryEnabled_help": "Birtir síðuna /forgot-password og tengil á hana á innskráningarsíðunni. Mailbox með endurheimtunetfang fær endurstillingartengil í pósti. Krefst opinbera URL, SMTP stillinga og iredadmin gagnagrunnsins. Sjálfgefið: af."
   },
   "quarantine": {
     "title": "Sóttkví",
@@ -1243,5 +1245,21 @@
     "policy_allowed": "Aðeins leyfðir sendendur",
     "max_message_size_help": "Hámarksstærð skilaboða í bætum. 0 þýðir engin mörk.",
     "allowed_hint_help": "Þessi netföng mega alltaf skrifa á listann, líka þegar access policy hafnar þeim. Eitt netfang í línu."
+  },
+  "recovery": {
+    "forgot_title": "Gleymt lykilorð",
+    "forgot_hint": "Sláðu inn mailbox-netfangið þitt. Ef það hefur endurheimtunetfang er endurstillingartengill sendur þangað.",
+    "mailbox_address": "Mailbox-netfang",
+    "mailbox_address_help": "Mailboxið sem þú vilt endurstilla lykilorðið fyrir. Endurstillingartengillinn fer á endurheimtunetfang mailboxins, aldrei í mailboxið sjálft. Síðan svarar eins fyrir þekkt og óþekkt netfang.",
+    "send_link": "Senda tengil",
+    "msg_link_sent": "Ef mailboxið er til og hefur endurheimtunetfang var endurstillingartengill sendur þangað. Tengillinn rennur út eftir :hours klukkustundir.",
+    "back_to_login": "Til baka í innskráningu",
+    "reset_title": "Setja nýtt lykilorð",
+    "reset_hint": "Settu nýtt lykilorð fyrir :email.",
+    "msg_invalid_token": "Þessi endurstillingartengill er ógildur eða útrunninn.",
+    "msg_password_updated": "Lykilorðinu þínu var breytt. Þú getur skráð þig inn núna.",
+    "msg_disabled": "Endurheimt lykilorðs er ekki í boði.",
+    "mail_subject": "Endurstilling lykilorðs fyrir :email",
+    "mail_body": "Einhver, líklega þú, bað um að endurstilla lykilorðið fyrir :email.\n\nOpnaðu þennan tengil til að setja nýtt lykilorð:\n:link\n\nTengillinn rennur út eftir :hours klukkustundir. Ef þú baðst ekki um þetta skaltu hunsa skilaboðin; lykilorðið helst óbreytt."
   }
 }

@@ -723,7 +723,9 @@
     "label_mlmmjadminApiUrl": "URL API mlmmjadmin",
     "label_mlmmjadminApiUrl_help": "Адреса API mlmmjadmin, яке керує spool mlmmj, наприклад http://127.0.0.1:7790/api. Порожнє значення зупиняє всі операції mailing list.",
     "label_mlmmjadminApiToken": "Token API mlmmjadmin",
-    "label_mlmmjadminApiToken_help": "Один з api_auth_tokens у /opt/mlmmjadmin/settings.py на поштовому сервері. Зберігається зашифрованим ключем IREDPANEL_SECRET_KEY і більше не показується."
+    "label_mlmmjadminApiToken_help": "Один з api_auth_tokens у /opt/mlmmjadmin/settings.py на поштовому сервері. Зберігається зашифрованим ключем IREDPANEL_SECRET_KEY і більше не показується.",
+    "label_passwordRecoveryEnabled": "Відновлення пароля",
+    "label_passwordRecoveryEnabled_help": "Публікує сторінку /forgot-password і посилання на неї на сторінці входу. Mailbox з адресою відновлення отримує посилання для скидання поштою. Потрібні публічний URL, налаштування SMTP і база iredadmin. За замовчуванням: вимкнено."
   },
   "quarantine": {
     "title": "Карантин",
@@ -1243,5 +1245,21 @@
     "policy_allowed": "Лише дозволені відправники",
     "max_message_size_help": "Максимальний розмір повідомлення в байтах. 0 означає без обмежень.",
     "allowed_hint_help": "Ці адреси завжди можуть писати у список, навіть коли access policy їх відхиляє. По одній адресі в рядку."
+  },
+  "recovery": {
+    "forgot_title": "Забули пароль",
+    "forgot_hint": "Введіть адресу своєї mailbox. Якщо для неї вказано адресу відновлення, посилання для скидання буде надіслано туди.",
+    "mailbox_address": "Адреса mailbox",
+    "mailbox_address_help": "Mailbox, пароль якої потрібно скинути. Посилання для скидання надсилається на адресу відновлення mailbox, а не на саму mailbox. Сторінка відповідає однаково для відомої та невідомої адреси.",
+    "send_link": "Надіслати посилання",
+    "msg_link_sent": "Якщо mailbox існує і має адресу відновлення, посилання для скидання надіслано туди. Посилання діє :hours годин.",
+    "back_to_login": "Повернутися до входу",
+    "reset_title": "Установити новий пароль",
+    "reset_hint": "Установіть новий пароль для :email.",
+    "msg_invalid_token": "Це посилання для скидання недійсне або застаріло.",
+    "msg_password_updated": "Пароль змінено. Тепер ви можете увійти.",
+    "msg_disabled": "Відновлення пароля недоступне.",
+    "mail_subject": "Скидання пароля для :email",
+    "mail_body": "Хтось, імовірно ви, попросив скинути пароль :email.\n\nЩоб установити новий пароль, відкрийте це посилання:\n:link\n\nПосилання діє :hours годин. Якщо ви цього не робили, проігноруйте це повідомлення: пароль залишиться колишнім."
   }
 }

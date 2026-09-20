@@ -723,7 +723,9 @@
     "label_mlmmjadminApiUrl": "mlmmjadmin API URL",
     "label_mlmmjadminApiUrl_help": "Adresa mlmmjadmin API, ktoré spravuje spool mlmmj, napríklad http://127.0.0.1:7790/api. Prázdne zastaví každú operáciu s mailing listom.",
     "label_mlmmjadminApiToken": "mlmmjadmin API token",
-    "label_mlmmjadminApiToken_help": "Jeden z api_auth_tokens v /opt/mlmmjadmin/settings.py na poštovom serveri. Ukladá sa zašifrovaný kľúčom IREDPANEL_SECRET_KEY a už sa nezobrazí."
+    "label_mlmmjadminApiToken_help": "Jeden z api_auth_tokens v /opt/mlmmjadmin/settings.py na poštovom serveri. Ukladá sa zašifrovaný kľúčom IREDPANEL_SECRET_KEY a už sa nezobrazí.",
+    "label_passwordRecoveryEnabled": "Obnova hesla",
+    "label_passwordRecoveryEnabled_help": "Zverejní stránku /forgot-password a odkaz na ňu na prihlasovacej stránke. Mailbox s adresou na obnovu dostane odkaz na reset e-mailom. Vyžaduje verejnú URL, nastavenia SMTP a databázu iredadmin. Predvolené: vypnuté."
   },
   "quarantine": {
     "title": "Karanténa",
@@ -1243,5 +1245,21 @@
     "policy_allowed": "Iba povolení odosielatelia",
     "max_message_size_help": "Maximálna veľkosť správy v bajtoch. 0 znamená bez obmedzenia.",
     "allowed_hint_help": "Tieto adresy smú do zoznamu písať vždy, aj keď ich access policy odmieta. Jedna adresa na riadok."
+  },
+  "recovery": {
+    "forgot_title": "Zabudnuté heslo",
+    "forgot_hint": "Zadajte adresu svojej mailbox. Ak má adresu na obnovu, odkaz na reset sa odošle tam.",
+    "mailbox_address": "Adresa mailbox",
+    "mailbox_address_help": "Mailbox, ktorej heslo chcete resetovať. Odkaz na reset ide na adresu na obnovu danej mailbox, nikdy do samotnej mailbox. Stránka odpovedá rovnako pre známu aj neznámu adresu.",
+    "send_link": "Odoslať odkaz",
+    "msg_link_sent": "Ak mailbox existuje a má adresu na obnovu, odkaz na reset bol odoslaný tam. Odkaz vyprší o :hours hodín.",
+    "back_to_login": "Späť na prihlásenie",
+    "reset_title": "Nastaviť nové heslo",
+    "reset_hint": "Nastavte nové heslo pre :email.",
+    "msg_invalid_token": "Tento odkaz na reset je neplatný alebo vypršal.",
+    "msg_password_updated": "Vaše heslo bolo zmenené. Teraz sa môžete prihlásiť.",
+    "msg_disabled": "Obnova hesla nie je k dispozícii.",
+    "mail_subject": "Reset hesla pre :email",
+    "mail_body": "Niekto, pravdepodobne vy, požiadal o reset hesla :email.\n\nNové heslo nastavíte otvorením tohto odkazu:\n:link\n\nOdkaz vyprší o :hours hodín. Ak ste o to nežiadali, správu ignorujte a heslo zostane nezmenené."
   }
 }

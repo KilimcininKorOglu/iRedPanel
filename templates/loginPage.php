@@ -30,6 +30,9 @@ $fieldClass = !empty($error) ? 'form-control is-invalid' : 'form-control';
         </div>
         <button type="submit" class="btn btn-primary w-100"><i class="bi bi-box-arrow-in-right me-1"></i><?= $te('auth.sign_in') ?></button>
       </form>
+      <?php if (!empty($features['passwordRecovery'])): ?>
+      <div class="mt-3 text-center"><a href="/forgot-password"><?= $te('recovery.forgot_title') ?></a></div>
+      <?php endif; ?>
     </div>
   </div>
 </div>

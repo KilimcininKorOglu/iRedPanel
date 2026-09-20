@@ -723,7 +723,9 @@
     "label_mlmmjadminApiUrl": "mlmmjadmin API-URL",
     "label_mlmmjadminApiUrl_help": "Adressen till det mlmmjadmin API som äger mlmmj-spoolen, till exempel http://127.0.0.1:7790/api. Tomt stoppar varje mailing list-åtgärd.",
     "label_mlmmjadminApiToken": "mlmmjadmin API-token",
-    "label_mlmmjadminApiToken_help": "En av api_auth_tokens i /opt/mlmmjadmin/settings.py på mailservern. Den lagras krypterad med IREDPANEL_SECRET_KEY och visas aldrig igen."
+    "label_mlmmjadminApiToken_help": "En av api_auth_tokens i /opt/mlmmjadmin/settings.py på mailservern. Den lagras krypterad med IREDPANEL_SECRET_KEY och visas aldrig igen.",
+    "label_passwordRecoveryEnabled": "Lösenordsåterställning",
+    "label_passwordRecoveryEnabled_help": "Publicerar sidan /forgot-password och länken till den på inloggningssidan. En mailbox med återställningsadress får en återställningslänk via mail. Kräver den publika URL:en, SMTP-inställningarna och iredadmin-databasen. Standard: av."
   },
   "quarantine": {
     "title": "Karantän",
@@ -1243,5 +1245,21 @@
     "policy_allowed": "Endast tillåtna avsändare",
     "max_message_size_help": "Maximal meddelandestorlek i byte. 0 betyder ingen gräns.",
     "allowed_hint_help": "Dessa adresser får alltid skriva till listan, även när access policy avvisar dem. En adress per rad."
+  },
+  "recovery": {
+    "forgot_title": "Glömt lösenord",
+    "forgot_hint": "Ange din mailbox-adress. Om den har en återställningsadress skickas en återställningslänk dit.",
+    "mailbox_address": "Mailbox-adress",
+    "mailbox_address_help": "Den mailbox vars lösenord du vill återställa. Återställningslänken går till mailboxens återställningsadress, aldrig till mailboxen själv. Sidan svarar likadant för en känd och en okänd adress.",
+    "send_link": "Skicka länk",
+    "msg_link_sent": "Om mailboxen finns och har en återställningsadress har en länk skickats dit. Länken går ut om :hours timmar.",
+    "back_to_login": "Tillbaka till inloggningen",
+    "reset_title": "Ange ett nytt lösenord",
+    "reset_hint": "Ange ett nytt lösenord för :email.",
+    "msg_invalid_token": "Den här återställningslänken är ogiltig eller har gått ut.",
+    "msg_password_updated": "Ditt lösenord har ändrats. Du kan logga in nu.",
+    "msg_disabled": "Lösenordsåterställning är inte tillgänglig.",
+    "mail_subject": "Lösenordsåterställning för :email",
+    "mail_body": "Någon, troligen du, har begärt att lösenordet för :email ska återställas.\n\nÖppna den här länken för att ange ett nytt lösenord:\n:link\n\nLänken går ut om :hours timmar. Om du inte har begärt detta kan du ignorera meddelandet; lösenordet förblir oförändrat."
   }
 }

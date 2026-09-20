@@ -723,7 +723,9 @@
     "label_mlmmjadminApiUrl": "mlmmjadmin API URLa",
     "label_mlmmjadminApiUrl_help": "mlmmj spool-a kudeatzen duen mlmmjadmin APIaren helbidea, adibidez http://127.0.0.1:7790/api. Hutsik mailing list eragiketa guztiak gelditzen ditu.",
     "label_mlmmjadminApiToken": "mlmmjadmin API tokena",
-    "label_mlmmjadminApiToken_help": "Mail zerbitzariko /opt/mlmmjadmin/settings.py fitxategiko api_auth_tokens balioetako bat. IREDPANEL_SECRET_KEY-rekin zifratuta gordetzen da eta ez da berriro erakusten."
+    "label_mlmmjadminApiToken_help": "Mail zerbitzariko /opt/mlmmjadmin/settings.py fitxategiko api_auth_tokens balioetako bat. IREDPANEL_SECRET_KEY-rekin zifratuta gordetzen da eta ez da berriro erakusten.",
+    "label_passwordRecoveryEnabled": "Pasahitza berreskuratzea",
+    "label_passwordRecoveryEnabled_help": "/forgot-password orria eta saio-hasierako orriko esteka argitaratzen ditu. Berreskuratze-helbidea duen mailbox batek berrezartzeko esteka jasotzen du postaz. URL publikoa, SMTP ezarpenak eta iredadmin datu-basea behar ditu. Lehenetsia: itzalita."
   },
   "quarantine": {
     "title": "Berrogeialdia",
@@ -1243,5 +1245,21 @@
     "policy_allowed": "Baimendutako bidaltzaileak soilik",
     "max_message_size_help": "Mezuaren gehienezko tamaina bytetan. 0 mugarik ez esan nahi du.",
     "allowed_hint_help": "Helbide hauek beti idatz dezakete zerrendara, access policy-k uko egiten dienean ere. Helbide bat lerroko."
+  },
+  "recovery": {
+    "forgot_title": "Pasahitza ahaztu dut",
+    "forgot_hint": "Sartu zure mailbox helbidea. Berreskuratze-helbide bat badu, berrezartzeko esteka hara bidaliko da.",
+    "mailbox_address": "Mailbox helbidea",
+    "mailbox_address_help": "Pasahitza berrezarri nahi duzun mailbox-a. Berrezartzeko esteka mailbox-aren berreskuratze-helbidera doa, inoiz ez mailbox-era bertara. Orriak berdin erantzuten du helbide ezagun eta ezezagunentzat.",
+    "send_link": "Bidali esteka",
+    "msg_link_sent": "Mailbox-a badago eta berreskuratze-helbidea badu, berrezartzeko esteka hara bidali da. Esteka :hours ordu barru iraungitzen da.",
+    "back_to_login": "Itzuli saio-hasierara",
+    "reset_title": "Ezarri pasahitz berria",
+    "reset_hint": "Ezarri pasahitz berri bat :email helbiderako.",
+    "msg_invalid_token": "Berrezartzeko esteka hau baliogabea da edo iraungi da.",
+    "msg_password_updated": "Zure pasahitza aldatu da. Orain saioa has dezakezu.",
+    "msg_disabled": "Pasahitza berreskuratzea ez dago erabilgarri.",
+    "mail_subject": "Pasahitza berrezartzea :email helbiderako",
+    "mail_body": "Norbaitek, ziurrenik zuk, :email helbidearen pasahitza berrezartzeko eskatu du.\n\nPasahitz berria ezartzeko, ireki esteka hau:\n:link\n\nEsteka :hours ordu barru iraungitzen da. Zuk eskatu ez baduzu, ez ikusiarena egin mezu honi; pasahitzak berdin jarraitzen du."
   }
 }

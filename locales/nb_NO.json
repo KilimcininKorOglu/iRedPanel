@@ -723,7 +723,9 @@
     "label_mlmmjadminApiUrl": "mlmmjadmin API-URL",
     "label_mlmmjadminApiUrl_help": "Adressen til mlmmjadmin-API-et som eier mlmmj-spoolen, for eksempel http://127.0.0.1:7790/api. Tom stopper enhver mailing list-operasjon.",
     "label_mlmmjadminApiToken": "mlmmjadmin API-token",
-    "label_mlmmjadminApiToken_help": "En av api_auth_tokens i /opt/mlmmjadmin/settings.py på e-postserveren. Den lagres kryptert med IREDPANEL_SECRET_KEY og vises aldri igjen."
+    "label_mlmmjadminApiToken_help": "En av api_auth_tokens i /opt/mlmmjadmin/settings.py på e-postserveren. Den lagres kryptert med IREDPANEL_SECRET_KEY og vises aldri igjen.",
+    "label_passwordRecoveryEnabled": "Passordgjenoppretting",
+    "label_passwordRecoveryEnabled_help": "Publiserer siden /forgot-password og lenken til den på innloggingssiden. En mailbox med gjenopprettingsadresse får en tilbakestillingslenke på e-post. Krever den offentlige URL-en, SMTP-innstillingene og iredadmin-databasen. Standard: av."
   },
   "quarantine": {
     "title": "Karantene",
@@ -1243,5 +1245,21 @@
     "policy_allowed": "Bare tillatte avsendere",
     "max_message_size_help": "Maksimal meldingsstørrelse i byte. 0 betyr ingen grense.",
     "allowed_hint_help": "Disse adressene får alltid skrive til listen, også når access policy avviser dem. Én adresse per linje."
+  },
+  "recovery": {
+    "forgot_title": "Glemt passord",
+    "forgot_hint": "Skriv inn mailbox-adressen din. Hvis den har en gjenopprettingsadresse, sendes en tilbakestillingslenke dit.",
+    "mailbox_address": "Mailbox-adresse",
+    "mailbox_address_help": "Mailboxen du vil tilbakestille passordet for. Tilbakestillingslenken går til gjenopprettingsadressen til mailboxen, aldri til mailboxen selv. Siden svarer likt for en kjent og en ukjent adresse.",
+    "send_link": "Send lenke",
+    "msg_link_sent": "Hvis mailboxen finnes og har en gjenopprettingsadresse, er en tilbakestillingslenke sendt dit. Lenken utløper om :hours timer.",
+    "back_to_login": "Tilbake til innlogging",
+    "reset_title": "Angi et nytt passord",
+    "reset_hint": "Angi et nytt passord for :email.",
+    "msg_invalid_token": "Denne tilbakestillingslenken er ugyldig eller utløpt.",
+    "msg_password_updated": "Passordet ditt er endret. Du kan logge inn nå.",
+    "msg_disabled": "Passordgjenoppretting er ikke tilgjengelig.",
+    "mail_subject": "Tilbakestilling av passord for :email",
+    "mail_body": "Noen, sannsynligvis du, ba om å tilbakestille passordet til :email.\n\nÅpne denne lenken for å angi et nytt passord:\n:link\n\nLenken utløper om :hours timer. Hvis du ikke ba om dette, kan du se bort fra meldingen; passordet forblir uendret."
   }
 }

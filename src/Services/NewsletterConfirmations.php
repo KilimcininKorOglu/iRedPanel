@@ -5,9 +5,7 @@ declare(strict_types=1);
 namespace App\Services;
 
 use App\Exceptions\BackendConnectionException;
-use App\Models\Settings;
-use App\Repositories\Mysql\IredadminConnection;
-use App\Repositories\Pgsql\IredadminPgsqlConnection;
+use App\Repositories\IredadminPdo;
 
 /**
  * Pending newsletter subscribe/unsubscribe requests in the iredadmin table
@@ -112,13 +110,6 @@ class NewsletterConfirmations
      */
     private static function pdo(): \PDO
     {
-        $pdo = Settings::getInstance()->backend === 'pgsql'
-            ? IredadminPgsqlConnection::getInstance()->getPdo()
-            : IredadminConnection::getInstance()->getPdo();
-        if ($pdo === null) {
-            throw new BackendConnectionException('iredadmin database not available');
-        }
-
-        return $pdo;
+        return IredadminPdo::get();
     }
 }

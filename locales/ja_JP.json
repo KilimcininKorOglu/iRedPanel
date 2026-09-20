@@ -723,7 +723,9 @@
     "label_mlmmjadminApiUrl": "mlmmjadmin API URL",
     "label_mlmmjadminApiUrl_help": "mlmmj のリストスプールを管理する mlmmjadmin API のアドレスです。例: http://127.0.0.1:7790/api。空の場合、mailing list の操作はすべて止まります。",
     "label_mlmmjadminApiToken": "mlmmjadmin API トークン",
-    "label_mlmmjadminApiToken_help": "メールサーバーの /opt/mlmmjadmin/settings.py にある api_auth_tokens の 1 つです。IREDPANEL_SECRET_KEY で暗号化して保存され、再表示されません。"
+    "label_mlmmjadminApiToken_help": "メールサーバーの /opt/mlmmjadmin/settings.py にある api_auth_tokens の 1 つです。IREDPANEL_SECRET_KEY で暗号化して保存され、再表示されません。",
+    "label_passwordRecoveryEnabled": "パスワード回復",
+    "label_passwordRecoveryEnabled_help": "/forgot-password ページとログインページ上のリンクを公開します。回復用アドレスを持つ mailbox はメールでリセットリンクを受け取ります。公開 URL、SMTP 設定、iredadmin データベースが必要です。既定値: オフ。"
   },
   "quarantine": {
     "title": "隔離",
@@ -1243,5 +1245,21 @@
     "policy_allowed": "許可された送信者のみ",
     "max_message_size_help": "メッセージの最大サイズ (バイト)。0 は無制限です。",
     "allowed_hint_help": "これらのアドレスは access policy が拒否する場合でも常にリストへ送れます。1 行に 1 件です。"
+  },
+  "recovery": {
+    "forgot_title": "パスワードをお忘れですか",
+    "forgot_hint": "mailbox のアドレスを入力してください。回復用アドレスが設定されていれば、そこにリセットリンクを送信します。",
+    "mailbox_address": "mailbox アドレス",
+    "mailbox_address_help": "パスワードをリセットする mailbox です。リセットリンクは mailbox の回復用アドレスに送られ、mailbox 自体には送られません。存在するアドレスでも存在しないアドレスでも同じ応答を返します。",
+    "send_link": "リンクを送信",
+    "msg_link_sent": "mailbox が存在し回復用アドレスがある場合、そこにリセットリンクを送信しました。リンクは :hours 時間で失効します。",
+    "back_to_login": "ログインに戻る",
+    "reset_title": "新しいパスワードを設定",
+    "reset_hint": ":email の新しいパスワードを設定してください。",
+    "msg_invalid_token": "このリセットリンクは無効か、有効期限が切れています。",
+    "msg_password_updated": "パスワードを変更しました。今すぐログインできます。",
+    "msg_disabled": "パスワード回復は利用できません。",
+    "mail_subject": ":email のパスワードリセット",
+    "mail_body": "誰か、おそらくあなたが :email のパスワードのリセットを要求しました。\n\n新しいパスワードを設定するには、このリンクを開いてください:\n:link\n\nリンクは :hours 時間で失効します。心当たりがない場合はこのメッセージを無視してください。パスワードはそのままです。"
   }
 }

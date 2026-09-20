@@ -723,7 +723,9 @@
     "label_mlmmjadminApiUrl": "URL του API mlmmjadmin",
     "label_mlmmjadminApiUrl_help": "Διεύθυνση του API mlmmjadmin που διαχειρίζεται το spool του mlmmj, για παράδειγμα http://127.0.0.1:7790/api. Κενό σταματά κάθε ενέργεια mailing list.",
     "label_mlmmjadminApiToken": "Token του API mlmmjadmin",
-    "label_mlmmjadminApiToken_help": "Ένα από τα api_auth_tokens στο /opt/mlmmjadmin/settings.py του mail server. Αποθηκεύεται κρυπτογραφημένο με το IREDPANEL_SECRET_KEY και δεν εμφανίζεται ξανά."
+    "label_mlmmjadminApiToken_help": "Ένα από τα api_auth_tokens στο /opt/mlmmjadmin/settings.py του mail server. Αποθηκεύεται κρυπτογραφημένο με το IREDPANEL_SECRET_KEY και δεν εμφανίζεται ξανά.",
+    "label_passwordRecoveryEnabled": "Ανάκτηση κωδικού",
+    "label_passwordRecoveryEnabled_help": "Δημοσιεύει τη σελίδα /forgot-password και τον σύνδεσμό της στη σελίδα σύνδεσης. Ένα mailbox με διεύθυνση ανάκτησης λαμβάνει σύνδεσμο επαναφοράς με mail. Απαιτεί το δημόσιο URL, τις ρυθμίσεις SMTP και τη βάση iredadmin. Προεπιλογή: ανενεργό."
   },
   "quarantine": {
     "title": "Καραντίνα",
@@ -1243,5 +1245,21 @@
     "policy_allowed": "Μόνο επιτρεπόμενοι αποστολείς",
     "max_message_size_help": "Μέγιστο μέγεθος μηνύματος σε byte. Το 0 σημαίνει χωρίς όριο.",
     "allowed_hint_help": "Αυτές οι διευθύνσεις μπορούν πάντα να γράφουν στη λίστα, ακόμη και όταν η access policy τις απορρίπτει. Μία διεύθυνση ανά γραμμή."
+  },
+  "recovery": {
+    "forgot_title": "Ξέχασα τον κωδικό",
+    "forgot_hint": "Εισαγάγετε τη διεύθυνση του mailbox σας. Αν έχει διεύθυνση ανάκτησης, ο σύνδεσμος επαναφοράς στέλνεται εκεί.",
+    "mailbox_address": "Διεύθυνση mailbox",
+    "mailbox_address_help": "Το mailbox του οποίου τον κωδικό θέλετε να επαναφέρετε. Ο σύνδεσμος επαναφοράς πηγαίνει στη διεύθυνση ανάκτησης του mailbox, ποτέ στο ίδιο το mailbox. Η σελίδα απαντά το ίδιο για γνωστή και άγνωστη διεύθυνση.",
+    "send_link": "Αποστολή συνδέσμου",
+    "msg_link_sent": "Αν το mailbox υπάρχει και έχει διεύθυνση ανάκτησης, ο σύνδεσμος επαναφοράς στάλθηκε εκεί. Ο σύνδεσμος λήγει σε :hours ώρες.",
+    "back_to_login": "Επιστροφή στη σύνδεση",
+    "reset_title": "Ορισμός νέου κωδικού",
+    "reset_hint": "Ορίστε νέο κωδικό για :email.",
+    "msg_invalid_token": "Αυτός ο σύνδεσμος επαναφοράς δεν είναι έγκυρος ή έχει λήξει.",
+    "msg_password_updated": "Ο κωδικός σας άλλαξε. Μπορείτε τώρα να συνδεθείτε.",
+    "msg_disabled": "Η ανάκτηση κωδικού δεν είναι διαθέσιμη.",
+    "mail_subject": "Επαναφορά κωδικού για :email",
+    "mail_body": "Κάποιος, πιθανότατα εσείς, ζήτησε την επαναφορά του κωδικού του :email.\n\nΓια να ορίσετε νέο κωδικό, ανοίξτε αυτόν τον σύνδεσμο:\n:link\n\nΟ σύνδεσμος λήγει σε :hours ώρες. Αν δεν το ζητήσατε, αγνοήστε αυτό το μήνυμα και ο κωδικός παραμένει ως έχει."
   }
 }

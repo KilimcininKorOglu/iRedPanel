@@ -723,7 +723,9 @@
     "label_mlmmjadminApiUrl": "URL de la API de mlmmjadmin",
     "label_mlmmjadminApiUrl_help": "Dirección de la API de mlmmjadmin que gestiona el spool de mlmmj, por ejemplo http://127.0.0.1:7790/api. Vacío detiene cada operación de mailing list.",
     "label_mlmmjadminApiToken": "Token de la API de mlmmjadmin",
-    "label_mlmmjadminApiToken_help": "Uno de los api_auth_tokens de /opt/mlmmjadmin/settings.py en el servidor de correo. Se guarda cifrado con IREDPANEL_SECRET_KEY y no se vuelve a mostrar."
+    "label_mlmmjadminApiToken_help": "Uno de los api_auth_tokens de /opt/mlmmjadmin/settings.py en el servidor de correo. Se guarda cifrado con IREDPANEL_SECRET_KEY y no se vuelve a mostrar.",
+    "label_passwordRecoveryEnabled": "Recuperación de contraseña",
+    "label_passwordRecoveryEnabled_help": "Publica la página /forgot-password y su enlace en la página de inicio de sesión. Una mailbox con dirección de recuperación recibe un enlace de restablecimiento por correo. Necesita la URL pública, los ajustes SMTP y la base de datos iredadmin. Predeterminado: desactivado."
   },
   "quarantine": {
     "title": "Cuarentena",
@@ -1243,5 +1245,21 @@
     "policy_allowed": "Solo remitentes permitidos",
     "max_message_size_help": "Tamaño máximo del mensaje en bytes. 0 significa sin límite.",
     "allowed_hint_help": "Estas direcciones siempre pueden escribir a la lista, aunque la access policy las rechace. Una dirección por línea."
+  },
+  "recovery": {
+    "forgot_title": "Olvidé mi contraseña",
+    "forgot_hint": "Introduzca la dirección de su mailbox. Si tiene una dirección de recuperación, se enviará allí un enlace de restablecimiento.",
+    "mailbox_address": "Dirección de la mailbox",
+    "mailbox_address_help": "La mailbox cuya contraseña desea restablecer. El enlace de restablecimiento se envía a la dirección de recuperación de la mailbox, nunca a la mailbox misma. La página responde igual para una dirección conocida y una desconocida.",
+    "send_link": "Enviar enlace",
+    "msg_link_sent": "Si la mailbox existe y tiene una dirección de recuperación, se ha enviado allí un enlace de restablecimiento. El enlace caduca en :hours horas.",
+    "back_to_login": "Volver al inicio de sesión",
+    "reset_title": "Establecer una nueva contraseña",
+    "reset_hint": "Establezca una nueva contraseña para :email.",
+    "msg_invalid_token": "Este enlace de restablecimiento no es válido o ha caducado.",
+    "msg_password_updated": "Su contraseña ha cambiado. Ya puede iniciar sesión.",
+    "msg_disabled": "La recuperación de contraseña no está disponible.",
+    "mail_subject": "Restablecimiento de contraseña para :email",
+    "mail_body": "Alguien, probablemente usted, solicitó restablecer la contraseña de :email.\n\nPara establecer una nueva contraseña, abra este enlace:\n:link\n\nEl enlace caduca en :hours horas. Si no ha solicitado esto, ignore este mensaje y la contraseña permanecerá igual."
   }
 }

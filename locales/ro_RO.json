@@ -723,7 +723,9 @@
     "label_mlmmjadminApiUrl": "URL-ul API mlmmjadmin",
     "label_mlmmjadminApiUrl_help": "Adresa API-ului mlmmjadmin care gestionează spool-ul mlmmj, de exemplu http://127.0.0.1:7790/api. Gol oprește fiecare operație de mailing list.",
     "label_mlmmjadminApiToken": "Token-ul API mlmmjadmin",
-    "label_mlmmjadminApiToken_help": "Unul dintre api_auth_tokens din /opt/mlmmjadmin/settings.py de pe serverul de mail. Este stocat criptat cu IREDPANEL_SECRET_KEY și nu mai este afișat."
+    "label_mlmmjadminApiToken_help": "Unul dintre api_auth_tokens din /opt/mlmmjadmin/settings.py de pe serverul de mail. Este stocat criptat cu IREDPANEL_SECRET_KEY și nu mai este afișat.",
+    "label_passwordRecoveryEnabled": "Recuperare parolă",
+    "label_passwordRecoveryEnabled_help": "Publică pagina /forgot-password și linkul ei pe pagina de autentificare. O mailbox cu adresă de recuperare primește prin mail un link de resetare. Necesită URL-ul public, setările SMTP și baza de date iredadmin. Implicit: oprit."
   },
   "quarantine": {
     "title": "Carantină",
@@ -1243,5 +1245,21 @@
     "policy_allowed": "Doar expeditori permiși",
     "max_message_size_help": "Dimensiunea maximă a mesajului în octeți. 0 înseamnă fără limită.",
     "allowed_hint_help": "Aceste adrese pot scrie oricând listei, chiar dacă access policy le refuză. O adresă pe linie."
+  },
+  "recovery": {
+    "forgot_title": "Am uitat parola",
+    "forgot_hint": "Introduceți adresa mailbox. Dacă are o adresă de recuperare, linkul de resetare este trimis acolo.",
+    "mailbox_address": "Adresa mailbox",
+    "mailbox_address_help": "Mailbox a cărei parolă doriți să o resetați. Linkul de resetare merge la adresa de recuperare a mailbox, niciodată la mailbox însăși. Pagina răspunde la fel pentru o adresă cunoscută și una necunoscută.",
+    "send_link": "Trimite linkul",
+    "msg_link_sent": "Dacă mailbox există și are o adresă de recuperare, linkul de resetare a fost trimis acolo. Linkul expiră în :hours ore.",
+    "back_to_login": "Înapoi la autentificare",
+    "reset_title": "Setați o parolă nouă",
+    "reset_hint": "Setați o parolă nouă pentru :email.",
+    "msg_invalid_token": "Acest link de resetare este invalid sau a expirat.",
+    "msg_password_updated": "Parola a fost schimbată. Vă puteți autentifica acum.",
+    "msg_disabled": "Recuperarea parolei nu este disponibilă.",
+    "mail_subject": "Resetare parolă pentru :email",
+    "mail_body": "Cineva, probabil dumneavoastră, a cerut resetarea parolei pentru :email.\n\nPentru a seta o parolă nouă, deschideți acest link:\n:link\n\nLinkul expiră în :hours ore. Dacă nu ați cerut acest lucru, ignorați mesajul: parola rămâne neschimbată."
   }
 }

@@ -723,7 +723,9 @@
     "label_mlmmjadminApiUrl": "mlmmjadmin API URL",
     "label_mlmmjadminApiUrl_help": "Адрес на mlmmjadmin API, който владее mlmmj spool-а, например http://127.0.0.1:7790/api. Празно спира всяка операция с mailing list.",
     "label_mlmmjadminApiToken": "mlmmjadmin API token",
-    "label_mlmmjadminApiToken_help": "Един от api_auth_tokens в /opt/mlmmjadmin/settings.py на пощенския сървър. Съхранява се криптиран с IREDPANEL_SECRET_KEY и повече не се показва."
+    "label_mlmmjadminApiToken_help": "Един от api_auth_tokens в /opt/mlmmjadmin/settings.py на пощенския сървър. Съхранява се криптиран с IREDPANEL_SECRET_KEY и повече не се показва.",
+    "label_passwordRecoveryEnabled": "Възстановяване на парола",
+    "label_passwordRecoveryEnabled_help": "Публикува страницата /forgot-password и линка към нея на страницата за вход. Mailbox с адрес за възстановяване получава линк за нулиране по поща. Изисква публичния URL, SMTP настройките и базата iredadmin. По подразбиране: изключено."
   },
   "quarantine": {
     "title": "Карантина",
@@ -1243,5 +1245,21 @@
     "policy_allowed": "Само разрешени изпращачи",
     "max_message_size_help": "Максимален размер на съобщението в байтове. 0 означава без ограничение.",
     "allowed_hint_help": "Тези адреси винаги могат да пишат в списъка, дори когато access policy ги отказва. По един адрес на ред."
+  },
+  "recovery": {
+    "forgot_title": "Забравена парола",
+    "forgot_hint": "Въведете адреса на вашата mailbox. Ако има адрес за възстановяване, линкът за нулиране се изпраща там.",
+    "mailbox_address": "Адрес на mailbox",
+    "mailbox_address_help": "Mailbox, чиято парола искате да нулирате. Линкът за нулиране отива на адреса за възстановяване на mailbox, но не и в самата mailbox. Страницата отговаря еднакво за познат и непознат адрес.",
+    "send_link": "Изпрати линк",
+    "msg_link_sent": "Ако mailbox съществува и има адрес за възстановяване, линкът за нулиране е изпратен там. Линкът изтича след :hours часа.",
+    "back_to_login": "Обратно към входа",
+    "reset_title": "Задайте нова парола",
+    "reset_hint": "Задайте нова парола за :email.",
+    "msg_invalid_token": "Този линк за нулиране е невалиден или е изтекъл.",
+    "msg_password_updated": "Паролата ви е променена. Сега можете да влезете.",
+    "msg_disabled": "Възстановяването на парола не е достъпно.",
+    "mail_subject": "Нулиране на парола за :email",
+    "mail_body": "Някой, вероятно вие, поиска нулиране на паролата на :email.\n\nЗа да зададете нова парола, отворете този линк:\n:link\n\nЛинкът изтича след :hours часа. Ако не сте го поискали, пренебрегнете съобщението: паролата остава същата."
   }
 }

@@ -723,7 +723,9 @@
     "label_mlmmjadminApiUrl": "mlmmjadmin API -URL",
     "label_mlmmjadminApiUrl_help": "mlmmj-spoolia hallitsevan mlmmjadmin API:n osoite, esimerkiksi http://127.0.0.1:7790/api. Tyhjä pysäyttää kaikki mailing list -toiminnot.",
     "label_mlmmjadminApiToken": "mlmmjadmin API -token",
-    "label_mlmmjadminApiToken_help": "Yksi mail-palvelimen /opt/mlmmjadmin/settings.py-tiedoston api_auth_tokens-arvoista. Se tallennetaan IREDPANEL_SECRET_KEY:llä salattuna eikä sitä näytetä enää."
+    "label_mlmmjadminApiToken_help": "Yksi mail-palvelimen /opt/mlmmjadmin/settings.py-tiedoston api_auth_tokens-arvoista. Se tallennetaan IREDPANEL_SECRET_KEY:llä salattuna eikä sitä näytetä enää.",
+    "label_passwordRecoveryEnabled": "Salasanan palautus",
+    "label_passwordRecoveryEnabled_help": "Julkaisee sivun /forgot-password ja sen linkin kirjautumissivulla. Mailbox, jolla on palautusosoite, saa nollauslinkin sähköpostitse. Vaatii julkisen URL-osoitteen, SMTP-asetukset ja iredadmin-tietokannan. Oletus: pois."
   },
   "quarantine": {
     "title": "Karanteeni",
@@ -1243,5 +1245,21 @@
     "policy_allowed": "Vain sallitut lähettäjät",
     "max_message_size_help": "Viestin enimmäiskoko tavuina. 0 tarkoittaa rajoittamatonta.",
     "allowed_hint_help": "Nämä osoitteet saavat aina kirjoittaa listalle, vaikka access policy torjuisi ne. Yksi osoite riville."
+  },
+  "recovery": {
+    "forgot_title": "Unohtuiko salasana",
+    "forgot_hint": "Anna mailbox-osoitteesi. Jos sille on asetettu palautusosoite, nollauslinkki lähetetään sinne.",
+    "mailbox_address": "Mailbox-osoite",
+    "mailbox_address_help": "Mailbox, jonka salasanan haluat nollata. Nollauslinkki menee mailboxin palautusosoitteeseen, ei koskaan mailboxiin itseensä. Sivu vastaa samalla tavalla tunnetulle ja tuntemattomalle osoitteelle.",
+    "send_link": "Lähetä linkki",
+    "msg_link_sent": "Jos mailbox on olemassa ja sillä on palautusosoite, nollauslinkki lähetettiin sinne. Linkki vanhenee :hours tunnin kuluttua.",
+    "back_to_login": "Takaisin kirjautumiseen",
+    "reset_title": "Aseta uusi salasana",
+    "reset_hint": "Aseta uusi salasana osoitteelle :email.",
+    "msg_invalid_token": "Tämä nollauslinkki on virheellinen tai vanhentunut.",
+    "msg_password_updated": "Salasanasi on vaihdettu. Voit nyt kirjautua sisään.",
+    "msg_disabled": "Salasanan palautus ei ole käytettävissä.",
+    "mail_subject": "Salasanan nollaus osoitteelle :email",
+    "mail_body": "Joku, todennäköisesti sinä, pyysi osoitteen :email salasanan nollausta.\n\nAseta uusi salasana avaamalla tämä linkki:\n:link\n\nLinkki vanhenee :hours tunnin kuluttua. Jos et pyytänyt tätä, jätä viesti huomiotta; salasana pysyy ennallaan."
   }
 }

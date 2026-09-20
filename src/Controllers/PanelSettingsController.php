@@ -27,7 +27,7 @@ class PanelSettingsController
             'passwordMinLength', 'passwordIncludesSpecialChars', 'passwordIncludesNumbers',
             'passwordIncludesLowercase', 'passwordIncludesUppercase',
             'passwordHashesUsePrefixedScheme', 'passwordDefaultScheme',
-            'requireOldPasswordOnChange',
+            'requireOldPasswordOnChange', 'passwordRecoveryEnabled',
         ],
         'session' => [
             'sessionTimeout', 'sessionValidateIp', 'allowedIpRanges',

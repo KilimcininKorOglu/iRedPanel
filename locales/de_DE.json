@@ -723,7 +723,9 @@
     "label_mlmmjadminApiUrl": "mlmmjadmin-API-URL",
     "label_mlmmjadminApiUrl_help": "Adresse der mlmmjadmin-API, die den mlmmj-Spool verwaltet, zum Beispiel http://127.0.0.1:7790/api. Leer stoppt jede Mailing-List-Operation.",
     "label_mlmmjadminApiToken": "mlmmjadmin-API-Token",
-    "label_mlmmjadminApiToken_help": "Einer der api_auth_tokens in /opt/mlmmjadmin/settings.py auf dem Mailserver. Er wird mit IREDPANEL_SECRET_KEY verschlüsselt gespeichert und nie wieder angezeigt."
+    "label_mlmmjadminApiToken_help": "Einer der api_auth_tokens in /opt/mlmmjadmin/settings.py auf dem Mailserver. Er wird mit IREDPANEL_SECRET_KEY verschlüsselt gespeichert und nie wieder angezeigt.",
+    "label_passwordRecoveryEnabled": "Passwortwiederherstellung",
+    "label_passwordRecoveryEnabled_help": "Veröffentlicht die Seite /forgot-password und den Link auf der Anmeldeseite. Eine Mailbox mit Wiederherstellungsadresse erhält einen Reset-Link per Mail. Benötigt die öffentliche URL, die SMTP-Einstellungen und die iredadmin-Datenbank. Standard: aus."
   },
   "quarantine": {
     "title": "Quarantäne",
@@ -1243,5 +1245,21 @@
     "policy_allowed": "Nur erlaubte Absender",
     "max_message_size_help": "Maximale Nachrichtengröße in Byte. 0 bedeutet keine Begrenzung.",
     "allowed_hint_help": "Diese Adressen dürfen immer an die Liste senden, auch wenn die Access Policy sie ablehnt. Eine Adresse pro Zeile."
+  },
+  "recovery": {
+    "forgot_title": "Passwort vergessen",
+    "forgot_hint": "Geben Sie Ihre Mailbox-Adresse ein. Wenn sie eine Wiederherstellungsadresse hat, wird ein Reset-Link dorthin gesendet.",
+    "mailbox_address": "Mailbox-Adresse",
+    "mailbox_address_help": "Die Mailbox, deren Passwort Sie zurücksetzen möchten. Der Reset-Link geht an die Wiederherstellungsadresse der Mailbox, nie an die Mailbox selbst. Die Seite antwortet für eine bekannte und eine unbekannte Adresse gleich.",
+    "send_link": "Reset-Link senden",
+    "msg_link_sent": "Wenn die Mailbox existiert und eine Wiederherstellungsadresse hat, wurde ein Reset-Link dorthin gesendet. Der Link läuft in :hours Stunden ab.",
+    "back_to_login": "Zurück zur Anmeldung",
+    "reset_title": "Neues Passwort festlegen",
+    "reset_hint": "Legen Sie ein neues Passwort für :email fest.",
+    "msg_invalid_token": "Dieser Reset-Link ist ungültig oder abgelaufen.",
+    "msg_password_updated": "Ihr Passwort wurde geändert. Sie können sich jetzt anmelden.",
+    "msg_disabled": "Passwortwiederherstellung ist nicht verfügbar.",
+    "mail_subject": "Passwort zurücksetzen für :email",
+    "mail_body": "Jemand, wahrscheinlich Sie, hat das Zurücksetzen des Passworts von :email angefordert.\n\nÖffnen Sie diesen Link, um ein neues Passwort festzulegen:\n:link\n\nDer Link läuft in :hours Stunden ab. Wenn Sie das nicht angefordert haben, ignorieren Sie diese Nachricht; das Passwort bleibt unverändert."
   }
 }

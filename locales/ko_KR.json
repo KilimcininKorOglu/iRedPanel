@@ -723,7 +723,9 @@
     "label_mlmmjadminApiUrl": "mlmmjadmin API URL",
     "label_mlmmjadminApiUrl_help": "mlmmj 목록 스풀을 관리하는 mlmmjadmin API 주소입니다. 예: http://127.0.0.1:7790/api. 비워 두면 모든 mailing list 작업이 중단됩니다.",
     "label_mlmmjadminApiToken": "mlmmjadmin API 토큰",
-    "label_mlmmjadminApiToken_help": "메일 서버의 /opt/mlmmjadmin/settings.py에 있는 api_auth_tokens 중 하나입니다. IREDPANEL_SECRET_KEY로 암호화되어 저장되며 다시 표시되지 않습니다."
+    "label_mlmmjadminApiToken_help": "메일 서버의 /opt/mlmmjadmin/settings.py에 있는 api_auth_tokens 중 하나입니다. IREDPANEL_SECRET_KEY로 암호화되어 저장되며 다시 표시되지 않습니다.",
+    "label_passwordRecoveryEnabled": "비밀번호 복구",
+    "label_passwordRecoveryEnabled_help": "/forgot-password 페이지와 로그인 페이지의 링크를 공개합니다. 복구 주소가 있는 mailbox는 메일로 재설정 링크를 받습니다. 공개 URL, SMTP 설정, iredadmin 데이터베이스가 필요합니다. 기본값: 꺼짐."
   },
   "quarantine": {
     "title": "격리",
@@ -1243,5 +1245,21 @@
     "policy_allowed": "허용된 발신자만",
     "max_message_size_help": "최대 메시지 크기(바이트). 0은 제한 없음을 뜻합니다.",
     "allowed_hint_help": "이 주소들은 access policy가 거부해도 언제나 리스트로 보낼 수 있습니다. 한 줄에 하나씩 적습니다."
+  },
+  "recovery": {
+    "forgot_title": "비밀번호 찾기",
+    "forgot_hint": "mailbox 주소를 입력하세요. 복구 주소가 설정되어 있으면 재설정 링크를 그 주소로 보냅니다.",
+    "mailbox_address": "mailbox 주소",
+    "mailbox_address_help": "비밀번호를 재설정할 mailbox입니다. 재설정 링크는 mailbox의 복구 주소로 가며, mailbox 자체로는 가지 않습니다. 존재하는 주소와 존재하지 않는 주소에 같은 응답을 돌려줍니다.",
+    "send_link": "링크 보내기",
+    "msg_link_sent": "mailbox가 있고 복구 주소가 있으면 재설정 링크를 그 주소로 보냈습니다. 링크는 :hours시간 후 만료됩니다.",
+    "back_to_login": "로그인으로 돌아가기",
+    "reset_title": "새 비밀번호 설정",
+    "reset_hint": ":email의 새 비밀번호를 설정하세요.",
+    "msg_invalid_token": "이 재설정 링크는 유효하지 않거나 만료되었습니다.",
+    "msg_password_updated": "비밀번호가 변경되었습니다. 이제 로그인할 수 있습니다.",
+    "msg_disabled": "비밀번호 복구를 사용할 수 없습니다.",
+    "mail_subject": ":email 비밀번호 재설정",
+    "mail_body": "누군가, 아마도 본인이 :email의 비밀번호 재설정을 요청했습니다.\n\n새 비밀번호를 설정하려면 이 링크를 여세요:\n:link\n\n링크는 :hours시간 후 만료됩니다. 요청한 적이 없다면 이 메시지를 무시하세요. 비밀번호는 그대로 유지됩니다."
   }
 }

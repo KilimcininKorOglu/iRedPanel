@@ -87,6 +87,7 @@ class Settings
 
     // Session & security
     public bool $requireOldPasswordOnChange;
+    public bool $passwordRecoveryEnabled;
     public int $sessionTimeout;
     public bool $sessionValidateIp;
     public string $allowedIpRanges;
@@ -157,6 +158,7 @@ class Settings
         'passwordHashesUsePrefixedScheme' => 'bool',
         'passwordDefaultScheme' => 'string',
         'requireOldPasswordOnChange' => 'bool',
+        'passwordRecoveryEnabled' => 'bool',
         'sessionTimeout' => 'int',
         'sessionValidateIp' => 'bool',
         'allowedIpRanges' => 'string',
@@ -380,6 +382,7 @@ class Settings
         $this->passwordHashesUsePrefixedScheme = $this->envBool('IREDPANEL_PASSWORD_HASHES_USE_PREFIXED_SCHEME', true);
         $this->passwordDefaultScheme = $this->validPasswordScheme();
         $this->requireOldPasswordOnChange = $this->envBool('IREDPANEL_REQUIRE_OLD_PASSWORD_ON_CHANGE', false);
+        $this->passwordRecoveryEnabled = $this->envBool('IREDPANEL_PASSWORD_RECOVERY_ENABLED', false);
     }
 
     /**

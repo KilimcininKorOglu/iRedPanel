@@ -723,7 +723,9 @@
     "label_mlmmjadminApiUrl": "mlmmjadmin API URL'i",
     "label_mlmmjadminApiUrl_help": "mlmmj liste spool'unu yöneten mlmmjadmin API adresi, örneğin http://127.0.0.1:7790/api. Boş bırakılırsa bütün mailing list işlemleri durur.",
     "label_mlmmjadminApiToken": "mlmmjadmin API token'ı",
-    "label_mlmmjadminApiToken_help": "Mail sunucusundaki /opt/mlmmjadmin/settings.py dosyasında yer alan api_auth_tokens değerlerinden biri. IREDPANEL_SECRET_KEY ile şifrelenmiş olarak saklanır ve bir daha gösterilmez."
+    "label_mlmmjadminApiToken_help": "Mail sunucusundaki /opt/mlmmjadmin/settings.py dosyasında yer alan api_auth_tokens değerlerinden biri. IREDPANEL_SECRET_KEY ile şifrelenmiş olarak saklanır ve bir daha gösterilmez.",
+    "label_passwordRecoveryEnabled": "Parola Kurtarma",
+    "label_passwordRecoveryEnabled_help": "/forgot-password sayfasını ve giriş sayfasındaki linkini yayınlar. Recovery adresi olan bir mailbox, mail ile sıfırlama linki alır. Public URL, SMTP ayarları ve iredadmin veritabanı gerekir. Varsayılan: kapalı."
   },
   "quarantine": {
     "title": "Karantina",
@@ -1243,5 +1245,21 @@
     "policy_allowed": "Yalnızca izin verilen göndericiler",
     "max_message_size_help": "Bayt cinsinden en büyük mesaj boyutu. 0 sınırsız demektir.",
     "allowed_hint_help": "Bu adresler listeye her zaman gönderebilir, access policy onları reddetse bile. Satır başına bir adres."
+  },
+  "recovery": {
+    "forgot_title": "Parolamı Unuttum",
+    "forgot_hint": "Mailbox adresinizi girin. Adresin bir recovery adresi varsa, sıfırlama linki oraya gönderilir.",
+    "mailbox_address": "Mailbox Adresi",
+    "mailbox_address_help": "Parolasını sıfırlamak istediğiniz mailbox. Sıfırlama linki mailbox'ın recovery adresine gider, mailbox'ın kendisine gitmez. Sayfa, bilinen ve bilinmeyen adres için aynı yanıtı verir.",
+    "send_link": "Sıfırlama Linki Gönder",
+    "msg_link_sent": "Mailbox varsa ve bir recovery adresi tanımlıysa, sıfırlama linki oraya gönderildi. Link :hours saat sonra geçersiz olur.",
+    "back_to_login": "Girişe dön",
+    "reset_title": "Yeni Parola Belirle",
+    "reset_hint": ":email için yeni bir parola belirleyin.",
+    "msg_invalid_token": "Bu sıfırlama linki geçersiz veya süresi dolmuş.",
+    "msg_password_updated": "Parolanız değişti. Şimdi giriş yapabilirsiniz.",
+    "msg_disabled": "Parola kurtarma kullanılabilir değil.",
+    "mail_subject": ":email için parola sıfırlama",
+    "mail_body": "Birisi, muhtemelen siz, :email adresinin parolasının sıfırlanmasını istedi.\n\nYeni bir parola belirlemek için bu linki açın:\n:link\n\nLink :hours saat sonra geçersiz olur. Bu isteği siz yapmadıysanız bu mesajı yok sayın, parola olduğu gibi kalır."
   }
 }

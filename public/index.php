@@ -36,6 +36,7 @@ use App\Controllers\SpamPolicyController;
 use App\Controllers\WhiteBlacklistController;
 use App\Controllers\IredapdController;
 use App\Controllers\NewsletterController;
+use App\Controllers\PasswordResetController;
 use App\Controllers\LogController;
 use App\Controllers\MailListController;
 use App\Controllers\MailingListController;
@@ -71,6 +72,15 @@ $router->addRoute(['GET', 'POST'], '/login', function () use ($tpl) {
 $router->addRoute('POST', '/logout', function () {
     \App\CsrfProtection::validateToken();
     AuthController::logout();
+});
+
+// Password recovery (public endpoints — no authentication required)
+$router->addRoute(['GET', 'POST'], '/forgot-password', function () use ($tpl) {
+    PasswordResetController::request($tpl);
+});
+
+$router->addRoute(['GET', 'POST'], '/reset-password/{token}', function (string $token) use ($tpl) {
+    PasswordResetController::reset($tpl, $token);
 });
 
 // Language switch (available to everyone, including the login page)

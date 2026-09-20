@@ -723,7 +723,9 @@
     "label_mlmmjadminApiUrl": "mlmmjadmin API URL",
     "label_mlmmjadminApiUrl_help": "mlmmj spool'i haldava mlmmjadmin API aadress, näiteks http://127.0.0.1:7790/api. Tühi peatab iga mailing list toimingu.",
     "label_mlmmjadminApiToken": "mlmmjadmin API token",
-    "label_mlmmjadminApiToken_help": "Üks api_auth_tokens väärtustest failis /opt/mlmmjadmin/settings.py postiserveris. Seda hoitakse IREDPANEL_SECRET_KEY-ga krüptituna ja seda enam ei näidata."
+    "label_mlmmjadminApiToken_help": "Üks api_auth_tokens väärtustest failis /opt/mlmmjadmin/settings.py postiserveris. Seda hoitakse IREDPANEL_SECRET_KEY-ga krüptituna ja seda enam ei näidata.",
+    "label_passwordRecoveryEnabled": "Parooli taastamine",
+    "label_passwordRecoveryEnabled_help": "Avaldab lehe /forgot-password ja selle lingi sisselogimislehel. Taasteaadressiga mailbox saab lähtestuslingi e-postiga. Vajab avalikku URL-i, SMTP seadeid ja iredadmin andmebaasi. Vaikimisi: väljas."
   },
   "quarantine": {
     "title": "Karantiin",
@@ -1243,5 +1245,21 @@
     "policy_allowed": "Ainult lubatud saatjad",
     "max_message_size_help": "Sõnumi maksimaalne suurus baitides. 0 tähendab piiranguta.",
     "allowed_hint_help": "Need aadressid tohivad alati loendisse kirjutada, ka siis, kui access policy nad tagasi lükkab. Üks aadress rea kohta."
+  },
+  "recovery": {
+    "forgot_title": "Unustasin parooli",
+    "forgot_hint": "Sisestage oma mailbox'i aadress. Kui sellel on taasteaadress, saadetakse lähtestuslink sinna.",
+    "mailbox_address": "Mailbox'i aadress",
+    "mailbox_address_help": "Mailbox, mille parooli soovite lähtestada. Lähtestuslink läheb mailbox'i taasteaadressile, mitte kunagi mailbox'i endasse. Leht vastab tuntud ja tundmatu aadressi korral ühtmoodi.",
+    "send_link": "Saada link",
+    "msg_link_sent": "Kui mailbox on olemas ja sellel on taasteaadress, saadeti lähtestuslink sinna. Link aegub :hours tunni pärast.",
+    "back_to_login": "Tagasi sisselogimisse",
+    "reset_title": "Määrake uus parool",
+    "reset_hint": "Määrake uus parool aadressile :email.",
+    "msg_invalid_token": "See lähtestuslink on kehtetu või aegunud.",
+    "msg_password_updated": "Teie parool on muudetud. Nüüd saate sisse logida.",
+    "msg_disabled": "Parooli taastamine ei ole saadaval.",
+    "mail_subject": "Parooli lähtestamine aadressile :email",
+    "mail_body": "Keegi, tõenäoliselt teie, palus lähtestada :email parooli.\n\nUue parooli määramiseks avage see link:\n:link\n\nLink aegub :hours tunni pärast. Kui te seda ei palunud, eirake sõnumit; parool jääb samaks."
   }
 }

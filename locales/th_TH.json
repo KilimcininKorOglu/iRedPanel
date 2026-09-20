@@ -723,7 +723,9 @@
     "label_mlmmjadminApiUrl": "URL ของ API mlmmjadmin",
     "label_mlmmjadminApiUrl_help": "ที่อยู่ของ API mlmmjadmin ที่ดูแล spool ของ mlmmj เช่น http://127.0.0.1:7790/api ว่างไว้จะหยุดทุกการทำงานของ mailing list",
     "label_mlmmjadminApiToken": "Token ของ API mlmmjadmin",
-    "label_mlmmjadminApiToken_help": "หนึ่งใน api_auth_tokens ในไฟล์ /opt/mlmmjadmin/settings.py บนเซิร์ฟเวอร์เมล เก็บแบบเข้ารหัสด้วย IREDPANEL_SECRET_KEY และจะไม่แสดงอีก"
+    "label_mlmmjadminApiToken_help": "หนึ่งใน api_auth_tokens ในไฟล์ /opt/mlmmjadmin/settings.py บนเซิร์ฟเวอร์เมล เก็บแบบเข้ารหัสด้วย IREDPANEL_SECRET_KEY และจะไม่แสดงอีก",
+    "label_passwordRecoveryEnabled": "การกู้คืนรหัสผ่าน",
+    "label_passwordRecoveryEnabled_help": "เปิดหน้า /forgot-password และลิงก์ไปยังหน้านั้นบนหน้าเข้าสู่ระบบ mailbox ที่มีที่อยู่สำหรับกู้คืนจะได้รับลิงก์ตั้งรหัสผ่านใหม่ทางเมล ต้องมี public URL การตั้งค่า SMTP และฐานข้อมูล iredadmin ค่าเริ่มต้น: ปิด"
   },
   "quarantine": {
     "title": "การกักกัน",
@@ -1243,5 +1245,21 @@
     "policy_allowed": "เฉพาะผู้ส่งที่อนุญาต",
     "max_message_size_help": "ขนาดข้อความสูงสุดเป็นไบต์ 0 หมายถึงไม่จำกัด",
     "allowed_hint_help": "ที่อยู่เหล่านี้ส่งเข้าลิสต์ได้เสมอ แม้ access policy จะปฏิเสธ หนึ่งที่อยู่ต่อบรรทัด"
+  },
+  "recovery": {
+    "forgot_title": "ลืมรหัสผ่าน",
+    "forgot_hint": "กรอกที่อยู่ mailbox ของคุณ หากมีที่อยู่สำหรับกู้คืน ระบบจะส่งลิงก์ตั้งรหัสผ่านใหม่ไปที่นั่น",
+    "mailbox_address": "ที่อยู่ mailbox",
+    "mailbox_address_help": "mailbox ที่คุณต้องการตั้งรหัสผ่านใหม่ ลิงก์จะถูกส่งไปยังที่อยู่สำหรับกู้คืนของ mailbox ไม่ใช่ไปที่ mailbox เอง หน้านี้ตอบเหมือนกันทั้งที่อยู่ที่มีอยู่จริงและที่ไม่มี",
+    "send_link": "ส่งลิงก์",
+    "msg_link_sent": "หาก mailbox มีอยู่และมีที่อยู่สำหรับกู้คืน ระบบได้ส่งลิงก์ไปที่นั่นแล้ว ลิงก์จะหมดอายุใน :hours ชั่วโมง",
+    "back_to_login": "กลับไปที่หน้าเข้าสู่ระบบ",
+    "reset_title": "ตั้งรหัสผ่านใหม่",
+    "reset_hint": "ตั้งรหัสผ่านใหม่สำหรับ :email",
+    "msg_invalid_token": "ลิงก์นี้ไม่ถูกต้องหรือหมดอายุแล้ว",
+    "msg_password_updated": "เปลี่ยนรหัสผ่านของคุณแล้ว คุณเข้าสู่ระบบได้ทันที",
+    "msg_disabled": "ไม่สามารถใช้การกู้คืนรหัสผ่านได้",
+    "mail_subject": "ตั้งรหัสผ่านใหม่สำหรับ :email",
+    "mail_body": "มีบางคน ซึ่งน่าจะเป็นคุณ ขอตั้งรหัสผ่านใหม่ของ :email\n\nเปิดลิงก์นี้เพื่อตั้งรหัสผ่านใหม่:\n:link\n\nลิงก์จะหมดอายุใน :hours ชั่วโมง หากคุณไม่ได้เป็นผู้ขอ ให้ละเว้นข้อความนี้ รหัสผ่านจะคงเดิม"
   }
 }

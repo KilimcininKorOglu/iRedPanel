@@ -723,7 +723,9 @@
     "label_mlmmjadminApiUrl": "mlmmjadmin API URL",
     "label_mlmmjadminApiUrl_help": "Address of the mlmmjadmin API that owns the mlmmj list spool, for example http://127.0.0.1:7790/api. Empty stops every mailing list operation.",
     "label_mlmmjadminApiToken": "mlmmjadmin API Token",
-    "label_mlmmjadminApiToken_help": "One of the api_auth_tokens in /opt/mlmmjadmin/settings.py on the mail server. It is stored encrypted with IREDPANEL_SECRET_KEY and never shown again."
+    "label_mlmmjadminApiToken_help": "One of the api_auth_tokens in /opt/mlmmjadmin/settings.py on the mail server. It is stored encrypted with IREDPANEL_SECRET_KEY and never shown again.",
+    "label_passwordRecoveryEnabled": "Password Recovery",
+    "label_passwordRecoveryEnabled_help": "Publishes the /forgot-password page and its link on the sign-in page. A mailbox with a recovery address gets a reset link by mail. Needs the public URL, the SMTP settings and the iredadmin database. Default: off."
   },
   "quarantine": {
     "title": "Quarantine",
@@ -1243,5 +1245,21 @@
     "policy_allowed": "Allowed Senders Only",
     "max_message_size_help": "Maximum message size in bytes. 0 means no limit.",
     "allowed_hint_help": "These addresses may always send to the list, even when the access policy refuses them. One address per line."
+  },
+  "recovery": {
+    "forgot_title": "Forgot Password",
+    "forgot_hint": "Enter your mailbox address. If it has a recovery address, a reset link is sent there.",
+    "mailbox_address": "Mailbox Address",
+    "mailbox_address_help": "The mailbox whose password you want to reset. The reset link goes to the recovery address of the mailbox, never to the mailbox itself. The page answers the same way for a known and an unknown address.",
+    "send_link": "Send Reset Link",
+    "msg_link_sent": "If the mailbox exists and has a recovery address, a reset link was sent there. The link expires in :hours hours.",
+    "back_to_login": "Back to sign in",
+    "reset_title": "Set a New Password",
+    "reset_hint": "Set a new password for :email.",
+    "msg_invalid_token": "This reset link is invalid or has expired.",
+    "msg_password_updated": "Your password is changed. You can sign in now.",
+    "msg_disabled": "Password recovery is not available.",
+    "mail_subject": "Password reset for :email",
+    "mail_body": "Someone, probably you, asked to reset the password of :email.\n\nTo set a new password, open this link:\n:link\n\nThe link expires in :hours hours. If you did not ask for this, ignore this message and the password stays as it is."
   }
 }

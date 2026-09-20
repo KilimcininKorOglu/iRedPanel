@@ -723,7 +723,9 @@
     "label_mlmmjadminApiUrl": "URL API mlmmjadmin",
     "label_mlmmjadminApiUrl_help": "Địa chỉ API mlmmjadmin quản lý spool của mlmmj, ví dụ http://127.0.0.1:7790/api. Để trống sẽ dừng mọi thao tác mailing list.",
     "label_mlmmjadminApiToken": "Token API mlmmjadmin",
-    "label_mlmmjadminApiToken_help": "Một trong các api_auth_tokens trong /opt/mlmmjadmin/settings.py trên máy chủ thư. Được lưu ở dạng mã hoá bằng IREDPANEL_SECRET_KEY và không bao giờ hiển thị lại."
+    "label_mlmmjadminApiToken_help": "Một trong các api_auth_tokens trong /opt/mlmmjadmin/settings.py trên máy chủ thư. Được lưu ở dạng mã hoá bằng IREDPANEL_SECRET_KEY và không bao giờ hiển thị lại.",
+    "label_passwordRecoveryEnabled": "Khôi phục mật khẩu",
+    "label_passwordRecoveryEnabled_help": "Công bố trang /forgot-password và liên kết tới trang đó trên trang đăng nhập. Mailbox có địa chỉ khôi phục sẽ nhận liên kết đặt lại qua mail. Cần URL công khai, cài đặt SMTP và cơ sở dữ liệu iredadmin. Mặc định: tắt."
   },
   "quarantine": {
     "title": "Cách ly",
@@ -1243,5 +1245,21 @@
     "policy_allowed": "Chỉ người gửi được phép",
     "max_message_size_help": "Kích thước thư tối đa tính bằng byte. 0 nghĩa là không giới hạn.",
     "allowed_hint_help": "Các địa chỉ này luôn được gửi vào list, kể cả khi access policy từ chối họ. Mỗi dòng một địa chỉ."
+  },
+  "recovery": {
+    "forgot_title": "Quên mật khẩu",
+    "forgot_hint": "Nhập địa chỉ mailbox của bạn. Nếu có địa chỉ khôi phục, liên kết đặt lại sẽ được gửi tới đó.",
+    "mailbox_address": "Địa chỉ mailbox",
+    "mailbox_address_help": "Mailbox mà bạn muốn đặt lại mật khẩu. Liên kết đặt lại được gửi tới địa chỉ khôi phục của mailbox, không bao giờ gửi vào chính mailbox đó. Trang trả lời giống nhau cho địa chỉ đã biết và chưa biết.",
+    "send_link": "Gửi liên kết",
+    "msg_link_sent": "Nếu mailbox tồn tại và có địa chỉ khôi phục, liên kết đặt lại đã được gửi tới đó. Liên kết hết hạn sau :hours giờ.",
+    "back_to_login": "Quay lại đăng nhập",
+    "reset_title": "Đặt mật khẩu mới",
+    "reset_hint": "Đặt mật khẩu mới cho :email.",
+    "msg_invalid_token": "Liên kết đặt lại này không hợp lệ hoặc đã hết hạn.",
+    "msg_password_updated": "Mật khẩu của bạn đã được đổi. Bạn có thể đăng nhập ngay.",
+    "msg_disabled": "Khôi phục mật khẩu không khả dụng.",
+    "mail_subject": "Đặt lại mật khẩu cho :email",
+    "mail_body": "Ai đó, có thể là bạn, đã yêu cầu đặt lại mật khẩu của :email.\n\nĐể đặt mật khẩu mới, hãy mở liên kết này:\n:link\n\nLiên kết hết hạn sau :hours giờ. Nếu bạn không yêu cầu, hãy bỏ qua thư này, mật khẩu vẫn giữ nguyên."
   }
 }

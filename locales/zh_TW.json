@@ -723,7 +723,9 @@
     "label_mlmmjadminApiUrl": "mlmmjadmin API URL",
     "label_mlmmjadminApiUrl_help": "管理 mlmmj 清單 spool 的 mlmmjadmin API 位址，例如 http://127.0.0.1:7790/api。留空會停止所有 mailing list 操作。",
     "label_mlmmjadminApiToken": "mlmmjadmin API token",
-    "label_mlmmjadminApiToken_help": "郵件伺服器 /opt/mlmmjadmin/settings.py 中 api_auth_tokens 之一。以 IREDPANEL_SECRET_KEY 加密儲存，不會再次顯示。"
+    "label_mlmmjadminApiToken_help": "郵件伺服器 /opt/mlmmjadmin/settings.py 中 api_auth_tokens 之一。以 IREDPANEL_SECRET_KEY 加密儲存，不會再次顯示。",
+    "label_passwordRecoveryEnabled": "密碼救援",
+    "label_passwordRecoveryEnabled_help": "發布 /forgot-password 頁面及登入頁上的連結。設定了救援位址的 mailbox 會透過郵件收到重設連結。需要公開 URL、SMTP 設定與 iredadmin 資料庫。預設：關閉。"
   },
   "quarantine": {
     "title": "隔離區",
@@ -1243,5 +1245,21 @@
     "policy_allowed": "僅限允許的寄件者",
     "max_message_size_help": "郵件最大大小（位元組）。0 表示不限制。",
     "allowed_hint_help": "即使 access policy 拒絕，這些位址也一律可以向清單寄信。每行一個位址。"
+  },
+  "recovery": {
+    "forgot_title": "忘記密碼",
+    "forgot_hint": "輸入您的 mailbox 位址。若已設定救援位址，重設連結會寄到該位址。",
+    "mailbox_address": "mailbox 位址",
+    "mailbox_address_help": "要重設密碼的 mailbox。重設連結會寄到該 mailbox 的救援位址，不會寄到 mailbox 本身。無論位址是否存在，頁面的回應都相同。",
+    "send_link": "寄送連結",
+    "msg_link_sent": "若 mailbox 存在且已設定救援位址，重設連結已寄到該位址。連結將於 :hours 小時後失效。",
+    "back_to_login": "返回登入",
+    "reset_title": "設定新密碼",
+    "reset_hint": "為 :email 設定新密碼。",
+    "msg_invalid_token": "此重設連結無效或已過期。",
+    "msg_password_updated": "密碼已變更。您現在可以登入。",
+    "msg_disabled": "密碼救援功能無法使用。",
+    "mail_subject": ":email 的密碼重設",
+    "mail_body": "有人（很可能是您）要求重設 :email 的密碼。\n\n請開啟此連結設定新密碼：\n:link\n\n連結將於 :hours 小時後失效。若不是您要求的，請忽略此訊息，密碼維持不變。"
   }
 }

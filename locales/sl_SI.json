@@ -723,7 +723,9 @@
     "label_mlmmjadminApiUrl": "mlmmjadmin API URL",
     "label_mlmmjadminApiUrl_help": "Naslov mlmmjadmin API, ki upravlja spool mlmmj, na primer http://127.0.0.1:7790/api. Prazno ustavi vsako operacijo mailing lista.",
     "label_mlmmjadminApiToken": "mlmmjadmin API token",
-    "label_mlmmjadminApiToken_help": "Eden od api_auth_tokens v /opt/mlmmjadmin/settings.py na poštnem strežniku. Shranjen je šifriran s ključem IREDPANEL_SECRET_KEY in ni več prikazan."
+    "label_mlmmjadminApiToken_help": "Eden od api_auth_tokens v /opt/mlmmjadmin/settings.py na poštnem strežniku. Shranjen je šifriran s ključem IREDPANEL_SECRET_KEY in ni več prikazan.",
+    "label_passwordRecoveryEnabled": "Obnovitev gesla",
+    "label_passwordRecoveryEnabled_help": "Objavi stran /forgot-password in povezavo nanjo na prijavni strani. Mailbox z naslovom za obnovitev prejme povezavo za ponastavitev po pošti. Zahteva javni URL, nastavitve SMTP in zbirko iredadmin. Privzeto: izklopljeno."
   },
   "quarantine": {
     "title": "Karantena",
@@ -1243,5 +1245,21 @@
     "policy_allowed": "Samo dovoljeni pošiljatelji",
     "max_message_size_help": "Največja velikost sporočila v bajtih. 0 pomeni brez omejitve.",
     "allowed_hint_help": "Ti naslovi smejo vedno pisati na seznam, tudi kadar jih access policy zavrne. En naslov na vrstico."
+  },
+  "recovery": {
+    "forgot_title": "Pozabljeno geslo",
+    "forgot_hint": "Vnesite naslov svojega mailbox. Če ima naslov za obnovitev, bo povezava za ponastavitev poslana tja.",
+    "mailbox_address": "Naslov mailbox",
+    "mailbox_address_help": "Mailbox, katerega geslo želite ponastaviti. Povezava za ponastavitev gre na naslov za obnovitev tega mailbox, nikoli v mailbox sam. Stran odgovori enako za znan in neznan naslov.",
+    "send_link": "Pošlji povezavo",
+    "msg_link_sent": "Če mailbox obstaja in ima naslov za obnovitev, je bila povezava za ponastavitev poslana tja. Povezava poteče čez :hours ur.",
+    "back_to_login": "Nazaj na prijavo",
+    "reset_title": "Nastavite novo geslo",
+    "reset_hint": "Nastavite novo geslo za :email.",
+    "msg_invalid_token": "Ta povezava za ponastavitev ni veljavna ali je potekla.",
+    "msg_password_updated": "Vaše geslo je spremenjeno. Zdaj se lahko prijavite.",
+    "msg_disabled": "Obnovitev gesla ni na voljo.",
+    "mail_subject": "Ponastavitev gesla za :email",
+    "mail_body": "Nekdo, verjetno vi, je zahteval ponastavitev gesla za :email.\n\nZa nastavitev novega gesla odprite to povezavo:\n:link\n\nPovezava poteče čez :hours ur. Če tega niste zahtevali, sporočilo prezrite; geslo ostane nespremenjeno."
   }
 }

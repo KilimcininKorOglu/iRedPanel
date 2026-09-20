@@ -723,7 +723,9 @@
     "label_mlmmjadminApiUrl": "URL API mlmmjadmin",
     "label_mlmmjadminApiUrl_help": "Alamat API mlmmjadmin yang mengelola spool mlmmj, misalnya http://127.0.0.1:7790/api. Kosong menghentikan semua operasi mailing list.",
     "label_mlmmjadminApiToken": "Token API mlmmjadmin",
-    "label_mlmmjadminApiToken_help": "Salah satu api_auth_tokens di /opt/mlmmjadmin/settings.py pada server surat. Disimpan terenkripsi dengan IREDPANEL_SECRET_KEY dan tidak pernah ditampilkan lagi."
+    "label_mlmmjadminApiToken_help": "Salah satu api_auth_tokens di /opt/mlmmjadmin/settings.py pada server surat. Disimpan terenkripsi dengan IREDPANEL_SECRET_KEY dan tidak pernah ditampilkan lagi.",
+    "label_passwordRecoveryEnabled": "Pemulihan kata sandi",
+    "label_passwordRecoveryEnabled_help": "Menerbitkan halaman /forgot-password dan tautannya di halaman masuk. Mailbox dengan alamat pemulihan menerima tautan reset melalui mail. Memerlukan URL publik, pengaturan SMTP, dan basis data iredadmin. Default: nonaktif."
   },
   "quarantine": {
     "title": "Karantina",
@@ -1243,5 +1245,21 @@
     "policy_allowed": "Hanya pengirim yang diizinkan",
     "max_message_size_help": "Ukuran pesan maksimum dalam byte. 0 berarti tanpa batas.",
     "allowed_hint_help": "Alamat-alamat ini selalu boleh menulis ke list, bahkan saat access policy menolaknya. Satu alamat per baris."
+  },
+  "recovery": {
+    "forgot_title": "Lupa kata sandi",
+    "forgot_hint": "Masukkan alamat mailbox Anda. Jika ada alamat pemulihan, tautan reset dikirim ke sana.",
+    "mailbox_address": "Alamat mailbox",
+    "mailbox_address_help": "Mailbox yang kata sandinya ingin Anda reset. Tautan reset dikirim ke alamat pemulihan mailbox, bukan ke mailbox itu sendiri. Halaman menjawab sama untuk alamat yang dikenal dan tidak dikenal.",
+    "send_link": "Kirim tautan",
+    "msg_link_sent": "Jika mailbox ada dan memiliki alamat pemulihan, tautan reset telah dikirim ke sana. Tautan kedaluwarsa dalam :hours jam.",
+    "back_to_login": "Kembali ke masuk",
+    "reset_title": "Tetapkan kata sandi baru",
+    "reset_hint": "Tetapkan kata sandi baru untuk :email.",
+    "msg_invalid_token": "Tautan reset ini tidak valid atau sudah kedaluwarsa.",
+    "msg_password_updated": "Kata sandi Anda telah diubah. Anda dapat masuk sekarang.",
+    "msg_disabled": "Pemulihan kata sandi tidak tersedia.",
+    "mail_subject": "Reset kata sandi untuk :email",
+    "mail_body": "Seseorang, kemungkinan Anda, meminta reset kata sandi :email.\n\nUntuk menetapkan kata sandi baru, buka tautan ini:\n:link\n\nTautan kedaluwarsa dalam :hours jam. Jika Anda tidak memintanya, abaikan pesan ini dan kata sandi tetap sama."
   }
 }

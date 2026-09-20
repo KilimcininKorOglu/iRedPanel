@@ -723,7 +723,9 @@
     "label_mlmmjadminApiUrl": "URL da API de mlmmjadmin",
     "label_mlmmjadminApiUrl_help": "Enderezo da API de mlmmjadmin que xestiona o spool de mlmmj, por exemplo http://127.0.0.1:7790/api. Baleiro detén cada operación de mailing list.",
     "label_mlmmjadminApiToken": "Token da API de mlmmjadmin",
-    "label_mlmmjadminApiToken_help": "Un dos api_auth_tokens de /opt/mlmmjadmin/settings.py no servidor de correo. Gárdase cifrado con IREDPANEL_SECRET_KEY e non se volve amosar."
+    "label_mlmmjadminApiToken_help": "Un dos api_auth_tokens de /opt/mlmmjadmin/settings.py no servidor de correo. Gárdase cifrado con IREDPANEL_SECRET_KEY e non se volve amosar.",
+    "label_passwordRecoveryEnabled": "Recuperación de contrasinal",
+    "label_passwordRecoveryEnabled_help": "Publica a páxina /forgot-password e a súa ligazón na páxina de inicio de sesión. Unha mailbox con enderezo de recuperación recibe unha ligazón de restablecemento por correo. Precisa o URL público, a configuración SMTP e a base de datos iredadmin. Por defecto: desactivado."
   },
   "quarantine": {
     "title": "Corentena",
@@ -1243,5 +1245,21 @@
     "policy_allowed": "Só remitentes permitidos",
     "max_message_size_help": "Tamaño máximo da mensaxe en bytes. 0 significa sen límite.",
     "allowed_hint_help": "Estes enderezos sempre poden escribir á lista, mesmo cando a access policy os rexeita. Un enderezo por liña."
+  },
+  "recovery": {
+    "forgot_title": "Esquecín o contrasinal",
+    "forgot_hint": "Introduza o enderezo da súa mailbox. Se ten un enderezo de recuperación, enviarase alí unha ligazón de restablecemento.",
+    "mailbox_address": "Enderezo da mailbox",
+    "mailbox_address_help": "A mailbox da que quere restablecer o contrasinal. A ligazón de restablecemento vai ao enderezo de recuperación da mailbox, nunca á propia mailbox. A páxina responde igual para un enderezo coñecido e un descoñecido.",
+    "send_link": "Enviar ligazón",
+    "msg_link_sent": "Se a mailbox existe e ten un enderezo de recuperación, enviouse alí unha ligazón de restablecemento. A ligazón caduca en :hours horas.",
+    "back_to_login": "Volver ao inicio de sesión",
+    "reset_title": "Estableza un novo contrasinal",
+    "reset_hint": "Estableza un novo contrasinal para :email.",
+    "msg_invalid_token": "Esta ligazón de restablecemento non é válida ou caducou.",
+    "msg_password_updated": "O seu contrasinal cambiou. Xa pode iniciar sesión.",
+    "msg_disabled": "A recuperación de contrasinal non está dispoñible.",
+    "mail_subject": "Restablecemento de contrasinal para :email",
+    "mail_body": "Alguén, probablemente vostede, pediu restablecer o contrasinal de :email.\n\nPara establecer un novo contrasinal, abra esta ligazón:\n:link\n\nA ligazón caduca en :hours horas. Se non o pediu, ignore a mensaxe: o contrasinal mantense."
   }
 }

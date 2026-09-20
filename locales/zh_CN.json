@@ -723,7 +723,9 @@
     "label_mlmmjadminApiUrl": "mlmmjadmin API URL",
     "label_mlmmjadminApiUrl_help": "管理 mlmmj 列表 spool 的 mlmmjadmin API 地址，例如 http://127.0.0.1:7790/api。留空会停止所有 mailing list 操作。",
     "label_mlmmjadminApiToken": "mlmmjadmin API token",
-    "label_mlmmjadminApiToken_help": "邮件服务器 /opt/mlmmjadmin/settings.py 中 api_auth_tokens 之一。使用 IREDPANEL_SECRET_KEY 加密保存，不会再次显示。"
+    "label_mlmmjadminApiToken_help": "邮件服务器 /opt/mlmmjadmin/settings.py 中 api_auth_tokens 之一。使用 IREDPANEL_SECRET_KEY 加密保存，不会再次显示。",
+    "label_passwordRecoveryEnabled": "密码找回",
+    "label_passwordRecoveryEnabled_help": "发布 /forgot-password 页面及登录页上的链接。设置了找回地址的 mailbox 会通过邮件收到重置链接。需要公开 URL、SMTP 设置和 iredadmin 数据库。默认：关闭。"
   },
   "quarantine": {
     "title": "隔离区",
@@ -1243,5 +1245,21 @@
     "policy_allowed": "仅允许的发件人",
     "max_message_size_help": "邮件最大大小（字节）。0 表示不限制。",
     "allowed_hint_help": "即使 access policy 拒绝，这些地址也始终可以向列表发信。每行一个地址。"
+  },
+  "recovery": {
+    "forgot_title": "忘记密码",
+    "forgot_hint": "输入您的 mailbox 地址。如果它设置了找回地址，重置链接会发送到该地址。",
+    "mailbox_address": "mailbox 地址",
+    "mailbox_address_help": "要重置密码的 mailbox。重置链接发送到该 mailbox 的找回地址，不会发送到 mailbox 本身。无论地址是否存在，页面的回答都相同。",
+    "send_link": "发送链接",
+    "msg_link_sent": "如果 mailbox 存在并设置了找回地址，重置链接已发送到该地址。链接将在 :hours 小时后失效。",
+    "back_to_login": "返回登录",
+    "reset_title": "设置新密码",
+    "reset_hint": "为 :email 设置新密码。",
+    "msg_invalid_token": "此重置链接无效或已过期。",
+    "msg_password_updated": "密码已修改。您现在可以登录。",
+    "msg_disabled": "密码找回功能不可用。",
+    "mail_subject": ":email 的密码重置",
+    "mail_body": "有人（很可能是您）请求重置 :email 的密码。\n\n请打开此链接设置新密码：\n:link\n\n链接将在 :hours 小时后失效。如果不是您请求的，请忽略本邮件，密码保持不变。"
   }
 }

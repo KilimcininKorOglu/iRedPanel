@@ -723,7 +723,9 @@
     "label_mlmmjadminApiUrl": "URL API mlmmjadmin",
     "label_mlmmjadminApiUrl_help": "Адрес API mlmmjadmin, которое управляет spool mlmmj, например http://127.0.0.1:7790/api. Пустое значение останавливает все операции mailing list.",
     "label_mlmmjadminApiToken": "Token API mlmmjadmin",
-    "label_mlmmjadminApiToken_help": "Один из api_auth_tokens в /opt/mlmmjadmin/settings.py на почтовом сервере. Хранится зашифрованным ключом IREDPANEL_SECRET_KEY и больше не показывается."
+    "label_mlmmjadminApiToken_help": "Один из api_auth_tokens в /opt/mlmmjadmin/settings.py на почтовом сервере. Хранится зашифрованным ключом IREDPANEL_SECRET_KEY и больше не показывается.",
+    "label_passwordRecoveryEnabled": "Восстановление пароля",
+    "label_passwordRecoveryEnabled_help": "Публикует страницу /forgot-password и ссылку на неё на странице входа. Mailbox с адресом восстановления получает ссылку для сброса по почте. Требуются публичный URL, настройки SMTP и база iredadmin. По умолчанию: выключено."
   },
   "quarantine": {
     "title": "Карантин",
@@ -1243,5 +1245,21 @@
     "policy_allowed": "Только разрешённые отправители",
     "max_message_size_help": "Максимальный размер сообщения в байтах. 0 означает без ограничения.",
     "allowed_hint_help": "Эти адреса всегда могут писать в список, даже если access policy их отклоняет. По одному адресу в строке."
+  },
+  "recovery": {
+    "forgot_title": "Забыли пароль",
+    "forgot_hint": "Введите адрес вашей mailbox. Если для неё указан адрес восстановления, ссылка для сброса будет отправлена туда.",
+    "mailbox_address": "Адрес mailbox",
+    "mailbox_address_help": "Mailbox, пароль которой нужно сбросить. Ссылка для сброса отправляется на адрес восстановления mailbox, но не на саму mailbox. Страница отвечает одинаково для известного и неизвестного адреса.",
+    "send_link": "Отправить ссылку",
+    "msg_link_sent": "Если mailbox существует и для неё указан адрес восстановления, ссылка для сброса отправлена туда. Ссылка действует :hours часов.",
+    "back_to_login": "Вернуться ко входу",
+    "reset_title": "Задать новый пароль",
+    "reset_hint": "Задайте новый пароль для :email.",
+    "msg_invalid_token": "Эта ссылка для сброса недействительна или устарела.",
+    "msg_password_updated": "Пароль изменён. Теперь вы можете войти.",
+    "msg_disabled": "Восстановление пароля недоступно.",
+    "mail_subject": "Сброс пароля для :email",
+    "mail_body": "Кто-то, вероятно вы, запросил сброс пароля :email.\n\nЧтобы задать новый пароль, откройте эту ссылку:\n:link\n\nСсылка действует :hours часов. Если вы этого не запрашивали, не обращайте внимания на это сообщение: пароль останется прежним."
   }
 }

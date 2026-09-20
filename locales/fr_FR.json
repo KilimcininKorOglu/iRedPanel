@@ -723,7 +723,9 @@
     "label_mlmmjadminApiUrl": "URL de l'API mlmmjadmin",
     "label_mlmmjadminApiUrl_help": "Adresse de l'API mlmmjadmin qui gère le spool mlmmj, par exemple http://127.0.0.1:7790/api. Vide arrête toute opération de mailing list.",
     "label_mlmmjadminApiToken": "Token de l'API mlmmjadmin",
-    "label_mlmmjadminApiToken_help": "L'un des api_auth_tokens dans /opt/mlmmjadmin/settings.py sur le serveur de messagerie. Il est stocké chiffré avec IREDPANEL_SECRET_KEY et n'est plus jamais affiché."
+    "label_mlmmjadminApiToken_help": "L'un des api_auth_tokens dans /opt/mlmmjadmin/settings.py sur le serveur de messagerie. Il est stocké chiffré avec IREDPANEL_SECRET_KEY et n'est plus jamais affiché.",
+    "label_passwordRecoveryEnabled": "Récupération de mot de passe",
+    "label_passwordRecoveryEnabled_help": "Publie la page /forgot-password et son lien sur la page de connexion. Une mailbox avec une adresse de récupération reçoit un lien de réinitialisation par mail. Nécessite l'URL publique, les paramètres SMTP et la base iredadmin. Par défaut : désactivé."
   },
   "quarantine": {
     "title": "Quarantaine",
@@ -1243,5 +1245,21 @@
     "policy_allowed": "Expéditeurs autorisés uniquement",
     "max_message_size_help": "Taille maximale du message en octets. 0 signifie sans limite.",
     "allowed_hint_help": "Ces adresses peuvent toujours écrire à la liste, même si l'access policy les refuse. Une adresse par ligne."
+  },
+  "recovery": {
+    "forgot_title": "Mot de passe oublié",
+    "forgot_hint": "Saisissez votre adresse de mailbox. Si elle possède une adresse de récupération, un lien de réinitialisation y sera envoyé.",
+    "mailbox_address": "Adresse de la mailbox",
+    "mailbox_address_help": "La mailbox dont vous voulez réinitialiser le mot de passe. Le lien de réinitialisation est envoyé à l'adresse de récupération de la mailbox, jamais à la mailbox elle-même. La page répond de la même façon pour une adresse connue et inconnue.",
+    "send_link": "Envoyer le lien",
+    "msg_link_sent": "Si la mailbox existe et possède une adresse de récupération, un lien de réinitialisation y a été envoyé. Le lien expire dans :hours heures.",
+    "back_to_login": "Retour à la connexion",
+    "reset_title": "Définir un nouveau mot de passe",
+    "reset_hint": "Définissez un nouveau mot de passe pour :email.",
+    "msg_invalid_token": "Ce lien de réinitialisation est invalide ou a expiré.",
+    "msg_password_updated": "Votre mot de passe a été modifié. Vous pouvez maintenant vous connecter.",
+    "msg_disabled": "La récupération de mot de passe n'est pas disponible.",
+    "mail_subject": "Réinitialisation du mot de passe pour :email",
+    "mail_body": "Quelqu'un, probablement vous, a demandé la réinitialisation du mot de passe de :email.\n\nPour définir un nouveau mot de passe, ouvrez ce lien :\n:link\n\nLe lien expire dans :hours heures. Si vous n'êtes pas à l'origine de cette demande, ignorez ce message : le mot de passe reste inchangé."
   }
 }

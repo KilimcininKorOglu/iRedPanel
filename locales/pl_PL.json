@@ -723,7 +723,9 @@
     "label_mlmmjadminApiUrl": "URL API mlmmjadmin",
     "label_mlmmjadminApiUrl_help": "Adres API mlmmjadmin, które zarządza spoolem mlmmj, na przykład http://127.0.0.1:7790/api. Puste zatrzymuje każdą operację mailing list.",
     "label_mlmmjadminApiToken": "Token API mlmmjadmin",
-    "label_mlmmjadminApiToken_help": "Jeden z api_auth_tokens w /opt/mlmmjadmin/settings.py na serwerze pocztowym. Jest przechowywany zaszyfrowany kluczem IREDPANEL_SECRET_KEY i nigdy więcej nie jest pokazywany."
+    "label_mlmmjadminApiToken_help": "Jeden z api_auth_tokens w /opt/mlmmjadmin/settings.py na serwerze pocztowym. Jest przechowywany zaszyfrowany kluczem IREDPANEL_SECRET_KEY i nigdy więcej nie jest pokazywany.",
+    "label_passwordRecoveryEnabled": "Odzyskiwanie hasła",
+    "label_passwordRecoveryEnabled_help": "Publikuje stronę /forgot-password i jej link na stronie logowania. Mailbox z adresem odzyskiwania otrzymuje link resetujący pocztą. Wymaga publicznego URL, ustawień SMTP i bazy iredadmin. Domyślnie: wyłączone."
   },
   "quarantine": {
     "title": "Kwarantanna",
@@ -1243,5 +1245,21 @@
     "policy_allowed": "Tylko dozwoleni nadawcy",
     "max_message_size_help": "Maksymalny rozmiar wiadomości w bajtach. 0 oznacza brak limitu.",
     "allowed_hint_help": "Te adresy zawsze mogą pisać na listę, nawet gdy access policy je odrzuca. Jeden adres w wierszu."
+  },
+  "recovery": {
+    "forgot_title": "Nie pamiętam hasła",
+    "forgot_hint": "Podaj adres swojej mailbox. Jeśli ma adres odzyskiwania, link resetujący zostanie wysłany na ten adres.",
+    "mailbox_address": "Adres mailbox",
+    "mailbox_address_help": "Mailbox, której hasło chcesz zresetować. Link resetujący trafia na adres odzyskiwania mailbox, nigdy do samej mailbox. Strona odpowiada tak samo dla znanego i nieznanego adresu.",
+    "send_link": "Wyślij link",
+    "msg_link_sent": "Jeśli mailbox istnieje i ma adres odzyskiwania, link resetujący został tam wysłany. Link wygasa za :hours godzin.",
+    "back_to_login": "Powrót do logowania",
+    "reset_title": "Ustaw nowe hasło",
+    "reset_hint": "Ustaw nowe hasło dla :email.",
+    "msg_invalid_token": "Ten link resetujący jest nieprawidłowy lub wygasł.",
+    "msg_password_updated": "Hasło zostało zmienione. Możesz się teraz zalogować.",
+    "msg_disabled": "Odzyskiwanie hasła jest niedostępne.",
+    "mail_subject": "Reset hasła dla :email",
+    "mail_body": "Ktoś, prawdopodobnie Ty, poprosił o zresetowanie hasła :email.\n\nAby ustawić nowe hasło, otwórz ten link:\n:link\n\nLink wygasa za :hours godzin. Jeśli to nie Ty, zignoruj tę wiadomość, a hasło pozostanie bez zmian."
   }
 }

@@ -723,7 +723,9 @@
     "label_mlmmjadminApiUrl": "URL da API do mlmmjadmin",
     "label_mlmmjadminApiUrl_help": "Endereço da API do mlmmjadmin que gerencia o spool do mlmmj, por exemplo http://127.0.0.1:7790/api. Vazio interrompe toda operação de mailing list.",
     "label_mlmmjadminApiToken": "Token da API do mlmmjadmin",
-    "label_mlmmjadminApiToken_help": "Um dos api_auth_tokens em /opt/mlmmjadmin/settings.py no servidor de e-mail. É armazenado criptografado com IREDPANEL_SECRET_KEY e nunca mais é exibido."
+    "label_mlmmjadminApiToken_help": "Um dos api_auth_tokens em /opt/mlmmjadmin/settings.py no servidor de e-mail. É armazenado criptografado com IREDPANEL_SECRET_KEY e nunca mais é exibido.",
+    "label_passwordRecoveryEnabled": "Recuperação de senha",
+    "label_passwordRecoveryEnabled_help": "Publica a página /forgot-password e o link dela na página de login. Uma mailbox com endereço de recuperação recebe um link de redefinição por e-mail. Precisa da URL pública, das configurações SMTP e do banco iredadmin. Padrão: desligado."
   },
   "quarantine": {
     "title": "Quarentena",
@@ -1243,5 +1245,21 @@
     "policy_allowed": "Somente remetentes permitidos",
     "max_message_size_help": "Tamanho máximo da mensagem em bytes. 0 significa sem limite.",
     "allowed_hint_help": "Estes endereços sempre podem escrever para a lista, mesmo quando a access policy os recusa. Um endereço por linha."
+  },
+  "recovery": {
+    "forgot_title": "Esqueci minha senha",
+    "forgot_hint": "Digite o endereço da sua mailbox. Se ela tiver um endereço de recuperação, um link de redefinição será enviado para lá.",
+    "mailbox_address": "Endereço da mailbox",
+    "mailbox_address_help": "A mailbox cuja senha você quer redefinir. O link de redefinição vai para o endereço de recuperação da mailbox, nunca para a própria mailbox. A página responde do mesmo jeito para um endereço conhecido e um desconhecido.",
+    "send_link": "Enviar link",
+    "msg_link_sent": "Se a mailbox existir e tiver um endereço de recuperação, um link de redefinição foi enviado para lá. O link expira em :hours horas.",
+    "back_to_login": "Voltar ao login",
+    "reset_title": "Definir uma nova senha",
+    "reset_hint": "Defina uma nova senha para :email.",
+    "msg_invalid_token": "Este link de redefinição é inválido ou expirou.",
+    "msg_password_updated": "Sua senha foi alterada. Você já pode entrar.",
+    "msg_disabled": "A recuperação de senha não está disponível.",
+    "mail_subject": "Redefinição de senha para :email",
+    "mail_body": "Alguém, provavelmente você, pediu a redefinição da senha de :email.\n\nPara definir uma nova senha, abra este link:\n:link\n\nO link expira em :hours horas. Se você não pediu isso, ignore esta mensagem e a senha continua como está."
   }
 }

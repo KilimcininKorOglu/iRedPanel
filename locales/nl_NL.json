@@ -723,7 +723,9 @@
     "label_mlmmjadminApiUrl": "mlmmjadmin API-URL",
     "label_mlmmjadminApiUrl_help": "Adres van de mlmmjadmin-API die de mlmmj-spool beheert, bijvoorbeeld http://127.0.0.1:7790/api. Leeg stopt elke mailing list-bewerking.",
     "label_mlmmjadminApiToken": "mlmmjadmin API-token",
-    "label_mlmmjadminApiToken_help": "Een van de api_auth_tokens in /opt/mlmmjadmin/settings.py op de mailserver. Het wordt versleuteld met IREDPANEL_SECRET_KEY opgeslagen en nooit meer getoond."
+    "label_mlmmjadminApiToken_help": "Een van de api_auth_tokens in /opt/mlmmjadmin/settings.py op de mailserver. Het wordt versleuteld met IREDPANEL_SECRET_KEY opgeslagen en nooit meer getoond.",
+    "label_passwordRecoveryEnabled": "Wachtwoordherstel",
+    "label_passwordRecoveryEnabled_help": "Publiceert de pagina /forgot-password en de link ernaartoe op de aanmeldpagina. Een mailbox met herstel-adres krijgt een resetlink per mail. Vereist de publieke URL, de SMTP-instellingen en de iredadmin-database. Standaard: uit."
   },
   "quarantine": {
     "title": "Quarantaine",
@@ -1243,5 +1245,21 @@
     "policy_allowed": "Alleen toegestane afzenders",
     "max_message_size_help": "Maximale berichtgrootte in bytes. 0 betekent geen limiet.",
     "allowed_hint_help": "Deze adressen mogen altijd aan de lijst schrijven, ook als de access policy ze weigert. Eén adres per regel."
+  },
+  "recovery": {
+    "forgot_title": "Wachtwoord vergeten",
+    "forgot_hint": "Voer uw mailbox-adres in. Als er een herstel-adres is ingesteld, wordt daar een resetlink naartoe gestuurd.",
+    "mailbox_address": "Mailbox-adres",
+    "mailbox_address_help": "De mailbox waarvan u het wachtwoord wilt resetten. De resetlink gaat naar het herstel-adres van de mailbox, nooit naar de mailbox zelf. De pagina antwoordt hetzelfde voor een bekend en een onbekend adres.",
+    "send_link": "Resetlink versturen",
+    "msg_link_sent": "Als de mailbox bestaat en een herstel-adres heeft, is daar een resetlink naartoe gestuurd. De link verloopt over :hours uur.",
+    "back_to_login": "Terug naar aanmelden",
+    "reset_title": "Nieuw wachtwoord instellen",
+    "reset_hint": "Stel een nieuw wachtwoord in voor :email.",
+    "msg_invalid_token": "Deze resetlink is ongeldig of verlopen.",
+    "msg_password_updated": "Uw wachtwoord is gewijzigd. U kunt nu aanmelden.",
+    "msg_disabled": "Wachtwoordherstel is niet beschikbaar.",
+    "mail_subject": "Wachtwoord resetten voor :email",
+    "mail_body": "Iemand, waarschijnlijk u, heeft gevraagd het wachtwoord van :email te resetten.\n\nOpen deze link om een nieuw wachtwoord in te stellen:\n:link\n\nDe link verloopt over :hours uur. Hebt u dit niet aangevraagd, negeer dit bericht dan; het wachtwoord blijft ongewijzigd."
   }
 }

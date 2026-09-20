@@ -723,7 +723,9 @@
     "label_mlmmjadminApiUrl": "mlmmjadmin API URL",
     "label_mlmmjadminApiUrl_help": "Az mlmmj spoolt kezelő mlmmjadmin API címe, például http://127.0.0.1:7790/api. Üresen minden mailing list művelet leáll.",
     "label_mlmmjadminApiToken": "mlmmjadmin API token",
-    "label_mlmmjadminApiToken_help": "A mail szerver /opt/mlmmjadmin/settings.py fájljában szereplő api_auth_tokens egyike. IREDPANEL_SECRET_KEY kulccsal titkosítva tárolódik, és többé nem jelenik meg."
+    "label_mlmmjadminApiToken_help": "A mail szerver /opt/mlmmjadmin/settings.py fájljában szereplő api_auth_tokens egyike. IREDPANEL_SECRET_KEY kulccsal titkosítva tárolódik, és többé nem jelenik meg.",
+    "label_passwordRecoveryEnabled": "Jelszó-helyreállítás",
+    "label_passwordRecoveryEnabled_help": "Közzéteszi a /forgot-password oldalt és a rá mutató linket a bejelentkezési oldalon. A helyreállítási címmel rendelkező mailbox levélben kap visszaállító linket. Szükséges a nyilvános URL, az SMTP-beállítások és az iredadmin adatbázis. Alapértelmezés: kikapcsolva."
   },
   "quarantine": {
     "title": "Karantén",
@@ -1243,5 +1245,21 @@
     "policy_allowed": "Csak engedélyezett feladók",
     "max_message_size_help": "Maximális üzenetméret bájtban. A 0 korlátlant jelent.",
     "allowed_hint_help": "Ezek a címek mindig írhatnak a listára, akkor is, ha az access policy elutasítja őket. Soronként egy cím."
+  },
+  "recovery": {
+    "forgot_title": "Elfelejtett jelszó",
+    "forgot_hint": "Adja meg a mailbox címét. Ha van hozzá helyreállítási cím, a visszaállító linket oda küldjük.",
+    "mailbox_address": "Mailbox címe",
+    "mailbox_address_help": "Az a mailbox, amelynek a jelszavát vissza szeretné állítani. A visszaállító link a mailbox helyreállítási címére megy, soha nem magára a mailboxra. Az oldal ismert és ismeretlen cím esetén ugyanazt válaszolja.",
+    "send_link": "Link küldése",
+    "msg_link_sent": "Ha a mailbox létezik és van helyreállítási címe, a visszaállító linket oda küldtük. A link :hours óra múlva lejár.",
+    "back_to_login": "Vissza a bejelentkezéshez",
+    "reset_title": "Új jelszó beállítása",
+    "reset_hint": "Állítson be új jelszót a következőhöz: :email.",
+    "msg_invalid_token": "Ez a visszaállító link érvénytelen vagy lejárt.",
+    "msg_password_updated": "A jelszava megváltozott. Most már bejelentkezhet.",
+    "msg_disabled": "A jelszó-helyreállítás nem érhető el.",
+    "mail_subject": "Jelszó-visszaállítás: :email",
+    "mail_body": "Valaki, valószínűleg Ön, a(z) :email jelszavának visszaállítását kérte.\n\nÚj jelszó beállításához nyissa meg ezt a linket:\n:link\n\nA link :hours óra múlva lejár. Ha nem Ön kérte, hagyja figyelmen kívül ezt az üzenetet, a jelszó változatlan marad."
   }
 }

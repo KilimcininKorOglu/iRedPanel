@@ -723,7 +723,9 @@
     "label_mlmmjadminApiUrl": "mlmmjadmin API URL-i",
     "label_mlmmjadminApiUrl_help": "mlmmj siyahı spool-una sahib olan mlmmjadmin API ünvanı, məsələn http://127.0.0.1:7790/api. Boş olduqda bütün mailing list əməliyyatları dayanır.",
     "label_mlmmjadminApiToken": "mlmmjadmin API Token-i",
-    "label_mlmmjadminApiToken_help": "Mail serverindəki /opt/mlmmjadmin/settings.py faylındakı api_auth_tokens dəyərlərindən biri. IREDPANEL_SECRET_KEY ilə şifrələnmiş saxlanılır və bir daha göstərilmir."
+    "label_mlmmjadminApiToken_help": "Mail serverindəki /opt/mlmmjadmin/settings.py faylındakı api_auth_tokens dəyərlərindən biri. IREDPANEL_SECRET_KEY ilə şifrələnmiş saxlanılır və bir daha göstərilmir.",
+    "label_passwordRecoveryEnabled": "Parol bərpası",
+    "label_passwordRecoveryEnabled_help": "/forgot-password səhifəsini və giriş səhifəsindəki linkini dərc edir. Bərpa ünvanı olan mailbox poçtla sıfırlama linki alır. Public URL, SMTP parametrləri və iredadmin verilənlər bazası tələb olunur. Default: bağlı."
   },
   "quarantine": {
     "title": "Karantin",
@@ -1243,5 +1245,21 @@
     "policy_allowed": "Yalnız icazəli göndərənlər",
     "max_message_size_help": "Maksimum mesaj ölçüsü (bayt). 0 limitsiz deməkdir.",
     "allowed_hint_help": "Bu ünvanlar siyahıya həmişə yaza bilər, access policy onları rədd etsə belə. Sətirə bir ünvan."
+  },
+  "recovery": {
+    "forgot_title": "Parolu unutdum",
+    "forgot_hint": "Mailbox ünvanınızı daxil edin. Onun bərpa ünvanı varsa, sıfırlama linki oraya göndərilir.",
+    "mailbox_address": "Mailbox ünvanı",
+    "mailbox_address_help": "Parolunu sıfırlamaq istədiyiniz mailbox. Sıfırlama linki mailbox-un bərpa ünvanına gedir, heç vaxt mailbox-un özünə getmir. Səhifə tanınan və tanınmayan ünvan üçün eyni cavabı verir.",
+    "send_link": "Link göndər",
+    "msg_link_sent": "Mailbox mövcuddursa və bərpa ünvanı varsa, sıfırlama linki oraya göndərildi. Link :hours saat sonra etibarsız olur.",
+    "back_to_login": "Girişə qayıt",
+    "reset_title": "Yeni parol təyin edin",
+    "reset_hint": ":email üçün yeni parol təyin edin.",
+    "msg_invalid_token": "Bu sıfırlama linki etibarsızdır və ya vaxtı bitib.",
+    "msg_password_updated": "Parolunuz dəyişdirildi. İndi daxil ola bilərsiniz.",
+    "msg_disabled": "Parol bərpası əlçatan deyil.",
+    "mail_subject": ":email üçün parol sıfırlama",
+    "mail_body": "Kimsə, çox güman ki, siz, :email ünvanının parolunun sıfırlanmasını istədi.\n\nYeni parol təyin etmək üçün bu linki açın:\n:link\n\nLink :hours saat sonra etibarsız olur. Bunu siz istəməmisinizsə, mesajı nəzərə almayın; parol olduğu kimi qalır."
   }
 }

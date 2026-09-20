@@ -723,7 +723,9 @@
     "label_mlmmjadminApiUrl": "URL de l'API de mlmmjadmin",
     "label_mlmmjadminApiUrl_help": "Adreça de l'API de mlmmjadmin que gestiona l'spool de mlmmj, per exemple http://127.0.0.1:7790/api. Buit atura cada operació de mailing list.",
     "label_mlmmjadminApiToken": "Token de l'API de mlmmjadmin",
-    "label_mlmmjadminApiToken_help": "Un dels api_auth_tokens de /opt/mlmmjadmin/settings.py al servidor de correu. Es desa xifrat amb IREDPANEL_SECRET_KEY i no es torna a mostrar."
+    "label_mlmmjadminApiToken_help": "Un dels api_auth_tokens de /opt/mlmmjadmin/settings.py al servidor de correu. Es desa xifrat amb IREDPANEL_SECRET_KEY i no es torna a mostrar.",
+    "label_passwordRecoveryEnabled": "Recuperació de contrasenya",
+    "label_passwordRecoveryEnabled_help": "Publica la pàgina /forgot-password i el seu enllaç a la pàgina d'inici de sessió. Una mailbox amb adreça de recuperació rep un enllaç de restabliment per correu. Necessita l'URL públic, la configuració SMTP i la base de dades iredadmin. Per defecte: desactivat."
   },
   "quarantine": {
     "title": "Quarantena",
@@ -1243,5 +1245,21 @@
     "policy_allowed": "Només remitents permesos",
     "max_message_size_help": "Mida màxima del missatge en bytes. 0 significa sense límit.",
     "allowed_hint_help": "Aquestes adreces sempre poden escriure a la llista, encara que l'access policy les rebutgi. Una adreça per línia."
+  },
+  "recovery": {
+    "forgot_title": "He oblidat la contrasenya",
+    "forgot_hint": "Introduïu l'adreça de la vostra mailbox. Si té una adreça de recuperació, s'hi enviarà un enllaç de restabliment.",
+    "mailbox_address": "Adreça de la mailbox",
+    "mailbox_address_help": "La mailbox de la qual voleu restablir la contrasenya. L'enllaç de restabliment va a l'adreça de recuperació de la mailbox, mai a la mailbox mateixa. La pàgina respon igual per a una adreça coneguda i una de desconeguda.",
+    "send_link": "Envia l'enllaç",
+    "msg_link_sent": "Si la mailbox existeix i té una adreça de recuperació, s'hi ha enviat un enllaç de restabliment. L'enllaç caduca en :hours hores.",
+    "back_to_login": "Torna a l'inici de sessió",
+    "reset_title": "Establiu una contrasenya nova",
+    "reset_hint": "Establiu una contrasenya nova per a :email.",
+    "msg_invalid_token": "Aquest enllaç de restabliment no és vàlid o ha caducat.",
+    "msg_password_updated": "La contrasenya s'ha canviat. Ja podeu iniciar la sessió.",
+    "msg_disabled": "La recuperació de contrasenya no està disponible.",
+    "mail_subject": "Restabliment de contrasenya per a :email",
+    "mail_body": "Algú, probablement vós, ha demanat restablir la contrasenya de :email.\n\nPer establir una contrasenya nova, obriu aquest enllaç:\n:link\n\nL'enllaç caduca en :hours hores. Si no ho heu demanat, ignoreu el missatge: la contrasenya es manté."
   }
 }

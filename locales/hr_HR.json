@@ -723,7 +723,9 @@
     "label_mlmmjadminApiUrl": "mlmmjadmin API URL",
     "label_mlmmjadminApiUrl_help": "Adresa mlmmjadmin API-ja koji upravlja mlmmj spool-om, na primjer http://127.0.0.1:7790/api. Prazno zaustavlja svaku mailing list operaciju.",
     "label_mlmmjadminApiToken": "mlmmjadmin API token",
-    "label_mlmmjadminApiToken_help": "Jedan od api_auth_tokens u /opt/mlmmjadmin/settings.py na mail poslužitelju. Čuva se šifriran s IREDPANEL_SECRET_KEY i više se ne prikazuje."
+    "label_mlmmjadminApiToken_help": "Jedan od api_auth_tokens u /opt/mlmmjadmin/settings.py na mail poslužitelju. Čuva se šifriran s IREDPANEL_SECRET_KEY i više se ne prikazuje.",
+    "label_passwordRecoveryEnabled": "Oporavak lozinke",
+    "label_passwordRecoveryEnabled_help": "Objavljuje stranicu /forgot-password i poveznicu na nju na stranici prijave. Mailbox s adresom za oporavak dobiva poveznicu za promjenu poštom. Zahtijeva javni URL, SMTP postavke i bazu iredadmin. Zadano: isključeno."
   },
   "quarantine": {
     "title": "Karantena",
@@ -1243,5 +1245,21 @@
     "policy_allowed": "Samo dopušteni pošiljatelji",
     "max_message_size_help": "Maksimalna veličina poruke u bajtovima. 0 znači bez ograničenja.",
     "allowed_hint_help": "Ove adrese uvijek smiju pisati na listu, i kada ih access policy odbija. Jedna adresa po retku."
+  },
+  "recovery": {
+    "forgot_title": "Zaboravljena lozinka",
+    "forgot_hint": "Unesite adresu svoje mailbox. Ako ima adresu za oporavak, poveznica za promjenu šalje se onamo.",
+    "mailbox_address": "Adresa mailbox",
+    "mailbox_address_help": "Mailbox čiju lozinku želite promijeniti. Poveznica za promjenu ide na adresu za oporavak te mailbox, nikada u samu mailbox. Stranica odgovara jednako za poznatu i nepoznatu adresu.",
+    "send_link": "Pošalji poveznicu",
+    "msg_link_sent": "Ako mailbox postoji i ima adresu za oporavak, poveznica za promjenu poslana je onamo. Poveznica istječe za :hours sati.",
+    "back_to_login": "Natrag na prijavu",
+    "reset_title": "Postavite novu lozinku",
+    "reset_hint": "Postavite novu lozinku za :email.",
+    "msg_invalid_token": "Ova poveznica za promjenu nije valjana ili je istekla.",
+    "msg_password_updated": "Lozinka je promijenjena. Sada se možete prijaviti.",
+    "msg_disabled": "Oporavak lozinke nije dostupan.",
+    "mail_subject": "Promjena lozinke za :email",
+    "mail_body": "Netko, vjerojatno vi, zatražio je promjenu lozinke za :email.\n\nZa postavljanje nove lozinke otvorite ovu poveznicu:\n:link\n\nPoveznica istječe za :hours sati. Ako to niste zatražili, zanemarite poruku; lozinka ostaje ista."
   }
 }

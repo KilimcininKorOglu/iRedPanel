@@ -38,6 +38,11 @@ class AccountExpiryTest extends TestCase
             {
                 return $this->admins;
             }
+
+            public function mailboxCounts(?int $now = null): array
+            {
+                return ['expired' => count($this->mailboxes), 'expiring' => 0];
+            }
         };
 
         return new AccountExpiry($repo);

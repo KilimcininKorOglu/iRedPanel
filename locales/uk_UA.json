@@ -315,7 +315,10 @@
     "uptime": "Час роботи",
     "load": "Навантаження",
     "update_available": "Доступна iRedPanel v:version. Сумісна з iRedMail :iredmail.",
-    "compat_view_all": "Відкрити список сумісності"
+    "compat_view_all": "Відкрити список сумісності",
+    "expiring_accounts": "Завершення облікових записів",
+    "expired_mailboxes": "Завершені скриньки",
+    "expiring_mailboxes": "Завершуються за :days днів"
   },
   "compat": {
     "title": "Сумісність з iRedMail",

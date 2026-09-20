@@ -315,7 +315,10 @@
     "uptime": "Χρόνος λειτουργίας",
     "load": "Φόρτος",
     "update_available": "Το iRedPanel v:version είναι διαθέσιμο. Συμβατό με iRedMail :iredmail.",
-    "compat_view_all": "Προβολή λίστας συμβατότητας"
+    "compat_view_all": "Προβολή λίστας συμβατότητας",
+    "expiring_accounts": "Λήξη λογαριασμών",
+    "expired_mailboxes": "Ληγμένα γραμματοκιβώτια",
+    "expiring_mailboxes": "Λήγουν σε :days ημέρες"
   },
   "compat": {
     "title": "Συμβατότητα με iRedMail",

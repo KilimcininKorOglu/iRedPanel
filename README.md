@@ -428,6 +428,7 @@ server {
 - A mailbox, a domain and an admin carry an expiry date, the last day the account works
 - `cli/disableExpiredAccounts.php` runs from cron and disables every expired account that is still active. It only disables, because it cannot know why an account is off
 - The sign-in refuses an expired admin and an expired self-service mailbox, so a date that passes between two cron runs holds at once
+- The user list shows the date with a badge (red when it has passed, orange within the next 30 days), and the dashboard counts the expired and the expiring mailboxes
 - No open source iRedMail component reads the date, so the panel enforces it itself
 
 ### Export

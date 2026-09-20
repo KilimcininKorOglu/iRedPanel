@@ -315,7 +315,10 @@
     "uptime": "稼働時間",
     "load": "負荷",
     "update_available": "iRedPanel v:version が利用可能です。iRedMail :iredmail と互換性があります。",
-    "compat_view_all": "互換性リストを表示"
+    "compat_view_all": "互換性リストを表示",
+    "expiring_accounts": "アカウントの期限",
+    "expired_mailboxes": "期限切れのメールボックス",
+    "expiring_mailboxes": ":days 日以内に期限切れ"
   },
   "compat": {
     "title": "iRedMail 互換性",

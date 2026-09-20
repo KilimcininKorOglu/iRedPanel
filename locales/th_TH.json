@@ -315,7 +315,10 @@
     "uptime": "เวลาทำงาน",
     "load": "โหลด",
     "update_available": "มี iRedPanel v:version แล้ว เข้ากันได้กับ iRedMail :iredmail",
-    "compat_view_all": "ดูรายการความเข้ากันได้"
+    "compat_view_all": "ดูรายการความเข้ากันได้",
+    "expiring_accounts": "การหมดอายุของบัญชี",
+    "expired_mailboxes": "กล่องจดหมายที่หมดอายุ",
+    "expiring_mailboxes": "หมดอายุภายใน :days วัน"
   },
   "compat": {
     "title": "ความเข้ากันได้กับ iRedMail",

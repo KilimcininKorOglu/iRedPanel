@@ -30,6 +30,30 @@ final class LdapExpiredAccounts implements ExpiredAccountRepositoryInterface
         return $this->addresses(LdapUtils::adminsBase(), 'mailAdmin', 'mail', $now);
     }
 
+    public function mailboxCounts(?int $now = null): array
+    {
+        // The card counts a disabled mailbox as well, so the filter carries no status.
+        $filter = '(&(objectClass=mailUser)(!(mail=@*))(expiredDate=*))';
+        $entries = LdapUtils::searchEntries(
+            LdapConnection::getInstance()->getConn(),
+            LdapUtils::domainsBase(),
+            $filter,
+            ['expiredDate'],
+        );
+
+        $counts = ['expired' => 0, 'expiring' => 0];
+        foreach ($entries as $entry) {
+            $state = ExpiryDate::state(ExpiryDate::fromLdap(LdapUtils::allValues($entry, 'expiredDate')[0] ?? ''), $now);
+            if ($state === ExpiryDate::STATE_EXPIRED) {
+                $counts['expired']++;
+            } elseif ($state === ExpiryDate::STATE_SOON) {
+                $counts['expiring']++;
+            }
+        }
+
+        return $counts;
+    }
+
     /**
      * @return list<string>
      */

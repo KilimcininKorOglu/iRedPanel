@@ -315,7 +315,10 @@
     "uptime": "Käyttöaika",
     "load": "Kuormitus",
     "update_available": "iRedPanel v:version on saatavilla. Yhteensopiva iRedMail-version :iredmail kanssa.",
-    "compat_view_all": "Näytä yhteensopivuuslista"
+    "compat_view_all": "Näytä yhteensopivuuslista",
+    "expiring_accounts": "Tilien vanheneminen",
+    "expired_mailboxes": "Vanhentuneet postilaatikot",
+    "expiring_mailboxes": "Vanhenevat :days päivässä"
   },
   "compat": {
     "title": "iRedMail-yhteensopivuus",

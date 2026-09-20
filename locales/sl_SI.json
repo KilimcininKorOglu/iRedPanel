@@ -315,7 +315,10 @@
     "uptime": "Čas delovanja",
     "load": "Obremenitev",
     "update_available": "Na voljo je iRedPanel v:version. Združljivo z iRedMail :iredmail.",
-    "compat_view_all": "Prikaži seznam združljivosti"
+    "compat_view_all": "Prikaži seznam združljivosti",
+    "expiring_accounts": "Potek računov",
+    "expired_mailboxes": "Potekli nabiralniki",
+    "expiring_mailboxes": "Potečejo v :days dneh"
   },
   "compat": {
     "title": "Združljivost z iRedMail",

@@ -29,4 +29,15 @@ class ExpiryDateEnforcementTest extends TestCase
         $this->expectException(\RuntimeException::class);
         ExpiryDate::assertNotExpired('user@test.com', '2000-01-01');
     }
+
+    public function testTheStateOfADateDrivesTheBadge(): void
+    {
+        $now = (int) strtotime('2026-03-02 12:00:00');
+
+        $this->assertSame(ExpiryDate::STATE_NONE, ExpiryDate::state('', $now));
+        $this->assertSame(ExpiryDate::STATE_EXPIRED, ExpiryDate::state('2026-03-01', $now));
+        $this->assertSame(ExpiryDate::STATE_SOON, ExpiryDate::state('2026-03-02', $now));
+        $this->assertSame(ExpiryDate::STATE_SOON, ExpiryDate::state('2026-03-31', $now));
+        $this->assertSame(ExpiryDate::STATE_VALID, ExpiryDate::state('2026-04-01', $now));
+    }
 }

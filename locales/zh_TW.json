@@ -315,7 +315,10 @@
     "uptime": "運行時間",
     "load": "負載",
     "update_available": "iRedPanel v:version 已推出。相容 iRedMail :iredmail。",
-    "compat_view_all": "檢視相容性清單"
+    "compat_view_all": "檢視相容性清單",
+    "expiring_accounts": "帳戶到期",
+    "expired_mailboxes": "已到期的信箱",
+    "expiring_mailboxes": ":days 天內到期"
   },
   "compat": {
     "title": "iRedMail 相容性",

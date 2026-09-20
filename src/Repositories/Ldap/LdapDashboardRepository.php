@@ -31,6 +31,7 @@ class LdapDashboardRepository implements DashboardRepositoryInterface
             $mailboxes
         ));
         [$usedBytes, $messages] = self::usedQuota();
+        $expiry = RepositoryFactory::getExpiredAccountRepository()->mailboxCounts();
 
         return [
             'totalDomains' => count($domains),
@@ -41,6 +42,8 @@ class LdapDashboardRepository implements DashboardRepositoryInterface
             'totalQuotaAllocated' => intdiv($allocatedBytes, 1048576),
             'totalQuotaUsed' => intdiv($usedBytes, 1048576),
             'totalMessages' => $messages,
+            'expiredUsers' => $expiry['expired'],
+            'expiringUsers' => $expiry['expiring'],
         ];
     }
 

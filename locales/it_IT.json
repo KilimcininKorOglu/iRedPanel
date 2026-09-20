@@ -315,7 +315,10 @@
     "uptime": "Tempo di attività",
     "load": "Carico",
     "update_available": "iRedPanel v:version è disponibile. Compatibile con iRedMail :iredmail.",
-    "compat_view_all": "Visualizza l'elenco di compatibilità"
+    "compat_view_all": "Visualizza l'elenco di compatibilità",
+    "expiring_accounts": "Scadenza account",
+    "expired_mailboxes": "Caselle scadute",
+    "expiring_mailboxes": "Scadono entro :days giorni"
   },
   "compat": {
     "title": "Compatibilità iRedMail",

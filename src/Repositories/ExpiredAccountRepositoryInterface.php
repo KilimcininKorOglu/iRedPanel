@@ -27,4 +27,13 @@ interface ExpiredAccountRepositoryInterface
      * @return list<string> the addresses of the expired standalone admins
      */
     public function expiredAdmins(?int $now = null): array;
+
+    /**
+     * The mailbox counts of the dashboard card: the mailboxes whose date has passed,
+     * whatever their status, and the mailboxes that expire within ExpiryDate::SOON_DAYS.
+     *
+     * @param ?int $now unix timestamp, the current time when null
+     * @return array{expired: int, expiring: int}
+     */
+    public function mailboxCounts(?int $now = null): array;
 }

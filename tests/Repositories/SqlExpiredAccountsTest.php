@@ -64,6 +64,18 @@ class SqlExpiredAccountsTest extends TestCase
         $this->assertSame([], $this->expired->expiredMailboxes($this->now));
     }
 
+    public function testTheCardCountsExpiredAndExpiringMailboxes(): void
+    {
+        $this->addMailbox('gone@test.com', 0, '2026-09-19 00:00:00');
+        $this->addMailbox('today@test.com', 1, '2026-09-20 00:00:00');
+        $this->addMailbox('soon@test.com', 1, '2026-10-19 00:00:00');
+        $this->addMailbox('later@test.com', 1, '2026-10-20 00:00:00');
+        $this->addMailbox('never@test.com', 1, ExpiryDate::SQL_NONE);
+
+        // The disabled mailbox counts too, and the expiry day itself is still valid.
+        $this->assertSame(['expired' => 1, 'expiring' => 2], $this->expired->mailboxCounts($this->now));
+    }
+
     public function testAnExpiredDomainAndAdminAreListed(): void
     {
         $this->pdo->exec("INSERT INTO domain (domain, active, expired) VALUES ('old.test', 1, '2026-09-19 00:00:00'), ('new.test', 1, '2027-01-01 00:00:00')");

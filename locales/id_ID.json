@@ -315,7 +315,10 @@
     "uptime": "Waktu aktif",
     "load": "Beban",
     "update_available": "iRedPanel v:version tersedia. Kompatibel dengan iRedMail :iredmail.",
-    "compat_view_all": "Lihat daftar kompatibilitas"
+    "compat_view_all": "Lihat daftar kompatibilitas",
+    "expiring_accounts": "Kedaluwarsa akun",
+    "expired_mailboxes": "Kotak surat kedaluwarsa",
+    "expiring_mailboxes": "Kedaluwarsa dalam :days hari"
   },
   "compat": {
     "title": "Kompatibilitas iRedMail",

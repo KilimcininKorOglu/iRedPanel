@@ -315,7 +315,10 @@
     "uptime": "İşləmə müddəti",
     "load": "Yük",
     "update_available": "iRedPanel v:version mövcuddur. Uyğun iRedMail versiyaları: :iredmail.",
-    "compat_view_all": "Uyğunluq siyahısına bax"
+    "compat_view_all": "Uyğunluq siyahısına bax",
+    "expiring_accounts": "Hesabın bitməsi",
+    "expired_mailboxes": "Müddəti bitmiş poçt qutuları",
+    "expiring_mailboxes": ":days gün ərzində bitir"
   },
   "compat": {
     "title": "iRedMail uyğunluğu",

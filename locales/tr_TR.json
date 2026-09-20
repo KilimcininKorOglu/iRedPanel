@@ -315,7 +315,10 @@
     "uptime": "Çalışma Süresi",
     "load": "Yük",
     "update_available": "iRedPanel v:version yayında. Uyumlu iRedMail sürümleri: :iredmail.",
-    "compat_view_all": "Uyumluluk listesini görüntüle"
+    "compat_view_all": "Uyumluluk listesini görüntüle",
+    "expiring_accounts": "Hesap sona erme",
+    "expired_mailboxes": "Süresi dolmuş mailbox",
+    "expiring_mailboxes": "Sonraki :days günde dolacak"
   },
   "compat": {
     "title": "iRedMail Uyumluluğu",

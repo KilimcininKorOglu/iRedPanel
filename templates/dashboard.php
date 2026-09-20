@@ -59,6 +59,21 @@
       </div>
     </div>
   </div>
+  <div class="col-md-6 col-xl-4">
+    <div class="card stat-card h-100 mb-0">
+      <div class="card-body">
+        <span class="stat-icon"><i class="bi bi-calendar-x"></i></span>
+        <div class="flex-grow-1">
+          <div class="stat-label"><?= $te('dashboard.expiring_accounts') ?></div>
+          <div class="stat-value"><?= $e($stats['expiredUsers'] ?? 0) ?></div>
+          <div class="small text-body-secondary mt-1">
+            <?= $te('dashboard.expired_mailboxes') ?> &middot;
+            <?= $te('dashboard.expiring_mailboxes', ['days' => \App\Utils\ExpiryDate::SOON_DAYS]) ?>: <?= $e($stats['expiringUsers'] ?? 0) ?>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="col-md-6">
     <div class="card stat-card h-100 mb-0">
       <div class="card-body">

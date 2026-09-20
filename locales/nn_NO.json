@@ -315,7 +315,10 @@
     "uptime": "Oppetid",
     "load": "Last",
     "update_available": "iRedPanel v:version er tilgjengeleg. Kompatibel med iRedMail :iredmail.",
-    "compat_view_all": "Vis kompatibilitetslista"
+    "compat_view_all": "Vis kompatibilitetslista",
+    "expiring_accounts": "Kontoutløp",
+    "expired_mailboxes": "Utgåtte postkasser",
+    "expiring_mailboxes": "Går ut innan :days dagar"
   },
   "compat": {
     "title": "iRedMail-kompatibilitet",

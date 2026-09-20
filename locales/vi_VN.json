@@ -315,7 +315,10 @@
     "uptime": "Thời gian hoạt động",
     "load": "Tải",
     "update_available": "Đã có iRedPanel v:version. Tương thích với iRedMail :iredmail.",
-    "compat_view_all": "Xem danh sách tương thích"
+    "compat_view_all": "Xem danh sách tương thích",
+    "expiring_accounts": "Hết hạn tài khoản",
+    "expired_mailboxes": "Hộp thư đã hết hạn",
+    "expiring_mailboxes": "Hết hạn trong :days ngày"
   },
   "compat": {
     "title": "Tương thích iRedMail",

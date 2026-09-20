@@ -34,6 +34,26 @@ final class SqlExpiredAccounts implements ExpiredAccountRepositoryInterface
         return $this->addresses('SELECT username FROM admin WHERE active = 1 AND expired < :cutoff ORDER BY username', $now);
     }
 
+    public function mailboxCounts(?int $now = null): array
+    {
+        $now ??= time();
+        $cutoff = ExpiryDate::sqlCutoff($now);
+        $soon = ExpiryDate::sqlCutoff($now + ExpiryDate::SOON_DAYS * 86400);
+
+        $stmt = $this->pdo->prepare(
+            'SELECT COUNT(*) FROM mailbox WHERE expired < :cutoff'
+        );
+        $stmt->execute(['cutoff' => $cutoff]);
+        $expired = (int) $stmt->fetchColumn();
+
+        $stmt = $this->pdo->prepare(
+            'SELECT COUNT(*) FROM mailbox WHERE expired >= :cutoff AND expired < :soon'
+        );
+        $stmt->execute(['cutoff' => $cutoff, 'soon' => $soon]);
+
+        return ['expired' => $expired, 'expiring' => (int) $stmt->fetchColumn()];
+    }
+
     /**
      * @return list<string>
      */

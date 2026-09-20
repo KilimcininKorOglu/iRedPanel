@@ -315,7 +315,10 @@
     "uptime": "Tööaeg",
     "load": "Koormus",
     "update_available": "Saadaval on iRedPanel v:version. Ühildub iRedMail :iredmail versiooniga.",
-    "compat_view_all": "Kuva ühilduvusloend"
+    "compat_view_all": "Kuva ühilduvusloend",
+    "expiring_accounts": "Kontode aegumine",
+    "expired_mailboxes": "Aegunud postkastid",
+    "expiring_mailboxes": "Aeguvad :days päeva jooksul"
   },
   "compat": {
     "title": "iRedMaili ühilduvus",

@@ -315,7 +315,10 @@
     "uptime": "Timp de funcționare",
     "load": "Încărcare",
     "update_available": "iRedPanel v:version este disponibil. Compatibil cu iRedMail :iredmail.",
-    "compat_view_all": "Vezi lista de compatibilitate"
+    "compat_view_all": "Vezi lista de compatibilitate",
+    "expiring_accounts": "Expirarea conturilor",
+    "expired_mailboxes": "Căsuțe expirate",
+    "expiring_mailboxes": "Expiră în :days zile"
   },
   "compat": {
     "title": "Compatibilitate iRedMail",

@@ -315,7 +315,10 @@
     "uptime": "Üzemidő",
     "load": "Terhelés",
     "update_available": "Elérhető az iRedPanel v:version. Kompatibilis: iRedMail :iredmail.",
-    "compat_view_all": "Kompatibilitási lista megtekintése"
+    "compat_view_all": "Kompatibilitási lista megtekintése",
+    "expiring_accounts": "Fiók lejárata",
+    "expired_mailboxes": "Lejárt postafiókok",
+    "expiring_mailboxes": ":days napon belül lejár"
   },
   "compat": {
     "title": "iRedMail-kompatibilitás",

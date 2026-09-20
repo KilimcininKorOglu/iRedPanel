@@ -18,6 +18,8 @@ interface DashboardRepositoryInterface
      *   totalQuotaAllocated: int,
      *   totalQuotaUsed: int,
      *   totalMessages: int,
+     *   expiredUsers: int,
+     *   expiringUsers: int,
      * }
      */
     public function getStats(): array;

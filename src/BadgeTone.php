@@ -113,6 +113,12 @@ class BadgeTone
         'managed' => [
             'directory' => 'purple',
         ],
+        // The expiry date state of an account (App\Utils\ExpiryDate::state()).
+        'expiry' => [
+            'expired' => 'red',
+            'soon' => 'orange',
+            'valid' => 'gray',
+        ],
         // Counters in tabs and section headers, by the kind of item they count.
         'count' => [
             'domains' => 'cyan',

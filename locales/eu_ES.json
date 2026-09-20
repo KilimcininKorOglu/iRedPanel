@@ -315,7 +315,10 @@
     "uptime": "Martxan denbora",
     "load": "Karga",
     "update_available": "iRedPanel v:version eskuragarri dago. iRedMail :iredmail bertsioarekin bateragarria.",
-    "compat_view_all": "Ikusi bateragarritasun zerrenda"
+    "compat_view_all": "Ikusi bateragarritasun zerrenda",
+    "expiring_accounts": "Kontuen iraungitzea",
+    "expired_mailboxes": "Iraungitako postontziak",
+    "expiring_mailboxes": ":days egunean iraungiko dira"
   },
   "compat": {
     "title": "iRedMail bateragarritasuna",

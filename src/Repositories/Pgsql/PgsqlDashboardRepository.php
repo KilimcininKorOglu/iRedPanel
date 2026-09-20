@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Repositories\Pgsql;
 
 use App\Repositories\DashboardRepositoryInterface;
+use App\Repositories\RepositoryFactory;
 
 class PgsqlDashboardRepository implements DashboardRepositoryInterface
 {
@@ -21,6 +22,8 @@ class PgsqlDashboardRepository implements DashboardRepositoryInterface
             'totalQuotaAllocated' => 0,
             'totalQuotaUsed' => 0,
             'totalMessages' => 0,
+            'expiredUsers' => 0,
+            'expiringUsers' => 0,
         ];
 
         $row = $pdo->query("SELECT COUNT(*) AS c FROM domain")->fetch();
@@ -51,6 +54,10 @@ class PgsqlDashboardRepository implements DashboardRepositoryInterface
         $row = $pdo->query("SELECT COALESCE(SUM(bytes), 0) AS b, COALESCE(SUM(messages), 0) AS m FROM used_quota")->fetch();
         $stats['totalQuotaUsed'] = (int) ($row['b'] / 1048576);
         $stats['totalMessages'] = (int) $row['m'];
+
+        $counts = RepositoryFactory::getExpiredAccountRepository()->mailboxCounts();
+        $stats['expiredUsers'] = $counts['expired'];
+        $stats['expiringUsers'] = $counts['expiring'];
 
         return $stats;
     }

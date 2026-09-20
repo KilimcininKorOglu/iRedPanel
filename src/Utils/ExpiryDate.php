@@ -22,6 +22,33 @@ final class ExpiryDate
     /** The date part of SQL_NONE. */
     public const NONE = '9999-12-31';
 
+    /** A date within this many days counts as expiring soon. */
+    public const SOON_DAYS = 30;
+
+    /** The state of an account: no date, expired, expiring soon or valid. */
+    public const STATE_NONE = '';
+    public const STATE_EXPIRED = 'expired';
+    public const STATE_SOON = 'soon';
+    public const STATE_VALID = 'valid';
+
+    /**
+     * The state of an expiry date, for the list badge and the dashboard card.
+     *
+     * @param ?int $now unix timestamp, the current time when null
+     */
+    public static function state(string $date, ?int $now = null): string
+    {
+        if ($date === '') {
+            return self::STATE_NONE;
+        }
+        if (self::isExpired($date, $now)) {
+            return self::STATE_EXPIRED;
+        }
+        $now ??= time();
+
+        return $date < date('Y-m-d', $now + self::SOON_DAYS * 86400) ? self::STATE_SOON : self::STATE_VALID;
+    }
+
     /**
      * @throws InvalidInputException when the value is not '' or a date in YYYY-MM-DD format
      */

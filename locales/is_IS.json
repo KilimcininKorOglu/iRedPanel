@@ -315,7 +315,10 @@
     "uptime": "Uppitími",
     "load": "Álag",
     "update_available": "iRedPanel v:version er fáanlegt. Samhæft við iRedMail :iredmail.",
-    "compat_view_all": "Skoða samhæfnilistann"
+    "compat_view_all": "Skoða samhæfnilistann",
+    "expiring_accounts": "Reikningar renna út",
+    "expired_mailboxes": "Útrunnin pósthólf",
+    "expiring_mailboxes": "Renna út innan :days daga"
   },
   "compat": {
     "title": "Samhæfni við iRedMail",

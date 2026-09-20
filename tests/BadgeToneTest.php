@@ -24,6 +24,13 @@ class BadgeToneTest extends TestCase
         $this->assertSame('green', BadgeTone::tone('ownership', 'verified'));
     }
 
+    public function testTheExpiryStateCarriesItsOwnColors(): void
+    {
+        $this->assertSame('red', BadgeTone::tone('expiry', 'expired'));
+        $this->assertSame('orange', BadgeTone::tone('expiry', 'soon'));
+        $this->assertSame('gray', BadgeTone::tone('expiry', 'valid'));
+    }
+
     public function testLookupIgnoresCase(): void
     {
         // Aliases store "membersOnly", mailing lists "membersonly".

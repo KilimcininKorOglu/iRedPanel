@@ -64,6 +64,7 @@ $sortIcon = function (string $col) use ($sortBy, $sortDir) {
             <th><a href="<?= $e($sortUrl('mailQuota')) ?>"><?= $te('user.quota_mb') ?><?= $sortIcon('mailQuota') ?></a></th>
             <th><?= $te('user.used') ?></th>
             <th><?= $te('user.password_last_change') ?></th>
+            <th><?= $te('user.expired_date') ?></th>
             <th><?= $te('admin.global_admin') ?></th>
             <th><a href="<?= $e($sortUrl('accountStatus')) ?>"><?= $te('common.status') ?><?= $sortIcon('accountStatus') ?></a></th>
             <th class="text-end"><?= $te('common.actions') ?></th>
@@ -75,6 +76,7 @@ $sortIcon = function (string $col) use ($sortBy, $sortDir) {
             $email = $user->uid . '@' . $domain;
             $usedBytes = ($usedQuotas[$email]['bytes'] ?? 0);
             $usedMb = $usedBytes > 0 ? (int) ($usedBytes / 1048576) : 0;
+            $expiryState = \App\Utils\ExpiryDate::state($user->expiredDate);
           ?>
           <tr>
             <td><input type="checkbox" class="form-check-input" name="selectedUsers[]" value="<?= $e($user->uid) ?>" /></td>
@@ -82,6 +84,13 @@ $sortIcon = function (string $col) use ($sortBy, $sortDir) {
             <td><?= $e($user->mailQuota === 0 ? $t('common.unlimited') : $user->mailQuota) ?></td>
             <td><?= $e($usedMb) ?> MB</td>
             <td><?= $e($user->passwordLastChange ?? $t('common.none')) ?></td>
+            <td>
+              <?php if ($expiryState === ''): ?>
+                <span class="text-secondary"><?= $te('common.none') ?></span>
+              <?php else: ?>
+                <span class="<?= $e($tone('expiry', $expiryState)) ?>"><?= $e($user->expiredDate) ?></span>
+              <?php endif; ?>
+            </td>
             <td><?= $localize($user->domainGlobalAdmin) ?></td>
             <td><?= $localize($user->accountStatus) ?></td>
             <td>

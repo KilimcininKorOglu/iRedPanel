@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## [Unreleased]
+## [1.0.5] - 2026-09-20
 
 ### Added
 - The sidebar shows a global admin that a newer iRedPanel release exists, on every page instead of only on the dashboard. The badge links to the compatibility page, and it stays hidden when the update check is off or the installed release is the newest one

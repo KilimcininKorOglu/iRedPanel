@@ -9,7 +9,7 @@ The application is vanilla PHP 8.1+ with no framework, no ORM and no template en
 | Project    | Value                                                |
 |------------|------------------------------------------------------|
 | Package    | `kilimcininkoroglu/iredpanel`                        |
-| Version    | `1.0.4`                                              |
+| Version    | `1.0.5`                                              |
 | iRedMail   | Compatible with `1.7.4` and `1.8.0` to `1.8.8`       |
 | Repository | `https://github.com/KilimcininKorOglu/iRedPanel.git` |
 | License    | MIT                                                  |
@@ -46,6 +46,7 @@ With the LDAP backend, mail accounts live in LDAP, and the iRedAdmin, Amavisd an
 
 | iRedPanel | Compatible iRedMail versions | Backends | Released |
 |-----------|------------------------------|----------|----------|
+| 1.0.5     | 1.7.4, 1.8.0, 1.8.1, 1.8.2, 1.8.3, 1.8.4, 1.8.5, 1.8.6, 1.8.7, 1.8.8 | OpenLDAP, MySQL/MariaDB, PostgreSQL | 2026-09-20 |
 | 1.0.4     | 1.7.4, 1.8.0, 1.8.1, 1.8.2, 1.8.3, 1.8.4, 1.8.5, 1.8.6, 1.8.7, 1.8.8 | OpenLDAP, MySQL/MariaDB, PostgreSQL | 2026-09-20 |
 | 1.0.3     | 1.7.4, 1.8.0, 1.8.1, 1.8.2, 1.8.3, 1.8.4, 1.8.5, 1.8.6, 1.8.7, 1.8.8 | OpenLDAP, MySQL/MariaDB, PostgreSQL | 2026-09-20 |
 | 1.0.2     | 1.7.4, 1.8.0, 1.8.1, 1.8.2, 1.8.3, 1.8.4, 1.8.5, 1.8.6, 1.8.7, 1.8.8 | OpenLDAP, MySQL/MariaDB, PostgreSQL | 2026-07-26 |
@@ -85,7 +86,7 @@ Short form:
 ```bash
 git clone https://github.com/KilimcininKorOglu/iRedPanel.git
 cd iRedPanel
-git checkout v1.0.4
+git checkout v1.0.5
 composer install --no-dev --optimize-autoloader
 cp .env.example .env
 ```

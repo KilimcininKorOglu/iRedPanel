@@ -182,7 +182,7 @@ These values are the initial defaults. When the iRedAdmin database is configured
 | `REQUIRE_DOMAIN_OWNERSHIP_VERIFICATION` | `false`   | Require DNS TXT verification for new domains                 |
 | `NEWSLETTER_EXPIRE_HOURS`               | `24`      | Expiry of newsletter confirmation tokens                     |
 | `BRAND_NAME`                            | `iRedPanel` | Panel name in the UI and the page title                    |
-| `BRAND_LOGO_URL`                        | `/static/logo-iredmail.png` | Logo URL in the sidebar and on the login page |
+| `BRAND_LOGO_URL`                        | `/static/logo.svg` | Logo URL in the sidebar and on the login page |
 | `BRAND_FOOTER_TEXT`                     | -         | Custom footer text                                           |
 | `BRAND_PRIMARY_COLOR`                   | -         | Accent color of the UI (CSS color value)                     |
 

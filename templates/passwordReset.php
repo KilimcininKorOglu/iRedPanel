@@ -1,6 +1,6 @@
 <?php $pageTitle = $t('recovery.reset_title'); ?>
 <div class="guest-card">
-  <div class="app-brand"><img src="<?= $e($brand['logoUrl'] ?? '/static/logo-iredmail.png') ?>" alt="" /> <?= $e($brand['name'] ?? 'iRedPanel') ?></div>
+  <div class="app-brand"><img src="<?= $e($brand['logoUrl'] ?? '/static/logo.svg') ?>" alt="" /> <?= $e($brand['name'] ?? 'iRedPanel') ?></div>
   <div class="card">
     <div class="card-body p-4">
       <h1 class="h4 mb-3"><?= $te('recovery.reset_title') ?></h1>

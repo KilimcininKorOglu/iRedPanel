@@ -410,7 +410,7 @@ class Settings
         $this->requireDomainOwnershipVerification = $this->envBool('IREDPANEL_REQUIRE_DOMAIN_OWNERSHIP_VERIFICATION', false);
         $this->defaultLanguage = $this->supportedLanguage();
         $this->brandName = $this->env('IREDPANEL_BRAND_NAME', 'iRedPanel');
-        $this->brandLogoUrl = $this->env('IREDPANEL_BRAND_LOGO_URL', '/static/logo-iredmail.png');
+        $this->brandLogoUrl = $this->env('IREDPANEL_BRAND_LOGO_URL', '/static/logo.svg');
         $this->brandFooterText = $this->env('IREDPANEL_BRAND_FOOTER_TEXT', '');
         $this->brandPrimaryColor = $this->env('IREDPANEL_BRAND_PRIMARY_COLOR', '');
     }

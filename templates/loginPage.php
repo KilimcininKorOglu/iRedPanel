@@ -3,7 +3,7 @@ $pageTitle = $t('auth.title');
 $fieldClass = !empty($error) ? 'form-control is-invalid' : 'form-control';
 ?>
 <div class="guest-card">
-  <div class="app-brand"><img src="<?= $e($brand['logoUrl'] ?? '/static/logo-iredmail.png') ?>" alt="" /> <?= $e($brand['name'] ?? 'iRedPanel') ?></div>
+  <div class="app-brand"><img src="<?= $e($brand['logoUrl'] ?? '/static/logo.svg') ?>" alt="" /> <?= $e($brand['name'] ?? 'iRedPanel') ?></div>
   <div class="card">
     <div class="card-body p-4">
       <h1 class="h4 mb-4"><?= $te('auth.title') ?></h1>

@@ -1,7 +1,7 @@
 <?php
 $loggedIn = !empty($session['email']);
 $brandName = $brand['name'] ?? 'iRedPanel';
-$logoUrl = $brand['logoUrl'] ?? '/static/logo-iredmail.png';
+$logoUrl = $brand['logoUrl'] ?? '/static/logo.svg';
 $homeHref = !empty($session['selfService']) ? '/self' : '/dashboard';
 // Data for app.js. The HEX flags keep "</script>" and quotes inert inside the script block.
 $appData = json_encode([
@@ -29,6 +29,7 @@ $appData = json_encode([
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="<?= $asset('/static/favicon.svg') ?>" type="image/svg+xml" />
     <title><?= $e($brandName) ?> - <?= $e($pageTitle) ?></title>
     <link rel="stylesheet" href="<?= $asset('/static/vendor/bootstrap/bootstrap.min.css') ?>" />
     <link rel="stylesheet" href="<?= $asset('/static/vendor/bootstrap-icons/bootstrap-icons.min.css') ?>" />

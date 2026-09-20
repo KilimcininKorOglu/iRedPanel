@@ -44,7 +44,7 @@ final class AmavisdAccountSettings
         [$usersWhere, $params] = $match->where('email', $this->emailPlaceholder);
         $stmt = $this->pdo->prepare("SELECT id FROM users WHERE {$usersWhere}");
         $stmt->execute($params);
-        $ids = implode(', ', array_map('intval', $stmt->fetchAll(\PDO::FETCH_COLUMN)));
+        $ids = implode(', ', array_map(intval(...), $stmt->fetchAll(\PDO::FETCH_COLUMN)));
 
         if ($ids !== '') {
             // wblist.rid and outbound_wblist.sid are the local account (users.id).

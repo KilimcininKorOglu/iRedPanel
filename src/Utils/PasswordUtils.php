@@ -68,7 +68,7 @@ class PasswordUtils
     {
         $settings = Settings::getInstance();
         $password = trim($password);
-        $scheme = $scheme ?? $settings->passwordDefaultScheme;
+        $scheme ??= $settings->passwordDefaultScheme;
 
         return match ($scheme) {
             'BCRYPT' => self::generateBcryptPassword($password),
@@ -163,7 +163,7 @@ class PasswordUtils
         $pw = trim($output);
 
         if (!$settings->passwordHashesUsePrefixedScheme) {
-            $pw = preg_replace('/^\{' . preg_quote($scheme, '/') . '\}/', '', $pw);
+            return preg_replace('/^\{' . preg_quote($scheme, '/') . '\}/', '', $pw);
         }
 
         return $pw;

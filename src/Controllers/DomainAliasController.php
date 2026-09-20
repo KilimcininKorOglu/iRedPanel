@@ -58,7 +58,7 @@ class DomainAliasController
                 }
                 $validationErrors = self::validateAlias($alias);
 
-                if (empty($validationErrors)) {
+                if ($validationErrors === []) {
                     RepositoryFactory::getDomainAliasRepository()->createAlias($alias);
                     ActivityLogger::logCreate($alias->targetDomain, '', "Domain alias created: {$alias->aliasDomain} -> {$alias->targetDomain}");
                     BaseController::flashCreated($alias->aliasDomain);
@@ -100,7 +100,7 @@ class DomainAliasController
         if (empty($alias->targetDomain)) {
             $errors['targetDomain'] = Translator::translate('domainalias.msg_target_required');
         }
-        if (!empty($errors)) {
+        if ($errors !== []) {
             return $errors;
         }
 

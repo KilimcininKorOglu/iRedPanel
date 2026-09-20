@@ -106,7 +106,7 @@ class MlmmjadminClient
     public function subscribers(string $mail): array
     {
         $data = $this->request('GET', self::path($mail) . '/subscribers?email_only=yes');
-        $subscribers = array_values(array_unique(array_map('strval', is_array($data) ? $data : [])));
+        $subscribers = array_values(array_unique(array_map(strval(...), is_array($data) ? $data : [])));
         sort($subscribers);
 
         return $subscribers;
@@ -118,7 +118,7 @@ class MlmmjadminClient
     public function moderators(string $mail): array
     {
         $data = $this->request('GET', self::path($mail) . '/moderators');
-        $moderators = array_values(array_unique(array_map('strval', is_array($data) ? $data : [])));
+        $moderators = array_values(array_unique(array_map(strval(...), is_array($data) ? $data : [])));
         sort($moderators);
 
         return $moderators;

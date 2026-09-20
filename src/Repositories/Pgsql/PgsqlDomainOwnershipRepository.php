@@ -63,7 +63,7 @@ class PgsqlDomainOwnershipRepository implements DomainOwnershipRepositoryInterfa
     public function verifyDnsTxt(string $domain, string $verifyCode): bool
     {
         $records = @dns_get_record($domain, DNS_TXT);
-        if ($records === false || empty($records)) {
+        if ($records === false || $records === []) {
             return false;
         }
 

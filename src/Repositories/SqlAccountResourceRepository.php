@@ -186,7 +186,7 @@ abstract class SqlAccountResourceRepository implements AccountResourceRepository
     {
         $stmt = $this->pdo()->prepare('SELECT id FROM panel_replication_runs WHERE resource_id = :id ORDER BY id DESC');
         $stmt->execute(['id' => $resourceId]);
-        $old = array_slice(array_map('intval', $stmt->fetchAll(\PDO::FETCH_COLUMN)), $keep);
+        $old = array_slice(array_map(intval(...), $stmt->fetchAll(\PDO::FETCH_COLUMN)), $keep);
         if ($old === []) {
             return;
         }

@@ -189,7 +189,7 @@ class MysqlMailingListRepository implements MailingListRepositoryInterface
         $pdo = MysqlConnection::getInstance()->getPdo();
 
         $ml = $this->getMailingList($address);
-        $domain = $ml ? $ml->domain : (explode('@', $address, 2)[1] ?? '');
+        $domain = $ml instanceof \App\Models\MailingList ? $ml->domain : (explode('@', $address, 2)[1] ?? '');
 
         $pdo->prepare("DELETE FROM maillist_owners WHERE address = :address")
             ->execute(['address' => $address]);

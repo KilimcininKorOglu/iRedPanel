@@ -202,13 +202,13 @@ class AliasApiController
      */
     private static function members(mixed $input, string $field = 'members'): array
     {
-        if (!is_array($input) || array_filter($input, 'is_string') !== $input) {
+        if (!is_array($input) || array_filter($input, is_string(...)) !== $input) {
             throw new \InvalidArgumentException("{$field} must be an array of email addresses");
         }
         try {
             return AddressList::parse(implode("\n", $input));
         } catch (\InvalidArgumentException $e) {
-            throw new \InvalidArgumentException('Invalid member: ' . $e->getMessage());
+            throw new \InvalidArgumentException('Invalid member: ' . $e->getMessage(), $e->getCode(), $e);
         }
     }
 

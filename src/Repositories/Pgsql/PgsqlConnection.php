@@ -28,15 +28,13 @@ class PgsqlConnection
                 \PDO::ATTR_EMULATE_PREPARES => false,
             ]);
         } catch (\PDOException $e) {
-            throw new PgsqlConnectionException("Failed to connect to PostgreSQL: " . $e->getMessage());
+            throw new PgsqlConnectionException("Failed to connect to PostgreSQL: " . $e->getMessage(), $e->getCode(), $e);
         }
     }
 
     public static function getInstance(): self
     {
-        if (self::$instance === null) {
-            self::$instance = new self();
-        }
+        self::$instance ??= new self();
         return self::$instance;
     }
 

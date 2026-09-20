@@ -8,7 +8,7 @@ use App\Models\Settings;
 
 class TemplateEngine
 {
-    private string $templateDir;
+    private readonly string $templateDir;
 
     public function __construct(string $templateDir)
     {
@@ -26,27 +26,21 @@ class TemplateEngine
         $vars['session'] = $_SESSION ?? [];
 
         // Make helper functions available in template scope
-        $e = function (mixed $value): string {
-            return htmlspecialchars((string) $value, ENT_QUOTES, 'UTF-8');
-        };
+        $e = (fn(mixed $value): string => htmlspecialchars((string) $value, ENT_QUOTES, 'UTF-8'));
         // A static file URL with its modification time, so a browser reloads it after an upgrade.
         $asset = function (string $path) use ($e): string {
             $file = dirname($this->templateDir) . '/public' . $path;
             return $e(is_file($file) ? $path . '?v=' . filemtime($file) : $path);
         };
-        $localize = [TemplateFilters::class, 'localize'];
-        $asMegabytes = [TemplateFilters::class, 'asMegabytes'];
-        $tone = [BadgeTone::class, 'classes'];
+        $localize = TemplateFilters::localize(...);
+        $asMegabytes = TemplateFilters::asMegabytes(...);
+        $tone = BadgeTone::classes(...);
 
         // Translation helpers: $t() returns raw text, $te() returns HTML-escaped text.
-        $t = function (string $key, array $params = []): string {
-            return \App\I18n\Translator::translate($key, $params);
-        };
-        $te = function (string $key, array $params = []) use ($e): string {
-            return $e(\App\I18n\Translator::translate($key, $params));
-        };
+        $t = (fn(string $key, array $params = []): string => \App\I18n\Translator::translate($key, $params));
+        $te = (fn(string $key, array $params = []): string => $e(\App\I18n\Translator::translate($key, $params)));
         // The help icon of a field label; empty when the label has no explanation.
-        $help = [HelpText::class, 'icon'];
+        $help = HelpText::icon(...);
         $currentLocale = \App\I18n\Translator::currentLocale();
         $availableLocales = \App\I18n\Translator::availableLocales();
         $csrfToken = CsrfProtection::generateToken();

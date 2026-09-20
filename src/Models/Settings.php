@@ -405,7 +405,7 @@ class Settings
                     default => $value,
                 };
             }
-        } catch (\PDOException $e) {
+        } catch (\PDOException) {
             // Silently fall back to .env values
         }
     }
@@ -427,7 +427,7 @@ class Settings
     public function env(string $key, string $default = ''): string
     {
         $value = $this->rawEnv($key);
-        return $value !== false ? (string) $value : $default;
+        return $value !== false ? $value : $default;
     }
 
     private function envRequired(string $key): string
@@ -436,7 +436,7 @@ class Settings
         if ($value === false || $value === '') {
             throw new \RuntimeException("Required environment variable $key is not set");
         }
-        return (string) $value;
+        return $value;
     }
 
     private function envBool(string $key, bool $default): bool

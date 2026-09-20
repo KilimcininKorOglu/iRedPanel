@@ -198,7 +198,7 @@ class MailingListApiController
             return null;
         }
         $input = $data['owners'];
-        if (!is_array($input) || array_filter($input, 'is_string') !== $input) {
+        if (!is_array($input) || array_filter($input, is_string(...)) !== $input) {
             throw new \InvalidArgumentException('owners must be an array of email addresses');
         }
 
@@ -312,7 +312,7 @@ class MailingListApiController
     private static function addressesFromBody(string $field, string $label, bool $allowEmpty): ?array
     {
         $input = ApiMiddleware::getJsonBody()[$field] ?? null;
-        if (!is_array($input) || (!$allowEmpty && $input === []) || array_filter($input, 'is_string') !== $input) {
+        if (!is_array($input) || (!$allowEmpty && $input === []) || array_filter($input, is_string(...)) !== $input) {
             ApiResponse::error($field . ' must be ' . ($allowEmpty ? 'an' : 'a non-empty') . ' array of email addresses');
             return null;
         }

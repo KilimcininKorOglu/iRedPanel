@@ -177,8 +177,8 @@ final class MlmmjOptions
      */
     private static function readList(string $field, mixed $value, string $address): array
     {
-        $values = array_map('strval', is_array($value) ? $value : []);
-        $values = array_map('trim', $values);
+        $values = array_map(strval(...), is_array($value) ? $value : []);
+        $values = array_map(trim(...), $values);
         $values = array_filter($values, static fn (string $item): bool => $item !== '');
         if ($field === 'customHeaders') {
             $values = array_filter($values, static fn (string $item): bool => !self::isManagedHeader($item));
@@ -249,7 +249,7 @@ final class MlmmjOptions
         if (!is_string($value)) {
             throw new \InvalidArgumentException("{$field} must be a string");
         }
-        $lines = array_map('trim', preg_split('/\R/', $value) ?: []);
+        $lines = array_map(trim(...), preg_split('/\R/', $value) ?: []);
 
         return array_values(array_filter($lines, static fn (string $line): bool => $line !== ''));
     }
@@ -259,10 +259,10 @@ final class MlmmjOptions
      */
     private static function jsonStrings(string $field, mixed $value): array
     {
-        if (!is_array($value) || !array_is_list($value) || array_filter($value, 'is_string') !== $value) {
+        if (!is_array($value) || !array_is_list($value) || array_filter($value, is_string(...)) !== $value) {
             throw new \InvalidArgumentException("{$field} must be an array of strings");
         }
-        $items = array_map('trim', $value);
+        $items = array_map(trim(...), $value);
 
         return array_values(array_filter($items, static fn (string $item): bool => $item !== ''));
     }

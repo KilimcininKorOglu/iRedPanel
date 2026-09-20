@@ -13,7 +13,7 @@ final class SqlGreylisting
     /** Comment prefix of the sender rows that the SPF job writes per whitelisted domain. */
     public const SPF_COMMENT_PREFIX = 'AUTO-UPDATE: ';
 
-    public function __construct(private \PDO $pdo)
+    public function __construct(private readonly \PDO $pdo)
     {
     }
 

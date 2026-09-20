@@ -130,7 +130,8 @@ final class MailboxStorage
     {
         $paths = [];
         for ($path = (string) $this->path; $path !== '' && $path !== '/'; $path = dirname($path)) {
-            array_push($paths, $path, "{$path}/");
+            $paths[] = $path;
+            $paths[] = "{$path}/";
         }
 
         return $paths;

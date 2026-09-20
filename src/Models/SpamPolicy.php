@@ -260,7 +260,7 @@ class SpamPolicy
     private static function quarantineChoice(array $post, string $field): ?bool
     {
         $value = $post[$field] ?? null;
-        if ($value === null || $value === '' || $value === 'default') {
+        if (in_array($value, [null, '', 'default'], true)) {
             return null;
         }
         if (is_bool($value)) {

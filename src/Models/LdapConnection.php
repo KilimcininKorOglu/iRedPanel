@@ -15,8 +15,7 @@ class LdapConnection
 {
     private static ?self $instance = null;
 
-    /** @var \LDAP\Connection */
-    private \LDAP\Connection $conn;
+    private readonly \LDAP\Connection $conn;
 
     private function __construct(string $bindDn, string $password)
     {

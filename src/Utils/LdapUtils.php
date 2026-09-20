@@ -134,7 +134,7 @@ class LdapUtils
      */
     private static function presentAttributes(\LDAP\Connection $conn, string $dn, array $attrs): array
     {
-        $lowered = array_map('strtolower', $attrs);
+        $lowered = array_map(strtolower(...), $attrs);
         $result = @ldap_read($conn, $dn, '(objectClass=*)', $attrs);
         if ($result === false) {
             return $lowered;

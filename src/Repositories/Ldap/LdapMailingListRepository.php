@@ -31,7 +31,7 @@ class LdapMailingListRepository implements MailingListRepositoryInterface
             : 'o=domains,' . Settings::getInstance()->ldapRootDn;
 
         $items = array_map(
-            static fn (array $entry): MailingList => self::toMailingList($entry),
+            self::toMailingList(...),
             LdapUtils::searchEntries(self::conn(), $baseDn, '(&' . self::LIST_FILTER . LdapUtils::statusFilter($activeOnly) . ')', self::ATTRS)
         );
         usort($items, static fn (MailingList $a, MailingList $b): int => strcmp($a->address, $b->address));

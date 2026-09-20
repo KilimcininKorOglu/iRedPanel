@@ -45,7 +45,7 @@ final class ApiInput
         try {
             return AddressList::parse(implode("\n", $items));
         } catch (\InvalidArgumentException $e) {
-            throw new \InvalidArgumentException("Invalid {$field} address: {$e->getMessage()}");
+            throw new \InvalidArgumentException("Invalid {$field} address: {$e->getMessage()}", $e->getCode(), $e);
         }
     }
 
@@ -56,7 +56,7 @@ final class ApiInput
      */
     public static function strings(mixed $value, string $field): array
     {
-        if (!is_array($value) || !array_is_list($value) || array_filter($value, 'is_string') !== $value) {
+        if (!is_array($value) || !array_is_list($value) || array_filter($value, is_string(...)) !== $value) {
             throw new \InvalidArgumentException("{$field} must be an array of strings");
         }
         return $value;

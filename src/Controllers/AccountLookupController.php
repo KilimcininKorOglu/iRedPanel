@@ -55,7 +55,7 @@ class AccountLookupController
      */
     public static function parseTypes(string $raw): array
     {
-        $types = array_values(array_intersect(array_keys(self::TYPES), array_map('trim', explode(',', $raw))));
+        $types = array_values(array_intersect(array_keys(self::TYPES), array_map(trim(...), explode(',', $raw))));
 
         return $types !== [] ? $types : array_keys(self::TYPES);
     }

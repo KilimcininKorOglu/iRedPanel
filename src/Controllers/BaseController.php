@@ -270,7 +270,7 @@ class BaseController
     {
         $done = [];
         $failed = [];
-        foreach (array_filter($items, 'is_string') as $item) {
+        foreach (array_filter($items, is_string(...)) as $item) {
             try {
                 $apply($item);
                 $done[] = $item;

@@ -38,7 +38,7 @@ class PgsqlForwardingRepository implements ForwardingRepositoryInterface
         $stmt->execute(['address' => $email, 'self' => $email]);
 
         // Insert new forwardings with the status of the mailbox, so a disabled mailbox does not forward mail
-        if (!empty($forwardingAddresses)) {
+        if ($forwardingAddresses !== []) {
             $stmt = $pdo->prepare(
                 "INSERT INTO forwardings (address, forwarding, domain, dest_domain, is_forwarding, active)
                  VALUES (:address, :forwarding, :domain, :destDomain, 1,

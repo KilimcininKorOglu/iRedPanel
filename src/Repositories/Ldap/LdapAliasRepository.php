@@ -28,7 +28,7 @@ class LdapAliasRepository implements AliasRepositoryInterface
             : 'o=domains,' . Settings::getInstance()->ldapRootDn;
 
         $items = array_map(
-            static fn (array $entry): Alias => self::toAlias($entry),
+            self::toAlias(...),
             self::searchEntries($baseDn, '(&(objectClass=mailAlias)' . LdapUtils::statusFilter($activeOnly) . ')', self::ALIAS_ATTRS)
         );
         usort($items, static fn (Alias $a, Alias $b): int => strcmp($a->address, $b->address));
@@ -186,7 +186,7 @@ class LdapAliasRepository implements AliasRepositoryInterface
             throw new \RuntimeException('LDAP search failed: ' . ldap_error($conn));
         }
 
-        return (ldap_count_entries($conn, $result) ?: 0) > 0;
+        return (ldap_count_entries($conn, $result)) > 0;
     }
 
     public function getCatchall(string $domain): ?string
@@ -302,7 +302,7 @@ class LdapAliasRepository implements AliasRepositoryInterface
      */
     private static function cleanAddresses(array $addresses): array
     {
-        return array_values(array_unique(array_filter(array_map('trim', $addresses), static fn (string $a): bool => $a !== '')));
+        return array_values(array_unique(array_filter(array_map(trim(...), $addresses), static fn (string $a): bool => $a !== '')));
     }
 
     private static function toAlias(array $entry): Alias

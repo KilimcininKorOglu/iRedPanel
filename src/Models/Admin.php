@@ -57,7 +57,7 @@ class Admin
      */
     public static function validLimit(mixed $value, string $field): int
     {
-        if ($value === -1 || $value === '' || $value === null || (is_string($value) && trim($value) === '-1')) {
+        if (in_array($value, [-1, '', null], true) || (is_string($value) && trim($value) === '-1')) {
             return -1;
         }
 

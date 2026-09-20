@@ -118,7 +118,7 @@ class LdapMailListRepository implements MailListRepositoryInterface
             throw new \RuntimeException('LDAP search failed: ' . ldap_error($conn));
         }
 
-        return (ldap_count_entries($conn, $result) ?: 0) > 0;
+        return (ldap_count_entries($conn, $result)) > 0;
     }
 
     /**
@@ -162,7 +162,7 @@ class LdapMailListRepository implements MailListRepositoryInterface
 
     private function addMember(\LDAP\Connection $conn, string $address, string $member): void
     {
-        $dn = self::accountDnOf($conn, $member);
+        $dn = self::accountDnOf($member);
         if ($dn !== null) {
             LdapUtils::addValues($conn, $dn, 'memberOfGroup', [$address]);
             return;
@@ -219,7 +219,7 @@ class LdapMailListRepository implements MailListRepositoryInterface
     /**
      * The DN of an account entry that already exists in the directory.
      */
-    private static function accountDnOf(\LDAP\Connection $conn, string $address): ?string
+    private static function accountDnOf(string $address): ?string
     {
         $escaped = ldap_escape($address, '', LDAP_ESCAPE_FILTER);
         $entries = self::search('o=domains,' . Settings::getInstance()->ldapRootDn, "(mail={$escaped})", ['mail']);

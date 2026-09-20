@@ -51,7 +51,7 @@ class LdapSearchRepository implements SearchRepositoryInterface
         $filter = "(&{$objectFilter}(|{$match})" . self::statusClause($statusFilter) . ')';
 
         $items = array_map(
-            static fn (array $entry): array => self::toItem($entry),
+            self::toItem(...),
             LdapUtils::searchEntries(
                 LdapConnection::getInstance()->getConn(),
                 'o=domains,' . Settings::getInstance()->ldapRootDn,

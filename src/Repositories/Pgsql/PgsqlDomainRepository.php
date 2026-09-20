@@ -219,7 +219,7 @@ class PgsqlDomainRepository implements DomainRepositoryInterface
             $pdo->commit();
         } catch (\Exception $e) {
             $pdo->rollBack();
-            throw new \RuntimeException("Failed to delete domain '{$domainName}': " . $e->getMessage());
+            throw new \RuntimeException("Failed to delete domain '{$domainName}': " . $e->getMessage(), $e->getCode(), $e);
         }
     }
 

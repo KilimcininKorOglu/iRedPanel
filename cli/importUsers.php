@@ -126,7 +126,7 @@ function prepareLine(array $fields): array|string
  */
 function subscribe(string $email, string $mailingLists): void
 {
-    foreach (array_filter(array_map('trim', explode(':', $mailingLists))) as $listAddr) {
+    foreach (array_filter(array_map(trim(...), explode(':', $mailingLists))) as $listAddr) {
         try {
             MailingListService::addSubscribers($listAddr, [$email]);
             echo "    Subscribed to: {$listAddr}\n";
@@ -176,7 +176,7 @@ while (($line = fgets($handle)) !== false) {
         continue;
     }
 
-    $fields = array_map('trim', str_getcsv($line, escape: ''));
+    $fields = array_map(trim(...), str_getcsv($line, escape: ''));
     $prepared = prepareLine($fields);
     if (is_string($prepared)) {
         echo "  Line {$lineNumber}: SKIP: {$prepared}\n";

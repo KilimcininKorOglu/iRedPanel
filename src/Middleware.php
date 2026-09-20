@@ -167,7 +167,7 @@ class Middleware
     public static function isIpAllowed(string $ip, string $ranges): bool
     {
         // An empty entry (e.g. from a trailing comma) is a separator, not a range.
-        $rangeList = array_filter(array_map('trim', explode(',', $ranges)), fn(string $cidr) => $cidr !== '');
+        $rangeList = array_filter(array_map(trim(...), explode(',', $ranges)), fn(string $cidr) => $cidr !== '');
         if ($rangeList === []) {
             return true;
         }

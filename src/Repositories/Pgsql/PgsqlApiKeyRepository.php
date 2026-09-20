@@ -27,7 +27,7 @@ class PgsqlApiKeyRepository implements ApiKeyRepositoryInterface
             $row = $stmt->fetch();
 
             return $row ? ApiKey::fromRow($row) : null;
-        } catch (\PDOException $e) {
+        } catch (\PDOException) {
             return null;
         }
     }

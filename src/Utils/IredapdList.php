@@ -33,7 +33,7 @@ class IredapdList
      */
     public static function greylistSenders(array $lines): array
     {
-        return self::normalize($lines, [AmavisdAddress::class, 'isValidWblistAddress']);
+        return self::normalize($lines, AmavisdAddress::isValidWblistAddress(...));
     }
 
     /**
@@ -45,7 +45,7 @@ class IredapdList
      */
     public static function domains(array $lines): array
     {
-        return self::normalize($lines, [AmavisdAddress::class, 'isDomainName']);
+        return self::normalize($lines, AmavisdAddress::isDomainName(...));
     }
 
     /**

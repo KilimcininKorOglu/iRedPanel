@@ -28,9 +28,7 @@ class GeoIpService
 
     public static function getInstance(): self
     {
-        if (self::$instance === null) {
-            self::$instance = new self();
-        }
+        self::$instance ??= new self();
         return self::$instance;
     }
 
@@ -55,7 +53,7 @@ class GeoIpService
             $result['country'] = $record->country->name;
             $result['city'] = $record->city->name;
             $result['countryCode'] = $record->country->isoCode;
-        } catch (\Exception $e) {
+        } catch (\Exception) {
             // IP not found in database or invalid — return empty
         }
 

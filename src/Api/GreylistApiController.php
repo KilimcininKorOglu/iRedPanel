@@ -153,7 +153,7 @@ class GreylistApiController
         try {
             return IredapdList::greylistSenders($items);
         } catch (\InvalidArgumentException $e) {
-            throw new \InvalidArgumentException("Invalid {$field}: {$e->getMessage()}");
+            throw new \InvalidArgumentException("Invalid {$field}: {$e->getMessage()}", $e->getCode(), $e);
         }
     }
 
@@ -167,7 +167,7 @@ class GreylistApiController
         try {
             return IredapdList::domains($items);
         } catch (\InvalidArgumentException $e) {
-            throw new \InvalidArgumentException("Invalid {$field}: {$e->getMessage()}");
+            throw new \InvalidArgumentException("Invalid {$field}: {$e->getMessage()}", $e->getCode(), $e);
         }
     }
 

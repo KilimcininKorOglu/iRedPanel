@@ -118,7 +118,7 @@ class UserController
 
                     // Prevent privilege escalation: only global admins can change domainGlobalAdmin
                     if (!Middleware::isGlobalAdmin()) {
-                        $user->domainGlobalAdmin = $existingUser ? $existingUser->domainGlobalAdmin : false;
+                        $user->domainGlobalAdmin = $existingUser && $existingUser->domainGlobalAdmin;
                     }
 
                     $error = self::quotaChangeError($domain, $existingUser->mailQuota ?? $user->mailQuota, $user->mailQuota) ?? $error;
@@ -138,7 +138,7 @@ class UserController
                         }
                     }
 
-                    if (empty($validationErrors)) {
+                    if ($validationErrors === []) {
                         $password = $_POST['password'] ?? '';
                         $passwordRepeat = $_POST['password_repeat'] ?? '';
                         $validationErrors = UserPassword::validateLocalized($password, $passwordRepeat, self::domainSettings($domain));
@@ -379,7 +379,7 @@ class UserController
         }
 
         if (in_array($action, self::BULK_CHANGES, true)) {
-            self::bulkChange($domain, array_values(array_filter($selectedUsers, 'is_string')), $action);
+            self::bulkChange($domain, array_values(array_filter($selectedUsers, is_string(...))), $action);
             return;
         }
 

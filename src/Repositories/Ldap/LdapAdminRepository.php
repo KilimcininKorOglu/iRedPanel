@@ -138,7 +138,7 @@ class LdapAdminRepository implements AdminRepositoryInterface
     public function getDomainAdmins(string $domain): array
     {
         $entry = LdapUtils::readEntry(self::conn(), LdapUtils::getDomainDn($domain), '(objectClass=mailDomain)', ['domainAdmin']);
-        $admins = array_values(array_unique(array_map('strtolower', LdapUtils::allValues($entry ?? [], 'domainAdmin'))));
+        $admins = array_values(array_unique(array_map(strtolower(...), LdapUtils::allValues($entry ?? [], 'domainAdmin'))));
         sort($admins);
 
         return $admins;
@@ -301,7 +301,7 @@ class LdapAdminRepository implements AdminRepositoryInterface
     {
         $addresses = [];
         foreach (LdapUtils::searchEntries($conn, self::domainsBase(), '(&(objectClass=mailDomain)(domainAdmin=*))', ['domainAdmin']) as $entry) {
-            array_push($addresses, ...array_map('strtolower', LdapUtils::allValues($entry, 'domainAdmin')));
+            array_push($addresses, ...array_map(strtolower(...), LdapUtils::allValues($entry, 'domainAdmin')));
         }
 
         return array_values(array_unique($addresses));
@@ -309,7 +309,7 @@ class LdapAdminRepository implements AdminRepositoryInterface
 
     private static function isStandalone(array $entry): bool
     {
-        return in_array('mailadmin', array_map('strtolower', LdapUtils::allValues($entry, 'objectClass')), true);
+        return in_array('mailadmin', array_map(strtolower(...), LdapUtils::allValues($entry, 'objectClass')), true);
     }
 
     private static function toAdmin(array $entry): Admin

@@ -42,7 +42,7 @@ class ApiKey
      */
     public function domainList(): array
     {
-        return array_values(array_filter(array_map('trim', explode(',', $this->domains))));
+        return array_values(array_filter(array_map(trim(...), explode(',', $this->domains))));
     }
 
     /**

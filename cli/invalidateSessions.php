@@ -23,7 +23,7 @@ if (!is_dir($savePath)) {
 $pattern = $savePath . '/sess_*';
 $files = glob($pattern);
 
-if ($files === false || empty($files)) {
+if ($files === false || $files === []) {
     echo "No session files found in {$savePath}\n";
     exit(0);
 }

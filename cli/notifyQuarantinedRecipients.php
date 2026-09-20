@@ -73,7 +73,7 @@ if ($forceAll) {
     }
 }
 
-if (empty($users)) {
+if ($users === []) {
     echo "No users to notify.\n";
     exit(0);
 }
@@ -90,7 +90,7 @@ foreach ($users as $userEmail) {
     // Quarantined messages since the last notification
     $messages = $amavisdRepo->getQuarantinedForRecipient($userEmail, $lastNotifyTime);
 
-    if (empty($messages)) {
+    if ($messages === []) {
         continue;
     }
 

@@ -84,7 +84,7 @@ final class AmavisdRecipientMail
         );
         $stmt->execute(['mailId' => $mailId, 'pattern' => '%@' . SqlLike::escape($domain)]);
 
-        return array_map('strval', $stmt->fetchAll(\PDO::FETCH_COLUMN));
+        return array_map(strval(...), $stmt->fetchAll(\PDO::FETCH_COLUMN));
     }
 
     private function recipient(): string

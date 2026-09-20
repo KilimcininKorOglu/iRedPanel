@@ -146,7 +146,7 @@ class AccountResourceRepositoryTest extends TestCase
         $this->repo->pruneRuns(7, 2);
 
         $runs = $this->repo->runs(7, 10, 0);
-        $this->assertSame([$runIds[2], $runIds[1]], array_map('intval', array_column($runs, 'id')));
+        $this->assertSame([$runIds[2], $runIds[1]], array_map(intval(...), array_column($runs, 'id')));
         $this->assertSame(['update' => 3], $runs[0]['counts']);
         $this->assertSame([], $this->repo->events($runIds[0]));
         $this->assertCount(1, $this->repo->events($runIds[2]));

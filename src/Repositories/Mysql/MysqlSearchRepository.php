@@ -17,11 +17,11 @@ class MysqlSearchRepository implements SearchRepositoryInterface
     {
         $pdo = MysqlConnection::getInstance()->getPdo();
         $likeQuery = '%' . SqlLike::escape($query) . '%';
-        $searchAll = empty($accountTypes);
+        $searchAll = $accountTypes === [];
 
         $domainFilter = '';
         $domainParams = [];
-        if (!empty($managedDomains)) {
+        if ($managedDomains !== []) {
             $placeholders = [];
             foreach ($managedDomains as $i => $d) {
                 $key = "md{$i}";
@@ -55,7 +55,7 @@ class MysqlSearchRepository implements SearchRepositoryInterface
             $results['mailingLists'] = $this->searchTable($pdo, 'maillists', 'address, name, domain, active', ['address', 'name'], $likeQuery, $statusFilter, $domainFilter, $domainParams);
         }
 
-        if (($searchAll || in_array('admin', $accountTypes, true)) && empty($managedDomains)) {
+        if (($searchAll || in_array('admin', $accountTypes, true)) && $managedDomains === []) {
             $results['admins'] = $this->searchTable($pdo, self::ADMINS_TABLE, 'username, name, active', ['username', 'name'], $likeQuery, $statusFilter, '', []);
         }
 

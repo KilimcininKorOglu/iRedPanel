@@ -90,279 +90,231 @@ class RepositoryFactory
 
     public static function getAuthRepository(): AuthRepositoryInterface
     {
-        if (self::$authRepo === null) {
-            self::$authRepo = match (Settings::getInstance()->backend) {
-                'mysql' => new MysqlAuthRepository(),
-                'pgsql' => new PgsqlAuthRepository(),
-                default => new LdapAuthRepository(),
-            };
-        }
+        self::$authRepo ??= match (Settings::getInstance()->backend) {
+            'mysql' => new MysqlAuthRepository(),
+            'pgsql' => new PgsqlAuthRepository(),
+            default => new LdapAuthRepository(),
+        };
         return self::$authRepo;
     }
 
     public static function getDomainRepository(): DomainRepositoryInterface
     {
-        if (self::$domainRepo === null) {
-            self::$domainRepo = match (Settings::getInstance()->backend) {
-                'mysql' => new MysqlDomainRepository(),
-                'pgsql' => new PgsqlDomainRepository(),
-                default => new LdapDomainRepository(),
-            };
-        }
+        self::$domainRepo ??= match (Settings::getInstance()->backend) {
+            'mysql' => new MysqlDomainRepository(),
+            'pgsql' => new PgsqlDomainRepository(),
+            default => new LdapDomainRepository(),
+        };
         return self::$domainRepo;
     }
 
     public static function getUserRepository(): UserRepositoryInterface
     {
-        if (self::$userRepo === null) {
-            self::$userRepo = match (Settings::getInstance()->backend) {
-                'mysql' => new MysqlUserRepository(),
-                'pgsql' => new PgsqlUserRepository(),
-                default => new LdapUserRepository(),
-            };
-        }
+        self::$userRepo ??= match (Settings::getInstance()->backend) {
+            'mysql' => new MysqlUserRepository(),
+            'pgsql' => new PgsqlUserRepository(),
+            default => new LdapUserRepository(),
+        };
         return self::$userRepo;
     }
 
     public static function getAdminRepository(): AdminRepositoryInterface
     {
-        if (self::$adminRepo === null) {
-            self::$adminRepo = match (Settings::getInstance()->backend) {
-                'mysql' => new MysqlAdminRepository(),
-                'pgsql' => new PgsqlAdminRepository(),
-                default => new LdapAdminRepository(),
-            };
-        }
+        self::$adminRepo ??= match (Settings::getInstance()->backend) {
+            'mysql' => new MysqlAdminRepository(),
+            'pgsql' => new PgsqlAdminRepository(),
+            default => new LdapAdminRepository(),
+        };
         return self::$adminRepo;
     }
 
     public static function getMailListRepository(): MailListRepositoryInterface
     {
-        if (self::$mailListRepo === null) {
-            self::$mailListRepo = Settings::getInstance()->backend === 'ldap'
-                ? new LdapMailListRepository()
-                : new NullMailListRepository();
-        }
+        self::$mailListRepo ??= Settings::getInstance()->backend === 'ldap'
+            ? new LdapMailListRepository()
+            : new NullMailListRepository();
         return self::$mailListRepo;
     }
 
     public static function getForwardingRepository(): ForwardingRepositoryInterface
     {
-        if (self::$forwardingRepo === null) {
-            self::$forwardingRepo = match (Settings::getInstance()->backend) {
-                'mysql' => new MysqlForwardingRepository(),
-                'pgsql' => new PgsqlForwardingRepository(),
-                default => new LdapForwardingRepository(),
-            };
-        }
+        self::$forwardingRepo ??= match (Settings::getInstance()->backend) {
+            'mysql' => new MysqlForwardingRepository(),
+            'pgsql' => new PgsqlForwardingRepository(),
+            default => new LdapForwardingRepository(),
+        };
         return self::$forwardingRepo;
     }
 
     public static function getQuotaRepository(): QuotaRepositoryInterface
     {
-        if (self::$quotaRepo === null) {
-            self::$quotaRepo = match (Settings::getInstance()->backend) {
-                'mysql' => new MysqlQuotaRepository(),
-                'pgsql' => new PgsqlQuotaRepository(),
-                default => new LdapQuotaRepository(),
-            };
-        }
+        self::$quotaRepo ??= match (Settings::getInstance()->backend) {
+            'mysql' => new MysqlQuotaRepository(),
+            'pgsql' => new PgsqlQuotaRepository(),
+            default => new LdapQuotaRepository(),
+        };
         return self::$quotaRepo;
     }
 
     public static function getDashboardRepository(): DashboardRepositoryInterface
     {
-        if (self::$dashboardRepo === null) {
-            self::$dashboardRepo = match (Settings::getInstance()->backend) {
-                'mysql' => new MysqlDashboardRepository(),
-                'pgsql' => new PgsqlDashboardRepository(),
-                default => new LdapDashboardRepository(),
-            };
-        }
+        self::$dashboardRepo ??= match (Settings::getInstance()->backend) {
+            'mysql' => new MysqlDashboardRepository(),
+            'pgsql' => new PgsqlDashboardRepository(),
+            default => new LdapDashboardRepository(),
+        };
         return self::$dashboardRepo;
     }
 
     public static function getDomainAliasRepository(): DomainAliasRepositoryInterface
     {
-        if (self::$domainAliasRepo === null) {
-            self::$domainAliasRepo = match (Settings::getInstance()->backend) {
-                'mysql' => new MysqlDomainAliasRepository(),
-                'pgsql' => new PgsqlDomainAliasRepository(),
-                default => new LdapDomainAliasRepository(),
-            };
-        }
+        self::$domainAliasRepo ??= match (Settings::getInstance()->backend) {
+            'mysql' => new MysqlDomainAliasRepository(),
+            'pgsql' => new PgsqlDomainAliasRepository(),
+            default => new LdapDomainAliasRepository(),
+        };
         return self::$domainAliasRepo;
     }
 
     public static function getBccRepository(): BccRepositoryInterface
     {
-        if (self::$bccRepo === null) {
-            self::$bccRepo = match (Settings::getInstance()->backend) {
-                'mysql' => new MysqlBccRepository(),
-                'pgsql' => new PgsqlBccRepository(),
-                default => new LdapBccRepository(),
-            };
-        }
+        self::$bccRepo ??= match (Settings::getInstance()->backend) {
+            'mysql' => new MysqlBccRepository(),
+            'pgsql' => new PgsqlBccRepository(),
+            default => new LdapBccRepository(),
+        };
         return self::$bccRepo;
     }
 
     public static function getRelayRepository(): RelayRepositoryInterface
     {
-        if (self::$relayRepo === null) {
-            self::$relayRepo = match (Settings::getInstance()->backend) {
-                'mysql' => new MysqlRelayRepository(),
-                'pgsql' => new PgsqlRelayRepository(),
-                default => new LdapRelayRepository(),
-            };
-        }
+        self::$relayRepo ??= match (Settings::getInstance()->backend) {
+            'mysql' => new MysqlRelayRepository(),
+            'pgsql' => new PgsqlRelayRepository(),
+            default => new LdapRelayRepository(),
+        };
         return self::$relayRepo;
     }
 
     public static function getDomainOwnershipRepository(): DomainOwnershipRepositoryInterface
     {
-        if (self::$domainOwnershipRepo === null) {
-            self::$domainOwnershipRepo = match (Settings::getInstance()->backend) {
-                'pgsql' => new PgsqlDomainOwnershipRepository(),
-                default => new MysqlDomainOwnershipRepository(),
-            };
-        }
+        self::$domainOwnershipRepo ??= match (Settings::getInstance()->backend) {
+            'pgsql' => new PgsqlDomainOwnershipRepository(),
+            default => new MysqlDomainOwnershipRepository(),
+        };
         return self::$domainOwnershipRepo;
     }
 
     public static function getSearchRepository(): SearchRepositoryInterface
     {
-        if (self::$searchRepo === null) {
-            self::$searchRepo = match (Settings::getInstance()->backend) {
-                'mysql' => new MysqlSearchRepository(),
-                'pgsql' => new PgsqlSearchRepository(),
-                default => new LdapSearchRepository(),
-            };
-        }
+        self::$searchRepo ??= match (Settings::getInstance()->backend) {
+            'mysql' => new MysqlSearchRepository(),
+            'pgsql' => new PgsqlSearchRepository(),
+            default => new LdapSearchRepository(),
+        };
         return self::$searchRepo;
     }
 
     public static function getLastLoginRepository(): LastLoginRepositoryInterface
     {
-        if (self::$lastLoginRepo === null) {
-            self::$lastLoginRepo = match (Settings::getInstance()->backend) {
-                'mysql' => new MysqlLastLoginRepository(),
-                'pgsql' => new PgsqlLastLoginRepository(),
-                default => new Ldap\LdapLastLoginRepository(),
-            };
-        }
+        self::$lastLoginRepo ??= match (Settings::getInstance()->backend) {
+            'mysql' => new MysqlLastLoginRepository(),
+            'pgsql' => new PgsqlLastLoginRepository(),
+            default => new Ldap\LdapLastLoginRepository(),
+        };
         return self::$lastLoginRepo;
     }
 
     public static function getMailingListRepository(): MailingListRepositoryInterface
     {
-        if (self::$mailingListRepo === null) {
-            self::$mailingListRepo = match (Settings::getInstance()->backend) {
-                'mysql' => new MysqlMailingListRepository(),
-                'pgsql' => new PgsqlMailingListRepository(),
-                default => new LdapMailingListRepository(),
-            };
-        }
+        self::$mailingListRepo ??= match (Settings::getInstance()->backend) {
+            'mysql' => new MysqlMailingListRepository(),
+            'pgsql' => new PgsqlMailingListRepository(),
+            default => new LdapMailingListRepository(),
+        };
         return self::$mailingListRepo;
     }
 
     public static function getSpamPolicyRepository(): SpamPolicyRepositoryInterface
     {
-        if (self::$spamPolicyRepo === null) {
-            self::$spamPolicyRepo = match (Settings::getInstance()->backend) {
-                'pgsql' => new PgsqlSpamPolicyRepository(),
-                default => new MysqlSpamPolicyRepository(),
-            };
-        }
+        self::$spamPolicyRepo ??= match (Settings::getInstance()->backend) {
+            'pgsql' => new PgsqlSpamPolicyRepository(),
+            default => new MysqlSpamPolicyRepository(),
+        };
         return self::$spamPolicyRepo;
     }
 
     public static function getWhiteBlacklistRepository(): WhiteBlacklistRepositoryInterface
     {
-        if (self::$wblistRepo === null) {
-            self::$wblistRepo = match (Settings::getInstance()->backend) {
-                'pgsql' => new PgsqlWhiteBlacklistRepository(),
-                default => new MysqlWhiteBlacklistRepository(),
-            };
-        }
+        self::$wblistRepo ??= match (Settings::getInstance()->backend) {
+            'pgsql' => new PgsqlWhiteBlacklistRepository(),
+            default => new MysqlWhiteBlacklistRepository(),
+        };
         return self::$wblistRepo;
     }
 
     public static function getAliasRepository(): AliasRepositoryInterface
     {
-        if (self::$aliasRepo === null) {
-            self::$aliasRepo = match (Settings::getInstance()->backend) {
-                'mysql' => new MysqlAliasRepository(),
-                'pgsql' => new PgsqlAliasRepository(),
-                default => new LdapAliasRepository(),
-            };
-        }
+        self::$aliasRepo ??= match (Settings::getInstance()->backend) {
+            'mysql' => new MysqlAliasRepository(),
+            'pgsql' => new PgsqlAliasRepository(),
+            default => new LdapAliasRepository(),
+        };
         return self::$aliasRepo;
     }
 
     public static function getAmavisdRepository(): AmavisdRepositoryInterface
     {
-        if (self::$amavisdRepo === null) {
-            self::$amavisdRepo = match (Settings::getInstance()->backend) {
-                'pgsql' => new PgsqlAmavisdRepository(),
-                default => new MysqlAmavisdRepository(),
-            };
-        }
+        self::$amavisdRepo ??= match (Settings::getInstance()->backend) {
+            'pgsql' => new PgsqlAmavisdRepository(),
+            default => new MysqlAmavisdRepository(),
+        };
         return self::$amavisdRepo;
     }
 
     public static function getIredapdRepository(): IredapdRepositoryInterface
     {
-        if (self::$iredapdRepo === null) {
-            self::$iredapdRepo = match (Settings::getInstance()->backend) {
-                'pgsql' => new PgsqlIredapdRepository(),
-                default => new MysqlIredapdRepository(),
-            };
-        }
+        self::$iredapdRepo ??= match (Settings::getInstance()->backend) {
+            'pgsql' => new PgsqlIredapdRepository(),
+            default => new MysqlIredapdRepository(),
+        };
         return self::$iredapdRepo;
     }
 
     public static function getApiKeyRepository(): ApiKeyRepositoryInterface
     {
-        if (self::$apiKeyRepo === null) {
-            self::$apiKeyRepo = match (Settings::getInstance()->backend) {
-                'pgsql' => new Pgsql\PgsqlApiKeyRepository(),
-                default => new Mysql\MysqlApiKeyRepository(),
-            };
-        }
+        self::$apiKeyRepo ??= match (Settings::getInstance()->backend) {
+            'pgsql' => new Pgsql\PgsqlApiKeyRepository(),
+            default => new Mysql\MysqlApiKeyRepository(),
+        };
         return self::$apiKeyRepo;
     }
 
     public static function getDeletedMailboxRepository(): DeletedMailboxRepositoryInterface
     {
-        if (self::$deletedMailboxRepo === null) {
-            self::$deletedMailboxRepo = match (Settings::getInstance()->backend) {
-                'mysql' => new Mysql\MysqlDeletedMailboxRepository(),
-                'pgsql' => new Pgsql\PgsqlDeletedMailboxRepository(),
-                default => new Ldap\LdapDeletedMailboxRepository(),
-            };
-        }
+        self::$deletedMailboxRepo ??= match (Settings::getInstance()->backend) {
+            'mysql' => new Mysql\MysqlDeletedMailboxRepository(),
+            'pgsql' => new Pgsql\PgsqlDeletedMailboxRepository(),
+            default => new Ldap\LdapDeletedMailboxRepository(),
+        };
         return self::$deletedMailboxRepo;
     }
 
     public static function getAccountResourceRepository(): AccountResourceRepositoryInterface
     {
-        if (self::$accountResourceRepo === null) {
-            self::$accountResourceRepo = match (Settings::getInstance()->backend) {
-                'pgsql' => new Pgsql\PgsqlAccountResourceRepository(),
-                default => new Mysql\MysqlAccountResourceRepository(),
-            };
-        }
+        self::$accountResourceRepo ??= match (Settings::getInstance()->backend) {
+            'pgsql' => new Pgsql\PgsqlAccountResourceRepository(),
+            default => new Mysql\MysqlAccountResourceRepository(),
+        };
         return self::$accountResourceRepo;
     }
 
     public static function getPanelSettingsRepository(): PanelSettingsRepositoryInterface
     {
-        if (self::$panelSettingsRepo === null) {
-            self::$panelSettingsRepo = match (Settings::getInstance()->backend) {
-                'pgsql' => new Pgsql\PgsqlPanelSettingsRepository(),
-                default => new Mysql\MysqlPanelSettingsRepository(),
-            };
-        }
+        self::$panelSettingsRepo ??= match (Settings::getInstance()->backend) {
+            'pgsql' => new Pgsql\PgsqlPanelSettingsRepository(),
+            default => new Mysql\MysqlPanelSettingsRepository(),
+        };
         return self::$panelSettingsRepo;
     }
 }

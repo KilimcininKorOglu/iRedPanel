@@ -127,7 +127,7 @@ class MysqlAdminRepository implements AdminRepositoryInterface
             $pdo->commit();
         } catch (\Exception $e) {
             $pdo->rollBack();
-            throw new \RuntimeException("Failed to create admin '{$admin->username}': " . $e->getMessage());
+            throw new \RuntimeException("Failed to create admin '{$admin->username}': " . $e->getMessage(), $e->getCode(), $e);
         }
     }
 
@@ -234,7 +234,7 @@ class MysqlAdminRepository implements AdminRepositoryInterface
             $pdo->commit();
         } catch (\Exception $e) {
             $pdo->rollBack();
-            throw new \RuntimeException("Failed to delete admin '{$username}': " . $e->getMessage());
+            throw new \RuntimeException("Failed to delete admin '{$username}': " . $e->getMessage(), $e->getCode(), $e);
         }
     }
 

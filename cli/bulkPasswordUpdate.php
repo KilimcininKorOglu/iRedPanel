@@ -60,7 +60,7 @@ $success = 0;
 $failed = 0;
 
 foreach ($lines as $lineNum => $line) {
-    $parts = array_map('trim', str_getcsv($line, escape: ''));
+    $parts = array_map(trim(...), str_getcsv($line, escape: ''));
     if (count($parts) < 2) {
         echo "Skipping line " . ($lineNum + 1) . ": invalid format\n";
         $failed++;

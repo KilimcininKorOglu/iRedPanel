@@ -191,7 +191,7 @@ class PanelSettingsController
     /** @return string[] the non-empty, trimmed entries of a comma-separated list */
     private static function splitList(string $value): array
     {
-        return array_values(array_filter(array_map('trim', explode(',', $value)), fn(string $entry) => $entry !== ''));
+        return array_values(array_filter(array_map(trim(...), explode(',', $value)), fn(string $entry) => $entry !== ''));
     }
 
     /** @param string[] $entries */

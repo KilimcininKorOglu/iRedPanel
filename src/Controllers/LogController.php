@@ -120,7 +120,7 @@ class LogController
             ActivityLogger::log('delete', '', '', 'All log entries deleted');
             BaseController::flashSuccess(Translator::translate('common.msg_bulk_done', ['count' => $deleted]));
         } elseif (!empty($ids) && is_array($ids)) {
-            $safeIds = array_map('intval', $ids);
+            $safeIds = array_map(intval(...), $ids);
             $placeholders = implode(',', array_fill(0, count($safeIds), '?'));
             $stmt = $pdo->prepare("DELETE FROM log WHERE id IN ({$placeholders})");
             $stmt->execute($safeIds);

@@ -68,7 +68,7 @@ class AdminApiController
         }
 
         $validationErrors = \App\Models\UserPassword::validate($password, $password);
-        if (!empty($validationErrors)) {
+        if ($validationErrors !== []) {
             // The API has no repeat field, so every policy error is under the password key.
             ApiResponse::error('Password policy violation: ' . $validationErrors['password']);
             return;
@@ -143,7 +143,7 @@ class AdminApiController
         }
         $password = FormValue::text($data, 'password');
         $validationErrors = \App\Models\UserPassword::validate($password, $password);
-        if (!empty($validationErrors)) {
+        if ($validationErrors !== []) {
             // The API has no repeat field, so every policy error is under the password key.
             throw new \InvalidArgumentException('Password policy violation: ' . $validationErrors['password']);
         }

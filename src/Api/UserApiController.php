@@ -324,7 +324,7 @@ class UserApiController
     private static function changePassword(string $domain, string $uid, string $password): bool
     {
         $validationErrors = UserPassword::validate($password, $password, self::domainSettings($domain));
-        if (!empty($validationErrors)) {
+        if ($validationErrors !== []) {
             // The API has no repeat field, so every policy error is under the password key.
             ApiResponse::error('Password policy violation: ' . $validationErrors['password']);
             return false;
@@ -468,7 +468,7 @@ class UserApiController
             try {
                 $result = $repo->authenticate($email, $password);
                 ApiResponse::success(['verified' => $result]);
-            } catch (\Exception $e) {
+            } catch (\Exception) {
                 ApiResponse::success(['verified' => false]);
             }
         } else {

@@ -17,7 +17,7 @@ final class SettingsString
     {
         $pairs = [];
         foreach (explode(';', $settings) as $pair) {
-            [$key, $value] = array_map('trim', explode(':', $pair, 2)) + [1 => ''];
+            [$key, $value] = array_map(trim(...), explode(':', $pair, 2)) + [1 => ''];
             if ($key !== '' && $value !== '') {
                 $pairs[$key] = $value;
             }

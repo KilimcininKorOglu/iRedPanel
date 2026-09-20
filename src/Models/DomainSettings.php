@@ -149,7 +149,7 @@ class DomainSettings
             }
         }
 
-        return empty($parts) ? '' : implode(';', $parts) . ';';
+        return $parts === [] ? '' : implode(';', $parts) . ';';
     }
 
     /**

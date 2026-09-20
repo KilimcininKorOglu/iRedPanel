@@ -69,9 +69,7 @@ class AuthController
                 exit;
             }
 
-            if (!isset($_SESSION['failedLoginAttempts'])) {
-                $_SESSION['failedLoginAttempts'] = 0;
-            }
+            $_SESSION['failedLoginAttempts'] ??= 0;
             $_SESSION['failedLoginAttempts']++;
 
             $clientIp = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
@@ -216,11 +214,7 @@ class AuthController
             setcookie(
                 session_name(),
                 '',
-                time() - 42000,
-                $params['path'],
-                $params['domain'],
-                $params['secure'],
-                $params['httponly']
+                ['expires' => time() - 42000, 'path' => $params['path'], 'domain' => $params['domain'], 'secure' => $params['secure'], 'httponly' => $params['httponly']]
             );
         }
         session_destroy();

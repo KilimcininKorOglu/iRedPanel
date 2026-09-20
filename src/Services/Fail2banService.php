@@ -19,7 +19,7 @@ class Fail2banService
     public static function getJails(): array
     {
         $settings = Settings::getInstance();
-        return array_filter(array_map('trim', explode(',', $settings->fail2banJails)));
+        return array_filter(array_map(trim(...), explode(',', $settings->fail2banJails)));
     }
 
     /**
@@ -33,7 +33,7 @@ class Fail2banService
         $output = self::executeCommand(self::buildCommand("status {$safeJail}"));
 
         if (preg_match('/Banned IP list:\s*(.+)$/m', $output, $matches)) {
-            return array_filter(array_map('trim', explode(' ', $matches[1])));
+            return array_filter(array_map(trim(...), explode(' ', $matches[1])));
         }
 
         return [];

@@ -178,7 +178,7 @@ class MailingListService
      */
     private static function orPostmaster(string $address, array $addresses): array
     {
-        $addresses = array_values(array_filter(array_map('trim', $addresses), fn(string $a) => $a !== ''));
+        $addresses = array_values(array_filter(array_map(trim(...), $addresses), fn(string $a) => $a !== ''));
         if ($addresses !== []) {
             return $addresses;
         }

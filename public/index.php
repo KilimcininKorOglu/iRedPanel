@@ -727,7 +727,7 @@ try {
     } else {
         BaseController::pageBackendDown($tpl, $e);
     }
-} catch (CsrfTokenException $e) {
+} catch (CsrfTokenException) {
     BaseController::pageCsrf($tpl);
 } catch (\Throwable $e) {
     if (!$isApiRequest) {

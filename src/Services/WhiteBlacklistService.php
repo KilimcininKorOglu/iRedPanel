@@ -86,7 +86,7 @@ final class WhiteBlacklistService
      */
     public static function filterKind(mixed $value): ?string
     {
-        if ($value === null || $value === '' || $value === 'all') {
+        if (in_array($value, [null, '', 'all'], true)) {
             return null;
         }
         if (!in_array($value, ['W', 'B'], true)) {

@@ -236,7 +236,7 @@ class PgsqlUserRepository implements UserRepositoryInterface
 
             [$storageBase, $storageNode, $maildir] = $storage->location($domain, $user->uid, $settings->vmailPath, $settings->storageNode);
             $services = $user->sqlServiceParams();
-            $serviceColumns = implode(', ', array_map('strtolower', array_keys($services)));
+            $serviceColumns = implode(', ', array_map(strtolower(...), array_keys($services)));
             $servicePlaceholders = ':' . implode(', :', array_keys($services));
             $stmt = $pdo->prepare(
                 "INSERT INTO mailbox
@@ -407,7 +407,7 @@ class PgsqlUserRepository implements UserRepositoryInterface
             $pdo->commit();
         } catch (\Exception $e) {
             $pdo->rollBack();
-            throw new \RuntimeException("Failed to delete user '{$username}': " . $e->getMessage());
+            throw new \RuntimeException("Failed to delete user '{$username}': " . $e->getMessage(), $e->getCode(), $e);
         }
     }
 

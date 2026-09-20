@@ -90,7 +90,7 @@ class CompatibilityService
             throw new \InvalidArgumentException('compatibility list has no releases');
         }
 
-        $releases = array_map([self::class, 'parseRelease'], array_values($data['releases']));
+        $releases = array_map(self::parseRelease(...), array_values($data['releases']));
         usort($releases, static fn (array $a, array $b): int => version_compare($b['version'], $a['version']));
 
         return $releases;

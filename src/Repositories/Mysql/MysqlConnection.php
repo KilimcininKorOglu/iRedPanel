@@ -30,15 +30,13 @@ class MysqlConnection
                 \PDO::MYSQL_ATTR_FOUND_ROWS => true,
             ]);
         } catch (\PDOException $e) {
-            throw new MysqlConnectionException("Failed to connect to MySQL: " . $e->getMessage());
+            throw new MysqlConnectionException("Failed to connect to MySQL: " . $e->getMessage(), $e->getCode(), $e);
         }
     }
 
     public static function getInstance(): self
     {
-        if (self::$instance === null) {
-            self::$instance = new self();
-        }
+        self::$instance ??= new self();
         return self::$instance;
     }
 

@@ -98,7 +98,7 @@ final class ReplicatedAccountGuard
             $changed[] = 'name';
         }
         $normalize = static function (array $list): array {
-            $list = array_map('strtolower', $list);
+            $list = array_map(strtolower(...), $list);
             sort($list);
             return $list;
         };

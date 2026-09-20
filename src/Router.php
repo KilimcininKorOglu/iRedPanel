@@ -9,7 +9,7 @@ class Router
     /** @var array<int, array{methods: string[], pattern: string, regex: string, handler: callable}> */
     private array $routes = [];
 
-    private $notFoundHandler = null;
+    private $notFoundHandler;
 
     /**
      * Registers a route with one or more HTTP methods.
@@ -21,7 +21,7 @@ class Router
     public function addRoute(string|array $methods, string $pattern, callable $handler): void
     {
         $methods = is_string($methods) ? [$methods] : $methods;
-        $methods = array_map('strtoupper', $methods);
+        $methods = array_map(strtoupper(...), $methods);
 
         // Convert {paramName} to named regex groups
         $regex = preg_replace('/\{(\w+)\}/', '(?P<$1>[^/]+)', $pattern);
@@ -63,7 +63,7 @@ class Router
                 }
 
                 // Extract named parameters
-                $params = array_filter($matches, 'is_string', ARRAY_FILTER_USE_KEY);
+                $params = array_filter($matches, is_string(...), ARRAY_FILTER_USE_KEY);
                 call_user_func_array($route['handler'], $params);
                 return;
             }

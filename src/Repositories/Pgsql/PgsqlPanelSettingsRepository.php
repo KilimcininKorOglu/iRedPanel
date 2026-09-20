@@ -22,7 +22,7 @@ class PgsqlPanelSettingsRepository implements PanelSettingsRepositoryInterface
                 $result[$row['setting_key']] = $row['setting_value'];
             }
             return $result;
-        } catch (\PDOException $e) {
+        } catch (\PDOException) {
             return [];
         }
     }
@@ -39,7 +39,7 @@ class PgsqlPanelSettingsRepository implements PanelSettingsRepositoryInterface
             $stmt->execute(['key' => $key]);
             $row = $stmt->fetch();
             return $row ? $row['setting_value'] : null;
-        } catch (\PDOException $e) {
+        } catch (\PDOException) {
             return null;
         }
     }

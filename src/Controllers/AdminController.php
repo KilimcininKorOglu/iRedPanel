@@ -50,7 +50,7 @@ class AdminController
 
         $adminRepo = RepositoryFactory::getAdminRepository();
         if ($action !== 'enable') {
-            $guardError = self::removalGuardError($adminRepo, array_filter($selectedAdmins, 'is_string'));
+            $guardError = self::removalGuardError($adminRepo, array_filter($selectedAdmins, is_string(...)));
             if ($guardError !== null) {
                 BaseController::flashError($guardError);
                 header("Location: /admins");
@@ -135,7 +135,7 @@ class AdminController
                 // Validate password
                 $validationErrors = array_merge($validationErrors, UserPassword::validateLocalized($password, $passwordRepeat));
 
-                if (empty($validationErrors)) {
+                if ($validationErrors === []) {
                     $repo = RepositoryFactory::getAdminRepository();
 
                     // Check for duplicate

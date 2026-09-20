@@ -48,7 +48,6 @@ class ExportService
 
     public static function exportAdminStats(string $format = 'csv'): void
     {
-        $adminRepo = RepositoryFactory::getAdminRepository();
         $domainRepo = RepositoryFactory::getDomainRepository();
 
         $domains = $domainRepo->getDomains();

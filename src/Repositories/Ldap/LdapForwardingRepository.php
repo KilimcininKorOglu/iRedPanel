@@ -58,7 +58,7 @@ class LdapForwardingRepository implements ForwardingRepositoryInterface
             }
         }
 
-        if (!empty($allAddresses)) {
+        if ($allAddresses !== []) {
             if (!@ldap_mod_replace($conn, $dn, ['mailForwardingAddress' => $allAddresses])) {
                 throw new \RuntimeException('LDAP forwarding update failed: ' . ldap_error($conn));
             }

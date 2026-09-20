@@ -127,7 +127,8 @@
     "active_help": "Slökkt: reikningurinn helst vistaður, en póstþjónninn hafnar pósti hans og hann kemst ekki inn.",
     "password_help": "Spjaldið geymir aðeins tætigildi lykilorðsins. Lykilorðareglur lénsins og spjaldsins verða að taka við því.",
     "keep_mailbox_days_help": "Hve lengi póstskrár eydds pósthólfs eru áfram á disknum. Hreinsunarskriftan fjarlægir þær eftir það. Að eilífu heldur þeim þar til þeim er eytt handvirkt.",
-    "domain_help": "Póstlénið sem netfangið tilheyrir. Listinn heldur lénunum sem þú stýrir."
+    "domain_help": "Póstlénið sem netfangið tilheyrir. Listinn heldur lénunum sem þú stýrir.",
+    "msg_invalid_expired_date": "Ógildur gildislokadagur. Notaðu sniðið ÁÁÁÁ-MM-DD."
   },
   "auth": {
     "title": "Auðkenning",
@@ -509,7 +510,9 @@
     "msg_quota_below_used": "Pósthólfið geymir þegar :used MB. Domain admin getur ekki sett kvóta á :quota MB; biddu global admin.",
     "recovery_email": "Endurheimtunetfang",
     "recovery_email_help": "Annað netfang notandans. Hlekkurinn til að endurstilla lykilorðið fer á þetta netfang, svo það verður að vera utan þessa pósthólfs. Autt þýðir að notandinn getur ekki endurstillt lykilorðið.",
-    "msg_invalid_recovery_email": "Endurheimtunetfangið er ekki netfang."
+    "msg_invalid_recovery_email": "Endurheimtunetfangið er ekki netfang.",
+    "expired_date": "Gildislokadagur",
+    "expired_date_help": "Síðasti dagurinn sem pósthólfið virkar. `php cli/disableExpiredAccounts.php` slekkur á pósthólfinu daginn eftir og útrunnið pósthólf kemst ekki lengur inn á stjórnborðið. Skildu reitinn eftir auðan svo pósthólfið renni aldrei út; það er sjálfgefið."
   },
   "mlist": {
     "msg_updated": "Póstlisti uppfærður!",

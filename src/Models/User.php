@@ -6,6 +6,8 @@ namespace App\Models;
 
 use App\Exceptions\InvalidInputException;
 use App\Middleware;
+use App\Utils\CalendarDate;
+use App\Utils\ExpiryDate;
 use App\Utils\FormValue;
 use App\Utils\NameList;
 use App\Utils\WholeNumber;
@@ -79,6 +81,8 @@ class User
         public string $department = '',
         /** Birthday as YYYY-MM-DD; '' means not set. */
         public string $birthday = '',
+        /** Last valid day of the mailbox as YYYY-MM-DD; '' means that it never expires. */
+        public string $expiredDate = '',
         public string $mobile = '',
         public string $telephoneNumber = '',
         /** Comma-separated IP addresses and CIDR ranges the mailbox may log in from; '' allows every address. */
@@ -149,11 +153,8 @@ class User
         if ($value === null || $value === '') {
             return '';
         }
-        if (is_string($value) && preg_match('/^\d{4}-\d{2}-\d{2}$/', $value) === 1) {
-            [$year, $month, $day] = array_map(intval(...), explode('-', $value));
-            if (checkdate($month, $day, $year)) {
-                return $value;
-            }
+        if (CalendarDate::isValid($value)) {
+            return (string) $value;
         }
 
         throw new InvalidInputException('birthday must be a date in YYYY-MM-DD format', 'user.msg_invalid_birthday');
@@ -370,6 +371,7 @@ class User
             title: $entry['title'] ?? '',
             department: $entry['departmentNumber'] ?? '',
             birthday: $entry['birthday'] ?? '',
+            expiredDate: ExpiryDate::fromLdap($entry['expiredDate'] ?? null),
             mobile: $entry['mobile'] ?? '',
             telephoneNumber: $entry['telephoneNumber'] ?? '',
             allowNets: $entry['allowNets'] ?? '',
@@ -413,6 +415,7 @@ class User
             title: FormValue::text($post, 'title'),
             department: FormValue::text($post, 'department'),
             birthday: self::validBirthday($post['birthday'] ?? ''),
+            expiredDate: ExpiryDate::valid($post['expiredDate'] ?? ''),
             mobile: FormValue::text($post, 'mobile'),
             telephoneNumber: FormValue::text($post, 'telephoneNumber'),
             allowNets: self::validAllowNets($post['allowNets'] ?? ''),

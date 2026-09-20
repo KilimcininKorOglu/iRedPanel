@@ -127,7 +127,8 @@
     "active_help": "Desactivado: a conta segue gardada, pero o servidor de correo rexeita o seu correo e non pode iniciar sesión.",
     "password_help": "O panel só garda o hash do contrasinal. As regras de contrasinal do dominio e do panel deben aceptalo.",
     "keep_mailbox_days_help": "Canto tempo quedan no disco os ficheiros de correo dunha caixa borrada. O script de limpeza quítaos despois. Para sempre mantenos ata un borrado manual.",
-    "domain_help": "O dominio de mail ao que pertence o enderezo. A lista contén os dominios que vostede xestiona."
+    "domain_help": "O dominio de mail ao que pertence o enderezo. A lista contén os dominios que vostede xestiona.",
+    "msg_invalid_expired_date": "Data de caducidade non válida. Use o formato AAAA-MM-DD."
   },
   "auth": {
     "title": "Autenticación",
@@ -509,7 +510,9 @@
     "msg_quota_below_used": "A caixa xa garda :used MB. Un domain admin non pode poñer a cota en :quota MB; pídello a un global admin.",
     "recovery_email": "Enderezo de recuperación",
     "recovery_email_help": "Un segundo enderezo de correo do usuario. A ligazón para restablecer o contrasinal envíase a este enderezo, polo que debe estar fóra desta caixa. Baleiro significa que o usuario non pode restablecer o contrasinal.",
-    "msg_invalid_recovery_email": "O enderezo de recuperación non é un enderezo de correo."
+    "msg_invalid_recovery_email": "O enderezo de recuperación non é un enderezo de correo.",
+    "expired_date": "Data de caducidade",
+    "expired_date_help": "O último día en que a caixa funciona. `php cli/disableExpiredAccounts.php` desactívaa ao día seguinte, e unha caixa caducada xa non pode iniciar sesión no panel. Deixe o campo baleiro para que nunca caduque; ese é o valor predeterminado."
   },
   "mlist": {
     "msg_updated": "Lista de correo actualizada!",

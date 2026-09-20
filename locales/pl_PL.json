@@ -127,7 +127,8 @@
     "active_help": "Wyłączone: konto pozostaje zapisane, ale serwer pocztowy odrzuca jego pocztę i nie da się zalogować.",
     "password_help": "Panel przechowuje tylko skrót hasła. Reguły haseł domeny i panelu muszą je przyjąć.",
     "keep_mailbox_days_help": "Jak długo pliki poczty usuniętej skrzynki zostają na dysku. Skrypt czyszczący usuwa je potem. Na zawsze trzyma je do ręcznego usunięcia.",
-    "domain_help": "Domena mailowa, do której należy adres. Lista zawiera domeny, którymi zarządzasz."
+    "domain_help": "Domena mailowa, do której należy adres. Lista zawiera domeny, którymi zarządzasz.",
+    "msg_invalid_expired_date": "Nieprawidłowa data wygaśnięcia. Użyj formatu RRRR-MM-DD."
   },
   "auth": {
     "title": "Uwierzytelnianie",
@@ -509,7 +510,9 @@
     "msg_quota_below_used": "Skrzynka przechowuje już :used MB. Domain admin nie może ustawić limitu na :quota MB; poproś global admina.",
     "recovery_email": "Adres odzyskiwania",
     "recovery_email_help": "Drugi adres mail użytkownika. Link do zresetowania hasła trafia na ten adres, więc musi być poza tą skrzynką. Puste pole oznacza, że użytkownik nie może zresetować hasła.",
-    "msg_invalid_recovery_email": "Adres odzyskiwania nie jest adresem mail."
+    "msg_invalid_recovery_email": "Adres odzyskiwania nie jest adresem mail.",
+    "expired_date": "Data wygaśnięcia",
+    "expired_date_help": "Ostatni dzień działania skrzynki. `php cli/disableExpiredAccounts.php` wyłącza skrzynkę następnego dnia, a wygasła skrzynka nie może zalogować się do panelu. Pozostaw pole puste, aby skrzynka nigdy nie wygasała; to ustawienie domyślne."
   },
   "mlist": {
     "msg_updated": "Lista mailingowa zaktualizowana!",

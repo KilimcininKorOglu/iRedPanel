@@ -127,7 +127,8 @@
     "active_help": "Vypnuto: účet zůstane uložený, ale poštovní server jeho poštu odmítne a účet se nepřihlásí.",
     "password_help": "Panel ukládá jen hash hesla. Pravidla hesel domény a panelu jej musí přijmout.",
     "keep_mailbox_days_help": "Jak dlouho zůstanou poštovní soubory smazané schránky na disku. Úklidový skript je poté odstraní. Navždy je drží do ručního smazání.",
-    "domain_help": "Mailová doména, ke které adresa patří. Seznam obsahuje domény, které spravujete."
+    "domain_help": "Mailová doména, ke které adresa patří. Seznam obsahuje domény, které spravujete.",
+    "msg_invalid_expired_date": "Neplatné datum vypršení. Použijte formát RRRR-MM-DD."
   },
   "auth": {
     "title": "Ověření",
@@ -509,7 +510,9 @@
     "msg_quota_below_used": "Schránka už obsahuje :used MB. Domain admin nemůže nastavit kvótu na :quota MB; požádejte global admina.",
     "recovery_email": "Adresa pro obnovu",
     "recovery_email_help": "Druhá mailová adresa uživatele. Odkaz pro obnovu hesla jde na tuto adresu, musí tedy být mimo tuto schránku. Prázdná hodnota znamená, že uživatel heslo obnovit nemůže.",
-    "msg_invalid_recovery_email": "Adresa pro obnovu není mailová adresa."
+    "msg_invalid_recovery_email": "Adresa pro obnovu není mailová adresa.",
+    "expired_date": "Datum vypršení",
+    "expired_date_help": "Poslední den, kdy schránka funguje. `php cli/disableExpiredAccounts.php` schránku následující den vypne a schránka s vypršenou platností se nemůže přihlásit do panelu. Ponechte pole prázdné, aby platnost nikdy nevypršela; to je výchozí nastavení."
   },
   "mlist": {
     "msg_updated": "Poštovní konference aktualizována!",

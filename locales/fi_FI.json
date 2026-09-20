@@ -127,7 +127,8 @@
     "active_help": "Pois: tili säilyy tallennettuna, mutta postipalvelin hylkää sen postin eikä tili voi kirjautua.",
     "password_help": "Paneeli tallentaa vain salasanan tiivisteen. Verkkotunnuksen ja paneelin salasanasääntöjen on hyväksyttävä se.",
     "keep_mailbox_days_help": "Kuinka kauan poistetun postilaatikon postitiedostot pysyvät levyllä. Siivousskripti poistaa ne sen jälkeen. Ikuisesti säilyttää ne käsin poistamiseen asti.",
-    "domain_help": "Maildomain, johon osoite kuuluu. Luettelo sisältää hallitsemasi domainit."
+    "domain_help": "Maildomain, johon osoite kuuluu. Luettelo sisältää hallitsemasi domainit.",
+    "msg_invalid_expired_date": "Virheellinen vanhenemispäivä. Käytä muotoa VVVV-KK-PP."
   },
   "auth": {
     "title": "Todennus",
@@ -509,7 +510,9 @@
     "msg_quota_below_used": "Postilaatikossa on jo :used MB. Domain admin ei voi asettaa kiintiötä arvoon :quota MB; pyydä global adminilta.",
     "recovery_email": "Palautusosoite",
     "recovery_email_help": "Käyttäjän toinen sähköpostiosoite. Salasanan palautuslinkki menee tähän osoitteeseen, joten sen on oltava tämän postilaatikon ulkopuolella. Tyhjä tarkoittaa, ettei käyttäjä voi palauttaa salasanaa.",
-    "msg_invalid_recovery_email": "Palautusosoite ei ole sähköpostiosoite."
+    "msg_invalid_recovery_email": "Palautusosoite ei ole sähköpostiosoite.",
+    "expired_date": "Vanhenemispäivä",
+    "expired_date_help": "Postilaatikon viimeinen toimintapäivä. `php cli/disableExpiredAccounts.php` poistaa postilaatikon käytöstä seuraavana päivänä, eikä vanhentunut postilaatikko voi enää kirjautua paneeliin. Jätä kenttä tyhjäksi, jotta postilaatikko ei vanhene koskaan; tämä on oletus."
   },
   "mlist": {
     "msg_updated": "Postituslista päivitetty!",

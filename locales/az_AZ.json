@@ -127,7 +127,8 @@
     "active_help": "Bağlı: hesab saxlanılır, lakin mail serveri onun mailini rədd edir və hesab daxil ola bilmir.",
     "password_help": "Panel yalnız parolun hash'ini saxlayır. Domenin və panelin parol qaydaları onu qəbul etməlidir.",
     "keep_mailbox_days_help": "Silinmiş mailbox'ın mail fayllarının diskdə qalma müddəti. Təmizləmə script'i sonra silir. Həmişə seçimi əl ilə silinənə qədər saxlayır.",
-    "domain_help": "Ünvanın aid olduğu mail domain. Siyahı idarə etdiyiniz domainləri saxlayır."
+    "domain_help": "Ünvanın aid olduğu mail domain. Siyahı idarə etdiyiniz domainləri saxlayır.",
+    "msg_invalid_expired_date": "Yanlış bitmə tarixi. YYYY-MM-DD formatından istifadə edin."
   },
   "auth": {
     "title": "Autentifikasiya",
@@ -509,7 +510,9 @@
     "msg_quota_below_used": "Poçt qutusu artıq :used MB saxlayır. Domain admini kvotanı :quota MB edə bilməz; qlobal adminə müraciət edin.",
     "recovery_email": "Bərpa ünvanı",
     "recovery_email_help": "İstifadəçinin ikinci mail ünvanı. Parol sıfırlama linki bu ünvana gedir, ona görə bu mailbox-dan kənar bir ünvan olmalıdır. Boş olarsa istifadəçi parolunu sıfırlaya bilməz.",
-    "msg_invalid_recovery_email": "Bərpa ünvanı mail ünvanı deyil."
+    "msg_invalid_recovery_email": "Bərpa ünvanı mail ünvanı deyil.",
+    "expired_date": "Bitmə tarixi",
+    "expired_date_help": "Poçt qutusunun işlədiyi son gün. `php cli/disableExpiredAccounts.php` poçt qutusunu növbəti gün söndürür və müddəti bitmiş poçt qutusu panelə daxil ola bilmir. Poçt qutusunun müddəti heç vaxt bitməsin istəyirsinizsə sahəni boş buraxın; standart budur."
   },
   "mlist": {
     "msg_updated": "Poçt siyahısı yeniləndi!",

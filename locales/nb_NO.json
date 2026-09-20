@@ -127,7 +127,8 @@
     "active_help": "Av: kontoen blir liggende lagret, men e-posttjeneren avviser posten dens, og den kan ikke logge inn.",
     "password_help": "Panelet lagrer bare hashen av passordet. Passordreglene til domenet og panelet må godta det.",
     "keep_mailbox_days_help": "Hvor lenge e-postfilene til en slettet postkasse blir på disken. Oppryddingsskriptet fjerner dem etterpå. For alltid beholder dem til en manuell sletting.",
-    "domain_help": "Maildomenet adressen hører til. Listen inneholder domenene du styrer."
+    "domain_help": "Maildomenet adressen hører til. Listen inneholder domenene du styrer.",
+    "msg_invalid_expired_date": "Ugyldig utløpsdato. Bruk formatet ÅÅÅÅ-MM-DD."
   },
   "auth": {
     "title": "Autentisering",
@@ -509,7 +510,9 @@
     "msg_quota_below_used": "Postkassen lagrer allerede :used MB. En domain admin kan ikke sette kvoten til :quota MB; spør en global admin.",
     "recovery_email": "Gjenopprettingsadresse",
     "recovery_email_help": "En andre mailadresse for brukeren. Lenken for å tilbakestille passordet sendes til denne adressen, så den må ligge utenfor denne postkassen. Tom betyr at brukeren ikke kan tilbakestille passordet.",
-    "msg_invalid_recovery_email": "Gjenopprettingsadressen er ikke en mailadresse."
+    "msg_invalid_recovery_email": "Gjenopprettingsadressen er ikke en mailadresse.",
+    "expired_date": "Utløpsdato",
+    "expired_date_help": "Den siste dagen postkassen virker. `php cli/disableExpiredAccounts.php` deaktiverer postkassen dagen etter, og en utløpt postkasse kan ikke lenger logge inn i panelet. La feltet stå tomt slik at postkassen aldri utløper; det er standard."
   },
   "mlist": {
     "msg_updated": "E-postliste oppdatert!",

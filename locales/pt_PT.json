@@ -127,7 +127,8 @@
     "active_help": "Desligado: a conta mantém-se guardada, mas o servidor de correio recusa o seu correio e não consegue entrar.",
     "password_help": "O painel guarda apenas o hash da palavra-passe. As regras de palavra-passe do domínio e do painel têm de a aceitar.",
     "keep_mailbox_days_help": "Quanto tempo os ficheiros de correio de uma caixa apagada ficam no disco. O script de limpeza remove-os depois. Para sempre mantém-nos até uma remoção manual.",
-    "domain_help": "O domínio de mail a que o endereço pertence. A lista contém os domínios que gere."
+    "domain_help": "O domínio de mail a que o endereço pertence. A lista contém os domínios que gere.",
+    "msg_invalid_expired_date": "Data de expiração inválida. Use o formato AAAA-MM-DD."
   },
   "auth": {
     "title": "Autenticação",
@@ -509,7 +510,9 @@
     "msg_quota_below_used": "A caixa já guarda :used MB. Um domain admin não pode definir a quota em :quota MB; peça a um global admin.",
     "recovery_email": "Endereço de recuperação",
     "recovery_email_help": "Um segundo endereço de mail do utilizador. A ligação de reposição da palavra-passe é enviada para este endereço, por isso tem de estar fora desta caixa. Vazio significa que o utilizador não pode repor a palavra-passe.",
-    "msg_invalid_recovery_email": "O endereço de recuperação não é um endereço de mail."
+    "msg_invalid_recovery_email": "O endereço de recuperação não é um endereço de mail.",
+    "expired_date": "Data de expiração",
+    "expired_date_help": "O último dia em que a caixa de correio funciona. O `php cli/disableExpiredAccounts.php` desativa-a no dia seguinte e uma caixa expirada deixa de poder iniciar sessão no painel. Deixe o campo vazio para que nunca expire; é a predefinição."
   },
   "mlist": {
     "msg_updated": "Lista de distribuição atualizada!",

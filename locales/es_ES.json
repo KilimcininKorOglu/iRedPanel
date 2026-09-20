@@ -127,7 +127,8 @@
     "active_help": "Desactivado: la cuenta sigue guardada, pero el servidor de correo rechaza su correo y no puede iniciar sesión.",
     "password_help": "El panel solo guarda el hash de la contraseña. Las reglas de contraseña del dominio y del panel deben aceptarla.",
     "keep_mailbox_days_help": "Cuánto tiempo quedan en disco los archivos de correo de un buzón borrado. El script de limpieza los quita después. Para siempre los mantiene hasta un borrado manual.",
-    "domain_help": "El dominio de mail al que pertenece la dirección. La lista contiene los dominios que usted gestiona."
+    "domain_help": "El dominio de mail al que pertenece la dirección. La lista contiene los dominios que usted gestiona.",
+    "msg_invalid_expired_date": "Fecha de caducidad no válida. Use el formato AAAA-MM-DD."
   },
   "auth": {
     "title": "Autenticación",
@@ -509,7 +510,9 @@
     "msg_quota_below_used": "El buzón ya almacena :used MB. Un domain admin no puede poner la cuota en :quota MB; pídalo a un global admin.",
     "recovery_email": "Dirección de recuperación",
     "recovery_email_help": "Una segunda dirección de correo del usuario. El enlace de restablecimiento de contraseña se envía a esta dirección, por lo que debe estar fuera de este buzón. Vacío significa que el usuario no puede restablecer la contraseña.",
-    "msg_invalid_recovery_email": "La dirección de recuperación no es una dirección de correo."
+    "msg_invalid_recovery_email": "La dirección de recuperación no es una dirección de correo.",
+    "expired_date": "Fecha de caducidad",
+    "expired_date_help": "El último día en que el buzón funciona. `php cli/disableExpiredAccounts.php` lo desactiva al día siguiente, y un buzón caducado ya no puede iniciar sesión en el panel. Deje el campo vacío para que nunca caduque; ese es el valor predeterminado."
   },
   "mlist": {
     "msg_updated": "¡Lista de correo actualizada!",

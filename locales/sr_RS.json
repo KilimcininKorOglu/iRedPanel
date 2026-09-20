@@ -127,7 +127,8 @@
     "active_help": "Isključeno: nalog ostaje sačuvan, ali server pošte odbija njegovu poštu i ne može da se prijavi.",
     "password_help": "Panel čuva samo heš lozinke. Pravila lozinki domena i panela moraju je prihvatiti.",
     "keep_mailbox_days_help": "Koliko dugo fajlovi pošte obrisanog sandučeta ostaju na disku. Skripta za čišćenje ih posle uklanja. Zauvek ih drži do ručnog brisanja.",
-    "domain_help": "Мејл домен коме адреса припада. Списак садржи домене којима управљате."
+    "domain_help": "Мејл домен коме адреса припада. Списак садржи домене којима управљате.",
+    "msg_invalid_expired_date": "Неисправан датум истека. Користите формат ГГГГ-ММ-ДД."
   },
   "auth": {
     "title": "Аутентификација",
@@ -509,7 +510,9 @@
     "msg_quota_below_used": "Сандуче већ чува :used MB. Domain admin не може да постави квоту на :quota MB; затражите од global admina.",
     "recovery_email": "Адреса за опоравак",
     "recovery_email_help": "Друга мејл адреса корисника. Веза за промену лозинке иде на ту адресу, па мора бити ван овог сандучета. Празно значи да корисник не може да промени лозинку.",
-    "msg_invalid_recovery_email": "Адреса за опоравак није мејл адреса."
+    "msg_invalid_recovery_email": "Адреса за опоравак није мејл адреса.",
+    "expired_date": "Датум истека",
+    "expired_date_help": "Последњи дан рада сандучета. `php cli/disableExpiredAccounts.php` онемогућава сандуче следећег дана, а истекло сандуче више не може да се пријави на панел. Оставите поље празно да сандуче никада не истекне; то је подразумевана вредност."
   },
   "mlist": {
     "msg_updated": "Мејлинг листа ажурирана!",

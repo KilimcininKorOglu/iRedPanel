@@ -127,7 +127,8 @@
     "active_help": "Spento: l'account resta salvato, ma il server di posta rifiuta la sua posta e non può accedere.",
     "password_help": "Il pannello salva solo l'hash della password. Le regole di password del dominio e del pannello devono accettarla.",
     "keep_mailbox_days_help": "Per quanto restano su disco i file di posta di una casella eliminata. Lo script di pulizia li rimuove dopo. Per sempre li tiene fino a una rimozione manuale.",
-    "domain_help": "Il dominio mail a cui appartiene l'indirizzo. L'elenco contiene i domini che lei gestisce."
+    "domain_help": "Il dominio mail a cui appartiene l'indirizzo. L'elenco contiene i domini che lei gestisce.",
+    "msg_invalid_expired_date": "Data di scadenza non valida. Usare il formato AAAA-MM-GG."
   },
   "auth": {
     "title": "Autenticazione",
@@ -509,7 +510,9 @@
     "msg_quota_below_used": "La casella memorizza già :used MB. Un domain admin non può impostare la quota a :quota MB; chiedi a un global admin.",
     "recovery_email": "Indirizzo di recupero",
     "recovery_email_help": "Un secondo indirizzo mail dell'utente. Il link per reimpostare la password viene inviato a questo indirizzo, quindi deve essere fuori da questa casella. Vuoto significa che l'utente non può reimpostare la password.",
-    "msg_invalid_recovery_email": "L'indirizzo di recupero non è un indirizzo mail."
+    "msg_invalid_recovery_email": "L'indirizzo di recupero non è un indirizzo mail.",
+    "expired_date": "Data di scadenza",
+    "expired_date_help": "L'ultimo giorno in cui la casella funziona. `php cli/disableExpiredAccounts.php` la disattiva il giorno successivo e una casella scaduta non può più accedere al pannello. Lasciare il campo vuoto perché non scada mai; questa è l'impostazione predefinita."
   },
   "mlist": {
     "msg_updated": "Lista di distribuzione aggiornata!",

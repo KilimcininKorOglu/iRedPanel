@@ -127,7 +127,8 @@
     "active_help": "關閉：帳號仍然保留，但郵件伺服器拒收它的郵件，它也無法登入。",
     "password_help": "面板只儲存密碼的雜湊值。密碼必須通過網域和面板的密碼規則。",
     "keep_mailbox_days_help": "已刪除信箱的郵件檔案在磁碟上保留多久。清理指令碼隨後刪除它們。「永久」會保留到手動刪除為止。",
-    "domain_help": "該位址所屬的郵件網域。清單只列出您管理的網域。"
+    "domain_help": "該位址所屬的郵件網域。清單只列出您管理的網域。",
+    "msg_invalid_expired_date": "到期日期無效。請使用 YYYY-MM-DD 格式。"
   },
   "auth": {
     "title": "驗證",
@@ -509,7 +510,9 @@
     "msg_quota_below_used": "信箱已儲存 :used MB。domain admin 不能把配額設為 :quota MB，請聯絡 global admin。",
     "recovery_email": "找回地址",
     "recovery_email_help": "使用者的第二個郵件地址。密碼重設連結會寄到這個地址，因此它必須位於本信箱之外。留空表示使用者無法重設密碼。",
-    "msg_invalid_recovery_email": "找回地址不是一個郵件地址。"
+    "msg_invalid_recovery_email": "找回地址不是一個郵件地址。",
+    "expired_date": "到期日期",
+    "expired_date_help": "信箱可用的最後一天。`php cli/disableExpiredAccounts.php` 會在隔天停用該信箱，已到期的信箱也無法登入面板。留空表示信箱永不到期，這是預設值。"
   },
   "mlist": {
     "msg_updated": "郵件清單已更新！",

@@ -127,7 +127,8 @@
     "active_help": "Nonaktif: akun tetap tersimpan, tetapi server mail menolak mail-nya dan akun tidak bisa masuk.",
     "password_help": "Panel hanya menyimpan hash kata sandi. Aturan kata sandi domain dan panel harus menerimanya.",
     "keep_mailbox_days_help": "Berapa lama berkas mail kotak surat yang dihapus tetap di disk. Skrip pembersih menghapusnya setelah itu. Selamanya menyimpannya sampai dihapus manual.",
-    "domain_help": "Domain mail tempat alamat ini berada. Daftar berisi domain yang Anda kelola."
+    "domain_help": "Domain mail tempat alamat ini berada. Daftar berisi domain yang Anda kelola.",
+    "msg_invalid_expired_date": "Tanggal kedaluwarsa tidak valid. Gunakan format YYYY-MM-DD."
   },
   "auth": {
     "title": "Autentikasi",
@@ -509,7 +510,9 @@
     "msg_quota_below_used": "Kotak surat sudah menyimpan :used MB. Domain admin tidak dapat menetapkan kuota :quota MB; mintalah global admin.",
     "recovery_email": "Alamat pemulihan",
     "recovery_email_help": "Alamat mail kedua pengguna. Tautan pengaturan ulang kata sandi dikirim ke alamat ini, jadi alamat itu harus di luar kotak surat ini. Kosong berarti pengguna tidak dapat mengatur ulang kata sandi.",
-    "msg_invalid_recovery_email": "Alamat pemulihan bukan alamat mail."
+    "msg_invalid_recovery_email": "Alamat pemulihan bukan alamat mail.",
+    "expired_date": "Tanggal kedaluwarsa",
+    "expired_date_help": "Hari terakhir kotak surat berfungsi. `php cli/disableExpiredAccounts.php` menonaktifkan kotak surat pada hari berikutnya, dan kotak surat yang kedaluwarsa tidak dapat masuk ke panel. Biarkan bidang ini kosong agar kotak surat tidak pernah kedaluwarsa; itu bawaannya."
   },
   "mlist": {
     "msg_updated": "Milis diperbarui!",

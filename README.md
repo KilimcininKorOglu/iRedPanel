@@ -340,6 +340,7 @@ server {
 - Forwarding with a keep-copy option, per-user alias addresses, sender and recipient BCC, relay host, and a per-user Postfix transport (global admin only)
 - Per-user disclaimer text that `cli/dumpDisclaimer.php` writes to a file for Amavisd and AlterMIME
 - Shared IMAP folders per mailbox (Dovecot `share_folder` and `anyone_shares`), in both directions, with a button that revokes one share
+- Expiry date per mailbox (`mailbox.expired`, LDAP `expiredDate`): the last day it works, empty means that it never expires
 - Address rename that updates every related table
 - Used quota and last login display (Dovecot `used_quota` and `last_login` data)
 - Bulk enable, disable and delete, and a bulk language, password or transport change; alphabetic filter, sortable columns, random password generation

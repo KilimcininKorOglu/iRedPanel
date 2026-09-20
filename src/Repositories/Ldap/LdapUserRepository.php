@@ -11,13 +11,14 @@ use App\Models\Settings;
 use App\Models\User;
 use App\Repositories\Mysql\IredadminConnection;
 use App\Repositories\UserRepositoryInterface;
+use App\Utils\ExpiryDate;
 use App\Utils\LdapUtils;
 
 class LdapUserRepository implements UserRepositoryInterface
 {
     private const USER_DETAIL_ATTRS = [
         'mail', 'accountStatus', 'domainGlobalAdmin', 'mailQuota', 'uid',
-        'cn', 'givenName', 'sn', 'title', 'departmentNumber', 'birthday',
+        'cn', 'givenName', 'sn', 'title', 'departmentNumber', 'birthday', 'expiredDate',
         'telephoneNumber', 'mobile', 'employeeNumber', 'allowNets', 'recoveryEmail',
         'enabledService', 'preferredLanguage', 'shadowLastChange',
     ];
@@ -29,7 +30,7 @@ class LdapUserRepository implements UserRepositoryInterface
     ];
 
     private const USER_LIST_ATTRS = [
-        'mail', 'accountStatus', 'domainGlobalAdmin', 'mailQuota', 'uid', 'cn', 'shadowLastChange',
+        'mail', 'accountStatus', 'domainGlobalAdmin', 'mailQuota', 'uid', 'cn', 'shadowLastChange', 'expiredDate',
     ];
 
     public function getUser(string $domain, string $userId): ?User
@@ -116,6 +117,7 @@ class LdapUserRepository implements UserRepositoryInterface
             LdapUtils::modReplace('title', self::orNull($user->title)),
             LdapUtils::modReplace('departmentNumber', self::orNull($user->department)),
             LdapUtils::modReplace('birthday', self::orNull($user->birthday)),
+            LdapUtils::modReplace('expiredDate', ExpiryDate::toLdap($user->expiredDate)),
             LdapUtils::modReplace('telephoneNumber', self::orNull($user->telephoneNumber)),
             LdapUtils::modReplace('mobile', self::orNull($user->mobile)),
             LdapUtils::modReplace('allowNets', self::orNull($user->allowNets)),
@@ -238,6 +240,7 @@ class LdapUserRepository implements UserRepositoryInterface
             'title' => $user->title,
             'departmentNumber' => $user->department,
             'birthday' => $user->birthday,
+            'expiredDate' => (string) ExpiryDate::toLdap($user->expiredDate),
             'mobile' => $user->mobile,
             'telephoneNumber' => $user->telephoneNumber,
             'allowNets' => $user->allowNets,

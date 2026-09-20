@@ -120,6 +120,10 @@ $services = \App\Models\User::SERVICE_LABELS;
             <input id="birthday" name="birthday" type="date" class="form-control" value="<?= $e($user->birthday) ?>"<?= $locked('birthday') ?> />
           </div>
           <div class="col-md-6">
+            <label for="expiredDate" class="form-label"><?= $te('user.expired_date') ?></label><?= $help('user.expired_date') ?>
+            <input id="expiredDate" name="expiredDate" type="date" class="form-control" value="<?= $e($user->expiredDate) ?>" />
+          </div>
+          <div class="col-md-6">
             <label for="mobile" class="form-label"><?= $te('user.mobile_phone') ?></label><?= $help('user.mobile_phone') ?>
             <input id="mobile" name="mobile" type="text" class="form-control" value="<?= $e($user->mobile) ?>"<?= $locked('mobile') ?> />
           </div>

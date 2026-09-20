@@ -127,7 +127,8 @@
     "active_help": "关闭：账户仍然保留，但邮件服务器拒收它的邮件，它也无法登录。",
     "password_help": "面板只保存密码的哈希值。密码须通过域和面板的密码规则。",
     "keep_mailbox_days_help": "已删除邮箱的邮件文件在磁盘上保留多久。清理脚本随后删除它们。“永久”会保留到手动删除为止。",
-    "domain_help": "该地址所属的邮件域。列表只列出你管理的域。"
+    "domain_help": "该地址所属的邮件域。列表只列出你管理的域。",
+    "msg_invalid_expired_date": "到期日期无效。请使用 YYYY-MM-DD 格式。"
   },
   "auth": {
     "title": "身份验证",
@@ -509,7 +510,9 @@
     "msg_quota_below_used": "邮箱已存储 :used MB。domain admin 不能把配额设为 :quota MB，请联系 global admin。",
     "recovery_email": "找回地址",
     "recovery_email_help": "用户的第二个邮件地址。密码重置链接会发送到该地址，因此它必须位于本邮箱之外。留空表示用户无法重置密码。",
-    "msg_invalid_recovery_email": "找回地址不是一个邮件地址。"
+    "msg_invalid_recovery_email": "找回地址不是一个邮件地址。",
+    "expired_date": "到期日期",
+    "expired_date_help": "邮箱可用的最后一天。`php cli/disableExpiredAccounts.php` 会在次日停用该邮箱，已到期的邮箱也无法登录面板。留空表示邮箱永不到期，这是默认值。"
   },
   "mlist": {
     "msg_updated": "邮件列表已更新！",

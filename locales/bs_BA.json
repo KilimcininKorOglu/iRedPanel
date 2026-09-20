@@ -127,7 +127,8 @@
     "active_help": "Isključeno: račun ostaje sačuvan, ali poštanski server odbija njegovu poštu i ne može se prijaviti.",
     "password_help": "Panel čuva samo hash lozinke. Pravila lozinki domene i panela moraju je prihvatiti.",
     "keep_mailbox_days_help": "Koliko datoteke pošte obrisanog sandučeta ostaju na disku. Skripta za čišćenje ih poslije uklanja. Zauvijek ih drži do ručnog brisanja.",
-    "domain_help": "Mail domena kojoj adresa pripada. Lista sadrži domene kojima upravljate."
+    "domain_help": "Mail domena kojoj adresa pripada. Lista sadrži domene kojima upravljate.",
+    "msg_invalid_expired_date": "Neispravan datum isteka. Koristite format GGGG-MM-DD."
   },
   "auth": {
     "title": "Autentifikacija",
@@ -509,7 +510,9 @@
     "msg_quota_below_used": "Sanduče već sadrži :used MB. Domain admin ne može postaviti kvotu na :quota MB; obratite se globalnom adminu.",
     "recovery_email": "Adresa za oporavak",
     "recovery_email_help": "Druga mail adresa korisnika. Poveznica za promjenu lozinke ide na tu adresu, pa mora biti izvan ovog sandučeta. Prazno znači da korisnik ne može promijeniti lozinku.",
-    "msg_invalid_recovery_email": "Adresa za oporavak nije mail adresa."
+    "msg_invalid_recovery_email": "Adresa za oporavak nije mail adresa.",
+    "expired_date": "Datum isteka",
+    "expired_date_help": "Posljednji dan rada sandučeta. `php cli/disableExpiredAccounts.php` onemogućava sanduče sljedeći dan, a isteklo sanduče se više ne može prijaviti na panel. Ostavite polje prazno da sanduče nikada ne istekne; to je podrazumijevana vrijednost."
   },
   "mlist": {
     "msg_updated": "Mailing lista je ažurirana!",

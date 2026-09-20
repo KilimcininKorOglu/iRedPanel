@@ -8,6 +8,7 @@ use App\Models\MailboxStorage;
 use App\Models\PaginatedResult;
 use App\Models\User;
 use App\Repositories\UserRepositoryInterface;
+use App\Utils\ExpiryDate;
 use App\Utils\PasswordVerifier;
 use App\Utils\SqlLike;
 
@@ -31,7 +32,7 @@ class MysqlUserRepository implements UserRepositoryInterface
         $stmt = $pdo->prepare(
             "SELECT username, name, first_name, last_name,
                     quota, employeeid, mobile, telephone, active,
-                    isglobaladmin, rank, department, birthday, allow_nets, recovery_email, domain, passwordlastchange,
+                    isglobaladmin, rank, department, birthday, expired, allow_nets, recovery_email, domain, passwordlastchange,
                     enablesmtp, enablesmtpsecured, enablepop3, enablepop3secured,
                     enableimap, enableimapsecured, enablemanagesieve,
                     enablemanagesievesecured, enablesogo,
@@ -60,7 +61,7 @@ class MysqlUserRepository implements UserRepositoryInterface
         $stmt = $pdo->prepare(
             "SELECT username, name, first_name, last_name,
                     quota, employeeid, mobile, telephone, active,
-                    isglobaladmin, rank, department, birthday, allow_nets, recovery_email, domain, passwordlastchange,
+                    isglobaladmin, rank, department, birthday, expired, allow_nets, recovery_email, domain, passwordlastchange,
                     enablesmtp, enablesmtpsecured, enablepop3, enablepop3secured,
                     enableimap, enableimapsecured, enablemanagesieve,
                     enablemanagesievesecured, enablesogo,
@@ -97,6 +98,7 @@ class MysqlUserRepository implements UserRepositoryInterface
                     rank = :title,
                     department = :department,
                     birthday = :birthday,
+                    expired = :expired,
                     mobile = :mobile,
                     telephone = :telephoneNumber,
                     allow_nets = :allowNets,
@@ -130,6 +132,7 @@ class MysqlUserRepository implements UserRepositoryInterface
                 'title' => $user->title,
                 'department' => $user->department,
                 'birthday' => $user->birthdaySql(),
+                'expired' => ExpiryDate::toSql($user->expiredDate),
                 'mobile' => $user->mobile,
                 'telephoneNumber' => $user->telephoneNumber,
                 'allowNets' => $user->allowNetsSql(),
@@ -279,12 +282,12 @@ class MysqlUserRepository implements UserRepositoryInterface
             $stmt = $pdo->prepare(
                 "INSERT INTO mailbox
                     (username, password, name, first_name, last_name,
-                     quota, employeeid, rank, department, birthday, mobile, telephone, allow_nets, recovery_email,
+                     quota, employeeid, rank, department, birthday, expired, mobile, telephone, allow_nets, recovery_email,
                      domain, active, isglobaladmin, storagebasedirectory,
                      storagenode, maildir, mailboxformat, mailboxfolder, language, {$serviceColumns}, created, passwordlastchange)
                  VALUES
                     (:username, :password, :cn, :givenName, :sn,
-                     :quota, :employeeNumber, :title, :department, :birthday, :mobile, :telephoneNumber, :allowNets, :recoveryEmail,
+                     :quota, :employeeNumber, :title, :department, :birthday, :expired, :mobile, :telephoneNumber, :allowNets, :recoveryEmail,
                      :domain, :active, :isGlobalAdmin, :storageBase,
                      :storageNode, :maildir, :mailboxFormat, :mailboxFolder, :language, {$servicePlaceholders}, NOW(), NOW())"
             );
@@ -299,6 +302,7 @@ class MysqlUserRepository implements UserRepositoryInterface
                 'title' => $user->title,
                 'department' => $user->department,
                 'birthday' => $user->birthdaySql(),
+                'expired' => ExpiryDate::toSql($user->expiredDate),
                 'mobile' => $user->mobile,
                 'telephoneNumber' => $user->telephoneNumber,
                 'allowNets' => $user->allowNetsSql(),
@@ -386,7 +390,7 @@ class MysqlUserRepository implements UserRepositoryInterface
         $stmt = $pdo->prepare(
             "SELECT username, name, first_name, last_name,
                     quota, employeeid, mobile, telephone, active,
-                    isglobaladmin, rank, department, birthday, allow_nets, recovery_email, domain, passwordlastchange,
+                    isglobaladmin, rank, department, birthday, expired, allow_nets, recovery_email, domain, passwordlastchange,
                     enablesmtp, enablesmtpsecured, enablepop3, enablepop3secured,
                     enableimap, enableimapsecured, enablemanagesieve,
                     enablemanagesievesecured, enablesogo,
@@ -535,6 +539,7 @@ class MysqlUserRepository implements UserRepositoryInterface
             title: $row['rank'] ?? '',
             department: $row['department'] ?? '',
             birthday: User::birthdayFromSql($row['birthday'] ?? null),
+            expiredDate: ExpiryDate::fromSql($row['expired'] ?? null),
             mobile: $row['mobile'] ?? '',
             telephoneNumber: $row['telephone'] ?? '',
             allowNets: (string) ($row['allow_nets'] ?? ''),

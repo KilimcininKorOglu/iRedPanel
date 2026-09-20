@@ -127,7 +127,8 @@
     "active_help": "Aus: das Konto bleibt gespeichert, aber der Mailserver weist seine Mail ab und es kann sich nicht anmelden.",
     "password_help": "Das Panel speichert nur den Hash des Passworts. Die Passwortregeln der Domain und des Panels müssen es annehmen.",
     "keep_mailbox_days_help": "Wie lange die Maildateien einer gelöschten Mailbox auf der Platte bleiben. Das Aufräumskript entfernt sie danach. Für immer behält sie, bis jemand sie von Hand löscht.",
-    "domain_help": "Die Mail-Domain, zu der die Adresse gehört. Die Liste enthält die Domains, die Sie verwalten."
+    "domain_help": "Die Mail-Domain, zu der die Adresse gehört. Die Liste enthält die Domains, die Sie verwalten.",
+    "msg_invalid_expired_date": "Ungültiges Ablaufdatum. Verwenden Sie das Format JJJJ-MM-TT."
   },
   "auth": {
     "title": "Authentifizierung",
@@ -509,7 +510,9 @@
     "msg_quota_below_used": "Das Postfach speichert bereits :used MB. Ein Domain-Admin kann die Quota nicht auf :quota MB setzen; fragen Sie einen globalen Admin.",
     "recovery_email": "Wiederherstellungsadresse",
     "recovery_email_help": "Eine zweite Mailadresse des Benutzers. Der Link zum Zurücksetzen des Passworts geht an diese Adresse, sie muss also außerhalb dieses Postfachs liegen. Leer bedeutet, dass der Benutzer das Passwort nicht zurücksetzen kann.",
-    "msg_invalid_recovery_email": "Die Wiederherstellungsadresse ist keine Mailadresse."
+    "msg_invalid_recovery_email": "Die Wiederherstellungsadresse ist keine Mailadresse.",
+    "expired_date": "Ablaufdatum",
+    "expired_date_help": "Der letzte Tag, an dem das Postfach funktioniert. `php cli/disableExpiredAccounts.php` deaktiviert das Postfach am Folgetag, und ein abgelaufenes Postfach kann sich nicht mehr am Panel anmelden. Lassen Sie das Feld leer, damit das Postfach nie abläuft; das ist die Voreinstellung."
   },
   "mlist": {
     "msg_updated": "Mailingliste aktualisiert!",

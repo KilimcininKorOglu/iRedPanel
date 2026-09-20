@@ -127,7 +127,8 @@
     "active_help": "Uit: het account blijft opgeslagen, maar de mailserver weigert zijn mail en het kan niet inloggen.",
     "password_help": "Het paneel bewaart alleen de hash van het wachtwoord. De wachtwoordregels van het domein en van het paneel moeten het aannemen.",
     "keep_mailbox_days_help": "Hoe lang de mailbestanden van een verwijderde mailbox op de schijf blijven. Het opruimscript verwijdert ze daarna. Voor altijd bewaart ze tot iemand ze met de hand verwijdert.",
-    "domain_help": "Het maildomein waartoe het adres hoort. De lijst bevat de domeinen die u beheert."
+    "domain_help": "Het maildomein waartoe het adres hoort. De lijst bevat de domeinen die u beheert.",
+    "msg_invalid_expired_date": "Ongeldige vervaldatum. Gebruik de notatie JJJJ-MM-DD."
   },
   "auth": {
     "title": "Authenticatie",
@@ -509,7 +510,9 @@
     "msg_quota_below_used": "De mailbox bevat al :used MB. Een domain admin kan de quota niet op :quota MB zetten; vraag een global admin.",
     "recovery_email": "Herstel-adres",
     "recovery_email_help": "Een tweede mailadres van de gebruiker. De link om het wachtwoord opnieuw in te stellen gaat naar dit adres, dus het moet buiten deze mailbox liggen. Leeg betekent dat de gebruiker het wachtwoord niet opnieuw kan instellen.",
-    "msg_invalid_recovery_email": "Het herstel-adres is geen mailadres."
+    "msg_invalid_recovery_email": "Het herstel-adres is geen mailadres.",
+    "expired_date": "Vervaldatum",
+    "expired_date_help": "De laatste dag waarop de mailbox werkt. `php cli/disableExpiredAccounts.php` schakelt de mailbox de volgende dag uit, en een verlopen mailbox kan niet meer op het paneel inloggen. Laat het veld leeg zodat de mailbox nooit verloopt; dat is de standaard."
   },
   "mlist": {
     "msg_updated": "Mailinglijst bijgewerkt!",

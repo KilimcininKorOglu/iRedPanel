@@ -127,7 +127,8 @@
     "active_help": "Kikapcsolva: a fiók tárolva marad, de a mailszerver elutasítja a levelét, és belépni sem tud.",
     "password_help": "A panel csak a jelszó hashét tárolja. A tartomány és a panel jelszószabályainak el kell fogadniuk.",
     "keep_mailbox_days_help": "Meddig maradnak a lemezen egy törölt postafiók levélfájljai. A takarító script utána eltávolítja őket. Az Örökre kézi törlésig megtartja.",
-    "domain_help": "A mail domain, amelyhez a cím tartozik. A lista az Ön által kezelt domaineket tartalmazza."
+    "domain_help": "A mail domain, amelyhez a cím tartozik. A lista az Ön által kezelt domaineket tartalmazza.",
+    "msg_invalid_expired_date": "Érvénytelen lejárati dátum. Használja az ÉÉÉÉ-HH-NN formátumot."
   },
   "auth": {
     "title": "Hitelesítés",
@@ -509,7 +510,9 @@
     "msg_quota_below_used": "A postafiók már :used MB-ot tárol. Domain admin nem állíthatja a kvótát :quota MB-ra; kérje global admintól.",
     "recovery_email": "Helyreállítási cím",
     "recovery_email_help": "A felhasználó második mailcíme. A jelszó-visszaállítási hivatkozás erre a címre érkezik, ezért a postafiókon kívül kell lennie. Üresen hagyva a felhasználó nem tudja visszaállítani a jelszavát.",
-    "msg_invalid_recovery_email": "A helyreállítási cím nem mailcím."
+    "msg_invalid_recovery_email": "A helyreállítási cím nem mailcím.",
+    "expired_date": "Lejárati dátum",
+    "expired_date_help": "A postafiók utolsó működő napja. A `php cli/disableExpiredAccounts.php` másnap letiltja a postafiókot, és a lejárt postafiók nem tud belépni a panelbe. Hagyja a mezőt üresen, hogy a postafiók soha ne járjon le; ez az alapértelmezés."
   },
   "mlist": {
     "msg_updated": "Levelezőlista frissítve!",

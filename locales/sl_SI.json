@@ -127,7 +127,8 @@
     "active_help": "Izklopljeno: račun ostane shranjen, vendar poštni strežnik njegovo pošto zavrne in prijava ni mogoča.",
     "password_help": "Panel shrani le zgoščeno vrednost gesla. Pravila gesel domene in panela ga morajo sprejeti.",
     "keep_mailbox_days_help": "Kako dolgo poštne datoteke izbrisanega predala ostanejo na disku. Čistilni skript jih nato odstrani. Za vedno jih hrani do ročnega brisanja.",
-    "domain_help": "Mailna domena, ki ji naslov pripada. Seznam vsebuje domene, ki jih upravljate."
+    "domain_help": "Mailna domena, ki ji naslov pripada. Seznam vsebuje domene, ki jih upravljate.",
+    "msg_invalid_expired_date": "Neveljaven datum poteka. Uporabite obliko LLLL-MM-DD."
   },
   "auth": {
     "title": "Preverjanje pristnosti",
@@ -509,7 +510,9 @@
     "msg_quota_below_used": "Poštni predal že hrani :used MB. Domain admin ne more nastaviti kvote na :quota MB; prosite global admina.",
     "recovery_email": "Naslov za obnovitev",
     "recovery_email_help": "Drugi poštni naslov uporabnika. Povezava za ponastavitev gesla gre na ta naslov, zato mora biti zunaj tega predala. Prazno pomeni, da uporabnik gesla ne more ponastaviti.",
-    "msg_invalid_recovery_email": "Naslov za obnovitev ni poštni naslov."
+    "msg_invalid_recovery_email": "Naslov za obnovitev ni poštni naslov.",
+    "expired_date": "Datum poteka",
+    "expired_date_help": "Zadnji dan delovanja nabiralnika. `php cli/disableExpiredAccounts.php` nabiralnik naslednji dan onemogoči, potekli nabiralnik pa se ne more več prijaviti v nadzorno ploščo. Pustite polje prazno, da nabiralnik nikoli ne poteče; to je privzeto."
   },
   "mlist": {
     "msg_updated": "Poštni seznam posodobljen!",

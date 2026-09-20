@@ -127,7 +127,8 @@
     "active_help": "Off: the account stays stored, but the mail server refuses its mail and it cannot log in.",
     "password_help": "The panel stores only the hash of the password. The password rules of the domain and of the panel must accept it.",
     "keep_mailbox_days_help": "How long the mail files of a deleted mailbox stay on disk. The cleanup script removes them after that. Forever keeps them until somebody deletes them by hand.",
-    "domain_help": "The mail domain that the address belongs to. The list holds the domains that you manage."
+    "domain_help": "The mail domain that the address belongs to. The list holds the domains that you manage.",
+    "msg_invalid_expired_date": "Invalid expiry date. Use the YYYY-MM-DD format."
   },
   "auth": {
     "title": "Authentication",
@@ -509,7 +510,9 @@
     "msg_quota_below_used": "The mailbox already stores :used MB. A domain admin cannot set the quota to :quota MB; ask a global admin.",
     "recovery_email": "Recovery address",
     "recovery_email_help": "A second mail address of the user. The password reset link goes to this address, so it must be an address outside this mailbox. Empty means the user cannot reset the password.",
-    "msg_invalid_recovery_email": "The recovery address is not a mail address."
+    "msg_invalid_recovery_email": "The recovery address is not a mail address.",
+    "expired_date": "Expiry date",
+    "expired_date_help": "The last day the mailbox works. `php cli/disableExpiredAccounts.php` disables the mailbox on the next day, and an expired mailbox can no longer sign in to the panel. Leave the field empty so that the mailbox never expires; that is the default."
   },
   "mlist": {
     "msg_updated": "Mailing list updated!",

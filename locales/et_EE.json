@@ -127,7 +127,8 @@
     "active_help": "Väljas: konto jääb salvestatuks, kuid postiserver lükkab selle kirjad tagasi ja sisse logida ei saa.",
     "password_help": "Paneel salvestab ainult parooli räsi. Domeeni ja paneeli paroolireeglid peavad selle vastu võtma.",
     "keep_mailbox_days_help": "Kui kaua kustutatud postkasti kirjafailid kettal püsivad. Puhastusskript eemaldab need pärast seda. \"Igavesti\" hoiab neid käsitsi kustutamiseni.",
-    "domain_help": "Maili domeen, kuhu aadress kuulub. Loend sisaldab domeene, mida te haldate."
+    "domain_help": "Maili domeen, kuhu aadress kuulub. Loend sisaldab domeene, mida te haldate.",
+    "msg_invalid_expired_date": "Vigane aegumiskuupäev. Kasuta vormingut AAAA-KK-PP."
   },
   "auth": {
     "title": "Autentimine",
@@ -509,7 +510,9 @@
     "msg_quota_below_used": "Postkast hoiab juba :used MB. Domain admin ei saa kvooti määrata :quota MB peale; küsi global admini käest.",
     "recovery_email": "Taasteaadress",
     "recovery_email_help": "Kasutaja teine e-posti aadress. Parooli lähtestamise link läheb sellele aadressile, seega peab see olema väljaspool seda postkasti. Tühi tähendab, et kasutaja ei saa parooli lähtestada.",
-    "msg_invalid_recovery_email": "Taasteaadress ei ole e-posti aadress."
+    "msg_invalid_recovery_email": "Taasteaadress ei ole e-posti aadress.",
+    "expired_date": "Aegumiskuupäev",
+    "expired_date_help": "Postkasti viimane tööpäev. `php cli/disableExpiredAccounts.php` keelab postkasti järgmisel päeval ja aegunud postkast ei saa enam paneeli sisse logida. Jäta väli tühjaks, et postkast ei aeguks kunagi; see on vaikeväärtus."
   },
   "mlist": {
     "msg_updated": "Postiloend uuendatud!",

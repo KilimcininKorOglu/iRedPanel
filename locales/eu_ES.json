@@ -127,7 +127,8 @@
     "active_help": "Itzalita: kontua gordeta geratzen da, baina posta zerbitzariak bere posta ukatzen du eta ezin da saioa hasi.",
     "password_help": "Panelak pasahitzaren hash-a baino ez du gordetzen. Domeinuaren eta panelaren pasahitz arauek onartu behar dute.",
     "keep_mailbox_days_help": "Ezabatutako postontzi baten posta fitxategiak diskoan zenbat denbora geratzen diren. Garbiketa script-ak gero kentzen ditu. Betiko aukerak eskuz ezabatu arte gordetzen ditu.",
-    "domain_help": "Helbidea zein mail domeinutakoa den. Zerrendak kudeatzen dituzun domeinuak ditu."
+    "domain_help": "Helbidea zein mail domeinutakoa den. Zerrendak kudeatzen dituzun domeinuak ditu.",
+    "msg_invalid_expired_date": "Iraungitze-data baliogabea. Erabili UUUU-HH-EE formatua."
   },
   "auth": {
     "title": "Autentifikazioa",
@@ -509,7 +510,9 @@
     "msg_quota_below_used": "Postontziak :used MB gordetzen ditu jada. Domain admin batek ezin du kuota :quota MB-ra jaitsi; eskatu global admin bati.",
     "recovery_email": "Berreskuratze helbidea",
     "recovery_email_help": "Erabiltzailearen bigarren mail helbidea. Pasahitza berrezartzeko esteka helbide horretara doa, beraz postontzi honetatik kanpo egon behar du. Hutsik utziz gero, erabiltzaileak ezin du pasahitza berrezarri.",
-    "msg_invalid_recovery_email": "Berreskuratze helbidea ez da mail helbide bat."
+    "msg_invalid_recovery_email": "Berreskuratze helbidea ez da mail helbide bat.",
+    "expired_date": "Iraungitze-data",
+    "expired_date_help": "Postontziak funtzionatzen duen azken eguna. `php cli/disableExpiredAccounts.php` postontzia hurrengo egunean desgaitzen du, eta iraungitako postontzi batek ezin du panelean saioa hasi. Utzi eremua hutsik postontzia inoiz irauni ez dadin; hori da lehenetsia."
   },
   "mlist": {
     "msg_updated": "Posta-zerrenda eguneratu da!",

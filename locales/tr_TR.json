@@ -127,7 +127,8 @@
     "active_help": "Kapalı: hesap kayıtlı kalır, ancak mail sunucusu mailini reddeder ve hesap giriş yapamaz.",
     "password_help": "Panel yalnızca parolanın hash'ini saklar. Domain'in ve panelin parola kuralları parolayı kabul etmelidir.",
     "keep_mailbox_days_help": "Silinen bir mailbox'ın mail dosyalarının diskte kalma süresi. Temizleme script'i bu süreden sonra siler. Sonsuz seçeneği, biri elle silene kadar tutar.",
-    "domain_help": "Adresin ait olduğu mail domain. Liste yönettiğiniz domainleri tutar."
+    "domain_help": "Adresin ait olduğu mail domain. Liste yönettiğiniz domainleri tutar.",
+    "msg_invalid_expired_date": "Geçersiz sona erme tarihi. YYYY-MM-DD biçimini kullanın."
   },
   "auth": {
     "title": "Kimlik Doğrulama",
@@ -509,7 +510,9 @@
     "msg_quota_below_used": "Posta kutusu şu anda :used MB saklıyor. Domain admin kvotayı :quota MB yapamaz; global admin'e başvurun.",
     "recovery_email": "Kurtarma adresi",
     "recovery_email_help": "Kullanıcının ikinci mail adresi. Parola sıfırlama linki bu adrese gider, bu yüzden bu mailbox'ın dışında bir adres olmalıdır. Boş bırakılırsa kullanıcı parolasını sıfırlayamaz.",
-    "msg_invalid_recovery_email": "Kurtarma adresi bir mail adresi değil."
+    "msg_invalid_recovery_email": "Kurtarma adresi bir mail adresi değil.",
+    "expired_date": "Sona erme tarihi",
+    "expired_date_help": "Mailbox'ın çalıştığı son gün. `php cli/disableExpiredAccounts.php` mailbox'ı ertesi gün devre dışı bırakır ve süresi dolmuş bir mailbox panele giremez. Mailbox hiç sona ermesin isterseniz alanı boş bırakın; varsayılan budur."
   },
   "mlist": {
     "msg_updated": "Posta listesi güncellendi!",

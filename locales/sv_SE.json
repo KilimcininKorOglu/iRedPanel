@@ -127,7 +127,8 @@
     "active_help": "Av: kontot är kvar sparat, men mailservern avvisar dess post och det kan inte logga in.",
     "password_help": "Panelen sparar bara hashen av lösenordet. Lösenordsreglerna för domänen och panelen måste godta det.",
     "keep_mailbox_days_help": "Hur länge e-postfilerna för en borttagen brevlåda ligger kvar på disken. Städskriptet tar bort dem efteråt. För alltid behåller dem till en manuell borttagning.",
-    "domain_help": "Maildomänen som adressen hör till. Listan innehåller de domäner du styr."
+    "domain_help": "Maildomänen som adressen hör till. Listan innehåller de domäner du styr.",
+    "msg_invalid_expired_date": "Ogiltigt utgångsdatum. Använd formatet ÅÅÅÅ-MM-DD."
   },
   "auth": {
     "title": "Autentisering",
@@ -509,7 +510,9 @@
     "msg_quota_below_used": "Brevlådan lagrar redan :used MB. En domain admin kan inte sätta kvoten till :quota MB; fråga en global admin.",
     "recovery_email": "Återställningsadress",
     "recovery_email_help": "En andra mailadress för användaren. Länken för att återställa lösenordet skickas till denna adress, så den måste ligga utanför denna brevlåda. Tomt betyder att användaren inte kan återställa lösenordet.",
-    "msg_invalid_recovery_email": "Återställningsadressen är ingen mailadress."
+    "msg_invalid_recovery_email": "Återställningsadressen är ingen mailadress.",
+    "expired_date": "Utgångsdatum",
+    "expired_date_help": "Den sista dagen brevlådan fungerar. `php cli/disableExpiredAccounts.php` inaktiverar brevlådan nästa dag, och en utgången brevlåda kan inte längre logga in i panelen. Lämna fältet tomt så att brevlådan aldrig går ut; det är standard."
   },
   "mlist": {
     "msg_updated": "Sändlista uppdaterad!",

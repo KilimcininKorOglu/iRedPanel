@@ -127,7 +127,8 @@
     "active_help": "Desactivat: el compte es manté desat, però el servidor de correu rebutja el seu correu i no pot iniciar sessió.",
     "password_help": "El tauler només desa el hash de la contrasenya. Les regles de contrasenya del domini i del tauler l'han d'acceptar.",
     "keep_mailbox_days_help": "Quant de temps els fitxers de correu d'una bústia esborrada queden al disc. L'script de neteja els treu després. Per sempre els manté fins a un esborrat manual.",
-    "domain_help": "El domini de mail al qual pertany l'adreça. La llista conté els dominis que gestioneu."
+    "domain_help": "El domini de mail al qual pertany l'adreça. La llista conté els dominis que gestioneu.",
+    "msg_invalid_expired_date": "Data de caducitat no vàlida. Utilitzeu el format AAAA-MM-DD."
   },
   "auth": {
     "title": "Autenticació",
@@ -509,7 +510,9 @@
     "msg_quota_below_used": "La bústia ja desa :used MB. Un domain admin no pot posar la quota a :quota MB; demaneu-ho a un global admin.",
     "recovery_email": "Adreça de recuperació",
     "recovery_email_help": "Una segona adreça de correu de l'usuari. L'enllaç per restablir la contrasenya s'envia a aquesta adreça, per tant ha de ser fora d'aquesta bústia. Buit vol dir que l'usuari no pot restablir la contrasenya.",
-    "msg_invalid_recovery_email": "L'adreça de recuperació no és una adreça de correu."
+    "msg_invalid_recovery_email": "L'adreça de recuperació no és una adreça de correu.",
+    "expired_date": "Data de caducitat",
+    "expired_date_help": "L'últim dia en què la bústia funciona. `php cli/disableExpiredAccounts.php` la desactiva l'endemà, i una bústia caducada ja no pot iniciar sessió al tauler. Deixeu el camp buit perquè no caduqui mai; aquest és el valor per defecte."
   },
   "mlist": {
     "msg_updated": "Llista de correu actualitzada!",

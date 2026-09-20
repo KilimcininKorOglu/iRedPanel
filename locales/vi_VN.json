@@ -127,7 +127,8 @@
     "active_help": "Tắt: tài khoản vẫn được lưu, nhưng máy chủ thư từ chối thư của nó và nó không đăng nhập được.",
     "password_help": "Panel chỉ lưu hash của mật khẩu. Quy tắc mật khẩu của domain và của panel phải chấp nhận mật khẩu này.",
     "keep_mailbox_days_help": "Tệp mail của một hộp thư đã xóa còn lại trên đĩa bao lâu. Script dọn dẹp xóa chúng sau đó. Vĩnh viễn giữ lại cho tới khi xóa thủ công.",
-    "domain_help": "Domain mail mà địa chỉ này thuộc về. Danh sách chứa các domain bạn quản lý."
+    "domain_help": "Domain mail mà địa chỉ này thuộc về. Danh sách chứa các domain bạn quản lý.",
+    "msg_invalid_expired_date": "Ngày hết hạn không hợp lệ. Dùng định dạng YYYY-MM-DD."
   },
   "auth": {
     "title": "Xác thực",
@@ -509,7 +510,9 @@
     "msg_quota_below_used": "Hộp thư đã lưu :used MB. Domain admin không thể đặt quota thành :quota MB; hãy nhờ global admin.",
     "recovery_email": "Địa chỉ khôi phục",
     "recovery_email_help": "Địa chỉ mail thứ hai của người dùng. Liên kết đặt lại mật khẩu được gửi tới địa chỉ này, nên nó phải nằm ngoài hộp thư này. Để trống nghĩa là người dùng không thể đặt lại mật khẩu.",
-    "msg_invalid_recovery_email": "Địa chỉ khôi phục không phải là một địa chỉ mail."
+    "msg_invalid_recovery_email": "Địa chỉ khôi phục không phải là một địa chỉ mail.",
+    "expired_date": "Ngày hết hạn",
+    "expired_date_help": "Ngày cuối cùng hộp thư hoạt động. `php cli/disableExpiredAccounts.php` tắt hộp thư vào ngày hôm sau, và hộp thư hết hạn không thể đăng nhập vào panel. Để trống trường này để hộp thư không bao giờ hết hạn; đó là mặc định."
   },
   "mlist": {
     "msg_updated": "Danh sách gửi thư đã được cập nhật!",

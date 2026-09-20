@@ -127,7 +127,8 @@
     "active_help": "Désactivé : le compte reste enregistré, mais le serveur de courrier refuse son courrier et il ne peut pas se connecter.",
     "password_help": "Le panneau ne stocke que le hachage du mot de passe. Les règles de mot de passe du domaine et du panneau doivent l'accepter.",
     "keep_mailbox_days_help": "Combien de temps les fichiers de courrier d'une boîte supprimée restent sur le disque. Le script de nettoyage les retire ensuite. Toujours les garde jusqu'à une suppression manuelle.",
-    "domain_help": "Le domaine mail auquel appartient l'adresse. La liste contient les domaines que vous gérez."
+    "domain_help": "Le domaine mail auquel appartient l'adresse. La liste contient les domaines que vous gérez.",
+    "msg_invalid_expired_date": "Date d'expiration invalide. Utilisez le format AAAA-MM-JJ."
   },
   "auth": {
     "title": "Authentification",
@@ -509,7 +510,9 @@
     "msg_quota_below_used": "La boîte stocke déjà :used Mo. Un domain admin ne peut pas fixer le quota à :quota Mo ; demandez à un global admin.",
     "recovery_email": "Adresse de récupération",
     "recovery_email_help": "Une seconde adresse mail de l'utilisateur. Le lien de réinitialisation du mot de passe est envoyé à cette adresse, elle doit donc être en dehors de cette boîte. Vide signifie que l'utilisateur ne peut pas réinitialiser son mot de passe.",
-    "msg_invalid_recovery_email": "L'adresse de récupération n'est pas une adresse mail."
+    "msg_invalid_recovery_email": "L'adresse de récupération n'est pas une adresse mail.",
+    "expired_date": "Date d'expiration",
+    "expired_date_help": "Le dernier jour où la boîte aux lettres fonctionne. `php cli/disableExpiredAccounts.php` la désactive le lendemain, et une boîte expirée ne peut plus se connecter au panneau. Laissez le champ vide pour qu'elle n'expire jamais ; c'est la valeur par défaut."
   },
   "mlist": {
     "msg_updated": "Liste de diffusion mise à jour !",

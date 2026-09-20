@@ -127,7 +127,8 @@
     "active_help": "Oprit: contul rămâne salvat, dar serverul de mail îi refuză mailul și nu se poate autentifica.",
     "password_help": "Panoul păstrează doar hash-ul parolei. Regulile de parolă ale domeniului și ale panoului trebuie să o accepte.",
     "keep_mailbox_days_help": "Cât timp rămân pe disc fișierele de mail ale unei cutii poștale șterse. Scriptul de curățare le înlătură după aceea. Pentru totdeauna le păstrează până la o ștergere manuală.",
-    "domain_help": "Domeniul de mail căruia îi aparține adresa. Lista conține domeniile pe care le administrați."
+    "domain_help": "Domeniul de mail căruia îi aparține adresa. Lista conține domeniile pe care le administrați.",
+    "msg_invalid_expired_date": "Dată de expirare invalidă. Folosiți formatul AAAA-LL-ZZ."
   },
   "auth": {
     "title": "Autentificare",
@@ -509,7 +510,9 @@
     "msg_quota_below_used": "Căsuța stochează deja :used MB. Un domain admin nu poate seta cota la :quota MB; cereți unui global admin.",
     "recovery_email": "Adresă de recuperare",
     "recovery_email_help": "O a doua adresă de mail a utilizatorului. Linkul de resetare a parolei ajunge la această adresă, deci trebuie să fie în afara acestei cutii. Gol înseamnă că utilizatorul nu își poate reseta parola.",
-    "msg_invalid_recovery_email": "Adresa de recuperare nu este o adresă de mail."
+    "msg_invalid_recovery_email": "Adresa de recuperare nu este o adresă de mail.",
+    "expired_date": "Data expirării",
+    "expired_date_help": "Ultima zi în care căsuța funcționează. `php cli/disableExpiredAccounts.php` dezactivează căsuța a doua zi, iar o căsuță expirată nu se mai poate autentifica în panou. Lăsați câmpul gol pentru ca aceasta să nu expire niciodată; aceasta este valoarea implicită."
   },
   "mlist": {
     "msg_updated": "Lista de corespondență a fost actualizată!",

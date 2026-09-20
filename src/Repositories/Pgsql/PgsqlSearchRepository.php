@@ -13,53 +13,77 @@ class PgsqlSearchRepository implements SearchRepositoryInterface
     private const ADMINS_TABLE = '(SELECT username, name, active FROM admin
         UNION SELECT username, name, active FROM mailbox WHERE isadmin = 1 OR isglobaladmin = 1) AS admins';
 
+    /**
+     * The searched tables, keyed by the result group the page reads. `type` is the
+     * account type of the filter chips, `global` marks a table with no domain column.
+     */
+    private const SEARCH_TABLES = [
+        'domains' => ['type' => 'domain', 'table' => 'domain', 'columns' => 'domain, description, active', 'search' => ['domain', 'description']],
+        'users' => ['type' => 'user', 'table' => 'mailbox', 'columns' => 'username, name, domain, active', 'search' => ['username', 'name']],
+        'aliases' => ['type' => 'alias', 'table' => 'alias', 'columns' => 'address, name, domain, active', 'search' => ['address', 'name']],
+        'mailingLists' => ['type' => 'ml', 'table' => 'maillists', 'columns' => 'address, name, domain, active', 'search' => ['address', 'name']],
+        'admins' => ['type' => 'admin', 'table' => null, 'columns' => 'username, name, active', 'search' => ['username', 'name'], 'global' => true],
+    ];
+
     public function search(string $query, array $accountTypes = [], array $statusFilter = [], array $managedDomains = []): array
     {
         $pdo = PgsqlConnection::getInstance()->getPdo();
         $likeQuery = '%' . SqlLike::escape($query) . '%';
-        $searchAll = $accountTypes === [];
+        [$domainFilter, $domainParams] = self::domainFilter($managedDomains);
 
-        $domainFilter = '';
-        $domainParams = [];
-        if ($managedDomains !== []) {
-            $placeholders = [];
-            foreach ($managedDomains as $i => $d) {
-                $key = "md{$i}";
-                $placeholders[] = ":{$key}";
-                $domainParams[$key] = $d;
+        $results = [];
+        foreach (self::SEARCH_TABLES as $group => $t) {
+            $isGlobal = $t['global'] ?? false;
+            $results[$group] = [];
+            if (!$this->wanted($t['type'], $accountTypes) || ($isGlobal && $managedDomains !== [])) {
+                continue;
             }
-            $domainFilter = ' AND domain IN (' . implode(',', $placeholders) . ')';
-        }
 
-        $results = [
-            'domains' => [],
-            'users' => [],
-            'aliases' => [],
-            'mailingLists' => [],
-            'admins' => [],
-        ];
-
-        if ($searchAll || in_array('domain', $accountTypes, true)) {
-            $results['domains'] = $this->searchTable($pdo, 'domain', 'domain, description, active', ['domain', 'description'], $likeQuery, $statusFilter, $domainFilter, $domainParams);
-        }
-
-        if ($searchAll || in_array('user', $accountTypes, true)) {
-            $results['users'] = $this->searchTable($pdo, 'mailbox', 'username, name, domain, active', ['username', 'name'], $likeQuery, $statusFilter, $domainFilter, $domainParams);
-        }
-
-        if ($searchAll || in_array('alias', $accountTypes, true)) {
-            $results['aliases'] = $this->searchTable($pdo, 'alias', 'address, name, domain, active', ['address', 'name'], $likeQuery, $statusFilter, $domainFilter, $domainParams);
-        }
-
-        if ($searchAll || in_array('ml', $accountTypes, true)) {
-            $results['mailingLists'] = $this->searchTable($pdo, 'maillists', 'address, name, domain, active', ['address', 'name'], $likeQuery, $statusFilter, $domainFilter, $domainParams);
-        }
-
-        if (($searchAll || in_array('admin', $accountTypes, true)) && $managedDomains === []) {
-            $results['admins'] = $this->searchTable($pdo, self::ADMINS_TABLE, 'username, name, active', ['username', 'name'], $likeQuery, $statusFilter, '', []);
+            $results[$group] = $this->searchTable(
+                $pdo,
+                $t['table'] ?? self::ADMINS_TABLE,
+                $t['columns'],
+                $t['search'],
+                $likeQuery,
+                $statusFilter,
+                $isGlobal ? '' : $domainFilter,
+                $isGlobal ? [] : $domainParams
+            );
         }
 
         return $results;
+    }
+
+    /**
+     * An empty filter list means every account type.
+     *
+     * @param list<string> $accountTypes
+     */
+    private function wanted(string $type, array $accountTypes): bool
+    {
+        return $accountTypes === [] || in_array($type, $accountTypes, true);
+    }
+
+    /**
+     * The domain scope of a domain admin as an SQL fragment plus its parameters.
+     *
+     * @param list<string> $managedDomains
+     * @return array{string, array<string, string>}
+     */
+    private static function domainFilter(array $managedDomains): array
+    {
+        if ($managedDomains === []) {
+            return ['', []];
+        }
+
+        $placeholders = [];
+        $params = [];
+        foreach ($managedDomains as $i => $d) {
+            $placeholders[] = ":md{$i}";
+            $params["md{$i}"] = $d;
+        }
+
+        return [' AND domain IN (' . implode(',', $placeholders) . ')', $params];
     }
 
     /**

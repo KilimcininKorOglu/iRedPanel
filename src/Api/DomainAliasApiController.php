@@ -25,6 +25,32 @@ class DomainAliasApiController
         ]);
     }
 
+    /**
+     * Why the pair of domains cannot become an alias domain.
+     *
+     * @return array{0: string, 1: int}|null the error message and HTTP status, or null when the pair is valid
+     */
+    private static function createError(string $aliasDomain, string $targetDomain): ?array
+    {
+        if ($aliasDomain === '' || $targetDomain === '') {
+            return ['aliasDomain and targetDomain are required', 400];
+        }
+        if (!Domain::isValidName($aliasDomain) || $aliasDomain === $targetDomain) {
+            return ['aliasDomain must be a valid domain name other than targetDomain', 400];
+        }
+
+        $domainRepo = RepositoryFactory::getDomainRepository();
+        if ($domainRepo->getDomain($aliasDomain) !== null
+            || RepositoryFactory::getDomainAliasRepository()->getAlias($aliasDomain) !== null) {
+            return ['aliasDomain already exists as a mail domain or an alias domain', 409];
+        }
+        if ($domainRepo->getDomain($targetDomain) === null) {
+            return ['targetDomain does not exist', 404];
+        }
+
+        return null;
+    }
+
     public static function create(): void
     {
         ApiMiddleware::requireGlobalKey();
@@ -33,23 +59,9 @@ class DomainAliasApiController
         $aliasDomain = strtolower(trim((string) ($data['aliasDomain'] ?? '')));
         $targetDomain = strtolower(trim((string) ($data['targetDomain'] ?? '')));
 
-        if ($aliasDomain === '' || $targetDomain === '') {
-            ApiResponse::error('aliasDomain and targetDomain are required');
-            return;
-        }
-        if (!Domain::isValidName($aliasDomain) || $aliasDomain === $targetDomain) {
-            ApiResponse::error('aliasDomain must be a valid domain name other than targetDomain');
-            return;
-        }
-
-        $domainRepo = RepositoryFactory::getDomainRepository();
-        if ($domainRepo->getDomain($aliasDomain) !== null
-            || RepositoryFactory::getDomainAliasRepository()->getAlias($aliasDomain) !== null) {
-            ApiResponse::error('aliasDomain already exists as a mail domain or an alias domain', 409);
-            return;
-        }
-        if ($domainRepo->getDomain($targetDomain) === null) {
-            ApiResponse::error('targetDomain does not exist', 404);
+        $error = self::createError($aliasDomain, $targetDomain);
+        if ($error !== null) {
+            ApiResponse::error($error[0], $error[1]);
             return;
         }
 

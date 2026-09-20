@@ -176,47 +176,12 @@ class Settings
     private function __construct()
     {
         // Backend selection
-        $this->backend = strtolower($this->env('IREDPANEL_BACKEND', 'ldap'));
-        if (!in_array($this->backend, ['ldap', 'mysql', 'pgsql'], true)) {
-            throw new \RuntimeException("Unsupported backend: {$this->backend}. Must be 'ldap', 'mysql', or 'pgsql'");
-        }
+        $this->backend = $this->validBackend();
 
-        // General settings
         $this->secretKey = $this->envRequired('IREDPANEL_SECRET_KEY');
-        $this->passwordMinLength = $this->envInt('IREDPANEL_PASSWORD_MIN_LENGTH', 8);
-        $this->passwordIncludesSpecialChars = $this->envBool('IREDPANEL_PASSWORD_INCLUDES_SPECIAL_CHARS', true);
-        $this->passwordIncludesNumbers = $this->envBool('IREDPANEL_PASSWORD_INCLUDES_NUMBERS', true);
-        $this->passwordIncludesLowercase = $this->envBool('IREDPANEL_PASSWORD_INCLUDES_LOWERCASE', true);
-        $this->passwordIncludesUppercase = $this->envBool('IREDPANEL_PASSWORD_INCLUDES_UPPERCASE', true);
-        $this->passwordHashesUsePrefixedScheme = $this->envBool('IREDPANEL_PASSWORD_HASHES_USE_PREFIXED_SCHEME', true);
-
-        $scheme = strtoupper($this->env('IREDPANEL_PASSWORD_DEFAULT_SCHEME', 'SSHA512'));
-        if (!in_array($scheme, self::ALLOWED_SCHEMES, true)) {
-            throw new \RuntimeException("Unsupported password scheme: $scheme");
-        }
-        $this->passwordDefaultScheme = $scheme;
-        $this->paginationPerPage = $this->envInt('IREDPANEL_PAGINATION_PER_PAGE', 50);
-        $this->requireOldPasswordOnChange = $this->envBool('IREDPANEL_REQUIRE_OLD_PASSWORD_ON_CHANGE', false);
-        $this->sessionTimeout = $this->envInt('IREDPANEL_SESSION_TIMEOUT', 1800);
-        $this->allowedIpRanges = $this->env('IREDPANEL_ALLOWED_IP_RANGES', '');
-        $this->sessionValidateIp = $this->envBool('IREDPANEL_SESSION_VALIDATE_IP', false);
-        $this->checkUpdates = $this->envBool('IREDPANEL_CHECK_UPDATES', true);
-        $this->geoIpDbPath = $this->env('IREDPANEL_GEOIP_DB_PATH', '');
-        $this->apiEnabled = $this->envBool('IREDPANEL_API_ENABLED', false);
-        $this->apiKey = $this->env('IREDPANEL_API_KEY', '');
-        $this->apiAllowedIps = $this->env('IREDPANEL_API_ALLOWED_IPS', '');
-        $this->requireDomainOwnershipVerification = $this->envBool('IREDPANEL_REQUIRE_DOMAIN_OWNERSHIP_VERIFICATION', false);
-
-        $defaultLanguage = $this->env('IREDPANEL_DEFAULT_LANGUAGE', \App\I18n\Translator::FALLBACK_LOCALE);
-        $this->defaultLanguage = \App\I18n\Translator::isSupported($defaultLanguage)
-            ? $defaultLanguage
-            : \App\I18n\Translator::FALLBACK_LOCALE;
-
-        // Branding
-        $this->brandName = $this->env('IREDPANEL_BRAND_NAME', 'iRedPanel');
-        $this->brandLogoUrl = $this->env('IREDPANEL_BRAND_LOGO_URL', '/static/logo-iredmail.png');
-        $this->brandFooterText = $this->env('IREDPANEL_BRAND_FOOTER_TEXT', '');
-        $this->brandPrimaryColor = $this->env('IREDPANEL_BRAND_PRIMARY_COLOR', '');
+        // The DB-overridable settings are not readonly, so a method may write them.
+        $this->loadPasswordPolicy();
+        $this->loadPanelSettings();
 
         // Integration DB default port based on backend
         $defaultDbPort = $this->backend === 'pgsql' ? 5432 : 3306;
@@ -259,23 +224,15 @@ class Settings
         $this->mlmmjadminApiUrl = rtrim($this->env('IREDPANEL_MLMMJADMIN_API_URL', ''), '/');
         $this->mlmmjadminApiToken = $this->env('IREDPANEL_MLMMJADMIN_API_TOKEN', '');
 
-        $security = strtolower($this->env('IREDPANEL_SMTP_SECURITY', 'starttls'));
-        if (!in_array($security, ['none', 'starttls', 'tls'], true)) {
-            throw new \RuntimeException("Unsupported SMTP security: {$security}. Must be 'none', 'starttls', or 'tls'");
-        }
-        $this->smtpSecurity = $security;
+        $this->smtpSecurity = $this->validSmtpSecurity();
         $this->smtpHost = $this->env('IREDPANEL_SMTP_HOST', '');
-        $this->smtpPort = $this->envInt('IREDPANEL_SMTP_PORT', $security === 'tls' ? 465 : 587);
+        $this->smtpPort = $this->envInt('IREDPANEL_SMTP_PORT', $this->smtpSecurity === 'tls' ? 465 : 587);
         $this->smtpTlsVerify = $this->envBool('IREDPANEL_SMTP_TLS_VERIFY', true);
         $this->smtpUser = $this->env('IREDPANEL_SMTP_USER', '');
         $this->smtpPassword = $this->env('IREDPANEL_SMTP_PASSWORD', '');
         $this->smtpFrom = $this->env('IREDPANEL_SMTP_FROM', '');
 
-        $publicUrl = rtrim($this->env('IREDPANEL_PUBLIC_URL', ''), '/');
-        if ($publicUrl !== '' && !preg_match('#^https?://[^/?\#\s]+(/[^?\#\s]*)?$#', $publicUrl)) {
-            throw new \RuntimeException('IREDPANEL_PUBLIC_URL must be an http(s) URL without query, for example https://panel.example.com');
-        }
-        $this->publicUrl = $publicUrl;
+        $this->publicUrl = $this->validPublicUrl();
         $this->newsletterExpireHours = max(1, $this->envInt('IREDPANEL_NEWSLETTER_EXPIRE_HOURS', 24));
 
         // Conditional backend settings
@@ -343,6 +300,106 @@ class Settings
         }
     }
 
+    /**
+     * The password policy of the panel. Every value can be overridden from panel_settings.
+     */
+    private function loadPasswordPolicy(): void
+    {
+        $this->passwordMinLength = $this->envInt('IREDPANEL_PASSWORD_MIN_LENGTH', 8);
+        $this->passwordIncludesSpecialChars = $this->envBool('IREDPANEL_PASSWORD_INCLUDES_SPECIAL_CHARS', true);
+        $this->passwordIncludesNumbers = $this->envBool('IREDPANEL_PASSWORD_INCLUDES_NUMBERS', true);
+        $this->passwordIncludesLowercase = $this->envBool('IREDPANEL_PASSWORD_INCLUDES_LOWERCASE', true);
+        $this->passwordIncludesUppercase = $this->envBool('IREDPANEL_PASSWORD_INCLUDES_UPPERCASE', true);
+        $this->passwordHashesUsePrefixedScheme = $this->envBool('IREDPANEL_PASSWORD_HASHES_USE_PREFIXED_SCHEME', true);
+        $this->passwordDefaultScheme = $this->validPasswordScheme();
+        $this->requireOldPasswordOnChange = $this->envBool('IREDPANEL_REQUIRE_OLD_PASSWORD_ON_CHANGE', false);
+    }
+
+    /**
+     * The session, API, display and branding settings. Every value can be overridden
+     * from panel_settings.
+     */
+    private function loadPanelSettings(): void
+    {
+        $this->sessionTimeout = $this->envInt('IREDPANEL_SESSION_TIMEOUT', 1800);
+        $this->sessionValidateIp = $this->envBool('IREDPANEL_SESSION_VALIDATE_IP', false);
+        $this->allowedIpRanges = $this->env('IREDPANEL_ALLOWED_IP_RANGES', '');
+        $this->apiEnabled = $this->envBool('IREDPANEL_API_ENABLED', false);
+        $this->apiKey = $this->env('IREDPANEL_API_KEY', '');
+        $this->apiAllowedIps = $this->env('IREDPANEL_API_ALLOWED_IPS', '');
+        $this->paginationPerPage = $this->envInt('IREDPANEL_PAGINATION_PER_PAGE', 50);
+        $this->checkUpdates = $this->envBool('IREDPANEL_CHECK_UPDATES', true);
+        $this->geoIpDbPath = $this->env('IREDPANEL_GEOIP_DB_PATH', '');
+        $this->requireDomainOwnershipVerification = $this->envBool('IREDPANEL_REQUIRE_DOMAIN_OWNERSHIP_VERIFICATION', false);
+        $this->defaultLanguage = $this->supportedLanguage();
+        $this->brandName = $this->env('IREDPANEL_BRAND_NAME', 'iRedPanel');
+        $this->brandLogoUrl = $this->env('IREDPANEL_BRAND_LOGO_URL', '/static/logo-iredmail.png');
+        $this->brandFooterText = $this->env('IREDPANEL_BRAND_FOOTER_TEXT', '');
+        $this->brandPrimaryColor = $this->env('IREDPANEL_BRAND_PRIMARY_COLOR', '');
+    }
+
+    /**
+     * @throws \RuntimeException when IREDPANEL_BACKEND names no supported backend
+     */
+    private function validBackend(): string
+    {
+        $backend = strtolower($this->env('IREDPANEL_BACKEND', 'ldap'));
+        if (!in_array($backend, ['ldap', 'mysql', 'pgsql'], true)) {
+            throw new \RuntimeException("Unsupported backend: {$backend}. Must be 'ldap', 'mysql', or 'pgsql'");
+        }
+
+        return $backend;
+    }
+
+    /**
+     * @throws \RuntimeException when the scheme is not one that PasswordUtils writes
+     */
+    private function validPasswordScheme(): string
+    {
+        $scheme = strtoupper($this->env('IREDPANEL_PASSWORD_DEFAULT_SCHEME', 'SSHA512'));
+        if (!in_array($scheme, self::ALLOWED_SCHEMES, true)) {
+            throw new \RuntimeException("Unsupported password scheme: $scheme");
+        }
+
+        return $scheme;
+    }
+
+    /**
+     * The configured UI language, or the fallback locale when it has no locale file.
+     */
+    private function supportedLanguage(): string
+    {
+        $language = $this->env('IREDPANEL_DEFAULT_LANGUAGE', \App\I18n\Translator::FALLBACK_LOCALE);
+
+        return \App\I18n\Translator::isSupported($language) ? $language : \App\I18n\Translator::FALLBACK_LOCALE;
+    }
+
+    /**
+     * @throws \RuntimeException when IREDPANEL_SMTP_SECURITY names no supported mode
+     */
+    private function validSmtpSecurity(): string
+    {
+        $security = strtolower($this->env('IREDPANEL_SMTP_SECURITY', 'starttls'));
+        if (!in_array($security, ['none', 'starttls', 'tls'], true)) {
+            throw new \RuntimeException("Unsupported SMTP security: {$security}. Must be 'none', 'starttls', or 'tls'");
+        }
+
+        return $security;
+    }
+
+    /**
+     * @throws \RuntimeException when IREDPANEL_PUBLIC_URL is no plain http(s) URL
+     */
+    private function validPublicUrl(): string
+    {
+        $publicUrl = rtrim($this->env('IREDPANEL_PUBLIC_URL', ''), '/');
+        if ($publicUrl !== '' && !preg_match('#^https?://[^/?\#\s]+(/[^?\#\s]*)?$#', $publicUrl)) {
+            throw new \RuntimeException('IREDPANEL_PUBLIC_URL must be an http(s) URL without query, for example https://panel.example.com');
+        }
+
+        return $publicUrl;
+    }
+
     public static function getInstance(): self
     {
         if (self::$instance === null) {
@@ -383,31 +440,36 @@ class Settings
             }
 
             while ($row = $stmt->fetch()) {
-                $key = $row['setting_key'];
-                $value = $row['setting_value'];
-
-                if (!isset(self::OVERRIDABLE_KEYS[$key])) {
-                    continue;
-                }
-
-                // Validate password scheme against allowed list
-                if ($key === 'passwordDefaultScheme') {
-                    $value = strtoupper($value);
-                    if (!in_array($value, self::ALLOWED_SCHEMES, true)) {
-                        continue;
-                    }
-                }
-
-                $type = self::OVERRIDABLE_KEYS[$key];
-                $this->$key = match ($type) {
-                    'int' => (int) $value,
-                    'bool' => filter_var($value, FILTER_VALIDATE_BOOLEAN),
-                    default => $value,
-                };
+                $this->applyOverride((string) $row['setting_key'], (string) $row['setting_value']);
             }
         } catch (\PDOException) {
             // Silently fall back to .env values
         }
+    }
+
+    /**
+     * Writes one panel_settings row over the .env value. An unknown key and an
+     * unsupported password scheme are ignored, so a stale row cannot break the panel.
+     */
+    private function applyOverride(string $key, string $value): void
+    {
+        $type = self::OVERRIDABLE_KEYS[$key] ?? null;
+        if ($type === null) {
+            return;
+        }
+
+        if ($key === 'passwordDefaultScheme') {
+            $value = strtoupper($value);
+            if (!in_array($value, self::ALLOWED_SCHEMES, true)) {
+                return;
+            }
+        }
+
+        $this->$key = match ($type) {
+            'int' => (int) $value,
+            'bool' => filter_var($value, FILTER_VALIDATE_BOOLEAN),
+            default => $value,
+        };
     }
 
     /**

@@ -83,7 +83,7 @@ class MysqlUserRepository implements UserRepositoryInterface
     {
         $pdo = MysqlConnection::getInstance()->getPdo();
         $username = "{$user->uid}@{$domain}";
-        $active = $user->accountStatus ? 1 : 0;
+        $active = (int) $user->accountStatus;
 
         $pdo->beginTransaction();
         try {
@@ -127,17 +127,17 @@ class MysqlUserRepository implements UserRepositoryInterface
                 'mobile' => $user->mobile,
                 'telephoneNumber' => $user->telephoneNumber,
                 'active' => $active,
-                'isGlobalAdmin' => $user->domainGlobalAdmin ? 1 : 0,
-                'enableSmtp' => $user->enableSmtp ? 1 : 0,
-                'enableSmtpSecured' => $user->enableSmtpSecured ? 1 : 0,
-                'enablePop3' => $user->enablePop3 ? 1 : 0,
-                'enablePop3Secured' => $user->enablePop3Secured ? 1 : 0,
-                'enableImap' => $user->enableImap ? 1 : 0,
-                'enableImapSecured' => $user->enableImapSecured ? 1 : 0,
-                'enableManagesieve' => $user->enableManagesieve ? 1 : 0,
-                'enableManagesieveSecured' => $user->enableManagesieveSecured ? 1 : 0,
+                'isGlobalAdmin' => (int) $user->domainGlobalAdmin,
+                'enableSmtp' => (int) $user->enableSmtp,
+                'enableSmtpSecured' => (int) $user->enableSmtpSecured,
+                'enablePop3' => (int) $user->enablePop3,
+                'enablePop3Secured' => (int) $user->enablePop3Secured,
+                'enableImap' => (int) $user->enableImap,
+                'enableImapSecured' => (int) $user->enableImapSecured,
+                'enableManagesieve' => (int) $user->enableManagesieve,
+                'enableManagesieveSecured' => (int) $user->enableManagesieveSecured,
                 ...$user->dovecotServiceParams(),
-                'enableSogo' => $user->enableSogo ? 1 : 0,
+                'enableSogo' => (int) $user->enableSogo,
                 'language' => $user->language,
                 'username' => $username,
                 'domain' => $domain,
@@ -195,6 +195,36 @@ class MysqlUserRepository implements UserRepositoryInterface
         }
     }
 
+    /**
+     * Refuses a new mailbox that a domain limit does not allow. The caller holds the
+     * domain row locked, so the count and the used quota cannot change in between.
+     *
+     * @param array<string, mixed>|false $domainRow the locked domain row, false when the domain is gone
+     * @throws \RuntimeException naming the limit that refused the mailbox
+     */
+    private static function assertDomainAccepts(array|false $domainRow, string $domain, int $quota): void
+    {
+        if ($domainRow === false) {
+            throw new \RuntimeException("Domain '{$domain}' not found");
+        }
+
+        $mailboxes = (int) $domainRow['mailboxes'];
+        $maxQuota = (int) $domainRow['maxquota'];
+        $totalQuota = (int) $domainRow['quota'];
+        $userCount = (int) ($domainRow['userCount'] ?? $domainRow['usercount']);
+        $quotaUsed = (int) ($domainRow['quotaUsed'] ?? $domainRow['quotaused']);
+
+        if ($mailboxes > 0 && $userCount >= $mailboxes) {
+            throw new \RuntimeException("Domain mailbox limit reached ({$userCount}/{$mailboxes})");
+        }
+        if ($maxQuota > 0 && $quota > $maxQuota) {
+            throw new \RuntimeException("User quota exceeds domain maximum ({$maxQuota} MB)");
+        }
+        if ($totalQuota > 0 && ($quotaUsed + $quota) > $totalQuota) {
+            throw new \RuntimeException("Total domain quota would be exceeded");
+        }
+    }
+
     public function createUser(string $domain, User $user, string $passwordHash, ?MailboxStorage $storage = null): void
     {
         $storage ??= new MailboxStorage();
@@ -214,29 +244,7 @@ class MysqlUserRepository implements UserRepositoryInterface
             $lockStmt->execute(['d1' => $domain, 'd2' => $domain, 'd3' => $domain]);
             $domainRow = $lockStmt->fetch();
 
-            if ($domainRow) {
-                $mailboxes = (int) $domainRow['mailboxes'];
-                $maxQuota = (int) $domainRow['maxquota'];
-                $totalQuota = (int) $domainRow['quota'];
-                $userCount = (int) $domainRow['userCount'];
-                $quotaUsed = (int) $domainRow['quotaUsed'];
-
-                if ($mailboxes > 0 && $userCount >= $mailboxes) {
-                    $pdo->rollBack();
-                    throw new \RuntimeException("Domain mailbox limit reached ({$userCount}/{$mailboxes})");
-                }
-                if ($maxQuota > 0 && $user->mailQuota > $maxQuota) {
-                    $pdo->rollBack();
-                    throw new \RuntimeException("User quota exceeds domain maximum ({$maxQuota} MB)");
-                }
-                if ($totalQuota > 0 && ($quotaUsed + $user->mailQuota) > $totalQuota) {
-                    $pdo->rollBack();
-                    throw new \RuntimeException("Total domain quota would be exceeded");
-                }
-            } else {
-                $pdo->rollBack();
-                throw new \RuntimeException("Domain '{$domain}' not found");
-            }
+            self::assertDomainAccepts($domainRow, $domain, $user->mailQuota);
 
             [$storageBase, $storageNode, $maildir] = $storage->location($domain, $user->uid, $settings->vmailPath, $settings->storageNode);
             $services = $user->sqlServiceParams();
@@ -266,8 +274,8 @@ class MysqlUserRepository implements UserRepositoryInterface
                 'mobile' => $user->mobile,
                 'telephoneNumber' => $user->telephoneNumber,
                 'domain' => $domain,
-                'active' => $user->accountStatus ? 1 : 0,
-                'isGlobalAdmin' => $user->domainGlobalAdmin ? 1 : 0,
+                'active' => (int) $user->accountStatus,
+                'isGlobalAdmin' => (int) $user->domainGlobalAdmin,
                 'storageBase' => $storageBase,
                 'storageNode' => $storageNode,
                 'maildir' => $maildir,
@@ -286,7 +294,7 @@ class MysqlUserRepository implements UserRepositoryInterface
                 'forwarding' => $username,
                 'domain' => $domain,
                 'destDomain' => $domain,
-                'active' => $user->accountStatus ? 1 : 0,
+                'active' => (int) $user->accountStatus,
             ]);
 
             $pdo->commit();

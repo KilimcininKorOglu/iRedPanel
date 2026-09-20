@@ -21,11 +21,10 @@ final class DirectoryClient
     private function __construct(private readonly \LDAP\Connection $conn, private readonly int $timeout) {}
 
     /**
-     * Connects and binds. Port 636 uses LDAP over SSL; another port uses StartTLS when TLS is on.
-     *
-     * @throws DirectoryException when the server cannot be reached or rejects the bind
+     * @throws DirectoryException when ext-ldap is missing, or the password would make
+     *         the bind unauthenticated
      */
-    public static function connect(AccountResource $resource, string $bindPassword): self
+    private static function assertUsable(string $bindPassword): void
     {
         if (!extension_loaded('ldap')) {
             throw new DirectoryException('ext-ldap is required to replicate accounts');
@@ -34,8 +33,16 @@ final class DirectoryClient
             // An empty password makes an unauthenticated bind succeed.
             throw new DirectoryException('The bind password is empty');
         }
-        $ssl = $resource->port === self::SSL_PORT;
-        $verify = $resource->tlsVerify ? LDAP_OPT_X_TLS_DEMAND : LDAP_OPT_X_TLS_NEVER;
+    }
+
+    /**
+     * Opens the connection and sets its protocol options. No bind happens here.
+     *
+     * @param int $verify the LDAP_OPT_X_TLS_REQUIRE_CERT value
+     * @throws DirectoryException when the address is invalid
+     */
+    private static function openConnection(AccountResource $resource, bool $ssl, int $verify): \LDAP\Connection
+    {
         if ($ssl) {
             // ldap_connect() builds the TLS context of an ldaps:// URI from the global options.
             ldap_set_option(null, LDAP_OPT_X_TLS_REQUIRE_CERT, $verify);
@@ -49,6 +56,21 @@ final class DirectoryClient
         ldap_set_option($conn, LDAP_OPT_REFERRALS, 0);
         ldap_set_option($conn, LDAP_OPT_NETWORK_TIMEOUT, $resource->timeout);
         ldap_set_option($conn, LDAP_OPT_TIMELIMIT, $resource->timeout * 6);
+
+        return $conn;
+    }
+
+    /**
+     * Connects and binds. Port 636 uses LDAP over SSL; another port uses StartTLS when TLS is on.
+     *
+     * @throws DirectoryException when the server cannot be reached or rejects the bind
+     */
+    public static function connect(AccountResource $resource, string $bindPassword): self
+    {
+        self::assertUsable($bindPassword);
+        $ssl = $resource->port === self::SSL_PORT;
+        $verify = $resource->tlsVerify ? LDAP_OPT_X_TLS_DEMAND : LDAP_OPT_X_TLS_NEVER;
+        $conn = self::openConnection($resource, $ssl, $verify);
 
         if (!$ssl && $resource->tls) {
             ldap_set_option($conn, LDAP_OPT_X_TLS_REQUIRE_CERT, $verify);

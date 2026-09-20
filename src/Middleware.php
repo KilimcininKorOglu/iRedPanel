@@ -77,29 +77,36 @@ class Middleware
         }
         $_SESSION['lastActivity'] = time();
 
+        self::ipRequired($settings, $next);
+
+        CsrfProtection::validateToken();
+    }
+
+    /**
+     * Ends the request when the client IP changed since the login, or when it sits
+     * outside the configured ranges.
+     *
+     * @param string $next the urlencoded page to resume after a new login
+     */
+    private static function ipRequired(Settings $settings, string $next): void
+    {
+        $clientIp = $_SERVER['REMOTE_ADDR'] ?? '';
+
         // Session IP change detection
-        if ($settings->sessionValidateIp) {
-            $currentIp = $_SERVER['REMOTE_ADDR'] ?? '';
-            $loginIp = $_SESSION['loginIp'] ?? '';
-            if ($loginIp !== '' && $currentIp !== $loginIp) {
-                $_SESSION = [];
-                session_destroy();
-                header("Location: /login?ip_changed=1&next={$next}");
-                exit;
-            }
+        $loginIp = $_SESSION['loginIp'] ?? '';
+        if ($settings->sessionValidateIp && $loginIp !== '' && $clientIp !== $loginIp) {
+            $_SESSION = [];
+            session_destroy();
+            header("Location: /login?ip_changed=1&next={$next}");
+            exit;
         }
 
         // IP restriction check
-        if (!empty($settings->allowedIpRanges)) {
-            $clientIp = $_SERVER['REMOTE_ADDR'] ?? '';
-            if (!self::isIpAllowed($clientIp, $settings->allowedIpRanges)) {
-                http_response_code(403);
-                echo 'Access denied: IP not allowed';
-                exit;
-            }
+        if ($settings->allowedIpRanges !== '' && !self::isIpAllowed($clientIp, $settings->allowedIpRanges)) {
+            http_response_code(403);
+            echo 'Access denied: IP not allowed';
+            exit;
         }
-
-        CsrfProtection::validateToken();
     }
 
     /**

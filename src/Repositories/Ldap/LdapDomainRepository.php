@@ -198,6 +198,15 @@ class LdapDomainRepository implements DomainRepositoryInterface
             throw new \RuntimeException('LDAP domain update failed: ' . ldap_error($conn));
         }
 
+        self::writeAccountSettings($conn, $dn, $domain);
+    }
+
+    /**
+     * Writes the limits and the disclaimer, which are separate attributes from the profile.
+     * The limits merge with the stored accountSetting values, so the keys of other tools stay.
+     */
+    private static function writeAccountSettings(\LDAP\Connection $conn, string $dn, Domain $domain): void
+    {
         $stored = @ldap_read($conn, $dn, '(objectClass=mailDomain)', ['accountSetting']);
         if ($stored === false) {
             throw new \RuntimeException('LDAP domain read failed: ' . ldap_error($conn));

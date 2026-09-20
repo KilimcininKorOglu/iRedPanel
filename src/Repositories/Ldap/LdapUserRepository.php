@@ -92,6 +92,14 @@ class LdapUserRepository implements UserRepositoryInterface
         );
     }
 
+    /**
+     * An empty profile field deletes the LDAP attribute instead of storing "".
+     */
+    private static function orNull(string $value): ?string
+    {
+        return $value === '' ? null : $value;
+    }
+
     public function updateUser(string $domain, User $user): void
     {
         $conn = LdapConnection::getInstance()->getConn();
@@ -100,18 +108,18 @@ class LdapUserRepository implements UserRepositoryInterface
         $mods = [
             LdapUtils::modReplace('domainGlobalAdmin', $user->domainGlobalAdmin ? 'yes' : null),
             LdapUtils::modReplace('mailQuota', (string) ($user->mailQuota * 1024 * 1024)),
-            LdapUtils::modReplace('cn', $user->cn ?: null),
-            LdapUtils::modReplace('givenName', $user->givenName ?: null),
-            LdapUtils::modReplace('sn', $user->sn ?: null),
-            LdapUtils::modReplace('employeeNumber', $user->employeeNumber ?: null),
-            LdapUtils::modReplace('title', $user->title ?: null),
-            LdapUtils::modReplace('telephoneNumber', $user->telephoneNumber ?: null),
-            LdapUtils::modReplace('mobile', $user->mobile ?: null),
+            LdapUtils::modReplace('cn', self::orNull($user->cn)),
+            LdapUtils::modReplace('givenName', self::orNull($user->givenName)),
+            LdapUtils::modReplace('sn', self::orNull($user->sn)),
+            LdapUtils::modReplace('employeeNumber', self::orNull($user->employeeNumber)),
+            LdapUtils::modReplace('title', self::orNull($user->title)),
+            LdapUtils::modReplace('telephoneNumber', self::orNull($user->telephoneNumber)),
+            LdapUtils::modReplace('mobile', self::orNull($user->mobile)),
             LdapUtils::modReplace('accountStatus', $user->accountStatus ? 'active' : 'disabled'),
         ];
         // null: the caller did not read the language, so the stored value stays.
         if ($user->language !== null) {
-            $mods[] = LdapUtils::modReplace('preferredLanguage', $user->language ?: null);
+            $mods[] = LdapUtils::modReplace('preferredLanguage', self::orNull($user->language));
         }
 
         if (!LdapUtils::modifyBatch($conn, $dn, $mods)) {

@@ -30,6 +30,20 @@ use App\Utils\PasswordUtils;
 
 class UserController
 {
+    /** The tabs of the user page, in the order the template shows them. */
+    private const EDIT_MODES = ['general', 'password', 'services', 'forwarding', 'aliases', 'bcc', 'relay'];
+
+    /** Every tab variable the template reads, so a tab only fills its own. */
+    private const TAB_DEFAULTS = [
+        'forwardings' => [],
+        'keepCopy' => true,
+        'userAliases' => [],
+        'userSenderBcc' => null,
+        'userRecipientBcc' => null,
+        'userRelayhost' => null,
+        'userTransport' => null,
+    ];
+
     /**
      * Displays the user list page.
      */
@@ -93,13 +107,12 @@ class UserController
     {
         Middleware::domainAdminRequired($domain);
 
-        if (!in_array($editMode, ['general', 'password', 'services', 'forwarding', 'aliases', 'bcc', 'relay'], true)) {
+        if (!in_array($editMode, self::EDIT_MODES, true)) {
             http_response_code(404);
             $tpl->render('page404.php');
             return;
         }
 
-        $userRepo = RepositoryFactory::getUserRepository();
         $error = $_SESSION['flash_error'] ?? null;
         $validationErrors = [];
         $success = $_SESSION['flash_success'] ?? null;
@@ -107,185 +120,234 @@ class UserController
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             try {
-                if ($editMode === 'general') {
-                    $existingUser = $userRepo->getUser($domain, $userUid);
-                    $user = User::fromFormData($_POST);
-                    $user->uid = $userUid;
-                    if ($existingUser !== null) {
-                        $user->copyServicesFrom($existingUser);
-                        ReplicatedAccountGuard::keepUserFields("{$userUid}@{$domain}", $user, $existingUser);
-                    }
-
-                    // Prevent privilege escalation: only global admins can change domainGlobalAdmin
-                    if (!Middleware::isGlobalAdmin()) {
-                        $user->domainGlobalAdmin = $existingUser && $existingUser->domainGlobalAdmin;
-                    }
-
-                    $error = self::quotaChangeError($domain, $existingUser->mailQuota ?? $user->mailQuota, $user->mailQuota) ?? $error;
-
-                    if ($error === null) {
-                        $userRepo->updateUser($domain, $user);
-                        ActivityLogger::logUpdate($domain, $userUid, "User profile updated");
-                        $success = Translator::translate('user.msg_info_updated');
-                    }
-                } elseif ($editMode === 'password') {
-                    // Old password verification if enabled
-                    $settings = Settings::getInstance();
-                    if ($settings->requireOldPasswordOnChange) {
-                        $oldPassword = $_POST['old_password'] ?? '';
-                        if (!$userRepo->verifyUserPassword($domain, $userUid, $oldPassword)) {
-                            $validationErrors['old_password'] = Translator::translate('user.msg_current_password_incorrect');
-                        }
-                    }
-
-                    if ($validationErrors === []) {
-                        $password = $_POST['password'] ?? '';
-                        $passwordRepeat = $_POST['password_repeat'] ?? '';
-                        $validationErrors = UserPassword::validateLocalized($password, $passwordRepeat, self::domainSettings($domain));
-
-                        if (empty($validationErrors)) {
-                            $passwordHash = PasswordUtils::generatePasswordHash($password);
-                            $userRepo->updateUserPassword($domain, $userUid, $passwordHash);
-                            ActivityLogger::logUpdate($domain, $userUid, "Password changed");
-                            $success = Translator::translate('common.msg_password_updated');
-                        }
-                    }
-                } elseif ($editMode === 'services') {
-                    $currentUser = $userRepo->getUser($domain, $userUid);
-                    if ($currentUser !== null) {
-                        $currentUser->enableSmtp = isset($_POST['enableSmtp']);
-                        $currentUser->enableSmtpSecured = isset($_POST['enableSmtpSecured']);
-                        $currentUser->enablePop3 = isset($_POST['enablePop3']);
-                        $currentUser->enablePop3Secured = isset($_POST['enablePop3Secured']);
-                        $currentUser->enableImap = isset($_POST['enableImap']);
-                        $currentUser->enableImapSecured = isset($_POST['enableImapSecured']);
-                        $currentUser->enableManagesieve = isset($_POST['enableManagesieve']);
-                        $currentUser->enableManagesieveSecured = isset($_POST['enableManagesieveSecured']);
-                        $currentUser->enableSogo = isset($_POST['enableSogo']);
-                        $userRepo->updateUser($domain, $currentUser);
-                        ActivityLogger::logUpdate($domain, $userUid, "Mail services updated");
-                        $success = Translator::translate('user.msg_services_updated');
-                    }
-                } elseif ($editMode === 'forwarding') {
-                    $email = "{$userUid}@{$domain}";
-                    $forwardingRepo = RepositoryFactory::getForwardingRepository();
-                    $addresses = BaseController::postedAddresses('forwardingAddresses');
-                    $keepCopy = isset($_POST['keepCopy']);
-
-                    $forwardingRepo->setForwardings($email, $domain, $addresses);
-                    $forwardingRepo->setKeepCopy($email, $domain, $keepCopy);
-                    ActivityLogger::logUpdate($domain, $userUid, "Forwarding settings updated");
-                    $success = Translator::translate('user.msg_forwarding_updated');
-                } elseif ($editMode === 'aliases') {
-                    CsrfProtection::validateToken();
-                    $email = "{$userUid}@{$domain}";
-                    $aliasRepo = RepositoryFactory::getAliasRepository();
-                    $action = $_POST['action'] ?? '';
-
-                    if ($action === 'add') {
-                        $newAlias = strtolower(FormValue::text($_POST, 'newAlias'));
-                        if ($newAlias !== '') {
-                            UserAliasService::add($email, $domain, $newAlias);
-                            ActivityLogger::logUpdate($domain, $userUid, "Added alias: {$newAlias}");
-                        }
-                    } elseif ($action === 'remove') {
-                        $aliasToRemove = $_POST['aliasAddress'] ?? '';
-                        if ($aliasToRemove !== '') {
-                            $aliasRepo->removeUserAlias($email, $aliasToRemove);
-                            ActivityLogger::logUpdate($domain, $userUid, "Removed alias: {$aliasToRemove}");
-                        }
-                    }
-                    $success = Translator::translate('user.msg_aliases_updated');
-                } elseif ($editMode === 'bcc') {
-                    CsrfProtection::validateToken();
-                    $email = "{$userUid}@{$domain}";
-                    $bccRepo = RepositoryFactory::getBccRepository();
-                    $senderBcc = BaseController::postedAddress('senderBcc');
-                    $recipientBcc = BaseController::postedAddress('recipientBcc');
-                    $bccRepo->setUserSenderBcc($email, $senderBcc);
-                    $bccRepo->setUserRecipientBcc($email, $recipientBcc);
-                    ActivityLogger::logUpdate($domain, $userUid, "BCC settings updated");
-                    $success = Translator::translate('common.msg_bcc_updated');
-                } elseif ($editMode === 'relay') {
-                    CsrfProtection::validateToken();
-                    $email = "{$userUid}@{$domain}";
-                    $relayRepo = RepositoryFactory::getRelayRepository();
-                    $relayRepo->setRelayhost($email, BaseController::postedRelayhost());
-                    // A wrong transport loses mail, so only a global admin sets it.
-                    if (array_key_exists('transport', $_POST)) {
-                        Middleware::globalAdminRequired();
-                        $userRepo->setTransport($domain, $userUid, MailTransport::valid(FormValue::text($_POST, 'transport')));
-                    }
-                    ActivityLogger::logUpdate($domain, $userUid, "Relay settings updated");
-                    $success = Translator::translate('common.msg_relay_updated');
-                }
+                $result = self::saveUserPage($domain, $userUid, $editMode);
+                $error = $result['error'] ?? $error;
+                $success = $result['success'] ?? $success;
+                $validationErrors = $result['validationErrors'] ?? [];
             } catch (\Exception $e) {
                 $error = BaseController::errorMessage($e);
             }
         }
 
-        $user = $userRepo->getUser($domain, $userUid);
+        $user = RepositoryFactory::getUserRepository()->getUser($domain, $userUid);
         if ($user === null) {
             http_response_code(404);
             $tpl->render('page404.php');
             return;
         }
 
-        // Fetch forwarding data if on forwarding tab
-        $forwardings = [];
-        $keepCopy = true;
-        if ($editMode === 'forwarding') {
-            $email = "{$userUid}@{$domain}";
-            $forwardingRepo = RepositoryFactory::getForwardingRepository();
-            $forwardings = $forwardingRepo->getForwardings($email);
-            $keepCopy = $forwardingRepo->getKeepCopy($email);
-        }
-
-        // Fetch user aliases if on aliases tab
-        $userAliases = [];
-        if ($editMode === 'aliases') {
-            $email = "{$userUid}@{$domain}";
-            $userAliases = RepositoryFactory::getAliasRepository()->getUserAliases($email);
-        }
-
-        // Fetch BCC data if on bcc tab
-        $userSenderBcc = null;
-        $userRecipientBcc = null;
-        if ($editMode === 'bcc') {
-            $email = "{$userUid}@{$domain}";
-            $bccRepo = RepositoryFactory::getBccRepository();
-            $userSenderBcc = $bccRepo->getUserSenderBcc($email);
-            $userRecipientBcc = $bccRepo->getUserRecipientBcc($email);
-        }
-
-        // Fetch relay data if on relay tab
-        $userRelayhost = null;
-        $userTransport = null;
-        if ($editMode === 'relay') {
-            $email = "{$userUid}@{$domain}";
-            $userRelayhost = RepositoryFactory::getRelayRepository()->getRelayhost($email);
-            $userTransport = $userRepo->getTransport($domain, $userUid);
-        }
-
-        $tpl->render('userView.php', [
+        $tpl->render('userView.php', self::tabData($domain, $userUid, $editMode) + [
             'domain' => $domain,
             'user' => $user,
             'error' => $error,
             'validationErrors' => $validationErrors,
             'success' => $success,
             'editMode' => $editMode,
-            'forwardings' => $forwardings,
-            'keepCopy' => $keepCopy,
-            'userAliases' => $userAliases,
-            'userSenderBcc' => $userSenderBcc,
-            'userRecipientBcc' => $userRecipientBcc,
-            'userRelayhost' => $userRelayhost,
-            'userTransport' => $userTransport,
             'requireOldPassword' => Settings::getInstance()->requireOldPasswordOnChange,
             'openPages' => $openPages,
             'managedBy' => ReplicatedAccountGuard::owner("{$userUid}@{$domain}"),
             'lockedFields' => ReplicatedAccountGuard::lockedUserFields("{$userUid}@{$domain}"),
         ]);
+    }
+
+    /**
+     * Saves the posted form of one user tab.
+     *
+     * @return array{error?: ?string, success?: ?string, validationErrors?: array<string, string>}
+     */
+    private static function saveUserPage(string $domain, string $userUid, string $editMode): array
+    {
+        return match ($editMode) {
+            'general' => self::saveGeneral($domain, $userUid),
+            'password' => self::savePassword($domain, $userUid),
+            'services' => self::saveServices($domain, $userUid),
+            'forwarding' => self::saveForwarding($domain, $userUid),
+            'aliases' => self::saveUserAliases($domain, $userUid),
+            'bcc' => self::saveUserBcc($domain, $userUid),
+            'relay' => self::saveUserRelay($domain, $userUid),
+            default => throw new \LogicException("Unknown user edit mode: {$editMode}"),
+        };
+    }
+
+    /**
+     * @return array{error?: ?string, success?: ?string}
+     */
+    private static function saveGeneral(string $domain, string $userUid): array
+    {
+        $userRepo = RepositoryFactory::getUserRepository();
+        $existingUser = $userRepo->getUser($domain, $userUid);
+        $user = User::fromFormData($_POST);
+        $user->uid = $userUid;
+        if ($existingUser !== null) {
+            $user->copyServicesFrom($existingUser);
+            ReplicatedAccountGuard::keepUserFields("{$userUid}@{$domain}", $user, $existingUser);
+        }
+
+        // Prevent privilege escalation: only global admins can change domainGlobalAdmin
+        if (!Middleware::isGlobalAdmin()) {
+            $user->domainGlobalAdmin = $existingUser && $existingUser->domainGlobalAdmin;
+        }
+
+        $error = self::quotaChangeError($domain, $existingUser->mailQuota ?? $user->mailQuota, $user->mailQuota);
+        if ($error !== null) {
+            return ['error' => $error];
+        }
+
+        $userRepo->updateUser($domain, $user);
+        ActivityLogger::logUpdate($domain, $userUid, "User profile updated");
+
+        return ['success' => Translator::translate('user.msg_info_updated')];
+    }
+
+    /**
+     * @return array{success?: ?string, validationErrors?: array<string, string>}
+     */
+    private static function savePassword(string $domain, string $userUid): array
+    {
+        $userRepo = RepositoryFactory::getUserRepository();
+
+        // Old password verification if enabled
+        if (Settings::getInstance()->requireOldPasswordOnChange) {
+            $oldPassword = $_POST['old_password'] ?? '';
+            if (!$userRepo->verifyUserPassword($domain, $userUid, $oldPassword)) {
+                return ['validationErrors' => ['old_password' => Translator::translate('user.msg_current_password_incorrect')]];
+            }
+        }
+
+        $password = $_POST['password'] ?? '';
+        $passwordRepeat = $_POST['password_repeat'] ?? '';
+        $validationErrors = UserPassword::validateLocalized($password, $passwordRepeat, self::domainSettings($domain));
+        if ($validationErrors !== []) {
+            return ['validationErrors' => $validationErrors];
+        }
+
+        $userRepo->updateUserPassword($domain, $userUid, PasswordUtils::generatePasswordHash($password));
+        ActivityLogger::logUpdate($domain, $userUid, "Password changed");
+
+        return ['success' => Translator::translate('common.msg_password_updated')];
+    }
+
+    /**
+     * @return array{success?: ?string}
+     */
+    private static function saveServices(string $domain, string $userUid): array
+    {
+        $userRepo = RepositoryFactory::getUserRepository();
+        $currentUser = $userRepo->getUser($domain, $userUid);
+        if ($currentUser === null) {
+            return [];
+        }
+
+        foreach (array_keys(User::SERVICE_LABELS) as $service) {
+            $currentUser->$service = isset($_POST[$service]);
+        }
+        $userRepo->updateUser($domain, $currentUser);
+        ActivityLogger::logUpdate($domain, $userUid, "Mail services updated");
+
+        return ['success' => Translator::translate('user.msg_services_updated')];
+    }
+
+    /**
+     * @return array{success: string}
+     */
+    private static function saveForwarding(string $domain, string $userUid): array
+    {
+        $email = "{$userUid}@{$domain}";
+        $forwardingRepo = RepositoryFactory::getForwardingRepository();
+        $forwardingRepo->setForwardings($email, $domain, BaseController::postedAddresses('forwardingAddresses'));
+        $forwardingRepo->setKeepCopy($email, $domain, isset($_POST['keepCopy']));
+        ActivityLogger::logUpdate($domain, $userUid, "Forwarding settings updated");
+
+        return ['success' => Translator::translate('user.msg_forwarding_updated')];
+    }
+
+    /**
+     * Adds or removes one per-user alias.
+     *
+     * @return array{success: string}
+     */
+    private static function saveUserAliases(string $domain, string $userUid): array
+    {
+        CsrfProtection::validateToken();
+        $email = "{$userUid}@{$domain}";
+        $action = $_POST['action'] ?? '';
+
+        if ($action === 'add') {
+            $newAlias = strtolower(FormValue::text($_POST, 'newAlias'));
+            if ($newAlias !== '') {
+                UserAliasService::add($email, $domain, $newAlias);
+                ActivityLogger::logUpdate($domain, $userUid, "Added alias: {$newAlias}");
+            }
+        } elseif ($action === 'remove') {
+            $aliasToRemove = $_POST['aliasAddress'] ?? '';
+            if ($aliasToRemove !== '') {
+                RepositoryFactory::getAliasRepository()->removeUserAlias($email, $aliasToRemove);
+                ActivityLogger::logUpdate($domain, $userUid, "Removed alias: {$aliasToRemove}");
+            }
+        }
+
+        return ['success' => Translator::translate('user.msg_aliases_updated')];
+    }
+
+    /**
+     * @return array{success: string}
+     */
+    private static function saveUserBcc(string $domain, string $userUid): array
+    {
+        CsrfProtection::validateToken();
+        $email = "{$userUid}@{$domain}";
+        $bccRepo = RepositoryFactory::getBccRepository();
+        $bccRepo->setUserSenderBcc($email, BaseController::postedAddress('senderBcc'));
+        $bccRepo->setUserRecipientBcc($email, BaseController::postedAddress('recipientBcc'));
+        ActivityLogger::logUpdate($domain, $userUid, "BCC settings updated");
+
+        return ['success' => Translator::translate('common.msg_bcc_updated')];
+    }
+
+    /**
+     * @return array{success: string}
+     */
+    private static function saveUserRelay(string $domain, string $userUid): array
+    {
+        CsrfProtection::validateToken();
+        $email = "{$userUid}@{$domain}";
+        RepositoryFactory::getRelayRepository()->setRelayhost($email, BaseController::postedRelayhost());
+        // A wrong transport loses mail, so only a global admin sets it.
+        if (array_key_exists('transport', $_POST)) {
+            Middleware::globalAdminRequired();
+            RepositoryFactory::getUserRepository()
+                ->setTransport($domain, $userUid, MailTransport::valid(FormValue::text($_POST, 'transport')));
+        }
+        ActivityLogger::logUpdate($domain, $userUid, "Relay settings updated");
+
+        return ['success' => Translator::translate('common.msg_relay_updated')];
+    }
+
+    /**
+     * The stored values that one user tab shows, over the defaults of every tab.
+     *
+     * @return array<string, mixed>
+     */
+    private static function tabData(string $domain, string $userUid, string $editMode): array
+    {
+        $email = "{$userUid}@{$domain}";
+
+        return match ($editMode) {
+            'forwarding' => [
+                'forwardings' => RepositoryFactory::getForwardingRepository()->getForwardings($email),
+                'keepCopy' => RepositoryFactory::getForwardingRepository()->getKeepCopy($email),
+            ],
+            'aliases' => ['userAliases' => RepositoryFactory::getAliasRepository()->getUserAliases($email)],
+            'bcc' => [
+                'userSenderBcc' => RepositoryFactory::getBccRepository()->getUserSenderBcc($email),
+                'userRecipientBcc' => RepositoryFactory::getBccRepository()->getUserRecipientBcc($email),
+            ],
+            'relay' => [
+                'userRelayhost' => RepositoryFactory::getRelayRepository()->getRelayhost($email),
+                'userTransport' => RepositoryFactory::getUserRepository()->getTransport($domain, $userUid),
+            ],
+            default => [],
+        } + self::TAB_DEFAULTS;
     }
 
     /**

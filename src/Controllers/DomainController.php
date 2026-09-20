@@ -24,6 +24,15 @@ use App\Utils\FormValue;
 
 class DomainController
 {
+    /** Every page variable the template reads, so a page only fills its own. */
+    private const PAGE_DEFAULTS = [
+        'catchallTarget' => null,
+        'senderBcc' => null,
+        'recipientBcc' => null,
+        'domainRelayhost' => null,
+        'domainAdmins' => [],
+    ];
+
     /**
      * Displays the paginated domain list page.
      */
@@ -199,39 +208,35 @@ class DomainController
 
         $domainSettings = DomainSettings::fromSettingsString($domain->settings);
 
-        $catchallTarget = null;
-        if ($editMode === 'catchall') {
-            $catchallTarget = RepositoryFactory::getAliasRepository()->getCatchall($domainName);
-        }
-
-        $senderBcc = null;
-        $recipientBcc = null;
-        if ($editMode === 'bcc') {
-            $bccRepo = RepositoryFactory::getBccRepository();
-            $senderBcc = $bccRepo->getDomainSenderBcc($domainName);
-            $recipientBcc = $bccRepo->getDomainRecipientBcc($domainName);
-        }
-
-        $domainRelayhost = null;
-        if ($editMode === 'relay') {
-            $domainRelayhost = RepositoryFactory::getRelayRepository()->getRelayhost('@' . $domainName);
-        }
-
-        $tpl->render('domainView.php', [
+        $tpl->render('domainView.php', self::pageData($domainName, $editMode) + [
             'domain' => $domain,
             'domainSettings' => $domainSettings,
             'editMode' => $editMode,
-            'domainAdmins' => $editMode === ProfileToggles::ADMINS_PAGE ? RepositoryFactory::getAdminRepository()->getDomainAdmins($domainName) : [],
-            'catchallTarget' => $catchallTarget,
-            'senderBcc' => $senderBcc,
-            'recipientBcc' => $recipientBcc,
-            'domainRelayhost' => $domainRelayhost,
             'supportsDomainQuota' => $repo->supportsDomainQuota(),
             'openPages' => ProfileToggles::openDomainPages($domainSettings, $isGlobalAdmin),
             'isGlobalAdmin' => $isGlobalAdmin,
             'error' => $error,
             'success' => $success,
         ]);
+    }
+
+    /**
+     * The stored values that one domain page shows, over the defaults of every page.
+     *
+     * @return array<string, mixed>
+     */
+    private static function pageData(string $domainName, string $editMode): array
+    {
+        return match ($editMode) {
+            'catchall' => ['catchallTarget' => RepositoryFactory::getAliasRepository()->getCatchall($domainName)],
+            'bcc' => [
+                'senderBcc' => RepositoryFactory::getBccRepository()->getDomainSenderBcc($domainName),
+                'recipientBcc' => RepositoryFactory::getBccRepository()->getDomainRecipientBcc($domainName),
+            ],
+            'relay' => ['domainRelayhost' => RepositoryFactory::getRelayRepository()->getRelayhost('@' . $domainName)],
+            ProfileToggles::ADMINS_PAGE => ['domainAdmins' => RepositoryFactory::getAdminRepository()->getDomainAdmins($domainName)],
+            default => [],
+        } + self::PAGE_DEFAULTS;
     }
 
     /**

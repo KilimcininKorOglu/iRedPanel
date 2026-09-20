@@ -131,8 +131,7 @@ class UserApiController
         }
         ApiMiddleware::requireDomainAccess($domain);
 
-        $repo = RepositoryFactory::getUserRepository();
-        $existing = $repo->getUser($domain, $uid);
+        $existing = RepositoryFactory::getUserRepository()->getUser($domain, $uid);
         if ($existing === null) {
             ApiResponse::error('User not found', 404);
             return;
@@ -149,6 +148,17 @@ class UserApiController
             return;
         }
 
+        self::writeUpdate($domain, $uid, $existing, $data);
+    }
+
+    /**
+     * Writes a validated update. Every refusal has already answered the request,
+     * so a caller only has to return.
+     *
+     * @param array<string, mixed> $data the JSON body, without the fields the API never takes
+     */
+    private static function writeUpdate(string $domain, string $uid, User $existing, array $data): void
+    {
         // Validate the body before the password change, so a bad field changes nothing.
         $user = self::userFromBody(array_merge((array) $existing, $data));
         if ($user === null) {
@@ -180,7 +190,7 @@ class UserApiController
             return;
         }
 
-        $repo->updateUser($domain, $user);
+        RepositoryFactory::getUserRepository()->updateUser($domain, $user);
         self::writeRouting("{$uid}@{$domain}", $domain, $routing);
         ApiResponse::success(['message' => 'User updated']);
     }
@@ -353,6 +363,73 @@ class UserApiController
     }
 
     /**
+     * The single-value routing fields the body sets: keepCopy, both BCC addresses,
+     * the relayhost and the transport.
+     *
+     * @param array<string, mixed> $data
+     * @return array<string, mixed>
+     * @throws InvalidInputException when a field holds no valid value
+     * @throws \InvalidArgumentException when the transport is not one Postfix knows
+     */
+    private static function routingFields(array $data, string $email): array
+    {
+        $routing = [];
+        if (array_key_exists('keepCopy', $data)) {
+            $routing['keepCopy'] = ApiInput::bool($data, 'keepCopy', true);
+        }
+        foreach (['senderBcc', 'recipientBcc'] as $field) {
+            if (array_key_exists($field, $data)) {
+                $routing[$field] = ApiInput::address($data, $field);
+            }
+        }
+        if (array_key_exists('relayhost', $data)) {
+            $routing['relayhost'] = ApiInput::relayhost($data, 'relayhost');
+        }
+        if (array_key_exists('transport', $data)) {
+            // A wrong transport loses mail, so only a global key sets it.
+            ApiMiddleware::requireGlobalKey();
+            $routing['transport'] = MailTransport::valid($data['transport']);
+        }
+
+        return $routing;
+    }
+
+    /**
+     * The forwarding and alias lists, each either replaced or changed item by item.
+     *
+     * @param array<string, mixed> $data
+     * @return array<string, mixed>
+     * @throws InvalidInputException when an address is invalid or an alias is taken
+     * @throws \InvalidArgumentException when the body sends a full list and a change list together
+     */
+    private static function listRoutingFields(array $data, string $email): array
+    {
+        $routing = [];
+        $forwardings = ApiInput::listChange(
+            $data,
+            ['forwardings', 'addForwardings', 'removeForwardings'],
+            RepositoryFactory::getForwardingRepository()->getForwardings($email),
+            ApiInput::addresses(...),
+        );
+        if ($forwardings !== null) {
+            $routing['forwardings'] = $forwardings;
+        }
+
+        $stored = RepositoryFactory::getAliasRepository()->getUserAliases($email);
+        $aliases = ApiInput::listChange($data, ['aliases', 'addAliases', 'removeAliases'], $stored, ApiInput::addresses(...));
+        if ($aliases !== null) {
+            // Refuse an alias of another domain or account before anything is written.
+            $domain = explode('@', $email, 2)[1];
+            foreach (array_diff($aliases, $stored) as $address) {
+                UserAliasService::assertAvailable($domain, $address);
+            }
+            $routing['aliases'] = $aliases;
+        }
+
+        return $routing;
+    }
+
+    /**
      * Reads the forwarding, BCC and relay fields that the body sets, and answers 400
      * when one is invalid. `forwardings` replaces the list; `addForwardings` and
      * `removeForwardings` change it.
@@ -362,47 +439,7 @@ class UserApiController
     private static function routingFromBody(array $data, string $email): ?array
     {
         try {
-            $routing = [];
-            $forwardings = ApiInput::listChange(
-                $data,
-                ['forwardings', 'addForwardings', 'removeForwardings'],
-                RepositoryFactory::getForwardingRepository()->getForwardings($email),
-                ApiInput::addresses(...),
-            );
-            if ($forwardings !== null) {
-                $routing['forwardings'] = $forwardings;
-            }
-            $aliases = ApiInput::listChange(
-                $data,
-                ['aliases', 'addAliases', 'removeAliases'],
-                RepositoryFactory::getAliasRepository()->getUserAliases($email),
-                ApiInput::addresses(...),
-            );
-            if ($aliases !== null) {
-                // Refuse an alias of another domain or account before anything is written.
-                $domain = explode('@', $email, 2)[1];
-                foreach (array_diff($aliases, RepositoryFactory::getAliasRepository()->getUserAliases($email)) as $address) {
-                    UserAliasService::assertAvailable($domain, $address);
-                }
-                $routing['aliases'] = $aliases;
-            }
-            if (array_key_exists('keepCopy', $data)) {
-                $routing['keepCopy'] = ApiInput::bool($data, 'keepCopy', true);
-            }
-            foreach (['senderBcc', 'recipientBcc'] as $field) {
-                if (array_key_exists($field, $data)) {
-                    $routing[$field] = ApiInput::address($data, $field);
-                }
-            }
-            if (array_key_exists('relayhost', $data)) {
-                $routing['relayhost'] = ApiInput::relayhost($data, 'relayhost');
-            }
-            if (array_key_exists('transport', $data)) {
-                // A wrong transport loses mail, so only a global key sets it.
-                ApiMiddleware::requireGlobalKey();
-                $routing['transport'] = MailTransport::valid($data['transport']);
-            }
-            return $routing;
+            return self::routingFields($data, $email) + self::listRoutingFields($data, $email);
         } catch (InvalidInputException $e) {
             ApiResponse::invalidInput($e);
             return null;

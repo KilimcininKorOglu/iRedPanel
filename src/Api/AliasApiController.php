@@ -91,14 +91,11 @@ class AliasApiController
     }
 
     /**
-     * Checks the address of a new alias or mailing list.
-     * Both count against the domain alias limit.
+     * The format checks of a new alias address, before any backend read.
      *
-     * @param string $address lowercased address
-     * @param string $domain lowercased domain
-     * @return array{0: string, 1: int}|null the error message and HTTP status, or null when the address is valid
+     * @return array{0: string, 1: int}|null the error message and HTTP status, or null when the format is valid
      */
-    public static function newAddressError(string $address, string $domain): ?array
+    private static function addressFormatError(string $address, string $domain): ?array
     {
         if ($address === '' || $domain === '') {
             return ['address and domain are required', 400];
@@ -108,6 +105,24 @@ class AliasApiController
         }
         if (!str_ends_with($address, '@' . $domain)) {
             return ['address must be in domain', 400];
+        }
+
+        return null;
+    }
+
+    /**
+     * Checks the address of a new alias or mailing list.
+     * Both count against the domain alias limit.
+     *
+     * @param string $address lowercased address
+     * @param string $domain lowercased domain
+     * @return array{0: string, 1: int}|null the error message and HTTP status, or null when the address is valid
+     */
+    public static function newAddressError(string $address, string $domain): ?array
+    {
+        $formatError = self::addressFormatError($address, $domain);
+        if ($formatError !== null) {
+            return $formatError;
         }
 
         $domainObj = RepositoryFactory::getDomainRepository()->getDomain($domain);

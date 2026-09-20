@@ -42,7 +42,7 @@
   <div class="col-xl-8">
     <?php if (!$managed): ?>
     <details class="card mb-4">
-      <summary class="card-header"><?= $te('alias.rename_address') ?></summary>
+      <summary class="card-header"><?= $te('alias.rename_address') ?><?= $help('alias.rename_address') ?></summary>
       <div class="card-body">
         <form method="post" action="/aliases/<?= $e($alias->address) ?>/rename" data-confirm="<?= $te('alias.rename_confirm') ?>" class="d-flex flex-wrap gap-2">
           <?= $csrfField ?>
@@ -63,11 +63,11 @@
       <div class="card-body">
         <div class="row g-3 mb-3">
           <div class="col-md-6">
-            <label for="name" class="form-label"><?= $te('alias.display_name') ?></label>
+            <label for="name" class="form-label"><?= $te('alias.display_name') ?></label><?= $help('alias.display_name') ?>
             <input type="text" id="name" name="name" class="form-control" value="<?= $e($alias->name) ?>"<?= $managed ? ' readonly' : '' ?> />
           </div>
           <div class="col-md-6">
-            <label for="accessPolicy" class="form-label"><?= $te('alias.access_policy') ?></label>
+            <label for="accessPolicy" class="form-label"><?= $te('alias.access_policy') ?></label><?= $help('alias.access_policy') ?>
             <select id="accessPolicy" name="accessPolicy" class="form-select">
               <option value="public"<?= $alias->accessPolicy === 'public' ? ' selected' : '' ?>><?= $te('alias.policy_public') ?></option>
               <option value="domain"<?= $alias->accessPolicy === 'domain' ? ' selected' : '' ?>><?= $te('alias.policy_domain') ?></option>
@@ -79,10 +79,10 @@
 
         <div class="form-check form-switch mb-3">
           <input type="checkbox" class="form-check-input" id="active" name="active" <?= $alias->active ? 'checked' : '' ?> />
-          <label class="form-check-label" for="active"><?= $te('common.active') ?></label>
+          <label class="form-check-label" for="active"><?= $te('common.active') ?></label><?= $help('common.active') ?>
         </div>
 
-        <label for="members" class="form-label"><?= $te('alias.members_oneline') ?></label>
+        <label for="members" class="form-label"><?= $te('alias.members_oneline') ?></label><?= $help('alias.members_oneline') ?>
         <?php if ($managed): ?>
         <textarea id="members" rows="8" class="form-control" readonly><?= $e(implode("\n", $members)) ?></textarea>
         <?php else: ?>
@@ -142,9 +142,8 @@
       <input type="hidden" name="action" value="updateModerators" />
       <div class="card-header"><?= $te('alias.moderators') ?></div>
       <div class="card-body">
-        <label for="moderators" class="form-label"><?= $te('alias.moderators_hint') ?></label>
+        <label for="moderators" class="form-label"><?= $te('alias.moderators_hint') ?></label><?= $help('alias.moderators_hint') ?>
         <textarea id="moderators" name="moderators" data-account-picker="multi" rows="4" class="form-control"><?= $e(implode("\n", $moderators)) ?></textarea>
-        <div class="form-text"><?= $te('alias.moderators_desc') ?></div>
       </div>
       <div class="card-footer">
         <button type="submit" class="btn btn-primary"><?= $te('alias.save_moderators') ?></button>

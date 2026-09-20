@@ -22,11 +22,11 @@
       <div class="card-body">
         <div class="row g-3 mb-3">
           <div class="col-md-6">
-            <label for="localPart" class="form-label"><?= $te('alias.local_part') ?></label>
+            <label for="localPart" class="form-label"><?= $te('alias.local_part') ?></label><?= $help('alias.local_part') ?>
             <input type="text" id="localPart" name="localPart" class="form-control" required value="<?= $e($_POST['localPart'] ?? '') ?>" placeholder="list-name" />
           </div>
           <div class="col-md-6">
-            <label for="domain" class="form-label"><?= $te('common.domain') ?></label>
+            <label for="domain" class="form-label"><?= $te('common.domain') ?></label><?= $help('common.domain') ?>
             <select id="domain" name="domain" class="form-select" required>
               <?php foreach ($domains as $d): ?>
               <option value="<?= $e($d['domainName']) ?>">@<?= $e($d['domainName']) ?></option>
@@ -36,13 +36,13 @@
         </div>
 
         <div class="mb-3">
-          <label for="name" class="form-label"><?= $te('alias.display_name') ?></label>
+          <label for="name" class="form-label"><?= $te('alias.display_name') ?></label><?= $help('alias.display_name') ?>
           <input type="text" id="name" name="name" class="form-control" value="<?= $e($_POST['name'] ?? '') ?>" placeholder="<?= $te('mlist.display_name_placeholder') ?>" />
         </div>
 
         <div class="row g-3">
           <div class="col-md-6">
-            <label for="accessPolicy" class="form-label"><?= $te('alias.access_policy') ?></label>
+            <label for="accessPolicy" class="form-label"><?= $te('alias.access_policy') ?></label><?= $help('alias.access_policy') ?>
             <select id="accessPolicy" name="accessPolicy" class="form-select">
               <option value="public"><?= $te('alias.policy_public') ?></option>
               <option value="domain"><?= $te('alias.policy_domain') ?></option>
@@ -51,7 +51,7 @@
             </select>
           </div>
           <div class="col-md-6">
-            <label for="maxMsgSize" class="form-label"><?= $te('mlist.max_msg_size') ?></label>
+            <label for="maxMsgSize" class="form-label"><?= $te('mlist.max_msg_size') ?></label><?= $help('mlist.max_msg_size') ?>
             <input type="number" id="maxMsgSize" name="maxMsgSize" class="form-control" min="0" value="0" />
           </div>
         </div>

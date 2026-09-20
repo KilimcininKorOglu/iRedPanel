@@ -33,25 +33,24 @@
         <div class="card-header"><?= $te('common.settings') ?></div>
         <div class="card-body">
           <div class="mb-3">
-            <label for="name" class="form-label"><?= $te('alias.display_name') ?></label>
+            <label for="name" class="form-label"><?= $te('alias.display_name') ?></label><?= $help('alias.display_name') ?>
             <input type="text" id="name" name="name" class="form-control" value="<?= $e($mailList->name) ?>" />
           </div>
 
           <div class="mb-3">
-            <label for="accessPolicy" class="form-label"><?= $te('alias.access_policy') ?></label>
+            <label for="accessPolicy" class="form-label"><?= $te('alias.access_policy') ?></label><?= $help('alias.access_policy') ?>
             <?php $accessPolicy = $mailList->accessPolicy; ?>
             <?php include __DIR__ . '/mailListPolicyOptions.php'; ?>
           </div>
 
           <div class="mb-3">
-            <label for="maxMessageSize" class="form-label"><?= $te('throttle.max_message_size') ?></label>
+            <label for="maxMessageSize" class="form-label"><?= $te('throttle.max_message_size') ?></label><?= $help('maillist.max_message_size', [], $t('throttle.max_message_size')) ?>
             <input type="number" id="maxMessageSize" name="maxMessageSize" min="0" class="form-control" value="<?= $e((string) $mailList->maxMessageSize) ?>" />
-            <div class="form-text"><?= $te('maillist.max_message_size_hint') ?></div>
           </div>
 
           <div class="form-check form-switch">
             <input type="checkbox" id="active" name="active" value="1" class="form-check-input"<?= $mailList->active ? ' checked' : '' ?> />
-            <label for="active" class="form-check-label"><?= $te('common.active') ?></label>
+            <label for="active" class="form-check-label"><?= $te('common.active') ?></label><?= $help('common.active') ?>
           </div>
         </div>
       </div>
@@ -59,7 +58,7 @@
       <div class="card">
         <div class="card-header"><?= $te('alias.members') ?></div>
         <div class="card-body">
-          <label for="members" class="form-label"><?= $te('alias.members_hint') ?></label>
+          <label for="members" class="form-label"><?= $te('alias.members_hint') ?></label><?= $help('alias.members_hint') ?>
           <textarea id="members" name="members" data-account-picker="multi" rows="6" class="form-control"><?= $e(implode("\n", $mailList->members)) ?></textarea>
         </div>
       </div>
@@ -68,11 +67,11 @@
         <div class="card-header"><?= $te('maillist.senders') ?></div>
         <div class="card-body">
           <div class="mb-3">
-            <label for="moderators" class="form-label"><?= $te('alias.moderators_hint') ?></label>
+            <label for="moderators" class="form-label"><?= $te('alias.moderators_hint') ?></label><?= $help('alias.moderators_hint') ?>
             <textarea id="moderators" name="moderators" data-account-picker="multi" rows="3" class="form-control"><?= $e(implode("\n", $mailList->moderators)) ?></textarea>
           </div>
           <div>
-            <label for="allowedSenders" class="form-label"><?= $te('maillist.allowed_hint') ?></label>
+            <label for="allowedSenders" class="form-label"><?= $te('maillist.allowed_hint') ?></label><?= $help('maillist.allowed_hint') ?>
             <textarea id="allowedSenders" name="allowedSenders" data-account-picker="multi" rows="3" class="form-control"><?= $e(implode("\n", $mailList->allowedSenders)) ?></textarea>
           </div>
         </div>

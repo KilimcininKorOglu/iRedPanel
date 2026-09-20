@@ -15,7 +15,7 @@
       <input type="hidden" name="filterDomain" value="<?= $e($ml->domain) ?>" />
       <div class="form-check">
         <input type="checkbox" class="form-check-input" id="keepArchive" name="keepArchive" checked />
-        <label class="form-check-label small" for="keepArchive"><?= $te('mlist.keep_archive') ?></label>
+        <label class="form-check-label small" for="keepArchive"><?= $te('mlist.keep_archive') ?></label><?= $help('mlist.keep_archive') ?>
       </div>
       <button type="submit" class="btn btn-outline-danger"><i class="bi bi-trash3 me-1"></i><?= $te('mlist.delete_button') ?></button>
     </form>
@@ -37,13 +37,13 @@
       <div class="card-header"><?= $te('mlist.list_settings') ?></div>
       <div class="card-body">
         <div class="mb-3">
-          <label for="name" class="form-label"><?= $te('alias.display_name') ?></label>
+          <label for="name" class="form-label"><?= $te('alias.display_name') ?></label><?= $help('alias.display_name') ?>
           <input type="text" id="name" name="name" class="form-control" value="<?= $e($ml->name) ?>" />
         </div>
 
         <div class="row g-3 mb-3">
           <div class="col-md-6">
-            <label for="accessPolicy" class="form-label"><?= $te('alias.access_policy') ?></label>
+            <label for="accessPolicy" class="form-label"><?= $te('alias.access_policy') ?></label><?= $help('alias.access_policy') ?>
             <select id="accessPolicy" name="accessPolicy" class="form-select">
               <option value="public"<?= $ml->accessPolicy === 'public' ? ' selected' : '' ?>><?= $te('mlist.policy_public_short') ?></option>
               <option value="domain"<?= $ml->accessPolicy === 'domain' ? ' selected' : '' ?>><?= $te('common.domain') ?></option>
@@ -52,22 +52,21 @@
             </select>
           </div>
           <div class="col-md-6">
-            <label for="maxMsgSize" class="form-label"><?= $te('mlist.max_msg_size') ?></label>
+            <label for="maxMsgSize" class="form-label"><?= $te('mlist.max_msg_size') ?></label><?= $help('mlist.max_msg_size') ?>
             <input type="number" id="maxMsgSize" name="maxMsgSize" class="form-control" min="0" value="<?= $e($ml->maxMsgSize) ?>" />
           </div>
         </div>
 
         <div class="form-check form-switch mb-2">
           <input type="checkbox" class="form-check-input" id="active" name="active" <?= $ml->active ? 'checked' : '' ?> />
-          <label class="form-check-label" for="active"><?= $te('common.active') ?></label>
+          <label class="form-check-label" for="active"><?= $te('common.active') ?></label><?= $help('common.active') ?>
         </div>
 
         <?php if ($supportsNewsletter): ?>
         <div class="form-check form-switch">
           <input type="checkbox" class="form-check-input" id="isNewsletter" name="isNewsletter" <?= $ml->isNewsletter ? 'checked' : '' ?> />
-          <label class="form-check-label" for="isNewsletter"><?= $te('mlist.newsletter') ?></label>
+          <label class="form-check-label" for="isNewsletter"><?= $te('mlist.newsletter') ?></label><?= $help('mlist.newsletter') ?>
         </div>
-        <div class="form-text"><?= $te('mlist.newsletter_hint') ?></div>
         <?php if ($ml->isNewsletter && $ml->mlid !== ''): ?>
         <dl class="row small mt-3 mb-0">
           <dt class="col-sm-4 text-body-secondary fw-normal"><?= $te('mlist.subscribe_page') ?></dt>
@@ -90,9 +89,8 @@
       <input type="hidden" name="action" value="updateOwners" />
       <div class="card-header"><?= $te('mlist.list_owners') ?></div>
       <div class="card-body">
-        <label for="owners" class="form-label"><?= $te('mlist.owners_hint') ?></label>
+        <label for="owners" class="form-label"><?= $te('mlist.owners_hint') ?></label><?= $help('mlist.owners_hint') ?>
         <textarea id="owners" name="owners" data-account-picker="multi" rows="4" class="form-control"><?= $e(implode("\n", $owners)) ?></textarea>
-        <div class="form-text"><?= $te('mlist.owners_desc') ?></div>
       </div>
       <div class="card-footer">
         <button type="submit" class="btn btn-primary"><?= $te('mlist.save_owners') ?></button>
@@ -107,9 +105,8 @@
       <input type="hidden" name="action" value="updateModerators" />
       <div class="card-header"><?= $te('mlist.list_moderators') ?></div>
       <div class="card-body">
-        <label for="moderators" class="form-label"><?= $te('mlist.moderators_hint') ?></label>
+        <label for="moderators" class="form-label"><?= $te('mlist.moderators_hint') ?></label><?= $help('mlist.moderators_hint') ?>
         <textarea id="moderators" name="moderators" data-account-picker="multi" rows="4" class="form-control"><?= $e(implode("\n", $moderators)) ?></textarea>
-        <div class="form-text"><?= $te('mlist.moderators_desc') ?></div>
       </div>
       <div class="card-footer">
         <button type="submit" class="btn btn-primary"><?= $te('mlist.save_moderators') ?></button>
@@ -128,36 +125,36 @@
         <div class="form-text mb-3"><?= $te('mlist.options_hint') ?></div>
 
         <div class="mb-3">
-          <label for="subjectPrefix" class="form-label"><?= $te('mlist.opt_subject_prefix') ?></label>
+          <label for="subjectPrefix" class="form-label"><?= $te('mlist.opt_subject_prefix') ?></label><?= $help('mlist.opt_subject_prefix') ?>
           <input type="text" id="subjectPrefix" name="subjectPrefix" class="form-control" value="<?= $e($options['subjectPrefix']) ?>" />
         </div>
 
         <div class="row g-3 mb-3">
           <div class="col-md-6">
-            <label for="footerText" class="form-label"><?= $te('mlist.opt_footer_text') ?></label>
+            <label for="footerText" class="form-label"><?= $te('mlist.opt_footer_text') ?></label><?= $help('mlist.opt_footer_text') ?>
             <textarea id="footerText" name="footerText" rows="3" class="form-control"><?= $e($options['footerText']) ?></textarea>
           </div>
           <div class="col-md-6">
-            <label for="footerHtml" class="form-label"><?= $te('mlist.opt_footer_html') ?></label>
+            <label for="footerHtml" class="form-label"><?= $te('mlist.opt_footer_html') ?></label><?= $help('mlist.opt_footer_html') ?>
             <textarea id="footerHtml" name="footerHtml" rows="3" class="form-control font-monospace"><?= $e($options['footerHtml']) ?></textarea>
           </div>
         </div>
 
         <div class="row g-3 mb-3">
           <div class="col-md-6">
-            <label for="customHeaders" class="form-label"><?= $te('mlist.opt_custom_headers') ?></label>
+            <label for="customHeaders" class="form-label"><?= $te('mlist.opt_custom_headers') ?></label><?= $help('mlist.opt_custom_headers') ?>
             <textarea id="customHeaders" name="customHeaders" rows="3" class="form-control font-monospace"><?= $e(implode("\n", $options['customHeaders'])) ?></textarea>
           </div>
           <div class="col-md-6">
-            <label for="removeHeaders" class="form-label"><?= $te('mlist.opt_remove_headers') ?></label>
+            <label for="removeHeaders" class="form-label"><?= $te('mlist.opt_remove_headers') ?></label><?= $help('mlist.opt_remove_headers') ?>
             <textarea id="removeHeaders" name="removeHeaders" rows="3" class="form-control font-monospace"><?= $e(implode("\n", $options['removeHeaders'])) ?></textarea>
           </div>
           <div class="col-md-6">
-            <label for="extraAddresses" class="form-label"><?= $te('mlist.opt_extra_addresses') ?></label>
+            <label for="extraAddresses" class="form-label"><?= $te('mlist.opt_extra_addresses') ?></label><?= $help('mlist.opt_extra_addresses') ?>
             <textarea id="extraAddresses" name="extraAddresses" data-account-picker="multi" rows="3" class="form-control"><?= $e(implode("\n", $options['extraAddresses'])) ?></textarea>
           </div>
           <div class="col-md-6">
-            <label for="subscriptionModerators" class="form-label"><?= $te('mlist.opt_subscription_moderators') ?></label>
+            <label for="subscriptionModerators" class="form-label"><?= $te('mlist.opt_subscription_moderators') ?></label><?= $help('mlist.opt_subscription_moderators') ?>
             <textarea id="subscriptionModerators" name="subscriptionModerators" data-account-picker="multi" rows="3" class="form-control"><?= $e(implode("\n", $options['subscriptionModerators'])) ?></textarea>
           </div>
         </div>
@@ -167,7 +164,7 @@
           <div class="col-md-6">
             <div class="form-check form-switch">
               <input type="checkbox" class="form-check-input" id="opt-<?= $e($optField) ?>" name="<?= $e($optField) ?>" <?= !empty($options[$optField]) ? 'checked' : '' ?> />
-              <label class="form-check-label" for="opt-<?= $e($optField) ?>"><?= $te('mlist.opt_' . $optParam) ?></label>
+              <label class="form-check-label" for="opt-<?= $e($optField) ?>"><?= $te('mlist.opt_' . $optParam) ?></label><?= $help('mlist.opt_' . $optParam) ?>
             </div>
           </div>
           <?php endforeach; ?>
@@ -218,11 +215,11 @@
       <input type="hidden" name="action" value="addSubscribers" />
       <div class="card-header"><?= $te('mlist.add_subscribers') ?></div>
       <div class="card-body">
-        <label for="subscribersInput" class="form-label"><?= $te('mlist.subscribers_hint') ?></label>
+        <label for="subscribersInput" class="form-label"><?= $te('mlist.subscribers_hint') ?></label><?= $help('mlist.subscribers_hint') ?>
         <textarea id="subscribersInput" name="subscribers" data-account-picker="multi" rows="4" class="form-control" required><?= $e($subscribersDraft) ?></textarea>
         <div class="row g-3 mt-1">
           <div class="col-md-6">
-            <label for="subscription" class="form-label"><?= $te('mlist.subscription') ?></label>
+            <label for="subscription" class="form-label"><?= $te('mlist.subscription') ?></label><?= $help('mlist.subscription') ?>
             <select id="subscription" name="subscription" class="form-select">
               <?php foreach (\App\Models\MlmmjOptions::SUBSCRIPTIONS as $subscriptionType): ?>
               <option value="<?= $e($subscriptionType) ?>"><?= $e($subscriptionType) ?></option>
@@ -232,7 +229,7 @@
           <div class="col-md-6 d-flex align-items-end">
             <div class="form-check form-switch mb-2">
               <input type="checkbox" class="form-check-input" id="requireConfirm" name="requireConfirm" />
-              <label class="form-check-label" for="requireConfirm"><?= $te('mlist.require_confirm') ?></label>
+              <label class="form-check-label" for="requireConfirm"><?= $te('mlist.require_confirm') ?></label><?= $help('mlist.require_confirm') ?>
             </div>
           </div>
         </div>

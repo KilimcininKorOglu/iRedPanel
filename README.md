@@ -338,6 +338,7 @@ server {
 - User CRUD with profile fields (name, quota, phone, employee ID and more)
 - Mail service toggles: SMTP, POP3, IMAP, ManageSieve, SOGo, and their TLS variants
 - Forwarding with a keep-copy option, per-user alias addresses, sender and recipient BCC, relay host, and a per-user Postfix transport (global admin only)
+- Per-user disclaimer text that `cli/dumpDisclaimer.php` writes to a file for Amavisd and AlterMIME
 - Address rename that updates every related table
 - Used quota and last login display (Dovecot `used_quota` and `last_login` data)
 - Bulk enable, disable and delete, and a bulk language, password or transport change; alphabetic filter, sortable columns, random password generation
@@ -521,7 +522,7 @@ php cli/deleteExpiredMailboxes.php [--dry-run]               # Cron: delete expi
 php cli/cleanupAmavisdDb.php [--quarantine-days=7]           # Cron: Amavisd cleanup
 php cli/deleteUnmatchedThrottles.php [--dry-run]            # Delete throttle rows iRedAPD never applies
 php cli/notifyQuarantinedRecipients.php [--force-all]        # Cron: quarantine notifications
-php cli/dumpDisclaimer.php                                   # Write domain disclaimers to files
+php cli/dumpDisclaimer.php                                   # Write domain and mailbox disclaimers to files
 php cli/dumpQuarantinedMails.php                             # Export quarantined messages
 php cli/invalidateSessions.php                               # End all active sessions
 php cli/replicateAccounts.php [--resource=ID] [--force] [--dry-run] [--allow-mass-disable]  # Cron: account replication

@@ -184,6 +184,24 @@ class PgsqlUserRepository implements UserRepositoryInterface
         $stmt->execute(['transport' => $transport ?? '', 'username' => "{$userUid}@{$domain}", 'domain' => $domain]);
     }
 
+    public function getDisclaimer(string $domain, string $userUid): string
+    {
+        $stmt = PgsqlConnection::getInstance()->getPdo()
+            ->prepare("SELECT disclaimer FROM mailbox WHERE username = :username LIMIT 1");
+        $stmt->execute(['username' => "{$userUid}@{$domain}"]);
+
+        // fetchColumn() answers false without a row.
+        return (string) $stmt->fetchColumn();
+    }
+
+    public function setDisclaimer(string $domain, string $userUid, string $disclaimer): void
+    {
+        // The column is NOT NULL, so no disclaimer is the empty string.
+        $stmt = PgsqlConnection::getInstance()->getPdo()
+            ->prepare("UPDATE mailbox SET disclaimer = :disclaimer WHERE username = :username AND domain = :domain");
+        $stmt->execute(['disclaimer' => $disclaimer, 'username' => "{$userUid}@{$domain}", 'domain' => $domain]);
+    }
+
     public function updateUserPassword(string $domain, string $userUid, string $passwordHash): void
     {
         $pdo = PgsqlConnection::getInstance()->getPdo();

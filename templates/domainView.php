@@ -2,7 +2,7 @@
 $pageTitle = $domain->domainName;
 $mode = $editMode ?? 'general';
 $domainProfileLabels = array_combine(\App\Models\ProfileToggles::DOMAIN_PROFILES, [$t('common.settings'), $t('domain.tab_catchall'), $t('domain.tab_bcc'), $t('domain.tab_relay')]);
-$userProfileLabels = array_combine(\App\Models\ProfileToggles::USER_PROFILES, [$t('user.tab_general'), $t('common.password'), $t('user.tab_services'), $t('user.tab_forwarding'), $t('user.tab_aliases'), $t('domain.tab_bcc'), $t('domain.tab_relay')]);
+$userProfileLabels = array_combine(\App\Models\ProfileToggles::USER_PROFILES, [$t('user.tab_general'), $t('common.password'), $t('user.tab_services'), $t('user.tab_forwarding'), $t('user.tab_aliases'), $t('domain.tab_bcc'), $t('domain.tab_relay'), $t('user.tab_disclaimer')]);
 $preferenceLabels = array_combine(\App\Models\ProfileToggles::USER_PREFERENCES, [$t('domain.pref_personal_info'), $t('common.password'), $t('user.tab_forwarding'), $t('domain.pref_wblist'), $t('domain.pref_spampolicy'), $t('domain.pref_quarantine'), $t('domain.pref_received'), $t('domain.pref_sent')]);
 $toggleList = function (string $name, array $labels, array $checked) use ($e): string {
     $html = '<div class="row g-2">';

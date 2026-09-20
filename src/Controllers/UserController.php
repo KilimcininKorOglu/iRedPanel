@@ -32,7 +32,7 @@ use App\Utils\PasswordUtils;
 class UserController
 {
     /** The tabs of the user page, in the order the template shows them. */
-    private const EDIT_MODES = ['general', 'password', 'services', 'forwarding', 'aliases', 'bcc', 'relay'];
+    private const EDIT_MODES = ['general', 'password', 'services', 'forwarding', 'aliases', 'bcc', 'relay', 'disclaimer'];
 
     /** Every tab variable the template reads, so a tab only fills its own. */
     private const TAB_DEFAULTS = [
@@ -43,6 +43,7 @@ class UserController
         'userRecipientBcc' => null,
         'userRelayhost' => null,
         'userTransport' => null,
+        'userDisclaimer' => '',
     ];
 
     /**
@@ -166,6 +167,7 @@ class UserController
             'aliases' => self::saveUserAliases($domain, $userUid),
             'bcc' => self::saveUserBcc($domain, $userUid),
             'relay' => self::saveUserRelay($domain, $userUid),
+            'disclaimer' => self::saveUserDisclaimer($domain, $userUid),
             default => throw new \LogicException("Unknown user edit mode: {$editMode}"),
         };
     }
@@ -330,6 +332,19 @@ class UserController
     }
 
     /**
+     * @return array{success: string}
+     */
+    private static function saveUserDisclaimer(string $domain, string $userUid): array
+    {
+        CsrfProtection::validateToken();
+        RepositoryFactory::getUserRepository()
+            ->setDisclaimer($domain, $userUid, FormValue::text($_POST, 'disclaimer'));
+        ActivityLogger::logUpdate($domain, $userUid, "Disclaimer updated");
+
+        return ['success' => Translator::translate('user.msg_disclaimer_updated')];
+    }
+
+    /**
      * The stored values that one user tab shows, over the defaults of every tab.
      *
      * @return array<string, mixed>
@@ -352,6 +367,7 @@ class UserController
                 'userRelayhost' => RepositoryFactory::getRelayRepository()->getRelayhost($email),
                 'userTransport' => RepositoryFactory::getUserRepository()->getTransport($domain, $userUid),
             ],
+            'disclaimer' => ['userDisclaimer' => RepositoryFactory::getUserRepository()->getDisclaimer($domain, $userUid)],
             default => [],
         } + self::TAB_DEFAULTS;
     }

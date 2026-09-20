@@ -80,6 +80,16 @@ interface UserRepositoryInterface
     public function setTransport(string $domain, string $userUid, ?string $transport): void;
 
     /**
+     * The outgoing disclaimer text of one mailbox, or an empty string when it has none.
+     */
+    public function getDisclaimer(string $domain, string $userUid): string;
+
+    /**
+     * Sets the outgoing disclaimer text of one mailbox; an empty string removes it.
+     */
+    public function setDisclaimer(string $domain, string $userUid, string $disclaimer): void;
+
+    /**
      * Renames a user email address, updating all related records.
      */
     public function renameUser(string $domain, string $oldUid, string $newUid): void;

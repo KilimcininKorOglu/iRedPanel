@@ -12,6 +12,7 @@ $tabs = [
     'aliases' => $t('user.tab_aliases'),
     'bcc' => $t('domain.tab_bcc'),
     'relay' => $t('domain.tab_relay'),
+    'disclaimer' => $t('user.tab_disclaimer'),
 ];
 // A domain admin sees only the pages that the global admin left open.
 $tabs = array_intersect_key($tabs, array_flip($openPages));
@@ -316,6 +317,21 @@ $services = \App\Models\User::SERVICE_LABELS;
       </div>
       <div class="card-footer">
         <button type="submit" class="btn btn-primary"><?= $te('domain.save_relay') ?></button>
+      </div>
+    </form>
+    <?php endif; ?>
+
+    <?php if ($editMode === 'disclaimer'): ?>
+    <form method="post" class="card">
+      <?= $csrfField ?>
+      <div class="card-header"><?= $te('user.tab_disclaimer') ?></div>
+      <div class="card-body">
+        <p class="text-body-secondary"><?= $te('user.disclaimer_desc') ?></p>
+        <label for="disclaimer" class="form-label"><?= $te('user.disclaimer_text') ?></label><?= $help('user.disclaimer_text') ?>
+        <textarea id="disclaimer" name="disclaimer" rows="8" class="form-control"><?= $e($userDisclaimer ?? '') ?></textarea>
+      </div>
+      <div class="card-footer">
+        <button type="submit" class="btn btn-primary"><?= $te('common.save') ?></button>
       </div>
     </form>
     <?php endif; ?>

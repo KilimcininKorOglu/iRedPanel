@@ -15,8 +15,9 @@ $options = getopt('', ['output:']);
 
 if (empty($options['output'])) {
     echo "Usage: php cli/dumpDisclaimer.php --output=/etc/postfix/disclaimer/\n";
-    echo "\nExports domain disclaimer text to files for Postfix integration.\n";
-    echo "Creates {domain}.txt and {domain}.html for each domain and alias domain with a disclaimer.\n";
+    echo "\nExports domain and mailbox disclaimer text to files for Postfix integration.\n";
+    echo "Creates {domain}.txt and {domain}.html for each domain and alias domain with a disclaimer,\n";
+    echo "and {user@domain}.txt and {user@domain}.html for each mailbox with its own disclaimer.\n";
     exit(1);
 }
 
@@ -59,6 +60,7 @@ function writeDisclaimerFiles(string $outputDir, string $mailDomain, string $dis
 
 $domainRepo = RepositoryFactory::getDomainRepository();
 $aliasRepo = RepositoryFactory::getDomainAliasRepository();
+$userRepo = RepositoryFactory::getUserRepository();
 $count = 0;
 
 foreach ($domainRepo->getDomains() as $domainInfo) {
@@ -75,6 +77,12 @@ foreach ($domainRepo->getDomains() as $domainInfo) {
 
     foreach ($mailDomains as $mailDomain) {
         $count += writeDisclaimerFiles($outputDir, $mailDomain, $domain->disclaimer) ? 1 : 0;
+    }
+
+    // A mailbox with its own text replaces the domain text for that sender address.
+    foreach ($userRepo->getUsers($domain->domainName) as $user) {
+        $email = $user->uid . '@' . $domain->domainName;
+        $count += writeDisclaimerFiles($outputDir, $email, $userRepo->getDisclaimer($domain->domainName, $user->uid)) ? 1 : 0;
     }
 }
 

@@ -170,6 +170,24 @@ class LdapUserRepository implements UserRepositoryInterface
         }
     }
 
+    public function getDisclaimer(string $domain, string $userUid): string
+    {
+        $conn = LdapConnection::getInstance()->getConn();
+        $entry = LdapUtils::readEntry($conn, LdapUtils::getEmailDn("{$userUid}@{$domain}"), '(objectClass=mailUser)', ['disclaimer']);
+
+        return (string) ($entry['disclaimer'][0] ?? '');
+    }
+
+    public function setDisclaimer(string $domain, string $userUid, string $disclaimer): void
+    {
+        $conn = LdapConnection::getInstance()->getConn();
+        $dn = LdapUtils::getEmailDn("{$userUid}@{$domain}");
+        // modReplace() removes the attribute for an empty text, so the domain disclaimer applies again.
+        if (!LdapUtils::modifyBatch($conn, $dn, [LdapUtils::modReplace('disclaimer', $disclaimer)])) {
+            throw new \RuntimeException('LDAP disclaimer update failed: ' . ldap_error($conn));
+        }
+    }
+
     public function updateUserPassword(string $domain, string $userUid, string $passwordHash): void
     {
         $conn = LdapConnection::getInstance()->getConn();

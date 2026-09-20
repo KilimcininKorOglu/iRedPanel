@@ -352,7 +352,7 @@ class UserApiController
     }
 
     /**
-     * Returns the forwarding, BCC and relay settings of a mailbox.
+     * Returns the forwarding, BCC, relay and disclaimer settings of a mailbox.
      */
     private static function routing(string $email): array
     {
@@ -361,6 +361,7 @@ class UserApiController
         [$uid, $domain] = self::parseEmail($email);
         return [
             'transport' => RepositoryFactory::getUserRepository()->getTransport((string) $domain, (string) $uid),
+            'disclaimer' => RepositoryFactory::getUserRepository()->getDisclaimer((string) $domain, (string) $uid),
             'forwardings' => $forwarding->getForwardings($email),
             'keepCopy' => $forwarding->getKeepCopy($email),
             'aliases' => RepositoryFactory::getAliasRepository()->getUserAliases($email),
@@ -372,7 +373,7 @@ class UserApiController
 
     /**
      * The single-value routing fields the body sets: keepCopy, both BCC addresses,
-     * the relayhost and the transport.
+     * the relayhost, the transport and the disclaimer.
      *
      * @param array<string, mixed> $data
      * @return array<string, mixed>
@@ -397,6 +398,9 @@ class UserApiController
             // A wrong transport loses mail, so only a global key sets it.
             ApiMiddleware::requireGlobalKey();
             $routing['transport'] = MailTransport::valid($data['transport']);
+        }
+        if (array_key_exists('disclaimer', $data)) {
+            $routing['disclaimer'] = FormValue::text($data, 'disclaimer');
         }
 
         return $routing;
@@ -474,6 +478,8 @@ class UserApiController
                 'relayhost' => RepositoryFactory::getRelayRepository()->setRelayhost($email, $value),
                 'transport' => RepositoryFactory::getUserRepository()
                     ->setTransport($domain, explode('@', $email, 2)[0], $value),
+                'disclaimer' => RepositoryFactory::getUserRepository()
+                    ->setDisclaimer($domain, explode('@', $email, 2)[0], $value),
                 default => throw new \LogicException("Unknown routing field: {$field}"),
             };
         }

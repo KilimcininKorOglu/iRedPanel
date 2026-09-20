@@ -184,6 +184,24 @@ class MysqlUserRepository implements UserRepositoryInterface
         $stmt->execute(['transport' => $transport ?? '', 'username' => "{$userUid}@{$domain}", 'domain' => $domain]);
     }
 
+    public function getDisclaimer(string $domain, string $userUid): string
+    {
+        $stmt = MysqlConnection::getInstance()->getPdo()
+            ->prepare("SELECT disclaimer FROM mailbox WHERE username = :username LIMIT 1");
+        $stmt->execute(['username' => "{$userUid}@{$domain}"]);
+
+        // fetchColumn() answers false without a row, and the column may be SQL NULL.
+        return (string) $stmt->fetchColumn();
+    }
+
+    public function setDisclaimer(string $domain, string $userUid, string $disclaimer): void
+    {
+        // The column allows NULL, but an empty string reads the same and keeps both backends equal.
+        $stmt = MysqlConnection::getInstance()->getPdo()
+            ->prepare("UPDATE mailbox SET disclaimer = :disclaimer WHERE username = :username AND domain = :domain");
+        $stmt->execute(['disclaimer' => $disclaimer, 'username' => "{$userUid}@{$domain}", 'domain' => $domain]);
+    }
+
     public function updateUserPassword(string $domain, string $userUid, string $passwordHash): void
     {
         $pdo = MysqlConnection::getInstance()->getPdo();

@@ -677,7 +677,10 @@
     "label_geoIpDbPath_help": "A ruta dun ficheiro GeoLite2 .mmdb. Con el a páxina de Fail2ban amosa o país dun enderezo bloqueado. Baleiro desactiva a consulta.",
     "label_apiEnabled_help": "Activado: os endpoints baixo /api/v1 responden a unha petición cunha chave válida. Desactivado: toda petición á API recibe 403.",
     "label_apiKey_help": "Unha chave da configuración, gardada para unha integración antiga. Unha petición que a leva ten acceso completo, así que déixea baleira se ninguén a precisa.",
-    "label_apiAllowedIps_help": "Só estes enderezos poden chamar á API. Escriba enderezos ou rangos CIDR separados por comas. Baleiro permite calquera enderezo."
+    "label_apiAllowedIps_help": "Só estes enderezos poden chamar á API. Escriba enderezos ou rangos CIDR separados por comas. Baleiro permite calquera enderezo.",
+    "secret_stored": "Hai un valor gardado; escriba un novo para substituílo",
+    "secret_empty": "Ningún valor gardado",
+    "secret_clear": "Borrar o valor gardado"
   },
   "quarantine": {
     "title": "Corentena",

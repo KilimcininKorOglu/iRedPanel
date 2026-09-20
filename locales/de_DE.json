@@ -677,7 +677,10 @@
     "label_geoIpDbPath_help": "Der Pfad einer GeoLite2-.mmdb-Datei. Damit zeigt die Fail2ban-Seite das Land einer gesperrten Adresse. Leer schaltet die Abfrage aus.",
     "label_apiEnabled_help": "An: die Endpunkte unter /api/v1 beantworten eine Anfrage mit gültigem Key. Aus: jede API-Anfrage erhält 403.",
     "label_apiKey_help": "Ein Key aus der Konfiguration, für eine ältere Integration aufbewahrt. Eine Anfrage damit hat vollen Zugriff, lassen Sie ihn daher leer, wenn ihn nichts braucht.",
-    "label_apiAllowedIps_help": "Nur diese Adressen dürfen die API aufrufen. Geben Sie Adressen oder CIDR-Bereiche mit Komma getrennt an. Leer erlaubt jede Adresse."
+    "label_apiAllowedIps_help": "Nur diese Adressen dürfen die API aufrufen. Geben Sie Adressen oder CIDR-Bereiche mit Komma getrennt an. Leer erlaubt jede Adresse.",
+    "secret_stored": "Ein Wert ist gespeichert; neuen eingeben, um ihn zu ersetzen",
+    "secret_empty": "Kein Wert gespeichert",
+    "secret_clear": "Gespeicherten Wert löschen"
   },
   "quarantine": {
     "title": "Quarantäne",

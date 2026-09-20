@@ -677,7 +677,10 @@
     "label_geoIpDbPath_help": "GeoLite2 .mmdb fitxategi baten bidea. Horrekin Fail2ban orriak debekatutako helbidearen herrialdea erakusten du. Hutsik utziz gero ez da bilaketarik egiten.",
     "label_apiEnabled_help": "Piztuta: /api/v1 azpiko endpoint-ek baliozko key bat daraman eskaerari erantzuten diote. Itzalita: API eskaera orok 403 jasotzen du.",
     "label_apiKey_help": "Konfiguraziotik datorren key bakarra, integrazio zahar baterako gordea. Hura daraman eskaerak sarbide osoa du, beraz utzi hutsik inork behar ez badu.",
-    "label_apiAllowedIps_help": "Helbide hauek bakarrik dei dezakete API-a. Idatzi komaz bereizitako helbideak edo CIDR barrutiak. Hutsik utziz gero edozein helbidek deitzen du."
+    "label_apiAllowedIps_help": "Helbide hauek bakarrik dei dezakete API-a. Idatzi komaz bereizitako helbideak edo CIDR barrutiak. Hutsik utziz gero edozein helbidek deitzen du.",
+    "secret_stored": "Balio bat gordeta dago; berria idatzi ordezkatzeko",
+    "secret_empty": "Ez dago baliorik gordeta",
+    "secret_clear": "Ezabatu gordetako balioa"
   },
   "quarantine": {
     "title": "Berrogeialdia",

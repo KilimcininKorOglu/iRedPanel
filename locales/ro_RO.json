@@ -677,7 +677,10 @@
     "label_geoIpDbPath_help": "Calea unui fișier GeoLite2 .mmdb. Cu el, pagina Fail2ban arată țara unei adrese blocate. Gol oprește căutarea.",
     "label_apiEnabled_help": "Pornit: endpointurile de sub /api/v1 răspund unei cereri cu o cheie validă. Oprit: orice cerere la API primește 403.",
     "label_apiKey_help": "O cheie din configurație, păstrată pentru o integrare mai veche. O cerere care o poartă are acces complet, așa că lăsați-o goală când nimeni nu are nevoie de ea.",
-    "label_apiAllowedIps_help": "Doar aceste adrese pot apela API-ul. Scrieți adrese sau intervale CIDR separate prin virgule. Gol permite orice adresă."
+    "label_apiAllowedIps_help": "Doar aceste adrese pot apela API-ul. Scrieți adrese sau intervale CIDR separate prin virgule. Gol permite orice adresă.",
+    "secret_stored": "O valoare este stocată; scrieți una nouă pentru a o înlocui",
+    "secret_empty": "Nicio valoare stocată",
+    "secret_clear": "Șterge valoarea stocată"
   },
   "quarantine": {
     "title": "Carantină",

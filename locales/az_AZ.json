@@ -677,7 +677,10 @@
     "label_geoIpDbPath_help": "GeoLite2 .mmdb faylının yolu. Bu fayl ilə Fail2ban səhifəsi banlanmış ünvanın ölkəsini göstərir. Boş qoyulsa sorğu aparılmır.",
     "label_apiEnabled_help": "Açıq: /api/v1 altındakı endpoint'lər etibarlı key daşıyan sorğuya cavab verir. Bağlı: hər API sorğusu 403 alır.",
     "label_apiKey_help": "Konfiqurasiyadan gələn, köhnə inteqrasiya üçün saxlanan tək key. Onu daşıyan sorğu tam səlahiyyətlidir, ehtiyac yoxdursa boş saxlayın.",
-    "label_apiAllowedIps_help": "API'ni yalnız bu ünvanlar çağıra bilər. Vergüllə ayrılmış ünvanlar və ya CIDR aralıqları yazın. Boş qoyulsa hər ünvan çağırır."
+    "label_apiAllowedIps_help": "API'ni yalnız bu ünvanlar çağıra bilər. Vergüllə ayrılmış ünvanlar və ya CIDR aralıqları yazın. Boş qoyulsa hər ünvan çağırır.",
+    "secret_stored": "Dəyər saxlanılıb; dəyişmək üçün yenisini yazın",
+    "secret_empty": "Saxlanılmış dəyər yoxdur",
+    "secret_clear": "Saxlanılmış dəyəri silin"
   },
   "quarantine": {
     "title": "Karantin",

@@ -677,7 +677,10 @@
     "label_geoIpDbPath_help": "Stien til en GeoLite2 .mmdb-fil. Med den viser Fail2ban-siden landet til en blokkert adresse. Tom slår oppslaget av.",
     "label_apiEnabled_help": "På: endepunktene under /api/v1 svarer på en forespørsel med en gyldig key. Av: hver API-forespørsel får 403.",
     "label_apiKey_help": "Én key fra konfigurasjonen, beholdt for en eldre integrasjon. En forespørsel med den har full tilgang, så la den stå tom når ingen trenger den.",
-    "label_apiAllowedIps_help": "Bare disse adressene får kalle API-et. Skriv adresser eller CIDR-områder skilt med komma. Tom tillater enhver adresse."
+    "label_apiAllowedIps_help": "Bare disse adressene får kalle API-et. Skriv adresser eller CIDR-områder skilt med komma. Tom tillater enhver adresse.",
+    "secret_stored": "En verdi er lagret; skriv en ny for å erstatte den",
+    "secret_empty": "Ingen lagret verdi",
+    "secret_clear": "Tøm den lagrede verdien"
   },
   "quarantine": {
     "title": "Karantene",

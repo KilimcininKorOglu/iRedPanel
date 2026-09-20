@@ -677,7 +677,10 @@
     "label_geoIpDbPath_help": "GeoLite2 .mmdb faili tee. Sellega näitab Fail2bani leht blokeeritud aadressi riiki. Tühi lülitab otsingu välja.",
     "label_apiEnabled_help": "Sees: /api/v1 all olevad endpointid vastavad kehtivat võtit kandvale päringule. Väljas: iga API päring saab 403.",
     "label_apiKey_help": "Üks võti seadistusest, mis on alles vanema liidestuse jaoks. Seda kandval päringul on täielik ligipääs, nii et jätke tühjaks, kui keegi seda ei vaja.",
-    "label_apiAllowedIps_help": "API-t tohivad kutsuda ainult need aadressid. Kirjutage komadega eraldatud aadressid või CIDR-vahemikud. Tühi lubab iga aadressi."
+    "label_apiAllowedIps_help": "API-t tohivad kutsuda ainult need aadressid. Kirjutage komadega eraldatud aadressid või CIDR-vahemikud. Tühi lubab iga aadressi.",
+    "secret_stored": "Väärtus on salvestatud; asendamiseks sisestage uus",
+    "secret_empty": "Salvestatud väärtust ei ole",
+    "secret_clear": "Kustuta salvestatud väärtus"
   },
   "quarantine": {
     "title": "Karantiin",

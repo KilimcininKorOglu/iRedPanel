@@ -677,7 +677,10 @@
     "label_geoIpDbPath_help": "Putanja GeoLite2 .mmdb datoteke. Sa njom stranica Fail2ban prikazuje državu blokirane adrese. Prazno isključuje pretragu.",
     "label_apiEnabled_help": "Uključeno: endpointi pod /api/v1 odgovaraju na zahtev sa ispravnim ključem. Isključeno: svaki API zahtev dobija 403.",
     "label_apiKey_help": "Jedan ključ iz konfiguracije, zadržan za stariju integraciju. Zahtev koji ga nosi ima pun pristup, zato ga ostavite prazan kada nikome ne treba.",
-    "label_apiAllowedIps_help": "API mogu pozvati samo ove adrese. Upišite adrese ili CIDR opsege razdvojene zarezima. Prazno dopušta svaku adresu."
+    "label_apiAllowedIps_help": "API mogu pozvati samo ove adrese. Upišite adrese ili CIDR opsege razdvojene zarezima. Prazno dopušta svaku adresu.",
+    "secret_stored": "Вредност је сачувана; упишите нову да је замените",
+    "secret_empty": "Нема сачуване вредности",
+    "secret_clear": "Обриши сачувану вредност"
   },
   "quarantine": {
     "title": "Карантин",

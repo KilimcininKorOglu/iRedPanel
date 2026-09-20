@@ -677,7 +677,10 @@
     "label_geoIpDbPath_help": "GeoLite2 .mmdb 파일의 경로입니다. 이 파일이 있으면 Fail2ban 페이지가 차단된 주소의 국가를 보여 줍니다. 비우면 조회하지 않습니다.",
     "label_apiEnabled_help": "켬: /api/v1 아래의 endpoint가 올바른 key를 지닌 요청에 응답합니다. 끔: 모든 API 요청이 403을 받습니다.",
     "label_apiKey_help": "설정에 있는, 예전 연동을 위해 남겨 둔 key 하나입니다. 이 key를 지닌 요청은 모든 권한을 가지므로 필요 없으면 비워 두십시오.",
-    "label_apiAllowedIps_help": "이 주소들만 API를 호출할 수 있습니다. 쉼표로 구분한 주소나 CIDR 범위를 적습니다. 비우면 모든 주소가 호출할 수 있습니다."
+    "label_apiAllowedIps_help": "이 주소들만 API를 호출할 수 있습니다. 쉼표로 구분한 주소나 CIDR 범위를 적습니다. 비우면 모든 주소가 호출할 수 있습니다.",
+    "secret_stored": "값이 저장되어 있습니다. 교체하려면 새 값을 입력하세요",
+    "secret_empty": "저장된 값 없음",
+    "secret_clear": "저장된 값 지우기"
   },
   "quarantine": {
     "title": "격리",

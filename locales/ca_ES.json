@@ -677,7 +677,10 @@
     "label_geoIpDbPath_help": "El camí d'un fitxer GeoLite2 .mmdb. Amb ell la pàgina de Fail2ban mostra el país d'una adreça blocada. Buit desactiva la consulta.",
     "label_apiEnabled_help": "Activat: els endpoints sota /api/v1 responen una petició amb una clau vàlida. Desactivat: tota petició a l'API rep 403.",
     "label_apiKey_help": "Una clau de la configuració, guardada per a una integració antiga. Una petició que la porta té accés complet, deixeu-la buida si ningú no la necessita.",
-    "label_apiAllowedIps_help": "Només aquestes adreces poden cridar l'API. Escriviu adreces o intervals CIDR separats per comes. Buit permet qualsevol adreça."
+    "label_apiAllowedIps_help": "Només aquestes adreces poden cridar l'API. Escriviu adreces o intervals CIDR separats per comes. Buit permet qualsevol adreça.",
+    "secret_stored": "Hi ha un valor desat; escriviu-ne un de nou per substituir-lo",
+    "secret_empty": "Cap valor desat",
+    "secret_clear": "Esborra el valor desat"
   },
   "quarantine": {
     "title": "Quarantena",

@@ -677,7 +677,10 @@
     "label_geoIpDbPath_help": "GeoLite2 .mmdb 檔案的路徑。有這個檔案時，Fail2ban 頁面會顯示被封鎖位址的國家。留空則不查詢。",
     "label_apiEnabled_help": "開啟：/api/v1 下的 endpoint 會回應帶有有效 key 的請求。關閉：所有 API 請求都回傳 403。",
     "label_apiKey_help": "設定中保留給舊整合的一個 key。帶著它的請求擁有全部權限，沒有人需要時請留空。",
-    "label_apiAllowedIps_help": "只有這些位址可以呼叫 API。填寫以逗號分隔的位址或 CIDR 範圍。留空則允許所有位址。"
+    "label_apiAllowedIps_help": "只有這些位址可以呼叫 API。填寫以逗號分隔的位址或 CIDR 範圍。留空則允許所有位址。",
+    "secret_stored": "已儲存一個值；輸入新值即可取代",
+    "secret_empty": "未儲存任何值",
+    "secret_clear": "清除已儲存的值"
   },
   "quarantine": {
     "title": "隔離區",

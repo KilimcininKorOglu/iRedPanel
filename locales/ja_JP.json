@@ -677,7 +677,10 @@
     "label_geoIpDbPath_help": "GeoLite2 の .mmdb ファイルのパスです。これがあると Fail2ban ページが禁止アドレスの国を表示します。空にすると照会しません。",
     "label_apiEnabled_help": "オン: /api/v1 配下の endpoint が有効な key を持つリクエストに応答します。オフ: すべての API リクエストが 403 になります。",
     "label_apiKey_help": "設定ファイルにある古い連携用の key です。この key を持つリクエストは全権限を持つので、必要がなければ空にします。",
-    "label_apiAllowedIps_help": "API を呼べるのはこれらのアドレスだけです。カンマ区切りでアドレスか CIDR 範囲を書きます。空ならすべてのアドレスを許可します。"
+    "label_apiAllowedIps_help": "API を呼べるのはこれらのアドレスだけです。カンマ区切りでアドレスか CIDR 範囲を書きます。空ならすべてのアドレスを許可します。",
+    "secret_stored": "値が保存されています。置き換えるには新しい値を入力してください",
+    "secret_empty": "保存された値はありません",
+    "secret_clear": "保存された値を削除する"
   },
   "quarantine": {
     "title": "隔離",

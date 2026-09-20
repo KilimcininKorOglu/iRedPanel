@@ -677,7 +677,10 @@
     "label_geoIpDbPath_help": "The path of a GeoLite2 .mmdb file. With it the Fail2ban page shows the country of a banned address. Empty turns the lookup off.",
     "label_apiEnabled_help": "On: the endpoints under /api/v1 answer a request that carries a valid key. Off: every API request gets 403.",
     "label_apiKey_help": "One key from the configuration, kept for an older integration. A request that carries it has full access, so leave it empty when nothing needs it.",
-    "label_apiAllowedIps_help": "Only these addresses may call the API. Write addresses or CIDR ranges separated by commas. Empty allows every address."
+    "label_apiAllowedIps_help": "Only these addresses may call the API. Write addresses or CIDR ranges separated by commas. Empty allows every address.",
+    "secret_stored": "A value is stored; type a new one to replace it",
+    "secret_empty": "No value stored",
+    "secret_clear": "Clear the stored value"
   },
   "quarantine": {
     "title": "Quarantine",

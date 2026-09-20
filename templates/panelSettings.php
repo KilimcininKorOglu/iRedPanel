@@ -55,6 +55,12 @@ $currentKeys = $categories[$activeTab] ?? [];
                   <option value="<?= $e($code) ?>"<?= $currentValue === $code ? ' selected' : '' ?>><?= $e($name) ?> (<?= $e($code) ?>)</option>
                   <?php endforeach; ?>
                 </select>
+                <?php elseif (in_array($key, $secretKeys, true)): ?>
+                <input type="password" name="<?= $e($key) ?>" id="<?= $fieldId ?>" class="form-control form-control-sm" value="" autocomplete="new-password" placeholder="<?= $te(empty($secretStored[$key]) ? 'panelset.secret_empty' : 'panelset.secret_stored') ?>">
+                <div class="form-check mt-2 mb-0">
+                  <input type="checkbox" class="form-check-input" name="<?= $e($key) ?>_clear" id="<?= $fieldId ?>-clear" value="1">
+                  <label class="form-check-label small" for="<?= $fieldId ?>-clear"><?= $te('panelset.secret_clear') ?></label>
+                </div>
                 <?php elseif ($type === 'int'): ?>
                 <input type="number" name="<?= $e($key) ?>" id="<?= $fieldId ?>" class="form-control form-control-sm" style="max-width: 12rem" value="<?= $e((string) $currentValue) ?>" min="0">
                 <?php else: ?>

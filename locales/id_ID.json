@@ -677,7 +677,10 @@
     "label_geoIpDbPath_help": "Jalur berkas GeoLite2 .mmdb. Dengan berkas ini halaman Fail2ban menampilkan negara alamat yang diblokir. Kosong mematikan pencarian.",
     "label_apiEnabled_help": "Aktif: endpoint di bawah /api/v1 menjawab permintaan yang membawa key sah. Nonaktif: setiap permintaan API menerima 403.",
     "label_apiKey_help": "Satu key dari konfigurasi, disimpan untuk integrasi lama. Permintaan yang membawanya punya akses penuh, jadi biarkan kosong bila tak ada yang memerlukannya.",
-    "label_apiAllowedIps_help": "Hanya alamat ini yang boleh memanggil API. Tulis alamat atau rentang CIDR dipisahkan koma. Kosong mengizinkan setiap alamat."
+    "label_apiAllowedIps_help": "Hanya alamat ini yang boleh memanggil API. Tulis alamat atau rentang CIDR dipisahkan koma. Kosong mengizinkan setiap alamat.",
+    "secret_stored": "Nilai tersimpan; ketik yang baru untuk menggantinya",
+    "secret_empty": "Tidak ada nilai tersimpan",
+    "secret_clear": "Hapus nilai tersimpan"
   },
   "quarantine": {
     "title": "Karantina",

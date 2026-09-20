@@ -677,7 +677,10 @@
     "label_geoIpDbPath_help": "Il percorso di un file GeoLite2 .mmdb. Con esso la pagina Fail2ban mostra il paese di un indirizzo bloccato. Vuoto disattiva la ricerca.",
     "label_apiEnabled_help": "Attivo: gli endpoint sotto /api/v1 rispondono a una richiesta con una chiave valida. Spento: ogni richiesta API riceve 403.",
     "label_apiKey_help": "Una chiave dalla configurazione, tenuta per una vecchia integrazione. Una richiesta che la porta ha accesso completo, quindi lasciarla vuota se nulla la usa.",
-    "label_apiAllowedIps_help": "Solo questi indirizzi possono chiamare l'API. Scrivere indirizzi o intervalli CIDR separati da virgole. Vuoto permette ogni indirizzo."
+    "label_apiAllowedIps_help": "Solo questi indirizzi possono chiamare l'API. Scrivere indirizzi o intervalli CIDR separati da virgole. Vuoto permette ogni indirizzo.",
+    "secret_stored": "È memorizzato un valore; digitane uno nuovo per sostituirlo",
+    "secret_empty": "Nessun valore memorizzato",
+    "secret_clear": "Cancella il valore memorizzato"
   },
   "quarantine": {
     "title": "Quarantena",

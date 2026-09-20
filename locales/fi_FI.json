@@ -677,7 +677,10 @@
     "label_geoIpDbPath_help": "GeoLite2 .mmdb -tiedoston polku. Sen kanssa Fail2ban-sivu näyttää estetyn osoitteen maan. Tyhjä kytkee haun pois.",
     "label_apiEnabled_help": "Päällä: /api/v1-polun endpointit vastaavat pyyntöön, jossa on kelvollinen key. Pois: jokainen API-pyyntö saa 403.",
     "label_apiKey_help": "Yksi key asetuksista, säilytetty vanhempaa integraatiota varten. Sen kantava pyyntö saa täyden pääsyn, joten jätä tyhjäksi, kun sitä ei tarvita.",
-    "label_apiAllowedIps_help": "Vain nämä osoitteet saavat kutsua APIa. Kirjoita pilkuilla erotetut osoitteet tai CIDR-alueet. Tyhjä sallii jokaisen osoitteen."
+    "label_apiAllowedIps_help": "Vain nämä osoitteet saavat kutsua APIa. Kirjoita pilkuilla erotetut osoitteet tai CIDR-alueet. Tyhjä sallii jokaisen osoitteen.",
+    "secret_stored": "Arvo on tallennettu; korvaa se kirjoittamalla uusi",
+    "secret_empty": "Ei tallennettua arvoa",
+    "secret_clear": "Tyhjennä tallennettu arvo"
   },
   "quarantine": {
     "title": "Karanteeni",

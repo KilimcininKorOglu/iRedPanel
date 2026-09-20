@@ -44,6 +44,12 @@ class PanelSettingsController
         ],
     ];
 
+    /**
+     * Settings whose value is never written back to the page. The form sends an
+     * empty field when the admin does not change them, and a checkbox clears them.
+     */
+    public const SECRET_KEYS = ['apiKey'];
+
     public static function view(TemplateEngine $tpl): void
     {
         Middleware::globalAdminRequired();
@@ -67,8 +73,15 @@ class PanelSettingsController
             $labels[$key] = Translator::translate("panelset.label_{$key}");
         }
 
+        $secretStored = [];
+        foreach (self::SECRET_KEYS as $key) {
+            $secretStored[$key] = $settings->$key !== '';
+        }
+
         $tpl->render('panelSettings.php', [
             'categories' => self::CATEGORIES,
+            'secretKeys' => self::SECRET_KEYS,
+            'secretStored' => $secretStored,
             'categoryTitles' => $categoryTitles,
             'labels' => $labels,
             'overridableKeys' => Settings::OVERRIDABLE_KEYS,
@@ -91,16 +104,7 @@ class PanelSettingsController
             exit;
         }
 
-        $toSave = [];
-        $rejected = [];
-        foreach (self::CATEGORIES[$category] as $key) {
-            $value = self::normalize($key, Settings::OVERRIDABLE_KEYS[$key], $_POST[$key] ?? null);
-            if ($value === null) {
-                $rejected[] = Translator::translate("panelset.label_{$key}");
-            } else {
-                $toSave[$key] = $value;
-            }
-        }
+        ['values' => $toSave, 'rejected' => $rejected] = self::submitted($category);
 
         $errors = [];
         if ($rejected !== []) {
@@ -134,6 +138,55 @@ class PanelSettingsController
 
         header("Location: /panel-settings?tab={$category}");
         exit;
+    }
+
+    /**
+     * The values of one category as the form submitted them, and the labels of the
+     * values that no rule accepts.
+     *
+     * @return array{values: array<string, string>, rejected: list<string>}
+     */
+    private static function submitted(string $category): array
+    {
+        $values = [];
+        $rejected = [];
+        foreach (self::CATEGORIES[$category] as $key) {
+            $type = Settings::OVERRIDABLE_KEYS[$key];
+            $value = in_array($key, self::SECRET_KEYS, true)
+                ? self::submittedSecret($key, $type)
+                : self::normalize($key, $type, $_POST[$key] ?? null);
+
+            if ($value === self::SECRET_UNCHANGED) {
+                continue;
+            }
+            if ($value === null) {
+                $rejected[] = Translator::translate("panelset.label_{$key}");
+                continue;
+            }
+            $values[$key] = $value;
+        }
+
+        return ['values' => $values, 'rejected' => $rejected];
+    }
+
+    /** Marks a secret field that the admin left empty, so the stored value stays. */
+    private const SECRET_UNCHANGED = "\0unchanged";
+
+    /**
+     * An empty secret field keeps the stored value, because the form never shows it.
+     * The clear checkbox is the only way to remove one.
+     */
+    private static function submittedSecret(string $key, string $type): ?string
+    {
+        if (isset($_POST[$key . '_clear'])) {
+            return '';
+        }
+        $submitted = $_POST[$key] ?? '';
+        if (!is_string($submitted) || trim($submitted) === '') {
+            return self::SECRET_UNCHANGED;
+        }
+
+        return self::normalize($key, $type, $submitted);
     }
 
     /** Lowest accepted value of the integer settings; the others accept 0. */

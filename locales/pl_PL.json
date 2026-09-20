@@ -677,7 +677,10 @@
     "label_geoIpDbPath_help": "Ścieżka pliku GeoLite2 .mmdb. Dzięki niemu strona Fail2ban pokazuje kraj zablokowanego adresu. Puste wyłącza wyszukiwanie.",
     "label_apiEnabled_help": "Włączone: endpointy pod /api/v1 odpowiadają na żądanie z poprawnym kluczem. Wyłączone: każde żądanie do API dostaje 403.",
     "label_apiKey_help": "Jeden klucz z konfiguracji, zachowany dla starszej integracji. Żądanie z nim ma pełny dostęp, więc zostaw puste, gdy nic go nie potrzebuje.",
-    "label_apiAllowedIps_help": "API mogą wywołać tylko te adresy. Podaj adresy lub zakresy CIDR rozdzielone przecinkami. Puste dopuszcza każdy adres."
+    "label_apiAllowedIps_help": "API mogą wywołać tylko te adresy. Podaj adresy lub zakresy CIDR rozdzielone przecinkami. Puste dopuszcza każdy adres.",
+    "secret_stored": "Wartość jest zapisana; wpisz nową, aby ją zastąpić",
+    "secret_empty": "Brak zapisanej wartości",
+    "secret_clear": "Wyczyść zapisaną wartość"
   },
   "quarantine": {
     "title": "Kwarantanna",

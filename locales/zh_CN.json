@@ -677,7 +677,10 @@
     "label_geoIpDbPath_help": "GeoLite2 .mmdb 文件的路径。有该文件时 Fail2ban 页面显示被封禁地址的国家。留空则不查询。",
     "label_apiEnabled_help": "开启：/api/v1 下的 endpoint 会响应携带有效 key 的请求。关闭：所有 API 请求均返回 403。",
     "label_apiKey_help": "配置中保留给旧集成的一个 key。携带它的请求拥有全部权限，无人需要时请留空。",
-    "label_apiAllowedIps_help": "只有这些地址可以调用 API。填写以逗号分隔的地址或 CIDR 范围。留空则允许所有地址。"
+    "label_apiAllowedIps_help": "只有这些地址可以调用 API。填写以逗号分隔的地址或 CIDR 范围。留空则允许所有地址。",
+    "secret_stored": "已保存一个值；输入新值即可替换",
+    "secret_empty": "未保存任何值",
+    "secret_clear": "清除已保存的值"
   },
   "quarantine": {
     "title": "隔离区",

@@ -677,7 +677,10 @@
     "label_geoIpDbPath_help": "Egy GeoLite2 .mmdb fájl útvonala. Ezzel a Fail2ban oldal mutatja a tiltott cím országát. Üresen a lekérdezés kikapcsol.",
     "label_apiEnabled_help": "Bekapcsolva: az /api/v1 alatti endpointok válaszolnak az érvényes key-t vivő kérésre. Kikapcsolva: minden API kérés 403-at kap.",
     "label_apiKey_help": "Egy key a konfigurációból, egy régebbi integráció miatt megtartva. Az ezt vivő kérés teljes hozzáférést kap, ezért hagyja üresen, ha senkinek nem kell.",
-    "label_apiAllowedIps_help": "Az API-t csak ezek a címek hívhatják. Írjon vesszővel elválasztott címeket vagy CIDR tartományokat. Üresen minden cím hívhatja."
+    "label_apiAllowedIps_help": "Az API-t csak ezek a címek hívhatják. Írjon vesszővel elválasztott címeket vagy CIDR tartományokat. Üresen minden cím hívhatja.",
+    "secret_stored": "Van tárolt érték; a cseréhez írjon be újat",
+    "secret_empty": "Nincs tárolt érték",
+    "secret_clear": "Tárolt érték törlése"
   },
   "quarantine": {
     "title": "Karantén",

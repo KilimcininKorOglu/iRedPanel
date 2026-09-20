@@ -677,7 +677,10 @@
     "label_geoIpDbPath_help": "Slóð GeoLite2 .mmdb skráar. Með henni sýnir Fail2ban síðan land bannaðrar tölu. Autt slekkur á uppflettingunni.",
     "label_apiEnabled_help": "Kveikt: endapunktar undir /api/v1 svara beiðni með gildan key. Slökkt: hver API beiðni fær 403.",
     "label_apiKey_help": "Einn key úr stillingunum, geymdur fyrir eldri samþættingu. Beiðni með honum hefur fullan aðgang, svo hafðu hann auðan þegar enginn þarf hann.",
-    "label_apiAllowedIps_help": "Aðeins þessar tölur mega kalla á API. Skrifaðu tölur eða CIDR svið aðskilin með kommum. Autt leyfir hverja tölu."
+    "label_apiAllowedIps_help": "Aðeins þessar tölur mega kalla á API. Skrifaðu tölur eða CIDR svið aðskilin með kommum. Autt leyfir hverja tölu.",
+    "secret_stored": "Gildi er vistað; skrifaðu nýtt til að skipta um",
+    "secret_empty": "Ekkert gildi vistað",
+    "secret_clear": "Hreinsa vistað gildi"
   },
   "quarantine": {
     "title": "Sóttkví",

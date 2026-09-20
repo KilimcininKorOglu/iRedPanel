@@ -677,7 +677,10 @@
     "label_geoIpDbPath_help": "Het pad van een GeoLite2-.mmdb-bestand. Daarmee toont de Fail2ban-pagina het land van een geblokkeerd adres. Leeg schakelt de opzoeking uit.",
     "label_apiEnabled_help": "Aan: de endpoints onder /api/v1 beantwoorden een verzoek met een geldige key. Uit: elk API-verzoek krijgt 403.",
     "label_apiKey_help": "Eén key uit de configuratie, bewaard voor een oudere integratie. Een verzoek dat hem draagt heeft volledige toegang, laat hem dus leeg als niets hem nodig heeft.",
-    "label_apiAllowedIps_help": "Alleen deze adressen mogen de API aanroepen. Geef adressen of CIDR-reeksen op, gescheiden door komma's. Leeg staat elk adres toe."
+    "label_apiAllowedIps_help": "Alleen deze adressen mogen de API aanroepen. Geef adressen of CIDR-reeksen op, gescheiden door komma's. Leeg staat elk adres toe.",
+    "secret_stored": "Er is een waarde opgeslagen; typ een nieuwe om die te vervangen",
+    "secret_empty": "Geen waarde opgeslagen",
+    "secret_clear": "Opgeslagen waarde wissen"
   },
   "quarantine": {
     "title": "Quarantaine",

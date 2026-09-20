@@ -677,7 +677,10 @@
     "label_geoIpDbPath_help": "Đường dẫn của một tệp GeoLite2 .mmdb. Có tệp này, trang Fail2ban hiện quốc gia của địa chỉ bị chặn. Để trống thì không tra cứu.",
     "label_apiEnabled_help": "Bật: các endpoint dưới /api/v1 trả lời yêu cầu mang key hợp lệ. Tắt: mọi yêu cầu API đều nhận 403.",
     "label_apiKey_help": "Một key từ cấu hình, giữ lại cho một tích hợp cũ. Yêu cầu mang key này có toàn quyền, nên hãy để trống khi không ai cần.",
-    "label_apiAllowedIps_help": "Chỉ những địa chỉ này mới gọi được API. Ghi các địa chỉ hoặc dải CIDR phân cách bằng dấu phẩy. Để trống cho phép mọi địa chỉ."
+    "label_apiAllowedIps_help": "Chỉ những địa chỉ này mới gọi được API. Ghi các địa chỉ hoặc dải CIDR phân cách bằng dấu phẩy. Để trống cho phép mọi địa chỉ.",
+    "secret_stored": "Đã có giá trị được lưu; nhập giá trị mới để thay thế",
+    "secret_empty": "Chưa lưu giá trị nào",
+    "secret_clear": "Xoá giá trị đã lưu"
   },
   "quarantine": {
     "title": "Cách ly",

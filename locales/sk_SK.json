@@ -677,7 +677,10 @@
     "label_geoIpDbPath_help": "Cesta k súboru GeoLite2 .mmdb. S ním stránka Fail2ban ukáže krajinu zablokovanej adresy. Prázdne vyhľadávanie vypne.",
     "label_apiEnabled_help": "Zapnuté: endpointy pod /api/v1 odpovedia na požiadavku s platným kľúčom. Vypnuté: každá požiadavka na API dostane 403.",
     "label_apiKey_help": "Jeden kľúč z konfigurácie, ponechaný pre staršiu integráciu. Požiadavka s ním má plný prístup, preto ho nechajte prázdny, keď ho nikto nepotrebuje.",
-    "label_apiAllowedIps_help": "API smú volať len tieto adresy. Zadajte adresy alebo rozsahy CIDR oddelené čiarkami. Prázdne povolí každú adresu."
+    "label_apiAllowedIps_help": "API smú volať len tieto adresy. Zadajte adresy alebo rozsahy CIDR oddelené čiarkami. Prázdne povolí každú adresu.",
+    "secret_stored": "Hodnota je uložená; novú zadajte na nahradenie",
+    "secret_empty": "Žiadna uložená hodnota",
+    "secret_clear": "Vymazať uloženú hodnotu"
   },
   "quarantine": {
     "title": "Karanténa",

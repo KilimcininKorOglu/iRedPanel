@@ -885,7 +885,9 @@
     "sender_bcc_help": "本網域寄出的每封郵件也會寄往這個位址。寄件者看不到副本。",
     "recipient_bcc_help": "本網域收到的每封郵件也會寄往這個位址。寄件者看不到副本。",
     "relay_host_help": "本網域寄出的郵件會送到這台伺服器，而不是直接投遞。留空時 Postfix 自行投遞。",
-    "pref_sent": "已寄出的郵件"
+    "pref_sent": "已寄出的郵件",
+    "expired_date": "到期日期",
+    "expired_date_help": "網域可用的最後一天。`php cli/disableExpiredAccounts.php` 會在隔天停用該網域，網域下所有信箱的郵件都會停止。留空表示網域永不到期，這是預設值。"
   },
   "admin": {
     "msg_email_required": "需要有效的電子郵件位址",
@@ -940,7 +942,9 @@
     "max_quota_help": "所管網域中信箱配額的總和，單位 MB。-1 表示不限。只要設定了該值，就拒絕配額不限的信箱。",
     "allow_domain_creation_help": "開啟：管理員可建立新網域並成為該網域的管理員。關閉：只管理已指派的網域。",
     "disable_viewing_mail_log_help": "開啟：郵件記錄頁面對該管理員關閉。",
-    "disable_managing_quarantined_mails_help": "開啟：管理員可以檢視隔離區，但不能放行也不能刪除郵件。"
+    "disable_managing_quarantined_mails_help": "開啟：管理員可以檢視隔離區，但不能放行也不能刪除郵件。",
+    "expired_date": "到期日期",
+    "expired_date_help": "管理員帳戶可用的最後一天。`php cli/disableExpiredAccounts.php` 會在隔天停用該帳戶，已到期的帳戶也無法登入面板。留空表示帳戶永不到期，這是預設值。"
   },
   "alias": {
     "msg_updated": "別名已成功更新！",

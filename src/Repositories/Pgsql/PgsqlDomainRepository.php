@@ -7,6 +7,7 @@ namespace App\Repositories\Pgsql;
 use App\Models\Domain;
 use App\Models\PaginatedResult;
 use App\Repositories\DomainRepositoryInterface;
+use App\Utils\ExpiryDate;
 
 class PgsqlDomainRepository implements DomainRepositoryInterface
 {
@@ -60,14 +61,14 @@ class PgsqlDomainRepository implements DomainRepositoryInterface
 
         $stmt = $pdo->prepare(
             "SELECT d.domain, d.description, d.active, d.maxquota, d.quota,
-                    d.mailboxes, d.aliases, d.maillists, d.backupmx, d.transport, d.settings, d.created, d.modified,
+                    d.mailboxes, d.aliases, d.maillists, d.backupmx, d.transport, d.settings, d.expired, d.created, d.modified,
                     COUNT(m.username) AS \"userCount\",
                     COALESCE(SUM(m.quota), 0) AS \"quotaUsed\"
              FROM domain d
              LEFT JOIN mailbox m ON m.domain = d.domain
              WHERE {$where}
              GROUP BY d.domain, d.description, d.active, d.maxquota, d.quota,
-                      d.mailboxes, d.aliases, d.maillists, d.backupmx, d.transport, d.settings, d.created, d.modified
+                      d.mailboxes, d.aliases, d.maillists, d.backupmx, d.transport, d.settings, d.expired, d.created, d.modified
              ORDER BY d.domain
              LIMIT :perPage OFFSET :offset"
         );
@@ -89,14 +90,14 @@ class PgsqlDomainRepository implements DomainRepositoryInterface
 
         $stmt = $pdo->prepare(
             "SELECT d.domain, d.description, d.active, d.maxquota, d.quota,
-                    d.mailboxes, d.aliases, d.maillists, d.backupmx, d.transport, d.settings, d.disclaimer, d.created, d.modified,
+                    d.mailboxes, d.aliases, d.maillists, d.backupmx, d.transport, d.settings, d.disclaimer, d.expired, d.created, d.modified,
                     COUNT(m.username) AS \"userCount\",
                     COALESCE(SUM(m.quota), 0) AS \"quotaUsed\"
              FROM domain d
              LEFT JOIN mailbox m ON m.domain = d.domain
              WHERE d.domain = :domain
              GROUP BY d.domain, d.description, d.active, d.maxquota, d.quota,
-                      d.mailboxes, d.aliases, d.maillists, d.backupmx, d.transport, d.settings, d.disclaimer, d.created, d.modified
+                      d.mailboxes, d.aliases, d.maillists, d.backupmx, d.transport, d.settings, d.disclaimer, d.expired, d.created, d.modified
              LIMIT 1"
         );
         $stmt->execute(['domain' => $domainName]);
@@ -115,9 +116,9 @@ class PgsqlDomainRepository implements DomainRepositoryInterface
 
         $stmt = $pdo->prepare(
             "INSERT INTO domain (domain, description, active, maxquota, quota, mailboxes, aliases, maillists, backupmx, transport,
-                                 settings, disclaimer, created)
+                                 settings, disclaimer, expired, created)
              VALUES (:domain, :description, :active, :maxquota, :quota, :mailboxes, :aliases, :maillists, :backupmx, :transport,
-                     :settings, :disclaimer, NOW())"
+                     :settings, :disclaimer, :expired, NOW())"
         );
         $stmt->execute([
             'domain' => $domain->domainName,
@@ -132,6 +133,7 @@ class PgsqlDomainRepository implements DomainRepositoryInterface
             'transport' => $domain->transport,
             'settings' => $domain->settings,
             'disclaimer' => $domain->disclaimer,
+            'expired' => ExpiryDate::toSql($domain->expiredDate),
         ]);
     }
 
@@ -152,6 +154,7 @@ class PgsqlDomainRepository implements DomainRepositoryInterface
                 transport = :transport,
                 settings = :settings,
                 disclaimer = :disclaimer,
+                expired = :expired,
                 modified = NOW()
              WHERE domain = :domain"
         );
@@ -167,6 +170,7 @@ class PgsqlDomainRepository implements DomainRepositoryInterface
             'transport' => $domain->transport,
             'settings' => $domain->settings,
             'disclaimer' => $domain->disclaimer,
+            'expired' => ExpiryDate::toSql($domain->expiredDate),
             'domain' => $domain->domainName,
         ]);
 

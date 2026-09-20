@@ -885,7 +885,9 @@
     "sender_bcc_help": "Domeinu honek bidaltzen duen posta guztia helbide honetara ere doa. Bidaltzaileak ez du kopia ikusten.",
     "recipient_bcc_help": "Domeinu honek jasotzen duen posta guztia helbide honetara ere doa. Bidaltzaileak ez du kopia ikusten.",
     "relay_host_help": "Domeinu honen irteerako posta zuzeneko banaketa ordez zerbitzari honetara doa. Hutsik: Postfix-ek berak banatzen du.",
-    "pref_sent": "Bidalitako mezuak"
+    "pref_sent": "Bidalitako mezuak",
+    "expired_date": "Iraungitze-data",
+    "expired_date_help": "Domeinuak funtzionatzen duen azken eguna. `php cli/disableExpiredAccounts.php` domeinua hurrengo egunean desgaitzen du, eta horrek bere postontzi guztien posta gelditzen du. Utzi eremua hutsik domeinua inoiz irauni ez dadin; hori da lehenetsia."
   },
   "admin": {
     "msg_email_required": "Baliozko posta-helbidea beharrezkoa da",
@@ -940,7 +942,9 @@
     "max_quota_help": "Kudeatutako domeinuetako postontzi kuoten batura, MB-tan. -1 mugarik ez esan nahi du. Balioa ezarrita dagoen bitartean, muga gabeko kuota duen postontzia ukatzen da.",
     "allow_domain_creation_help": "Piztuta: administratzaileak domeinu berri bat sortzen du eta haren administratzaile bihurtzen da. Itzalita: esleitutako domeinuak soilik kudeatzen ditu.",
     "disable_viewing_mail_log_help": "Piztuta: mail log orria itxita geratzen da administratzaile honentzat.",
-    "disable_managing_quarantined_mails_help": "Piztuta: administratzaileak koarentena ikusten du, baina ez du mezurik askatzen ez ezabatzen."
+    "disable_managing_quarantined_mails_help": "Piztuta: administratzaileak koarentena ikusten du, baina ez du mezurik askatzen ez ezabatzen.",
+    "expired_date": "Iraungitze-data",
+    "expired_date_help": "Administratzaile-kontuak funtzionatzen duen azken eguna. `php cli/disableExpiredAccounts.php` kontua hurrengo egunean desgaitzen du, eta iraungitako kontu batek ezin du panelean saioa hasi. Utzi eremua hutsik kontua inoiz irauni ez dadin; hori da lehenetsia."
   },
   "alias": {
     "msg_updated": "Aliasa eguneratu da!",

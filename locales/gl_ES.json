@@ -885,7 +885,9 @@
     "sender_bcc_help": "Todo o correo que envía este dominio vai tamén a este enderezo. O remitente non ve a copia.",
     "recipient_bcc_help": "Todo o correo que recibe este dominio vai tamén a este enderezo. O remitente non ve a copia.",
     "relay_host_help": "O correo saínte deste dominio vai a este servidor no canto dunha entrega directa. Baleiro: Postfix entrégao el mesmo.",
-    "pref_sent": "Mensaxes enviadas"
+    "pref_sent": "Mensaxes enviadas",
+    "expired_date": "Data de caducidade",
+    "expired_date_help": "O último día en que o dominio funciona. `php cli/disableExpiredAccounts.php` desactívao ao día seguinte, o que detén o correo de todas as súas caixas. Deixe o campo baleiro para que nunca caduque; ese é o valor predeterminado."
   },
   "admin": {
     "msg_email_required": "É obrigatorio un enderezo de correo válido",
@@ -940,7 +942,9 @@
     "max_quota_help": "A suma das cotas de caixa nos dominios xestionados, en MB. -1 significa sen límite. Mentres o valor estea posto, rexéitase unha caixa con cota sen límite.",
     "allow_domain_creation_help": "Activado: o administrador crea un dominio novo e pasa a ser o seu administrador. Desactivado: xestiona só os dominios asignados.",
     "disable_viewing_mail_log_help": "Activado: a páxina do rexistro de mail queda pechada para este administrador.",
-    "disable_managing_quarantined_mails_help": "Activado: o administrador ve a corentena pero non libera nin borra ningunha mensaxe."
+    "disable_managing_quarantined_mails_help": "Activado: o administrador ve a corentena pero non libera nin borra ningunha mensaxe.",
+    "expired_date": "Data de caducidade",
+    "expired_date_help": "O último día en que a conta de administrador funciona. `php cli/disableExpiredAccounts.php` desactívaa ao día seguinte, e unha conta caducada xa non pode iniciar sesión no panel. Deixe o campo baleiro para que nunca caduque; ese é o valor predeterminado."
   },
   "alias": {
     "msg_updated": "Alias actualizado!",

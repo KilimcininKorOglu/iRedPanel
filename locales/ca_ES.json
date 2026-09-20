@@ -885,7 +885,9 @@
     "sender_bcc_help": "Tot el correu que envia aquest domini va també a aquesta adreça. El remitent no veu la còpia.",
     "recipient_bcc_help": "Tot el correu que rep aquest domini va també a aquesta adreça. El remitent no veu la còpia.",
     "relay_host_help": "El correu sortint d'aquest domini va a aquest servidor en lloc del lliurament directe. Buit: Postfix el lliura ell mateix.",
-    "pref_sent": "Missatges enviats"
+    "pref_sent": "Missatges enviats",
+    "expired_date": "Data de caducitat",
+    "expired_date_help": "L'últim dia en què el domini funciona. `php cli/disableExpiredAccounts.php` el desactiva l'endemà, cosa que atura el correu de totes les seves bústies. Deixeu el camp buit perquè no caduqui mai; aquest és el valor per defecte."
   },
   "admin": {
     "msg_email_required": "Cal una adreça de correu electrònic vàlida",
@@ -940,7 +942,9 @@
     "max_quota_help": "La suma de les quotes de bústia als dominis gestionats, en MB. -1 vol dir sense límit. Mentre el valor estigui posat, es rebutja una bústia amb quota il·limitada.",
     "allow_domain_creation_help": "Activat: l'administrador crea un domini nou i en passa a ser l'administrador. Desactivat: només gestiona els dominis assignats.",
     "disable_viewing_mail_log_help": "Activat: la pàgina del registre de mail queda tancada per a aquest administrador.",
-    "disable_managing_quarantined_mails_help": "Activat: l'administrador veu la quarantena però no allibera ni esborra cap missatge."
+    "disable_managing_quarantined_mails_help": "Activat: l'administrador veu la quarantena però no allibera ni esborra cap missatge.",
+    "expired_date": "Data de caducitat",
+    "expired_date_help": "L'últim dia en què el compte d'administrador funciona. `php cli/disableExpiredAccounts.php` el desactiva l'endemà, i un compte caducat ja no pot iniciar sessió al tauler. Deixeu el camp buit perquè no caduqui mai; aquest és el valor per defecte."
   },
   "alias": {
     "msg_updated": "Àlies actualitzat correctament!",

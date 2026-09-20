@@ -10,6 +10,7 @@ use App\Models\PaginatedResult;
 use App\Models\Settings;
 use App\Repositories\AdminRepositoryInterface;
 use App\Repositories\RepositoryFactory;
+use App\Utils\ExpiryDate;
 use App\Utils\LdapUtils;
 
 /**
@@ -22,7 +23,7 @@ class LdapAdminRepository implements AdminRepositoryInterface
 {
     private const DOMAIN_ADMIN_SERVICE = 'domainadmin';
 
-    private const ADMIN_ATTRS = ['mail', 'cn', 'accountStatus', 'domainGlobalAdmin', 'accountSetting', 'objectClass', 'preferredLanguage', 'disabledService'];
+    private const ADMIN_ATTRS = ['mail', 'cn', 'accountStatus', 'domainGlobalAdmin', 'accountSetting', 'objectClass', 'preferredLanguage', 'disabledService', 'expiredDate'];
 
     public function getAdmins(): array
     {
@@ -77,6 +78,8 @@ class LdapAdminRepository implements AdminRepositoryInterface
         if ($admin->ldapDisabledServices() !== []) {
             $entry['disabledService'] = $admin->ldapDisabledServices();
         }
+        // array_filter drops the attribute when the admin has no expiry date.
+        $entry += array_filter(['expiredDate' => ExpiryDate::toLdap($admin->expiredDate)]);
 
         if (!@ldap_add($conn, self::standaloneDn($admin->username), $entry)) {
             throw new \RuntimeException("LDAP admin creation failed for '{$admin->username}': " . ldap_error($conn));
@@ -90,6 +93,7 @@ class LdapAdminRepository implements AdminRepositoryInterface
             'accountStatus' => [$admin->active ? 'active' : 'disabled'],
             'domainGlobalAdmin' => $admin->isGlobalAdmin ? ['yes'] : [],
             'preferredLanguage' => $admin->language !== '' ? [$admin->language] : [],
+            'expiredDate' => array_filter([ExpiryDate::toLdap($admin->expiredDate)]),
         ]);
     }
 

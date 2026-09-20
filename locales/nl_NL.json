@@ -885,7 +885,9 @@
     "sender_bcc_help": "Elke mail die dit domein verstuurt, gaat ook naar dit adres. De afzender ziet de kopie niet.",
     "recipient_bcc_help": "Elke mail die dit domein ontvangt, gaat ook naar dit adres. De afzender ziet de kopie niet.",
     "relay_host_help": "De uitgaande mail van dit domein gaat naar deze server in plaats van een directe bezorging. Leeg: Postfix bezorgt zelf.",
-    "pref_sent": "Verzonden berichten"
+    "pref_sent": "Verzonden berichten",
+    "expired_date": "Vervaldatum",
+    "expired_date_help": "De laatste dag waarop het domein werkt. `php cli/disableExpiredAccounts.php` schakelt het domein de volgende dag uit, waardoor de mail van elke mailbox erin stopt. Laat het veld leeg zodat het domein nooit verloopt; dat is de standaard."
   },
   "admin": {
     "msg_email_required": "Een geldig e-mailadres is vereist",
@@ -940,7 +942,9 @@
     "max_quota_help": "De som van de mailboxquota in de beheerde domeinen, in MB. -1 betekent onbeperkt. Zolang de waarde is gezet, wordt een mailbox met onbeperkte quota geweigerd.",
     "allow_domain_creation_help": "Aan: de beheerder maakt een nieuw domein aan en wordt er beheerder van. Uit: hij beheert alleen de toegewezen domeinen.",
     "disable_viewing_mail_log_help": "Aan: de pagina met het maillog blijft voor deze beheerder gesloten.",
-    "disable_managing_quarantined_mails_help": "Aan: de beheerder ziet de quarantaine maar geeft geen bericht vrij en verwijdert er geen."
+    "disable_managing_quarantined_mails_help": "Aan: de beheerder ziet de quarantaine maar geeft geen bericht vrij en verwijdert er geen.",
+    "expired_date": "Vervaldatum",
+    "expired_date_help": "De laatste dag waarop het beheerdersaccount werkt. `php cli/disableExpiredAccounts.php` schakelt het account de volgende dag uit, en een verlopen account kan niet meer op het paneel inloggen. Laat het veld leeg zodat het account nooit verloopt; dat is de standaard."
   },
   "alias": {
     "msg_updated": "Alias succesvol bijgewerkt!",

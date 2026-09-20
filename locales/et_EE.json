@@ -885,7 +885,9 @@
     "sender_bcc_help": "Iga kiri, mille see domeen saadab, läheb ka sellele aadressile. Saatja koopiat ei näe.",
     "recipient_bcc_help": "Iga kiri, mille see domeen saab, läheb ka sellele aadressile. Saatja koopiat ei näe.",
     "relay_host_help": "Selle domeeni väljuvad kirjad lähevad otsese kohaletoimetamise asemel sellesse serverisse. Tühi: Postfix toimetab ise kohale.",
-    "pref_sent": "Saadetud sõnumid"
+    "pref_sent": "Saadetud sõnumid",
+    "expired_date": "Aegumiskuupäev",
+    "expired_date_help": "Domeeni viimane tööpäev. `php cli/disableExpiredAccounts.php` keelab domeeni järgmisel päeval, mis peatab kõigi selle postkastide posti. Jäta väli tühjaks, et domeen ei aeguks kunagi; see on vaikeväärtus."
   },
   "admin": {
     "msg_email_required": "Nõutav on kehtiv e-posti aadress",
@@ -940,7 +942,9 @@
     "max_quota_help": "Hallatavate domeenide postkastide mahupiiride summa MB-des. -1 tähendab piiranguta. Kuni väärtus on seatud, lükatakse piiranguta mahuga postkast tagasi.",
     "allow_domain_creation_help": "Sees: admin loob uue domeeni ja saab selle adminiks. Väljas: ta haldab ainult määratud domeene.",
     "disable_viewing_mail_log_help": "Sees: meililogi leht jääb selle admini jaoks suletuks.",
-    "disable_managing_quarantined_mails_help": "Sees: admin näeb karantiini, kuid ei vabasta ega kustuta sõnumit."
+    "disable_managing_quarantined_mails_help": "Sees: admin näeb karantiini, kuid ei vabasta ega kustuta sõnumit.",
+    "expired_date": "Aegumiskuupäev",
+    "expired_date_help": "Administraatorikonto viimane tööpäev. `php cli/disableExpiredAccounts.php` keelab konto järgmisel päeval ja aegunud konto ei saa enam paneeli sisse logida. Jäta väli tühjaks, et konto ei aeguks kunagi; see on vaikeväärtus."
   },
   "alias": {
     "msg_updated": "Alias edukalt uuendatud!",

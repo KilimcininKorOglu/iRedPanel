@@ -885,7 +885,9 @@
     "sender_bcc_help": "Vsa pošta, ki jo ta domena pošlje, gre tudi na ta naslov. Pošiljatelj kopije ne vidi.",
     "recipient_bcc_help": "Vsa pošta, ki jo ta domena prejme, gre tudi na ta naslov. Pošiljatelj kopije ne vidi.",
     "relay_host_help": "Odhodna pošta te domene gre na ta strežnik namesto neposredne dostave. Prazno: Postfix dostavi sam.",
-    "pref_sent": "Poslana sporočila"
+    "pref_sent": "Poslana sporočila",
+    "expired_date": "Datum poteka",
+    "expired_date_help": "Zadnji dan delovanja domene. `php cli/disableExpiredAccounts.php` domeno naslednji dan onemogoči, kar ustavi pošto vseh njenih nabiralnikov. Pustite polje prazno, da domena nikoli ne poteče; to je privzeto."
   },
   "admin": {
     "msg_email_required": "Zahtevan je veljaven e-poštni naslov",
@@ -940,7 +942,9 @@
     "max_quota_help": "Vsota kvot predalov v upravljanih domenah, v MB. -1 pomeni brez omejitve. Dokler je vrednost nastavljena, je predal z neomejeno kvoto zavrnjen.",
     "allow_domain_creation_help": "Vklopljeno: skrbnik ustvari novo domeno in postane njen skrbnik. Izklopljeno: upravlja samo dodeljene domene.",
     "disable_viewing_mail_log_help": "Vklopljeno: stran z mailnim dnevnikom ostane za tega skrbnika zaprta.",
-    "disable_managing_quarantined_mails_help": "Vklopljeno: skrbnik vidi karanteno, vendar sporočila niti ne izpusti niti ne izbriše."
+    "disable_managing_quarantined_mails_help": "Vklopljeno: skrbnik vidi karanteno, vendar sporočila niti ne izpusti niti ne izbriše.",
+    "expired_date": "Datum poteka",
+    "expired_date_help": "Zadnji dan delovanja skrbniškega računa. `php cli/disableExpiredAccounts.php` račun naslednji dan onemogoči, potekli račun pa se ne more več prijaviti v nadzorno ploščo. Pustite polje prazno, da račun nikoli ne poteče; to je privzeto."
   },
   "alias": {
     "msg_updated": "Vzdevek uspešno posodobljen!",

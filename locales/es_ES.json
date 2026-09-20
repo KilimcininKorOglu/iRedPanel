@@ -885,7 +885,9 @@
     "sender_bcc_help": "Todo el correo que envía este dominio va también a esta dirección. El remitente no ve la copia.",
     "recipient_bcc_help": "Todo el correo que recibe este dominio va también a esta dirección. El remitente no ve la copia.",
     "relay_host_help": "El correo saliente de este dominio va a este servidor en lugar de una entrega directa. Vacío: Postfix lo entrega él mismo.",
-    "pref_sent": "Mensajes enviados"
+    "pref_sent": "Mensajes enviados",
+    "expired_date": "Fecha de caducidad",
+    "expired_date_help": "El último día en que el dominio funciona. `php cli/disableExpiredAccounts.php` lo desactiva al día siguiente, lo que detiene el correo de todos sus buzones. Deje el campo vacío para que nunca caduque; ese es el valor predeterminado."
   },
   "admin": {
     "msg_email_required": "Se requiere una dirección de correo válida",
@@ -940,7 +942,9 @@
     "max_quota_help": "La suma de las cuotas de buzón en los dominios gestionados, en MB. -1 significa sin límite. Mientras el valor esté puesto, se rechaza un buzón con cuota ilimitada.",
     "allow_domain_creation_help": "Activado: el administrador crea un dominio nuevo y pasa a ser su administrador. Desactivado: solo gestiona los dominios asignados.",
     "disable_viewing_mail_log_help": "Activado: la página del registro de mail queda cerrada para este administrador.",
-    "disable_managing_quarantined_mails_help": "Activado: el administrador ve la cuarentena pero no libera ni borra ningún mensaje."
+    "disable_managing_quarantined_mails_help": "Activado: el administrador ve la cuarentena pero no libera ni borra ningún mensaje.",
+    "expired_date": "Fecha de caducidad",
+    "expired_date_help": "El último día en que la cuenta de administrador funciona. `php cli/disableExpiredAccounts.php` la desactiva al día siguiente, y una cuenta caducada ya no puede iniciar sesión en el panel. Deje el campo vacío para que nunca caduque; ese es el valor predeterminado."
   },
   "alias": {
     "msg_updated": "¡Alias actualizado correctamente!",

@@ -8,6 +8,7 @@ use App\Controllers\AdminController;
 use App\Models\Admin;
 use App\Models\User;
 use App\Repositories\RepositoryFactory;
+use App\Utils\ExpiryDate;
 use App\Utils\FormValue;
 use App\Utils\PasswordUtils;
 
@@ -81,6 +82,7 @@ class AdminApiController
                 active: (bool) ($data['active'] ?? true),
                 isGlobalAdmin: (bool) ($data['isGlobalAdmin'] ?? false),
                 language: (string) User::validLanguage(FormValue::text($data, 'language')),
+                expiredDate: ExpiryDate::valid($data['expiredDate'] ?? ''),
             );
             $admin->applyLimitsFromJson($data);
         } catch (\InvalidArgumentException $e) {
@@ -111,6 +113,7 @@ class AdminApiController
             $admin->active = (bool) ($data['active'] ?? $existing->active);
             $admin->isGlobalAdmin = (bool) ($data['isGlobalAdmin'] ?? $existing->isGlobalAdmin);
             $admin->language = (string) User::validLanguage(FormValue::text($data, 'language', $existing->language));
+            $admin->expiredDate = ExpiryDate::valid($data['expiredDate'] ?? $existing->expiredDate);
             $limitsChanged = $admin->applyLimitsFromJson($data);
             $passwordHash = self::passwordHashFromBody($data);
         } catch (\InvalidArgumentException $e) {

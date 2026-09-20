@@ -885,7 +885,9 @@
     "sender_bcc_help": "Setiap mail yang dikirim domain ini juga menuju alamat ini. Pengirim tidak melihat salinannya.",
     "recipient_bcc_help": "Setiap mail yang diterima domain ini juga menuju alamat ini. Pengirim tidak melihat salinannya.",
     "relay_host_help": "Mail keluar domain ini menuju server ini, bukan pengiriman langsung. Kosong: Postfix mengirim sendiri.",
-    "pref_sent": "Pesan terkirim"
+    "pref_sent": "Pesan terkirim",
+    "expired_date": "Tanggal kedaluwarsa",
+    "expired_date_help": "Hari terakhir domain berfungsi. `php cli/disableExpiredAccounts.php` menonaktifkan domain pada hari berikutnya, yang menghentikan surat semua kotak surat di dalamnya. Biarkan bidang ini kosong agar domain tidak pernah kedaluwarsa; itu bawaannya."
   },
   "admin": {
     "msg_email_required": "Alamat email yang valid diperlukan",
@@ -940,7 +942,9 @@
     "max_quota_help": "Jumlah kuota kotak surat di domain yang dikelola, dalam MB. -1 berarti tanpa batas. Selama nilai ini disetel, kotak surat berkuota tanpa batas ditolak.",
     "allow_domain_creation_help": "Aktif: admin membuat domain baru dan menjadi adminnya. Nonaktif: ia hanya mengelola domain yang ditugaskan.",
     "disable_viewing_mail_log_help": "Aktif: halaman mail log tetap tertutup untuk admin ini.",
-    "disable_managing_quarantined_mails_help": "Aktif: admin melihat karantina tetapi tidak melepas maupun menghapus pesan."
+    "disable_managing_quarantined_mails_help": "Aktif: admin melihat karantina tetapi tidak melepas maupun menghapus pesan.",
+    "expired_date": "Tanggal kedaluwarsa",
+    "expired_date_help": "Hari terakhir akun admin berfungsi. `php cli/disableExpiredAccounts.php` menonaktifkan akun pada hari berikutnya, dan akun yang kedaluwarsa tidak dapat masuk ke panel. Biarkan bidang ini kosong agar akun tidak pernah kedaluwarsa; itu bawaannya."
   },
   "alias": {
     "msg_updated": "Alias berhasil diperbarui!",

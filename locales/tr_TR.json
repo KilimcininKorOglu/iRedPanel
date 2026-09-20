@@ -885,7 +885,9 @@
     "sender_bcc_help": "Bu domain'in gönderdiği her mail bu adrese de gider. Gönderen kopyayı görmez.",
     "recipient_bcc_help": "Bu domain'in aldığı her mail bu adrese de gider. Gönderen kopyayı görmez.",
     "relay_host_help": "Bu domain'in giden maili doğrudan teslim yerine bu sunucuya gider. Boş bırakılırsa Postfix maili kendisi teslim eder.",
-    "pref_sent": "Gönderilen mesajlar"
+    "pref_sent": "Gönderilen mesajlar",
+    "expired_date": "Sona erme tarihi",
+    "expired_date_help": "Domain'in çalıştığı son gün. `php cli/disableExpiredAccounts.php` domain'i ertesi gün devre dışı bırakır ve bu, içindeki her mailbox'ın mailini durdurur. Domain hiç sona ermesin isterseniz alanı boş bırakın; varsayılan budur."
   },
   "admin": {
     "msg_email_required": "Geçerli bir e-posta adresi gerekli",
@@ -940,7 +942,9 @@
     "max_quota_help": "Yönetilen domainlerdeki mailbox quota toplamı, MB olarak. -1 sınırsız demektir. Bu değer ayarlıyken sınırsız quotalı bir mailbox reddedilir.",
     "allow_domain_creation_help": "Açık: admin yeni bir domain oluşturur ve o domainin admini olur. Kapalı: yalnızca atanmış domainleri yönetir.",
     "disable_viewing_mail_log_help": "Açık: mail log sayfası bu admine kapalı kalır.",
-    "disable_managing_quarantined_mails_help": "Açık: admin quarantine listesini görür, ancak bir mesajı ne serbest bırakır ne de siler."
+    "disable_managing_quarantined_mails_help": "Açık: admin quarantine listesini görür, ancak bir mesajı ne serbest bırakır ne de siler.",
+    "expired_date": "Sona erme tarihi",
+    "expired_date_help": "Admin hesabının çalıştığı son gün. `php cli/disableExpiredAccounts.php` hesabı ertesi gün devre dışı bırakır ve süresi dolmuş bir hesap panele giremez. Hesap hiç sona ermesin isterseniz alanı boş bırakın; varsayılan budur."
   },
   "alias": {
     "msg_updated": "Takma ad başarıyla güncellendi!",

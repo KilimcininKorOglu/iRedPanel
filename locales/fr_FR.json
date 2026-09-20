@@ -885,7 +885,9 @@
     "sender_bcc_help": "Tout courrier envoyé par ce domaine part aussi vers cette adresse. L'expéditeur ne voit pas la copie.",
     "recipient_bcc_help": "Tout courrier reçu par ce domaine part aussi vers cette adresse. L'expéditeur ne voit pas la copie.",
     "relay_host_help": "Le courrier sortant de ce domaine passe par ce serveur au lieu d'une remise directe. Vide : Postfix remet lui-même.",
-    "pref_sent": "Messages envoyés"
+    "pref_sent": "Messages envoyés",
+    "expired_date": "Date d'expiration",
+    "expired_date_help": "Le dernier jour où le domaine fonctionne. `php cli/disableExpiredAccounts.php` le désactive le lendemain, ce qui arrête le courrier de toutes ses boîtes. Laissez le champ vide pour qu'il n'expire jamais ; c'est la valeur par défaut."
   },
   "admin": {
     "msg_email_required": "Une adresse e-mail valide est requise",
@@ -940,7 +942,9 @@
     "max_quota_help": "La somme des quotas des boîtes dans les domaines gérés, en Mo. -1 signifie sans limite. Tant que la valeur est définie, une boîte au quota illimité est refusée.",
     "allow_domain_creation_help": "Activé : l'administrateur crée un nouveau domaine et en devient l'administrateur. Désactivé : il gère seulement les domaines attribués.",
     "disable_viewing_mail_log_help": "Activé : la page du journal mail reste fermée pour cet administrateur.",
-    "disable_managing_quarantined_mails_help": "Activé : l'administrateur voit la quarantaine mais ne libère ni ne supprime aucun message."
+    "disable_managing_quarantined_mails_help": "Activé : l'administrateur voit la quarantaine mais ne libère ni ne supprime aucun message.",
+    "expired_date": "Date d'expiration",
+    "expired_date_help": "Le dernier jour où le compte administrateur fonctionne. `php cli/disableExpiredAccounts.php` le désactive le lendemain, et un compte expiré ne peut plus se connecter au panneau. Laissez le champ vide pour qu'il n'expire jamais ; c'est la valeur par défaut."
   },
   "alias": {
     "msg_updated": "Alias mis à jour avec succès !",

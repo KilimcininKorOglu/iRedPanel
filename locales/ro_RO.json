@@ -885,7 +885,9 @@
     "sender_bcc_help": "Tot mailul trimis de acest domeniu ajunge și la această adresă. Expeditorul nu vede copia.",
     "recipient_bcc_help": "Tot mailul primit de acest domeniu ajunge și la această adresă. Expeditorul nu vede copia.",
     "relay_host_help": "Mailul trimis de acest domeniu merge la acest server în loc de livrarea directă. Gol: Postfix livrează singur.",
-    "pref_sent": "Mesaje trimise"
+    "pref_sent": "Mesaje trimise",
+    "expired_date": "Data expirării",
+    "expired_date_help": "Ultima zi în care domeniul funcționează. `php cli/disableExpiredAccounts.php` dezactivează domeniul a doua zi, ceea ce oprește poșta tuturor căsuțelor sale. Lăsați câmpul gol pentru ca domeniul să nu expire niciodată; aceasta este valoarea implicită."
   },
   "admin": {
     "msg_email_required": "Este necesară o adresă de email validă",
@@ -940,7 +942,9 @@
     "max_quota_help": "Suma cotelor cutiilor poștale din domeniile gestionate, în MB. -1 înseamnă fără limită. Cât timp valoarea este pusă, o cutie poștală cu cotă nelimitată este refuzată.",
     "allow_domain_creation_help": "Activat: administratorul creează un domeniu nou și devine administratorul lui. Dezactivat: gestionează doar domeniile atribuite.",
     "disable_viewing_mail_log_help": "Activat: pagina jurnalului de mail rămâne închisă pentru acest administrator.",
-    "disable_managing_quarantined_mails_help": "Activat: administratorul vede carantina, dar nu eliberează și nu șterge niciun mesaj."
+    "disable_managing_quarantined_mails_help": "Activat: administratorul vede carantina, dar nu eliberează și nu șterge niciun mesaj.",
+    "expired_date": "Data expirării",
+    "expired_date_help": "Ultima zi în care contul de administrator funcționează. `php cli/disableExpiredAccounts.php` dezactivează contul a doua zi, iar un cont expirat nu se mai poate autentifica în panou. Lăsați câmpul gol pentru ca acesta să nu expire niciodată; aceasta este valoarea implicită."
   },
   "alias": {
     "msg_updated": "Alias-ul a fost actualizat cu succes!",

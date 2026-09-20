@@ -885,7 +885,9 @@
     "sender_bcc_help": "Svaka pošta koju ova domena pošalje ide i na ovu adresu. Pošiljatelj ne vidi kopiju.",
     "recipient_bcc_help": "Svaka pošta koju ova domena primi ide i na ovu adresu. Pošiljatelj ne vidi kopiju.",
     "relay_host_help": "Odlazna pošta ove domene ide na ovaj poslužitelj umjesto izravne isporuke. Prazno: Postfix isporučuje sam.",
-    "pref_sent": "Poslane poruke"
+    "pref_sent": "Poslane poruke",
+    "expired_date": "Datum isteka",
+    "expired_date_help": "Posljednji dan rada domene. `php cli/disableExpiredAccounts.php` onemogućuje domenu sljedeći dan, što zaustavlja poštu svih njezinih sandučića. Ostavite polje prazno da domena nikada ne istekne; to je zadana vrijednost."
   },
   "admin": {
     "msg_email_required": "Potrebna je valjana adresa e-pošte",
@@ -940,7 +942,9 @@
     "max_quota_help": "Zbroj kvota sandučića u domenama kojima upravlja, u MB. -1 znači bez ograničenja. Dok je vrijednost postavljena, sandučić bez ograničenja kvote se odbija.",
     "allow_domain_creation_help": "Uključeno: administrator stvara novu domenu i postaje njezin administrator. Isključeno: upravlja samo dodijeljenim domenama.",
     "disable_viewing_mail_log_help": "Uključeno: stranica mail loga ostaje zatvorena za ovog administratora.",
-    "disable_managing_quarantined_mails_help": "Uključeno: administrator vidi karantenu, ali poruku niti oslobađa niti briše."
+    "disable_managing_quarantined_mails_help": "Uključeno: administrator vidi karantenu, ali poruku niti oslobađa niti briše.",
+    "expired_date": "Datum isteka",
+    "expired_date_help": "Posljednji dan rada administratorskog računa. `php cli/disableExpiredAccounts.php` onemogućuje račun sljedeći dan, a istekli račun više se ne može prijaviti na ploču. Ostavite polje prazno da račun nikada ne istekne; to je zadana vrijednost."
   },
   "alias": {
     "msg_updated": "Alias uspješno ažuriran!",

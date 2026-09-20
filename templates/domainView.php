@@ -54,6 +54,11 @@ $toggleList = function (string $name, array $labels, array $checked) use ($e): s
           <input id="description" type="text" name="description" class="form-control" value="<?= $e($domain->description) ?>" />
         </div>
 
+        <div class="mb-3">
+          <label for="expiredDate" class="form-label"><?= $te('domain.expired_date') ?></label><?= $help('domain.expired_date') ?>
+          <input id="expiredDate" type="date" name="expiredDate" class="form-control" value="<?= $e($domain->expiredDate) ?>" />
+        </div>
+
         <div class="row g-3 mb-3">
           <div class="col-md-6">
             <label for="maxQuota" class="form-label"><?= $te('domain.max_quota') ?></label><?= $help('domain.max_quota') ?>

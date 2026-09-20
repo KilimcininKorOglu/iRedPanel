@@ -885,7 +885,9 @@
     "sender_bcc_help": "このドメインが送るすべてのメールがこのアドレスにも届きます。送信者に写しは見えません。",
     "recipient_bcc_help": "このドメインが受け取るすべてのメールがこのアドレスにも届きます。送信者に写しは見えません。",
     "relay_host_help": "このドメインの送信メールは直接配送ではなくこのサーバーへ行きます。空の場合、Postfix が自分で配送します。",
-    "pref_sent": "送信済みメール"
+    "pref_sent": "送信済みメール",
+    "expired_date": "有効期限",
+    "expired_date_help": "ドメインが動作する最終日です。`php cli/disableExpiredAccounts.php` は翌日にドメインを無効にし、その中のすべてのメールボックスのメールが止まります。期限を設けない場合はこの欄を空にします。これが既定です。"
   },
   "admin": {
     "msg_email_required": "有効なメールアドレスが必要です",
@@ -940,7 +942,9 @@
     "max_quota_help": "担当ドメインのメールボックス容量の合計 (MB) です。-1 は無制限です。値を設定している間は、容量無制限のメールボックスを拒否します。",
     "allow_domain_creation_help": "オン: 管理者は新しいドメインを作成し、その管理者になります。オフ: 割り当てられたドメインだけを管理します。",
     "disable_viewing_mail_log_help": "オン: メールログのページはこの管理者に対して閉じたままです。",
-    "disable_managing_quarantined_mails_help": "オン: 管理者は隔離を閲覧できますが、メッセージの解放も削除もできません。"
+    "disable_managing_quarantined_mails_help": "オン: 管理者は隔離を閲覧できますが、メッセージの解放も削除もできません。",
+    "expired_date": "有効期限",
+    "expired_date_help": "管理者アカウントが動作する最終日です。`php cli/disableExpiredAccounts.php` は翌日にアカウントを無効にし、期限切れのアカウントはパネルにログインできません。期限を設けない場合はこの欄を空にします。これが既定です。"
   },
   "alias": {
     "msg_updated": "エイリアスが正常に更新されました！",

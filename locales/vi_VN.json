@@ -885,7 +885,9 @@
     "sender_bcc_help": "Mọi thư domain này gửi cũng tới địa chỉ này. Người gửi không thấy bản sao.",
     "recipient_bcc_help": "Mọi thư domain này nhận cũng tới địa chỉ này. Người gửi không thấy bản sao.",
     "relay_host_help": "Thư gửi đi của domain này tới máy chủ này thay vì gửi trực tiếp. Để trống: Postfix tự gửi.",
-    "pref_sent": "Thư đã gửi"
+    "pref_sent": "Thư đã gửi",
+    "expired_date": "Ngày hết hạn",
+    "expired_date_help": "Ngày cuối cùng miền hoạt động. `php cli/disableExpiredAccounts.php` tắt miền vào ngày hôm sau, làm dừng thư của mọi hộp thư trong đó. Để trống trường này để miền không bao giờ hết hạn; đó là mặc định."
   },
   "admin": {
     "msg_email_required": "Cần địa chỉ email hợp lệ",
@@ -940,7 +942,9 @@
     "max_quota_help": "Tổng dung lượng hộp thư trong các domain được quản lý, tính bằng MB. -1 nghĩa là không giới hạn. Khi giá trị này được đặt, hộp thư không giới hạn dung lượng sẽ bị từ chối.",
     "allow_domain_creation_help": "Bật: quản trị viên tạo một domain mới và trở thành quản trị viên của domain đó. Tắt: chỉ quản lý các domain được giao.",
     "disable_viewing_mail_log_help": "Bật: trang mail log đóng với quản trị viên này.",
-    "disable_managing_quarantined_mails_help": "Bật: quản trị viên thấy khu cách ly nhưng không giải phóng và không xóa thư."
+    "disable_managing_quarantined_mails_help": "Bật: quản trị viên thấy khu cách ly nhưng không giải phóng và không xóa thư.",
+    "expired_date": "Ngày hết hạn",
+    "expired_date_help": "Ngày cuối cùng tài khoản quản trị hoạt động. `php cli/disableExpiredAccounts.php` tắt tài khoản vào ngày hôm sau, và tài khoản hết hạn không thể đăng nhập vào panel. Để trống trường này để tài khoản không bao giờ hết hạn; đó là mặc định."
   },
   "alias": {
     "msg_updated": "Bí danh đã được cập nhật thành công!",

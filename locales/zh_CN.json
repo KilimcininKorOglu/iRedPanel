@@ -885,7 +885,9 @@
     "sender_bcc_help": "本域名发出的每封邮件也会发往该地址。发件人看不到副本。",
     "recipient_bcc_help": "本域名收到的每封邮件也会发往该地址。发件人看不到副本。",
     "relay_host_help": "本域名的外发邮件发往该服务器，而不是直接投递。留空时 Postfix 自行投递。",
-    "pref_sent": "已发送邮件"
+    "pref_sent": "已发送邮件",
+    "expired_date": "到期日期",
+    "expired_date_help": "域名可用的最后一天。`php cli/disableExpiredAccounts.php` 会在次日停用该域名，域名下所有邮箱的邮件都会停止。留空表示域名永不到期，这是默认值。"
   },
   "admin": {
     "msg_email_required": "需要有效的电子邮件地址",
@@ -940,7 +942,9 @@
     "max_quota_help": "所管域中邮箱配额的总和，单位 MB。-1 表示不限。只要设置了该值，就拒绝配额不限的邮箱。",
     "allow_domain_creation_help": "开启：管理员可创建新域并成为该域的管理员。关闭：只管理已分配的域。",
     "disable_viewing_mail_log_help": "开启：邮件日志页面对该管理员关闭。",
-    "disable_managing_quarantined_mails_help": "开启：管理员可以查看隔离区，但不能放行也不能删除邮件。"
+    "disable_managing_quarantined_mails_help": "开启：管理员可以查看隔离区，但不能放行也不能删除邮件。",
+    "expired_date": "到期日期",
+    "expired_date_help": "管理员账户可用的最后一天。`php cli/disableExpiredAccounts.php` 会在次日停用该账户，已到期的账户也无法登录面板。留空表示账户永不到期，这是默认值。"
   },
   "alias": {
     "msg_updated": "别名更新成功！",

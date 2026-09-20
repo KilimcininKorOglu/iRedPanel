@@ -885,7 +885,9 @@
     "sender_bcc_help": "Każda poczta wysłana przez tę domenę trafia też na ten adres. Nadawca nie widzi kopii.",
     "recipient_bcc_help": "Każda poczta odebrana przez tę domenę trafia też na ten adres. Nadawca nie widzi kopii.",
     "relay_host_help": "Poczta wychodząca tej domeny idzie na ten serwer zamiast doręczenia bezpośredniego. Puste: Postfix doręcza sam.",
-    "pref_sent": "Wysłane wiadomości"
+    "pref_sent": "Wysłane wiadomości",
+    "expired_date": "Data wygaśnięcia",
+    "expired_date_help": "Ostatni dzień działania domeny. `php cli/disableExpiredAccounts.php` wyłącza domenę następnego dnia, co zatrzymuje pocztę wszystkich jej skrzynek. Pozostaw pole puste, aby domena nigdy nie wygasała; to ustawienie domyślne."
   },
   "admin": {
     "msg_email_required": "Wymagany jest prawidłowy adres e-mail",
@@ -940,7 +942,9 @@
     "max_quota_help": "Suma limitów skrzynek w zarządzanych domenach, w MB. -1 oznacza bez limitu. Dopóki wartość jest ustawiona, skrzynka bez limitu jest odrzucana.",
     "allow_domain_creation_help": "Włączone: administrator tworzy nową domenę i zostaje jej administratorem. Wyłączone: zarządza tylko przypisanymi domenami.",
     "disable_viewing_mail_log_help": "Włączone: strona logu mailowego pozostaje zamknięta dla tego administratora.",
-    "disable_managing_quarantined_mails_help": "Włączone: administrator widzi kwarantannę, ale nie zwalnia ani nie usuwa wiadomości."
+    "disable_managing_quarantined_mails_help": "Włączone: administrator widzi kwarantannę, ale nie zwalnia ani nie usuwa wiadomości.",
+    "expired_date": "Data wygaśnięcia",
+    "expired_date_help": "Ostatni dzień działania konta administratora. `php cli/disableExpiredAccounts.php` wyłącza konto następnego dnia, a wygasłe konto nie może zalogować się do panelu. Pozostaw pole puste, aby konto nigdy nie wygasało; to ustawienie domyślne."
   },
   "alias": {
     "msg_updated": "Alias zaktualizowany pomyślnie!",

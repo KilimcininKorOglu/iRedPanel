@@ -331,6 +331,7 @@ server {
 - Alias domains that point to a target domain
 - Catch-all address, sender and recipient BCC, and sender-dependent relay host per domain
 - Domain ownership verification with DNS TXT records
+- Expiry date per domain (`domain.expired`, LDAP `expiredDate`): the last day it works, empty means that it never expires
 - DNS check per domain (MX, the addresses of the MX hosts, SPF, DKIM, DMARC and PTR), with the DKIM selector as a panel setting. The panel reports whether a DKIM record exists, never whether it matches the key of the server
 - Enable, disable and delete in bulk; paginated list with status filter
 
@@ -363,6 +364,7 @@ server {
 - Standalone and mailbox-based admin accounts
 - Domain assignment per admin, and global admin promotion or revocation
 - Resource limits per admin: domains, users, aliases, mailing lists, quota
+- Expiry date per admin (`admin.expired`, `mailbox.expired` for a mailbox admin, LDAP `expiredDate`): the last day it works, empty means that it never expires
 
 ### Spam Policy and White/Blacklist (Amavisd)
 - Global, per-domain and per-user spam thresholds (tag, tag2 and kill levels)

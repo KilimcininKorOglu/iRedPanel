@@ -11,12 +11,13 @@ use App\Models\LdapConnection;
 use App\Models\PaginatedResult;
 use App\Models\Settings;
 use App\Repositories\DomainRepositoryInterface;
+use App\Utils\ExpiryDate;
 use App\Utils\LdapUtils;
 
 class LdapDomainRepository implements DomainRepositoryInterface
 {
     private const DOMAIN_ATTRS = ['domainName', 'accountStatus', 'domainCurrentUserNumber'];
-    private const DOMAIN_DETAIL_ATTRS = ['domainName', 'accountStatus', 'domainCurrentUserNumber', 'cn', 'description', 'mtaTransport', 'disclaimer', 'accountSetting', 'domainBackupMX', 'enabledService'];
+    private const DOMAIN_DETAIL_ATTRS = ['domainName', 'accountStatus', 'domainCurrentUserNumber', 'cn', 'description', 'mtaTransport', 'disclaimer', 'accountSetting', 'domainBackupMX', 'enabledService', 'expiredDate'];
 
     public function getDomains(): array
     {
@@ -145,6 +146,8 @@ class LdapDomainRepository implements DomainRepositoryInterface
         if ($domain->backupMx) {
             $entry['domainBackupMX'] = 'yes';
         }
+        // array_filter drops the attribute when the domain has no expiry date.
+        $entry += array_filter(['expiredDate' => ExpiryDate::toLdap($domain->expiredDate)]);
         $accountSetting = LdapAccountSetting::valuesFor($domain, []);
         if ($accountSetting !== []) {
             $entry['accountSetting'] = $accountSetting;
@@ -191,6 +194,7 @@ class LdapDomainRepository implements DomainRepositoryInterface
             LdapUtils::modReplace('accountStatus', $domain->active ? 'active' : 'disabled'),
             LdapUtils::modReplace('mtaTransport', $domain->transport ?: 'dovecot'),
             LdapUtils::modReplace('domainBackupMX', $domain->backupMx ? 'yes' : null),
+            LdapUtils::modReplace('expiredDate', ExpiryDate::toLdap($domain->expiredDate)),
             ['attrib' => 'enabledService', 'modtype' => LDAP_MODIFY_BATCH_REPLACE, 'values' => self::enabledServices($domain)],
         ];
 

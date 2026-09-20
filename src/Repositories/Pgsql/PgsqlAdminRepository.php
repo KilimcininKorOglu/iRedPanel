@@ -8,6 +8,7 @@ use App\Models\Admin;
 use App\Repositories\AdminRepositoryInterface;
 use App\Repositories\SqlAdminSettings;
 use App\Repositories\SqlDomainAdmins;
+use App\Utils\ExpiryDate;
 
 class PgsqlAdminRepository implements AdminRepositoryInterface
 {
@@ -18,7 +19,7 @@ class PgsqlAdminRepository implements AdminRepositoryInterface
 
         // Standalone admins
         $stmt = $pdo->query(
-            "SELECT a.username, a.name, a.active, a.created, a.passwordlastchange,
+            "SELECT a.username, a.name, a.active, a.created, a.passwordlastchange, a.expired,
                     CASE WHEN da.domain = 'ALL' THEN 1 ELSE 0 END AS \"isGlobalAdmin\"
              FROM admin a
              LEFT JOIN domain_admins da ON da.username = a.username AND da.domain = 'ALL'
@@ -30,7 +31,7 @@ class PgsqlAdminRepository implements AdminRepositoryInterface
 
         // Mailbox-based admins
         $stmt = $pdo->query(
-            "SELECT m.username, m.name, m.active, m.created, m.passwordlastchange,
+            "SELECT m.username, m.name, m.active, m.created, m.passwordlastchange, m.expired,
                     m.isglobaladmin AS \"isGlobalAdmin\"
              FROM mailbox m
              WHERE m.isadmin = 1 OR m.isglobaladmin = 1
@@ -60,7 +61,7 @@ class PgsqlAdminRepository implements AdminRepositoryInterface
         $pdo = PgsqlConnection::getInstance()->getPdo();
 
         $stmt = $pdo->prepare(
-            "SELECT a.username, a.name, a.active, a.created, a.passwordlastchange, a.settings, a.language
+            "SELECT a.username, a.name, a.active, a.created, a.passwordlastchange, a.expired, a.settings, a.language
              FROM admin a
              WHERE a.username = :username
              LIMIT 1"
@@ -71,7 +72,7 @@ class PgsqlAdminRepository implements AdminRepositoryInterface
         if ($row === false) {
             // Check mailbox-based admins
             $stmt = $pdo->prepare(
-                "SELECT m.username, m.name, m.active, m.created, m.passwordlastchange, m.settings, m.language,
+                "SELECT m.username, m.name, m.active, m.created, m.passwordlastchange, m.expired, m.settings, m.language,
                         m.isglobaladmin AS \"isGlobalAdmin\"
                  FROM mailbox m
                  WHERE m.username = :username AND (m.isadmin = 1 OR m.isglobaladmin = 1)
@@ -104,8 +105,8 @@ class PgsqlAdminRepository implements AdminRepositoryInterface
         $pdo->beginTransaction();
         try {
             $stmt = $pdo->prepare(
-                "INSERT INTO admin (username, password, name, active, settings, language, created)
-                 VALUES (:username, :password, :name, :active, :settings, :language, NOW())"
+                "INSERT INTO admin (username, password, name, active, settings, language, expired, created)
+                 VALUES (:username, :password, :name, :active, :settings, :language, :expired, NOW())"
             );
             $stmt->execute([
                 'username' => $admin->username,
@@ -114,6 +115,7 @@ class PgsqlAdminRepository implements AdminRepositoryInterface
                 'active' => $admin->active ? 1 : 0,
                 'settings' => $admin->mergedSettings(''),
                 'language' => $admin->language,
+                'expired' => ExpiryDate::toSql($admin->expiredDate),
             ]);
 
             if ($admin->isGlobalAdmin) {
@@ -137,7 +139,7 @@ class PgsqlAdminRepository implements AdminRepositoryInterface
 
         if ($admin->isMailboxAdmin) {
             $stmt = $pdo->prepare(
-                "UPDATE mailbox SET name = :name, active = :active, isglobaladmin = :isGlobalAdmin, language = :language
+                "UPDATE mailbox SET name = :name, active = :active, isglobaladmin = :isGlobalAdmin, language = :language, expired = :expired
                  WHERE username = :username"
             );
             $stmt->execute([
@@ -145,16 +147,18 @@ class PgsqlAdminRepository implements AdminRepositoryInterface
                 'active' => $admin->active ? 1 : 0,
                 'isGlobalAdmin' => $admin->isGlobalAdmin ? 1 : 0,
                 'language' => $admin->language,
+                'expired' => ExpiryDate::toSql($admin->expiredDate),
                 'username' => $admin->username,
             ]);
         } else {
             $stmt = $pdo->prepare(
-                "UPDATE admin SET name = :name, active = :active, language = :language WHERE username = :username"
+                "UPDATE admin SET name = :name, active = :active, language = :language, expired = :expired WHERE username = :username"
             );
             $stmt->execute([
                 'name' => $admin->name,
                 'active' => $admin->active ? 1 : 0,
                 'language' => $admin->language,
+                'expired' => ExpiryDate::toSql($admin->expiredDate),
                 'username' => $admin->username,
             ]);
 

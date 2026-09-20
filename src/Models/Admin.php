@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Models;
 
 use App\Exceptions\InvalidInputException;
+use App\Utils\ExpiryDate;
 use App\Utils\FormValue;
 use App\Utils\SettingsString;
 use App\Utils\WholeNumber;
@@ -29,6 +30,8 @@ class Admin
         public string $language = '',
         public bool $disableViewingMailLog = false,
         public bool $disableManagingQuarantinedMails = false,
+        /** Last valid day of the admin account as YYYY-MM-DD; '' means that it never expires. */
+        public string $expiredDate = '',
     ) {}
 
     /**
@@ -122,6 +125,7 @@ class Admin
             active: (bool) ($post['active'] ?? false),
             isGlobalAdmin: (bool) ($post['isGlobalAdmin'] ?? false),
             language: (string) User::validLanguage(FormValue::text($post, 'language')),
+            expiredDate: ExpiryDate::valid($post['expiredDate'] ?? ''),
         );
     }
 
@@ -136,6 +140,7 @@ class Admin
             created: $row['created'] ?? null,
             passwordLastChange: $row['passwordlastchange'] ?? null,
             language: (string) ($row['language'] ?? ''),
+            expiredDate: ExpiryDate::fromSql($row['expired'] ?? null),
         );
         $admin->applySettings(self::parseSettings($row['settings'] ?? ''));
 
@@ -155,6 +160,7 @@ class Admin
             isGlobalAdmin: ($entry['domainGlobalAdmin'] ?? '') === 'yes',
             isMailboxAdmin: $isMailboxAdmin,
             language: $entry['preferredLanguage'] ?? '',
+            expiredDate: ExpiryDate::fromLdap($entry['expiredDate'] ?? null),
         );
         $admin->applySettings(self::parseSettings($entry['accountSetting'] ?? ''));
         // LDAP keeps the permission toggles as disabledService values, not as accountSetting.

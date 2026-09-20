@@ -885,7 +885,9 @@
     "sender_bcc_help": "Jede Mail, die diese Domain sendet, geht auch an diese Adresse. Der Absender sieht die Kopie nicht.",
     "recipient_bcc_help": "Jede Mail, die diese Domain empfängt, geht auch an diese Adresse. Der Absender sieht die Kopie nicht.",
     "relay_host_help": "Die ausgehende Mail dieser Domain geht an diesen Server statt in die direkte Zustellung. Leer: Postfix stellt selbst zu.",
-    "pref_sent": "Gesendete Nachrichten"
+    "pref_sent": "Gesendete Nachrichten",
+    "expired_date": "Ablaufdatum",
+    "expired_date_help": "Der letzte Tag, an dem die Domain funktioniert. `php cli/disableExpiredAccounts.php` deaktiviert die Domain am Folgetag, was die Mail jedes Postfachs darin stoppt. Lassen Sie das Feld leer, damit die Domain nie abläuft; das ist die Voreinstellung."
   },
   "admin": {
     "msg_email_required": "Eine gültige E-Mail-Adresse ist erforderlich",
@@ -940,7 +942,9 @@
     "max_quota_help": "Die Summe der Mailbox-Quotas in den verwalteten Domains, in MB. -1 bedeutet unbegrenzt. Solange der Wert gesetzt ist, wird eine Mailbox mit unbegrenzter Quota abgelehnt.",
     "allow_domain_creation_help": "Ein: der Admin legt eine neue Domain an und wird ihr Admin. Aus: er verwaltet nur die zugewiesenen Domains.",
     "disable_viewing_mail_log_help": "Ein: die Seite mit dem Maillog bleibt für diesen Admin geschlossen.",
-    "disable_managing_quarantined_mails_help": "Ein: der Admin sieht die Quarantäne, gibt aber keine Nachricht frei und löscht keine."
+    "disable_managing_quarantined_mails_help": "Ein: der Admin sieht die Quarantäne, gibt aber keine Nachricht frei und löscht keine.",
+    "expired_date": "Ablaufdatum",
+    "expired_date_help": "Der letzte Tag, an dem das Admin-Konto funktioniert. `php cli/disableExpiredAccounts.php` deaktiviert das Konto am Folgetag, und ein abgelaufenes Konto kann sich nicht mehr am Panel anmelden. Lassen Sie das Feld leer, damit das Konto nie abläuft; das ist die Voreinstellung."
   },
   "alias": {
     "msg_updated": "Alias erfolgreich aktualisiert!",

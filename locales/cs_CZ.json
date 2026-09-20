@@ -885,7 +885,9 @@
     "sender_bcc_help": "Každá pošta, kterou tato doména odešle, jde i na tuto adresu. Odesílatel kopii nevidí.",
     "recipient_bcc_help": "Každá pošta, kterou tato doména přijme, jde i na tuto adresu. Odesílatel kopii nevidí.",
     "relay_host_help": "Odchozí pošta této domény jde na tento server místo přímého doručení. Prázdné: Postfix doručuje sám.",
-    "pref_sent": "Odeslané zprávy"
+    "pref_sent": "Odeslané zprávy",
+    "expired_date": "Datum vypršení",
+    "expired_date_help": "Poslední den, kdy doména funguje. `php cli/disableExpiredAccounts.php` doménu následující den vypne, což zastaví poštu všech jejích schránek. Ponechte pole prázdné, aby platnost nikdy nevypršela; to je výchozí nastavení."
   },
   "admin": {
     "msg_email_required": "Je vyžadována platná e-mailová adresa",
@@ -940,7 +942,9 @@
     "max_quota_help": "Součet kvót schránek ve spravovaných doménách, v MB. -1 znamená bez omezení. Dokud je hodnota nastavena, schránka s neomezenou kvótou je odmítnuta.",
     "allow_domain_creation_help": "Zapnuto: admin vytvoří novou doménu a stane se jejím adminem. Vypnuto: spravuje jen přidělené domény.",
     "disable_viewing_mail_log_help": "Zapnuto: stránka mailového logu zůstane pro tohoto admina zavřená.",
-    "disable_managing_quarantined_mails_help": "Zapnuto: admin karanténu vidí, ale zprávu ani neuvolní, ani nesmaže."
+    "disable_managing_quarantined_mails_help": "Zapnuto: admin karanténu vidí, ale zprávu ani neuvolní, ani nesmaže.",
+    "expired_date": "Datum vypršení",
+    "expired_date_help": "Poslední den, kdy účet správce funguje. `php cli/disableExpiredAccounts.php` účet následující den vypne a účet s vypršenou platností se nemůže přihlásit do panelu. Ponechte pole prázdné, aby platnost nikdy nevypršela; to je výchozí nastavení."
   },
   "alias": {
     "msg_updated": "Alias úspěšně aktualizován!",

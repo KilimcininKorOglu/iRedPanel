@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Models;
 
 use App\Exceptions\InvalidInputException;
+use App\Utils\ExpiryDate;
 use App\Utils\FormValue;
 use App\Utils\Relayhost;
 use App\Utils\WholeNumber;
@@ -34,6 +35,8 @@ class Domain
         public bool $backupMx = false,
         // The primary MX of a backup MX domain as the form or the API sent it; not stored as such.
         public string $primaryMx = '',
+        /** Last valid day of the domain as YYYY-MM-DD; '' means that it never expires. */
+        public string $expiredDate = '',
     ) {}
 
     /** iRedMail's transport for local delivery. */
@@ -52,6 +55,7 @@ class Domain
         $this->mailboxes = $form->mailboxes;
         $this->aliases = $form->aliases;
         $this->lists = $form->lists;
+        $this->expiredDate = $form->expiredDate;
         $this->applyTransport($form);
     }
 
@@ -228,6 +232,7 @@ class Domain
             lists: self::validLimit($post['lists'] ?? 0, 'lists'),
             backupMx: (bool) ($post['backupMx'] ?? false),
             primaryMx: self::validPrimaryMx(FormValue::text($post, 'primaryMx')),
+            expiredDate: ExpiryDate::valid($post['expiredDate'] ?? ''),
         );
         // A new domain gets the relay transport here; applyProfile() sets it on an update.
         if ($domain->backupMx && $domain->domainName !== '') {
@@ -274,6 +279,7 @@ class Domain
             disclaimer: self::storedDisclaimer($row['disclaimer'] ?? null, $row['settings'] ?? ''),
             lists: (int) ($row['maillists'] ?? 0),
             backupMx: (bool) ($row['backupmx'] ?? 0),
+            expiredDate: ExpiryDate::fromSql($row['expired'] ?? null),
         );
         $domain->primaryMx = $domain->storedPrimaryMx();
 
@@ -290,6 +296,7 @@ class Domain
             currentUserCount: (int) ($entry['domainCurrentUserNumber'] ?? 0),
             disclaimer: $entry['disclaimer'] ?? '',
             backupMx: strtolower($entry['domainBackupMX'] ?? '') === 'yes',
+            expiredDate: ExpiryDate::fromLdap($entry['expiredDate'] ?? null),
         );
         $domain->primaryMx = $domain->storedPrimaryMx();
 

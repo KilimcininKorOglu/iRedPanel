@@ -885,7 +885,9 @@
     "sender_bcc_help": "이 도메인이 보내는 모든 메일이 이 주소로도 갑니다. 보낸 사람은 사본을 보지 못합니다.",
     "recipient_bcc_help": "이 도메인이 받는 모든 메일이 이 주소로도 갑니다. 보낸 사람은 사본을 보지 못합니다.",
     "relay_host_help": "이 도메인의 보내는 메일이 직접 배달 대신 이 서버로 갑니다. 비우면 Postfix가 직접 배달합니다.",
-    "pref_sent": "보낸 메일"
+    "pref_sent": "보낸 메일",
+    "expired_date": "만료일",
+    "expired_date_help": "도메인이 작동하는 마지막 날입니다. `php cli/disableExpiredAccounts.php`는 다음 날 도메인을 비활성화하며, 그 안의 모든 사서함의 메일이 멈춥니다. 도메인이 만료되지 않게 하려면 이 칸을 비워 두십시오. 이것이 기본값입니다."
   },
   "admin": {
     "msg_email_required": "유효한 이메일 주소가 필요합니다",
@@ -940,7 +942,9 @@
     "max_quota_help": "담당 도메인의 메일박스 용량 합계(MB)입니다. -1은 무제한입니다. 값이 설정된 동안에는 용량 무제한 메일박스를 거부합니다.",
     "allow_domain_creation_help": "켬: 관리자가 새 도메인을 만들고 그 도메인의 관리자가 됩니다. 끔: 배정된 도메인만 관리합니다.",
     "disable_viewing_mail_log_help": "켬: 메일 로그 페이지가 이 관리자에게 닫혀 있습니다.",
-    "disable_managing_quarantined_mails_help": "켬: 관리자가 격리 목록은 보지만 메시지를 풀거나 지우지 못합니다."
+    "disable_managing_quarantined_mails_help": "켬: 관리자가 격리 목록은 보지만 메시지를 풀거나 지우지 못합니다.",
+    "expired_date": "만료일",
+    "expired_date_help": "관리자 계정이 작동하는 마지막 날입니다. `php cli/disableExpiredAccounts.php`는 다음 날 계정을 비활성화하며, 만료된 계정은 패널에 로그인할 수 없습니다. 계정이 만료되지 않게 하려면 이 칸을 비워 두십시오. 이것이 기본값입니다."
   },
   "alias": {
     "msg_updated": "별칭이 성공적으로 업데이트되었습니다!",

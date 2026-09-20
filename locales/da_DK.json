@@ -885,7 +885,9 @@
     "sender_bcc_help": "Al post, dette domæne sender, går også til denne adresse. Afsenderen ser ikke kopien.",
     "recipient_bcc_help": "Al post, dette domæne modtager, går også til denne adresse. Afsenderen ser ikke kopien.",
     "relay_host_help": "Den udgående post i dette domæne går til denne server i stedet for direkte levering. Tom: Postfix leverer selv.",
-    "pref_sent": "Sendte beskeder"
+    "pref_sent": "Sendte beskeder",
+    "expired_date": "Udløbsdato",
+    "expired_date_help": "Den sidste dag domænet virker. `php cli/disableExpiredAccounts.php` deaktiverer domænet dagen efter, hvilket stopper posten for alle dets postkasser. Lad feltet stå tomt, så domænet aldrig udløber; det er standard."
   },
   "admin": {
     "msg_email_required": "En gyldig e-mailadresse er påkrævet",
@@ -940,7 +942,9 @@
     "max_quota_help": "Summen af postkassekvoterne i de styrede domæner, i MB. -1 betyder ubegrænset. Så længe værdien er sat, afvises en postkasse med ubegrænset kvote.",
     "allow_domain_creation_help": "Til: administratoren opretter et nyt domæne og bliver dets administrator. Fra: den styrer kun de tildelte domæner.",
     "disable_viewing_mail_log_help": "Til: siden med maillogen er lukket for denne administrator.",
-    "disable_managing_quarantined_mails_help": "Til: administratoren ser karantænen, men hverken frigiver eller sletter en besked."
+    "disable_managing_quarantined_mails_help": "Til: administratoren ser karantænen, men hverken frigiver eller sletter en besked.",
+    "expired_date": "Udløbsdato",
+    "expired_date_help": "Den sidste dag administratorkontoen virker. `php cli/disableExpiredAccounts.php` deaktiverer kontoen dagen efter, og en udløbet konto kan ikke længere logge ind i panelet. Lad feltet stå tomt, så kontoen aldrig udløber; det er standard."
   },
   "alias": {
     "msg_updated": "Alias opdateret!",

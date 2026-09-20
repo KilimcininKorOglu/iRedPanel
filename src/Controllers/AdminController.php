@@ -232,6 +232,7 @@ class AdminController
         $admin->active = $formAdmin->active;
         $admin->isGlobalAdmin = $formAdmin->isGlobalAdmin;
         $admin->language = $formAdmin->language;
+        $admin->expiredDate = $formAdmin->expiredDate;
 
         $losesGlobalAdmin = $existingAdmin->isGlobalAdmin && (!$admin->isGlobalAdmin || !$admin->active);
         if ($losesGlobalAdmin && $adminRepo->countGlobalAdmins() <= 1) {

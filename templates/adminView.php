@@ -64,6 +64,10 @@ $limits = [
             <?php endforeach; ?>
           </select>
         </div>
+        <div class="mb-3">
+          <label for="expiredDate" class="form-label"><?= $te('admin.expired_date') ?></label><?= $help('admin.expired_date') ?>
+          <input id="expiredDate" type="date" name="expiredDate" class="form-control" value="<?= $e($admin->expiredDate) ?>" />
+        </div>
         <div class="form-check form-switch mb-2">
           <input type="checkbox" class="form-check-input" id="isGlobalAdmin" name="isGlobalAdmin" <?php if ($admin->isGlobalAdmin): ?>checked<?php endif; ?> />
           <label class="form-check-label" for="isGlobalAdmin"><?= $te('admin.global_administrator') ?></label><?= $help('admin.global_administrator') ?>

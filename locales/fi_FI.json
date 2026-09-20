@@ -885,7 +885,9 @@
     "sender_bcc_help": "Jokainen posti, jonka tämä verkkotunnus lähettää, menee myös tähän osoitteeseen. Lähettäjä ei näe kopiota.",
     "recipient_bcc_help": "Jokainen posti, jonka tämä verkkotunnus vastaanottaa, menee myös tähän osoitteeseen. Lähettäjä ei näe kopiota.",
     "relay_host_help": "Tämän verkkotunnuksen lähtevä posti menee tähän palvelimeen suoran toimituksen sijaan. Tyhjä: Postfix toimittaa itse.",
-    "pref_sent": "Lähetetyt viestit"
+    "pref_sent": "Lähetetyt viestit",
+    "expired_date": "Vanhenemispäivä",
+    "expired_date_help": "Verkkotunnuksen viimeinen toimintapäivä. `php cli/disableExpiredAccounts.php` poistaa verkkotunnuksen käytöstä seuraavana päivänä, mikä pysäyttää kaikkien sen postilaatikoiden postin. Jätä kenttä tyhjäksi, jotta verkkotunnus ei vanhene koskaan; tämä on oletus."
   },
   "admin": {
     "msg_email_required": "Kelvollinen sähköpostiosoite vaaditaan",
@@ -940,7 +942,9 @@
     "max_quota_help": "Hallittujen domainien postilaatikkokiintiöiden summa megatavuina. -1 tarkoittaa rajatonta. Kun arvo on asetettu, rajattoman kiintiön postilaatikko torjutaan.",
     "allow_domain_creation_help": "Päällä: ylläpitäjä luo uuden domainin ja tulee sen ylläpitäjäksi. Pois: hän hallitsee vain annettuja domaineja.",
     "disable_viewing_mail_log_help": "Päällä: maillokin sivu pysyy suljettuna tältä ylläpitäjältä.",
-    "disable_managing_quarantined_mails_help": "Päällä: ylläpitäjä näkee karanteenin mutta ei vapauta eikä poista viestiä."
+    "disable_managing_quarantined_mails_help": "Päällä: ylläpitäjä näkee karanteenin mutta ei vapauta eikä poista viestiä.",
+    "expired_date": "Vanhenemispäivä",
+    "expired_date_help": "Ylläpitäjätilin viimeinen toimintapäivä. `php cli/disableExpiredAccounts.php` poistaa tilin käytöstä seuraavana päivänä, eikä vanhentunut tili voi enää kirjautua paneeliin. Jätä kenttä tyhjäksi, jotta tili ei vanhene koskaan; tämä on oletus."
   },
   "alias": {
     "msg_updated": "Alias päivitetty onnistuneesti!",

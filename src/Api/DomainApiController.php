@@ -288,6 +288,7 @@ class DomainApiController
                 'backupMx' => $existing->backupMx,
                 'primaryMx' => $existing->primaryMx,
                 'transport' => $existing->transport,
+                'expiredDate' => $existing->expiredDate,
             ]);
             $routing = self::routingFromBody($data);
             self::applySettings($existing, $data, $isGlobalKey);

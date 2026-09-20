@@ -885,7 +885,9 @@
     "sender_bcc_help": "Todo o correio que este domínio envia vai também para este endereço. O remetente não vê a cópia.",
     "recipient_bcc_help": "Todo o correio que este domínio recebe vai também para este endereço. O remetente não vê a cópia.",
     "relay_host_help": "O correio que sai deste domínio vai para este servidor em vez da entrega direta. Vazio: o Postfix entrega sozinho.",
-    "pref_sent": "Mensagens enviadas"
+    "pref_sent": "Mensagens enviadas",
+    "expired_date": "Data de expiração",
+    "expired_date_help": "O último dia em que o domínio funciona. O `php cli/disableExpiredAccounts.php` desativa-o no dia seguinte, o que para o correio de todas as suas caixas. Deixe o campo vazio para que nunca expire; é a predefinição."
   },
   "admin": {
     "msg_email_required": "É necessário um endereço de e-mail válido",
@@ -940,7 +942,9 @@
     "max_quota_help": "A soma das quotas de caixa nos domínios geridos, em MB. -1 significa sem limite. Enquanto o valor estiver definido, uma caixa com quota sem limite é recusada.",
     "allow_domain_creation_help": "Ligado: o administrador cria um domínio novo e passa a ser o seu administrador. Desligado: gere apenas os domínios atribuídos.",
     "disable_viewing_mail_log_help": "Ligado: a página do registo de mail fica fechada para este administrador.",
-    "disable_managing_quarantined_mails_help": "Ligado: o administrador vê a quarentena mas não liberta nem apaga nenhuma mensagem."
+    "disable_managing_quarantined_mails_help": "Ligado: o administrador vê a quarentena mas não liberta nem apaga nenhuma mensagem.",
+    "expired_date": "Data de expiração",
+    "expired_date_help": "O último dia em que a conta de administrador funciona. O `php cli/disableExpiredAccounts.php` desativa-a no dia seguinte e uma conta expirada deixa de poder iniciar sessão no painel. Deixe o campo vazio para que nunca expire; é a predefinição."
   },
   "alias": {
     "msg_updated": "Alias atualizado com sucesso!",

@@ -885,7 +885,9 @@
     "sender_bcc_help": "Allur póstur sem þetta lén sendir fer líka á þetta netfang. Sendandinn sér ekki afritið.",
     "recipient_bcc_help": "Allur póstur sem þetta lén fær fer líka á þetta netfang. Sendandinn sér ekki afritið.",
     "relay_host_help": "Útfarandi póstur þessa léns fer á þennan þjón í stað beinnar afhendingar. Autt: Postfix afhendir sjálfur.",
-    "pref_sent": "Send skilaboð"
+    "pref_sent": "Send skilaboð",
+    "expired_date": "Gildislokadagur",
+    "expired_date_help": "Síðasti dagurinn sem lénið virkar. `php cli/disableExpiredAccounts.php` slekkur á léninu daginn eftir, sem stöðvar póst allra pósthólfa þess. Skildu reitinn eftir auðan svo lénið renni aldrei út; það er sjálfgefið."
   },
   "admin": {
     "msg_email_required": "Gilt netfang er nauðsynlegt",
@@ -940,7 +942,9 @@
     "max_quota_help": "Summa pósthólfskvóta í lénunum sem hann stýrir, í MB. -1 þýðir ótakmarkað. Meðan gildið er sett er pósthólfi með ótakmarkaðan kvóta hafnað.",
     "allow_domain_creation_help": "Kveikt: stjórnandinn býr til nýtt lén og verður stjórnandi þess. Slökkt: hann stýrir aðeins úthlutuðum lénum.",
     "disable_viewing_mail_log_help": "Kveikt: síða póstannálsins er lokuð þessum stjórnanda.",
-    "disable_managing_quarantined_mails_help": "Kveikt: stjórnandinn sér sóttkvína en hvorki sleppir né eyðir skeyti."
+    "disable_managing_quarantined_mails_help": "Kveikt: stjórnandinn sér sóttkvína en hvorki sleppir né eyðir skeyti.",
+    "expired_date": "Gildislokadagur",
+    "expired_date_help": "Síðasti dagurinn sem stjórnandareikningurinn virkar. `php cli/disableExpiredAccounts.php` slekkur á reikningnum daginn eftir og útrunninn reikningur kemst ekki lengur inn á stjórnborðið. Skildu reitinn eftir auðan svo reikningurinn renni aldrei út; það er sjálfgefið."
   },
   "alias": {
     "msg_updated": "Samnefni uppfært!",

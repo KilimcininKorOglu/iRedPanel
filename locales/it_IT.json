@@ -885,7 +885,9 @@
     "sender_bcc_help": "Ogni messaggio inviato da questo dominio va anche a questo indirizzo. Il mittente non vede la copia.",
     "recipient_bcc_help": "Ogni messaggio ricevuto da questo dominio va anche a questo indirizzo. Il mittente non vede la copia.",
     "relay_host_help": "La posta in uscita di questo dominio passa da questo server invece della consegna diretta. Vuoto: Postfix consegna da solo.",
-    "pref_sent": "Messaggi inviati"
+    "pref_sent": "Messaggi inviati",
+    "expired_date": "Data di scadenza",
+    "expired_date_help": "L'ultimo giorno in cui il dominio funziona. `php cli/disableExpiredAccounts.php` lo disattiva il giorno successivo, fermando la posta di tutte le sue caselle. Lasciare il campo vuoto perché non scada mai; questa è l'impostazione predefinita."
   },
   "admin": {
     "msg_email_required": "È richiesto un indirizzo e-mail valido",
@@ -940,7 +942,9 @@
     "max_quota_help": "La somma delle quote delle caselle nei domini gestiti, in MB. -1 significa senza limite. Finché il valore è impostato, una casella con quota illimitata viene rifiutata.",
     "allow_domain_creation_help": "Attivo: l'amministratore crea un nuovo dominio e ne diventa amministratore. Non attivo: gestisce solo i domini assegnati.",
     "disable_viewing_mail_log_help": "Attivo: la pagina del log mail resta chiusa per questo amministratore.",
-    "disable_managing_quarantined_mails_help": "Attivo: l'amministratore vede la quarantena ma non rilascia né cancella alcun messaggio."
+    "disable_managing_quarantined_mails_help": "Attivo: l'amministratore vede la quarantena ma non rilascia né cancella alcun messaggio.",
+    "expired_date": "Data di scadenza",
+    "expired_date_help": "L'ultimo giorno in cui l'account amministratore funziona. `php cli/disableExpiredAccounts.php` lo disattiva il giorno successivo e un account scaduto non può più accedere al pannello. Lasciare il campo vuoto perché non scada mai; questa è l'impostazione predefinita."
   },
   "alias": {
     "msg_updated": "Alias aggiornato con successo!",

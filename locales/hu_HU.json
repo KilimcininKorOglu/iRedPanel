@@ -885,7 +885,9 @@
     "sender_bcc_help": "Minden levél, amelyet ez a tartomány küld, erre a címre is elmegy. A feladó nem látja a másolatot.",
     "recipient_bcc_help": "Minden levél, amelyet ez a tartomány kap, erre a címre is elmegy. A feladó nem látja a másolatot.",
     "relay_host_help": "A tartomány kimenő levele a közvetlen kézbesítés helyett erre a szerverre megy. Üres: a Postfix maga kézbesít.",
-    "pref_sent": "Elküldött üzenetek"
+    "pref_sent": "Elküldött üzenetek",
+    "expired_date": "Lejárati dátum",
+    "expired_date_help": "A domain utolsó működő napja. A `php cli/disableExpiredAccounts.php` másnap letiltja a domaint, ami megállítja minden benne lévő postafiók levelezését. Hagyja a mezőt üresen, hogy a domain soha ne járjon le; ez az alapértelmezés."
   },
   "admin": {
     "msg_email_required": "Érvényes e-mail-cím megadása kötelező",
@@ -940,7 +942,9 @@
     "max_quota_help": "A kezelt domainek postafiók-kvótáinak összege MB-ban. A -1 korlátlant jelent. Amíg az érték be van állítva, a korlátlan kvótájú postafiókot a panel elutasítja.",
     "allow_domain_creation_help": "Bekapcsolva: az admin új domaint hoz létre, és annak adminja lesz. Kikapcsolva: csak a hozzárendelt domaineket kezeli.",
     "disable_viewing_mail_log_help": "Bekapcsolva: a mail log oldal zárva marad ennek az adminnak.",
-    "disable_managing_quarantined_mails_help": "Bekapcsolva: az admin látja a karantént, de üzenetet nem enged ki és nem töröl."
+    "disable_managing_quarantined_mails_help": "Bekapcsolva: az admin látja a karantént, de üzenetet nem enged ki és nem töröl.",
+    "expired_date": "Lejárati dátum",
+    "expired_date_help": "Az admin fiók utolsó működő napja. A `php cli/disableExpiredAccounts.php` másnap letiltja a fiókot, és a lejárt fiók nem tud belépni a panelbe. Hagyja a mezőt üresen, hogy a fiók soha ne járjon le; ez az alapértelmezés."
   },
   "alias": {
     "msg_updated": "Álnév sikeresen frissítve!",

@@ -23,13 +23,18 @@ $flatten = static function (array $a, string $prefix = '') use (&$flatten): arra
 };
 
 $baseKeys = $flatten($base);
+
+// The locale files of the directory are the whitelist, so an argument never
+// builds a path of its own.
+$available = array_map(
+    static fn (string $p): string => basename($p, '.json'),
+    glob($dir . '/*.json') ?: []
+);
+
 $targets = $_SERVER['argv'];
 array_shift($targets);
 if ($targets === []) {
-    $targets = array_map(
-        static fn (string $p): string => basename($p, '.json'),
-        glob($dir . '/*.json') ?: []
-    );
+    $targets = $available;
 }
 
 $fail = false;
@@ -37,12 +42,12 @@ foreach ($targets as $locale) {
     if ($locale === 'en_US') {
         continue;
     }
-    $file = $dir . '/' . $locale . '.json';
-    if (!is_file($file)) {
+    if (!in_array($locale, $available, true)) {
         echo "MISSING FILE: {$locale}.json\n";
         $fail = true;
         continue;
     }
+    $file = $dir . '/' . $locale . '.json';
     $data = json_decode((string) file_get_contents($file), true, 512, JSON_THROW_ON_ERROR);
     $keys = $flatten($data);
     $missing = array_diff_key($baseKeys, $keys);

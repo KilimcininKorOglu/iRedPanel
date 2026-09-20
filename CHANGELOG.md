@@ -2,9 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
-## [Unreleased]
+## [1.1.0] - 2026-09-20
 
 ### Added
+- The panel has its own logo, drawn as an SVG: a shield that holds an envelope, in the accent color of the theme. The same mark serves as the favicon in a variant that stays readable at 16 pixels, and `BRAND_LOGO_URL` still replaces the logo with an own file
 - The user list carries an expiry date column, and the dashboard an account expiry card. The list badge is red for a date that has passed, orange for a date within the next 30 days and gray for a later date; a mailbox without a date shows None. The card counts the expired mailboxes of the server, whatever their status, and the mailboxes that expire within 30 days
 - An expired account is disabled and cannot sign in. `php cli/disableExpiredAccounts.php` runs from cron, disables every mailbox, domain and admin whose expiry date has passed and is still active, and writes an activity log row for each. It only disables, because it cannot know why an account is off, so an account that gets a later date is enabled by an admin. The sign-in of an admin and the self-service sign-in of a mailbox check the date as well, so a date that passes between two cron runs holds at once. `--dry-run` lists the accounts and writes nothing. The cron line is in the install guides
 - A domain and an admin carry an expiry date as well (`domain.expired` and `admin.expired` in SQL, the `expiredDate` attribute in LDAP): the last day the account works. The field sits on the domain general page and the admin general page, and the REST API reads and writes it as `expiredDate`. An admin that is a mailbox stores the date in `mailbox.expired`, as iRedMail does. An empty field means that the account never expires, which is the default
@@ -27,6 +28,13 @@ All notable changes to this project will be documented in this file.
 - A quarantine row whitelists or blacklists its sender in one click, in the admin quarantine and in the self-service quarantine. The sender and the recipients come from the stored message, never from the form, so an admin writes the entry only for the recipients of its own domains and a mailbox user only for the own address
 - The search page finds a mailbox through its per-account alias addresses, on all three backends (`forwardings.is_alias` in SQL, `shadowAddress` in LDAP). An admin who only knows the alias address no longer has to open every mailbox
 - A domain admin can no longer set a mailbox quota below the size the mailbox already stores, in the web form and in the REST API. Dovecot would otherwise refuse every new message without an explanation. A global admin may still set any quota, and an unlimited quota stays allowed for everyone
+
+### Changed
+- The browser keeps the static assets instead of revalidating each of them on every page view. The CSS and JS files carry a one-year lifetime, because every include already carries the modification time in its URL, and the fonts and images a one-day lifetime. The Apache image enables `mod_headers` for it
+
+### Security
+- The panel pages, the REST API and the downloads declare their no-store cache header themselves, instead of relying on the `session.cache_limiter` default of the PHP installation
+- `scripts/check_locale_parity.php` accepts only the locale names it finds in the `locales` directory, so an argument can no longer build a path of its own
 
 ## [1.0.5] - 2026-09-20
 

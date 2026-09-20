@@ -31,7 +31,8 @@
     "account_resources": "Kontoallikad",
     "group_self_service": "Minu konto",
     "mail_lists": "Meililistid",
-    "update_available": "Saadaval on iRedPanel v:version"
+    "update_available": "Saadaval on iRedPanel v:version",
+    "two_factor": "Kaheastmeline autentimine"
   },
   "common": {
     "msg_password_updated": "Parool edukalt uuendatud!",
@@ -725,7 +726,9 @@
     "label_mlmmjadminApiToken": "mlmmjadmin API token",
     "label_mlmmjadminApiToken_help": "Üks api_auth_tokens väärtustest failis /opt/mlmmjadmin/settings.py postiserveris. Seda hoitakse IREDPANEL_SECRET_KEY-ga krüptituna ja seda enam ei näidata.",
     "label_passwordRecoveryEnabled": "Parooli taastamine",
-    "label_passwordRecoveryEnabled_help": "Avaldab lehe /forgot-password ja selle lingi sisselogimislehel. Taasteaadressiga mailbox saab lähtestuslingi e-postiga. Vajab avalikku URL-i, SMTP seadeid ja iredadmin andmebaasi. Vaikimisi: väljas."
+    "label_passwordRecoveryEnabled_help": "Avaldab lehe /forgot-password ja selle lingi sisselogimislehel. Taasteaadressiga mailbox saab lähtestuslingi e-postiga. Vajab avalikku URL-i, SMTP seadeid ja iredadmin andmebaasi. Vaikimisi: väljas.",
+    "label_adminTotpRequired": "Nõua kaheastmelist autentimist",
+    "label_adminTotpRequired_help": "Kui see on sees, peab iga TOTP secretita administraator seadistuse enne paneeli avanemist lõpetama ja ükski administraator ei saa seda välja lülitada. Vajab iredadmin andmebaasi ja IREDPANEL_SECRET_KEY väärtust. Vaikimisi: väljas."
   },
   "quarantine": {
     "title": "Karantiin",
@@ -1261,5 +1264,45 @@
     "msg_disabled": "Parooli taastamine ei ole saadaval.",
     "mail_subject": "Parooli lähtestamine aadressile :email",
     "mail_body": "Keegi, tõenäoliselt teie, palus lähtestada :email parooli.\n\nUue parooli määramiseks avage see link:\n:link\n\nLink aegub :hours tunni pärast. Kui te seda ei palunud, eirake sõnumit; parool jääb samaks."
+  },
+  "totp": {
+    "title": "Kaheastmeline autentimine",
+    "challenge_title": "Kaheastmeline autentimine",
+    "challenge_hint": "Sisestage autentimisrakenduse 6-kohaline kood või üks taastekoodidest.",
+    "sign_in": "Logi sisse",
+    "code": "Kood",
+    "code_help": "6-kohaline kood, mida autentimisrakendus selle konto jaoks näitab. Siia sobib ka taastekood ja iga taastekood töötab ühe korra.",
+    "state_enabled": "Sees",
+    "state_pending": "Ootab kinnitust",
+    "state_disabled": "Väljas",
+    "start": "Alusta seadistust",
+    "start_hint": "Kaheastmeline autentimine küsib pärast parooli ühekordset koodi. Alustage seadistust, et saada QR-kood ja taastekoodid.",
+    "scan_title": "Skannige QR-kood",
+    "scan_title_help": "Skannige kood autentimisrakendusega või sisestage secret käsitsi. Seadistus kehtib alles siis, kui sisestate rakenduse näidatud koodi.",
+    "scan_hint": "Skannige kood autentimisrakendusega ja sisestage seejärel näidatud kood.",
+    "secret": "Secret",
+    "confirm": "Kinnita",
+    "cancel_setup": "Tühista seadistus",
+    "enabled_hint": "Iga sisselogimine küsib pärast parooli koodi.",
+    "change_title": "Muuda",
+    "change_title_help": "Mõlemad toimingud vajavad kehtivat koodi, et kellegi teise avatud sessioon ei saaks kaheastmelist autentimist välja lülitada.",
+    "new_codes": "Uued taastekoodid",
+    "disable": "Lülita välja",
+    "confirm_disable": "Kas lülitada kaheastmeline autentimine välja?",
+    "recovery_codes": "Taastekoodid",
+    "recovery_codes_help": "Iga kood logib teid ühe korra sisse, kui autentimisrakendust pole. Hoidke neid turvalises kohas; paneel näitab neid ainult praegu.",
+    "recovery_codes_hint": "Kirjutage need koodid kohe üles. Neid näidatakse vaid üks kord ja iga kood töötab ühe korra.",
+    "remaining_codes": "Alles on :count taastekoodi.",
+    "msg_invalid_code": "Kood on vale või aegunud.",
+    "msg_setup_required": "See paneel nõuab kaheastmelist autentimist. Jätkamiseks lõpetage seadistus.",
+    "msg_setup_started": "Seadistus algas. Skannige QR-kood ja sisestage kood.",
+    "msg_no_pending_setup": "Ükski seadistus ei oota kinnitust.",
+    "msg_enabled": "Kaheastmeline autentimine on sees.",
+    "msg_setup_cancelled": "Seadistus tühistati.",
+    "msg_disabled": "Kaheastmeline autentimine on väljas.",
+    "msg_required_by_panel": "See paneel nõuab kaheastmelist autentimist, seega ei saa seda välja lülitada.",
+    "msg_not_enabled": "Kaheastmeline autentimine ei ole sees.",
+    "msg_codes_replaced": "Uued taastekoodid on valmis. Vanad enam ei tööta.",
+    "msg_invalid_secret": "Salvestatud kaheastmelise autentimise secret ei ole loetav."
   }
 }

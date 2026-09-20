@@ -31,7 +31,8 @@
     "account_resources": "Kontokällor",
     "group_self_service": "Mitt konto",
     "mail_lists": "Postlistor",
-    "update_available": "iRedPanel v:version finns tillgänglig"
+    "update_available": "iRedPanel v:version finns tillgänglig",
+    "two_factor": "Tvåfaktorsautentisering"
   },
   "common": {
     "msg_password_updated": "Lösenordet har uppdaterats!",
@@ -725,7 +726,9 @@
     "label_mlmmjadminApiToken": "mlmmjadmin API-token",
     "label_mlmmjadminApiToken_help": "En av api_auth_tokens i /opt/mlmmjadmin/settings.py på mailservern. Den lagras krypterad med IREDPANEL_SECRET_KEY och visas aldrig igen.",
     "label_passwordRecoveryEnabled": "Lösenordsåterställning",
-    "label_passwordRecoveryEnabled_help": "Publicerar sidan /forgot-password och länken till den på inloggningssidan. En mailbox med återställningsadress får en återställningslänk via mail. Kräver den publika URL:en, SMTP-inställningarna och iredadmin-databasen. Standard: av."
+    "label_passwordRecoveryEnabled_help": "Publicerar sidan /forgot-password och länken till den på inloggningssidan. En mailbox med återställningsadress får en återställningslänk via mail. Kräver den publika URL:en, SMTP-inställningarna och iredadmin-databasen. Standard: av.",
+    "label_adminTotpRequired": "Kräv tvåfaktorsautentisering",
+    "label_adminTotpRequired_help": "När detta är på måste varje administratör utan TOTP-hemlighet slutföra konfigurationen innan panelen öppnas, och ingen administratör kan stänga av den. Kräver iredadmin-databasen och IREDPANEL_SECRET_KEY. Standard: av."
   },
   "quarantine": {
     "title": "Karantän",
@@ -1261,5 +1264,45 @@
     "msg_disabled": "Lösenordsåterställning är inte tillgänglig.",
     "mail_subject": "Lösenordsåterställning för :email",
     "mail_body": "Någon, troligen du, har begärt att lösenordet för :email ska återställas.\n\nÖppna den här länken för att ange ett nytt lösenord:\n:link\n\nLänken går ut om :hours timmar. Om du inte har begärt detta kan du ignorera meddelandet; lösenordet förblir oförändrat."
+  },
+  "totp": {
+    "title": "Tvåfaktorsautentisering",
+    "challenge_title": "Tvåfaktorsautentisering",
+    "challenge_hint": "Ange den 6-siffriga koden från din autentiseringsapp eller en av dina återställningskoder.",
+    "sign_in": "Logga in",
+    "code": "Kod",
+    "code_help": "Den 6-siffriga koden som autentiseringsappen visar för det här kontot. En återställningskod godtas också här, och varje återställningskod fungerar en gång.",
+    "state_enabled": "På",
+    "state_pending": "Väntar på bekräftelse",
+    "state_disabled": "Av",
+    "start": "Starta konfigurationen",
+    "start_hint": "Tvåfaktorsautentisering frågar efter en engångskod efter lösenordet. Starta konfigurationen för att få QR-koden och dina återställningskoder.",
+    "scan_title": "Skanna QR-koden",
+    "scan_title_help": "Skanna koden med en autentiseringsapp eller skriv in hemligheten för hand. Konfigurationen gäller först när du anger en kod som appen visar.",
+    "scan_hint": "Skanna koden med din autentiseringsapp och ange sedan koden som visas.",
+    "secret": "Hemlighet",
+    "confirm": "Bekräfta",
+    "cancel_setup": "Avbryt konfigurationen",
+    "enabled_hint": "Varje inloggning frågar efter en kod efter lösenordet.",
+    "change_title": "Ändra",
+    "change_title_help": "Båda åtgärderna kräver en aktuell kod, så att någon annans öppna session inte kan stänga av tvåfaktorsautentiseringen.",
+    "new_codes": "Nya återställningskoder",
+    "disable": "Stäng av",
+    "confirm_disable": "Stänga av tvåfaktorsautentiseringen?",
+    "recovery_codes": "Återställningskoder",
+    "recovery_codes_help": "Varje kod loggar in dig en gång när du inte har autentiseringsappen. Förvara dem säkert; panelen visar dem bara nu.",
+    "recovery_codes_hint": "Skriv ner koderna nu. De visas bara en gång och varje kod fungerar en gång.",
+    "remaining_codes": "Det finns :count återställningskoder kvar.",
+    "msg_invalid_code": "Koden är fel eller har gått ut.",
+    "msg_setup_required": "Den här panelen kräver tvåfaktorsautentisering. Slutför konfigurationen för att fortsätta.",
+    "msg_setup_started": "Konfigurationen har startat. Skanna QR-koden och ange en kod.",
+    "msg_no_pending_setup": "Ingen konfiguration väntar på bekräftelse.",
+    "msg_enabled": "Tvåfaktorsautentiseringen är på.",
+    "msg_setup_cancelled": "Konfigurationen avbröts.",
+    "msg_disabled": "Tvåfaktorsautentiseringen är av.",
+    "msg_required_by_panel": "Den här panelen kräver tvåfaktorsautentisering, så den kan inte stängas av.",
+    "msg_not_enabled": "Tvåfaktorsautentiseringen är inte på.",
+    "msg_codes_replaced": "De nya återställningskoderna är klara. De gamla fungerar inte längre.",
+    "msg_invalid_secret": "Den sparade tvåfaktorshemligheten går inte att läsa."
   }
 }

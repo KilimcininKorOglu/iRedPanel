@@ -31,7 +31,8 @@
     "account_resources": "アカウントリソース",
     "group_self_service": "マイアカウント",
     "mail_lists": "メールリスト",
-    "update_available": "iRedPanel v:version が利用可能です"
+    "update_available": "iRedPanel v:version が利用可能です",
+    "two_factor": "二要素認証"
   },
   "common": {
     "msg_password_updated": "パスワードが正常に更新されました！",
@@ -725,7 +726,9 @@
     "label_mlmmjadminApiToken": "mlmmjadmin API トークン",
     "label_mlmmjadminApiToken_help": "メールサーバーの /opt/mlmmjadmin/settings.py にある api_auth_tokens の 1 つです。IREDPANEL_SECRET_KEY で暗号化して保存され、再表示されません。",
     "label_passwordRecoveryEnabled": "パスワード回復",
-    "label_passwordRecoveryEnabled_help": "/forgot-password ページとログインページ上のリンクを公開します。回復用アドレスを持つ mailbox はメールでリセットリンクを受け取ります。公開 URL、SMTP 設定、iredadmin データベースが必要です。既定値: オフ。"
+    "label_passwordRecoveryEnabled_help": "/forgot-password ページとログインページ上のリンクを公開します。回復用アドレスを持つ mailbox はメールでリセットリンクを受け取ります。公開 URL、SMTP 設定、iredadmin データベースが必要です。既定値: オフ。",
+    "label_adminTotpRequired": "二要素認証を必須にする",
+    "label_adminTotpRequired_help": "オンにすると、TOTP secret を持たない管理者はパネルを開く前に設定を完了する必要があり、どの管理者もオフにできません。iredadmin データベースと IREDPANEL_SECRET_KEY が必要です。既定値: オフ。"
   },
   "quarantine": {
     "title": "隔離",
@@ -1261,5 +1264,45 @@
     "msg_disabled": "パスワード回復は利用できません。",
     "mail_subject": ":email のパスワードリセット",
     "mail_body": "誰か、おそらくあなたが :email のパスワードのリセットを要求しました。\n\n新しいパスワードを設定するには、このリンクを開いてください:\n:link\n\nリンクは :hours 時間で失効します。心当たりがない場合はこのメッセージを無視してください。パスワードはそのままです。"
+  },
+  "totp": {
+    "title": "二要素認証",
+    "challenge_title": "二要素認証",
+    "challenge_hint": "認証アプリの6桁のコード、またはリカバリーコードのいずれかを入力してください。",
+    "sign_in": "サインイン",
+    "code": "コード",
+    "code_help": "このアカウント用に認証アプリが表示する6桁のコードです。ここにはリカバリーコードも入力でき、リカバリーコードは1回ずつ使えます。",
+    "state_enabled": "オン",
+    "state_pending": "確認待ち",
+    "state_disabled": "オフ",
+    "start": "設定を開始",
+    "start_hint": "二要素認証はパスワードの後にワンタイムコードを求めます。設定を開始すると QR コードとリカバリーコードが表示されます。",
+    "scan_title": "QR コードをスキャン",
+    "scan_title_help": "認証アプリでコードをスキャンするか、secret を手入力してください。アプリが表示したコードを入力して初めて設定が有効になります。",
+    "scan_hint": "認証アプリでコードをスキャンし、表示されたコードを入力してください。",
+    "secret": "Secret",
+    "confirm": "確認",
+    "cancel_setup": "設定を中止",
+    "enabled_hint": "サインインのたびに、パスワードの後にコードを求めます。",
+    "change_title": "変更",
+    "change_title_help": "どちらの操作にも現在のコードが必要です。他人の開いたセッションが二要素認証をオフにできないようにするためです。",
+    "new_codes": "新しいリカバリーコード",
+    "disable": "オフにする",
+    "confirm_disable": "二要素認証をオフにしますか？",
+    "recovery_codes": "リカバリーコード",
+    "recovery_codes_help": "認証アプリがないとき、各コードで1回サインインできます。安全な場所に保管してください。パネルが表示するのは今だけです。",
+    "recovery_codes_hint": "これらのコードを今すぐ控えてください。表示は1回だけで、各コードは1回使えます。",
+    "remaining_codes": "リカバリーコードは残り :count 個です。",
+    "msg_invalid_code": "コードが違うか、有効期限が切れています。",
+    "msg_setup_required": "このパネルは二要素認証を必須にしています。続けるには設定を完了してください。",
+    "msg_setup_started": "設定を開始しました。QR コードをスキャンしてコードを入力してください。",
+    "msg_no_pending_setup": "確認待ちの設定はありません。",
+    "msg_enabled": "二要素認証はオンです。",
+    "msg_setup_cancelled": "設定を中止しました。",
+    "msg_disabled": "二要素認証はオフです。",
+    "msg_required_by_panel": "このパネルは二要素認証を必須にしているため、オフにできません。",
+    "msg_not_enabled": "二要素認証はオンになっていません。",
+    "msg_codes_replaced": "新しいリカバリーコードを用意しました。古いコードは使えません。",
+    "msg_invalid_secret": "保存された二要素認証の secret を読み取れません。"
   }
 }

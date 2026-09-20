@@ -31,7 +31,8 @@
     "account_resources": "Nguồn tài khoản",
     "group_self_service": "Tài khoản của tôi",
     "mail_lists": "Danh sách mail",
-    "update_available": "Đã có iRedPanel v:version"
+    "update_available": "Đã có iRedPanel v:version",
+    "two_factor": "Xác thực hai yếu tố"
   },
   "common": {
     "msg_password_updated": "Mật khẩu đã được cập nhật thành công!",
@@ -725,7 +726,9 @@
     "label_mlmmjadminApiToken": "Token API mlmmjadmin",
     "label_mlmmjadminApiToken_help": "Một trong các api_auth_tokens trong /opt/mlmmjadmin/settings.py trên máy chủ thư. Được lưu ở dạng mã hoá bằng IREDPANEL_SECRET_KEY và không bao giờ hiển thị lại.",
     "label_passwordRecoveryEnabled": "Khôi phục mật khẩu",
-    "label_passwordRecoveryEnabled_help": "Công bố trang /forgot-password và liên kết tới trang đó trên trang đăng nhập. Mailbox có địa chỉ khôi phục sẽ nhận liên kết đặt lại qua mail. Cần URL công khai, cài đặt SMTP và cơ sở dữ liệu iredadmin. Mặc định: tắt."
+    "label_passwordRecoveryEnabled_help": "Công bố trang /forgot-password và liên kết tới trang đó trên trang đăng nhập. Mailbox có địa chỉ khôi phục sẽ nhận liên kết đặt lại qua mail. Cần URL công khai, cài đặt SMTP và cơ sở dữ liệu iredadmin. Mặc định: tắt.",
+    "label_adminTotpRequired": "Bắt buộc xác thực hai yếu tố",
+    "label_adminTotpRequired_help": "Khi bật, mọi quản trị viên chưa có secret TOTP phải hoàn tất thiết lập trước khi panel mở, và không quản trị viên nào có thể tắt. Cần cơ sở dữ liệu iredadmin và IREDPANEL_SECRET_KEY. Mặc định: tắt."
   },
   "quarantine": {
     "title": "Cách ly",
@@ -1261,5 +1264,45 @@
     "msg_disabled": "Khôi phục mật khẩu không khả dụng.",
     "mail_subject": "Đặt lại mật khẩu cho :email",
     "mail_body": "Ai đó, có thể là bạn, đã yêu cầu đặt lại mật khẩu của :email.\n\nĐể đặt mật khẩu mới, hãy mở liên kết này:\n:link\n\nLiên kết hết hạn sau :hours giờ. Nếu bạn không yêu cầu, hãy bỏ qua thư này, mật khẩu vẫn giữ nguyên."
+  },
+  "totp": {
+    "title": "Xác thực hai yếu tố",
+    "challenge_title": "Xác thực hai yếu tố",
+    "challenge_hint": "Nhập mã 6 chữ số từ ứng dụng authenticator hoặc một trong các mã khôi phục của bạn.",
+    "sign_in": "Đăng nhập",
+    "code": "Mã",
+    "code_help": "Mã 6 chữ số mà ứng dụng authenticator hiển thị cho tài khoản này. Mã khôi phục cũng được chấp nhận ở đây và mỗi mã khôi phục dùng được một lần.",
+    "state_enabled": "Bật",
+    "state_pending": "Đang chờ xác nhận",
+    "state_disabled": "Tắt",
+    "start": "Bắt đầu thiết lập",
+    "start_hint": "Xác thực hai yếu tố hỏi mã dùng một lần sau mật khẩu. Bắt đầu thiết lập để nhận mã QR và các mã khôi phục.",
+    "scan_title": "Quét mã QR",
+    "scan_title_help": "Quét mã bằng ứng dụng authenticator hoặc nhập secret thủ công. Thiết lập chỉ có hiệu lực sau khi bạn nhập mã mà ứng dụng hiển thị.",
+    "scan_hint": "Quét mã bằng ứng dụng authenticator của bạn, rồi nhập mã hiển thị.",
+    "secret": "Secret",
+    "confirm": "Xác nhận",
+    "cancel_setup": "Hủy thiết lập",
+    "enabled_hint": "Mỗi lần đăng nhập đều hỏi mã sau mật khẩu.",
+    "change_title": "Thay đổi",
+    "change_title_help": "Cả hai thao tác đều cần mã hiện tại, để phiên làm việc đang mở của người khác không thể tắt xác thực hai yếu tố.",
+    "new_codes": "Mã khôi phục mới",
+    "disable": "Tắt",
+    "confirm_disable": "Tắt xác thực hai yếu tố?",
+    "recovery_codes": "Mã khôi phục",
+    "recovery_codes_help": "Mỗi mã cho phép đăng nhập một lần khi bạn không có ứng dụng authenticator. Hãy cất giữ an toàn; panel chỉ hiển thị chúng lúc này.",
+    "recovery_codes_hint": "Hãy ghi lại các mã này ngay. Chúng chỉ hiển thị một lần và mỗi mã dùng được một lần.",
+    "remaining_codes": "Còn lại :count mã khôi phục.",
+    "msg_invalid_code": "Mã sai hoặc đã hết hạn.",
+    "msg_setup_required": "Panel này yêu cầu xác thực hai yếu tố. Hoàn tất thiết lập để tiếp tục.",
+    "msg_setup_started": "Đã bắt đầu thiết lập. Quét mã QR và nhập một mã.",
+    "msg_no_pending_setup": "Không có thiết lập nào đang chờ xác nhận.",
+    "msg_enabled": "Xác thực hai yếu tố đang bật.",
+    "msg_setup_cancelled": "Đã hủy thiết lập.",
+    "msg_disabled": "Xác thực hai yếu tố đang tắt.",
+    "msg_required_by_panel": "Panel này yêu cầu xác thực hai yếu tố nên không thể tắt.",
+    "msg_not_enabled": "Xác thực hai yếu tố chưa bật.",
+    "msg_codes_replaced": "Các mã khôi phục mới đã sẵn sàng. Mã cũ không còn dùng được.",
+    "msg_invalid_secret": "Không đọc được secret hai yếu tố đã lưu."
   }
 }

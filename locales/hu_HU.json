@@ -31,7 +31,8 @@
     "account_resources": "Fiókforrások",
     "group_self_service": "Saját fiók",
     "mail_lists": "Mail listák",
-    "update_available": "Elérhető az iRedPanel v:version"
+    "update_available": "Elérhető az iRedPanel v:version",
+    "two_factor": "Kétlépcsős azonosítás"
   },
   "common": {
     "msg_password_updated": "A jelszó sikeresen frissítve!",
@@ -725,7 +726,9 @@
     "label_mlmmjadminApiToken": "mlmmjadmin API token",
     "label_mlmmjadminApiToken_help": "A mail szerver /opt/mlmmjadmin/settings.py fájljában szereplő api_auth_tokens egyike. IREDPANEL_SECRET_KEY kulccsal titkosítva tárolódik, és többé nem jelenik meg.",
     "label_passwordRecoveryEnabled": "Jelszó-helyreállítás",
-    "label_passwordRecoveryEnabled_help": "Közzéteszi a /forgot-password oldalt és a rá mutató linket a bejelentkezési oldalon. A helyreállítási címmel rendelkező mailbox levélben kap visszaállító linket. Szükséges a nyilvános URL, az SMTP-beállítások és az iredadmin adatbázis. Alapértelmezés: kikapcsolva."
+    "label_passwordRecoveryEnabled_help": "Közzéteszi a /forgot-password oldalt és a rá mutató linket a bejelentkezési oldalon. A helyreállítási címmel rendelkező mailbox levélben kap visszaállító linket. Szükséges a nyilvános URL, az SMTP-beállítások és az iredadmin adatbázis. Alapértelmezés: kikapcsolva.",
+    "label_adminTotpRequired": "Kétlépcsős azonosítás megkövetelése",
+    "label_adminTotpRequired_help": "Bekapcsolva minden TOTP secret nélküli adminnak be kell fejeznie a beállítást, mielőtt a panel megnyílik, és egyik admin sem kapcsolhatja ki. Szükséges az iredadmin adatbázis és az IREDPANEL_SECRET_KEY. Alapértelmezés: kikapcsolva."
   },
   "quarantine": {
     "title": "Karantén",
@@ -1261,5 +1264,45 @@
     "msg_disabled": "A jelszó-helyreállítás nem érhető el.",
     "mail_subject": "Jelszó-visszaállítás: :email",
     "mail_body": "Valaki, valószínűleg Ön, a(z) :email jelszavának visszaállítását kérte.\n\nÚj jelszó beállításához nyissa meg ezt a linket:\n:link\n\nA link :hours óra múlva lejár. Ha nem Ön kérte, hagyja figyelmen kívül ezt az üzenetet, a jelszó változatlan marad."
+  },
+  "totp": {
+    "title": "Kétlépcsős azonosítás",
+    "challenge_title": "Kétlépcsős azonosítás",
+    "challenge_hint": "Adja meg a hitelesítő alkalmazás 6 jegyű kódját vagy az egyik helyreállítási kódját.",
+    "sign_in": "Bejelentkezés",
+    "code": "Kód",
+    "code_help": "A hitelesítő alkalmazás által ehhez a fiókhoz mutatott 6 jegyű kód. Itt helyreállítási kód is elfogadott, és minden helyreállítási kód egyszer működik.",
+    "state_enabled": "Be",
+    "state_pending": "Megerősítésre vár",
+    "state_disabled": "Ki",
+    "start": "Beállítás indítása",
+    "start_hint": "A kétlépcsős azonosítás a jelszó után egyszeri kódot kér. Indítsa el a beállítást a QR-kódért és a helyreállítási kódokért.",
+    "scan_title": "Olvassa be a QR-kódot",
+    "scan_title_help": "Olvassa be a kódot egy hitelesítő alkalmazással, vagy írja be a secret értéket kézzel. A beállítás csak akkor érvényes, ha megad egy, az alkalmazás által mutatott kódot.",
+    "scan_hint": "Olvassa be a kódot a hitelesítő alkalmazással, majd adja meg a mutatott kódot.",
+    "secret": "Secret",
+    "confirm": "Megerősítés",
+    "cancel_setup": "Beállítás megszakítása",
+    "enabled_hint": "Minden bejelentkezés a jelszó után kódot kér.",
+    "change_title": "Módosítás",
+    "change_title_help": "Mindkét művelethez aktuális kód kell, hogy valaki más nyitott munkamenete ne kapcsolhassa ki a kétlépcsős azonosítást.",
+    "new_codes": "Új helyreállítási kódok",
+    "disable": "Kikapcsolás",
+    "confirm_disable": "Kikapcsolja a kétlépcsős azonosítást?",
+    "recovery_codes": "Helyreállítási kódok",
+    "recovery_codes_help": "Minden kód egyszer jelentkezteti be, ha nincs hitelesítő alkalmazása. Tartsa biztonságos helyen; a panel csak most mutatja őket.",
+    "recovery_codes_hint": "Írja le ezeket a kódokat most. Csak egyszer jelennek meg, és mindegyik egyszer működik.",
+    "remaining_codes": ":count helyreállítási kód maradt.",
+    "msg_invalid_code": "A kód hibás vagy lejárt.",
+    "msg_setup_required": "Ez a panel kétlépcsős azonosítást kér. A folytatáshoz fejezze be a beállítást.",
+    "msg_setup_started": "A beállítás elindult. Olvassa be a QR-kódot, és adjon meg egy kódot.",
+    "msg_no_pending_setup": "Nincs megerősítésre váró beállítás.",
+    "msg_enabled": "A kétlépcsős azonosítás be van kapcsolva.",
+    "msg_setup_cancelled": "A beállítás megszakítva.",
+    "msg_disabled": "A kétlépcsős azonosítás ki van kapcsolva.",
+    "msg_required_by_panel": "Ez a panel kétlépcsős azonosítást kér, ezért nem kapcsolható ki.",
+    "msg_not_enabled": "A kétlépcsős azonosítás nincs bekapcsolva.",
+    "msg_codes_replaced": "Az új helyreállítási kódok készen állnak. A régiek már nem működnek.",
+    "msg_invalid_secret": "A tárolt kétlépcsős secret nem olvasható."
   }
 }

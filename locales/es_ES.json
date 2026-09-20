@@ -31,7 +31,8 @@
     "account_resources": "Orígenes de cuentas",
     "group_self_service": "Mi cuenta",
     "mail_lists": "Listas de correo",
-    "update_available": "iRedPanel v:version está disponible"
+    "update_available": "iRedPanel v:version está disponible",
+    "two_factor": "Autenticación en dos pasos"
   },
   "common": {
     "msg_password_updated": "¡Contraseña actualizada correctamente!",
@@ -725,7 +726,9 @@
     "label_mlmmjadminApiToken": "Token de la API de mlmmjadmin",
     "label_mlmmjadminApiToken_help": "Uno de los api_auth_tokens de /opt/mlmmjadmin/settings.py en el servidor de correo. Se guarda cifrado con IREDPANEL_SECRET_KEY y no se vuelve a mostrar.",
     "label_passwordRecoveryEnabled": "Recuperación de contraseña",
-    "label_passwordRecoveryEnabled_help": "Publica la página /forgot-password y su enlace en la página de inicio de sesión. Una mailbox con dirección de recuperación recibe un enlace de restablecimiento por correo. Necesita la URL pública, los ajustes SMTP y la base de datos iredadmin. Predeterminado: desactivado."
+    "label_passwordRecoveryEnabled_help": "Publica la página /forgot-password y su enlace en la página de inicio de sesión. Una mailbox con dirección de recuperación recibe un enlace de restablecimiento por correo. Necesita la URL pública, los ajustes SMTP y la base de datos iredadmin. Predeterminado: desactivado.",
+    "label_adminTotpRequired": "Exigir autenticación en dos pasos",
+    "label_adminTotpRequired_help": "Cuando está activada, todo admin sin secreto TOTP debe terminar la configuración antes de que se abra el panel, y ningún admin puede desactivarla. Necesita la base de datos iredadmin y IREDPANEL_SECRET_KEY. Predeterminado: desactivado."
   },
   "quarantine": {
     "title": "Cuarentena",
@@ -1261,5 +1264,45 @@
     "msg_disabled": "La recuperación de contraseña no está disponible.",
     "mail_subject": "Restablecimiento de contraseña para :email",
     "mail_body": "Alguien, probablemente usted, solicitó restablecer la contraseña de :email.\n\nPara establecer una nueva contraseña, abra este enlace:\n:link\n\nEl enlace caduca en :hours horas. Si no ha solicitado esto, ignore este mensaje y la contraseña permanecerá igual."
+  },
+  "totp": {
+    "title": "Autenticación en dos pasos",
+    "challenge_title": "Autenticación en dos pasos",
+    "challenge_hint": "Introduzca el código de 6 dígitos de su aplicación de autenticación o uno de sus códigos de recuperación.",
+    "sign_in": "Iniciar sesión",
+    "code": "Código",
+    "code_help": "El código de 6 dígitos que la aplicación de autenticación muestra para esta cuenta. Aquí también se acepta un código de recuperación, y cada código de recuperación funciona una vez.",
+    "state_enabled": "Activada",
+    "state_pending": "Esperando confirmación",
+    "state_disabled": "Desactivada",
+    "start": "Iniciar configuración",
+    "start_hint": "La autenticación en dos pasos pide un código de un solo uso después de la contraseña. Inicie la configuración para obtener el código QR y sus códigos de recuperación.",
+    "scan_title": "Escanee el código QR",
+    "scan_title_help": "Escanee el código con una aplicación de autenticación o escriba el secreto a mano. La configuración solo cuenta después de introducir un código que muestre la aplicación.",
+    "scan_hint": "Escanee el código con su aplicación de autenticación y luego introduzca el código que muestra.",
+    "secret": "Secreto",
+    "confirm": "Confirmar",
+    "cancel_setup": "Cancelar configuración",
+    "enabled_hint": "Cada inicio de sesión pide un código después de la contraseña.",
+    "change_title": "Cambiar",
+    "change_title_help": "Ambas acciones necesitan un código actual, para que una sesión abierta de otra persona no pueda desactivar la autenticación en dos pasos.",
+    "new_codes": "Nuevos códigos de recuperación",
+    "disable": "Desactivar",
+    "confirm_disable": "¿Desactivar la autenticación en dos pasos?",
+    "recovery_codes": "Códigos de recuperación",
+    "recovery_codes_help": "Cada código le permite iniciar sesión una vez cuando no tiene la aplicación de autenticación. Guárdelos en un lugar seguro; el panel solo los muestra ahora.",
+    "recovery_codes_hint": "Anote estos códigos ahora. Se muestran una sola vez y cada uno funciona una vez.",
+    "remaining_codes": "Quedan :count códigos de recuperación.",
+    "msg_invalid_code": "El código es incorrecto o ha caducado.",
+    "msg_setup_required": "Este panel exige autenticación en dos pasos. Termine la configuración para continuar.",
+    "msg_setup_started": "Configuración iniciada. Escanee el código QR e introduzca un código.",
+    "msg_no_pending_setup": "No hay ninguna configuración esperando confirmación.",
+    "msg_enabled": "La autenticación en dos pasos está activada.",
+    "msg_setup_cancelled": "Configuración cancelada.",
+    "msg_disabled": "La autenticación en dos pasos está desactivada.",
+    "msg_required_by_panel": "Este panel exige autenticación en dos pasos, por lo que no se puede desactivar.",
+    "msg_not_enabled": "La autenticación en dos pasos no está activada.",
+    "msg_codes_replaced": "Los nuevos códigos de recuperación están listos. Los antiguos ya no funcionan.",
+    "msg_invalid_secret": "El secreto de dos pasos almacenado no se puede leer."
   }
 }

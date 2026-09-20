@@ -31,7 +31,8 @@
     "account_resources": "Recursos de contas",
     "group_self_service": "A miña conta",
     "mail_lists": "Listas de correo",
-    "update_available": "iRedPanel v:version está dispoñible"
+    "update_available": "iRedPanel v:version está dispoñible",
+    "two_factor": "Autenticación en dous pasos"
   },
   "common": {
     "msg_password_updated": "Contrasinal actualizado!",
@@ -725,7 +726,9 @@
     "label_mlmmjadminApiToken": "Token da API de mlmmjadmin",
     "label_mlmmjadminApiToken_help": "Un dos api_auth_tokens de /opt/mlmmjadmin/settings.py no servidor de correo. Gárdase cifrado con IREDPANEL_SECRET_KEY e non se volve amosar.",
     "label_passwordRecoveryEnabled": "Recuperación de contrasinal",
-    "label_passwordRecoveryEnabled_help": "Publica a páxina /forgot-password e a súa ligazón na páxina de inicio de sesión. Unha mailbox con enderezo de recuperación recibe unha ligazón de restablecemento por correo. Precisa o URL público, a configuración SMTP e a base de datos iredadmin. Por defecto: desactivado."
+    "label_passwordRecoveryEnabled_help": "Publica a páxina /forgot-password e a súa ligazón na páxina de inicio de sesión. Unha mailbox con enderezo de recuperación recibe unha ligazón de restablecemento por correo. Precisa o URL público, a configuración SMTP e a base de datos iredadmin. Por defecto: desactivado.",
+    "label_adminTotpRequired": "Esixir autenticación en dous pasos",
+    "label_adminTotpRequired_help": "Cando está activada, todo administrador sen secret TOTP debe rematar a configuración antes de que o panel se abra, e ningún administrador pode desactivala. Precisa a base de datos iredadmin e IREDPANEL_SECRET_KEY. Por defecto: desactivado."
   },
   "quarantine": {
     "title": "Corentena",
@@ -1261,5 +1264,45 @@
     "msg_disabled": "A recuperación de contrasinal non está dispoñible.",
     "mail_subject": "Restablecemento de contrasinal para :email",
     "mail_body": "Alguén, probablemente vostede, pediu restablecer o contrasinal de :email.\n\nPara establecer un novo contrasinal, abra esta ligazón:\n:link\n\nA ligazón caduca en :hours horas. Se non o pediu, ignore a mensaxe: o contrasinal mantense."
+  },
+  "totp": {
+    "title": "Autenticación en dous pasos",
+    "challenge_title": "Autenticación en dous pasos",
+    "challenge_hint": "Introduza o código de 6 díxitos da súa aplicación de autenticación ou un dos seus códigos de recuperación.",
+    "sign_in": "Iniciar sesión",
+    "code": "Código",
+    "code_help": "O código de 6 díxitos que a aplicación de autenticación mostra para esta conta. Aquí tamén se acepta un código de recuperación, e cada código de recuperación funciona unha vez.",
+    "state_enabled": "Activada",
+    "state_pending": "Agardando confirmación",
+    "state_disabled": "Desactivada",
+    "start": "Iniciar a configuración",
+    "start_hint": "A autenticación en dous pasos pide un código dun só uso despois do contrasinal. Inicie a configuración para obter o código QR e os códigos de recuperación.",
+    "scan_title": "Escanee o código QR",
+    "scan_title_help": "Escanee o código cunha aplicación de autenticación ou escriba o secret á man. A configuración só conta despois de introducir un código que mostre a aplicación.",
+    "scan_hint": "Escanee o código coa súa aplicación de autenticación e despois introduza o código que mostra.",
+    "secret": "Secret",
+    "confirm": "Confirmar",
+    "cancel_setup": "Cancelar a configuración",
+    "enabled_hint": "Cada inicio de sesión pide un código despois do contrasinal.",
+    "change_title": "Cambiar",
+    "change_title_help": "Ambas as accións precisan un código actual, para que unha sesión aberta doutra persoa non poida desactivar a autenticación en dous pasos.",
+    "new_codes": "Novos códigos de recuperación",
+    "disable": "Desactivar",
+    "confirm_disable": "Desactivar a autenticación en dous pasos?",
+    "recovery_codes": "Códigos de recuperación",
+    "recovery_codes_help": "Cada código inicia a sesión unha vez cando non ten a aplicación de autenticación. Gárdeos nun lugar seguro; o panel móstraos só agora.",
+    "recovery_codes_hint": "Anote estes códigos agora. Móstranse só unha vez e cada un funciona unha vez.",
+    "remaining_codes": "Quedan :count códigos de recuperación.",
+    "msg_invalid_code": "O código é incorrecto ou caducou.",
+    "msg_setup_required": "Este panel esixe autenticación en dous pasos. Remate a configuración para continuar.",
+    "msg_setup_started": "Configuración iniciada. Escanee o código QR e introduza un código.",
+    "msg_no_pending_setup": "Non hai ningunha configuración agardando confirmación.",
+    "msg_enabled": "A autenticación en dous pasos está activada.",
+    "msg_setup_cancelled": "Configuración cancelada.",
+    "msg_disabled": "A autenticación en dous pasos está desactivada.",
+    "msg_required_by_panel": "Este panel esixe autenticación en dous pasos, polo que non se pode desactivar.",
+    "msg_not_enabled": "A autenticación en dous pasos non está activada.",
+    "msg_codes_replaced": "Os novos códigos de recuperación están listos. Os antigos xa non funcionan.",
+    "msg_invalid_secret": "O secret de dous pasos gardado non se pode ler."
   }
 }

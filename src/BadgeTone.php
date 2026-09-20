@@ -27,6 +27,12 @@ class BadgeTone
             // A row with loglevel=error, such as a failed login.
             'error' => 'red',
         ],
+        // Two-factor authentication state of an admin.
+        'totp' => [
+            'enabled' => 'green',
+            'pending' => 'orange',
+            'disabled' => 'gray',
+        ],
         'admin_type' => [
             'mailbox' => 'blue',
             'standalone' => 'purple',

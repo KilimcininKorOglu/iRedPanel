@@ -91,6 +91,7 @@ class Settings
     public int $sessionTimeout;
     public bool $sessionValidateIp;
     public string $allowedIpRanges;
+    public bool $adminTotpRequired;
 
     // Branding
     public string $brandName;
@@ -162,6 +163,7 @@ class Settings
         'sessionTimeout' => 'int',
         'sessionValidateIp' => 'bool',
         'allowedIpRanges' => 'string',
+        'adminTotpRequired' => 'bool',
         'brandName' => 'string',
         'brandLogoUrl' => 'string',
         'brandFooterText' => 'string',
@@ -394,6 +396,7 @@ class Settings
         $this->sessionTimeout = $this->envInt('IREDPANEL_SESSION_TIMEOUT', 1800);
         $this->sessionValidateIp = $this->envBool('IREDPANEL_SESSION_VALIDATE_IP', false);
         $this->allowedIpRanges = $this->env('IREDPANEL_ALLOWED_IP_RANGES', '');
+        $this->adminTotpRequired = $this->envBool('IREDPANEL_ADMIN_TOTP_REQUIRED', false);
         $this->apiEnabled = $this->envBool('IREDPANEL_API_ENABLED', false);
         $this->apiKey = $this->env('IREDPANEL_API_KEY', '');
         $this->apiAllowedIps = $this->env('IREDPANEL_API_ALLOWED_IPS', '');

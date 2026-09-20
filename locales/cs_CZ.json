@@ -31,7 +31,8 @@
     "account_resources": "Zdroje účtů",
     "group_self_service": "Můj účet",
     "mail_lists": "Mailové seznamy",
-    "update_available": "K dispozici je iRedPanel v:version"
+    "update_available": "K dispozici je iRedPanel v:version",
+    "two_factor": "Dvoufaktorové ověření"
   },
   "common": {
     "msg_password_updated": "Heslo bylo úspěšně aktualizováno!",
@@ -725,7 +726,9 @@
     "label_mlmmjadminApiToken": "mlmmjadmin API token",
     "label_mlmmjadminApiToken_help": "Jeden z api_auth_tokens v /opt/mlmmjadmin/settings.py na poštovním serveru. Ukládá se zašifrovaný klíčem IREDPANEL_SECRET_KEY a už se nezobrazí.",
     "label_passwordRecoveryEnabled": "Obnova hesla",
-    "label_passwordRecoveryEnabled_help": "Zveřejní stránku /forgot-password a odkaz na ni na přihlašovací stránce. Mailbox s adresou pro obnovu dostane odkaz pro reset e-mailem. Vyžaduje veřejnou URL, nastavení SMTP a databázi iredadmin. Výchozí: vypnuto."
+    "label_passwordRecoveryEnabled_help": "Zveřejní stránku /forgot-password a odkaz na ni na přihlašovací stránce. Mailbox s adresou pro obnovu dostane odkaz pro reset e-mailem. Vyžaduje veřejnou URL, nastavení SMTP a databázi iredadmin. Výchozí: vypnuto.",
+    "label_adminTotpRequired": "Vyžadovat dvoufaktorové ověření",
+    "label_adminTotpRequired_help": "Když je zapnuto, každý správce bez secretu TOTP musí dokončit nastavení dřív, než se panel otevře, a žádný správce je nemůže vypnout. Vyžaduje databázi iredadmin a IREDPANEL_SECRET_KEY. Výchozí: vypnuto."
   },
   "quarantine": {
     "title": "Karanténa",
@@ -1261,5 +1264,45 @@
     "msg_disabled": "Obnova hesla není k dispozici.",
     "mail_subject": "Reset hesla pro :email",
     "mail_body": "Někdo, pravděpodobně vy, požádal o reset hesla :email.\n\nNové heslo nastavíte otevřením tohoto odkazu:\n:link\n\nOdkaz vyprší za :hours hodin. Pokud jste o to nežádali, zprávu ignorujte a heslo zůstane beze změny."
+  },
+  "totp": {
+    "title": "Dvoufaktorové ověření",
+    "challenge_title": "Dvoufaktorové ověření",
+    "challenge_hint": "Zadejte 6místný kód z aplikace autentizátoru nebo jeden ze svých záložních kódů.",
+    "sign_in": "Přihlásit se",
+    "code": "Kód",
+    "code_help": "6místný kód, který aplikace autentizátoru zobrazuje pro tento účet. Přijímá se zde i záložní kód a každý záložní kód funguje jednou.",
+    "state_enabled": "Zapnuto",
+    "state_pending": "Čeká na potvrzení",
+    "state_disabled": "Vypnuto",
+    "start": "Spustit nastavení",
+    "start_hint": "Dvoufaktorové ověření žádá po hesle jednorázový kód. Spusťte nastavení a získáte QR kód a záložní kódy.",
+    "scan_title": "Naskenujte QR kód",
+    "scan_title_help": "Naskenujte kód aplikací autentizátoru nebo zadejte secret ručně. Nastavení platí až po zadání kódu, který aplikace zobrazí.",
+    "scan_hint": "Naskenujte kód aplikací autentizátoru a pak zadejte zobrazený kód.",
+    "secret": "Secret",
+    "confirm": "Potvrdit",
+    "cancel_setup": "Zrušit nastavení",
+    "enabled_hint": "Každé přihlášení žádá po heslu kód.",
+    "change_title": "Změnit",
+    "change_title_help": "Obě akce vyžadují aktuální kód, aby otevřená relace někoho jiného nemohla dvoufaktorové ověření vypnout.",
+    "new_codes": "Nové záložní kódy",
+    "disable": "Vypnout",
+    "confirm_disable": "Vypnout dvoufaktorové ověření?",
+    "recovery_codes": "Záložní kódy",
+    "recovery_codes_help": "Každý kód vás jednou přihlásí, když nemáte aplikaci autentizátoru. Uložte je na bezpečné místo; panel je zobrazí jen teď.",
+    "recovery_codes_hint": "Zapište si tyto kódy hned teď. Zobrazí se pouze jednou a každý funguje jednou.",
+    "remaining_codes": "Zbývá :count záložních kódů.",
+    "msg_invalid_code": "Kód je chybný nebo vypršel.",
+    "msg_setup_required": "Tento panel vyžaduje dvoufaktorové ověření. Dokončete nastavení a pokračujte.",
+    "msg_setup_started": "Nastavení spuštěno. Naskenujte QR kód a zadejte kód.",
+    "msg_no_pending_setup": "Žádné nastavení nečeká na potvrzení.",
+    "msg_enabled": "Dvoufaktorové ověření je zapnuté.",
+    "msg_setup_cancelled": "Nastavení zrušeno.",
+    "msg_disabled": "Dvoufaktorové ověření je vypnuté.",
+    "msg_required_by_panel": "Tento panel vyžaduje dvoufaktorové ověření, nelze je tedy vypnout.",
+    "msg_not_enabled": "Dvoufaktorové ověření není zapnuté.",
+    "msg_codes_replaced": "Nové záložní kódy jsou připravené. Staré už nefungují.",
+    "msg_invalid_secret": "Uložený secret dvoufaktorového ověření nelze přečíst."
   }
 }

@@ -31,7 +31,8 @@
     "account_resources": "Kontokilder",
     "group_self_service": "Min konto",
     "mail_lists": "Mailinglister",
-    "update_available": "iRedPanel v:version er tilgængelig"
+    "update_available": "iRedPanel v:version er tilgængelig",
+    "two_factor": "Tofaktorgodkendelse"
   },
   "common": {
     "msg_password_updated": "Adgangskoden blev opdateret!",
@@ -725,7 +726,9 @@
     "label_mlmmjadminApiToken": "mlmmjadmin API-token",
     "label_mlmmjadminApiToken_help": "En af api_auth_tokens i /opt/mlmmjadmin/settings.py på mailserveren. Den gemmes krypteret med IREDPANEL_SECRET_KEY og vises aldrig igen.",
     "label_passwordRecoveryEnabled": "Gendannelse af adgangskode",
-    "label_passwordRecoveryEnabled_help": "Offentliggør siden /forgot-password og linket til den på login-siden. En mailbox med gendannelsesadresse får et nulstillingslink på mail. Kræver den offentlige URL, SMTP-indstillingerne og iredadmin-databasen. Standard: fra."
+    "label_passwordRecoveryEnabled_help": "Offentliggør siden /forgot-password og linket til den på login-siden. En mailbox med gendannelsesadresse får et nulstillingslink på mail. Kræver den offentlige URL, SMTP-indstillingerne og iredadmin-databasen. Standard: fra.",
+    "label_adminTotpRequired": "Kræv tofaktorgodkendelse",
+    "label_adminTotpRequired_help": "Når dette er slået til, skal hver administrator uden TOTP-hemmelighed afslutte opsætningen, før panelet åbner, og ingen administrator kan slå det fra. Kræver iredadmin-databasen og IREDPANEL_SECRET_KEY. Standard: fra."
   },
   "quarantine": {
     "title": "Karantæne",
@@ -1261,5 +1264,45 @@
     "msg_disabled": "Gendannelse af adgangskode er ikke tilgængelig.",
     "mail_subject": "Nulstilling af adgangskode for :email",
     "mail_body": "Nogen, sandsynligvis dig, har bedt om at nulstille adgangskoden for :email.\n\nÅbn dette link for at angive en ny adgangskode:\n:link\n\nLinket udløber om :hours timer. Hvis du ikke har bedt om det, kan du se bort fra beskeden; adgangskoden forbliver uændret."
+  },
+  "totp": {
+    "title": "Tofaktorgodkendelse",
+    "challenge_title": "Tofaktorgodkendelse",
+    "challenge_hint": "Indtast den 6-cifrede kode fra din autentificeringsapp eller en af dine gendannelseskoder.",
+    "sign_in": "Log ind",
+    "code": "Kode",
+    "code_help": "Den 6-cifrede kode, som autentificeringsappen viser for denne konto. En gendannelseskode accepteres også her, og hver gendannelseskode virker én gang.",
+    "state_enabled": "Til",
+    "state_pending": "Venter på bekræftelse",
+    "state_disabled": "Fra",
+    "start": "Start opsætningen",
+    "start_hint": "Tofaktorgodkendelse beder om en engangskode efter adgangskoden. Start opsætningen for at få QR-koden og dine gendannelseskoder.",
+    "scan_title": "Scan QR-koden",
+    "scan_title_help": "Scan koden med en autentificeringsapp, eller skriv hemmeligheden ind manuelt. Opsætningen gælder først, når du indtaster en kode, som appen viser.",
+    "scan_hint": "Scan koden med din autentificeringsapp, og indtast derefter den viste kode.",
+    "secret": "Hemmelighed",
+    "confirm": "Bekræft",
+    "cancel_setup": "Annuller opsætningen",
+    "enabled_hint": "Hvert login beder om en kode efter adgangskoden.",
+    "change_title": "Ændr",
+    "change_title_help": "Begge handlinger kræver en aktuel kode, så en anden persons åbne session ikke kan slå tofaktorgodkendelsen fra.",
+    "new_codes": "Nye gendannelseskoder",
+    "disable": "Slå fra",
+    "confirm_disable": "Slå tofaktorgodkendelsen fra?",
+    "recovery_codes": "Gendannelseskoder",
+    "recovery_codes_help": "Hver kode logger dig ind én gang, når du ikke har autentificeringsappen. Opbevar dem sikkert; panelet viser dem kun nu.",
+    "recovery_codes_hint": "Skriv disse koder ned nu. De vises kun én gang, og hver kode virker én gang.",
+    "remaining_codes": "Der er :count gendannelseskoder tilbage.",
+    "msg_invalid_code": "Koden er forkert eller udløbet.",
+    "msg_setup_required": "Dette panel kræver tofaktorgodkendelse. Afslut opsætningen for at fortsætte.",
+    "msg_setup_started": "Opsætningen er startet. Scan QR-koden, og indtast en kode.",
+    "msg_no_pending_setup": "Der venter ingen opsætning på bekræftelse.",
+    "msg_enabled": "Tofaktorgodkendelsen er slået til.",
+    "msg_setup_cancelled": "Opsætningen blev annulleret.",
+    "msg_disabled": "Tofaktorgodkendelsen er slået fra.",
+    "msg_required_by_panel": "Dette panel kræver tofaktorgodkendelse, så den kan ikke slås fra.",
+    "msg_not_enabled": "Tofaktorgodkendelsen er ikke slået til.",
+    "msg_codes_replaced": "De nye gendannelseskoder er klar. De gamle virker ikke længere.",
+    "msg_invalid_secret": "Den gemte tofaktorhemmelighed kan ikke læses."
   }
 }

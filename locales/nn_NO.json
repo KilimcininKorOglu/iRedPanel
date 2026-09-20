@@ -31,7 +31,8 @@
     "account_resources": "Kontokjelder",
     "group_self_service": "Kontoen min",
     "mail_lists": "Postlister",
-    "update_available": "iRedPanel v:version er tilgjengeleg"
+    "update_available": "iRedPanel v:version er tilgjengeleg",
+    "two_factor": "Tofaktorautentisering"
   },
   "common": {
     "msg_password_updated": "Passordet er oppdatert!",
@@ -725,7 +726,9 @@
     "label_mlmmjadminApiToken": "mlmmjadmin API-token",
     "label_mlmmjadminApiToken_help": "Ein av api_auth_tokens i /opt/mlmmjadmin/settings.py på e-postserveren. Den vert lagra kryptert med IREDPANEL_SECRET_KEY og vert aldri vist att.",
     "label_passwordRecoveryEnabled": "Passordgjenoppretting",
-    "label_passwordRecoveryEnabled_help": "Publiserer sida /forgot-password og lenkja til henne på innloggingssida. Ein mailbox med gjenopprettingsadresse får ei tilbakestillingslenkje på e-post. Krev den offentlege URL-en, SMTP-innstillingane og iredadmin-databasen. Standard: av."
+    "label_passwordRecoveryEnabled_help": "Publiserer sida /forgot-password og lenkja til henne på innloggingssida. Ein mailbox med gjenopprettingsadresse får ei tilbakestillingslenkje på e-post. Krev den offentlege URL-en, SMTP-innstillingane og iredadmin-databasen. Standard: av.",
+    "label_adminTotpRequired": "Krev tofaktorautentisering",
+    "label_adminTotpRequired_help": "Når dette er på, må kvar administrator utan TOTP-løyndom fullføre oppsettet før panelet opnar, og ingen administrator kan slå det av. Krev iredadmin-databasen og IREDPANEL_SECRET_KEY. Standard: av."
   },
   "quarantine": {
     "title": "Karantene",
@@ -1261,5 +1264,45 @@
     "msg_disabled": "Passordgjenoppretting er ikkje tilgjengeleg.",
     "mail_subject": "Tilbakestilling av passord for :email",
     "mail_body": "Nokon, truleg du, bad om å tilbakestille passordet til :email.\n\nOpne denne lenkja for å setje eit nytt passord:\n:link\n\nLenkja går ut om :hours timar. Bad du ikkje om dette, kan du sjå bort frå meldinga; passordet står uendra."
+  },
+  "totp": {
+    "title": "Tofaktorautentisering",
+    "challenge_title": "Tofaktorautentisering",
+    "challenge_hint": "Skriv inn den 6-sifra koden frå autentiseringsappen din eller ein av gjenopprettingskodane.",
+    "sign_in": "Logg inn",
+    "code": "Kode",
+    "code_help": "Den 6-sifra koden som autentiseringsappen viser for denne kontoen. Ein gjenopprettingskode blir òg godteken her, og kvar gjenopprettingskode verkar éin gong.",
+    "state_enabled": "På",
+    "state_pending": "Ventar på stadfesting",
+    "state_disabled": "Av",
+    "start": "Start oppsettet",
+    "start_hint": "Tofaktorautentisering ber om ein eingongskode etter passordet. Start oppsettet for å få QR-koden og gjenopprettingskodane.",
+    "scan_title": "Skann QR-koden",
+    "scan_title_help": "Skann koden med ein autentiseringsapp, eller skriv inn løyndomen for hand. Oppsettet gjeld først når du skriv inn ein kode som appen viser.",
+    "scan_hint": "Skann koden med autentiseringsappen, og skriv så inn koden han viser.",
+    "secret": "Løyndom",
+    "confirm": "Stadfest",
+    "cancel_setup": "Avbryt oppsettet",
+    "enabled_hint": "Kvar innlogging ber om ein kode etter passordet.",
+    "change_title": "Endre",
+    "change_title_help": "Begge handlingane krev ein gyldig kode, slik at ei open økt til ein annan person ikkje kan slå av tofaktorautentiseringa.",
+    "new_codes": "Nye gjenopprettingskodar",
+    "disable": "Slå av",
+    "confirm_disable": "Slå av tofaktorautentiseringa?",
+    "recovery_codes": "Gjenopprettingskodar",
+    "recovery_codes_help": "Kvar kode loggar deg inn éin gong når du ikkje har autentiseringsappen. Ta godt vare på dei; panelet viser dei berre no.",
+    "recovery_codes_hint": "Skriv ned kodane no. Dei blir viste berre éin gong, og kvar kode verkar éin gong.",
+    "remaining_codes": "Det er :count gjenopprettingskodar att.",
+    "msg_invalid_code": "Koden er feil eller utgått.",
+    "msg_setup_required": "Dette panelet krev tofaktorautentisering. Fullfør oppsettet for å halde fram.",
+    "msg_setup_started": "Oppsettet er starta. Skann QR-koden og skriv inn ein kode.",
+    "msg_no_pending_setup": "Ingen oppsett ventar på stadfesting.",
+    "msg_enabled": "Tofaktorautentiseringa er på.",
+    "msg_setup_cancelled": "Oppsettet vart avbrote.",
+    "msg_disabled": "Tofaktorautentiseringa er av.",
+    "msg_required_by_panel": "Dette panelet krev tofaktorautentisering, så ho kan ikkje slåast av.",
+    "msg_not_enabled": "Tofaktorautentiseringa er ikkje på.",
+    "msg_codes_replaced": "Dei nye gjenopprettingskodane er klare. Dei gamle verkar ikkje lenger.",
+    "msg_invalid_secret": "Den lagra tofaktorløyndomen kan ikkje lesast."
   }
 }

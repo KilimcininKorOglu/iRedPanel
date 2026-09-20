@@ -31,7 +31,8 @@
     "account_resources": "Account Resources",
     "group_self_service": "My account",
     "mail_lists": "Mail Lists",
-    "update_available": "iRedPanel v:version is available"
+    "update_available": "iRedPanel v:version is available",
+    "two_factor": "Two-Factor Auth"
   },
   "common": {
     "msg_password_updated": "Password updated successfully!",
@@ -725,7 +726,9 @@
     "label_mlmmjadminApiToken": "mlmmjadmin API Token",
     "label_mlmmjadminApiToken_help": "One of the api_auth_tokens in /opt/mlmmjadmin/settings.py on the mail server. It is stored encrypted with IREDPANEL_SECRET_KEY and never shown again.",
     "label_passwordRecoveryEnabled": "Password Recovery",
-    "label_passwordRecoveryEnabled_help": "Publishes the /forgot-password page and its link on the sign-in page. A mailbox with a recovery address gets a reset link by mail. Needs the public URL, the SMTP settings and the iredadmin database. Default: off."
+    "label_passwordRecoveryEnabled_help": "Publishes the /forgot-password page and its link on the sign-in page. A mailbox with a recovery address gets a reset link by mail. Needs the public URL, the SMTP settings and the iredadmin database. Default: off.",
+    "label_adminTotpRequired": "Require Two-Factor Authentication",
+    "label_adminTotpRequired_help": "When on, every admin without a TOTP secret must finish the setup before the panel opens, and no admin can turn it off. Needs the iredadmin database and IREDPANEL_SECRET_KEY. Default: off."
   },
   "quarantine": {
     "title": "Quarantine",
@@ -1261,5 +1264,45 @@
     "msg_disabled": "Password recovery is not available.",
     "mail_subject": "Password reset for :email",
     "mail_body": "Someone, probably you, asked to reset the password of :email.\n\nTo set a new password, open this link:\n:link\n\nThe link expires in :hours hours. If you did not ask for this, ignore this message and the password stays as it is."
+  },
+  "totp": {
+    "title": "Two-Factor Authentication",
+    "challenge_title": "Two-Factor Authentication",
+    "challenge_hint": "Enter the 6-digit code of your authenticator app, or one of your recovery codes.",
+    "sign_in": "Sign in",
+    "code": "Code",
+    "code_help": "The 6-digit code that the authenticator app shows for this account. A recovery code is also accepted here, and every recovery code works once.",
+    "state_enabled": "On",
+    "state_pending": "Waiting for confirmation",
+    "state_disabled": "Off",
+    "start": "Start setup",
+    "start_hint": "Two-factor authentication asks for a one-time code after your password. Start the setup to get a QR code and your recovery codes.",
+    "scan_title": "Scan the QR code",
+    "scan_title_help": "Scan the code with an authenticator app, or type the secret into the app by hand. The setup counts only after you enter a code that the app shows.",
+    "scan_hint": "Scan the code with your authenticator app, then enter the code that it shows.",
+    "secret": "Secret",
+    "confirm": "Confirm",
+    "cancel_setup": "Cancel setup",
+    "enabled_hint": "Every sign-in asks for a code after the password.",
+    "change_title": "Change",
+    "change_title_help": "A current code is needed for both actions, so that an open session of somebody else cannot turn two-factor authentication off.",
+    "new_codes": "New recovery codes",
+    "disable": "Turn off",
+    "confirm_disable": "Turn two-factor authentication off?",
+    "recovery_codes": "Recovery codes",
+    "recovery_codes_help": "Each code signs you in once when you have no authenticator app. Keep them somewhere safe; the panel shows them only now.",
+    "recovery_codes_hint": "Write these codes down now. They are shown only once, and each one works once.",
+    "remaining_codes": ":count recovery codes are left.",
+    "msg_invalid_code": "The code is wrong or has expired.",
+    "msg_setup_required": "This panel requires two-factor authentication. Finish the setup to continue.",
+    "msg_setup_started": "Setup started. Scan the QR code and enter a code.",
+    "msg_no_pending_setup": "There is no setup waiting for confirmation.",
+    "msg_enabled": "Two-factor authentication is on.",
+    "msg_setup_cancelled": "Setup cancelled.",
+    "msg_disabled": "Two-factor authentication is off.",
+    "msg_required_by_panel": "This panel requires two-factor authentication, so it cannot be turned off.",
+    "msg_not_enabled": "Two-factor authentication is not on.",
+    "msg_codes_replaced": "New recovery codes are ready. The old ones no longer work.",
+    "msg_invalid_secret": "The stored two-factor secret is unreadable."
   }
 }

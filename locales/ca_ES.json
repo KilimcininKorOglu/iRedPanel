@@ -31,7 +31,8 @@
     "account_resources": "Orígens de comptes",
     "group_self_service": "El meu compte",
     "mail_lists": "Llistes de correu",
-    "update_available": "iRedPanel v:version està disponible"
+    "update_available": "iRedPanel v:version està disponible",
+    "two_factor": "Autenticació de dos factors"
   },
   "common": {
     "msg_password_updated": "Contrasenya actualitzada correctament!",
@@ -725,7 +726,9 @@
     "label_mlmmjadminApiToken": "Token de l'API de mlmmjadmin",
     "label_mlmmjadminApiToken_help": "Un dels api_auth_tokens de /opt/mlmmjadmin/settings.py al servidor de correu. Es desa xifrat amb IREDPANEL_SECRET_KEY i no es torna a mostrar.",
     "label_passwordRecoveryEnabled": "Recuperació de contrasenya",
-    "label_passwordRecoveryEnabled_help": "Publica la pàgina /forgot-password i el seu enllaç a la pàgina d'inici de sessió. Una mailbox amb adreça de recuperació rep un enllaç de restabliment per correu. Necessita l'URL públic, la configuració SMTP i la base de dades iredadmin. Per defecte: desactivat."
+    "label_passwordRecoveryEnabled_help": "Publica la pàgina /forgot-password i el seu enllaç a la pàgina d'inici de sessió. Una mailbox amb adreça de recuperació rep un enllaç de restabliment per correu. Necessita l'URL públic, la configuració SMTP i la base de dades iredadmin. Per defecte: desactivat.",
+    "label_adminTotpRequired": "Exigeix l'autenticació de dos factors",
+    "label_adminTotpRequired_help": "Quan està activada, tot administrador sense secret TOTP ha d'acabar la configuració abans que s'obri el tauler, i cap administrador la pot desactivar. Necessita la base de dades iredadmin i IREDPANEL_SECRET_KEY. Per defecte: desactivat."
   },
   "quarantine": {
     "title": "Quarantena",
@@ -1261,5 +1264,45 @@
     "msg_disabled": "La recuperació de contrasenya no està disponible.",
     "mail_subject": "Restabliment de contrasenya per a :email",
     "mail_body": "Algú, probablement vós, ha demanat restablir la contrasenya de :email.\n\nPer establir una contrasenya nova, obriu aquest enllaç:\n:link\n\nL'enllaç caduca en :hours hores. Si no ho heu demanat, ignoreu el missatge: la contrasenya es manté."
+  },
+  "totp": {
+    "title": "Autenticació de dos factors",
+    "challenge_title": "Autenticació de dos factors",
+    "challenge_hint": "Introduïu el codi de 6 xifres de la vostra aplicació d'autenticació o un dels codis de recuperació.",
+    "sign_in": "Inicia la sessió",
+    "code": "Codi",
+    "code_help": "El codi de 6 xifres que l'aplicació d'autenticació mostra per a aquest compte. Aquí també s'accepta un codi de recuperació, i cada codi de recuperació funciona una vegada.",
+    "state_enabled": "Activada",
+    "state_pending": "Esperant confirmació",
+    "state_disabled": "Desactivada",
+    "start": "Inicia la configuració",
+    "start_hint": "L'autenticació de dos factors demana un codi d'un sol ús després de la contrasenya. Inicieu la configuració per obtenir el codi QR i els codis de recuperació.",
+    "scan_title": "Escanegeu el codi QR",
+    "scan_title_help": "Escanegeu el codi amb una aplicació d'autenticació o escriviu el secret a mà. La configuració només compta després d'introduir un codi que mostri l'aplicació.",
+    "scan_hint": "Escanegeu el codi amb la vostra aplicació d'autenticació i després introduïu el codi que mostra.",
+    "secret": "Secret",
+    "confirm": "Confirma",
+    "cancel_setup": "Cancel·la la configuració",
+    "enabled_hint": "Cada inici de sessió demana un codi després de la contrasenya.",
+    "change_title": "Canvia",
+    "change_title_help": "Totes dues accions necessiten un codi actual, perquè una sessió oberta d'una altra persona no pugui desactivar l'autenticació de dos factors.",
+    "new_codes": "Codis de recuperació nous",
+    "disable": "Desactiva",
+    "confirm_disable": "Voleu desactivar l'autenticació de dos factors?",
+    "recovery_codes": "Codis de recuperació",
+    "recovery_codes_help": "Cada codi us inicia la sessió una vegada quan no teniu l'aplicació d'autenticació. Deseu-los en un lloc segur; el tauler només els mostra ara.",
+    "recovery_codes_hint": "Anoteu aquests codis ara. Només es mostren una vegada i cadascun funciona una vegada.",
+    "remaining_codes": "Queden :count codis de recuperació.",
+    "msg_invalid_code": "El codi és incorrecte o ha caducat.",
+    "msg_setup_required": "Aquest tauler exigeix autenticació de dos factors. Acabeu la configuració per continuar.",
+    "msg_setup_started": "Configuració iniciada. Escanegeu el codi QR i introduïu un codi.",
+    "msg_no_pending_setup": "No hi ha cap configuració esperant confirmació.",
+    "msg_enabled": "L'autenticació de dos factors està activada.",
+    "msg_setup_cancelled": "Configuració cancel·lada.",
+    "msg_disabled": "L'autenticació de dos factors està desactivada.",
+    "msg_required_by_panel": "Aquest tauler exigeix autenticació de dos factors, així que no es pot desactivar.",
+    "msg_not_enabled": "L'autenticació de dos factors no està activada.",
+    "msg_codes_replaced": "Els nous codis de recuperació són a punt. Els antics ja no funcionen.",
+    "msg_invalid_secret": "El secret de dos factors desat no es pot llegir."
   }
 }

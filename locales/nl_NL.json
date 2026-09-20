@@ -31,7 +31,8 @@
     "account_resources": "Accountbronnen",
     "group_self_service": "Mijn account",
     "mail_lists": "Maillijsten",
-    "update_available": "iRedPanel v:version is beschikbaar"
+    "update_available": "iRedPanel v:version is beschikbaar",
+    "two_factor": "Tweefactorauthenticatie"
   },
   "common": {
     "msg_password_updated": "Wachtwoord succesvol bijgewerkt!",
@@ -725,7 +726,9 @@
     "label_mlmmjadminApiToken": "mlmmjadmin API-token",
     "label_mlmmjadminApiToken_help": "Een van de api_auth_tokens in /opt/mlmmjadmin/settings.py op de mailserver. Het wordt versleuteld met IREDPANEL_SECRET_KEY opgeslagen en nooit meer getoond.",
     "label_passwordRecoveryEnabled": "Wachtwoordherstel",
-    "label_passwordRecoveryEnabled_help": "Publiceert de pagina /forgot-password en de link ernaartoe op de aanmeldpagina. Een mailbox met herstel-adres krijgt een resetlink per mail. Vereist de publieke URL, de SMTP-instellingen en de iredadmin-database. Standaard: uit."
+    "label_passwordRecoveryEnabled_help": "Publiceert de pagina /forgot-password en de link ernaartoe op de aanmeldpagina. Een mailbox met herstel-adres krijgt een resetlink per mail. Vereist de publieke URL, de SMTP-instellingen en de iredadmin-database. Standaard: uit.",
+    "label_adminTotpRequired": "Tweefactorauthenticatie vereisen",
+    "label_adminTotpRequired_help": "Wanneer dit aanstaat, moet elke beheerder zonder TOTP-secret het instellen afronden voordat het paneel opengaat, en kan geen beheerder het uitzetten. Vereist de iredadmin-database en IREDPANEL_SECRET_KEY. Standaard: uit."
   },
   "quarantine": {
     "title": "Quarantaine",
@@ -1261,5 +1264,45 @@
     "msg_disabled": "Wachtwoordherstel is niet beschikbaar.",
     "mail_subject": "Wachtwoord resetten voor :email",
     "mail_body": "Iemand, waarschijnlijk u, heeft gevraagd het wachtwoord van :email te resetten.\n\nOpen deze link om een nieuw wachtwoord in te stellen:\n:link\n\nDe link verloopt over :hours uur. Hebt u dit niet aangevraagd, negeer dit bericht dan; het wachtwoord blijft ongewijzigd."
+  },
+  "totp": {
+    "title": "Tweefactorauthenticatie",
+    "challenge_title": "Tweefactorauthenticatie",
+    "challenge_hint": "Voer de 6-cijferige code van uw authenticator-app of een van uw herstelcodes in.",
+    "sign_in": "Aanmelden",
+    "code": "Code",
+    "code_help": "De 6-cijferige code die de authenticator-app voor dit account toont. Een herstelcode wordt hier ook geaccepteerd en elke herstelcode werkt één keer.",
+    "state_enabled": "Aan",
+    "state_pending": "Wacht op bevestiging",
+    "state_disabled": "Uit",
+    "start": "Instellen starten",
+    "start_hint": "Tweefactorauthenticatie vraagt na het wachtwoord om een eenmalige code. Start het instellen om de QR-code en uw herstelcodes te krijgen.",
+    "scan_title": "Scan de QR-code",
+    "scan_title_help": "Scan de code met een authenticator-app of typ het secret met de hand in de app. Het instellen telt pas nadat u een code invoert die de app toont.",
+    "scan_hint": "Scan de code met uw authenticator-app en voer daarna de getoonde code in.",
+    "secret": "Secret",
+    "confirm": "Bevestigen",
+    "cancel_setup": "Instellen annuleren",
+    "enabled_hint": "Elke aanmelding vraagt na het wachtwoord om een code.",
+    "change_title": "Wijzigen",
+    "change_title_help": "Beide acties vragen een actuele code, zodat een open sessie van iemand anders tweefactorauthenticatie niet kan uitzetten.",
+    "new_codes": "Nieuwe herstelcodes",
+    "disable": "Uitzetten",
+    "confirm_disable": "Tweefactorauthenticatie uitzetten?",
+    "recovery_codes": "Herstelcodes",
+    "recovery_codes_help": "Elke code meldt u één keer aan wanneer u geen authenticator-app hebt. Bewaar ze veilig; het paneel toont ze alleen nu.",
+    "recovery_codes_hint": "Schrijf deze codes nu op. Ze worden maar één keer getoond en elke code werkt één keer.",
+    "remaining_codes": "Er zijn nog :count herstelcodes over.",
+    "msg_invalid_code": "De code is onjuist of verlopen.",
+    "msg_setup_required": "Dit paneel vereist tweefactorauthenticatie. Rond het instellen af om verder te gaan.",
+    "msg_setup_started": "Instellen gestart. Scan de QR-code en voer een code in.",
+    "msg_no_pending_setup": "Er wacht geen instelling op bevestiging.",
+    "msg_enabled": "Tweefactorauthenticatie staat aan.",
+    "msg_setup_cancelled": "Instellen geannuleerd.",
+    "msg_disabled": "Tweefactorauthenticatie staat uit.",
+    "msg_required_by_panel": "Dit paneel vereist tweefactorauthenticatie, dus die kan niet worden uitgezet.",
+    "msg_not_enabled": "Tweefactorauthenticatie staat niet aan.",
+    "msg_codes_replaced": "De nieuwe herstelcodes zijn klaar. De oude werken niet meer.",
+    "msg_invalid_secret": "Het opgeslagen tweefactor-secret is onleesbaar."
   }
 }

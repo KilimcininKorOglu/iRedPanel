@@ -285,7 +285,22 @@
     });
   }
 
+  // The QR code of an otpauth URI is drawn here, so the secret never leaves the browser.
+  // The library is loaded by the page that needs it, not by every page.
+  function initQrCodes() {
+    if (typeof qrcode === 'undefined') {
+      return;
+    }
+    document.querySelectorAll('[data-qr]').forEach(function (box) {
+      var code = qrcode(0, 'M');
+      code.addData(box.dataset.qr);
+      code.make();
+      box.innerHTML = code.createSvgTag({ cellSize: 4, margin: 2, scalable: true });
+    });
+  }
+
   initPickers();
   initHelpPopovers();
+  initQrCodes();
   showFlash();
 })();

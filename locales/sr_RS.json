@@ -31,7 +31,8 @@
     "account_resources": "Извори налога",
     "group_self_service": "Мој налог",
     "mail_lists": "Поштанске листе",
-    "update_available": "Доступан је iRedPanel v:version"
+    "update_available": "Доступан је iRedPanel v:version",
+    "two_factor": "Dvofaktorska provera"
   },
   "common": {
     "msg_password_updated": "Лозинка је успешно ажурирана!",
@@ -725,7 +726,9 @@
     "label_mlmmjadminApiToken": "mlmmjadmin API token",
     "label_mlmmjadminApiToken_help": "Један од api_auth_tokens у /opt/mlmmjadmin/settings.py на mail серверу. Чува се шифрован кључем IREDPANEL_SECRET_KEY и више се не приказује.",
     "label_passwordRecoveryEnabled": "Oporavak lozinke",
-    "label_passwordRecoveryEnabled_help": "Objavljuje stranicu /forgot-password i link ka njoj na stranici prijave. Mailbox sa adresom za oporavak dobija link za promenu poštom. Zahteva javni URL, SMTP podešavanja i bazu iredadmin. Podrazumevano: isključeno."
+    "label_passwordRecoveryEnabled_help": "Objavljuje stranicu /forgot-password i link ka njoj na stranici prijave. Mailbox sa adresom za oporavak dobija link za promenu poštom. Zahteva javni URL, SMTP podešavanja i bazu iredadmin. Podrazumevano: isključeno.",
+    "label_adminTotpRequired": "Zahtevaj dvofaktorsku proveru",
+    "label_adminTotpRequired_help": "Kada je uključeno, svaki administrator bez TOTP secreta mora da završi podešavanje pre nego što se panel otvori i nijedan administrator to ne može isključiti. Zahteva bazu iredadmin i IREDPANEL_SECRET_KEY. Podrazumevano: isključeno."
   },
   "quarantine": {
     "title": "Карантин",
@@ -1261,5 +1264,45 @@
     "msg_disabled": "Oporavak lozinke nije dostupan.",
     "mail_subject": "Promena lozinke za :email",
     "mail_body": "Neko, verovatno vi, zatražio je promenu lozinke za :email.\n\nZa postavljanje nove lozinke otvorite ovaj link:\n:link\n\nLink ističe za :hours sati. Ako to niste tražili, zanemarite poruku; lozinka ostaje ista."
+  },
+  "totp": {
+    "title": "Dvofaktorska provera",
+    "challenge_title": "Dvofaktorska provera",
+    "challenge_hint": "Unesite 6-cifreni kod iz aplikacije autentifikatora ili jedan od kodova za oporavak.",
+    "sign_in": "Prijava",
+    "code": "Kod",
+    "code_help": "6-cifreni kod koji aplikacija autentifikatora prikazuje za ovaj nalog. Ovde se prihvata i kod za oporavak, a svaki kod za oporavak radi jednom.",
+    "state_enabled": "Uključeno",
+    "state_pending": "Čeka potvrdu",
+    "state_disabled": "Isključeno",
+    "start": "Pokreni podešavanje",
+    "start_hint": "Dvofaktorska provera traži jednokratni kod posle lozinke. Pokrenite podešavanje da dobijete QR kod i kodove za oporavak.",
+    "scan_title": "Skenirajte QR kod",
+    "scan_title_help": "Skenirajte kod aplikacijom autentifikatora ili upišite secret ručno. Podešavanje važi tek kada unesete kod koji aplikacija prikazuje.",
+    "scan_hint": "Skenirajte kod svojom aplikacijom autentifikatora, zatim unesite prikazani kod.",
+    "secret": "Secret",
+    "confirm": "Potvrdi",
+    "cancel_setup": "Odustani od podešavanja",
+    "enabled_hint": "Svaka prijava traži kod posle lozinke.",
+    "change_title": "Promena",
+    "change_title_help": "Obe radnje traže trenutni kod, da otvorena sesija druge osobe ne bi mogla da isključi dvofaktorsku proveru.",
+    "new_codes": "Novi kodovi za oporavak",
+    "disable": "Isključi",
+    "confirm_disable": "Isključiti dvofaktorsku proveru?",
+    "recovery_codes": "Kodovi za oporavak",
+    "recovery_codes_help": "Svaki kod vas prijavljuje jednom kada nemate aplikaciju autentifikatora. Čuvajte ih na sigurnom; panel ih prikazuje samo sada.",
+    "recovery_codes_hint": "Zapišite ove kodove odmah. Prikazuju se samo jednom i svaki radi jednom.",
+    "remaining_codes": "Preostalo je :count kodova za oporavak.",
+    "msg_invalid_code": "Kod je pogrešan ili je istekao.",
+    "msg_setup_required": "Ovaj panel traži dvofaktorsku proveru. Završite podešavanje da nastavite.",
+    "msg_setup_started": "Podešavanje je pokrenuto. Skenirajte QR kod i unesite kod.",
+    "msg_no_pending_setup": "Nijedno podešavanje ne čeka potvrdu.",
+    "msg_enabled": "Dvofaktorska provera je uključena.",
+    "msg_setup_cancelled": "Podešavanje je otkazano.",
+    "msg_disabled": "Dvofaktorska provera je isključena.",
+    "msg_required_by_panel": "Ovaj panel traži dvofaktorsku proveru pa se ona ne može isključiti.",
+    "msg_not_enabled": "Dvofaktorska provera nije uključena.",
+    "msg_codes_replaced": "Novi kodovi za oporavak su spremni. Stari više ne rade.",
+    "msg_invalid_secret": "Sačuvani dvofaktorski secret nije čitljiv."
   }
 }

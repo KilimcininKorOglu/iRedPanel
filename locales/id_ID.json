@@ -31,7 +31,8 @@
     "account_resources": "Sumber Akun",
     "group_self_service": "Akun saya",
     "mail_lists": "Daftar mail",
-    "update_available": "iRedPanel v:version tersedia"
+    "update_available": "iRedPanel v:version tersedia",
+    "two_factor": "Autentikasi dua faktor"
   },
   "common": {
     "msg_password_updated": "Kata sandi berhasil diperbarui!",
@@ -725,7 +726,9 @@
     "label_mlmmjadminApiToken": "Token API mlmmjadmin",
     "label_mlmmjadminApiToken_help": "Salah satu api_auth_tokens di /opt/mlmmjadmin/settings.py pada server surat. Disimpan terenkripsi dengan IREDPANEL_SECRET_KEY dan tidak pernah ditampilkan lagi.",
     "label_passwordRecoveryEnabled": "Pemulihan kata sandi",
-    "label_passwordRecoveryEnabled_help": "Menerbitkan halaman /forgot-password dan tautannya di halaman masuk. Mailbox dengan alamat pemulihan menerima tautan reset melalui mail. Memerlukan URL publik, pengaturan SMTP, dan basis data iredadmin. Default: nonaktif."
+    "label_passwordRecoveryEnabled_help": "Menerbitkan halaman /forgot-password dan tautannya di halaman masuk. Mailbox dengan alamat pemulihan menerima tautan reset melalui mail. Memerlukan URL publik, pengaturan SMTP, dan basis data iredadmin. Default: nonaktif.",
+    "label_adminTotpRequired": "Wajibkan autentikasi dua faktor",
+    "label_adminTotpRequired_help": "Saat aktif, setiap admin tanpa secret TOTP harus menyelesaikan penyiapan sebelum panel terbuka, dan tidak ada admin yang bisa mematikannya. Memerlukan basis data iredadmin dan IREDPANEL_SECRET_KEY. Default: nonaktif."
   },
   "quarantine": {
     "title": "Karantina",
@@ -1261,5 +1264,45 @@
     "msg_disabled": "Pemulihan kata sandi tidak tersedia.",
     "mail_subject": "Reset kata sandi untuk :email",
     "mail_body": "Seseorang, kemungkinan Anda, meminta reset kata sandi :email.\n\nUntuk menetapkan kata sandi baru, buka tautan ini:\n:link\n\nTautan kedaluwarsa dalam :hours jam. Jika Anda tidak memintanya, abaikan pesan ini dan kata sandi tetap sama."
+  },
+  "totp": {
+    "title": "Autentikasi dua faktor",
+    "challenge_title": "Autentikasi dua faktor",
+    "challenge_hint": "Masukkan kode 6 digit dari aplikasi autentikator Anda atau salah satu kode pemulihan.",
+    "sign_in": "Masuk",
+    "code": "Kode",
+    "code_help": "Kode 6 digit yang ditampilkan aplikasi autentikator untuk akun ini. Kode pemulihan juga diterima di sini, dan setiap kode pemulihan berlaku sekali.",
+    "state_enabled": "Aktif",
+    "state_pending": "Menunggu konfirmasi",
+    "state_disabled": "Nonaktif",
+    "start": "Mulai penyiapan",
+    "start_hint": "Autentikasi dua faktor meminta kode sekali pakai setelah kata sandi. Mulai penyiapan untuk mendapatkan kode QR dan kode pemulihan Anda.",
+    "scan_title": "Pindai kode QR",
+    "scan_title_help": "Pindai kode dengan aplikasi autentikator atau ketik secret secara manual. Penyiapan baru berlaku setelah Anda memasukkan kode yang ditampilkan aplikasi.",
+    "scan_hint": "Pindai kode dengan aplikasi autentikator Anda, lalu masukkan kode yang ditampilkan.",
+    "secret": "Secret",
+    "confirm": "Konfirmasi",
+    "cancel_setup": "Batalkan penyiapan",
+    "enabled_hint": "Setiap masuk meminta kode setelah kata sandi.",
+    "change_title": "Ubah",
+    "change_title_help": "Kedua tindakan membutuhkan kode terkini, agar sesi terbuka milik orang lain tidak dapat mematikan autentikasi dua faktor.",
+    "new_codes": "Kode pemulihan baru",
+    "disable": "Matikan",
+    "confirm_disable": "Matikan autentikasi dua faktor?",
+    "recovery_codes": "Kode pemulihan",
+    "recovery_codes_help": "Setiap kode memasukkan Anda sekali saat tidak punya aplikasi autentikator. Simpan di tempat aman; panel hanya menampilkannya sekarang.",
+    "recovery_codes_hint": "Catat kode ini sekarang. Kode hanya ditampilkan sekali dan masing-masing berlaku sekali.",
+    "remaining_codes": "Tersisa :count kode pemulihan.",
+    "msg_invalid_code": "Kode salah atau sudah kedaluwarsa.",
+    "msg_setup_required": "Panel ini mewajibkan autentikasi dua faktor. Selesaikan penyiapan untuk melanjutkan.",
+    "msg_setup_started": "Penyiapan dimulai. Pindai kode QR dan masukkan kode.",
+    "msg_no_pending_setup": "Tidak ada penyiapan yang menunggu konfirmasi.",
+    "msg_enabled": "Autentikasi dua faktor aktif.",
+    "msg_setup_cancelled": "Penyiapan dibatalkan.",
+    "msg_disabled": "Autentikasi dua faktor nonaktif.",
+    "msg_required_by_panel": "Panel ini mewajibkan autentikasi dua faktor, jadi tidak dapat dimatikan.",
+    "msg_not_enabled": "Autentikasi dua faktor belum aktif.",
+    "msg_codes_replaced": "Kode pemulihan baru siap. Kode lama tidak berlaku lagi.",
+    "msg_invalid_secret": "Secret dua faktor yang tersimpan tidak terbaca."
   }
 }

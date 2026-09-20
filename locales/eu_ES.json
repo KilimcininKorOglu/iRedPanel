@@ -31,7 +31,8 @@
     "account_resources": "Kontu-iturburuak",
     "group_self_service": "Nire kontua",
     "mail_lists": "Posta zerrendak",
-    "update_available": "iRedPanel v:version eskuragarri dago"
+    "update_available": "iRedPanel v:version eskuragarri dago",
+    "two_factor": "Bi faktoreko autentifikazioa"
   },
   "common": {
     "msg_password_updated": "Pasahitza eguneratu da!",
@@ -725,7 +726,9 @@
     "label_mlmmjadminApiToken": "mlmmjadmin API tokena",
     "label_mlmmjadminApiToken_help": "Mail zerbitzariko /opt/mlmmjadmin/settings.py fitxategiko api_auth_tokens balioetako bat. IREDPANEL_SECRET_KEY-rekin zifratuta gordetzen da eta ez da berriro erakusten.",
     "label_passwordRecoveryEnabled": "Pasahitza berreskuratzea",
-    "label_passwordRecoveryEnabled_help": "/forgot-password orria eta saio-hasierako orriko esteka argitaratzen ditu. Berreskuratze-helbidea duen mailbox batek berrezartzeko esteka jasotzen du postaz. URL publikoa, SMTP ezarpenak eta iredadmin datu-basea behar ditu. Lehenetsia: itzalita."
+    "label_passwordRecoveryEnabled_help": "/forgot-password orria eta saio-hasierako orriko esteka argitaratzen ditu. Berreskuratze-helbidea duen mailbox batek berrezartzeko esteka jasotzen du postaz. URL publikoa, SMTP ezarpenak eta iredadmin datu-basea behar ditu. Lehenetsia: itzalita.",
+    "label_adminTotpRequired": "Eskatu bi faktoreko autentifikazioa",
+    "label_adminTotpRequired_help": "Aktibatuta dagoenean, TOTP secret gabeko administratzaile bakoitzak konfigurazioa amaitu behar du panela ireki aurretik, eta administratzaile batek ere ezin du itzali. iredadmin datu-basea eta IREDPANEL_SECRET_KEY behar ditu. Lehenetsia: itzalita."
   },
   "quarantine": {
     "title": "Berrogeialdia",
@@ -1261,5 +1264,45 @@
     "msg_disabled": "Pasahitza berreskuratzea ez dago erabilgarri.",
     "mail_subject": "Pasahitza berrezartzea :email helbiderako",
     "mail_body": "Norbaitek, ziurrenik zuk, :email helbidearen pasahitza berrezartzeko eskatu du.\n\nPasahitz berria ezartzeko, ireki esteka hau:\n:link\n\nEsteka :hours ordu barru iraungitzen da. Zuk eskatu ez baduzu, ez ikusiarena egin mezu honi; pasahitzak berdin jarraitzen du."
+  },
+  "totp": {
+    "title": "Bi faktoreko autentifikazioa",
+    "challenge_title": "Bi faktoreko autentifikazioa",
+    "challenge_hint": "Sartu autentifikazio-aplikazioaren 6 digituko kodea edo zure berreskuratze-kodeetako bat.",
+    "sign_in": "Hasi saioa",
+    "code": "Kodea",
+    "code_help": "Autentifikazio-aplikazioak kontu honetarako erakusten duen 6 digituko kodea. Hemen berreskuratze-kode bat ere onartzen da, eta berreskuratze-kode bakoitzak behin balio du.",
+    "state_enabled": "Aktibatuta",
+    "state_pending": "Berrespenaren zain",
+    "state_disabled": "Desaktibatuta",
+    "start": "Hasi konfigurazioa",
+    "start_hint": "Bi faktoreko autentifikazioak pasahitzaren ondoren behin erabiltzeko kode bat eskatzen du. Hasi konfigurazioa QR kodea eta berreskuratze-kodeak lortzeko.",
+    "scan_title": "Eskaneatu QR kodea",
+    "scan_title_help": "Eskaneatu kodea autentifikazio-aplikazio batekin edo idatzi secret balioa eskuz. Konfigurazioak aplikazioak erakusten duen kode bat sartu ondoren bakarrik balio du.",
+    "scan_hint": "Eskaneatu kodea zure autentifikazio-aplikazioarekin eta sartu erakusten duen kodea.",
+    "secret": "Secret",
+    "confirm": "Berretsi",
+    "cancel_setup": "Utzi konfigurazioa",
+    "enabled_hint": "Saio-hasiera bakoitzak pasahitzaren ondoren kode bat eskatzen du.",
+    "change_title": "Aldatu",
+    "change_title_help": "Bi ekintzek uneko kodea behar dute, beste pertsona baten saio irekiak bi faktoreko autentifikazioa itzali ez dezan.",
+    "new_codes": "Berreskuratze-kode berriak",
+    "disable": "Itzali",
+    "confirm_disable": "Bi faktoreko autentifikazioa itzali?",
+    "recovery_codes": "Berreskuratze-kodeak",
+    "recovery_codes_help": "Kode bakoitzak behin hasten du saioa autentifikazio-aplikaziorik ez duzunean. Gorde leku seguruan; panelak orain bakarrik erakusten ditu.",
+    "recovery_codes_hint": "Idatzi kode hauek orain. Behin bakarrik erakusten dira eta bakoitzak behin balio du.",
+    "remaining_codes": ":count berreskuratze-kode geratzen dira.",
+    "msg_invalid_code": "Kodea okerra da edo iraungi da.",
+    "msg_setup_required": "Panel honek bi faktoreko autentifikazioa eskatzen du. Amaitu konfigurazioa jarraitzeko.",
+    "msg_setup_started": "Konfigurazioa hasi da. Eskaneatu QR kodea eta sartu kode bat.",
+    "msg_no_pending_setup": "Ez dago berrespenaren zain dagoen konfiguraziorik.",
+    "msg_enabled": "Bi faktoreko autentifikazioa aktibatuta dago.",
+    "msg_setup_cancelled": "Konfigurazioa bertan behera utzi da.",
+    "msg_disabled": "Bi faktoreko autentifikazioa desaktibatuta dago.",
+    "msg_required_by_panel": "Panel honek bi faktoreko autentifikazioa eskatzen du, beraz ezin da itzali.",
+    "msg_not_enabled": "Bi faktoreko autentifikazioa ez dago aktibatuta.",
+    "msg_codes_replaced": "Berreskuratze-kode berriak prest daude. Zaharrek ez dute gehiago balio.",
+    "msg_invalid_secret": "Gordetako bi faktoreko secret balioa ezin da irakurri."
   }
 }

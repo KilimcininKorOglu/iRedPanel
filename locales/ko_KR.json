@@ -31,7 +31,8 @@
     "account_resources": "계정 리소스",
     "group_self_service": "내 계정",
     "mail_lists": "메일 리스트",
-    "update_available": "iRedPanel v:version을(를) 사용할 수 있습니다"
+    "update_available": "iRedPanel v:version을(를) 사용할 수 있습니다",
+    "two_factor": "2단계 인증"
   },
   "common": {
     "msg_password_updated": "비밀번호가 성공적으로 업데이트되었습니다!",
@@ -725,7 +726,9 @@
     "label_mlmmjadminApiToken": "mlmmjadmin API 토큰",
     "label_mlmmjadminApiToken_help": "메일 서버의 /opt/mlmmjadmin/settings.py에 있는 api_auth_tokens 중 하나입니다. IREDPANEL_SECRET_KEY로 암호화되어 저장되며 다시 표시되지 않습니다.",
     "label_passwordRecoveryEnabled": "비밀번호 복구",
-    "label_passwordRecoveryEnabled_help": "/forgot-password 페이지와 로그인 페이지의 링크를 공개합니다. 복구 주소가 있는 mailbox는 메일로 재설정 링크를 받습니다. 공개 URL, SMTP 설정, iredadmin 데이터베이스가 필요합니다. 기본값: 꺼짐."
+    "label_passwordRecoveryEnabled_help": "/forgot-password 페이지와 로그인 페이지의 링크를 공개합니다. 복구 주소가 있는 mailbox는 메일로 재설정 링크를 받습니다. 공개 URL, SMTP 설정, iredadmin 데이터베이스가 필요합니다. 기본값: 꺼짐.",
+    "label_adminTotpRequired": "2단계 인증 필수화",
+    "label_adminTotpRequired_help": "켜면 TOTP secret이 없는 모든 관리자는 패널을 열기 전에 설정을 마쳐야 하며, 어떤 관리자도 끌 수 없습니다. iredadmin 데이터베이스와 IREDPANEL_SECRET_KEY가 필요합니다. 기본값: 꺼짐."
   },
   "quarantine": {
     "title": "격리",
@@ -1261,5 +1264,45 @@
     "msg_disabled": "비밀번호 복구를 사용할 수 없습니다.",
     "mail_subject": ":email 비밀번호 재설정",
     "mail_body": "누군가, 아마도 본인이 :email의 비밀번호 재설정을 요청했습니다.\n\n새 비밀번호를 설정하려면 이 링크를 여세요:\n:link\n\n링크는 :hours시간 후 만료됩니다. 요청한 적이 없다면 이 메시지를 무시하세요. 비밀번호는 그대로 유지됩니다."
+  },
+  "totp": {
+    "title": "2단계 인증",
+    "challenge_title": "2단계 인증",
+    "challenge_hint": "인증 앱의 6자리 코드 또는 복구 코드 중 하나를 입력하세요.",
+    "sign_in": "로그인",
+    "code": "코드",
+    "code_help": "인증 앱이 이 계정에 표시하는 6자리 코드입니다. 여기에는 복구 코드도 입력할 수 있으며, 복구 코드는 각각 한 번만 사용됩니다.",
+    "state_enabled": "켜짐",
+    "state_pending": "확인 대기 중",
+    "state_disabled": "꺼짐",
+    "start": "설정 시작",
+    "start_hint": "2단계 인증은 비밀번호 다음에 일회용 코드를 요구합니다. 설정을 시작하면 QR 코드와 복구 코드를 받습니다.",
+    "scan_title": "QR 코드 스캔",
+    "scan_title_help": "인증 앱으로 코드를 스캔하거나 secret을 직접 입력하세요. 앱이 보여 준 코드를 입력해야 설정이 적용됩니다.",
+    "scan_hint": "인증 앱으로 코드를 스캔한 다음, 앱에 표시된 코드를 입력하세요.",
+    "secret": "Secret",
+    "confirm": "확인",
+    "cancel_setup": "설정 취소",
+    "enabled_hint": "로그인할 때마다 비밀번호 다음에 코드를 묻습니다.",
+    "change_title": "변경",
+    "change_title_help": "두 작업 모두 현재 코드가 필요합니다. 다른 사람의 열린 세션이 2단계 인증을 끄지 못하게 하기 위해서입니다.",
+    "new_codes": "새 복구 코드",
+    "disable": "끄기",
+    "confirm_disable": "2단계 인증을 끌까요?",
+    "recovery_codes": "복구 코드",
+    "recovery_codes_help": "인증 앱이 없을 때 각 코드로 한 번 로그인할 수 있습니다. 안전한 곳에 보관하세요. 패널은 지금만 보여 줍니다.",
+    "recovery_codes_hint": "이 코드를 지금 적어 두세요. 한 번만 표시되며 각 코드는 한 번만 사용됩니다.",
+    "remaining_codes": "복구 코드가 :count개 남았습니다.",
+    "msg_invalid_code": "코드가 틀리거나 만료되었습니다.",
+    "msg_setup_required": "이 패널은 2단계 인증을 요구합니다. 계속하려면 설정을 마치세요.",
+    "msg_setup_started": "설정을 시작했습니다. QR 코드를 스캔하고 코드를 입력하세요.",
+    "msg_no_pending_setup": "확인을 기다리는 설정이 없습니다.",
+    "msg_enabled": "2단계 인증이 켜져 있습니다.",
+    "msg_setup_cancelled": "설정을 취소했습니다.",
+    "msg_disabled": "2단계 인증이 꺼져 있습니다.",
+    "msg_required_by_panel": "이 패널은 2단계 인증을 요구하므로 끌 수 없습니다.",
+    "msg_not_enabled": "2단계 인증이 켜져 있지 않습니다.",
+    "msg_codes_replaced": "새 복구 코드가 준비되었습니다. 이전 코드는 더 이상 사용되지 않습니다.",
+    "msg_invalid_secret": "저장된 2단계 인증 secret을 읽을 수 없습니다."
   }
 }

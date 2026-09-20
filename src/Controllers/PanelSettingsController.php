@@ -30,7 +30,7 @@ class PanelSettingsController
             'requireOldPasswordOnChange', 'passwordRecoveryEnabled',
         ],
         'session' => [
-            'sessionTimeout', 'sessionValidateIp', 'allowedIpRanges',
+            'sessionTimeout', 'sessionValidateIp', 'allowedIpRanges', 'adminTotpRequired',
         ],
         'display' => [
             'defaultLanguage', 'paginationPerPage', 'checkUpdates', 'requireDomainOwnershipVerification',

@@ -31,7 +31,8 @@
     "account_resources": "Kontoquellen",
     "group_self_service": "Mein Konto",
     "mail_lists": "Mail-Listen",
-    "update_available": "iRedPanel v:version ist verfügbar"
+    "update_available": "iRedPanel v:version ist verfügbar",
+    "two_factor": "Zwei-Faktor-Auth"
   },
   "common": {
     "msg_password_updated": "Passwort erfolgreich aktualisiert!",
@@ -725,7 +726,9 @@
     "label_mlmmjadminApiToken": "mlmmjadmin-API-Token",
     "label_mlmmjadminApiToken_help": "Einer der api_auth_tokens in /opt/mlmmjadmin/settings.py auf dem Mailserver. Er wird mit IREDPANEL_SECRET_KEY verschlüsselt gespeichert und nie wieder angezeigt.",
     "label_passwordRecoveryEnabled": "Passwortwiederherstellung",
-    "label_passwordRecoveryEnabled_help": "Veröffentlicht die Seite /forgot-password und den Link auf der Anmeldeseite. Eine Mailbox mit Wiederherstellungsadresse erhält einen Reset-Link per Mail. Benötigt die öffentliche URL, die SMTP-Einstellungen und die iredadmin-Datenbank. Standard: aus."
+    "label_passwordRecoveryEnabled_help": "Veröffentlicht die Seite /forgot-password und den Link auf der Anmeldeseite. Eine Mailbox mit Wiederherstellungsadresse erhält einen Reset-Link per Mail. Benötigt die öffentliche URL, die SMTP-Einstellungen und die iredadmin-Datenbank. Standard: aus.",
+    "label_adminTotpRequired": "Zwei-Faktor-Authentifizierung verlangen",
+    "label_adminTotpRequired_help": "Wenn ein, muss jeder Admin ohne TOTP-Secret die Einrichtung abschließen, bevor sich das Panel öffnet, und kein Admin kann sie abschalten. Benötigt die iredadmin-Datenbank und IREDPANEL_SECRET_KEY. Standard: aus."
   },
   "quarantine": {
     "title": "Quarantäne",
@@ -1261,5 +1264,45 @@
     "msg_disabled": "Passwortwiederherstellung ist nicht verfügbar.",
     "mail_subject": "Passwort zurücksetzen für :email",
     "mail_body": "Jemand, wahrscheinlich Sie, hat das Zurücksetzen des Passworts von :email angefordert.\n\nÖffnen Sie diesen Link, um ein neues Passwort festzulegen:\n:link\n\nDer Link läuft in :hours Stunden ab. Wenn Sie das nicht angefordert haben, ignorieren Sie diese Nachricht; das Passwort bleibt unverändert."
+  },
+  "totp": {
+    "title": "Zwei-Faktor-Authentifizierung",
+    "challenge_title": "Zwei-Faktor-Authentifizierung",
+    "challenge_hint": "Geben Sie den 6-stelligen Code Ihrer Authenticator-App oder einen Ihrer Wiederherstellungscodes ein.",
+    "sign_in": "Anmelden",
+    "code": "Code",
+    "code_help": "Der 6-stellige Code, den die Authenticator-App für dieses Konto anzeigt. Ein Wiederherstellungscode wird hier ebenfalls angenommen und gilt jeweils einmal.",
+    "state_enabled": "Ein",
+    "state_pending": "Wartet auf Bestätigung",
+    "state_disabled": "Aus",
+    "start": "Einrichtung starten",
+    "start_hint": "Die Zwei-Faktor-Authentifizierung fragt nach dem Passwort einen Einmalcode ab. Starten Sie die Einrichtung, um den QR-Code und die Wiederherstellungscodes zu erhalten.",
+    "scan_title": "QR-Code scannen",
+    "scan_title_help": "Scannen Sie den Code mit einer Authenticator-App oder geben Sie das Secret von Hand ein. Die Einrichtung gilt erst, wenn Sie einen von der App angezeigten Code eingeben.",
+    "scan_hint": "Scannen Sie den Code mit Ihrer Authenticator-App und geben Sie dann den angezeigten Code ein.",
+    "secret": "Secret",
+    "confirm": "Bestätigen",
+    "cancel_setup": "Einrichtung abbrechen",
+    "enabled_hint": "Jede Anmeldung fragt nach dem Passwort einen Code ab.",
+    "change_title": "Ändern",
+    "change_title_help": "Für beide Aktionen ist ein aktueller Code nötig, damit eine offene Sitzung einer anderen Person die Zwei-Faktor-Authentifizierung nicht abschalten kann.",
+    "new_codes": "Neue Wiederherstellungscodes",
+    "disable": "Abschalten",
+    "confirm_disable": "Zwei-Faktor-Authentifizierung abschalten?",
+    "recovery_codes": "Wiederherstellungscodes",
+    "recovery_codes_help": "Jeder Code meldet Sie einmal an, wenn Sie keine Authenticator-App haben. Bewahren Sie sie sicher auf; das Panel zeigt sie nur jetzt.",
+    "recovery_codes_hint": "Notieren Sie diese Codes jetzt. Sie werden nur einmal angezeigt und jeder Code gilt einmal.",
+    "remaining_codes": "Es sind noch :count Wiederherstellungscodes übrig.",
+    "msg_invalid_code": "Der Code ist falsch oder abgelaufen.",
+    "msg_setup_required": "Dieses Panel verlangt Zwei-Faktor-Authentifizierung. Schließen Sie die Einrichtung ab, um fortzufahren.",
+    "msg_setup_started": "Einrichtung gestartet. Scannen Sie den QR-Code und geben Sie einen Code ein.",
+    "msg_no_pending_setup": "Es wartet keine Einrichtung auf Bestätigung.",
+    "msg_enabled": "Die Zwei-Faktor-Authentifizierung ist ein.",
+    "msg_setup_cancelled": "Einrichtung abgebrochen.",
+    "msg_disabled": "Die Zwei-Faktor-Authentifizierung ist aus.",
+    "msg_required_by_panel": "Dieses Panel verlangt Zwei-Faktor-Authentifizierung, sie kann daher nicht abgeschaltet werden.",
+    "msg_not_enabled": "Die Zwei-Faktor-Authentifizierung ist nicht eingeschaltet.",
+    "msg_codes_replaced": "Neue Wiederherstellungscodes sind bereit. Die alten gelten nicht mehr.",
+    "msg_invalid_secret": "Das gespeicherte Zwei-Faktor-Secret ist nicht lesbar."
   }
 }

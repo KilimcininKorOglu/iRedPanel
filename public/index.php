@@ -44,6 +44,7 @@ use App\Controllers\SearchController;
 use App\Controllers\SelfServiceController;
 use App\Controllers\PanelSettingsController;
 use App\Controllers\SystemSettingsController;
+use App\Controllers\TwoFactorController;
 use App\Controllers\UserController;
 use App\Exceptions\BackendConnectionException;
 use App\Exceptions\CsrfTokenException;
@@ -72,6 +73,15 @@ $router->addRoute(['GET', 'POST'], '/login', function () use ($tpl) {
 $router->addRoute('POST', '/logout', function () {
     \App\CsrfProtection::validateToken();
     AuthController::logout();
+});
+
+// Two-factor authentication: the code page of a login and the admin's own setup page
+$router->addRoute(['GET', 'POST'], '/login/2fa', function () use ($tpl) {
+    TwoFactorController::challenge($tpl);
+});
+
+$router->addRoute(['GET', 'POST'], '/2fa', function () use ($tpl) {
+    TwoFactorController::manage($tpl);
 });
 
 // Password recovery (public endpoints — no authentication required)

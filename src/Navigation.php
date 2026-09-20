@@ -19,6 +19,8 @@ class Navigation
         'nav.group_general' => [
             ['href' => '/dashboard', 'label' => 'nav.dashboard', 'icon' => 'speedometer2', 'requires' => [], 'match' => ['/dashboard']],
             ['href' => '/search', 'label' => 'nav.search', 'icon' => 'search', 'requires' => [], 'match' => ['/search']],
+            // Every admin manages the two-factor setup of their own account.
+            ['href' => '/2fa', 'label' => 'nav.two_factor', 'icon' => 'shield-check', 'requires' => [], 'match' => ['/2fa']],
         ],
         'nav.group_accounts' => [
             ['href' => '/domains', 'label' => 'nav.domains', 'icon' => 'globe2', 'requires' => [], 'match' => ['/domains']],

@@ -31,7 +31,8 @@
     "account_resources": "Aðgangsuppsprettur",
     "group_self_service": "Aðgangurinn minn",
     "mail_lists": "Póstlistar",
-    "update_available": "iRedPanel v:version er fáanlegt"
+    "update_available": "iRedPanel v:version er fáanlegt",
+    "two_factor": "Tveggja þátta auðkenning"
   },
   "common": {
     "msg_password_updated": "Lykilorð uppfært!",
@@ -725,7 +726,9 @@
     "label_mlmmjadminApiToken": "mlmmjadmin API token",
     "label_mlmmjadminApiToken_help": "Eitt af api_auth_tokens í /opt/mlmmjadmin/settings.py á póstþjóninum. Það er geymt dulkóðað með IREDPANEL_SECRET_KEY og er aldrei sýnt aftur.",
     "label_passwordRecoveryEnabled": "Endurheimt lykilorðs",
-    "label_passwordRecoveryEnabled_help": "Birtir síðuna /forgot-password og tengil á hana á innskráningarsíðunni. Mailbox með endurheimtunetfang fær endurstillingartengil í pósti. Krefst opinbera URL, SMTP stillinga og iredadmin gagnagrunnsins. Sjálfgefið: af."
+    "label_passwordRecoveryEnabled_help": "Birtir síðuna /forgot-password og tengil á hana á innskráningarsíðunni. Mailbox með endurheimtunetfang fær endurstillingartengil í pósti. Krefst opinbera URL, SMTP stillinga og iredadmin gagnagrunnsins. Sjálfgefið: af.",
+    "label_adminTotpRequired": "Krefjast tveggja þátta auðkenningar",
+    "label_adminTotpRequired_help": "Þegar kveikt er á þessu verður hver stjórnandi án TOTP-leyndarmáls að ljúka uppsetningu áður en stjórnborðið opnast og enginn stjórnandi getur slökkt á því. Krefst iredadmin gagnagrunnsins og IREDPANEL_SECRET_KEY. Sjálfgefið: af."
   },
   "quarantine": {
     "title": "Sóttkví",
@@ -1261,5 +1264,45 @@
     "msg_disabled": "Endurheimt lykilorðs er ekki í boði.",
     "mail_subject": "Endurstilling lykilorðs fyrir :email",
     "mail_body": "Einhver, líklega þú, bað um að endurstilla lykilorðið fyrir :email.\n\nOpnaðu þennan tengil til að setja nýtt lykilorð:\n:link\n\nTengillinn rennur út eftir :hours klukkustundir. Ef þú baðst ekki um þetta skaltu hunsa skilaboðin; lykilorðið helst óbreytt."
+  },
+  "totp": {
+    "title": "Tveggja þátta auðkenning",
+    "challenge_title": "Tveggja þátta auðkenning",
+    "challenge_hint": "Sláðu inn 6 stafa kóðann úr auðkenningarforritinu eða einn af endurheimtukóðunum þínum.",
+    "sign_in": "Skrá inn",
+    "code": "Kóði",
+    "code_help": "6 stafa kóðinn sem auðkenningarforritið sýnir fyrir þennan reikning. Endurheimtukóði er líka tekinn gildur hér og hver endurheimtukóði virkar einu sinni.",
+    "state_enabled": "Kveikt",
+    "state_pending": "Bíður staðfestingar",
+    "state_disabled": "Slökkt",
+    "start": "Hefja uppsetningu",
+    "start_hint": "Tveggja þátta auðkenning biður um einnota kóða eftir lykilorðið. Hefðu uppsetninguna til að fá QR-kóðann og endurheimtukóðana.",
+    "scan_title": "Skannaðu QR-kóðann",
+    "scan_title_help": "Skannaðu kóðann með auðkenningarforriti eða sláðu leyndarmálið inn handvirkt. Uppsetningin gildir fyrst þegar þú slærð inn kóða sem forritið sýnir.",
+    "scan_hint": "Skannaðu kóðann með auðkenningarforritinu og sláðu svo inn kóðann sem það sýnir.",
+    "secret": "Leyndarmál",
+    "confirm": "Staðfesta",
+    "cancel_setup": "Hætta við uppsetningu",
+    "enabled_hint": "Hver innskráning biður um kóða eftir lykilorðið.",
+    "change_title": "Breyta",
+    "change_title_help": "Báðar aðgerðir þurfa gildan kóða svo að opin seta annars aðila geti ekki slökkt á tveggja þátta auðkenningu.",
+    "new_codes": "Nýir endurheimtukóðar",
+    "disable": "Slökkva",
+    "confirm_disable": "Slökkva á tveggja þátta auðkenningu?",
+    "recovery_codes": "Endurheimtukóðar",
+    "recovery_codes_help": "Hver kóði skráir þig inn einu sinni þegar þú ert án auðkenningarforrits. Geymdu þá á öruggum stað; stjórnborðið sýnir þá aðeins núna.",
+    "recovery_codes_hint": "Skrifaðu þessa kóða niður núna. Þeir birtast aðeins einu sinni og hver þeirra virkar einu sinni.",
+    "remaining_codes": ":count endurheimtukóðar eru eftir.",
+    "msg_invalid_code": "Kóðinn er rangur eða útrunninn.",
+    "msg_setup_required": "Þetta stjórnborð krefst tveggja þátta auðkenningar. Ljúktu uppsetningunni til að halda áfram.",
+    "msg_setup_started": "Uppsetning hafin. Skannaðu QR-kóðann og sláðu inn kóða.",
+    "msg_no_pending_setup": "Engin uppsetning bíður staðfestingar.",
+    "msg_enabled": "Kveikt er á tveggja þátta auðkenningu.",
+    "msg_setup_cancelled": "Hætt var við uppsetningu.",
+    "msg_disabled": "Slökkt er á tveggja þátta auðkenningu.",
+    "msg_required_by_panel": "Þetta stjórnborð krefst tveggja þátta auðkenningar og því er ekki hægt að slökkva á henni.",
+    "msg_not_enabled": "Ekki er kveikt á tveggja þátta auðkenningu.",
+    "msg_codes_replaced": "Nýju endurheimtukóðarnir eru tilbúnir. Þeir gömlu virka ekki lengur.",
+    "msg_invalid_secret": "Ekki er hægt að lesa vistaða leyndarmál tveggja þátta auðkenningar."
   }
 }

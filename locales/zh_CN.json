@@ -31,7 +31,8 @@
     "account_resources": "账户源",
     "group_self_service": "我的账户",
     "mail_lists": "邮件组",
-    "update_available": "iRedPanel v:version 已发布"
+    "update_available": "iRedPanel v:version 已发布",
+    "two_factor": "两步验证"
   },
   "common": {
     "msg_password_updated": "密码更新成功！",
@@ -725,7 +726,9 @@
     "label_mlmmjadminApiToken": "mlmmjadmin API token",
     "label_mlmmjadminApiToken_help": "邮件服务器 /opt/mlmmjadmin/settings.py 中 api_auth_tokens 之一。使用 IREDPANEL_SECRET_KEY 加密保存，不会再次显示。",
     "label_passwordRecoveryEnabled": "密码找回",
-    "label_passwordRecoveryEnabled_help": "发布 /forgot-password 页面及登录页上的链接。设置了找回地址的 mailbox 会通过邮件收到重置链接。需要公开 URL、SMTP 设置和 iredadmin 数据库。默认：关闭。"
+    "label_passwordRecoveryEnabled_help": "发布 /forgot-password 页面及登录页上的链接。设置了找回地址的 mailbox 会通过邮件收到重置链接。需要公开 URL、SMTP 设置和 iredadmin 数据库。默认：关闭。",
+    "label_adminTotpRequired": "强制两步验证",
+    "label_adminTotpRequired_help": "开启后，没有 TOTP secret 的管理员必须先完成设置才能打开面板，且任何管理员都无法关闭。需要 iredadmin 数据库和 IREDPANEL_SECRET_KEY。默认：关闭。"
   },
   "quarantine": {
     "title": "隔离区",
@@ -1261,5 +1264,45 @@
     "msg_disabled": "密码找回功能不可用。",
     "mail_subject": ":email 的密码重置",
     "mail_body": "有人（很可能是您）请求重置 :email 的密码。\n\n请打开此链接设置新密码：\n:link\n\n链接将在 :hours 小时后失效。如果不是您请求的，请忽略本邮件，密码保持不变。"
+  },
+  "totp": {
+    "title": "两步验证",
+    "challenge_title": "两步验证",
+    "challenge_hint": "请输入验证器应用中的 6 位代码，或者其中一个恢复代码。",
+    "sign_in": "登录",
+    "code": "代码",
+    "code_help": "验证器应用为此账户显示的 6 位代码。此处也接受恢复代码，每个恢复代码只能使用一次。",
+    "state_enabled": "已开启",
+    "state_pending": "等待确认",
+    "state_disabled": "已关闭",
+    "start": "开始设置",
+    "start_hint": "两步验证会在密码之后要求一次性代码。开始设置即可获取二维码和恢复代码。",
+    "scan_title": "扫描二维码",
+    "scan_title_help": "用验证器应用扫描此码，或手动输入 secret。只有输入应用显示的代码后，设置才生效。",
+    "scan_hint": "用验证器应用扫描此码，然后输入应用显示的代码。",
+    "secret": "Secret",
+    "confirm": "确认",
+    "cancel_setup": "取消设置",
+    "enabled_hint": "每次登录都会在密码之后要求代码。",
+    "change_title": "更改",
+    "change_title_help": "两项操作都需要当前代码，这样别人已打开的会话就无法关闭两步验证。",
+    "new_codes": "新的恢复代码",
+    "disable": "关闭",
+    "confirm_disable": "要关闭两步验证吗？",
+    "recovery_codes": "恢复代码",
+    "recovery_codes_help": "没有验证器应用时，每个代码可登录一次。请妥善保存，面板只在此刻显示它们。",
+    "recovery_codes_hint": "请立即记下这些代码。它们只显示一次，每个代码只能使用一次。",
+    "remaining_codes": "还剩 :count 个恢复代码。",
+    "msg_invalid_code": "代码错误或已过期。",
+    "msg_setup_required": "本面板要求两步验证。请完成设置后继续。",
+    "msg_setup_started": "设置已开始。请扫描二维码并输入代码。",
+    "msg_no_pending_setup": "没有等待确认的设置。",
+    "msg_enabled": "两步验证已开启。",
+    "msg_setup_cancelled": "设置已取消。",
+    "msg_disabled": "两步验证已关闭。",
+    "msg_required_by_panel": "本面板要求两步验证，因此无法关闭。",
+    "msg_not_enabled": "两步验证尚未开启。",
+    "msg_codes_replaced": "新的恢复代码已就绪。旧代码不再有效。",
+    "msg_invalid_secret": "保存的两步验证 secret 无法读取。"
   }
 }

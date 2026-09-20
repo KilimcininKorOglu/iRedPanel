@@ -46,15 +46,8 @@ class AuthController
             $password = $_POST['password'] ?? '';
 
             if (self::authenticateUser($email, $password)) {
-                self::startSession($email);
-                $authRepo = RepositoryFactory::getAuthRepository();
-                $_SESSION['isGlobalAdmin'] = $authRepo->isGlobalAdmin($email);
-                $_SESSION['managedDomains'] = $authRepo->getManagedDomains($email);
-                self::applyStoredLanguage($email, static fn (): string => $authRepo->getLanguage($email));
-
-                ActivityLogger::logLogin($email);
-                header("Location: $next");
-                exit;
+                TwoFactorController::startChallenge($email, $next);
+                self::completeAdminLogin($email, $next);
             }
 
             // A mailbox that is no admin logs in to self-service when its domain allows it.
@@ -89,6 +82,25 @@ class AuthController
     }
 
     /**
+     * Opens the admin session and sends the browser to the requested page. The
+     * caller has verified the password and, when the admin has it on, the
+     * two-factor code.
+     */
+    public static function completeAdminLogin(string $email, string $next): never
+    {
+        self::startSession($email);
+        $authRepo = RepositoryFactory::getAuthRepository();
+        $_SESSION['isGlobalAdmin'] = $authRepo->isGlobalAdmin($email);
+        $_SESSION['managedDomains'] = $authRepo->getManagedDomains($email);
+        self::applyStoredLanguage($email, static fn (): string => $authRepo->getLanguage($email));
+        TwoFactorController::markSetupRequired($email);
+
+        ActivityLogger::logLogin($email);
+        header('Location: ' . (empty($_SESSION['totpSetupRequired']) ? $next : '/2fa'));
+        exit;
+    }
+
+    /**
      * Starts a new session after a successful login. The role fields are set by the caller.
      */
     private static function startSession(string $email): void
@@ -100,7 +112,7 @@ class AuthController
         $_SESSION['failedLoginAttempts'] = 0;
         $_SESSION['isGlobalAdmin'] = false;
         $_SESSION['managedDomains'] = [];
-        unset($_SESSION['selfService']);
+        unset($_SESSION['selfService'], $_SESSION['totpChallenge'], $_SESSION['totpSetupRequired'], $_SESSION['totpRecoveryCodes']);
     }
 
     /**

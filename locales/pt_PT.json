@@ -31,7 +31,8 @@
     "account_resources": "Recursos de contas",
     "group_self_service": "A minha conta",
     "mail_lists": "Listas de mail",
-    "update_available": "O iRedPanel v:version está disponível"
+    "update_available": "O iRedPanel v:version está disponível",
+    "two_factor": "Autenticação de dois fatores"
   },
   "common": {
     "msg_password_updated": "Palavra-passe atualizada com sucesso!",
@@ -725,7 +726,9 @@
     "label_mlmmjadminApiToken": "Token da API do mlmmjadmin",
     "label_mlmmjadminApiToken_help": "Um dos api_auth_tokens em /opt/mlmmjadmin/settings.py no servidor de correio. É guardado cifrado com IREDPANEL_SECRET_KEY e nunca mais é mostrado.",
     "label_passwordRecoveryEnabled": "Recuperação de palavra-passe",
-    "label_passwordRecoveryEnabled_help": "Publica a página /forgot-password e a sua ligação na página de início de sessão. Uma mailbox com endereço de recuperação recebe por mail uma ligação de reposição. Requer o URL público, as definições SMTP e a base de dados iredadmin. Predefinição: desligado."
+    "label_passwordRecoveryEnabled_help": "Publica a página /forgot-password e a sua ligação na página de início de sessão. Uma mailbox com endereço de recuperação recebe por mail uma ligação de reposição. Requer o URL público, as definições SMTP e a base de dados iredadmin. Predefinição: desligado.",
+    "label_adminTotpRequired": "Exigir autenticação de dois fatores",
+    "label_adminTotpRequired_help": "Quando está ligada, todos os administradores sem secret TOTP têm de terminar a configuração antes de o painel abrir, e nenhum administrador a pode desligar. Requer a base de dados iredadmin e IREDPANEL_SECRET_KEY. Predefinição: desligado."
   },
   "quarantine": {
     "title": "Quarentena",
@@ -1261,5 +1264,45 @@
     "msg_disabled": "A recuperação de palavra-passe não está disponível.",
     "mail_subject": "Reposição de palavra-passe para :email",
     "mail_body": "Alguém, provavelmente você, pediu a reposição da palavra-passe de :email.\n\nPara definir uma nova palavra-passe, abra este link:\n:link\n\nO link expira em :hours horas. Se não fez este pedido, ignore esta mensagem e a palavra-passe mantém-se."
+  },
+  "totp": {
+    "title": "Autenticação de dois fatores",
+    "challenge_title": "Autenticação de dois fatores",
+    "challenge_hint": "Introduza o código de 6 dígitos da sua aplicação de autenticação ou um dos seus códigos de recuperação.",
+    "sign_in": "Iniciar sessão",
+    "code": "Código",
+    "code_help": "O código de 6 dígitos que a aplicação de autenticação mostra para esta conta. Aqui também é aceite um código de recuperação, e cada código de recuperação funciona uma vez.",
+    "state_enabled": "Ligada",
+    "state_pending": "À espera de confirmação",
+    "state_disabled": "Desligada",
+    "start": "Iniciar configuração",
+    "start_hint": "A autenticação de dois fatores pede um código de uso único depois da palavra-passe. Inicie a configuração para obter o código QR e os seus códigos de recuperação.",
+    "scan_title": "Leia o código QR",
+    "scan_title_help": "Leia o código com uma aplicação de autenticação ou escreva o secret à mão. A configuração só conta depois de introduzir um código que a aplicação mostre.",
+    "scan_hint": "Leia o código com a sua aplicação de autenticação e depois introduza o código apresentado.",
+    "secret": "Secret",
+    "confirm": "Confirmar",
+    "cancel_setup": "Cancelar configuração",
+    "enabled_hint": "Cada início de sessão pede um código depois da palavra-passe.",
+    "change_title": "Alterar",
+    "change_title_help": "Ambas as ações precisam de um código atual, para que uma sessão aberta de outra pessoa não possa desligar a autenticação de dois fatores.",
+    "new_codes": "Novos códigos de recuperação",
+    "disable": "Desligar",
+    "confirm_disable": "Desligar a autenticação de dois fatores?",
+    "recovery_codes": "Códigos de recuperação",
+    "recovery_codes_help": "Cada código inicia a sessão uma vez quando não tem a aplicação de autenticação. Guarde-os em lugar seguro; o painel só os mostra agora.",
+    "recovery_codes_hint": "Anote estes códigos agora. São mostrados apenas uma vez e cada um funciona uma vez.",
+    "remaining_codes": "Restam :count códigos de recuperação.",
+    "msg_invalid_code": "O código está errado ou expirou.",
+    "msg_setup_required": "Este painel exige autenticação de dois fatores. Termine a configuração para continuar.",
+    "msg_setup_started": "Configuração iniciada. Leia o código QR e introduza um código.",
+    "msg_no_pending_setup": "Não há nenhuma configuração à espera de confirmação.",
+    "msg_enabled": "A autenticação de dois fatores está ligada.",
+    "msg_setup_cancelled": "Configuração cancelada.",
+    "msg_disabled": "A autenticação de dois fatores está desligada.",
+    "msg_required_by_panel": "Este painel exige autenticação de dois fatores, por isso não pode ser desligada.",
+    "msg_not_enabled": "A autenticação de dois fatores não está ligada.",
+    "msg_codes_replaced": "Os novos códigos de recuperação estão prontos. Os antigos já não funcionam.",
+    "msg_invalid_secret": "O secret de dois fatores guardado não é legível."
   }
 }

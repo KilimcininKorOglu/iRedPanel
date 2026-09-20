@@ -31,7 +31,8 @@
     "account_resources": "Zdroje účtov",
     "group_self_service": "Môj účet",
     "mail_lists": "Mailové zoznamy",
-    "update_available": "K dispozícii je iRedPanel v:version"
+    "update_available": "K dispozícii je iRedPanel v:version",
+    "two_factor": "Dvojfaktorové overenie"
   },
   "common": {
     "msg_password_updated": "Heslo bolo úspešne aktualizované!",
@@ -725,7 +726,9 @@
     "label_mlmmjadminApiToken": "mlmmjadmin API token",
     "label_mlmmjadminApiToken_help": "Jeden z api_auth_tokens v /opt/mlmmjadmin/settings.py na poštovom serveri. Ukladá sa zašifrovaný kľúčom IREDPANEL_SECRET_KEY a už sa nezobrazí.",
     "label_passwordRecoveryEnabled": "Obnova hesla",
-    "label_passwordRecoveryEnabled_help": "Zverejní stránku /forgot-password a odkaz na ňu na prihlasovacej stránke. Mailbox s adresou na obnovu dostane odkaz na reset e-mailom. Vyžaduje verejnú URL, nastavenia SMTP a databázu iredadmin. Predvolené: vypnuté."
+    "label_passwordRecoveryEnabled_help": "Zverejní stránku /forgot-password a odkaz na ňu na prihlasovacej stránke. Mailbox s adresou na obnovu dostane odkaz na reset e-mailom. Vyžaduje verejnú URL, nastavenia SMTP a databázu iredadmin. Predvolené: vypnuté.",
+    "label_adminTotpRequired": "Vyžadovať dvojfaktorové overenie",
+    "label_adminTotpRequired_help": "Keď je zapnuté, každý správca bez secretu TOTP musí dokončiť nastavenie skôr, než sa panel otvorí, a žiadny správca ho nemôže vypnúť. Vyžaduje databázu iredadmin a IREDPANEL_SECRET_KEY. Predvolené: vypnuté."
   },
   "quarantine": {
     "title": "Karanténa",
@@ -1261,5 +1264,45 @@
     "msg_disabled": "Obnova hesla nie je k dispozícii.",
     "mail_subject": "Reset hesla pre :email",
     "mail_body": "Niekto, pravdepodobne vy, požiadal o reset hesla :email.\n\nNové heslo nastavíte otvorením tohto odkazu:\n:link\n\nOdkaz vyprší o :hours hodín. Ak ste o to nežiadali, správu ignorujte a heslo zostane nezmenené."
+  },
+  "totp": {
+    "title": "Dvojfaktorové overenie",
+    "challenge_title": "Dvojfaktorové overenie",
+    "challenge_hint": "Zadajte 6-miestny kód z aplikácie autentifikátora alebo jeden zo záložných kódov.",
+    "sign_in": "Prihlásiť sa",
+    "code": "Kód",
+    "code_help": "6-miestny kód, ktorý aplikácia autentifikátora zobrazuje pre tento účet. Prijíma sa tu aj záložný kód a každý záložný kód funguje raz.",
+    "state_enabled": "Zapnuté",
+    "state_pending": "Čaká na potvrdenie",
+    "state_disabled": "Vypnuté",
+    "start": "Spustiť nastavenie",
+    "start_hint": "Dvojfaktorové overenie žiada po hesle jednorazový kód. Spustite nastavenie a získate QR kód a záložné kódy.",
+    "scan_title": "Naskenujte QR kód",
+    "scan_title_help": "Naskenujte kód aplikáciou autentifikátora alebo zadajte secret ručne. Nastavenie platí až po zadaní kódu, ktorý aplikácia zobrazí.",
+    "scan_hint": "Naskenujte kód aplikáciou autentifikátora a potom zadajte zobrazený kód.",
+    "secret": "Secret",
+    "confirm": "Potvrdiť",
+    "cancel_setup": "Zrušiť nastavenie",
+    "enabled_hint": "Každé prihlásenie žiada po hesle kód.",
+    "change_title": "Zmeniť",
+    "change_title_help": "Obe akcie vyžadujú aktuálny kód, aby otvorená relácia niekoho iného nemohla dvojfaktorové overenie vypnúť.",
+    "new_codes": "Nové záložné kódy",
+    "disable": "Vypnúť",
+    "confirm_disable": "Vypnúť dvojfaktorové overenie?",
+    "recovery_codes": "Záložné kódy",
+    "recovery_codes_help": "Každý kód vás raz prihlási, keď nemáte aplikáciu autentifikátora. Uložte ich na bezpečné miesto; panel ich zobrazí len teraz.",
+    "recovery_codes_hint": "Zapíšte si tieto kódy teraz. Zobrazia sa iba raz a každý funguje raz.",
+    "remaining_codes": "Zostáva :count záložných kódov.",
+    "msg_invalid_code": "Kód je nesprávny alebo vypršal.",
+    "msg_setup_required": "Tento panel vyžaduje dvojfaktorové overenie. Dokončite nastavenie a pokračujte.",
+    "msg_setup_started": "Nastavenie spustené. Naskenujte QR kód a zadajte kód.",
+    "msg_no_pending_setup": "Žiadne nastavenie nečaká na potvrdenie.",
+    "msg_enabled": "Dvojfaktorové overenie je zapnuté.",
+    "msg_setup_cancelled": "Nastavenie zrušené.",
+    "msg_disabled": "Dvojfaktorové overenie je vypnuté.",
+    "msg_required_by_panel": "Tento panel vyžaduje dvojfaktorové overenie, preto sa nedá vypnúť.",
+    "msg_not_enabled": "Dvojfaktorové overenie nie je zapnuté.",
+    "msg_codes_replaced": "Nové záložné kódy sú pripravené. Staré už nefungujú.",
+    "msg_invalid_secret": "Uložený secret dvojfaktorového overenia sa nedá prečítať."
   }
 }

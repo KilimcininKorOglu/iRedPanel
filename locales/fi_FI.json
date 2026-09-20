@@ -31,7 +31,8 @@
     "account_resources": "Tililähteet",
     "group_self_service": "Oma tili",
     "mail_lists": "Postituslistat",
-    "update_available": "iRedPanel v:version on saatavilla"
+    "update_available": "iRedPanel v:version on saatavilla",
+    "two_factor": "Kaksivaiheinen tunnistautuminen"
   },
   "common": {
     "msg_password_updated": "Salasana päivitetty onnistuneesti!",
@@ -725,7 +726,9 @@
     "label_mlmmjadminApiToken": "mlmmjadmin API -token",
     "label_mlmmjadminApiToken_help": "Yksi mail-palvelimen /opt/mlmmjadmin/settings.py-tiedoston api_auth_tokens-arvoista. Se tallennetaan IREDPANEL_SECRET_KEY:llä salattuna eikä sitä näytetä enää.",
     "label_passwordRecoveryEnabled": "Salasanan palautus",
-    "label_passwordRecoveryEnabled_help": "Julkaisee sivun /forgot-password ja sen linkin kirjautumissivulla. Mailbox, jolla on palautusosoite, saa nollauslinkin sähköpostitse. Vaatii julkisen URL-osoitteen, SMTP-asetukset ja iredadmin-tietokannan. Oletus: pois."
+    "label_passwordRecoveryEnabled_help": "Julkaisee sivun /forgot-password ja sen linkin kirjautumissivulla. Mailbox, jolla on palautusosoite, saa nollauslinkin sähköpostitse. Vaatii julkisen URL-osoitteen, SMTP-asetukset ja iredadmin-tietokannan. Oletus: pois.",
+    "label_adminTotpRequired": "Vaadi kaksivaiheinen tunnistautuminen",
+    "label_adminTotpRequired_help": "Kun tämä on päällä, jokaisen ylläpitäjän ilman TOTP-salaisuutta on viimeisteltävä käyttöönotto ennen paneelin avautumista, eikä kukaan ylläpitäjä voi poistaa sitä käytöstä. Vaatii iredadmin-tietokannan ja IREDPANEL_SECRET_KEY-arvon. Oletus: pois."
   },
   "quarantine": {
     "title": "Karanteeni",
@@ -1261,5 +1264,45 @@
     "msg_disabled": "Salasanan palautus ei ole käytettävissä.",
     "mail_subject": "Salasanan nollaus osoitteelle :email",
     "mail_body": "Joku, todennäköisesti sinä, pyysi osoitteen :email salasanan nollausta.\n\nAseta uusi salasana avaamalla tämä linkki:\n:link\n\nLinkki vanhenee :hours tunnin kuluttua. Jos et pyytänyt tätä, jätä viesti huomiotta; salasana pysyy ennallaan."
+  },
+  "totp": {
+    "title": "Kaksivaiheinen tunnistautuminen",
+    "challenge_title": "Kaksivaiheinen tunnistautuminen",
+    "challenge_hint": "Anna todennussovelluksen 6-numeroinen koodi tai jokin palautuskoodeistasi.",
+    "sign_in": "Kirjaudu sisään",
+    "code": "Koodi",
+    "code_help": "6-numeroinen koodi, jonka todennussovellus näyttää tälle tilille. Tähän käy myös palautuskoodi, ja jokainen palautuskoodi toimii kerran.",
+    "state_enabled": "Päällä",
+    "state_pending": "Odottaa vahvistusta",
+    "state_disabled": "Pois",
+    "start": "Aloita käyttöönotto",
+    "start_hint": "Kaksivaiheinen tunnistautuminen kysyy salasanan jälkeen kertakäyttöisen koodin. Aloita käyttöönotto saadaksesi QR-koodin ja palautuskoodit.",
+    "scan_title": "Lue QR-koodi",
+    "scan_title_help": "Lue koodi todennussovelluksella tai kirjoita salaisuus käsin. Käyttöönotto kelpaa vasta, kun annat sovelluksen näyttämän koodin.",
+    "scan_hint": "Lue koodi todennussovelluksellasi ja anna sitten sen näyttämä koodi.",
+    "secret": "Salaisuus",
+    "confirm": "Vahvista",
+    "cancel_setup": "Peruuta käyttöönotto",
+    "enabled_hint": "Jokainen kirjautuminen kysyy salasanan jälkeen koodin.",
+    "change_title": "Muuta",
+    "change_title_help": "Molemmat toiminnot vaativat voimassa olevan koodin, jottei toisen henkilön avoin istunto voi poistaa kaksivaiheista tunnistautumista käytöstä.",
+    "new_codes": "Uudet palautuskoodit",
+    "disable": "Poista käytöstä",
+    "confirm_disable": "Poistetaanko kaksivaiheinen tunnistautuminen käytöstä?",
+    "recovery_codes": "Palautuskoodit",
+    "recovery_codes_help": "Jokainen koodi kirjaa sinut sisään kerran, kun todennussovellusta ei ole. Säilytä ne turvallisesti; paneeli näyttää ne vain nyt.",
+    "recovery_codes_hint": "Kirjoita nämä koodit muistiin nyt. Ne näytetään vain kerran, ja jokainen toimii kerran.",
+    "remaining_codes": "Palautuskoodeja on jäljellä :count.",
+    "msg_invalid_code": "Koodi on väärä tai vanhentunut.",
+    "msg_setup_required": "Tämä paneeli vaatii kaksivaiheisen tunnistautumisen. Viimeistele käyttöönotto jatkaaksesi.",
+    "msg_setup_started": "Käyttöönotto alkoi. Lue QR-koodi ja anna koodi.",
+    "msg_no_pending_setup": "Mikään käyttöönotto ei odota vahvistusta.",
+    "msg_enabled": "Kaksivaiheinen tunnistautuminen on päällä.",
+    "msg_setup_cancelled": "Käyttöönotto peruutettiin.",
+    "msg_disabled": "Kaksivaiheinen tunnistautuminen on pois päältä.",
+    "msg_required_by_panel": "Tämä paneeli vaatii kaksivaiheisen tunnistautumisen, joten sitä ei voi poistaa käytöstä.",
+    "msg_not_enabled": "Kaksivaiheinen tunnistautuminen ei ole päällä.",
+    "msg_codes_replaced": "Uudet palautuskoodit ovat valmiit. Vanhat eivät enää toimi.",
+    "msg_invalid_secret": "Tallennettua kaksivaiheisen tunnistautumisen salaisuutta ei voi lukea."
   }
 }

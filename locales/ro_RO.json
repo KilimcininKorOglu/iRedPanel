@@ -31,7 +31,8 @@
     "account_resources": "Resurse de conturi",
     "group_self_service": "Contul meu",
     "mail_lists": "Liste de mail",
-    "update_available": "iRedPanel v:version este disponibil"
+    "update_available": "iRedPanel v:version este disponibil",
+    "two_factor": "Autentificare în doi pași"
   },
   "common": {
     "msg_password_updated": "Parola a fost actualizată cu succes!",
@@ -725,7 +726,9 @@
     "label_mlmmjadminApiToken": "Token-ul API mlmmjadmin",
     "label_mlmmjadminApiToken_help": "Unul dintre api_auth_tokens din /opt/mlmmjadmin/settings.py de pe serverul de mail. Este stocat criptat cu IREDPANEL_SECRET_KEY și nu mai este afișat.",
     "label_passwordRecoveryEnabled": "Recuperare parolă",
-    "label_passwordRecoveryEnabled_help": "Publică pagina /forgot-password și linkul ei pe pagina de autentificare. O mailbox cu adresă de recuperare primește prin mail un link de resetare. Necesită URL-ul public, setările SMTP și baza de date iredadmin. Implicit: oprit."
+    "label_passwordRecoveryEnabled_help": "Publică pagina /forgot-password și linkul ei pe pagina de autentificare. O mailbox cu adresă de recuperare primește prin mail un link de resetare. Necesită URL-ul public, setările SMTP și baza de date iredadmin. Implicit: oprit.",
+    "label_adminTotpRequired": "Cere autentificare în doi pași",
+    "label_adminTotpRequired_help": "Când este activată, orice administrator fără secret TOTP trebuie să termine configurarea înainte de deschiderea panoului și niciun administrator nu o poate dezactiva. Necesită baza de date iredadmin și IREDPANEL_SECRET_KEY. Implicit: oprit."
   },
   "quarantine": {
     "title": "Carantină",
@@ -1261,5 +1264,45 @@
     "msg_disabled": "Recuperarea parolei nu este disponibilă.",
     "mail_subject": "Resetare parolă pentru :email",
     "mail_body": "Cineva, probabil dumneavoastră, a cerut resetarea parolei pentru :email.\n\nPentru a seta o parolă nouă, deschideți acest link:\n:link\n\nLinkul expiră în :hours ore. Dacă nu ați cerut acest lucru, ignorați mesajul: parola rămâne neschimbată."
+  },
+  "totp": {
+    "title": "Autentificare în doi pași",
+    "challenge_title": "Autentificare în doi pași",
+    "challenge_hint": "Introduceți codul din 6 cifre din aplicația de autentificare sau unul dintre codurile de recuperare.",
+    "sign_in": "Autentificare",
+    "code": "Cod",
+    "code_help": "Codul din 6 cifre pe care aplicația de autentificare îl arată pentru acest cont. Aici se acceptă și un cod de recuperare, iar fiecare cod de recuperare funcționează o dată.",
+    "state_enabled": "Activată",
+    "state_pending": "Așteaptă confirmarea",
+    "state_disabled": "Dezactivată",
+    "start": "Începeți configurarea",
+    "start_hint": "Autentificarea în doi pași cere un cod de unică folosință după parolă. Începeți configurarea pentru a primi codul QR și codurile de recuperare.",
+    "scan_title": "Scanați codul QR",
+    "scan_title_help": "Scanați codul cu o aplicație de autentificare sau introduceți secret-ul manual. Configurarea contează doar după ce introduceți un cod afișat de aplicație.",
+    "scan_hint": "Scanați codul cu aplicația de autentificare, apoi introduceți codul afișat.",
+    "secret": "Secret",
+    "confirm": "Confirmați",
+    "cancel_setup": "Anulați configurarea",
+    "enabled_hint": "Fiecare autentificare cere un cod după parolă.",
+    "change_title": "Modificare",
+    "change_title_help": "Ambele acțiuni au nevoie de un cod curent, ca sesiunea deschisă a altcuiva să nu poată dezactiva autentificarea în doi pași.",
+    "new_codes": "Coduri de recuperare noi",
+    "disable": "Dezactivați",
+    "confirm_disable": "Dezactivați autentificarea în doi pași?",
+    "recovery_codes": "Coduri de recuperare",
+    "recovery_codes_help": "Fiecare cod vă autentifică o dată când nu aveți aplicația de autentificare. Păstrați-le în siguranță; panoul le arată doar acum.",
+    "recovery_codes_hint": "Notați aceste coduri acum. Sunt afișate o singură dată și fiecare funcționează o dată.",
+    "remaining_codes": "Au mai rămas :count coduri de recuperare.",
+    "msg_invalid_code": "Codul este greșit sau a expirat.",
+    "msg_setup_required": "Acest panou cere autentificare în doi pași. Terminați configurarea pentru a continua.",
+    "msg_setup_started": "Configurare începută. Scanați codul QR și introduceți un cod.",
+    "msg_no_pending_setup": "Nu există nicio configurare care așteaptă confirmare.",
+    "msg_enabled": "Autentificarea în doi pași este activată.",
+    "msg_setup_cancelled": "Configurare anulată.",
+    "msg_disabled": "Autentificarea în doi pași este dezactivată.",
+    "msg_required_by_panel": "Acest panou cere autentificare în doi pași, deci nu poate fi dezactivată.",
+    "msg_not_enabled": "Autentificarea în doi pași nu este activată.",
+    "msg_codes_replaced": "Noile coduri de recuperare sunt gata. Cele vechi nu mai funcționează.",
+    "msg_invalid_secret": "Secret-ul de autentificare în doi pași salvat nu poate fi citit."
   }
 }

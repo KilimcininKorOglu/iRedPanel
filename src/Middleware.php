@@ -13,13 +13,37 @@ class Middleware
      * Must be called at the top of each protected admin controller method.
      * A self-service session is a mailbox user, never an admin.
      */
-    public static function loginRequired(): void
+    public static function loginRequired(bool $duringTotpSetup = false): void
     {
         self::sessionRequired();
 
         if (self::isSelfServiceUser()) {
             self::denySelfServiceUser();
         }
+        // The panel setting is read again here, so that a global admin who turns
+        // the requirement off frees every open session without a new login.
+        if (!$duringTotpSetup && !empty($_SESSION['totpSetupRequired'])) {
+            if (!Settings::getInstance()->adminTotpRequired) {
+                unset($_SESSION['totpSetupRequired']);
+
+                return;
+            }
+            self::denyUntilTotpSetup();
+        }
+    }
+
+    /**
+     * Holds an admin on the two-factor setup page while the panel requires it.
+     */
+    private static function denyUntilTotpSetup(): never
+    {
+        if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'GET') {
+            header('Location: /2fa');
+            exit;
+        }
+        http_response_code(403);
+        echo 'Access denied: two-factor authentication setup required';
+        exit;
     }
 
     /**

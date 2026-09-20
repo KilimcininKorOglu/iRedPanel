@@ -31,7 +31,8 @@
     "account_resources": "帳戶來源",
     "group_self_service": "我的帳戶",
     "mail_lists": "郵件群組",
-    "update_available": "iRedPanel v:version 已推出"
+    "update_available": "iRedPanel v:version 已推出",
+    "two_factor": "兩步驟驗證"
   },
   "common": {
     "msg_password_updated": "密碼已成功更新！",
@@ -725,7 +726,9 @@
     "label_mlmmjadminApiToken": "mlmmjadmin API token",
     "label_mlmmjadminApiToken_help": "郵件伺服器 /opt/mlmmjadmin/settings.py 中 api_auth_tokens 之一。以 IREDPANEL_SECRET_KEY 加密儲存，不會再次顯示。",
     "label_passwordRecoveryEnabled": "密碼救援",
-    "label_passwordRecoveryEnabled_help": "發布 /forgot-password 頁面及登入頁上的連結。設定了救援位址的 mailbox 會透過郵件收到重設連結。需要公開 URL、SMTP 設定與 iredadmin 資料庫。預設：關閉。"
+    "label_passwordRecoveryEnabled_help": "發布 /forgot-password 頁面及登入頁上的連結。設定了救援位址的 mailbox 會透過郵件收到重設連結。需要公開 URL、SMTP 設定與 iredadmin 資料庫。預設：關閉。",
+    "label_adminTotpRequired": "強制兩步驟驗證",
+    "label_adminTotpRequired_help": "開啟後，沒有 TOTP secret 的管理員必須先完成設定才能開啟面板，且任何管理員都無法關閉。需要 iredadmin 資料庫與 IREDPANEL_SECRET_KEY。預設：關閉。"
   },
   "quarantine": {
     "title": "隔離區",
@@ -1261,5 +1264,45 @@
     "msg_disabled": "密碼救援功能無法使用。",
     "mail_subject": ":email 的密碼重設",
     "mail_body": "有人（很可能是您）要求重設 :email 的密碼。\n\n請開啟此連結設定新密碼：\n:link\n\n連結將於 :hours 小時後失效。若不是您要求的，請忽略此訊息，密碼維持不變。"
+  },
+  "totp": {
+    "title": "兩步驟驗證",
+    "challenge_title": "兩步驟驗證",
+    "challenge_hint": "請輸入驗證器應用程式中的 6 位數代碼，或其中一個救援代碼。",
+    "sign_in": "登入",
+    "code": "代碼",
+    "code_help": "驗證器應用程式為此帳戶顯示的 6 位數代碼。此處也接受救援代碼，每個救援代碼只能使用一次。",
+    "state_enabled": "已開啟",
+    "state_pending": "等待確認",
+    "state_disabled": "已關閉",
+    "start": "開始設定",
+    "start_hint": "兩步驟驗證會在密碼之後要求一次性代碼。開始設定即可取得 QR 碼與救援代碼。",
+    "scan_title": "掃描 QR 碼",
+    "scan_title_help": "用驗證器應用程式掃描此碼，或手動輸入 secret。只有輸入應用程式顯示的代碼後，設定才生效。",
+    "scan_hint": "用驗證器應用程式掃描此碼，然後輸入顯示的代碼。",
+    "secret": "Secret",
+    "confirm": "確認",
+    "cancel_setup": "取消設定",
+    "enabled_hint": "每次登入都會在密碼之後要求代碼。",
+    "change_title": "變更",
+    "change_title_help": "兩項操作都需要目前的代碼，這樣他人已開啟的工作階段就無法關閉兩步驟驗證。",
+    "new_codes": "新的救援代碼",
+    "disable": "關閉",
+    "confirm_disable": "要關閉兩步驟驗證嗎？",
+    "recovery_codes": "救援代碼",
+    "recovery_codes_help": "沒有驗證器應用程式時，每個代碼可登入一次。請妥善保存，面板只在此刻顯示它們。",
+    "recovery_codes_hint": "請立即記下這些代碼。它們只顯示一次，每個代碼只能使用一次。",
+    "remaining_codes": "還剩 :count 個救援代碼。",
+    "msg_invalid_code": "代碼錯誤或已過期。",
+    "msg_setup_required": "本面板要求兩步驟驗證。請完成設定後繼續。",
+    "msg_setup_started": "設定已開始。請掃描 QR 碼並輸入代碼。",
+    "msg_no_pending_setup": "沒有等待確認的設定。",
+    "msg_enabled": "兩步驟驗證已開啟。",
+    "msg_setup_cancelled": "設定已取消。",
+    "msg_disabled": "兩步驟驗證已關閉。",
+    "msg_required_by_panel": "本面板要求兩步驟驗證，因此無法關閉。",
+    "msg_not_enabled": "兩步驟驗證尚未開啟。",
+    "msg_codes_replaced": "新的救援代碼已就緒。舊代碼不再有效。",
+    "msg_invalid_secret": "儲存的兩步驟驗證 secret 無法讀取。"
   }
 }

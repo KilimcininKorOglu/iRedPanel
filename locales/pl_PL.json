@@ -31,7 +31,8 @@
     "account_resources": "Źródła kont",
     "group_self_service": "Moje konto",
     "mail_lists": "Listy mailowe",
-    "update_available": "Dostępny jest iRedPanel v:version"
+    "update_available": "Dostępny jest iRedPanel v:version",
+    "two_factor": "Uwierzytelnianie dwuskładnikowe"
   },
   "common": {
     "msg_password_updated": "Hasło zostało pomyślnie zaktualizowane!",
@@ -725,7 +726,9 @@
     "label_mlmmjadminApiToken": "Token API mlmmjadmin",
     "label_mlmmjadminApiToken_help": "Jeden z api_auth_tokens w /opt/mlmmjadmin/settings.py na serwerze pocztowym. Jest przechowywany zaszyfrowany kluczem IREDPANEL_SECRET_KEY i nigdy więcej nie jest pokazywany.",
     "label_passwordRecoveryEnabled": "Odzyskiwanie hasła",
-    "label_passwordRecoveryEnabled_help": "Publikuje stronę /forgot-password i jej link na stronie logowania. Mailbox z adresem odzyskiwania otrzymuje link resetujący pocztą. Wymaga publicznego URL, ustawień SMTP i bazy iredadmin. Domyślnie: wyłączone."
+    "label_passwordRecoveryEnabled_help": "Publikuje stronę /forgot-password i jej link na stronie logowania. Mailbox z adresem odzyskiwania otrzymuje link resetujący pocztą. Wymaga publicznego URL, ustawień SMTP i bazy iredadmin. Domyślnie: wyłączone.",
+    "label_adminTotpRequired": "Wymagaj uwierzytelniania dwuskładnikowego",
+    "label_adminTotpRequired_help": "Gdy jest włączone, każdy administrator bez secretu TOTP musi dokończyć konfigurację przed otwarciem panelu i żaden administrator nie może go wyłączyć. Wymaga bazy iredadmin i IREDPANEL_SECRET_KEY. Domyślnie: wyłączone."
   },
   "quarantine": {
     "title": "Kwarantanna",
@@ -1261,5 +1264,45 @@
     "msg_disabled": "Odzyskiwanie hasła jest niedostępne.",
     "mail_subject": "Reset hasła dla :email",
     "mail_body": "Ktoś, prawdopodobnie Ty, poprosił o zresetowanie hasła :email.\n\nAby ustawić nowe hasło, otwórz ten link:\n:link\n\nLink wygasa za :hours godzin. Jeśli to nie Ty, zignoruj tę wiadomość, a hasło pozostanie bez zmian."
+  },
+  "totp": {
+    "title": "Uwierzytelnianie dwuskładnikowe",
+    "challenge_title": "Uwierzytelnianie dwuskładnikowe",
+    "challenge_hint": "Wpisz 6-cyfrowy kod z aplikacji uwierzytelniającej lub jeden z kodów odzyskiwania.",
+    "sign_in": "Zaloguj się",
+    "code": "Kod",
+    "code_help": "6-cyfrowy kod, który aplikacja uwierzytelniająca pokazuje dla tego konta. Tutaj przyjmowany jest też kod odzyskiwania, a każdy kod odzyskiwania działa raz.",
+    "state_enabled": "Włączone",
+    "state_pending": "Czeka na potwierdzenie",
+    "state_disabled": "Wyłączone",
+    "start": "Rozpocznij konfigurację",
+    "start_hint": "Uwierzytelnianie dwuskładnikowe prosi o kod jednorazowy po haśle. Rozpocznij konfigurację, aby otrzymać kod QR i kody odzyskiwania.",
+    "scan_title": "Zeskanuj kod QR",
+    "scan_title_help": "Zeskanuj kod aplikacją uwierzytelniającą albo wpisz secret ręcznie. Konfiguracja liczy się dopiero po wpisaniu kodu pokazanego przez aplikację.",
+    "scan_hint": "Zeskanuj kod swoją aplikacją uwierzytelniającą, a potem wpisz pokazany kod.",
+    "secret": "Secret",
+    "confirm": "Potwierdź",
+    "cancel_setup": "Anuluj konfigurację",
+    "enabled_hint": "Każde logowanie prosi o kod po haśle.",
+    "change_title": "Zmień",
+    "change_title_help": "Obie akcje wymagają aktualnego kodu, aby otwarta sesja innej osoby nie mogła wyłączyć uwierzytelniania dwuskładnikowego.",
+    "new_codes": "Nowe kody odzyskiwania",
+    "disable": "Wyłącz",
+    "confirm_disable": "Wyłączyć uwierzytelnianie dwuskładnikowe?",
+    "recovery_codes": "Kody odzyskiwania",
+    "recovery_codes_help": "Każdy kod loguje raz, gdy nie masz aplikacji uwierzytelniającej. Przechowuj je bezpiecznie; panel pokazuje je tylko teraz.",
+    "recovery_codes_hint": "Zapisz te kody teraz. Są pokazywane tylko raz, a każdy działa jeden raz.",
+    "remaining_codes": "Zostało :count kodów odzyskiwania.",
+    "msg_invalid_code": "Kod jest błędny lub wygasł.",
+    "msg_setup_required": "Ten panel wymaga uwierzytelniania dwuskładnikowego. Dokończ konfigurację, aby kontynuować.",
+    "msg_setup_started": "Konfiguracja rozpoczęta. Zeskanuj kod QR i wpisz kod.",
+    "msg_no_pending_setup": "Żadna konfiguracja nie czeka na potwierdzenie.",
+    "msg_enabled": "Uwierzytelnianie dwuskładnikowe jest włączone.",
+    "msg_setup_cancelled": "Konfiguracja anulowana.",
+    "msg_disabled": "Uwierzytelnianie dwuskładnikowe jest wyłączone.",
+    "msg_required_by_panel": "Ten panel wymaga uwierzytelniania dwuskładnikowego, więc nie można go wyłączyć.",
+    "msg_not_enabled": "Uwierzytelnianie dwuskładnikowe nie jest włączone.",
+    "msg_codes_replaced": "Nowe kody odzyskiwania są gotowe. Stare już nie działają.",
+    "msg_invalid_secret": "Zapisany secret dwuskładnikowy jest nieczytelny."
   }
 }

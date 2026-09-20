@@ -31,7 +31,8 @@
     "account_resources": "Hesap Kaynakları",
     "group_self_service": "Hesabım",
     "mail_lists": "Mail Listeleri",
-    "update_available": "iRedPanel v:version yayında"
+    "update_available": "iRedPanel v:version yayında",
+    "two_factor": "İki Adımlı Doğrulama"
   },
   "common": {
     "msg_password_updated": "Parola başarıyla güncellendi!",
@@ -725,7 +726,9 @@
     "label_mlmmjadminApiToken": "mlmmjadmin API token'ı",
     "label_mlmmjadminApiToken_help": "Mail sunucusundaki /opt/mlmmjadmin/settings.py dosyasında yer alan api_auth_tokens değerlerinden biri. IREDPANEL_SECRET_KEY ile şifrelenmiş olarak saklanır ve bir daha gösterilmez.",
     "label_passwordRecoveryEnabled": "Parola Kurtarma",
-    "label_passwordRecoveryEnabled_help": "/forgot-password sayfasını ve giriş sayfasındaki linkini yayınlar. Recovery adresi olan bir mailbox, mail ile sıfırlama linki alır. Public URL, SMTP ayarları ve iredadmin veritabanı gerekir. Varsayılan: kapalı."
+    "label_passwordRecoveryEnabled_help": "/forgot-password sayfasını ve giriş sayfasındaki linkini yayınlar. Recovery adresi olan bir mailbox, mail ile sıfırlama linki alır. Public URL, SMTP ayarları ve iredadmin veritabanı gerekir. Varsayılan: kapalı.",
+    "label_adminTotpRequired": "İki Adımlı Doğrulamayı Zorunlu Kıl",
+    "label_adminTotpRequired_help": "Açıkken, TOTP secret değeri olmayan her admin panel açılmadan önce kurulumu bitirmek zorundadır ve hiçbir admin bunu kapatamaz. iredadmin veritabanı ve IREDPANEL_SECRET_KEY gerekir. Varsayılan: kapalı."
   },
   "quarantine": {
     "title": "Karantina",
@@ -1261,5 +1264,45 @@
     "msg_disabled": "Parola kurtarma kullanılabilir değil.",
     "mail_subject": ":email için parola sıfırlama",
     "mail_body": "Birisi, muhtemelen siz, :email adresinin parolasının sıfırlanmasını istedi.\n\nYeni bir parola belirlemek için bu linki açın:\n:link\n\nLink :hours saat sonra geçersiz olur. Bu isteği siz yapmadıysanız bu mesajı yok sayın, parola olduğu gibi kalır."
+  },
+  "totp": {
+    "title": "İki Adımlı Doğrulama",
+    "challenge_title": "İki Adımlı Doğrulama",
+    "challenge_hint": "Authenticator uygulamanızdaki 6 haneli kodu veya recovery kodlarınızdan birini girin.",
+    "sign_in": "Giriş yap",
+    "code": "Kod",
+    "code_help": "Authenticator uygulamasının bu hesap için gösterdiği 6 haneli kod. Buraya recovery kodu da girilebilir ve her recovery kodu bir kez çalışır.",
+    "state_enabled": "Açık",
+    "state_pending": "Onay bekliyor",
+    "state_disabled": "Kapalı",
+    "start": "Kuruluma başla",
+    "start_hint": "İki adımlı doğrulama, paroladan sonra tek kullanımlık bir kod ister. QR kodunu ve recovery kodlarınızı almak için kuruluma başlayın.",
+    "scan_title": "QR kodunu okutun",
+    "scan_title_help": "Kodu bir authenticator uygulamasıyla okutun veya secret değerini uygulamaya elle girin. Kurulum, ancak uygulamanın gösterdiği bir kodu girdikten sonra geçerli olur.",
+    "scan_hint": "Kodu authenticator uygulamanızla okutun, sonra uygulamanın gösterdiği kodu girin.",
+    "secret": "Secret",
+    "confirm": "Onayla",
+    "cancel_setup": "Kurulumu iptal et",
+    "enabled_hint": "Her girişte paroladan sonra kod sorulur.",
+    "change_title": "Değiştir",
+    "change_title_help": "Her iki işlem için de geçerli bir kod gerekir; böylece başkasının açık oturumu iki adımlı doğrulamayı kapatamaz.",
+    "new_codes": "Yeni recovery kodları",
+    "disable": "Kapat",
+    "confirm_disable": "İki adımlı doğrulama kapatılsın mı?",
+    "recovery_codes": "Recovery kodları",
+    "recovery_codes_help": "Authenticator uygulamanız yokken her kod bir kez giriş yapmanızı sağlar. Güvenli bir yerde saklayın; panel bu kodları sadece şimdi gösterir.",
+    "recovery_codes_hint": "Bu kodları şimdi not edin. Sadece bir kez gösterilir ve her kod bir kez çalışır.",
+    "remaining_codes": ":count recovery kodu kaldı.",
+    "msg_invalid_code": "Kod yanlış veya süresi dolmuş.",
+    "msg_setup_required": "Bu panel iki adımlı doğrulama istiyor. Devam etmek için kurulumu tamamlayın.",
+    "msg_setup_started": "Kurulum başladı. QR kodunu okutun ve bir kod girin.",
+    "msg_no_pending_setup": "Onay bekleyen bir kurulum yok.",
+    "msg_enabled": "İki adımlı doğrulama açık.",
+    "msg_setup_cancelled": "Kurulum iptal edildi.",
+    "msg_disabled": "İki adımlı doğrulama kapalı.",
+    "msg_required_by_panel": "Bu panel iki adımlı doğrulama istiyor, bu yüzden kapatılamaz.",
+    "msg_not_enabled": "İki adımlı doğrulama açık değil.",
+    "msg_codes_replaced": "Yeni recovery kodları hazır. Eskiler artık çalışmıyor.",
+    "msg_invalid_secret": "Kayıtlı iki adımlı doğrulama secret değeri okunamıyor."
   }
 }

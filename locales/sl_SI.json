@@ -31,7 +31,8 @@
     "account_resources": "Viri računov",
     "group_self_service": "Moj račun",
     "mail_lists": "Poštni seznami",
-    "update_available": "Na voljo je iRedPanel v:version"
+    "update_available": "Na voljo je iRedPanel v:version",
+    "two_factor": "Dvostopenjsko preverjanje"
   },
   "common": {
     "msg_password_updated": "Geslo uspešno posodobljeno!",
@@ -725,7 +726,9 @@
     "label_mlmmjadminApiToken": "mlmmjadmin API token",
     "label_mlmmjadminApiToken_help": "Eden od api_auth_tokens v /opt/mlmmjadmin/settings.py na poštnem strežniku. Shranjen je šifriran s ključem IREDPANEL_SECRET_KEY in ni več prikazan.",
     "label_passwordRecoveryEnabled": "Obnovitev gesla",
-    "label_passwordRecoveryEnabled_help": "Objavi stran /forgot-password in povezavo nanjo na prijavni strani. Mailbox z naslovom za obnovitev prejme povezavo za ponastavitev po pošti. Zahteva javni URL, nastavitve SMTP in zbirko iredadmin. Privzeto: izklopljeno."
+    "label_passwordRecoveryEnabled_help": "Objavi stran /forgot-password in povezavo nanjo na prijavni strani. Mailbox z naslovom za obnovitev prejme povezavo za ponastavitev po pošti. Zahteva javni URL, nastavitve SMTP in zbirko iredadmin. Privzeto: izklopljeno.",
+    "label_adminTotpRequired": "Zahtevaj dvostopenjsko preverjanje",
+    "label_adminTotpRequired_help": "Ko je vklopljeno, mora vsak skrbnik brez secreta TOTP dokončati nastavitev, preden se plošča odpre, in noben skrbnik ga ne more izklopiti. Zahteva zbirko iredadmin in IREDPANEL_SECRET_KEY. Privzeto: izklopljeno."
   },
   "quarantine": {
     "title": "Karantena",
@@ -1261,5 +1264,45 @@
     "msg_disabled": "Obnovitev gesla ni na voljo.",
     "mail_subject": "Ponastavitev gesla za :email",
     "mail_body": "Nekdo, verjetno vi, je zahteval ponastavitev gesla za :email.\n\nZa nastavitev novega gesla odprite to povezavo:\n:link\n\nPovezava poteče čez :hours ur. Če tega niste zahtevali, sporočilo prezrite; geslo ostane nespremenjeno."
+  },
+  "totp": {
+    "title": "Dvostopenjsko preverjanje",
+    "challenge_title": "Dvostopenjsko preverjanje",
+    "challenge_hint": "Vnesite 6-mestno kodo iz aplikacije za preverjanje ali eno od obnovitvenih kod.",
+    "sign_in": "Prijava",
+    "code": "Koda",
+    "code_help": "6-mestna koda, ki jo aplikacija za preverjanje prikaže za ta račun. Tu je sprejeta tudi obnovitvena koda, vsaka obnovitvena koda pa deluje enkrat.",
+    "state_enabled": "Vklopljeno",
+    "state_pending": "Čaka potrditev",
+    "state_disabled": "Izklopljeno",
+    "start": "Začni nastavitev",
+    "start_hint": "Dvostopenjsko preverjanje po geslu zahteva enkratno kodo. Začnite nastavitev, da dobite kodo QR in obnovitvene kode.",
+    "scan_title": "Skenirajte kodo QR",
+    "scan_title_help": "Skenirajte kodo z aplikacijo za preverjanje ali ročno vnesite secret. Nastavitev velja šele, ko vnesete kodo, ki jo prikaže aplikacija.",
+    "scan_hint": "Skenirajte kodo z aplikacijo za preverjanje in nato vnesite prikazano kodo.",
+    "secret": "Secret",
+    "confirm": "Potrdi",
+    "cancel_setup": "Prekliči nastavitev",
+    "enabled_hint": "Vsaka prijava po geslu zahteva kodo.",
+    "change_title": "Sprememba",
+    "change_title_help": "Obe dejanji zahtevata trenutno kodo, da odprta seja druge osebe ne more izklopiti dvostopenjskega preverjanja.",
+    "new_codes": "Nove obnovitvene kode",
+    "disable": "Izklopi",
+    "confirm_disable": "Ali naj se dvostopenjsko preverjanje izklopi?",
+    "recovery_codes": "Obnovitvene kode",
+    "recovery_codes_help": "Vsaka koda vas enkrat prijavi, ko nimate aplikacije za preverjanje. Shranite jih na varno; plošča jih prikaže samo zdaj.",
+    "recovery_codes_hint": "Te kode si zapišite zdaj. Prikažejo se samo enkrat in vsaka deluje enkrat.",
+    "remaining_codes": "Ostalo je :count obnovitvenih kod.",
+    "msg_invalid_code": "Koda je napačna ali potekla.",
+    "msg_setup_required": "Ta plošča zahteva dvostopenjsko preverjanje. Za nadaljevanje dokončajte nastavitev.",
+    "msg_setup_started": "Nastavitev se je začela. Skenirajte kodo QR in vnesite kodo.",
+    "msg_no_pending_setup": "Nobena nastavitev ne čaka potrditve.",
+    "msg_enabled": "Dvostopenjsko preverjanje je vklopljeno.",
+    "msg_setup_cancelled": "Nastavitev je preklicana.",
+    "msg_disabled": "Dvostopenjsko preverjanje je izklopljeno.",
+    "msg_required_by_panel": "Ta plošča zahteva dvostopenjsko preverjanje, zato ga ni mogoče izklopiti.",
+    "msg_not_enabled": "Dvostopenjsko preverjanje ni vklopljeno.",
+    "msg_codes_replaced": "Nove obnovitvene kode so pripravljene. Stare ne delujejo več.",
+    "msg_invalid_secret": "Shranjenega dvostopenjskega secret ni mogoče prebrati."
   }
 }

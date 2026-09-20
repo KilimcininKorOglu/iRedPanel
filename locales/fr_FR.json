@@ -31,7 +31,8 @@
     "account_resources": "Sources de comptes",
     "group_self_service": "Mon compte",
     "mail_lists": "Listes mail",
-    "update_available": "iRedPanel v:version est disponible"
+    "update_available": "iRedPanel v:version est disponible",
+    "two_factor": "Auth à deux facteurs"
   },
   "common": {
     "msg_password_updated": "Mot de passe mis à jour avec succès !",
@@ -725,7 +726,9 @@
     "label_mlmmjadminApiToken": "Token de l'API mlmmjadmin",
     "label_mlmmjadminApiToken_help": "L'un des api_auth_tokens dans /opt/mlmmjadmin/settings.py sur le serveur de messagerie. Il est stocké chiffré avec IREDPANEL_SECRET_KEY et n'est plus jamais affiché.",
     "label_passwordRecoveryEnabled": "Récupération de mot de passe",
-    "label_passwordRecoveryEnabled_help": "Publie la page /forgot-password et son lien sur la page de connexion. Une mailbox avec une adresse de récupération reçoit un lien de réinitialisation par mail. Nécessite l'URL publique, les paramètres SMTP et la base iredadmin. Par défaut : désactivé."
+    "label_passwordRecoveryEnabled_help": "Publie la page /forgot-password et son lien sur la page de connexion. Une mailbox avec une adresse de récupération reçoit un lien de réinitialisation par mail. Nécessite l'URL publique, les paramètres SMTP et la base iredadmin. Par défaut : désactivé.",
+    "label_adminTotpRequired": "Exiger l'authentification à deux facteurs",
+    "label_adminTotpRequired_help": "Quand c'est activé, chaque admin sans secret TOTP doit terminer la configuration avant l'ouverture du panel, et aucun admin ne peut la désactiver. Nécessite la base iredadmin et IREDPANEL_SECRET_KEY. Par défaut : désactivé."
   },
   "quarantine": {
     "title": "Quarantaine",
@@ -1261,5 +1264,45 @@
     "msg_disabled": "La récupération de mot de passe n'est pas disponible.",
     "mail_subject": "Réinitialisation du mot de passe pour :email",
     "mail_body": "Quelqu'un, probablement vous, a demandé la réinitialisation du mot de passe de :email.\n\nPour définir un nouveau mot de passe, ouvrez ce lien :\n:link\n\nLe lien expire dans :hours heures. Si vous n'êtes pas à l'origine de cette demande, ignorez ce message : le mot de passe reste inchangé."
+  },
+  "totp": {
+    "title": "Authentification à deux facteurs",
+    "challenge_title": "Authentification à deux facteurs",
+    "challenge_hint": "Saisissez le code à 6 chiffres de votre application d'authentification ou l'un de vos codes de récupération.",
+    "sign_in": "Se connecter",
+    "code": "Code",
+    "code_help": "Le code à 6 chiffres que l'application d'authentification affiche pour ce compte. Un code de récupération est également accepté ici, et chaque code de récupération fonctionne une fois.",
+    "state_enabled": "Activée",
+    "state_pending": "En attente de confirmation",
+    "state_disabled": "Désactivée",
+    "start": "Démarrer la configuration",
+    "start_hint": "L'authentification à deux facteurs demande un code à usage unique après le mot de passe. Démarrez la configuration pour obtenir le QR code et vos codes de récupération.",
+    "scan_title": "Scannez le QR code",
+    "scan_title_help": "Scannez le code avec une application d'authentification ou saisissez le secret à la main. La configuration ne compte qu'après la saisie d'un code affiché par l'application.",
+    "scan_hint": "Scannez le code avec votre application d'authentification, puis saisissez le code affiché.",
+    "secret": "Secret",
+    "confirm": "Confirmer",
+    "cancel_setup": "Annuler la configuration",
+    "enabled_hint": "Chaque connexion demande un code après le mot de passe.",
+    "change_title": "Modifier",
+    "change_title_help": "Un code actuel est nécessaire pour les deux actions, afin qu'une session ouverte par quelqu'un d'autre ne puisse pas désactiver l'authentification à deux facteurs.",
+    "new_codes": "Nouveaux codes de récupération",
+    "disable": "Désactiver",
+    "confirm_disable": "Désactiver l'authentification à deux facteurs ?",
+    "recovery_codes": "Codes de récupération",
+    "recovery_codes_help": "Chaque code vous connecte une fois lorsque vous n'avez pas d'application d'authentification. Conservez-les en lieu sûr : le panel ne les affiche que maintenant.",
+    "recovery_codes_hint": "Notez ces codes maintenant. Ils ne sont affichés qu'une fois et chacun fonctionne une seule fois.",
+    "remaining_codes": "Il reste :count codes de récupération.",
+    "msg_invalid_code": "Le code est incorrect ou a expiré.",
+    "msg_setup_required": "Ce panel exige l'authentification à deux facteurs. Terminez la configuration pour continuer.",
+    "msg_setup_started": "Configuration démarrée. Scannez le QR code et saisissez un code.",
+    "msg_no_pending_setup": "Aucune configuration n'attend de confirmation.",
+    "msg_enabled": "L'authentification à deux facteurs est activée.",
+    "msg_setup_cancelled": "Configuration annulée.",
+    "msg_disabled": "L'authentification à deux facteurs est désactivée.",
+    "msg_required_by_panel": "Ce panel exige l'authentification à deux facteurs : elle ne peut pas être désactivée.",
+    "msg_not_enabled": "L'authentification à deux facteurs n'est pas activée.",
+    "msg_codes_replaced": "De nouveaux codes de récupération sont prêts. Les anciens ne fonctionnent plus.",
+    "msg_invalid_secret": "Le secret à deux facteurs enregistré est illisible."
   }
 }

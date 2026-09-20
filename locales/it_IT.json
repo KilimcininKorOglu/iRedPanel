@@ -31,7 +31,8 @@
     "account_resources": "Origini account",
     "group_self_service": "Il mio account",
     "mail_lists": "Liste mail",
-    "update_available": "iRedPanel v:version è disponibile"
+    "update_available": "iRedPanel v:version è disponibile",
+    "two_factor": "Autenticazione a due fattori"
   },
   "common": {
     "msg_password_updated": "Password aggiornata con successo!",
@@ -725,7 +726,9 @@
     "label_mlmmjadminApiToken": "Token dell'API mlmmjadmin",
     "label_mlmmjadminApiToken_help": "Uno degli api_auth_tokens in /opt/mlmmjadmin/settings.py sul server di posta. Viene salvato cifrato con IREDPANEL_SECRET_KEY e non viene più mostrato.",
     "label_passwordRecoveryEnabled": "Recupero password",
-    "label_passwordRecoveryEnabled_help": "Pubblica la pagina /forgot-password e il suo link nella pagina di accesso. Una mailbox con indirizzo di recupero riceve per mail un link di reimpostazione. Richiede l'URL pubblico, le impostazioni SMTP e il database iredadmin. Predefinito: disattivato."
+    "label_passwordRecoveryEnabled_help": "Pubblica la pagina /forgot-password e il suo link nella pagina di accesso. Una mailbox con indirizzo di recupero riceve per mail un link di reimpostazione. Richiede l'URL pubblico, le impostazioni SMTP e il database iredadmin. Predefinito: disattivato.",
+    "label_adminTotpRequired": "Richiedi l'autenticazione a due fattori",
+    "label_adminTotpRequired_help": "Quando è attiva, ogni admin senza secret TOTP deve completare la configurazione prima che il pannello si apra, e nessun admin può disattivarla. Richiede il database iredadmin e IREDPANEL_SECRET_KEY. Predefinito: disattivato."
   },
   "quarantine": {
     "title": "Quarantena",
@@ -1261,5 +1264,45 @@
     "msg_disabled": "Il recupero della password non è disponibile.",
     "mail_subject": "Reimpostazione della password per :email",
     "mail_body": "Qualcuno, probabilmente tu, ha chiesto di reimpostare la password di :email.\n\nPer impostare una nuova password, apri questo link:\n:link\n\nIl link scade tra :hours ore. Se non hai richiesto questo, ignora il messaggio: la password resta invariata."
+  },
+  "totp": {
+    "title": "Autenticazione a due fattori",
+    "challenge_title": "Autenticazione a due fattori",
+    "challenge_hint": "Inserisci il codice a 6 cifre della tua app di autenticazione o uno dei tuoi codici di recupero.",
+    "sign_in": "Accedi",
+    "code": "Codice",
+    "code_help": "Il codice a 6 cifre che l'app di autenticazione mostra per questo account. Qui è accettato anche un codice di recupero, e ogni codice di recupero funziona una volta.",
+    "state_enabled": "Attiva",
+    "state_pending": "In attesa di conferma",
+    "state_disabled": "Disattiva",
+    "start": "Avvia la configurazione",
+    "start_hint": "L'autenticazione a due fattori chiede un codice monouso dopo la password. Avvia la configurazione per ottenere il codice QR e i codici di recupero.",
+    "scan_title": "Scansiona il codice QR",
+    "scan_title_help": "Scansiona il codice con un'app di autenticazione oppure digita il secret a mano. La configurazione vale solo dopo aver inserito un codice mostrato dall'app.",
+    "scan_hint": "Scansiona il codice con la tua app di autenticazione, poi inserisci il codice che mostra.",
+    "secret": "Secret",
+    "confirm": "Conferma",
+    "cancel_setup": "Annulla la configurazione",
+    "enabled_hint": "Ogni accesso chiede un codice dopo la password.",
+    "change_title": "Modifica",
+    "change_title_help": "Entrambe le azioni richiedono un codice attuale, così una sessione aperta di un'altra persona non può disattivare l'autenticazione a due fattori.",
+    "new_codes": "Nuovi codici di recupero",
+    "disable": "Disattiva",
+    "confirm_disable": "Disattivare l'autenticazione a due fattori?",
+    "recovery_codes": "Codici di recupero",
+    "recovery_codes_help": "Ogni codice ti fa accedere una volta quando non hai l'app di autenticazione. Conservali al sicuro: il pannello li mostra solo ora.",
+    "recovery_codes_hint": "Annota questi codici adesso. Sono mostrati una sola volta e ognuno funziona una volta.",
+    "remaining_codes": "Restano :count codici di recupero.",
+    "msg_invalid_code": "Il codice è errato o scaduto.",
+    "msg_setup_required": "Questo pannello richiede l'autenticazione a due fattori. Completa la configurazione per continuare.",
+    "msg_setup_started": "Configurazione avviata. Scansiona il codice QR e inserisci un codice.",
+    "msg_no_pending_setup": "Nessuna configurazione in attesa di conferma.",
+    "msg_enabled": "L'autenticazione a due fattori è attiva.",
+    "msg_setup_cancelled": "Configurazione annullata.",
+    "msg_disabled": "L'autenticazione a due fattori è disattivata.",
+    "msg_required_by_panel": "Questo pannello richiede l'autenticazione a due fattori, quindi non può essere disattivata.",
+    "msg_not_enabled": "L'autenticazione a due fattori non è attiva.",
+    "msg_codes_replaced": "I nuovi codici di recupero sono pronti. I vecchi non funzionano più.",
+    "msg_invalid_secret": "Il secret a due fattori memorizzato non è leggibile."
   }
 }

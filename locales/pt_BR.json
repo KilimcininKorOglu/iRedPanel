@@ -31,7 +31,8 @@
     "account_resources": "Fontes de contas",
     "group_self_service": "Minha conta",
     "mail_lists": "Listas de mail",
-    "update_available": "iRedPanel v:version está disponível"
+    "update_available": "iRedPanel v:version está disponível",
+    "two_factor": "Autenticação em duas etapas"
   },
   "common": {
     "msg_password_updated": "Senha atualizada com sucesso!",
@@ -725,7 +726,9 @@
     "label_mlmmjadminApiToken": "Token da API do mlmmjadmin",
     "label_mlmmjadminApiToken_help": "Um dos api_auth_tokens em /opt/mlmmjadmin/settings.py no servidor de e-mail. É armazenado criptografado com IREDPANEL_SECRET_KEY e nunca mais é exibido.",
     "label_passwordRecoveryEnabled": "Recuperação de senha",
-    "label_passwordRecoveryEnabled_help": "Publica a página /forgot-password e o link dela na página de login. Uma mailbox com endereço de recuperação recebe um link de redefinição por e-mail. Precisa da URL pública, das configurações SMTP e do banco iredadmin. Padrão: desligado."
+    "label_passwordRecoveryEnabled_help": "Publica a página /forgot-password e o link dela na página de login. Uma mailbox com endereço de recuperação recebe um link de redefinição por e-mail. Precisa da URL pública, das configurações SMTP e do banco iredadmin. Padrão: desligado.",
+    "label_adminTotpRequired": "Exigir autenticação em duas etapas",
+    "label_adminTotpRequired_help": "Quando ligada, todo admin sem secret TOTP precisa concluir a configuração antes de o painel abrir, e nenhum admin pode desligá-la. Precisa do banco iredadmin e de IREDPANEL_SECRET_KEY. Padrão: desligado."
   },
   "quarantine": {
     "title": "Quarentena",
@@ -1261,5 +1264,45 @@
     "msg_disabled": "A recuperação de senha não está disponível.",
     "mail_subject": "Redefinição de senha para :email",
     "mail_body": "Alguém, provavelmente você, pediu a redefinição da senha de :email.\n\nPara definir uma nova senha, abra este link:\n:link\n\nO link expira em :hours horas. Se você não pediu isso, ignore esta mensagem e a senha continua como está."
+  },
+  "totp": {
+    "title": "Autenticação em duas etapas",
+    "challenge_title": "Autenticação em duas etapas",
+    "challenge_hint": "Digite o código de 6 dígitos do seu aplicativo autenticador ou um dos seus códigos de recuperação.",
+    "sign_in": "Entrar",
+    "code": "Código",
+    "code_help": "O código de 6 dígitos que o aplicativo autenticador mostra para esta conta. Um código de recuperação também é aceito aqui, e cada código de recuperação funciona uma vez.",
+    "state_enabled": "Ligada",
+    "state_pending": "Aguardando confirmação",
+    "state_disabled": "Desligada",
+    "start": "Iniciar configuração",
+    "start_hint": "A autenticação em duas etapas pede um código de uso único depois da senha. Inicie a configuração para obter o código QR e seus códigos de recuperação.",
+    "scan_title": "Escaneie o código QR",
+    "scan_title_help": "Escaneie o código com um aplicativo autenticador ou digite o secret manualmente. A configuração só vale depois que você digitar um código mostrado pelo aplicativo.",
+    "scan_hint": "Escaneie o código com seu aplicativo autenticador e digite o código mostrado.",
+    "secret": "Secret",
+    "confirm": "Confirmar",
+    "cancel_setup": "Cancelar configuração",
+    "enabled_hint": "Todo login pede um código depois da senha.",
+    "change_title": "Alterar",
+    "change_title_help": "As duas ações precisam de um código atual, para que a sessão aberta de outra pessoa não consiga desligar a autenticação em duas etapas.",
+    "new_codes": "Novos códigos de recuperação",
+    "disable": "Desligar",
+    "confirm_disable": "Desligar a autenticação em duas etapas?",
+    "recovery_codes": "Códigos de recuperação",
+    "recovery_codes_help": "Cada código faz login uma vez quando você não tem o aplicativo autenticador. Guarde-os em local seguro; o painel os mostra somente agora.",
+    "recovery_codes_hint": "Anote estes códigos agora. Eles são mostrados uma única vez e cada um funciona uma vez.",
+    "remaining_codes": "Restam :count códigos de recuperação.",
+    "msg_invalid_code": "O código está errado ou expirou.",
+    "msg_setup_required": "Este painel exige autenticação em duas etapas. Conclua a configuração para continuar.",
+    "msg_setup_started": "Configuração iniciada. Escaneie o código QR e digite um código.",
+    "msg_no_pending_setup": "Não há configuração aguardando confirmação.",
+    "msg_enabled": "A autenticação em duas etapas está ligada.",
+    "msg_setup_cancelled": "Configuração cancelada.",
+    "msg_disabled": "A autenticação em duas etapas está desligada.",
+    "msg_required_by_panel": "Este painel exige autenticação em duas etapas, por isso ela não pode ser desligada.",
+    "msg_not_enabled": "A autenticação em duas etapas não está ligada.",
+    "msg_codes_replaced": "Os novos códigos de recuperação estão prontos. Os antigos não funcionam mais.",
+    "msg_invalid_secret": "O secret de duas etapas armazenado não pode ser lido."
   }
 }

@@ -847,7 +847,8 @@
     "forward_to_help": "L'adreça que rep tot el correu enviat a una adreça inexistent d'aquest domini. Buit i desat: el catch-all es treu i aquest correu es rebutja.",
     "sender_bcc_help": "Tot el correu que envia aquest domini va també a aquesta adreça. El remitent no veu la còpia.",
     "recipient_bcc_help": "Tot el correu que rep aquest domini va també a aquesta adreça. El remitent no veu la còpia.",
-    "relay_host_help": "El correu sortint d'aquest domini va a aquest servidor en lloc del lliurament directe. Buit: Postfix el lliura ell mateix."
+    "relay_host_help": "El correu sortint d'aquest domini va a aquest servidor en lloc del lliurament directe. Buit: Postfix el lliura ell mateix.",
+    "pref_sent": "Missatges enviats"
   },
   "admin": {
     "msg_email_required": "Cal una adreça de correu electrònic vàlida",

@@ -49,6 +49,18 @@ final class AmavisdRecipientMail
     }
 
     /**
+     * The mail that Amavisd saw from this sender: msgs.sid holds the envelope sender.
+     * A message with several recipients gets one row per recipient, as the admin
+     * quarantine list has.
+     */
+    public function sent(string $email, int $page, int $perPage): PaginatedResult
+    {
+        $where = 'm.sid IN (SELECT id FROM maddr WHERE email = ' . sprintf($this->bytes, ':email') . ')';
+
+        return $this->page($where, $email, $page, $perPage);
+    }
+
+    /**
      * @param \Closure(string): void $release asks Amavisd to release the message with the given secret_id
      * @throws \RuntimeException when the message is not in the quarantine of $email
      */

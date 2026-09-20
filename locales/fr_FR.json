@@ -847,7 +847,8 @@
     "forward_to_help": "L'adresse qui reçoit tout courrier envoyé à une adresse inexistante de ce domaine. Vide et enregistré : le catch-all est retiré et ce courrier est refusé.",
     "sender_bcc_help": "Tout courrier envoyé par ce domaine part aussi vers cette adresse. L'expéditeur ne voit pas la copie.",
     "recipient_bcc_help": "Tout courrier reçu par ce domaine part aussi vers cette adresse. L'expéditeur ne voit pas la copie.",
-    "relay_host_help": "Le courrier sortant de ce domaine passe par ce serveur au lieu d'une remise directe. Vide : Postfix remet lui-même."
+    "relay_host_help": "Le courrier sortant de ce domaine passe par ce serveur au lieu d'une remise directe. Vide : Postfix remet lui-même.",
+    "pref_sent": "Messages envoyés"
   },
   "admin": {
     "msg_email_required": "Une adresse e-mail valide est requise",

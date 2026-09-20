@@ -1,9 +1,14 @@
 <?php
-// One template for the quarantined mail and the received mail of the user.
+// One template for the quarantined, the received and the sent mail of the user.
 $quarantine = $page === 'quarantine';
+$sent = $page === 'sent';
 // Amavisd content codes of msgs.content that have a translated label.
 $contentTypes = ['C', 'S', 'Y', 'V', 'B', 'H', 'M', 'O', 'T', 'U'];
-$pageTitle = $t($quarantine ? 'domain.pref_quarantine' : 'domain.pref_received');
+$pageTitle = $t(match ($page) {
+    'quarantine' => 'domain.pref_quarantine',
+    'sent' => 'domain.pref_sent',
+    default => 'domain.pref_received',
+});
 $action = '/self/' . $page . ($paginatedResult->currentPage > 1 ? '?page=' . $paginatedResult->currentPage : '');
 ?>
 <div class="page-header">
@@ -26,13 +31,15 @@ $action = '/self/' . $page . ($paginatedResult->currentPage > 1 ? '?page=' . $pa
           <th><input type="checkbox" class="form-check-input" data-select-all="selected[]" /></th>
           <?php endif; ?>
           <th><?= $te('quarantine.date') ?></th>
-          <th><?= $te('quarantine.from') ?></th>
+          <th><?= $te($sent ? 'quarantine.to' : 'quarantine.from') ?></th>
           <th><?= $te('quarantine.subject') ?></th>
           <th><?= $te('quarantine.spam_level') ?></th>
           <?php if (!$quarantine): ?>
           <th><?= $te('common.type') ?></th>
           <?php endif; ?>
+          <?php if (!$sent): ?>
           <th class="text-end"><?= $te('common.actions') ?></th>
+          <?php endif; ?>
         </tr>
       </thead>
       <tbody>
@@ -42,7 +49,7 @@ $action = '/self/' . $page . ($paginatedResult->currentPage > 1 ? '?page=' . $pa
           <td><input type="checkbox" class="form-check-input" name="selected[]" value="<?= $e($msg['mail_id']) ?>" /></td>
           <?php endif; ?>
           <td class="text-nowrap text-body-secondary"><?= $e(date('Y-m-d H:i:s', (int) $msg['time_num'])) ?></td>
-          <td><?= $e($msg['from_addr'] ?? '') ?></td>
+          <td><?= $e($sent ? ($msg['recipient'] ?? '') : ($msg['from_addr'] ?? '')) ?></td>
           <?php $subject = ($msg['subject'] ?? '') !== '' ? (string) $msg['subject'] : $t('quarantine.no_subject'); ?>
           <?php if ($quarantine): ?>
           <td><a href="/self/quarantine/<?= $e(rawurlencode((string) $msg['mail_id'])) ?>/view"><?= $e($subject) ?></a></td>
@@ -54,6 +61,7 @@ $action = '/self/' . $page . ($paginatedResult->currentPage > 1 ? '?page=' . $pa
           <?php $content = trim((string) ($msg['content'] ?? '')); ?>
           <td><span class="badge badge-status <?= $tone('mail_content', $content) ?>"><?= in_array($content, $contentTypes, true) ? $te("maillog.content_{$content}") : $e($content) ?></span></td>
           <?php endif; ?>
+          <?php if (!$sent): ?>
           <td>
             <div class="table-actions">
               <?php if ($quarantine): ?>
@@ -74,6 +82,7 @@ $action = '/self/' . $page . ($paginatedResult->currentPage > 1 ? '?page=' . $pa
               <?php endif; ?>
             </div>
           </td>
+          <?php endif; ?>
         </tr>
         <?php endforeach; ?>
         <?php if (empty($messages)): ?>

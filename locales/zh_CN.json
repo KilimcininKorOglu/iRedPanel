@@ -847,7 +847,8 @@
     "forward_to_help": "接收所有发往本域名中不存在地址的邮件的地址。留空并保存则取消 catch-all，此类邮件将被拒收。",
     "sender_bcc_help": "本域名发出的每封邮件也会发往该地址。发件人看不到副本。",
     "recipient_bcc_help": "本域名收到的每封邮件也会发往该地址。发件人看不到副本。",
-    "relay_host_help": "本域名的外发邮件发往该服务器，而不是直接投递。留空时 Postfix 自行投递。"
+    "relay_host_help": "本域名的外发邮件发往该服务器，而不是直接投递。留空时 Postfix 自行投递。",
+    "pref_sent": "已发送邮件"
   },
   "admin": {
     "msg_email_required": "需要有效的电子邮件地址",

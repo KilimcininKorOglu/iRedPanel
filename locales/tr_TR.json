@@ -847,7 +847,8 @@
     "forward_to_help": "Bu domain'de var olmayan bir adrese gönderilen her maili alan adres. Boş bırakılıp kaydedilirse catch-all kaldırılır ve böyle mail reddedilir.",
     "sender_bcc_help": "Bu domain'in gönderdiği her mail bu adrese de gider. Gönderen kopyayı görmez.",
     "recipient_bcc_help": "Bu domain'in aldığı her mail bu adrese de gider. Gönderen kopyayı görmez.",
-    "relay_host_help": "Bu domain'in giden maili doğrudan teslim yerine bu sunucuya gider. Boş bırakılırsa Postfix maili kendisi teslim eder."
+    "relay_host_help": "Bu domain'in giden maili doğrudan teslim yerine bu sunucuya gider. Boş bırakılırsa Postfix maili kendisi teslim eder.",
+    "pref_sent": "Gönderilen mesajlar"
   },
   "admin": {
     "msg_email_required": "Geçerli bir e-posta adresi gerekli",

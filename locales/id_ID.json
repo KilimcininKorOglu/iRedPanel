@@ -847,7 +847,8 @@
     "forward_to_help": "Alamat yang menerima semua mail yang dikirim ke alamat tak ada di domain ini. Kosong lalu disimpan: catch-all dihapus dan mail itu ditolak.",
     "sender_bcc_help": "Setiap mail yang dikirim domain ini juga menuju alamat ini. Pengirim tidak melihat salinannya.",
     "recipient_bcc_help": "Setiap mail yang diterima domain ini juga menuju alamat ini. Pengirim tidak melihat salinannya.",
-    "relay_host_help": "Mail keluar domain ini menuju server ini, bukan pengiriman langsung. Kosong: Postfix mengirim sendiri."
+    "relay_host_help": "Mail keluar domain ini menuju server ini, bukan pengiriman langsung. Kosong: Postfix mengirim sendiri.",
+    "pref_sent": "Pesan terkirim"
   },
   "admin": {
     "msg_email_required": "Alamat email yang valid diperlukan",

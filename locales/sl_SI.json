@@ -847,7 +847,8 @@
     "forward_to_help": "Naslov, ki prejme vso pošto, poslano na neobstoječi naslov te domene. Prazno in shranjeno: catch-all se odstrani in taka pošta se zavrne.",
     "sender_bcc_help": "Vsa pošta, ki jo ta domena pošlje, gre tudi na ta naslov. Pošiljatelj kopije ne vidi.",
     "recipient_bcc_help": "Vsa pošta, ki jo ta domena prejme, gre tudi na ta naslov. Pošiljatelj kopije ne vidi.",
-    "relay_host_help": "Odhodna pošta te domene gre na ta strežnik namesto neposredne dostave. Prazno: Postfix dostavi sam."
+    "relay_host_help": "Odhodna pošta te domene gre na ta strežnik namesto neposredne dostave. Prazno: Postfix dostavi sam.",
+    "pref_sent": "Poslana sporočila"
   },
   "admin": {
     "msg_email_required": "Zahtevan je veljaven e-poštni naslov",

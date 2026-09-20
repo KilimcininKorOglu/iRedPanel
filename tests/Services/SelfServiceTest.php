@@ -26,7 +26,7 @@ class SelfServiceTest extends TestCase
     {
         $settings = DomainSettings::fromSettingsString('enabled_services:self-service;disabled_user_preferences:password,quarantine;');
 
-        $this->assertSame(['profile', 'forwarding', 'wblist', 'spam-policy', 'received'], SelfService::openPages($settings, true));
+        $this->assertSame(['profile', 'forwarding', 'wblist', 'spam-policy', 'received', 'sent'], SelfService::openPages($settings, true));
         $this->assertSame(['profile', 'forwarding'], SelfService::openPages($settings, false));
     }
 

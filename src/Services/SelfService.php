@@ -25,10 +25,11 @@ final class SelfService
         'spam-policy' => 'spampolicy',
         'quarantine' => 'quarantine',
         'received' => 'received',
+        'sent' => 'sent',
     ];
 
     /** Pages that read or write Amavisd data. */
-    public const AMAVISD_PAGES = ['wblist', 'spam-policy', 'quarantine', 'received'];
+    public const AMAVISD_PAGES = ['wblist', 'spam-policy', 'quarantine', 'received', 'sent'];
 
     /**
      * @throws BackendConnectionException when the backend is not reachable

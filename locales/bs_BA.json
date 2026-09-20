@@ -847,7 +847,8 @@
     "forward_to_help": "Adresa koja prima svaku poštu poslanu na nepostojeću adresu ove domene. Prazno i sačuvano: catch-all se uklanja i takva pošta se odbija.",
     "sender_bcc_help": "Svaka pošta koju ova domena pošalje ide i na ovu adresu. Pošiljalac ne vidi kopiju.",
     "recipient_bcc_help": "Svaka pošta koju ova domena primi ide i na ovu adresu. Pošiljalac ne vidi kopiju.",
-    "relay_host_help": "Odlazna pošta ove domene ide na ovaj server umjesto direktne isporuke. Prazno: Postfix isporučuje sam."
+    "relay_host_help": "Odlazna pošta ove domene ide na ovaj server umjesto direktne isporuke. Prazno: Postfix isporučuje sam.",
+    "pref_sent": "Poslane poruke"
   },
   "admin": {
     "msg_email_required": "Ispravna e-mail adresa je obavezna",

@@ -847,7 +847,8 @@
     "forward_to_help": "Netfangið sem fær allan póst sem sendur er á netfang sem ekki er til í þessu léni. Autt og vistað: catch-all fellur niður og slíkum pósti er hafnað.",
     "sender_bcc_help": "Allur póstur sem þetta lén sendir fer líka á þetta netfang. Sendandinn sér ekki afritið.",
     "recipient_bcc_help": "Allur póstur sem þetta lén fær fer líka á þetta netfang. Sendandinn sér ekki afritið.",
-    "relay_host_help": "Útfarandi póstur þessa léns fer á þennan þjón í stað beinnar afhendingar. Autt: Postfix afhendir sjálfur."
+    "relay_host_help": "Útfarandi póstur þessa léns fer á þennan þjón í stað beinnar afhendingar. Autt: Postfix afhendir sjálfur.",
+    "pref_sent": "Send skilaboð"
   },
   "admin": {
     "msg_email_required": "Gilt netfang er nauðsynlegt",

@@ -21,7 +21,7 @@ final class ProfileToggles
     public const USER_PROFILES = ['general', 'password', 'services', 'forwarding', 'aliases', 'bcc', 'relay'];
 
     /** Self-service pages that a mailbox user edits. */
-    public const USER_PREFERENCES = ['personal_info', 'password', 'forwarding', 'wblist', 'spampolicy', 'quarantine', 'received'];
+    public const USER_PREFERENCES = ['personal_info', 'password', 'forwarding', 'wblist', 'spampolicy', 'quarantine', 'received', 'sent'];
 
     /** Domain service value that allows the users of the domain to log in to self-service. */
     public const SELF_SERVICE = 'self-service';

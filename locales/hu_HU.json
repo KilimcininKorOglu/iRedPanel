@@ -847,7 +847,8 @@
     "forward_to_help": "Az a cím, amely minden olyan levelet megkap, amely e tartomány nem létező címére ment. Üresen mentve: a catch-all megszűnik, és az ilyen levelet elutasítja.",
     "sender_bcc_help": "Minden levél, amelyet ez a tartomány küld, erre a címre is elmegy. A feladó nem látja a másolatot.",
     "recipient_bcc_help": "Minden levél, amelyet ez a tartomány kap, erre a címre is elmegy. A feladó nem látja a másolatot.",
-    "relay_host_help": "A tartomány kimenő levele a közvetlen kézbesítés helyett erre a szerverre megy. Üres: a Postfix maga kézbesít."
+    "relay_host_help": "A tartomány kimenő levele a közvetlen kézbesítés helyett erre a szerverre megy. Üres: a Postfix maga kézbesít.",
+    "pref_sent": "Elküldött üzenetek"
   },
   "admin": {
     "msg_email_required": "Érvényes e-mail-cím megadása kötelező",

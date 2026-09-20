@@ -42,6 +42,9 @@ interface AmavisdRepositoryInterface extends AccountSettingsStoreInterface
     /** Mail log rows of one recipient (self-service), newest first. */
     public function getReceivedMail(string $email, int $page, int $perPage): PaginatedResult;
 
+    /** Mail log rows of one sender (self-service), newest first, one row per recipient. */
+    public function getSentMail(string $email, int $page, int $perPage): PaginatedResult;
+
     /**
      * Releases a quarantined message to one of its recipients only.
      *

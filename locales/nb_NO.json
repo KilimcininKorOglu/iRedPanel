@@ -847,7 +847,8 @@
     "forward_to_help": "Adressen som mottar all post sendt til en adresse som ikke finnes i dette domenet. Tom og lagret: catch-all fjernes, og slik post avvises.",
     "sender_bcc_help": "All post dette domenet sender, går også til denne adressen. Avsenderen ser ikke kopien.",
     "recipient_bcc_help": "All post dette domenet mottar, går også til denne adressen. Avsenderen ser ikke kopien.",
-    "relay_host_help": "Den utgående posten i dette domenet går til denne tjeneren i stedet for direkte levering. Tom: Postfix leverer selv."
+    "relay_host_help": "Den utgående posten i dette domenet går til denne tjeneren i stedet for direkte levering. Tom: Postfix leverer selv.",
+    "pref_sent": "Sendte meldinger"
   },
   "admin": {
     "msg_email_required": "En gyldig e-postadresse er påkrevd",

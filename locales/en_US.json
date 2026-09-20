@@ -847,7 +847,8 @@
     "forward_to_help": "The address that receives every mail sent to an address that does not exist in this domain. Empty and saved: the catch-all is removed and such mail is refused.",
     "sender_bcc_help": "Every mail that this domain sends also goes to this address. The sender does not see the copy.",
     "recipient_bcc_help": "Every mail that this domain receives also goes to this address. The sender does not see the copy.",
-    "relay_host_help": "The outbound mail of this domain goes to this server instead of a direct delivery. Empty: Postfix delivers it itself."
+    "relay_host_help": "The outbound mail of this domain goes to this server instead of a direct delivery. Empty: Postfix delivers it itself.",
+    "pref_sent": "Sent mails"
   },
   "admin": {
     "msg_email_required": "A valid email address is required",

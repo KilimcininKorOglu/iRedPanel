@@ -49,6 +49,7 @@ class SelfServiceController
         'spam-policy' => 'selfServiceSpamPolicy.php',
         'quarantine' => 'selfServiceMail.php',
         'received' => 'selfServiceMail.php',
+        'sent' => 'selfServiceMail.php',
     ];
 
     /**
@@ -69,7 +70,7 @@ class SelfServiceController
     public static function page(TemplateEngine $tpl, string $page): void
     {
         Middleware::selfServiceRequired();
-        if (!isset(self::SAVE_HANDLERS[$page])) {
+        if (!isset(self::TEMPLATES[$page])) {
             http_response_code(404);
             $tpl->render('page404.php', ['selfServicePages' => self::openPages()]);
             return;
@@ -82,6 +83,11 @@ class SelfServiceController
         }
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if (!isset(self::SAVE_HANDLERS[$page])) {
+                http_response_code(405);
+                echo 'This page has no action';
+                return;
+            }
             self::applyPost($page);
             header('Location: ' . self::pageUrl($page));
             exit;
@@ -189,6 +195,7 @@ class SelfServiceController
             'spam-policy' => ['policy' => RepositoryFactory::getSpamPolicyRepository()->getPolicy($email)],
             'quarantine' => self::mailData(RepositoryFactory::getAmavisdRepository()->getQuarantinedForUser($email, $number, $perPage)),
             'received' => self::mailData(RepositoryFactory::getAmavisdRepository()->getReceivedMail($email, $number, $perPage)),
+            'sent' => self::mailData(RepositoryFactory::getAmavisdRepository()->getSentMail($email, $number, $perPage)),
             default => [],
         };
     }

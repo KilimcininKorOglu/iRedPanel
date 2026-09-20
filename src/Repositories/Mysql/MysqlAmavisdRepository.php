@@ -265,6 +265,11 @@ class MysqlAmavisdRepository implements AmavisdRepositoryInterface
         return $this->recipientMail()->received($email, $page, $perPage);
     }
 
+    public function getSentMail(string $email, int $page, int $perPage): PaginatedResult
+    {
+        return $this->recipientMail()->sent($email, $page, $perPage);
+    }
+
     public function releaseForRecipient(string $mailId, string $email): void
     {
         $settings = Settings::getInstance();

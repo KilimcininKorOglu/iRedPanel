@@ -847,7 +847,8 @@
     "forward_to_help": "Osoite, joka vastaanottaa kaiken postin, joka on lähetetty tämän verkkotunnuksen olemattomaan osoitteeseen. Tyhjä ja tallennettu: catch-all poistuu ja tällainen posti hylätään.",
     "sender_bcc_help": "Jokainen posti, jonka tämä verkkotunnus lähettää, menee myös tähän osoitteeseen. Lähettäjä ei näe kopiota.",
     "recipient_bcc_help": "Jokainen posti, jonka tämä verkkotunnus vastaanottaa, menee myös tähän osoitteeseen. Lähettäjä ei näe kopiota.",
-    "relay_host_help": "Tämän verkkotunnuksen lähtevä posti menee tähän palvelimeen suoran toimituksen sijaan. Tyhjä: Postfix toimittaa itse."
+    "relay_host_help": "Tämän verkkotunnuksen lähtevä posti menee tähän palvelimeen suoran toimituksen sijaan. Tyhjä: Postfix toimittaa itse.",
+    "pref_sent": "Lähetetyt viestit"
   },
   "admin": {
     "msg_email_required": "Kelvollinen sähköpostiosoite vaaditaan",

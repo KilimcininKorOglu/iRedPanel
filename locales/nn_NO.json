@@ -847,7 +847,8 @@
     "forward_to_help": "Adressa som tek imot all post send til ei adresse som ikkje finst i dette domenet. Tom og lagra: catch-all fell bort, og slik post vert avvist.",
     "sender_bcc_help": "All post dette domenet sender, går òg til denne adressa. Avsendaren ser ikkje kopien.",
     "recipient_bcc_help": "All post dette domenet tek imot, går òg til denne adressa. Avsendaren ser ikkje kopien.",
-    "relay_host_help": "Den utgåande posten i dette domenet går til denne tenaren i staden for direkte levering. Tom: Postfix leverer sjølv."
+    "relay_host_help": "Den utgåande posten i dette domenet går til denne tenaren i staden for direkte levering. Tom: Postfix leverer sjølv.",
+    "pref_sent": "Sende meldingar"
   },
   "admin": {
     "msg_email_required": "Ei gyldig e-postadresse er påkravd",

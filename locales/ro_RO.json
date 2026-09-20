@@ -847,7 +847,8 @@
     "forward_to_help": "Adresa care primește tot mailul trimis către o adresă inexistentă din acest domeniu. Gol și salvat: catch-all-ul dispare și un astfel de mail este refuzat.",
     "sender_bcc_help": "Tot mailul trimis de acest domeniu ajunge și la această adresă. Expeditorul nu vede copia.",
     "recipient_bcc_help": "Tot mailul primit de acest domeniu ajunge și la această adresă. Expeditorul nu vede copia.",
-    "relay_host_help": "Mailul trimis de acest domeniu merge la acest server în loc de livrarea directă. Gol: Postfix livrează singur."
+    "relay_host_help": "Mailul trimis de acest domeniu merge la acest server în loc de livrarea directă. Gol: Postfix livrează singur.",
+    "pref_sent": "Mesaje trimise"
   },
   "admin": {
     "msg_email_required": "Este necesară o adresă de email validă",

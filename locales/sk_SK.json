@@ -847,7 +847,8 @@
     "forward_to_help": "Adresa, ktorá prijíma všetku poštu poslanú na neexistujúcu adresu tejto domény. Prázdne a uložené: catch-all sa odstráni a taká pošta sa odmietne.",
     "sender_bcc_help": "Každá pošta, ktorú táto doména odošle, ide aj na túto adresu. Odosielateľ kópiu nevidí.",
     "recipient_bcc_help": "Každá pošta, ktorú táto doména prijme, ide aj na túto adresu. Odosielateľ kópiu nevidí.",
-    "relay_host_help": "Odchádzajúca pošta tejto domény ide na tento server namiesto priameho doručenia. Prázdne: Postfix doručuje sám."
+    "relay_host_help": "Odchádzajúca pošta tejto domény ide na tento server namiesto priameho doručenia. Prázdne: Postfix doručuje sám.",
+    "pref_sent": "Odoslané správy"
   },
   "admin": {
     "msg_email_required": "Vyžaduje sa platná e-mailová adresa",

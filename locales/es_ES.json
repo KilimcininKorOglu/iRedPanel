@@ -847,7 +847,8 @@
     "forward_to_help": "La dirección que recibe todo el correo enviado a una dirección inexistente de este dominio. Vacío y guardado: el catch-all se quita y ese correo se rechaza.",
     "sender_bcc_help": "Todo el correo que envía este dominio va también a esta dirección. El remitente no ve la copia.",
     "recipient_bcc_help": "Todo el correo que recibe este dominio va también a esta dirección. El remitente no ve la copia.",
-    "relay_host_help": "El correo saliente de este dominio va a este servidor en lugar de una entrega directa. Vacío: Postfix lo entrega él mismo."
+    "relay_host_help": "El correo saliente de este dominio va a este servidor en lugar de una entrega directa. Vacío: Postfix lo entrega él mismo.",
+    "pref_sent": "Mensajes enviados"
   },
   "admin": {
     "msg_email_required": "Se requiere una dirección de correo válida",

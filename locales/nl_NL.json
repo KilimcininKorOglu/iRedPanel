@@ -847,7 +847,8 @@
     "forward_to_help": "Het adres dat elke mail ontvangt die naar een niet-bestaand adres van dit domein gaat. Leeg en opgeslagen: de catch-all vervalt en die mail wordt geweigerd.",
     "sender_bcc_help": "Elke mail die dit domein verstuurt, gaat ook naar dit adres. De afzender ziet de kopie niet.",
     "recipient_bcc_help": "Elke mail die dit domein ontvangt, gaat ook naar dit adres. De afzender ziet de kopie niet.",
-    "relay_host_help": "De uitgaande mail van dit domein gaat naar deze server in plaats van een directe bezorging. Leeg: Postfix bezorgt zelf."
+    "relay_host_help": "De uitgaande mail van dit domein gaat naar deze server in plaats van een directe bezorging. Leeg: Postfix bezorgt zelf.",
+    "pref_sent": "Verzonden berichten"
   },
   "admin": {
     "msg_email_required": "Een geldig e-mailadres is vereist",

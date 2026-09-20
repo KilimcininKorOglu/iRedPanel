@@ -847,7 +847,8 @@
     "forward_to_help": "Adres, który odbiera każdą pocztę wysłaną na nieistniejący adres tej domeny. Puste i zapisane: catch-all znika, a taka poczta jest odrzucana.",
     "sender_bcc_help": "Każda poczta wysłana przez tę domenę trafia też na ten adres. Nadawca nie widzi kopii.",
     "recipient_bcc_help": "Każda poczta odebrana przez tę domenę trafia też na ten adres. Nadawca nie widzi kopii.",
-    "relay_host_help": "Poczta wychodząca tej domeny idzie na ten serwer zamiast doręczenia bezpośredniego. Puste: Postfix doręcza sam."
+    "relay_host_help": "Poczta wychodząca tej domeny idzie na ten serwer zamiast doręczenia bezpośredniego. Puste: Postfix doręcza sam.",
+    "pref_sent": "Wysłane wiadomości"
   },
   "admin": {
     "msg_email_required": "Wymagany jest prawidłowy adres e-mail",

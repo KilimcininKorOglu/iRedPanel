@@ -847,7 +847,8 @@
     "forward_to_help": "O enderezo que recibe todo o correo enviado a un enderezo inexistente deste dominio. Baleiro e gardado: o catch-all quítase e ese correo rexéitase.",
     "sender_bcc_help": "Todo o correo que envía este dominio vai tamén a este enderezo. O remitente non ve a copia.",
     "recipient_bcc_help": "Todo o correo que recibe este dominio vai tamén a este enderezo. O remitente non ve a copia.",
-    "relay_host_help": "O correo saínte deste dominio vai a este servidor no canto dunha entrega directa. Baleiro: Postfix entrégao el mesmo."
+    "relay_host_help": "O correo saínte deste dominio vai a este servidor no canto dunha entrega directa. Baleiro: Postfix entrégao el mesmo.",
+    "pref_sent": "Mensaxes enviadas"
   },
   "admin": {
     "msg_email_required": "É obrigatorio un enderezo de correo válido",

@@ -847,7 +847,8 @@
     "forward_to_help": "Aadress, mis saab kõik kirjad, mis on saadetud selle domeeni olematule aadressile. Tühi ja salvestatud: catch-all eemaldatakse ja sellised kirjad lükatakse tagasi.",
     "sender_bcc_help": "Iga kiri, mille see domeen saadab, läheb ka sellele aadressile. Saatja koopiat ei näe.",
     "recipient_bcc_help": "Iga kiri, mille see domeen saab, läheb ka sellele aadressile. Saatja koopiat ei näe.",
-    "relay_host_help": "Selle domeeni väljuvad kirjad lähevad otsese kohaletoimetamise asemel sellesse serverisse. Tühi: Postfix toimetab ise kohale."
+    "relay_host_help": "Selle domeeni väljuvad kirjad lähevad otsese kohaletoimetamise asemel sellesse serverisse. Tühi: Postfix toimetab ise kohale.",
+    "pref_sent": "Saadetud sõnumid"
   },
   "admin": {
     "msg_email_required": "Nõutav on kehtiv e-posti aadress",

@@ -847,7 +847,8 @@
     "forward_to_help": "Bu domendə mövcud olmayan ünvana göndərilən hər maili alan ünvan. Boş saxlanıb yadda saxlanılarsa catch-all silinir və belə mail rədd edilir.",
     "sender_bcc_help": "Bu domenin göndərdiyi hər mail bu ünvana da gedir. Göndərən surəti görmür.",
     "recipient_bcc_help": "Bu domenin aldığı hər mail bu ünvana da gedir. Göndərən surəti görmür.",
-    "relay_host_help": "Bu domenin gedən maili birbaşa çatdırılma yerinə bu serverə gedir. Boş: Postfix maili özü çatdırır."
+    "relay_host_help": "Bu domenin gedən maili birbaşa çatdırılma yerinə bu serverə gedir. Boş: Postfix maili özü çatdırır.",
+    "pref_sent": "Göndərilən mesajlar"
   },
   "admin": {
     "msg_email_required": "Etibarlı e-poçt ünvanı tələb olunur",

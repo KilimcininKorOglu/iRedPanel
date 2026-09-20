@@ -56,6 +56,7 @@ class Navigation
         'spam-policy' => ['domain.pref_spampolicy', 'funnel'],
         'quarantine' => ['domain.pref_quarantine', 'shield-exclamation'],
         'received' => ['domain.pref_received', 'envelope-paper'],
+        'sent' => ['domain.pref_sent', 'send'],
     ];
 
     /**

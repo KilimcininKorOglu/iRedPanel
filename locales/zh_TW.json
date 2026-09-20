@@ -847,7 +847,8 @@
     "forward_to_help": "接收所有寄往本網域中不存在位址的郵件的位址。留空並儲存則取消 catch-all，這類郵件會被拒收。",
     "sender_bcc_help": "本網域寄出的每封郵件也會寄往這個位址。寄件者看不到副本。",
     "recipient_bcc_help": "本網域收到的每封郵件也會寄往這個位址。寄件者看不到副本。",
-    "relay_host_help": "本網域寄出的郵件會送到這台伺服器，而不是直接投遞。留空時 Postfix 自行投遞。"
+    "relay_host_help": "本網域寄出的郵件會送到這台伺服器，而不是直接投遞。留空時 Postfix 自行投遞。",
+    "pref_sent": "已寄出的郵件"
   },
   "admin": {
     "msg_email_required": "需要有效的電子郵件位址",

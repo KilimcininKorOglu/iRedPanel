@@ -847,7 +847,8 @@
     "forward_to_help": "Domeinu honetan existitzen ez den helbide batera bidalitako posta guztia jasotzen duen helbidea. Hutsik utzi eta gorde: catch-all kentzen da eta posta hori ukatzen da.",
     "sender_bcc_help": "Domeinu honek bidaltzen duen posta guztia helbide honetara ere doa. Bidaltzaileak ez du kopia ikusten.",
     "recipient_bcc_help": "Domeinu honek jasotzen duen posta guztia helbide honetara ere doa. Bidaltzaileak ez du kopia ikusten.",
-    "relay_host_help": "Domeinu honen irteerako posta zuzeneko banaketa ordez zerbitzari honetara doa. Hutsik: Postfix-ek berak banatzen du."
+    "relay_host_help": "Domeinu honen irteerako posta zuzeneko banaketa ordez zerbitzari honetara doa. Hutsik: Postfix-ek berak banatzen du.",
+    "pref_sent": "Bidalitako mezuak"
   },
   "admin": {
     "msg_email_required": "Baliozko posta-helbidea beharrezkoa da",

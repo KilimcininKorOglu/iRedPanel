@@ -847,7 +847,8 @@
     "forward_to_help": "Die Adresse, die jede Mail an eine in dieser Domain nicht vorhandene Adresse erhält. Leer und gespeichert: der Catch-all entfällt und solche Mail wird abgewiesen.",
     "sender_bcc_help": "Jede Mail, die diese Domain sendet, geht auch an diese Adresse. Der Absender sieht die Kopie nicht.",
     "recipient_bcc_help": "Jede Mail, die diese Domain empfängt, geht auch an diese Adresse. Der Absender sieht die Kopie nicht.",
-    "relay_host_help": "Die ausgehende Mail dieser Domain geht an diesen Server statt in die direkte Zustellung. Leer: Postfix stellt selbst zu."
+    "relay_host_help": "Die ausgehende Mail dieser Domain geht an diesen Server statt in die direkte Zustellung. Leer: Postfix stellt selbst zu.",
+    "pref_sent": "Gesendete Nachrichten"
   },
   "admin": {
     "msg_email_required": "Eine gültige E-Mail-Adresse ist erforderlich",

@@ -847,7 +847,8 @@
     "forward_to_help": "Địa chỉ nhận mọi thư gửi tới một địa chỉ không tồn tại trong domain này. Để trống rồi lưu: catch-all bị gỡ và thư như vậy bị từ chối.",
     "sender_bcc_help": "Mọi thư domain này gửi cũng tới địa chỉ này. Người gửi không thấy bản sao.",
     "recipient_bcc_help": "Mọi thư domain này nhận cũng tới địa chỉ này. Người gửi không thấy bản sao.",
-    "relay_host_help": "Thư gửi đi của domain này tới máy chủ này thay vì gửi trực tiếp. Để trống: Postfix tự gửi."
+    "relay_host_help": "Thư gửi đi của domain này tới máy chủ này thay vì gửi trực tiếp. Để trống: Postfix tự gửi.",
+    "pref_sent": "Thư đã gửi"
   },
   "admin": {
     "msg_email_required": "Cần địa chỉ email hợp lệ",

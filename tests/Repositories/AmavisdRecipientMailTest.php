@@ -24,14 +24,15 @@ class AmavisdRecipientMailTest extends TestCase
         $this->pdo = new \PDO('sqlite::memory:', null, null, [\PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION]);
         foreach ([
             'CREATE TABLE maddr (id INTEGER PRIMARY KEY, email TEXT)',
-            "CREATE TABLE msgs (mail_id TEXT, secret_id TEXT, from_addr TEXT, subject TEXT, time_num INTEGER, spam_level REAL, content TEXT, quar_type TEXT)",
+            "CREATE TABLE msgs (mail_id TEXT, secret_id TEXT, sid INTEGER, from_addr TEXT, subject TEXT, time_num INTEGER, spam_level REAL, content TEXT, quar_type TEXT)",
             "CREATE TABLE msgrcpt (mail_id TEXT, rid INTEGER, rs TEXT DEFAULT '')",
             'CREATE TABLE quarantine (mail_id TEXT, chunk_ind INTEGER, mail_text TEXT)',
-            "INSERT INTO maddr VALUES (1, 'a@x.test'), (2, 'b@x.test'), (3, 'c@other.test')",
-            "INSERT INTO msgs VALUES ('shared', 's1', 'spam@y.test', 'Both', 200, 9.1, 'S', 'Q'),
-                                     ('only-a', 's2', 'spam@y.test', 'A only', 100, 8.0, 'S', 'Q'),
-                                     ('clean', 's3', 'friend@y.test', 'Hello', 300, 0.1, 'C', '')",
-            "INSERT INTO msgrcpt (mail_id, rid) VALUES ('shared', 1), ('shared', 2), ('shared', 3), ('only-a', 1), ('clean', 1)",
+            "INSERT INTO maddr VALUES (1, 'a@x.test'), (2, 'b@x.test'), (3, 'c@other.test'), (4, 'spam@y.test'), (5, 'friend@y.test')",
+            "INSERT INTO msgs VALUES ('shared', 's1', 4, 'spam@y.test', 'Both', 200, 9.1, 'S', 'Q'),
+                                     ('only-a', 's2', 4, 'spam@y.test', 'A only', 100, 8.0, 'S', 'Q'),
+                                     ('clean', 's3', 5, 'friend@y.test', 'Hello', 300, 0.1, 'C', ''),
+                                     ('from-a', 's4', 1, 'a@x.test', 'Outgoing', 400, 0.0, 'C', '')",
+            "INSERT INTO msgrcpt (mail_id, rid) VALUES ('shared', 1), ('shared', 2), ('shared', 3), ('only-a', 1), ('clean', 1), ('from-a', 2), ('from-a', 3)",
             "INSERT INTO quarantine VALUES ('shared', 1, 'x'), ('only-a', 1, 'y')",
         ] as $sql) {
             $this->pdo->exec($sql);
@@ -75,6 +76,20 @@ class AmavisdRecipientMailTest extends TestCase
 
         $this->expectException(\RuntimeException::class);
         $this->mail->release('only-a', 'a@x.test', static function (): void {});
+    }
+
+    /**
+     * The sent page lists the mail of the sender, one row per recipient, and no mail
+     * that another address sent.
+     */
+    public function testUserSeesOwnSentMail(): void
+    {
+        $sent = $this->mail->sent('a@x.test', 1, 20)->items;
+
+        $this->assertSame(['from-a', 'from-a'], array_column($sent, 'mail_id'));
+        $this->assertSame(['b@x.test', 'c@other.test'], array_column($sent, 'recipient'));
+        $this->assertSame([], $this->mail->sent('b@x.test', 1, 20)->items);
+        $this->assertSame(2, $this->mail->sent('a@x.test', 1, 20)->totalCount);
     }
 
     public function testAddressesOfAQuarantinedMessage(): void

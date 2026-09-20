@@ -470,7 +470,12 @@
     "forwarding_addresses_help": "E postafiók levele ezekre a címekre is elmegy, soronként egy.",
     "keep_copy_help": "Bekapcsolva: a továbbított üzenet másolata a postafiókban marad. Kikapcsolva: az üzenet csak elmegy, és a postafiók üres marad.",
     "relay_host_help": "E postafiók kimenő levele a közvetlen kézbesítés helyett erre a szerverre megy. Üres: a tartomány beállítása érvényes.",
-    "new_password_help": "Az új jelszó azonnal a tárolt helyére lép. Az admin a következő belépésnél ezzel jelentkezik be."
+    "new_password_help": "Az új jelszó azonnal a tárolt helyére lép. Az admin a következő belépésnél ezzel jelentkezik be.",
+    "department": "Részleg",
+    "department_help": "A felhasználó részlege. A panel csak tárolja.",
+    "birthday": "Születésnap",
+    "birthday_help": "A felhasználó születésnapja ÉÉÉÉ-HH-NN formátumban. Üresen nincs beállítva. A panel csak tárolja.",
+    "msg_invalid_birthday": "Érvénytelen születésnap. Használja az ÉÉÉÉ-HH-NN formátumot."
   },
   "mlist": {
     "msg_updated": "Levelezőlista frissítve!",

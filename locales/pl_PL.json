@@ -470,7 +470,12 @@
     "forwarding_addresses_help": "Poczta tej skrzynki trafia też na te adresy, po jednym w wierszu.",
     "keep_copy_help": "Włączone: kopia przekazanej wiadomości zostaje w skrzynce. Wyłączone: wiadomość tylko wychodzi, a skrzynka pozostaje pusta.",
     "relay_host_help": "Poczta wychodząca z tej skrzynki idzie na ten serwer zamiast doręczenia bezpośredniego. Puste: obowiązuje ustawienie domeny.",
-    "new_password_help": "Nowe hasło zastępuje zapisane od razu. Administrator loguje się nim przy następnym wejściu."
+    "new_password_help": "Nowe hasło zastępuje zapisane od razu. Administrator loguje się nim przy następnym wejściu.",
+    "department": "Dział",
+    "department_help": "Dział użytkownika. Panel tylko go przechowuje.",
+    "birthday": "Data urodzenia",
+    "birthday_help": "Data urodzenia użytkownika w formacie RRRR-MM-DD. Puste oznacza brak wartości. Panel tylko ją przechowuje.",
+    "msg_invalid_birthday": "Nieprawidłowa data urodzenia. Użyj formatu RRRR-MM-DD."
   },
   "mlist": {
     "msg_updated": "Lista mailingowa zaktualizowana!",

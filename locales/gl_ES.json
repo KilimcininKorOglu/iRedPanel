@@ -470,7 +470,12 @@
     "forwarding_addresses_help": "O correo desta caixa vai tamén a estes enderezos, un por liña.",
     "keep_copy_help": "Activado: unha copia da mensaxe reenviada queda na caixa. Desactivado: a mensaxe só sae e a caixa queda baleira.",
     "relay_host_help": "O correo saínte desta caixa vai a este servidor no canto dunha entrega directa. Baleiro: aplícase o axuste do dominio.",
-    "new_password_help": "O novo contrasinal substitúe o gardado de contado. O administrador entra con el no seguinte acceso."
+    "new_password_help": "O novo contrasinal substitúe o gardado de contado. O administrador entra con el no seguinte acceso.",
+    "department": "Departamento",
+    "department_help": "O departamento do usuario. O panel só o garda.",
+    "birthday": "Data de nacemento",
+    "birthday_help": "A data de nacemento do usuario, en formato AAAA-MM-DD. Baleiro significa sen valor. O panel só a garda.",
+    "msg_invalid_birthday": "Data de nacemento non válida. Use o formato AAAA-MM-DD."
   },
   "mlist": {
     "msg_updated": "Lista de correo actualizada!",

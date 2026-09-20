@@ -470,7 +470,12 @@
     "forwarding_addresses_help": "Mail kotak surat ini juga menuju alamat-alamat ini, satu per baris.",
     "keep_copy_help": "Aktif: salinan pesan yang diteruskan tetap ada di kotak surat. Nonaktif: pesan hanya pergi dan kotak surat tetap kosong.",
     "relay_host_help": "Mail keluar kotak surat ini menuju server ini, bukan pengiriman langsung. Kosong: pengaturan domain yang berlaku.",
-    "new_password_help": "Kata sandi baru langsung menggantikan yang tersimpan. Admin memakainya pada masuk berikutnya."
+    "new_password_help": "Kata sandi baru langsung menggantikan yang tersimpan. Admin memakainya pada masuk berikutnya.",
+    "department": "Departemen",
+    "department_help": "Departemen pengguna. Panel hanya menyimpannya.",
+    "birthday": "Tanggal lahir",
+    "birthday_help": "Tanggal lahir pengguna, dalam format TTTT-BB-HH. Kosong berarti tidak diatur. Panel hanya menyimpannya.",
+    "msg_invalid_birthday": "Tanggal lahir tidak valid. Gunakan format TTTT-BB-HH."
   },
   "mlist": {
     "msg_updated": "Milis diperbarui!",

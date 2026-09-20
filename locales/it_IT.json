@@ -470,7 +470,12 @@
     "forwarding_addresses_help": "La posta di questa casella va anche a questi indirizzi, uno per riga.",
     "keep_copy_help": "Attivo: una copia del messaggio inoltrato resta nella casella. Spento: il messaggio parte soltanto e la casella resta vuota.",
     "relay_host_help": "La posta in uscita di questa casella passa da questo server invece della consegna diretta. Vuoto: vale l'impostazione del dominio.",
-    "new_password_help": "La nuova password sostituisce subito quella memorizzata. L'amministratore la usa al prossimo accesso."
+    "new_password_help": "La nuova password sostituisce subito quella memorizzata. L'amministratore la usa al prossimo accesso.",
+    "department": "Reparto",
+    "department_help": "Il reparto dell'utente. Il pannello lo memorizza soltanto.",
+    "birthday": "Data di nascita",
+    "birthday_help": "La data di nascita dell'utente, in formato AAAA-MM-GG. Vuoto significa non impostata. Il pannello la memorizza soltanto.",
+    "msg_invalid_birthday": "Data di nascita non valida. Usa il formato AAAA-MM-GG."
   },
   "mlist": {
     "msg_updated": "Lista di distribuzione aggiornata!",

@@ -31,7 +31,7 @@ class MysqlUserRepository implements UserRepositoryInterface
         $stmt = $pdo->prepare(
             "SELECT username, name, first_name, last_name,
                     quota, employeeid, mobile, telephone, active,
-                    isglobaladmin, rank, domain,
+                    isglobaladmin, rank, department, birthday, domain,
                     enablesmtp, enablesmtpsecured, enablepop3, enablepop3secured,
                     enableimap, enableimapsecured, enablemanagesieve,
                     enablemanagesievesecured, enablesogo,
@@ -60,7 +60,7 @@ class MysqlUserRepository implements UserRepositoryInterface
         $stmt = $pdo->prepare(
             "SELECT username, name, first_name, last_name,
                     quota, employeeid, mobile, telephone, active,
-                    isglobaladmin, rank, domain,
+                    isglobaladmin, rank, department, birthday, domain,
                     enablesmtp, enablesmtpsecured, enablepop3, enablepop3secured,
                     enableimap, enableimapsecured, enablemanagesieve,
                     enablemanagesievesecured, enablesogo,
@@ -95,6 +95,8 @@ class MysqlUserRepository implements UserRepositoryInterface
                     quota = :quota,
                     employeeid = :employeeNumber,
                     rank = :title,
+                    department = :department,
+                    birthday = :birthday,
                     mobile = :mobile,
                     telephone = :telephoneNumber,
                     active = :active,
@@ -124,6 +126,8 @@ class MysqlUserRepository implements UserRepositoryInterface
                 'quota' => $user->mailQuota,
                 'employeeNumber' => $user->employeeNumber,
                 'title' => $user->title,
+                'department' => $user->department,
+                'birthday' => $user->birthdaySql(),
                 'mobile' => $user->mobile,
                 'telephoneNumber' => $user->telephoneNumber,
                 'active' => $active,
@@ -253,12 +257,12 @@ class MysqlUserRepository implements UserRepositoryInterface
             $stmt = $pdo->prepare(
                 "INSERT INTO mailbox
                     (username, password, name, first_name, last_name,
-                     quota, employeeid, rank, mobile, telephone,
+                     quota, employeeid, rank, department, birthday, mobile, telephone,
                      domain, active, isglobaladmin, storagebasedirectory,
                      storagenode, maildir, mailboxformat, mailboxfolder, language, {$serviceColumns}, created, passwordlastchange)
                  VALUES
                     (:username, :password, :cn, :givenName, :sn,
-                     :quota, :employeeNumber, :title, :mobile, :telephoneNumber,
+                     :quota, :employeeNumber, :title, :department, :birthday, :mobile, :telephoneNumber,
                      :domain, :active, :isGlobalAdmin, :storageBase,
                      :storageNode, :maildir, :mailboxFormat, :mailboxFolder, :language, {$servicePlaceholders}, NOW(), NOW())"
             );
@@ -271,6 +275,8 @@ class MysqlUserRepository implements UserRepositoryInterface
                 'quota' => $user->mailQuota,
                 'employeeNumber' => $user->employeeNumber,
                 'title' => $user->title,
+                'department' => $user->department,
+                'birthday' => $user->birthdaySql(),
                 'mobile' => $user->mobile,
                 'telephoneNumber' => $user->telephoneNumber,
                 'domain' => $domain,
@@ -356,7 +362,7 @@ class MysqlUserRepository implements UserRepositoryInterface
         $stmt = $pdo->prepare(
             "SELECT username, name, first_name, last_name,
                     quota, employeeid, mobile, telephone, active,
-                    isglobaladmin, rank, domain,
+                    isglobaladmin, rank, department, birthday, domain,
                     enablesmtp, enablesmtpsecured, enablepop3, enablepop3secured,
                     enableimap, enableimapsecured, enablemanagesieve,
                     enablemanagesievesecured, enablesogo,
@@ -503,6 +509,8 @@ class MysqlUserRepository implements UserRepositoryInterface
             sn: $row['last_name'] ?? '',
             employeeNumber: $row['employeeid'] ?? '',
             title: $row['rank'] ?? '',
+            department: $row['department'] ?? '',
+            birthday: User::birthdayFromSql($row['birthday'] ?? null),
             mobile: $row['mobile'] ?? '',
             telephoneNumber: $row['telephone'] ?? '',
             domainGlobalAdmin: (bool) ($row['isglobaladmin'] ?? 0),

@@ -470,7 +470,12 @@
     "forwarding_addresses_help": "此信箱的郵件同時寄往這些位址，每行一個。",
     "keep_copy_help": "開啟：轉寄的郵件在信箱中保留一份副本。關閉：郵件只往外寄，信箱保持為空。",
     "relay_host_help": "此信箱的外寄郵件寄往此伺服器，而不是直接投遞。留空則採用網域的設定。",
-    "new_password_help": "新密碼立即取代已儲存的密碼。管理員下次登入時使用它。"
+    "new_password_help": "新密碼立即取代已儲存的密碼。管理員下次登入時使用它。",
+    "department": "部門",
+    "department_help": "使用者所屬部門。面板只儲存該值。",
+    "birthday": "生日",
+    "birthday_help": "使用者的生日，格式為 YYYY-MM-DD。留空表示未設定。面板只儲存該值。",
+    "msg_invalid_birthday": "生日無效。請使用 YYYY-MM-DD 格式。"
   },
   "mlist": {
     "msg_updated": "郵件清單已更新！",

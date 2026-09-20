@@ -470,7 +470,12 @@
     "forwarding_addresses_help": "Mailul acestei cutii poștale merge și la aceste adrese, câte una pe linie.",
     "keep_copy_help": "Activat: o copie a mesajului redirecționat rămâne în cutia poștală. Dezactivat: mesajul doar pleacă, iar cutia poștală rămâne goală.",
     "relay_host_help": "Mailul care pleacă din această cutie poștală merge la acest server în locul livrării directe. Gol: se aplică setarea domeniului.",
-    "new_password_help": "Parola nouă o înlocuiește imediat pe cea salvată. Administratorul intră cu ea la următoarea autentificare."
+    "new_password_help": "Parola nouă o înlocuiește imediat pe cea salvată. Administratorul intră cu ea la următoarea autentificare.",
+    "department": "Departament",
+    "department_help": "Departamentul utilizatorului. Panoul doar îl stochează.",
+    "birthday": "Data nașterii",
+    "birthday_help": "Data nașterii utilizatorului, în formatul AAAA-LL-ZZ. Gol înseamnă nesetată. Panoul doar o stochează.",
+    "msg_invalid_birthday": "Data nașterii este invalidă. Folosiți formatul AAAA-LL-ZZ."
   },
   "mlist": {
     "msg_updated": "Lista de corespondență a fost actualizată!",

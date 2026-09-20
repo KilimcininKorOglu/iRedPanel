@@ -470,7 +470,12 @@
     "forwarding_addresses_help": "El correo de este buzón va también a estas direcciones, una por línea.",
     "keep_copy_help": "Activado: una copia del mensaje reenviado queda en el buzón. Desactivado: el mensaje solo sale y el buzón queda vacío.",
     "relay_host_help": "El correo saliente de este buzón va a este servidor en lugar de una entrega directa. Vacío: se aplica el ajuste del dominio.",
-    "new_password_help": "La nueva contraseña sustituye de inmediato a la guardada. El administrador entra con ella en el siguiente acceso."
+    "new_password_help": "La nueva contraseña sustituye de inmediato a la guardada. El administrador entra con ella en el siguiente acceso.",
+    "department": "Departamento",
+    "department_help": "El departamento del usuario. El panel solo lo guarda.",
+    "birthday": "Fecha de nacimiento",
+    "birthday_help": "La fecha de nacimiento del usuario, en formato AAAA-MM-DD. Vacío significa sin valor. El panel solo la guarda.",
+    "msg_invalid_birthday": "Fecha de nacimiento no válida. Use el formato AAAA-MM-DD."
   },
   "mlist": {
     "msg_updated": "¡Lista de correo actualizada!",

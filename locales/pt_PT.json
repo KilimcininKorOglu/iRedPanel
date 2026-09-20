@@ -470,7 +470,12 @@
     "forwarding_addresses_help": "O correio desta caixa vai também para estes endereços, um por linha.",
     "keep_copy_help": "Ligado: uma cópia da mensagem reencaminhada fica na caixa. Desligado: a mensagem apenas sai e a caixa fica vazia.",
     "relay_host_help": "O correio que sai desta caixa vai para este servidor em vez da entrega direta. Vazio: aplica-se a definição do domínio.",
-    "new_password_help": "A nova palavra-passe substitui a guardada de imediato. O administrador entra com ela no acesso seguinte."
+    "new_password_help": "A nova palavra-passe substitui a guardada de imediato. O administrador entra com ela no acesso seguinte.",
+    "department": "Departamento",
+    "department_help": "O departamento do utilizador. O painel apenas o guarda.",
+    "birthday": "Data de nascimento",
+    "birthday_help": "A data de nascimento do utilizador, no formato AAAA-MM-DD. Vazio significa não definida. O painel apenas a guarda.",
+    "msg_invalid_birthday": "Data de nascimento inválida. Use o formato AAAA-MM-DD."
   },
   "mlist": {
     "msg_updated": "Lista de distribuição atualizada!",

@@ -470,7 +470,12 @@
     "forwarding_addresses_help": "该邮箱的邮件同时发往这些地址，每行一个。",
     "keep_copy_help": "开启：转发的邮件在邮箱中保留一份副本。关闭：邮件只往外发，邮箱保持为空。",
     "relay_host_help": "该邮箱的外发邮件发往此服务器，而不是直接投递。留空则采用域的设置。",
-    "new_password_help": "新密码立即取代已保存的密码。管理员下次登录时使用它。"
+    "new_password_help": "新密码立即取代已保存的密码。管理员下次登录时使用它。",
+    "department": "部门",
+    "department_help": "用户所属部门。面板只保存该值。",
+    "birthday": "生日",
+    "birthday_help": "用户的生日，格式为 YYYY-MM-DD。留空表示未设置。面板只保存该值。",
+    "msg_invalid_birthday": "生日无效。请使用 YYYY-MM-DD 格式。"
   },
   "mlist": {
     "msg_updated": "邮件列表已更新！",

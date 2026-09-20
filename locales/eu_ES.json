@@ -470,7 +470,12 @@
     "forwarding_addresses_help": "Postontzi honen posta helbide hauetara ere doa, lerro bakoitzeko bat.",
     "keep_copy_help": "Piztuta: birbidalitako mezuaren kopia bat postontzian geratzen da. Itzalita: mezua joan baino ez da egiten eta postontzia hutsik geratzen da.",
     "relay_host_help": "Postontzi honen irteerako posta zuzeneko banaketa ordez zerbitzari honetara doa. Hutsik: domeinuaren ezarpena aplikatzen da.",
-    "new_password_help": "Pasahitz berriak gordetakoa berehala ordezkatzen du. Administratzaileak hurrengo saioan erabiltzen du."
+    "new_password_help": "Pasahitz berriak gordetakoa berehala ordezkatzen du. Administratzaileak hurrengo saioan erabiltzen du.",
+    "department": "Saila",
+    "department_help": "Erabiltzailearen saila. Panelak gorde besterik ez du egiten.",
+    "birthday": "Jaioteguna",
+    "birthday_help": "Erabiltzailearen jaioteguna, UUUU-HH-EE formatuan. Hutsik esan nahi du ezarri gabe. Panelak gorde besterik ez du egiten.",
+    "msg_invalid_birthday": "Jaiotegun baliogabea. Erabili UUUU-HH-EE formatua."
   },
   "mlist": {
     "msg_updated": "Posta-zerrenda eguneratu da!",

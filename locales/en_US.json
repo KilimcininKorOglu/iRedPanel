@@ -470,7 +470,12 @@
     "forwarding_addresses_help": "The mail of this mailbox also goes to these addresses, one per line.",
     "keep_copy_help": "On: a copy of a forwarded message stays in the mailbox. Off: the message only leaves and the mailbox stays empty.",
     "relay_host_help": "The outbound mail of this mailbox goes to this server instead of a direct delivery. Empty: the setting of the domain applies.",
-    "new_password_help": "The new password replaces the stored one at once. The admin signs in with it on the next login."
+    "new_password_help": "The new password replaces the stored one at once. The admin signs in with it on the next login.",
+    "department": "Department",
+    "department_help": "The department of the user. The panel only stores it.",
+    "birthday": "Birthday",
+    "birthday_help": "The birthday of the user, as YYYY-MM-DD. Empty means not set. The panel only stores it.",
+    "msg_invalid_birthday": "Invalid birthday. Use the YYYY-MM-DD format."
   },
   "mlist": {
     "msg_updated": "Mailing list updated!",

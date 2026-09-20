@@ -470,7 +470,12 @@
     "forwarding_addresses_help": "El correu d'aquesta bústia va també a aquestes adreces, una per línia.",
     "keep_copy_help": "Activat: una còpia del missatge reenviat queda a la bústia. Desactivat: el missatge només marxa i la bústia queda buida.",
     "relay_host_help": "El correu sortint d'aquesta bústia va a aquest servidor en lloc del lliurament directe. Buit: s'aplica el valor del domini.",
-    "new_password_help": "La contrasenya nova substitueix la desada de seguida. L'administrador hi entra al següent accés."
+    "new_password_help": "La contrasenya nova substitueix la desada de seguida. L'administrador hi entra al següent accés.",
+    "department": "Departament",
+    "department_help": "El departament de l'usuari. El panell només el desa.",
+    "birthday": "Data de naixement",
+    "birthday_help": "La data de naixement de l'usuari, en format AAAA-MM-DD. Buit vol dir sense valor. El panell només la desa.",
+    "msg_invalid_birthday": "Data de naixement no vàlida. Feu servir el format AAAA-MM-DD."
   },
   "mlist": {
     "msg_updated": "Llista de correu actualitzada!",

@@ -17,7 +17,8 @@ class LdapUserRepository implements UserRepositoryInterface
 {
     private const USER_DETAIL_ATTRS = [
         'mail', 'accountStatus', 'domainGlobalAdmin', 'mailQuota', 'uid',
-        'cn', 'givenName', 'sn', 'title', 'telephoneNumber', 'mobile', 'employeeNumber',
+        'cn', 'givenName', 'sn', 'title', 'departmentNumber', 'birthday',
+        'telephoneNumber', 'mobile', 'employeeNumber',
         'enabledService', 'preferredLanguage',
     ];
 
@@ -113,6 +114,8 @@ class LdapUserRepository implements UserRepositoryInterface
             LdapUtils::modReplace('sn', self::orNull($user->sn)),
             LdapUtils::modReplace('employeeNumber', self::orNull($user->employeeNumber)),
             LdapUtils::modReplace('title', self::orNull($user->title)),
+            LdapUtils::modReplace('departmentNumber', self::orNull($user->department)),
+            LdapUtils::modReplace('birthday', self::orNull($user->birthday)),
             LdapUtils::modReplace('telephoneNumber', self::orNull($user->telephoneNumber)),
             LdapUtils::modReplace('mobile', self::orNull($user->mobile)),
             LdapUtils::modReplace('accountStatus', $user->accountStatus ? 'active' : 'disabled'),
@@ -210,6 +213,8 @@ class LdapUserRepository implements UserRepositoryInterface
             'givenName' => $user->givenName,
             'employeeNumber' => $user->employeeNumber,
             'title' => $user->title,
+            'departmentNumber' => $user->department,
+            'birthday' => $user->birthday,
             'mobile' => $user->mobile,
             'telephoneNumber' => $user->telephoneNumber,
             'preferredLanguage' => $user->language ?? '',

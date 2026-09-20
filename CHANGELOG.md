@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [Unreleased]
+
+### Added
+- A user profile carries a department and a birthday, next to the fields the panel already managed. Both columns exist in the iRedMail schema of all three backends (`mailbox.department` and `mailbox.birthday` in SQL, `departmentNumber` and `birthday` in LDAP), so no schema change is needed. The birthday is a date field in the form and an empty value stores the column default
+
 ## [1.0.5] - 2026-09-20
 
 ### Added

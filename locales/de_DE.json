@@ -470,7 +470,12 @@
     "forwarding_addresses_help": "Die Mail dieser Mailbox geht auch an diese Adressen, eine pro Zeile.",
     "keep_copy_help": "An: eine Kopie der weitergeleiteten Nachricht bleibt in der Mailbox. Aus: die Nachricht geht nur weg, und die Mailbox bleibt leer.",
     "relay_host_help": "Die ausgehende Mail dieser Mailbox geht an diesen Server statt in die direkte Zustellung. Leer: die Einstellung der Domain gilt.",
-    "new_password_help": "Das neue Passwort ersetzt das gespeicherte sofort. Der Admin meldet sich bei der nächsten Anmeldung damit an."
+    "new_password_help": "Das neue Passwort ersetzt das gespeicherte sofort. Der Admin meldet sich bei der nächsten Anmeldung damit an.",
+    "department": "Abteilung",
+    "department_help": "Die Abteilung des Benutzers. Das Panel speichert sie nur.",
+    "birthday": "Geburtstag",
+    "birthday_help": "Der Geburtstag des Benutzers im Format JJJJ-MM-TT. Leer bedeutet nicht gesetzt. Das Panel speichert ihn nur.",
+    "msg_invalid_birthday": "Ungültiger Geburtstag. Verwenden Sie das Format JJJJ-MM-TT."
   },
   "mlist": {
     "msg_updated": "Mailingliste aktualisiert!",

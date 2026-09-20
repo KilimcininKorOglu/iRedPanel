@@ -110,6 +110,14 @@ $services = \App\Models\User::SERVICE_LABELS;
             <input id="title" name="title" type="text" class="form-control" value="<?= $e($user->title) ?>"<?= $locked('title') ?> />
           </div>
           <div class="col-md-6">
+            <label for="department" class="form-label"><?= $te('user.department') ?></label><?= $help('user.department') ?>
+            <input id="department" name="department" type="text" class="form-control" value="<?= $e($user->department) ?>"<?= $locked('department') ?> />
+          </div>
+          <div class="col-md-6">
+            <label for="birthday" class="form-label"><?= $te('user.birthday') ?></label><?= $help('user.birthday') ?>
+            <input id="birthday" name="birthday" type="date" class="form-control" value="<?= $e($user->birthday) ?>"<?= $locked('birthday') ?> />
+          </div>
+          <div class="col-md-6">
             <label for="mobile" class="form-label"><?= $te('user.mobile_phone') ?></label><?= $help('user.mobile_phone') ?>
             <input id="mobile" name="mobile" type="text" class="form-control" value="<?= $e($user->mobile) ?>"<?= $locked('mobile') ?> />
           </div>

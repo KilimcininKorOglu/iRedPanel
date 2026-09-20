@@ -470,7 +470,12 @@
     "forwarding_addresses_help": "Posten til denne postkassa går òg til desse adressene, éi per linje.",
     "keep_copy_help": "På: ein kopi av den vidaresende meldinga vert liggjande i postkassa. Av: meldinga går berre vidare, og postkassa står tom.",
     "relay_host_help": "Den utgåande posten frå denne postkassa går til denne tenaren i staden for direkte levering. Tom: innstillinga til domenet gjeld.",
-    "new_password_help": "Det nye passordet erstattar det lagra med ein gong. Administratoren loggar inn med det neste gong."
+    "new_password_help": "Det nye passordet erstattar det lagra med ein gong. Administratoren loggar inn med det neste gong.",
+    "department": "Avdeling",
+    "department_help": "Avdelinga til brukaren. Panelet lagrar henne berre.",
+    "birthday": "Fødselsdag",
+    "birthday_help": "Fødselsdagen til brukaren i formatet ÅÅÅÅ-MM-DD. Tom tyder ikkje sett. Panelet lagrar han berre.",
+    "msg_invalid_birthday": "Ugyldig fødselsdag. Bruk formatet ÅÅÅÅ-MM-DD."
   },
   "mlist": {
     "msg_updated": "E-postliste oppdatert!",

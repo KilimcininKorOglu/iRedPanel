@@ -470,7 +470,12 @@
     "forwarding_addresses_help": "Posten til denne postkasse går også til disse adresser, én pr. linje.",
     "keep_copy_help": "Til: en kopi af den videresendte besked bliver i postkassen. Fra: beskeden går kun videre, og postkassen står tom.",
     "relay_host_help": "Den udgående post fra denne postkasse går til denne server i stedet for direkte levering. Tom: domænets indstilling gælder.",
-    "new_password_help": "Den nye adgangskode erstatter den gemte med det samme. Administratoren logger ind med den næste gang."
+    "new_password_help": "Den nye adgangskode erstatter den gemte med det samme. Administratoren logger ind med den næste gang.",
+    "department": "Afdeling",
+    "department_help": "Brugerens afdeling. Panelet gemmer den kun.",
+    "birthday": "Fødselsdag",
+    "birthday_help": "Brugerens fødselsdag i formatet ÅÅÅÅ-MM-DD. Tom betyder ikke angivet. Panelet gemmer den kun.",
+    "msg_invalid_birthday": "Ugyldig fødselsdag. Brug formatet ÅÅÅÅ-MM-DD."
   },
   "mlist": {
     "msg_updated": "Mailingliste opdateret!",

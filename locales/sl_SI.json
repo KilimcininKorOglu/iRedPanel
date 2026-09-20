@@ -470,7 +470,12 @@
     "forwarding_addresses_help": "Pošta tega predala gre tudi na te naslove, en na vrstico.",
     "keep_copy_help": "Vklopljeno: kopija posredovanega sporočila ostane v predalu. Izklopljeno: sporočilo samo odide in predal ostane prazen.",
     "relay_host_help": "Odhodna pošta tega predala gre na ta strežnik namesto neposredne dostave. Prazno: velja nastavitev domene.",
-    "new_password_help": "Novo geslo takoj zamenja shranjeno. Skrbnik se z njim prijavi naslednjič."
+    "new_password_help": "Novo geslo takoj zamenja shranjeno. Skrbnik se z njim prijavi naslednjič.",
+    "department": "Oddelek",
+    "department_help": "Oddelek uporabnika. Nadzorna plošča ga samo shrani.",
+    "birthday": "Rojstni dan",
+    "birthday_help": "Rojstni dan uporabnika v obliki LLLL-MM-DD. Prazno pomeni ni nastavljeno. Nadzorna plošča ga samo shrani.",
+    "msg_invalid_birthday": "Neveljaven rojstni dan. Uporabite obliko LLLL-MM-DD."
   },
   "mlist": {
     "msg_updated": "Poštni seznam posodobljen!",

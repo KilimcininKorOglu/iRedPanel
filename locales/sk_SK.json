@@ -470,7 +470,12 @@
     "forwarding_addresses_help": "Pošta tejto schránky ide aj na tieto adresy, jedna na riadok.",
     "keep_copy_help": "Zapnuté: kópia preposlanej správy zostane v schránke. Vypnuté: správa len odíde a schránka zostane prázdna.",
     "relay_host_help": "Odchádzajúca pošta tejto schránky ide na tento server namiesto priameho doručenia. Prázdne: platí nastavenie domény.",
-    "new_password_help": "Nové heslo hneď nahradí uložené. Admin sa s ním prihlási pri ďalšom vstupe."
+    "new_password_help": "Nové heslo hneď nahradí uložené. Admin sa s ním prihlási pri ďalšom vstupe.",
+    "department": "Oddelenie",
+    "department_help": "Oddelenie používateľa. Panel ho len ukladá.",
+    "birthday": "Dátum narodenia",
+    "birthday_help": "Dátum narodenia používateľa vo formáte RRRR-MM-DD. Prázdne znamená nenastavené. Panel ho len ukladá.",
+    "msg_invalid_birthday": "Neplatný dátum narodenia. Použite formát RRRR-MM-DD."
   },
   "mlist": {
     "msg_updated": "Distribučný zoznam aktualizovaný!",

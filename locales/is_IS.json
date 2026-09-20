@@ -470,7 +470,12 @@
     "forwarding_addresses_help": "Póstur þessa pósthólfs fer líka á þessi netföng, eitt í línu.",
     "keep_copy_help": "Kveikt: afrit áframsenda skeytisins verður eftir í pósthólfinu. Slökkt: skeytið fer bara og pósthólfið stendur tómt.",
     "relay_host_help": "Útfarandi póstur þessa pósthólfs fer á þennan þjón í stað beinnar afhendingar. Autt: stilling lénsins gildir.",
-    "new_password_help": "Nýja lykilorðið kemur strax í stað þess vistaða. Stjórnandinn notar það við næstu innskráningu."
+    "new_password_help": "Nýja lykilorðið kemur strax í stað þess vistaða. Stjórnandinn notar það við næstu innskráningu.",
+    "department": "Deild",
+    "department_help": "Deild notandans. Stjórnborðið geymir hana aðeins.",
+    "birthday": "Afmælisdagur",
+    "birthday_help": "Afmælisdagur notandans á sniðinu ÁÁÁÁ-MM-DD. Autt merkir ekki stillt. Stjórnborðið geymir hann aðeins.",
+    "msg_invalid_birthday": "Ógildur afmælisdagur. Notaðu sniðið ÁÁÁÁ-MM-DD."
   },
   "mlist": {
     "msg_updated": "Póstlisti uppfærður!",

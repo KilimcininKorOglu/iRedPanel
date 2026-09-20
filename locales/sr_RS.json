@@ -470,7 +470,12 @@
     "forwarding_addresses_help": "Pošta ovog sandučeta ide i na ove adrese, jedna po redu.",
     "keep_copy_help": "Uključeno: kopija prosleđene poruke ostaje u sandučetu. Isključeno: poruka samo odlazi i sanduče ostaje prazno.",
     "relay_host_help": "Odlazna pošta ovog sandučeta ide na ovaj server umesto neposredne isporuke. Prazno: važi podešavanje domena.",
-    "new_password_help": "Нова лозинка одмах замењује сачувану. Администратор се њоме пријављује следећи пут."
+    "new_password_help": "Нова лозинка одмах замењује сачувану. Администратор се њоме пријављује следећи пут.",
+    "department": "Одељење",
+    "department_help": "Одељење корисника. Панел га само чува.",
+    "birthday": "Рођендан",
+    "birthday_help": "Рођендан корисника у формату ГГГГ-ММ-ДД. Празно значи да није постављен. Панел га само чува.",
+    "msg_invalid_birthday": "Неисправан рођендан. Користите формат ГГГГ-ММ-ДД."
   },
   "mlist": {
     "msg_updated": "Мејлинг листа ажурирана!",

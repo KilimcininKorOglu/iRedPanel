@@ -470,7 +470,12 @@
     "forwarding_addresses_help": "Bu mailbox'ın maili bu ünvanlara da gedir, hər sətirdə bir ünvan.",
     "keep_copy_help": "Açıq: yönləndirilən mesajın surəti mailbox'da qalır. Bağlı: mesaj yalnız gedir və mailbox boş qalır.",
     "relay_host_help": "Bu mailbox'ın gedən maili birbaşa çatdırılma yerinə bu serverə gedir. Boş: domen parametri qüvvədədir.",
-    "new_password_help": "Yeni parol saxlanmış parolu dərhal əvəz edir. Admin növbəti girişdə onu işlədir."
+    "new_password_help": "Yeni parol saxlanmış parolu dərhal əvəz edir. Admin növbəti girişdə onu işlədir.",
+    "department": "Şöbə",
+    "department_help": "İstifadəçinin şöbəsi. Panel bunu yalnız saxlayır.",
+    "birthday": "Doğum tarixi",
+    "birthday_help": "İstifadəçinin doğum tarixi, YYYY-AA-GG formatında. Boş olduqda təyin edilməmiş sayılır. Panel bunu yalnız saxlayır.",
+    "msg_invalid_birthday": "Doğum tarixi yanlışdır. YYYY-AA-GG formatından istifadə edin."
   },
   "mlist": {
     "msg_updated": "Poçt siyahısı yeniləndi!",

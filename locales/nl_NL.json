@@ -470,7 +470,12 @@
     "forwarding_addresses_help": "De mail van deze mailbox gaat ook naar deze adressen, één per regel.",
     "keep_copy_help": "Aan: een kopie van het doorgestuurde bericht blijft in de mailbox. Uit: het bericht gaat alleen weg en de mailbox blijft leeg.",
     "relay_host_help": "De uitgaande mail van deze mailbox gaat naar deze server in plaats van een directe bezorging. Leeg: de instelling van het domein geldt.",
-    "new_password_help": "Het nieuwe wachtwoord vervangt het opgeslagen wachtwoord meteen. De beheerder meldt zich er de volgende keer mee aan."
+    "new_password_help": "Het nieuwe wachtwoord vervangt het opgeslagen wachtwoord meteen. De beheerder meldt zich er de volgende keer mee aan.",
+    "department": "Afdeling",
+    "department_help": "De afdeling van de gebruiker. Het panel slaat deze alleen op.",
+    "birthday": "Geboortedatum",
+    "birthday_help": "De geboortedatum van de gebruiker, in het formaat JJJJ-MM-DD. Leeg betekent niet ingesteld. Het panel slaat deze alleen op.",
+    "msg_invalid_birthday": "Ongeldige geboortedatum. Gebruik het formaat JJJJ-MM-DD."
   },
   "mlist": {
     "msg_updated": "Mailinglijst bijgewerkt!",

@@ -470,7 +470,12 @@
     "forwarding_addresses_help": "Bu mailbox'ın maili bu adreslere de gider, her satıra bir adres.",
     "keep_copy_help": "Açık: yönlendirilen mesajın bir kopyası mailbox'ta kalır. Kapalı: mesaj yalnızca gider ve mailbox boş kalır.",
     "relay_host_help": "Bu mailbox'ın giden maili doğrudan teslim yerine bu sunucuya gider. Boş bırakılırsa domain ayarı geçerlidir.",
-    "new_password_help": "Yeni parola saklı parolanın yerine hemen geçer. Admin bir sonraki girişte bu parolayı kullanır."
+    "new_password_help": "Yeni parola saklı parolanın yerine hemen geçer. Admin bir sonraki girişte bu parolayı kullanır.",
+    "department": "Departman",
+    "department_help": "Kullanıcının departmanı. Panel bunu yalnızca saklar.",
+    "birthday": "Doğum tarihi",
+    "birthday_help": "Kullanıcının doğum tarihi, YYYY-AA-GG biçiminde. Boş bırakılırsa ayarlanmamış sayılır. Panel bunu yalnızca saklar.",
+    "msg_invalid_birthday": "Doğum tarihi geçersiz. YYYY-AA-GG biçimini kullanın."
   },
   "mlist": {
     "msg_updated": "Posta listesi güncellendi!",

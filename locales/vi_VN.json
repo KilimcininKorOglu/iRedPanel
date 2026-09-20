@@ -470,7 +470,12 @@
     "forwarding_addresses_help": "Mail của hộp thư này cũng đi tới các địa chỉ này, mỗi dòng một địa chỉ.",
     "keep_copy_help": "Bật: một bản sao của thư đã chuyển tiếp ở lại hộp thư. Tắt: thư chỉ đi tiếp và hộp thư vẫn trống.",
     "relay_host_help": "Mail đi của hộp thư này tới server này thay vì gửi trực tiếp. Để trống: áp dụng thiết lập của domain.",
-    "new_password_help": "Mật khẩu mới thay ngay mật khẩu đã lưu. Quản trị viên dùng nó ở lần đăng nhập kế tiếp."
+    "new_password_help": "Mật khẩu mới thay ngay mật khẩu đã lưu. Quản trị viên dùng nó ở lần đăng nhập kế tiếp.",
+    "department": "Phòng ban",
+    "department_help": "Phòng ban của người dùng. Panel chỉ lưu giá trị này.",
+    "birthday": "Ngày sinh",
+    "birthday_help": "Ngày sinh của người dùng, theo định dạng NNNN-TT-NN. Để trống nghĩa là chưa đặt. Panel chỉ lưu giá trị này.",
+    "msg_invalid_birthday": "Ngày sinh không hợp lệ. Hãy dùng định dạng NNNN-TT-NN."
   },
   "mlist": {
     "msg_updated": "Danh sách gửi thư đã được cập nhật!",

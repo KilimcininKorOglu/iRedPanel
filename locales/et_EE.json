@@ -470,7 +470,12 @@
     "forwarding_addresses_help": "Selle postkasti kirjad lähevad ka nendele aadressidele, üks reale.",
     "keep_copy_help": "Sees: edasisaadetud kirja koopia jääb postkasti. Väljas: kiri ainult lahkub ja postkast jääb tühjaks.",
     "relay_host_help": "Selle postkasti väljuvad kirjad lähevad otsese kohaletoimetamise asemel sellesse serverisse. Tühi: kehtib domeeni seade.",
-    "new_password_help": "Uus parool asendab salvestatu kohe. Admin logib sellega sisse järgmisel korral."
+    "new_password_help": "Uus parool asendab salvestatu kohe. Admin logib sellega sisse järgmisel korral.",
+    "department": "Osakond",
+    "department_help": "Kasutaja osakond. Paneel ainult salvestab selle.",
+    "birthday": "Sünnipäev",
+    "birthday_help": "Kasutaja sünnipäev kujul AAAA-KK-PP. Tühi tähendab määramata. Paneel ainult salvestab selle.",
+    "msg_invalid_birthday": "Vigane sünnipäev. Kasuta kuju AAAA-KK-PP."
   },
   "mlist": {
     "msg_updated": "Postiloend uuendatud!",

@@ -470,7 +470,12 @@
     "forwarding_addresses_help": "Posten till den här brevlådan går också till de här adresserna, en per rad.",
     "keep_copy_help": "På: en kopia av det vidarebefordrade meddelandet blir kvar i brevlådan. Av: meddelandet går bara vidare och brevlådan står tom.",
     "relay_host_help": "Utgående post från den här brevlådan går till den här servern i stället för direkt leverans. Tomt: domänens inställning gäller.",
-    "new_password_help": "Det nya lösenordet ersätter det sparade direkt. Administratören loggar in med det nästa gång."
+    "new_password_help": "Det nya lösenordet ersätter det sparade direkt. Administratören loggar in med det nästa gång.",
+    "department": "Avdelning",
+    "department_help": "Användarens avdelning. Panelen lagrar den bara.",
+    "birthday": "Födelsedag",
+    "birthday_help": "Användarens födelsedag i formatet ÅÅÅÅ-MM-DD. Tomt betyder inte angiven. Panelen lagrar den bara.",
+    "msg_invalid_birthday": "Ogiltig födelsedag. Använd formatet ÅÅÅÅ-MM-DD."
   },
   "mlist": {
     "msg_updated": "Sändlista uppdaterad!",

@@ -470,7 +470,12 @@
     "forwarding_addresses_help": "Tämän postilaatikon posti menee myös näihin osoitteisiin, yksi riviä kohden.",
     "keep_copy_help": "Päällä: kopio välitetystä viestistä jää postilaatikkoon. Pois: viesti vain lähtee ja postilaatikko jää tyhjäksi.",
     "relay_host_help": "Tämän postilaatikon lähtevä posti menee tähän palvelimeen suoran toimituksen sijaan. Tyhjä: verkkotunnuksen asetus pätee.",
-    "new_password_help": "Uusi salasana korvaa tallennetun heti. Ylläpitäjä kirjautuu sillä seuraavalla kerralla."
+    "new_password_help": "Uusi salasana korvaa tallennetun heti. Ylläpitäjä kirjautuu sillä seuraavalla kerralla.",
+    "department": "Osasto",
+    "department_help": "Käyttäjän osasto. Paneeli vain tallentaa sen.",
+    "birthday": "Syntymäpäivä",
+    "birthday_help": "Käyttäjän syntymäpäivä muodossa VVVV-KK-PP. Tyhjä tarkoittaa asettamatonta. Paneeli vain tallentaa sen.",
+    "msg_invalid_birthday": "Virheellinen syntymäpäivä. Käytä muotoa VVVV-KK-PP."
   },
   "mlist": {
     "msg_updated": "Postituslista päivitetty!",

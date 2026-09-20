@@ -75,6 +75,9 @@ class User
         public string $sn = '',
         public string $employeeNumber = '',
         public string $title = '',
+        public string $department = '',
+        /** Birthday as YYYY-MM-DD; '' means not set. */
+        public string $birthday = '',
         public string $mobile = '',
         public string $telephoneNumber = '',
         public bool $domainGlobalAdmin = false,
@@ -91,6 +94,41 @@ class User
         /** Preferred UI language (xx_YY); '' uses the default, null means not loaded and keeps the stored value on update. */
         public ?string $language = null,
     ) {}
+
+    /** The value that the SQL `birthday` column holds when no birthday is set. */
+    public const EMPTY_BIRTHDAY = '0001-01-01';
+
+    /**
+     * @throws InvalidInputException when the value is not '' or a date in YYYY-MM-DD format
+     */
+    public static function validBirthday(mixed $value): string
+    {
+        if ($value === null || $value === '') {
+            return '';
+        }
+        if (is_string($value) && preg_match('/^\d{4}-\d{2}-\d{2}$/', $value) === 1) {
+            [$year, $month, $day] = array_map(intval(...), explode('-', $value));
+            if (checkdate($month, $day, $year)) {
+                return $value;
+            }
+        }
+
+        throw new InvalidInputException('birthday must be a date in YYYY-MM-DD format', 'user.msg_invalid_birthday');
+    }
+
+    /** Converts a stored SQL birthday to the model value; the column default means not set. */
+    public static function birthdayFromSql(mixed $stored): string
+    {
+        $value = (string) ($stored ?? '');
+
+        return $value === self::EMPTY_BIRTHDAY ? '' : $value;
+    }
+
+    /** Converts the model value to the SQL column value; the column is NOT NULL. */
+    public function birthdaySql(): string
+    {
+        return $this->birthday === '' ? self::EMPTY_BIRTHDAY : $this->birthday;
+    }
 
     /**
      * @throws InvalidInputException when the value is not '' or a locale code such as de_DE
@@ -241,6 +279,8 @@ class User
             sn: $entry['sn'] ?? '',
             employeeNumber: $entry['employeeNumber'] ?? '',
             title: $entry['title'] ?? '',
+            department: $entry['departmentNumber'] ?? '',
+            birthday: $entry['birthday'] ?? '',
             mobile: $entry['mobile'] ?? '',
             telephoneNumber: $entry['telephoneNumber'] ?? '',
             domainGlobalAdmin: ($entry['domainGlobalAdmin'] ?? '') === 'yes',
@@ -279,6 +319,8 @@ class User
             sn: FormValue::text($post, 'sn'),
             employeeNumber: FormValue::text($post, 'employeeNumber'),
             title: FormValue::text($post, 'title'),
+            department: FormValue::text($post, 'department'),
+            birthday: self::validBirthday($post['birthday'] ?? ''),
             mobile: FormValue::text($post, 'mobile'),
             telephoneNumber: FormValue::text($post, 'telephoneNumber'),
             domainGlobalAdmin: (bool) ($post['domainGlobalAdmin'] ?? false),

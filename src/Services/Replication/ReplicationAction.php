@@ -43,6 +43,6 @@ final class ReplicationAction
      */
     public function address(): string
     {
-        return $this->source?->address ?: ($this->link?->address ?? '');
+        return $this->source?->address ?: ($this->link->address ?? '');
     }
 }

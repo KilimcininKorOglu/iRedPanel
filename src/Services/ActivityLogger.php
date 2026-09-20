@@ -14,7 +14,7 @@ use App\Repositories\Pgsql\IredadminPgsqlConnection;
  */
 class ActivityLogger
 {
-    private static function getConnection(): ?object
+    private static function getConnection(): object
     {
         return Settings::getInstance()->backend === 'pgsql'
             ? IredadminPgsqlConnection::getInstance()

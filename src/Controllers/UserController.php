@@ -121,7 +121,7 @@ class UserController
                         $user->domainGlobalAdmin = $existingUser ? $existingUser->domainGlobalAdmin : false;
                     }
 
-                    $error = self::quotaChangeError($domain, $existingUser?->mailQuota ?? $user->mailQuota, $user->mailQuota) ?? $error;
+                    $error = self::quotaChangeError($domain, $existingUser->mailQuota ?? $user->mailQuota, $user->mailQuota) ?? $error;
 
                     if ($error === null) {
                         $userRepo->updateUser($domain, $user);
@@ -567,7 +567,7 @@ class UserController
     private static function domainSettings(string $domain): DomainSettings
     {
         return DomainSettings::fromSettingsString(
-            RepositoryFactory::getDomainRepository()->getDomain($domain)?->settings ?? ''
+            RepositoryFactory::getDomainRepository()->getDomain($domain)->settings ?? ''
         );
     }
 }

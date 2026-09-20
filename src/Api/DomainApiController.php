@@ -165,6 +165,7 @@ class DomainApiController
                 'senderBcc' => $bcc->setDomainSenderBcc($domain, $value),
                 'recipientBcc' => $bcc->setDomainRecipientBcc($domain, $value),
                 'relayhost' => RepositoryFactory::getRelayRepository()->setRelayhost('@' . $domain, $value),
+                default => throw new \LogicException("Unknown routing field: {$field}"),
             };
         }
     }

@@ -62,7 +62,7 @@ final class LdifExportService
 
             $ldif .= self::entries($conn, $result);
             $cookie = self::nextCookie($conn, $result);
-        } while ($cookie !== '' && $cookie !== null);
+        } while ($cookie !== '');
 
         return $ldif;
     }
@@ -124,7 +124,7 @@ final class LdifExportService
      *
      * @param \LDAP\Result $result
      */
-    private static function nextCookie(\LDAP\Connection $conn, $result): ?string
+    private static function nextCookie(\LDAP\Connection $conn, $result): string
     {
         $controls = [];
         ldap_parse_result($conn, $result, $errcode, $matcheddn, $errmsg, $referrals, $controls);

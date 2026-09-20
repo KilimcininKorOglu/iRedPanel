@@ -52,8 +52,8 @@ final class LocalAccountWriter
      */
     public function rename(ReplicationAction $action): void
     {
-        $old = $action->link?->address ?? throw new \LogicException('A rename needs the stored address');
-        $new = $action->source?->address ?? throw new \LogicException('A rename needs the directory object');
+        $old = $action->link->address ?? throw new \LogicException('A rename needs the stored address');
+        $new = $action->source->address ?? throw new \LogicException('A rename needs the directory object');
         if ($action->kind === ReplicatedAccount::KIND_GROUP) {
             $this->renameGroup($old, $new);
             return;

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-define('APP_VERSION', \Composer\InstalledVersions::getRootPackage()['pretty_version'] ?? 'dev');
+define('APP_VERSION', \Composer\InstalledVersions::getRootPackage()['pretty_version']);
 
 use App\I18n\LocaleResolver;
 use App\I18n\Translator;

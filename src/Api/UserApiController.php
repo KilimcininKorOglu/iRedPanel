@@ -283,7 +283,7 @@ class UserApiController
     private static function domainSettings(string $domain): DomainSettings
     {
         return DomainSettings::fromSettingsString(
-            RepositoryFactory::getDomainRepository()->getDomain($domain)?->settings ?? ''
+            RepositoryFactory::getDomainRepository()->getDomain($domain)->settings ?? ''
         );
     }
 
@@ -429,6 +429,7 @@ class UserApiController
                 'relayhost' => RepositoryFactory::getRelayRepository()->setRelayhost($email, $value),
                 'transport' => RepositoryFactory::getUserRepository()
                     ->setTransport($domain, explode('@', $email, 2)[0], $value),
+                default => throw new \LogicException("Unknown routing field: {$field}"),
             };
         }
     }
@@ -466,7 +467,7 @@ class UserApiController
             $repo = RepositoryFactory::getAuthRepository();
             try {
                 $result = $repo->authenticate($email, $password);
-                ApiResponse::success(['verified' => $result !== null]);
+                ApiResponse::success(['verified' => $result]);
             } catch (\Exception $e) {
                 ApiResponse::success(['verified' => false]);
             }
@@ -564,7 +565,7 @@ class UserApiController
             return null;
         }
         $settings = DomainSettings::fromSettingsString(
-            RepositoryFactory::getDomainRepository()->getDomain($domain)?->settings ?? ''
+            RepositoryFactory::getDomainRepository()->getDomain($domain)->settings ?? ''
         );
         $servicePages = array_fill_keys(array_values(User::SERVICE_TOGGLES), 'services');
         foreach (array_keys($data) as $field) {

@@ -100,10 +100,10 @@ class UserPassword
     private static function violations(string $password, string $passwordRepeat, ?DomainSettings $domainSettings): array
     {
         $settings = Settings::getInstance();
-        $minLength = ($domainSettings?->minPasswordLength ?? 0) > 0
+        $minLength = ($domainSettings->minPasswordLength ?? 0) > 0
             ? $domainSettings->minPasswordLength
             : $settings->passwordMinLength;
-        $maxLength = $domainSettings?->maxPasswordLength ?? 0;
+        $maxLength = $domainSettings->maxPasswordLength ?? 0;
         $violations = [];
 
         $passwordViolation = self::validateSingle($password, $settings, $minLength, $maxLength);

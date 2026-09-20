@@ -311,7 +311,7 @@ class MysqlUserRepository implements UserRepositoryInterface
         $stmt = MysqlConnection::getInstance()->getPdo()->prepare(
             "SELECT 1 FROM mailbox WHERE CONCAT(storagebasedirectory, '/', storagenode, '/', maildir) IN (" . implode(', ', array_fill(0, count($paths), '?')) . ") LIMIT 1"
         );
-        $stmt->execute(array_values($paths));
+        $stmt->execute($paths);
 
         return $stmt->fetchColumn() !== false;
     }

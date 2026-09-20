@@ -97,8 +97,12 @@ final class WhiteBlacklistService
     }
 
     /**
-     * @param array<int, array{sender: string, wb: string}> $entries
-     * @return array<int, array{sender: string, wb: string}>
+     * Keeps the entries of one kind. An inbound row carries `sender`, an outbound
+     * row `recipient`, so only `wb` is read here.
+     *
+     * @template TEntry of array{wb: string, ...}
+     * @param array<int, TEntry> $entries
+     * @return array<int, TEntry>
      */
     public static function filtered(array $entries, ?string $wb): array
     {

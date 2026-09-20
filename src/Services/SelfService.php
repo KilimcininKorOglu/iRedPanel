@@ -75,7 +75,7 @@ final class SelfService
     {
         $domain = RepositoryFactory::getDomainRepository()->getDomain(self::account()['domain']);
 
-        return DomainSettings::fromSettingsString($domain?->settings ?? '');
+        return DomainSettings::fromSettingsString($domain->settings ?? '');
     }
 
     /**

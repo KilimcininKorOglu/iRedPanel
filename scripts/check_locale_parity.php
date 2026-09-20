@@ -23,7 +23,7 @@ $flatten = static function (array $a, string $prefix = '') use (&$flatten): arra
 };
 
 $baseKeys = $flatten($base);
-$targets = $argv;
+$targets = $_SERVER['argv'];
 array_shift($targets);
 if ($targets === []) {
     $targets = array_map(

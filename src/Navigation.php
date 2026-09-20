@@ -90,6 +90,9 @@ class Navigation
                 $items,
                 static fn (array $item): bool => array_filter($item['requires'], static fn (string $flag): bool => empty($flags[$flag])) === []
             ));
+            // PHPStan reads array_filter over the constant GROUPS list as non-empty,
+            // but the callback drops every item whose flags are off, so a group can be empty.
+            // @phpstan-ignore notIdentical.alwaysTrue
             if ($visible !== []) {
                 $groups[$label] = $visible;
             }

@@ -194,7 +194,7 @@ final class ReplicationRunner
             guid: $action->guid,
             kind: $action->kind,
             address: $address,
-            sourceDn: $action->source?->dn ?? $link->sourceDn,
+            sourceDn: $action->source->dn ?? $link->sourceDn,
             fingerprint: $action->fingerprint,
             state: $state,
             lastSeenAt: time(),

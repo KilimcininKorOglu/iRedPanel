@@ -62,7 +62,7 @@ class AuthController
                 $email = strtolower(trim($email));
                 self::startSession($email);
                 $_SESSION['selfService'] = true;
-                self::applyStoredLanguage($email, static fn (): string => SelfService::user()?->language ?? '');
+                self::applyStoredLanguage($email, static fn (): string => SelfService::user()->language ?? '');
 
                 ActivityLogger::log('user_login', '', $email, 'User login (self-service)');
                 header('Location: ' . (str_starts_with($next, '/self') ? $next : '/self'));
@@ -76,7 +76,7 @@ class AuthController
 
             $clientIp = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
             error_log("WARNING: Failed login attempt for '{$email}' from IP {$clientIp} (attempt #{$_SESSION['failedLoginAttempts']})");
-            ActivityLogger::log('login', '', $email ?? '', "Login failed from {$clientIp}", 'error');
+            ActivityLogger::log('login', '', $email, "Login failed from {$clientIp}", 'error');
 
             $error = Translator::translate('auth.invalid_credentials');
         }

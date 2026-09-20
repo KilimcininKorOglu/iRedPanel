@@ -32,7 +32,7 @@ function preparePassword(string $email, string $password): array|string
         return "not found: {$email}";
     }
 
-    $settings = DomainSettings::fromSettingsString(RepositoryFactory::getDomainRepository()->getDomain($domain)?->settings ?? '');
+    $settings = DomainSettings::fromSettingsString(RepositoryFactory::getDomainRepository()->getDomain($domain)->settings ?? '');
     $validationErrors = UserPassword::validate($password, $password, $settings);
     if ($validationErrors !== []) {
         return "{$email}: password policy violation: {$validationErrors['password']}";

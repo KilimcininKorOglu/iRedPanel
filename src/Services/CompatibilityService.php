@@ -30,7 +30,8 @@ class CompatibilityService
 
     /**
      * @return array{releases: list<array{version: string, date: string, iredmail: list<string>, backends: list<string>}>, source: string, checkedAt: ?int}
-     * @throws \RuntimeException when the bundled list is missing or invalid
+     * @throws \RuntimeException when the bundled list is missing
+     * @throws \InvalidArgumentException when a list cannot be parsed
      */
     public static function load(): array
     {

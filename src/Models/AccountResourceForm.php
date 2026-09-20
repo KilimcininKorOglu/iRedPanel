@@ -39,13 +39,18 @@ final class AccountResourceForm
      */
     public static function apply(AccountResource $resource, string $tab, array $post): ?string
     {
-        return match ($tab) {
-            'connection' => self::applyConnection($resource, $post),
+        if ($tab === 'connection') {
+            return self::applyConnection($resource, $post);
+        }
+
+        match ($tab) {
             'replication' => self::applyReplication($resource, $post),
             'users' => self::applyUsers($resource, $post),
             'groups' => self::applyGroups($resource, $post),
             default => throw new InvalidInputException("Unknown tab {$tab}", 'common.msg_invalid_input'),
         };
+
+        return null;
     }
 
     private static function applyConnection(AccountResource $resource, array $post): ?string
@@ -69,15 +74,13 @@ final class AccountResourceForm
         return $password === '' ? null : $password;
     }
 
-    private static function applyReplication(AccountResource $resource, array $post): ?string
+    private static function applyReplication(AccountResource $resource, array $post): void
     {
         $resource->intervalMinutes = self::number($post, 'intervalMinutes', 1, 1440, 'resource.interval');
         $resource->replicateGroups = (bool) ($post['replicateGroups'] ?? false);
-
-        return null;
     }
 
-    private static function applyUsers(AccountResource $resource, array $post): ?string
+    private static function applyUsers(AccountResource $resource, array $post): void
     {
         $resource->userMailAttribute = self::matching($post, 'userMailAttribute', self::ATTRIBUTE_PATTERN, 'resource.mail_attribute');
         $attributes = [];
@@ -85,11 +88,9 @@ final class AccountResourceForm
             $attributes[$property] = self::optionalAttribute($post, "attr_{$property}", $label);
         }
         $resource->userAttributes = $attributes;
-
-        return null;
     }
 
-    private static function applyGroups(AccountResource $resource, array $post): ?string
+    private static function applyGroups(AccountResource $resource, array $post): void
     {
         $resource->groupMailAttribute = self::matching($post, 'groupMailAttribute', self::ATTRIBUTE_PATTERN, 'resource.mail_attribute');
         $resource->groupNameAttribute = self::optionalAttribute($post, 'groupNameAttribute', 'user.full_name');
@@ -98,8 +99,6 @@ final class AccountResourceForm
             throw self::invalid('alias.access_policy');
         }
         $resource->groupAccessPolicy = $policy;
-
-        return null;
     }
 
     private static function required(array $post, string $name, string $label): string

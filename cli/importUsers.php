@@ -136,13 +136,13 @@ function subscribe(string $email, string $mailingLists): void
     }
 }
 
-if ($argc < 2) {
+if (count($_SERVER['argv']) < 2) {
     echo "Usage: php cli/importUsers.php <csv_file>\n";
     echo "\nCSV format: email, password, quota_mb, display_name, mailing_lists, employee_id\n";
     exit(1);
 }
 
-$csvFile = $argv[1];
+$csvFile = $_SERVER['argv'][1];
 
 if (!file_exists($csvFile) || !is_readable($csvFile)) {
     echo "Error: Cannot read file: {$csvFile}\n";

@@ -45,11 +45,6 @@ try {
     exit(1);
 }
 
-if ($vmailPdo === null) {
-    fwrite(STDERR, "Cannot connect to the vmail database.\n");
-    exit(1);
-}
-
 // Get last notification time
 $lastNotifyTime = 0;
 if ($iredadminPdo !== null) {
@@ -165,7 +160,7 @@ function buildNotificationBody(string $userEmail, array $messages, int $quarDays
     HTML;
 }
 
-function getVmailPdo(Settings $settings): ?\PDO
+function getVmailPdo(Settings $settings): \PDO
 {
     return $settings->backend === 'pgsql'
         ? \App\Repositories\Pgsql\PgsqlConnection::getInstance()->getPdo()

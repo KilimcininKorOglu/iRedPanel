@@ -53,9 +53,7 @@ class LdapConnection
 
     public function __destruct()
     {
-        if (isset($this->conn)) {
-            @ldap_unbind($this->conn);
-        }
+        @ldap_unbind($this->conn);
     }
 
     /**

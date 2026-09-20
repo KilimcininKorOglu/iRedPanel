@@ -248,6 +248,7 @@ class DomainController
             'bcc' => self::saveBcc($domainName),
             'relay' => self::saveRelay($domainName),
             ProfileToggles::ADMINS_PAGE => self::saveAdmins($domainName, $isGlobalAdmin),
+            default => throw new \LogicException("Unknown domain edit mode: {$editMode}"),
         };
     }
 

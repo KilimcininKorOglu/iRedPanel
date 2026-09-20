@@ -703,7 +703,13 @@
     "label_smtpSecurity_help": "none 不加密寄送，starttls 升級明文連線，tls 直接加密連線。預設：starttls。",
     "label_smtpTlsVerify_help": "開啟：面板拒絕憑證驗證失敗的伺服器。關閉：接受任何憑證。預設：開啟。",
     "label_smtpUser_help": "面板用於驗證的帳戶。留空則不進行驗證。預設：留空。",
-    "label_smtpFrom_help": "面板所寄郵件的 From 位址。留空則使用 SMTP 使用者。預設：留空。"
+    "label_smtpFrom_help": "面板所寄郵件的 From 位址。留空則使用 SMTP 使用者。預設：留空。",
+    "label_smtpPassword": "SMTP 密碼",
+    "label_smtpPassword_help": "SMTP 使用者的密碼。以 IREDPANEL_SECRET_KEY 加密儲存，不會再次顯示。留空則不進行驗證。",
+    "label_mlmmjadminApiUrl": "mlmmjadmin API URL",
+    "label_mlmmjadminApiUrl_help": "管理 mlmmj 清單 spool 的 mlmmjadmin API 位址，例如 http://127.0.0.1:7790/api。留空會停止所有 mailing list 操作。",
+    "label_mlmmjadminApiToken": "mlmmjadmin API token",
+    "label_mlmmjadminApiToken_help": "郵件伺服器 /opt/mlmmjadmin/settings.py 中 api_auth_tokens 之一。以 IREDPANEL_SECRET_KEY 加密儲存，不會再次顯示。"
   },
   "quarantine": {
     "title": "隔離區",

@@ -703,7 +703,13 @@
     "label_smtpSecurity_help": "none mengirim tanpa enkripsi, starttls meningkatkan koneksi terbuka, tls terhubung terenkripsi. Bawaan: starttls.",
     "label_smtpTlsVerify_help": "Aktif: panel menolak server yang sertifikatnya tidak lolos verifikasi. Nonaktif: menerima sertifikat apa pun. Bawaan: aktif.",
     "label_smtpUser_help": "Akun yang dipakai panel untuk autentikasi. Kosong mengirim tanpa autentikasi. Bawaan: kosong.",
-    "label_smtpFrom_help": "Alamat From surat yang dikirim panel. Kosong memakai pengguna SMTP. Bawaan: kosong."
+    "label_smtpFrom_help": "Alamat From surat yang dikirim panel. Kosong memakai pengguna SMTP. Bawaan: kosong.",
+    "label_smtpPassword": "Kata sandi SMTP",
+    "label_smtpPassword_help": "Kata sandi pengguna SMTP. Disimpan terenkripsi dengan IREDPANEL_SECRET_KEY dan tidak pernah ditampilkan lagi. Kosong mengirim tanpa autentikasi.",
+    "label_mlmmjadminApiUrl": "URL API mlmmjadmin",
+    "label_mlmmjadminApiUrl_help": "Alamat API mlmmjadmin yang mengelola spool mlmmj, misalnya http://127.0.0.1:7790/api. Kosong menghentikan semua operasi mailing list.",
+    "label_mlmmjadminApiToken": "Token API mlmmjadmin",
+    "label_mlmmjadminApiToken_help": "Salah satu api_auth_tokens di /opt/mlmmjadmin/settings.py pada server surat. Disimpan terenkripsi dengan IREDPANEL_SECRET_KEY dan tidak pernah ditampilkan lagi."
   },
   "quarantine": {
     "title": "Karantina",

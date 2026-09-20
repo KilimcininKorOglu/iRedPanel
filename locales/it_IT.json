@@ -703,7 +703,13 @@
     "label_smtpSecurity_help": "none invia senza cifratura, starttls eleva una connessione in chiaro, tls si collega cifrato. Predefinito: starttls.",
     "label_smtpTlsVerify_help": "Attivo: il pannello rifiuta un server il cui certificato non viene convalidato. Disattivo: accetta qualsiasi certificato. Predefinito: attivo.",
     "label_smtpUser_help": "L'account con cui il pannello si autentica. Vuoto invia senza autenticazione. Predefinito: vuoto.",
-    "label_smtpFrom_help": "L'indirizzo From della posta inviata dal pannello. Vuoto usa l'utente SMTP. Predefinito: vuoto."
+    "label_smtpFrom_help": "L'indirizzo From della posta inviata dal pannello. Vuoto usa l'utente SMTP. Predefinito: vuoto.",
+    "label_smtpPassword": "Password SMTP",
+    "label_smtpPassword_help": "La password dell'utente SMTP. Viene salvata cifrata con IREDPANEL_SECRET_KEY e non viene più mostrata. Vuoto invia senza autenticazione.",
+    "label_mlmmjadminApiUrl": "URL dell'API mlmmjadmin",
+    "label_mlmmjadminApiUrl_help": "Indirizzo dell'API mlmmjadmin che gestisce lo spool di mlmmj, per esempio http://127.0.0.1:7790/api. Vuoto blocca ogni operazione di mailing list.",
+    "label_mlmmjadminApiToken": "Token dell'API mlmmjadmin",
+    "label_mlmmjadminApiToken_help": "Uno degli api_auth_tokens in /opt/mlmmjadmin/settings.py sul server di posta. Viene salvato cifrato con IREDPANEL_SECRET_KEY e non viene più mostrato."
   },
   "quarantine": {
     "title": "Quarantena",

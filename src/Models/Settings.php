@@ -50,11 +50,6 @@ class Settings
     public readonly string $iredapdDbUser;
     public readonly string $iredapdDbPassword;
 
-    // mlmmjadmin RESTful API, which manages the mlmmj mailing list spool
-    public readonly string $mlmmjadminApiUrl;
-    public readonly string $mlmmjadminApiToken;
-
-    public readonly string $smtpPassword;
 
     // LDAP settings (populated only when backend=ldap)
     public readonly string $ldapUri;
@@ -122,8 +117,13 @@ class Settings
     public bool $iredapdEnabled;
     public string $geoIpDbPath;
 
+    // mlmmjadmin RESTful API, which manages the mlmmj mailing list spool
+    public string $mlmmjadminApiUrl;
+    public string $mlmmjadminApiToken;
+
     // Outgoing SMTP for newsletter confirmations and quarantine notifications
     public string $smtpHost;
+    public string $smtpPassword;
     public int $smtpPort;
     public string $smtpSecurity;
     public bool $smtpTlsVerify;
@@ -187,10 +187,20 @@ class Settings
         'smtpSecurity' => 'string',
         'smtpTlsVerify' => 'bool',
         'smtpUser' => 'string',
+        'smtpPassword' => 'string',
         'smtpFrom' => 'string',
         'publicUrl' => 'string',
         'newsletterExpireHours' => 'int',
+        'mlmmjadminApiUrl' => 'string',
+        'mlmmjadminApiToken' => 'string',
     ];
+
+    /**
+     * Overridable settings that panel_settings holds encrypted, because the panel
+     * must read the value back. A row that no key can decrypt is ignored, so the
+     * .env value of that setting stays in force.
+     */
+    public const ENCRYPTED_KEYS = ['smtpPassword', 'mlmmjadminApiToken'];
 
     /** The modes that IREDPANEL_SMTP_SECURITY and the settings form accept. */
     public const SMTP_SECURITY_MODES = ['none', 'starttls', 'tls'];
@@ -233,11 +243,6 @@ class Settings
         $this->iredapdDbName = $this->env('IREDPANEL_IREDAPD_DB_NAME', 'iredapd');
         $this->iredapdDbUser = $this->env('IREDPANEL_IREDAPD_DB_USER', '');
         $this->iredapdDbPassword = $this->env('IREDPANEL_IREDAPD_DB_PASSWORD', '');
-
-        // mlmmjadmin API. Readonly properties may only be assigned here.
-        $this->mlmmjadminApiUrl = rtrim($this->env('IREDPANEL_MLMMJADMIN_API_URL', ''), '/');
-        $this->mlmmjadminApiToken = $this->env('IREDPANEL_MLMMJADMIN_API_TOKEN', '');
-        $this->smtpPassword = $this->env('IREDPANEL_SMTP_PASSWORD', '');
 
         // The DB-overridable settings run last, because the Amavisd quarantine
         // host falls back to the Amavisd database host.
@@ -417,6 +422,8 @@ class Settings
         $this->fail2banSocket = $this->env('IREDPANEL_FAIL2BAN_SOCKET', '');
         $this->fail2banJails = $this->env('IREDPANEL_FAIL2BAN_JAILS', 'dovecot,postfix,postfix-sasl');
         $this->iredapdEnabled = $this->envBool('IREDPANEL_IREDAPD_ENABLED', false);
+        $this->mlmmjadminApiUrl = rtrim($this->env('IREDPANEL_MLMMJADMIN_API_URL', ''), '/');
+        $this->mlmmjadminApiToken = $this->env('IREDPANEL_MLMMJADMIN_API_TOKEN', '');
     }
 
     /**
@@ -430,6 +437,7 @@ class Settings
         $this->smtpPort = $this->envInt('IREDPANEL_SMTP_PORT', $this->smtpSecurity === 'tls' ? 465 : 587);
         $this->smtpTlsVerify = $this->envBool('IREDPANEL_SMTP_TLS_VERIFY', true);
         $this->smtpUser = $this->env('IREDPANEL_SMTP_USER', '');
+        $this->smtpPassword = $this->env('IREDPANEL_SMTP_PASSWORD', '');
         $this->smtpFrom = $this->env('IREDPANEL_SMTP_FROM', '');
         $this->publicUrl = $this->validPublicUrl();
         $this->newsletterExpireHours = max(1, $this->envInt('IREDPANEL_NEWSLETTER_EXPIRE_HOURS', 24));
@@ -562,11 +570,38 @@ class Settings
             }
         }
 
+        if (in_array($key, self::ENCRYPTED_KEYS, true)) {
+            $plaintext = $this->decryptedOverride($key, $value);
+            if ($plaintext === null) {
+                return;
+            }
+            $value = $plaintext;
+        }
+
         $this->$key = match ($type) {
             'int' => (int) $value,
             'bool' => filter_var($value, FILTER_VALIDATE_BOOLEAN),
             default => $value,
         };
+    }
+
+    /**
+     * The plaintext of one encrypted row, or null when no key reads it. A row
+     * written under another IREDPANEL_SECRET_KEY, and a missing ext-sodium, both
+     * leave the .env value in force instead of emptying the setting.
+     */
+    private function decryptedOverride(string $key, string $stored): ?string
+    {
+        if ($stored === '') {
+            return '';
+        }
+
+        try {
+            return \App\Utils\SecretBox::fromSecret($this->secretKey)->decrypt($stored);
+        } catch (\Throwable $e) {
+            error_log("iRedPanel: cannot read the stored {$key}: " . $e->getMessage());
+            return null;
+        }
     }
 
     /**

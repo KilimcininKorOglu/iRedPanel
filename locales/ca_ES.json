@@ -703,7 +703,13 @@
     "label_smtpSecurity_help": "none envia sense xifrar, starttls millora una connexió en clar, tls connecta xifrat. Per defecte: starttls.",
     "label_smtpTlsVerify_help": "Activat: el panell rebutja un servidor amb un certificat que no es valida. Desactivat: accepta qualsevol certificat. Per defecte: activat.",
     "label_smtpUser_help": "El compte amb què s'autentica el panell. Buit envia sense autenticació. Per defecte: buit.",
-    "label_smtpFrom_help": "L'adreça From del correu que envia el panell. Buit fa servir l'usuari SMTP. Per defecte: buit."
+    "label_smtpFrom_help": "L'adreça From del correu que envia el panell. Buit fa servir l'usuari SMTP. Per defecte: buit.",
+    "label_smtpPassword": "Contrasenya SMTP",
+    "label_smtpPassword_help": "La contrasenya de l'usuari SMTP. Es desa xifrada amb IREDPANEL_SECRET_KEY i no es torna a mostrar. Buit envia sense autenticació.",
+    "label_mlmmjadminApiUrl": "URL de l'API de mlmmjadmin",
+    "label_mlmmjadminApiUrl_help": "Adreça de l'API de mlmmjadmin que gestiona l'spool de mlmmj, per exemple http://127.0.0.1:7790/api. Buit atura cada operació de mailing list.",
+    "label_mlmmjadminApiToken": "Token de l'API de mlmmjadmin",
+    "label_mlmmjadminApiToken_help": "Un dels api_auth_tokens de /opt/mlmmjadmin/settings.py al servidor de correu. Es desa xifrat amb IREDPANEL_SECRET_KEY i no es torna a mostrar."
   },
   "quarantine": {
     "title": "Quarantena",

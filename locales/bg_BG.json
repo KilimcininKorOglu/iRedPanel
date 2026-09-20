@@ -703,7 +703,13 @@
     "label_smtpSecurity_help": "none изпраща без криптиране, starttls надгражда открита връзка, tls се свързва криптирано. По подразбиране: starttls.",
     "label_smtpTlsVerify_help": "Включено: панелът отказва сървър, чийто сертификат не се проверява успешно. Изключено: приема всеки сертификат. По подразбиране: включено.",
     "label_smtpUser_help": "Акаунтът, с който панелът се удостоверява. Празно изпраща без удостоверяване. По подразбиране: празно.",
-    "label_smtpFrom_help": "From адресът на пощата, която панелът изпраща. Празно използва SMTP потребителя. По подразбиране: празно."
+    "label_smtpFrom_help": "From адресът на пощата, която панелът изпраща. Празно използва SMTP потребителя. По подразбиране: празно.",
+    "label_smtpPassword": "SMTP парола",
+    "label_smtpPassword_help": "Паролата на SMTP потребителя. Съхранява се криптирана с IREDPANEL_SECRET_KEY и повече не се показва. Празно изпраща без удостоверяване.",
+    "label_mlmmjadminApiUrl": "mlmmjadmin API URL",
+    "label_mlmmjadminApiUrl_help": "Адрес на mlmmjadmin API, който владее mlmmj spool-а, например http://127.0.0.1:7790/api. Празно спира всяка операция с mailing list.",
+    "label_mlmmjadminApiToken": "mlmmjadmin API token",
+    "label_mlmmjadminApiToken_help": "Един от api_auth_tokens в /opt/mlmmjadmin/settings.py на пощенския сървър. Съхранява се криптиран с IREDPANEL_SECRET_KEY и повече не се показва."
   },
   "quarantine": {
     "title": "Карантина",

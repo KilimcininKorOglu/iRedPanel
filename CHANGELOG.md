@@ -6,6 +6,12 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 - The sidebar shows a global admin that a newer iRedPanel release exists, on every page instead of only on the dashboard. The badge links to the compatibility page, and it stays hidden when the update check is off or the installed release is the newest one
+- Panel Settings has an Outgoing Mail tab and manages the SMTP connection, the public URL and the newsletter link lifetime, so a mail server move no longer needs an `.env` edit and a container restart
+- The Integrations tab manages activity logging, the Amavisd quarantine host and port and the mlmmjadmin API URL, next to the integration toggles it already held
+- The SMTP password and the mlmmjadmin API token are editable from the panel. They are stored encrypted with `IREDPANEL_SECRET_KEY` in `panel_settings`, and an installation without that key keeps the `.env` value
+
+### Security
+- A stored secret is never written back into the settings page. The REST API key, the SMTP password and the mlmmjadmin API token render as empty password fields; an empty field keeps the stored value and a checkbox clears it
 
 ## [1.0.4] - 2026-09-20
 

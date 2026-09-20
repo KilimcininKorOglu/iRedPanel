@@ -703,7 +703,13 @@
     "label_smtpSecurity_help": "none wysyła bez szyfrowania, starttls podnosi otwarte połączenie, tls łączy się szyfrowanie. Domyślnie: starttls.",
     "label_smtpTlsVerify_help": "Włączone: panel odrzuca serwer, którego certyfikat się nie weryfikuje. Wyłączone: przyjmuje każdy certyfikat. Domyślnie: włączone.",
     "label_smtpUser_help": "Konto, którym panel się uwierzytelnia. Puste wysyła bez uwierzytelnienia. Domyślnie: puste.",
-    "label_smtpFrom_help": "Adres From poczty wysyłanej przez panel. Puste używa użytkownika SMTP. Domyślnie: puste."
+    "label_smtpFrom_help": "Adres From poczty wysyłanej przez panel. Puste używa użytkownika SMTP. Domyślnie: puste.",
+    "label_smtpPassword": "Hasło SMTP",
+    "label_smtpPassword_help": "Hasło użytkownika SMTP. Jest przechowywane zaszyfrowane kluczem IREDPANEL_SECRET_KEY i nigdy więcej nie jest pokazywane. Puste wysyła bez uwierzytelnienia.",
+    "label_mlmmjadminApiUrl": "URL API mlmmjadmin",
+    "label_mlmmjadminApiUrl_help": "Adres API mlmmjadmin, które zarządza spoolem mlmmj, na przykład http://127.0.0.1:7790/api. Puste zatrzymuje każdą operację mailing list.",
+    "label_mlmmjadminApiToken": "Token API mlmmjadmin",
+    "label_mlmmjadminApiToken_help": "Jeden z api_auth_tokens w /opt/mlmmjadmin/settings.py na serwerze pocztowym. Jest przechowywany zaszyfrowany kluczem IREDPANEL_SECRET_KEY i nigdy więcej nie jest pokazywany."
   },
   "quarantine": {
     "title": "Kwarantanna",

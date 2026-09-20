@@ -703,7 +703,13 @@
     "label_smtpSecurity_help": "none шаље без шифровања, starttls подиже отворену везу, tls се повезује шифровано. Подразумевано: starttls.",
     "label_smtpTlsVerify_help": "Укључено: панел одбија сервер чији се сертификат не потврди. Искључено: прихвата сваки сертификат. Подразумевано: укључено.",
     "label_smtpUser_help": "Налог којим се панел пријављује. Празно шаље без пријаве. Подразумевано: празно.",
-    "label_smtpFrom_help": "From адреса поште коју панел шаље. Празно користи SMTP корисника. Подразумевано: празно."
+    "label_smtpFrom_help": "From адреса поште коју панел шаље. Празно користи SMTP корисника. Подразумевано: празно.",
+    "label_smtpPassword": "SMTP лозинка",
+    "label_smtpPassword_help": "Лозинка SMTP корисника. Чува се шифрована кључем IREDPANEL_SECRET_KEY и више се не приказује. Празно шаље без пријаве.",
+    "label_mlmmjadminApiUrl": "mlmmjadmin API URL",
+    "label_mlmmjadminApiUrl_help": "Адреса mlmmjadmin API-ја који управља mlmmj spool-ом, на пример http://127.0.0.1:7790/api. Празно зауставља сваку mailing list операцију.",
+    "label_mlmmjadminApiToken": "mlmmjadmin API token",
+    "label_mlmmjadminApiToken_help": "Један од api_auth_tokens у /opt/mlmmjadmin/settings.py на mail серверу. Чува се шифрован кључем IREDPANEL_SECRET_KEY и више се не приказује."
   },
   "quarantine": {
     "title": "Карантин",

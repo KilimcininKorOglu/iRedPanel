@@ -703,7 +703,13 @@
     "label_smtpSecurity_help": "none zifratu gabe bidaltzen du, starttls konexio irekia hobetzen du, tls zifratuta konektatzen da. Lehenetsia: starttls.",
     "label_smtpTlsVerify_help": "Piztuta: panelak ziurtagiria balioztatzen ez den zerbitzaria baztertzen du. Itzalita: edozein ziurtagiri onartzen du. Lehenetsia: piztuta.",
     "label_smtpUser_help": "Panelak autentifikatzeko erabiltzen duen kontua. Hutsik autentifikaziorik gabe bidaltzen du. Lehenetsia: hutsik.",
-    "label_smtpFrom_help": "Panelak bidaltzen duen mailaren From helbidea. Hutsik SMTP erabiltzailea erabiltzen du. Lehenetsia: hutsik."
+    "label_smtpFrom_help": "Panelak bidaltzen duen mailaren From helbidea. Hutsik SMTP erabiltzailea erabiltzen du. Lehenetsia: hutsik.",
+    "label_smtpPassword": "SMTP pasahitza",
+    "label_smtpPassword_help": "SMTP erabiltzailearen pasahitza. IREDPANEL_SECRET_KEY-rekin zifratuta gordetzen da eta ez da berriro erakusten. Hutsik autentifikaziorik gabe bidaltzen du.",
+    "label_mlmmjadminApiUrl": "mlmmjadmin API URLa",
+    "label_mlmmjadminApiUrl_help": "mlmmj spool-a kudeatzen duen mlmmjadmin APIaren helbidea, adibidez http://127.0.0.1:7790/api. Hutsik mailing list eragiketa guztiak gelditzen ditu.",
+    "label_mlmmjadminApiToken": "mlmmjadmin API tokena",
+    "label_mlmmjadminApiToken_help": "Mail zerbitzariko /opt/mlmmjadmin/settings.py fitxategiko api_auth_tokens balioetako bat. IREDPANEL_SECRET_KEY-rekin zifratuta gordetzen da eta ez da berriro erakusten."
   },
   "quarantine": {
     "title": "Berrogeialdia",

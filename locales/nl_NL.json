@@ -703,7 +703,13 @@
     "label_smtpSecurity_help": "none verstuurt onversleuteld, starttls verheft een open verbinding, tls verbindt versleuteld. Standaard: starttls.",
     "label_smtpTlsVerify_help": "Aan: het panel weigert een server waarvan het certificaat niet valideert. Uit: het accepteert elk certificaat. Standaard: aan.",
     "label_smtpUser_help": "Het account waarmee het panel zich authenticeert. Leeg verstuurt zonder authenticatie. Standaard: leeg.",
-    "label_smtpFrom_help": "Het From-adres van de mail die het panel verstuurt. Leeg gebruikt de SMTP-gebruiker. Standaard: leeg."
+    "label_smtpFrom_help": "Het From-adres van de mail die het panel verstuurt. Leeg gebruikt de SMTP-gebruiker. Standaard: leeg.",
+    "label_smtpPassword": "SMTP-wachtwoord",
+    "label_smtpPassword_help": "Het wachtwoord van de SMTP-gebruiker. Het wordt versleuteld met IREDPANEL_SECRET_KEY opgeslagen en nooit meer getoond. Leeg verstuurt zonder authenticatie.",
+    "label_mlmmjadminApiUrl": "mlmmjadmin API-URL",
+    "label_mlmmjadminApiUrl_help": "Adres van de mlmmjadmin-API die de mlmmj-spool beheert, bijvoorbeeld http://127.0.0.1:7790/api. Leeg stopt elke mailing list-bewerking.",
+    "label_mlmmjadminApiToken": "mlmmjadmin API-token",
+    "label_mlmmjadminApiToken_help": "Een van de api_auth_tokens in /opt/mlmmjadmin/settings.py op de mailserver. Het wordt versleuteld met IREDPANEL_SECRET_KEY opgeslagen en nooit meer getoond."
   },
   "quarantine": {
     "title": "Quarantaine",

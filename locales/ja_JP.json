@@ -703,7 +703,13 @@
     "label_smtpSecurity_help": "none は暗号化なしで送信し、starttls は平文接続を昇格し、tls は暗号化して接続します。既定: starttls。",
     "label_smtpTlsVerify_help": "オン: 証明書を検証できないサーバーを拒否します。オフ: どの証明書も受け入れます。既定: オン。",
     "label_smtpUser_help": "パネルが認証に使うアカウントです。空の場合は認証なしで送信します。既定: 空。",
-    "label_smtpFrom_help": "パネルが送るメールの From アドレスです。空の場合は SMTP ユーザーを使います。既定: 空。"
+    "label_smtpFrom_help": "パネルが送るメールの From アドレスです。空の場合は SMTP ユーザーを使います。既定: 空。",
+    "label_smtpPassword": "SMTP パスワード",
+    "label_smtpPassword_help": "SMTP ユーザーのパスワードです。IREDPANEL_SECRET_KEY で暗号化して保存され、再表示されません。空の場合は認証なしで送信します。",
+    "label_mlmmjadminApiUrl": "mlmmjadmin API URL",
+    "label_mlmmjadminApiUrl_help": "mlmmj のリストスプールを管理する mlmmjadmin API のアドレスです。例: http://127.0.0.1:7790/api。空の場合、mailing list の操作はすべて止まります。",
+    "label_mlmmjadminApiToken": "mlmmjadmin API トークン",
+    "label_mlmmjadminApiToken_help": "メールサーバーの /opt/mlmmjadmin/settings.py にある api_auth_tokens の 1 つです。IREDPANEL_SECRET_KEY で暗号化して保存され、再表示されません。"
   },
   "quarantine": {
     "title": "隔離",

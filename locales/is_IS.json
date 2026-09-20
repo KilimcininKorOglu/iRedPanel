@@ -703,7 +703,13 @@
     "label_smtpSecurity_help": "none sendir ódulkóðað, starttls uppfærir opna tengingu, tls tengist dulkóðað. Sjálfgefið: starttls.",
     "label_smtpTlsVerify_help": "Kveikt: spjaldið hafnar þjóni sem vottorð staðfestist ekki hjá. Slökkt: það tekur við hvaða vottorði sem er. Sjálfgefið: kveikt.",
     "label_smtpUser_help": "Reikningurinn sem spjaldið auðkennir sig með. Autt sendir án auðkenningar. Sjálfgefið: autt.",
-    "label_smtpFrom_help": "From netfang póstsins sem spjaldið sendir. Autt notar SMTP notandann. Sjálfgefið: autt."
+    "label_smtpFrom_help": "From netfang póstsins sem spjaldið sendir. Autt notar SMTP notandann. Sjálfgefið: autt.",
+    "label_smtpPassword": "SMTP lykilorð",
+    "label_smtpPassword_help": "Lykilorð SMTP notandans. Það er geymt dulkóðað með IREDPANEL_SECRET_KEY og er aldrei sýnt aftur. Autt sendir án auðkenningar.",
+    "label_mlmmjadminApiUrl": "mlmmjadmin API slóð",
+    "label_mlmmjadminApiUrl_help": "Slóð mlmmjadmin API sem stýrir mlmmj spool, til dæmis http://127.0.0.1:7790/api. Autt stöðvar allar mailing list aðgerðir.",
+    "label_mlmmjadminApiToken": "mlmmjadmin API token",
+    "label_mlmmjadminApiToken_help": "Eitt af api_auth_tokens í /opt/mlmmjadmin/settings.py á póstþjóninum. Það er geymt dulkóðað með IREDPANEL_SECRET_KEY og er aldrei sýnt aftur."
   },
   "quarantine": {
     "title": "Sóttkví",

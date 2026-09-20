@@ -703,7 +703,13 @@
     "label_smtpSecurity_help": "none envía sen cifrar, starttls eleva unha conexión en claro, tls conecta cifrado. Predeterminado: starttls.",
     "label_smtpTlsVerify_help": "Activado: o panel rexeita un servidor cuxo certificado non se valida. Desactivado: acepta calquera certificado. Predeterminado: activado.",
     "label_smtpUser_help": "A conta coa que se autentica o panel. Baleiro envía sen autenticación. Predeterminado: baleiro.",
-    "label_smtpFrom_help": "O enderezo From do correo que envía o panel. Baleiro usa o usuario SMTP. Predeterminado: baleiro."
+    "label_smtpFrom_help": "O enderezo From do correo que envía o panel. Baleiro usa o usuario SMTP. Predeterminado: baleiro.",
+    "label_smtpPassword": "Contrasinal SMTP",
+    "label_smtpPassword_help": "O contrasinal do usuario SMTP. Gárdase cifrado con IREDPANEL_SECRET_KEY e non se volve amosar. Baleiro envía sen autenticación.",
+    "label_mlmmjadminApiUrl": "URL da API de mlmmjadmin",
+    "label_mlmmjadminApiUrl_help": "Enderezo da API de mlmmjadmin que xestiona o spool de mlmmj, por exemplo http://127.0.0.1:7790/api. Baleiro detén cada operación de mailing list.",
+    "label_mlmmjadminApiToken": "Token da API de mlmmjadmin",
+    "label_mlmmjadminApiToken_help": "Un dos api_auth_tokens de /opt/mlmmjadmin/settings.py no servidor de correo. Gárdase cifrado con IREDPANEL_SECRET_KEY e non se volve amosar."
   },
   "quarantine": {
     "title": "Corentena",

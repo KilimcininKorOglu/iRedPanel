@@ -703,7 +703,13 @@
     "label_smtpSecurity_help": "none lähettää salaamatta, starttls korottaa avoimen yhteyden, tls yhdistää salattuna. Oletus: starttls.",
     "label_smtpTlsVerify_help": "Päällä: paneeli hylkää palvelimen, jonka varmenne ei kelpaa. Pois: se hyväksyy minkä tahansa varmenteen. Oletus: päällä.",
     "label_smtpUser_help": "Tili, jolla paneeli tunnistautuu. Tyhjä lähettää ilman tunnistautumista. Oletus: tyhjä.",
-    "label_smtpFrom_help": "Paneelin lähettämän postin From-osoite. Tyhjä käyttää SMTP-käyttäjää. Oletus: tyhjä."
+    "label_smtpFrom_help": "Paneelin lähettämän postin From-osoite. Tyhjä käyttää SMTP-käyttäjää. Oletus: tyhjä.",
+    "label_smtpPassword": "SMTP-salasana",
+    "label_smtpPassword_help": "SMTP-käyttäjän salasana. Se tallennetaan IREDPANEL_SECRET_KEY:llä salattuna eikä sitä näytetä enää. Tyhjä lähettää ilman tunnistautumista.",
+    "label_mlmmjadminApiUrl": "mlmmjadmin API -URL",
+    "label_mlmmjadminApiUrl_help": "mlmmj-spoolia hallitsevan mlmmjadmin API:n osoite, esimerkiksi http://127.0.0.1:7790/api. Tyhjä pysäyttää kaikki mailing list -toiminnot.",
+    "label_mlmmjadminApiToken": "mlmmjadmin API -token",
+    "label_mlmmjadminApiToken_help": "Yksi mail-palvelimen /opt/mlmmjadmin/settings.py-tiedoston api_auth_tokens-arvoista. Se tallennetaan IREDPANEL_SECRET_KEY:llä salattuna eikä sitä näytetä enää."
   },
   "quarantine": {
     "title": "Karanteeni",

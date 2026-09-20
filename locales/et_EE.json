@@ -703,7 +703,13 @@
     "label_smtpSecurity_help": "none saadab krüptimata, starttls uuendab avatud ühenduse, tls ühendub krüptitult. Vaikimisi: starttls.",
     "label_smtpTlsVerify_help": "Sees: paneel keeldub serverist, mille sertifikaat ei kehti. Väljas: aktsepteerib iga sertifikaadi. Vaikimisi: sees.",
     "label_smtpUser_help": "Konto, millega paneel autendib. Tühi saadab ilma autentimiseta. Vaikimisi: tühi.",
-    "label_smtpFrom_help": "Paneeli saadetud posti From aadress. Tühi kasutab SMTP kasutajat. Vaikimisi: tühi."
+    "label_smtpFrom_help": "Paneeli saadetud posti From aadress. Tühi kasutab SMTP kasutajat. Vaikimisi: tühi.",
+    "label_smtpPassword": "SMTP parool",
+    "label_smtpPassword_help": "SMTP kasutaja parool. Seda hoitakse IREDPANEL_SECRET_KEY-ga krüptituna ja seda enam ei näidata. Tühi saadab ilma autentimiseta.",
+    "label_mlmmjadminApiUrl": "mlmmjadmin API URL",
+    "label_mlmmjadminApiUrl_help": "mlmmj spool'i haldava mlmmjadmin API aadress, näiteks http://127.0.0.1:7790/api. Tühi peatab iga mailing list toimingu.",
+    "label_mlmmjadminApiToken": "mlmmjadmin API token",
+    "label_mlmmjadminApiToken_help": "Üks api_auth_tokens väärtustest failis /opt/mlmmjadmin/settings.py postiserveris. Seda hoitakse IREDPANEL_SECRET_KEY-ga krüptituna ja seda enam ei näidata."
   },
   "quarantine": {
     "title": "Karantiin",

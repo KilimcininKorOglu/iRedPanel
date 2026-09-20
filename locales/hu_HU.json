@@ -703,7 +703,13 @@
     "label_smtpSecurity_help": "none titkosítás nélkül küld, starttls felminősíti a nyílt kapcsolatot, tls titkosítva kapcsolódik. Alapértelmezés: starttls.",
     "label_smtpTlsVerify_help": "Be: a panel elutasítja azt a szervert, amelynek tanúsítványa nem érvényes. Ki: bármelyik tanúsítványt elfogadja. Alapértelmezés: be.",
     "label_smtpUser_help": "A fiók, amellyel a panel hitelesít. Üresen hitelesítés nélkül küld. Alapértelmezés: üres.",
-    "label_smtpFrom_help": "A panel által küldött levél From címe. Üresen az SMTP felhasználót használja. Alapértelmezés: üres."
+    "label_smtpFrom_help": "A panel által küldött levél From címe. Üresen az SMTP felhasználót használja. Alapértelmezés: üres.",
+    "label_smtpPassword": "SMTP jelszó",
+    "label_smtpPassword_help": "Az SMTP felhasználó jelszava. IREDPANEL_SECRET_KEY kulccsal titkosítva tárolódik, és többé nem jelenik meg. Üresen hitelesítés nélkül küld.",
+    "label_mlmmjadminApiUrl": "mlmmjadmin API URL",
+    "label_mlmmjadminApiUrl_help": "Az mlmmj spoolt kezelő mlmmjadmin API címe, például http://127.0.0.1:7790/api. Üresen minden mailing list művelet leáll.",
+    "label_mlmmjadminApiToken": "mlmmjadmin API token",
+    "label_mlmmjadminApiToken_help": "A mail szerver /opt/mlmmjadmin/settings.py fájljában szereplő api_auth_tokens egyike. IREDPANEL_SECRET_KEY kulccsal titkosítva tárolódik, és többé nem jelenik meg."
   },
   "quarantine": {
     "title": "Karantén",

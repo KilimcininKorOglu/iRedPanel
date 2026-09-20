@@ -703,7 +703,13 @@
     "label_smtpSecurity_help": "none στέλνει χωρίς κρυπτογράφηση, starttls αναβαθμίζει μια ανοιχτή σύνδεση, tls συνδέεται κρυπτογραφημένα. Προεπιλογή: starttls.",
     "label_smtpTlsVerify_help": "Ενεργό: το panel απορρίπτει server του οποίου το πιστοποιητικό δεν επαληθεύεται. Ανενεργό: δέχεται κάθε πιστοποιητικό. Προεπιλογή: ενεργό.",
     "label_smtpUser_help": "Ο λογαριασμός με τον οποίο πιστοποιείται το panel. Κενό στέλνει χωρίς πιστοποίηση. Προεπιλογή: κενό.",
-    "label_smtpFrom_help": "Η διεύθυνση From του mail που στέλνει το panel. Κενό χρησιμοποιεί τον χρήστη SMTP. Προεπιλογή: κενό."
+    "label_smtpFrom_help": "Η διεύθυνση From του mail που στέλνει το panel. Κενό χρησιμοποιεί τον χρήστη SMTP. Προεπιλογή: κενό.",
+    "label_smtpPassword": "Κωδικός SMTP",
+    "label_smtpPassword_help": "Ο κωδικός του χρήστη SMTP. Αποθηκεύεται κρυπτογραφημένος με το IREDPANEL_SECRET_KEY και δεν εμφανίζεται ξανά. Κενό στέλνει χωρίς πιστοποίηση.",
+    "label_mlmmjadminApiUrl": "URL του API mlmmjadmin",
+    "label_mlmmjadminApiUrl_help": "Διεύθυνση του API mlmmjadmin που διαχειρίζεται το spool του mlmmj, για παράδειγμα http://127.0.0.1:7790/api. Κενό σταματά κάθε ενέργεια mailing list.",
+    "label_mlmmjadminApiToken": "Token του API mlmmjadmin",
+    "label_mlmmjadminApiToken_help": "Ένα από τα api_auth_tokens στο /opt/mlmmjadmin/settings.py του mail server. Αποθηκεύεται κρυπτογραφημένο με το IREDPANEL_SECRET_KEY και δεν εμφανίζεται ξανά."
   },
   "quarantine": {
     "title": "Καραντίνα",

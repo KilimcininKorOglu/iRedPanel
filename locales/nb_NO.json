@@ -703,7 +703,13 @@
     "label_smtpSecurity_help": "none sender ukryptert, starttls oppgraderer en åpen forbindelse, tls kobler til kryptert. Standard: starttls.",
     "label_smtpTlsVerify_help": "På: panelet avviser en server hvis sertifikat ikke validerer. Av: det godtar ethvert sertifikat. Standard: på.",
     "label_smtpUser_help": "Kontoen panelet autentiserer seg med. Tom sender uten autentisering. Standard: tom.",
-    "label_smtpFrom_help": "From-adressen på posten panelet sender. Tom bruker SMTP-brukeren. Standard: tom."
+    "label_smtpFrom_help": "From-adressen på posten panelet sender. Tom bruker SMTP-brukeren. Standard: tom.",
+    "label_smtpPassword": "SMTP-passord",
+    "label_smtpPassword_help": "Passordet til SMTP-brukeren. Det lagres kryptert med IREDPANEL_SECRET_KEY og vises aldri igjen. Tom sender uten autentisering.",
+    "label_mlmmjadminApiUrl": "mlmmjadmin API-URL",
+    "label_mlmmjadminApiUrl_help": "Adressen til mlmmjadmin-API-et som eier mlmmj-spoolen, for eksempel http://127.0.0.1:7790/api. Tom stopper enhver mailing list-operasjon.",
+    "label_mlmmjadminApiToken": "mlmmjadmin API-token",
+    "label_mlmmjadminApiToken_help": "En av api_auth_tokens i /opt/mlmmjadmin/settings.py på e-postserveren. Den lagres kryptert med IREDPANEL_SECRET_KEY og vises aldri igjen."
   },
   "quarantine": {
     "title": "Karantene",

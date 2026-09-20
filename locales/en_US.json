@@ -703,7 +703,13 @@
     "label_smtpSecurity_help": "none sends without encryption, starttls upgrades a plain connection, tls connects encrypted. Default: starttls.",
     "label_smtpTlsVerify_help": "On: the panel refuses a server whose certificate does not validate. Off: it accepts any certificate. Default: on.",
     "label_smtpUser_help": "The account the panel authenticates with. Empty sends without authentication. Default: empty.",
-    "label_smtpFrom_help": "The From address of the mail the panel sends. Empty uses the SMTP user. Default: empty."
+    "label_smtpFrom_help": "The From address of the mail the panel sends. Empty uses the SMTP user. Default: empty.",
+    "label_smtpPassword": "SMTP Password",
+    "label_smtpPassword_help": "The password of the SMTP user. It is stored encrypted with IREDPANEL_SECRET_KEY and never shown again. Empty sends without authentication.",
+    "label_mlmmjadminApiUrl": "mlmmjadmin API URL",
+    "label_mlmmjadminApiUrl_help": "Address of the mlmmjadmin API that owns the mlmmj list spool, for example http://127.0.0.1:7790/api. Empty stops every mailing list operation.",
+    "label_mlmmjadminApiToken": "mlmmjadmin API Token",
+    "label_mlmmjadminApiToken_help": "One of the api_auth_tokens in /opt/mlmmjadmin/settings.py on the mail server. It is stored encrypted with IREDPANEL_SECRET_KEY and never shown again."
   },
   "quarantine": {
     "title": "Quarantine",

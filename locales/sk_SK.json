@@ -703,7 +703,13 @@
     "label_smtpSecurity_help": "none posiela bez šifrovania, starttls povýši otvorené spojenie, tls sa pripojí šifrovane. Predvolené: starttls.",
     "label_smtpTlsVerify_help": "Zapnuté: panel odmietne server, ktorého certifikát neprejde overením. Vypnuté: prijme akýkoľvek certifikát. Predvolené: zapnuté.",
     "label_smtpUser_help": "Účet, ktorým sa panel prihlasuje. Prázdne posiela bez prihlásenia. Predvolené: prázdne.",
-    "label_smtpFrom_help": "Adresa From pošty, ktorú panel posiela. Prázdne použije SMTP používateľa. Predvolené: prázdne."
+    "label_smtpFrom_help": "Adresa From pošty, ktorú panel posiela. Prázdne použije SMTP používateľa. Predvolené: prázdne.",
+    "label_smtpPassword": "SMTP heslo",
+    "label_smtpPassword_help": "Heslo SMTP používateľa. Ukladá sa zašifrované kľúčom IREDPANEL_SECRET_KEY a už sa nezobrazí. Prázdne posiela bez prihlásenia.",
+    "label_mlmmjadminApiUrl": "mlmmjadmin API URL",
+    "label_mlmmjadminApiUrl_help": "Adresa mlmmjadmin API, ktoré spravuje spool mlmmj, napríklad http://127.0.0.1:7790/api. Prázdne zastaví každú operáciu s mailing listom.",
+    "label_mlmmjadminApiToken": "mlmmjadmin API token",
+    "label_mlmmjadminApiToken_help": "Jeden z api_auth_tokens v /opt/mlmmjadmin/settings.py na poštovom serveri. Ukladá sa zašifrovaný kľúčom IREDPANEL_SECRET_KEY a už sa nezobrazí."
   },
   "quarantine": {
     "title": "Karanténa",

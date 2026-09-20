@@ -703,7 +703,13 @@
     "label_smtpSecurity_help": "none skickar okrypterat, starttls höjer en öppen anslutning, tls ansluter krypterat. Standard: starttls.",
     "label_smtpTlsVerify_help": "På: panelen avvisar en server vars certifikat inte validerar. Av: den accepterar vilket certifikat som helst. Standard: på.",
     "label_smtpUser_help": "Kontot som panelen autentiserar sig med. Tomt skickar utan autentisering. Standard: tomt.",
-    "label_smtpFrom_help": "From-adressen på posten som panelen skickar. Tomt använder SMTP-användaren. Standard: tomt."
+    "label_smtpFrom_help": "From-adressen på posten som panelen skickar. Tomt använder SMTP-användaren. Standard: tomt.",
+    "label_smtpPassword": "SMTP-lösenord",
+    "label_smtpPassword_help": "Lösenordet för SMTP-användaren. Det lagras krypterat med IREDPANEL_SECRET_KEY och visas aldrig igen. Tomt skickar utan autentisering.",
+    "label_mlmmjadminApiUrl": "mlmmjadmin API-URL",
+    "label_mlmmjadminApiUrl_help": "Adressen till det mlmmjadmin API som äger mlmmj-spoolen, till exempel http://127.0.0.1:7790/api. Tomt stoppar varje mailing list-åtgärd.",
+    "label_mlmmjadminApiToken": "mlmmjadmin API-token",
+    "label_mlmmjadminApiToken_help": "En av api_auth_tokens i /opt/mlmmjadmin/settings.py på mailservern. Den lagras krypterad med IREDPANEL_SECRET_KEY och visas aldrig igen."
   },
   "quarantine": {
     "title": "Karantän",

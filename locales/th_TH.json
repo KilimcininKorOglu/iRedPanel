@@ -703,7 +703,13 @@
     "label_smtpSecurity_help": "none ส่งโดยไม่เข้ารหัส, starttls ยกระดับการเชื่อมต่อแบบเปิด, tls เชื่อมต่อแบบเข้ารหัส ค่าเริ่มต้น: starttls",
     "label_smtpTlsVerify_help": "เปิด: แผงควบคุมปฏิเสธเซิร์ฟเวอร์ที่ใบรับรองตรวจสอบไม่ผ่าน ปิด: ยอมรับใบรับรองใดก็ได้ ค่าเริ่มต้น: เปิด",
     "label_smtpUser_help": "บัญชีที่แผงควบคุมใช้ยืนยันตัวตน ว่างไว้จะส่งโดยไม่ยืนยันตัวตน ค่าเริ่มต้น: ว่าง",
-    "label_smtpFrom_help": "ที่อยู่ From ของเมลที่แผงควบคุมส่ง ว่างไว้จะใช้ผู้ใช้ SMTP ค่าเริ่มต้น: ว่าง"
+    "label_smtpFrom_help": "ที่อยู่ From ของเมลที่แผงควบคุมส่ง ว่างไว้จะใช้ผู้ใช้ SMTP ค่าเริ่มต้น: ว่าง",
+    "label_smtpPassword": "รหัสผ่าน SMTP",
+    "label_smtpPassword_help": "รหัสผ่านของผู้ใช้ SMTP เก็บแบบเข้ารหัสด้วย IREDPANEL_SECRET_KEY และจะไม่แสดงอีก ว่างไว้จะส่งโดยไม่ยืนยันตัวตน",
+    "label_mlmmjadminApiUrl": "URL ของ API mlmmjadmin",
+    "label_mlmmjadminApiUrl_help": "ที่อยู่ของ API mlmmjadmin ที่ดูแล spool ของ mlmmj เช่น http://127.0.0.1:7790/api ว่างไว้จะหยุดทุกการทำงานของ mailing list",
+    "label_mlmmjadminApiToken": "Token ของ API mlmmjadmin",
+    "label_mlmmjadminApiToken_help": "หนึ่งใน api_auth_tokens ในไฟล์ /opt/mlmmjadmin/settings.py บนเซิร์ฟเวอร์เมล เก็บแบบเข้ารหัสด้วย IREDPANEL_SECRET_KEY และจะไม่แสดงอีก"
   },
   "quarantine": {
     "title": "การกักกัน",

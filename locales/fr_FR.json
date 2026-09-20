@@ -703,7 +703,13 @@
     "label_smtpSecurity_help": "none envoie sans chiffrement, starttls élève une connexion en clair, tls se connecte chiffré. Par défaut : starttls.",
     "label_smtpTlsVerify_help": "Activé : le panel refuse un serveur dont le certificat ne se valide pas. Désactivé : il accepte n'importe quel certificat. Par défaut : activé.",
     "label_smtpUser_help": "Le compte avec lequel le panel s'authentifie. Vide envoie sans authentification. Par défaut : vide.",
-    "label_smtpFrom_help": "L'adresse From du courrier envoyé par le panel. Vide utilise l'utilisateur SMTP. Par défaut : vide."
+    "label_smtpFrom_help": "L'adresse From du courrier envoyé par le panel. Vide utilise l'utilisateur SMTP. Par défaut : vide.",
+    "label_smtpPassword": "Mot de passe SMTP",
+    "label_smtpPassword_help": "Le mot de passe de l'utilisateur SMTP. Il est stocké chiffré avec IREDPANEL_SECRET_KEY et n'est plus jamais affiché. Vide envoie sans authentification.",
+    "label_mlmmjadminApiUrl": "URL de l'API mlmmjadmin",
+    "label_mlmmjadminApiUrl_help": "Adresse de l'API mlmmjadmin qui gère le spool mlmmj, par exemple http://127.0.0.1:7790/api. Vide arrête toute opération de mailing list.",
+    "label_mlmmjadminApiToken": "Token de l'API mlmmjadmin",
+    "label_mlmmjadminApiToken_help": "L'un des api_auth_tokens dans /opt/mlmmjadmin/settings.py sur le serveur de messagerie. Il est stocké chiffré avec IREDPANEL_SECRET_KEY et n'est plus jamais affiché."
   },
   "quarantine": {
     "title": "Quarantaine",

@@ -703,7 +703,13 @@
     "label_smtpSecurity_help": "none envia sem cifra, starttls eleva uma ligação aberta, tls liga cifrado. Predefinição: starttls.",
     "label_smtpTlsVerify_help": "Ligado: o painel recusa um servidor cujo certificado não valida. Desligado: aceita qualquer certificado. Predefinição: ligado.",
     "label_smtpUser_help": "A conta com que o painel se autentica. Vazio envia sem autenticação. Predefinição: vazio.",
-    "label_smtpFrom_help": "O endereço From do correio que o painel envia. Vazio usa o utilizador SMTP. Predefinição: vazio."
+    "label_smtpFrom_help": "O endereço From do correio que o painel envia. Vazio usa o utilizador SMTP. Predefinição: vazio.",
+    "label_smtpPassword": "Palavra-passe SMTP",
+    "label_smtpPassword_help": "A palavra-passe do utilizador SMTP. É guardada cifrada com IREDPANEL_SECRET_KEY e nunca mais é mostrada. Vazio envia sem autenticação.",
+    "label_mlmmjadminApiUrl": "URL da API do mlmmjadmin",
+    "label_mlmmjadminApiUrl_help": "Endereço da API do mlmmjadmin que gere o spool do mlmmj, por exemplo http://127.0.0.1:7790/api. Vazio para todas as operações de mailing list.",
+    "label_mlmmjadminApiToken": "Token da API do mlmmjadmin",
+    "label_mlmmjadminApiToken_help": "Um dos api_auth_tokens em /opt/mlmmjadmin/settings.py no servidor de correio. É guardado cifrado com IREDPANEL_SECRET_KEY e nunca mais é mostrado."
   },
   "quarantine": {
     "title": "Quarentena",

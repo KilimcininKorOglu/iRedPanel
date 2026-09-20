@@ -703,7 +703,13 @@
     "label_smtpSecurity_help": "none gửi không mã hoá, starttls nâng cấp kết nối mở, tls kết nối đã mã hoá. Mặc định: starttls.",
     "label_smtpTlsVerify_help": "Bật: panel từ chối máy chủ có chứng chỉ không xác minh được. Tắt: chấp nhận mọi chứng chỉ. Mặc định: bật.",
     "label_smtpUser_help": "Tài khoản panel dùng để xác thực. Để trống sẽ gửi không xác thực. Mặc định: trống.",
-    "label_smtpFrom_help": "Địa chỉ From của thư panel gửi. Để trống sẽ dùng người dùng SMTP. Mặc định: trống."
+    "label_smtpFrom_help": "Địa chỉ From của thư panel gửi. Để trống sẽ dùng người dùng SMTP. Mặc định: trống.",
+    "label_smtpPassword": "Mật khẩu SMTP",
+    "label_smtpPassword_help": "Mật khẩu của người dùng SMTP. Được lưu ở dạng mã hoá bằng IREDPANEL_SECRET_KEY và không bao giờ hiển thị lại. Để trống sẽ gửi không xác thực.",
+    "label_mlmmjadminApiUrl": "URL API mlmmjadmin",
+    "label_mlmmjadminApiUrl_help": "Địa chỉ API mlmmjadmin quản lý spool của mlmmj, ví dụ http://127.0.0.1:7790/api. Để trống sẽ dừng mọi thao tác mailing list.",
+    "label_mlmmjadminApiToken": "Token API mlmmjadmin",
+    "label_mlmmjadminApiToken_help": "Một trong các api_auth_tokens trong /opt/mlmmjadmin/settings.py trên máy chủ thư. Được lưu ở dạng mã hoá bằng IREDPANEL_SECRET_KEY và không bao giờ hiển thị lại."
   },
   "quarantine": {
     "title": "Cách ly",

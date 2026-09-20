@@ -11,6 +11,7 @@ use App\Models\Settings;
 use App\Repositories\RepositoryFactory;
 use App\Services\ActivityLogger;
 use App\TemplateEngine;
+use App\Utils\SecretBox;
 
 class PanelSettingsController
 {
@@ -40,10 +41,11 @@ class PanelSettingsController
             'amavisdQuarantineHost', 'amavisdQuarantinePort',
             'fail2banEnabled', 'fail2banSocket', 'fail2banJails',
             'iredapdEnabled', 'geoIpDbPath',
+            'mlmmjadminApiUrl', 'mlmmjadminApiToken',
         ],
         'mail' => [
             'smtpHost', 'smtpPort', 'smtpSecurity', 'smtpTlsVerify',
-            'smtpUser', 'smtpFrom', 'publicUrl', 'newsletterExpireHours',
+            'smtpUser', 'smtpPassword', 'smtpFrom', 'publicUrl', 'newsletterExpireHours',
         ],
         'api' => [
             'apiEnabled', 'apiKey', 'apiAllowedIps',
@@ -54,7 +56,7 @@ class PanelSettingsController
      * Settings whose value is never written back to the page. The form sends an
      * empty field when the admin does not change them, and a checkbox clears them.
      */
-    public const SECRET_KEYS = ['apiKey'];
+    public const SECRET_KEYS = ['apiKey', 'smtpPassword', 'mlmmjadminApiToken'];
 
     public static function view(TemplateEngine $tpl): void
     {
@@ -166,6 +168,9 @@ class PanelSettingsController
             if ($value === self::SECRET_UNCHANGED) {
                 continue;
             }
+            if ($value !== null && in_array($key, Settings::ENCRYPTED_KEYS, true)) {
+                $value = self::encrypted($value);
+            }
             if ($value === null) {
                 $rejected[] = Translator::translate("panelset.label_{$key}");
                 continue;
@@ -174,6 +179,25 @@ class PanelSettingsController
         }
 
         return ['values' => $values, 'rejected' => $rejected];
+    }
+
+    /**
+     * The value as panel_settings stores it for an encrypted setting, or null when
+     * this installation cannot encrypt, which would otherwise write the secret in
+     * plaintext. An empty value clears the row and needs no key.
+     */
+    private static function encrypted(string $value): ?string
+    {
+        if ($value === '') {
+            return '';
+        }
+
+        try {
+            return SecretBox::fromSettings()->encrypt($value);
+        } catch (\Throwable $e) {
+            error_log('iRedPanel: cannot encrypt a panel setting: ' . $e->getMessage());
+            return null;
+        }
     }
 
     /** Marks a secret field that the admin left empty, so the stored value stays. */
@@ -216,6 +240,7 @@ class PanelSettingsController
         // An http(s) URL or a local path; "//host" and "/\host" would load from another host.
         'brandLogoUrl' => '#^(https?://[^\s"\'<>]+|/(?![/\\\\])[^\s"\'<>]*)$#',
         'publicUrl' => Settings::PUBLIC_URL_PATTERN,
+        'mlmmjadminApiUrl' => Settings::PUBLIC_URL_PATTERN,
         'smtpHost' => Settings::HOST_PATTERN,
         'amavisdQuarantineHost' => Settings::HOST_PATTERN,
         'smtpFrom' => '/^[^@\s]+@[^@\s]+\.[^@\s]+$/',
@@ -261,7 +286,7 @@ class PanelSettingsController
         return match ($key) {
             'passwordDefaultScheme' => strtoupper($value),
             'smtpSecurity' => strtolower($value),
-            'publicUrl' => rtrim($value, '/'),
+            'publicUrl', 'mlmmjadminApiUrl' => rtrim($value, '/'),
             'fail2banJails', 'allowedIpRanges', 'apiAllowedIps' => implode(',', self::splitList($value)),
             default => $value,
         };

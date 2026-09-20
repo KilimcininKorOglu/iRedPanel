@@ -703,7 +703,13 @@
     "label_smtpSecurity_help": "none отправляет без шифрования, starttls повышает открытое соединение, tls подключается зашифрованно. По умолчанию: starttls.",
     "label_smtpTlsVerify_help": "Включено: панель отклоняет сервер, сертификат которого не проходит проверку. Выключено: принимает любой сертификат. По умолчанию: включено.",
     "label_smtpUser_help": "Учётная запись, под которой панель проходит аутентификацию. Пустое значение отправляет без аутентификации. По умолчанию: пусто.",
-    "label_smtpFrom_help": "Адрес From письма, которое отправляет панель. Пустое значение использует SMTP пользователя. По умолчанию: пусто."
+    "label_smtpFrom_help": "Адрес From письма, которое отправляет панель. Пустое значение использует SMTP пользователя. По умолчанию: пусто.",
+    "label_smtpPassword": "Пароль SMTP",
+    "label_smtpPassword_help": "Пароль SMTP пользователя. Хранится зашифрованным ключом IREDPANEL_SECRET_KEY и больше не показывается. Пустое значение отправляет без аутентификации.",
+    "label_mlmmjadminApiUrl": "URL API mlmmjadmin",
+    "label_mlmmjadminApiUrl_help": "Адрес API mlmmjadmin, которое управляет spool mlmmj, например http://127.0.0.1:7790/api. Пустое значение останавливает все операции mailing list.",
+    "label_mlmmjadminApiToken": "Token API mlmmjadmin",
+    "label_mlmmjadminApiToken_help": "Один из api_auth_tokens в /opt/mlmmjadmin/settings.py на почтовом сервере. Хранится зашифрованным ключом IREDPANEL_SECRET_KEY и больше не показывается."
   },
   "quarantine": {
     "title": "Карантин",

@@ -703,7 +703,13 @@
     "label_smtpSecurity_help": "none şifrələmə olmadan göndərir, starttls açıq bağlantını yüksəldir, tls şifrəli qoşulur. Standart: starttls.",
     "label_smtpTlsVerify_help": "Açıq: sertifikatı doğrulanmayan serveri panel rədd edir. Bağlı: istənilən sertifikatı qəbul edir. Standart: açıq.",
     "label_smtpUser_help": "Panelin kimlik doğrulaması üçün istifadə etdiyi hesab. Boş olduqda kimlik doğrulaması olmadan göndərilir. Standart: boş.",
-    "label_smtpFrom_help": "Panelin göndərdiyi mailin From ünvanı. Boş olduqda SMTP istifadəçisi işlədilir. Standart: boş."
+    "label_smtpFrom_help": "Panelin göndərdiyi mailin From ünvanı. Boş olduqda SMTP istifadəçisi işlədilir. Standart: boş.",
+    "label_smtpPassword": "SMTP Parolu",
+    "label_smtpPassword_help": "SMTP istifadəçisinin parolu. IREDPANEL_SECRET_KEY ilə şifrələnmiş saxlanılır və bir daha göstərilmir. Boş olduqda kimlik doğrulaması olmadan göndərilir.",
+    "label_mlmmjadminApiUrl": "mlmmjadmin API URL-i",
+    "label_mlmmjadminApiUrl_help": "mlmmj siyahı spool-una sahib olan mlmmjadmin API ünvanı, məsələn http://127.0.0.1:7790/api. Boş olduqda bütün mailing list əməliyyatları dayanır.",
+    "label_mlmmjadminApiToken": "mlmmjadmin API Token-i",
+    "label_mlmmjadminApiToken_help": "Mail serverindəki /opt/mlmmjadmin/settings.py faylındakı api_auth_tokens dəyərlərindən biri. IREDPANEL_SECRET_KEY ilə şifrələnmiş saxlanılır və bir daha göstərilmir."
   },
   "quarantine": {
     "title": "Karantin",

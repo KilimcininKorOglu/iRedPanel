@@ -703,7 +703,13 @@
     "label_smtpSecurity_help": "none trimite fără criptare, starttls ridică o conexiune deschisă, tls se conectează criptat. Implicit: starttls.",
     "label_smtpTlsVerify_help": "Pornit: panoul refuză un server al cărui certificat nu se validează. Oprit: acceptă orice certificat. Implicit: pornit.",
     "label_smtpUser_help": "Contul cu care panoul se autentifică. Gol trimite fără autentificare. Implicit: gol.",
-    "label_smtpFrom_help": "Adresa From a poștei trimise de panou. Gol folosește utilizatorul SMTP. Implicit: gol."
+    "label_smtpFrom_help": "Adresa From a poștei trimise de panou. Gol folosește utilizatorul SMTP. Implicit: gol.",
+    "label_smtpPassword": "Parolă SMTP",
+    "label_smtpPassword_help": "Parola utilizatorului SMTP. Este stocată criptată cu IREDPANEL_SECRET_KEY și nu mai este afișată. Gol trimite fără autentificare.",
+    "label_mlmmjadminApiUrl": "URL-ul API mlmmjadmin",
+    "label_mlmmjadminApiUrl_help": "Adresa API-ului mlmmjadmin care gestionează spool-ul mlmmj, de exemplu http://127.0.0.1:7790/api. Gol oprește fiecare operație de mailing list.",
+    "label_mlmmjadminApiToken": "Token-ul API mlmmjadmin",
+    "label_mlmmjadminApiToken_help": "Unul dintre api_auth_tokens din /opt/mlmmjadmin/settings.py de pe serverul de mail. Este stocat criptat cu IREDPANEL_SECRET_KEY și nu mai este afișat."
   },
   "quarantine": {
     "title": "Carantină",

@@ -466,7 +466,8 @@
     "service_enableSogo_help": "Wyłączone: użytkownik nie może zalogować się do poczty WWW. Sama skrzynka działa dalej.",
     "forwarding_addresses_help": "Poczta tej skrzynki trafia też na te adresy, po jednym w wierszu.",
     "keep_copy_help": "Włączone: kopia przekazanej wiadomości zostaje w skrzynce. Wyłączone: wiadomość tylko wychodzi, a skrzynka pozostaje pusta.",
-    "relay_host_help": "Poczta wychodząca z tej skrzynki idzie na ten serwer zamiast doręczenia bezpośredniego. Puste: obowiązuje ustawienie domeny."
+    "relay_host_help": "Poczta wychodząca z tej skrzynki idzie na ten serwer zamiast doręczenia bezpośredniego. Puste: obowiązuje ustawienie domeny.",
+    "new_password_help": "Nowe hasło zastępuje zapisane od razu. Administrator loguje się nim przy następnym wejściu."
   },
   "mlist": {
     "msg_updated": "Lista mailingowa zaktualizowana!",
@@ -831,7 +832,19 @@
     "msg_hosted_domain": "Samodzielny administrator nie może używać hostowanej domeny :domain. Zamiast tego nadaj uprawnienia administratora skrzynce z tej domeny.",
     "msg_cannot_remove_self": "Nie możesz usunąć ani wyłączyć własnego konta administratora",
     "msg_invalid_limit": ":field: wpisz -1, aby nie ustawiać limitu, lub liczbę całkowitą równą 0 lub większą.",
-    "global_administrator_help": "Włączone: ta skrzynka zarządza każdą domeną i każdym ustawieniem panelu. Wyłączone: zarządza tylko domenami, w których jest administratorem."
+    "global_administrator_help": "Włączone: ta skrzynka zarządza każdą domeną i każdym ustawieniem panelu. Wyłączone: zarządza tylko domenami, w których jest administratorem.",
+    "email_address_help": "Adres logowania administratora. Jest to także adres mailowy, gdy konto jest skrzynką.",
+    "display_name_help": "Nazwa, którą panel pokazuje dla tego administratora na listach.",
+    "repeat_password_help": "Wpisz to samo hasło ponownie. Jeśli oba się różnią, panel odrzuca zapis.",
+    "assign_domain_help": "Administrator zarządza wybraną tu domeną oraz każdą skrzynką, aliasem i listą tej domeny.",
+    "max_domains_help": "Ile domen tworzy ten administrator. -1 oznacza bez limitu, 0 odrzuca każdą nową domenę. Administratora globalnego to nie wiąże.",
+    "max_users_help": "Ile skrzynek tworzy ten administrator w swoich domenach. -1 oznacza bez limitu.",
+    "max_aliases_help": "Ile aliasów mailowych tworzy ten administrator w swoich domenach. -1 oznacza bez limitu.",
+    "max_lists_help": "Ile list dyskusyjnych tworzy ten administrator w swoich domenach. -1 oznacza bez limitu.",
+    "max_quota_help": "Suma limitów skrzynek w zarządzanych domenach, w MB. -1 oznacza bez limitu. Dopóki wartość jest ustawiona, skrzynka bez limitu jest odrzucana.",
+    "allow_domain_creation_help": "Włączone: administrator tworzy nową domenę i zostaje jej administratorem. Wyłączone: zarządza tylko przypisanymi domenami.",
+    "disable_viewing_mail_log_help": "Włączone: strona logu mailowego pozostaje zamknięta dla tego administratora.",
+    "disable_managing_quarantined_mails_help": "Włączone: administrator widzi kwarantannę, ale nie zwalnia ani nie usuwa wiadomości."
   },
   "alias": {
     "msg_updated": "Alias zaktualizowany pomyślnie!",

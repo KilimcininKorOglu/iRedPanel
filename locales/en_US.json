@@ -466,7 +466,8 @@
     "service_enableSogo_help": "Off: the user cannot log in to the webmail. The mailbox itself keeps working.",
     "forwarding_addresses_help": "The mail of this mailbox also goes to these addresses, one per line.",
     "keep_copy_help": "On: a copy of a forwarded message stays in the mailbox. Off: the message only leaves and the mailbox stays empty.",
-    "relay_host_help": "The outbound mail of this mailbox goes to this server instead of a direct delivery. Empty: the setting of the domain applies."
+    "relay_host_help": "The outbound mail of this mailbox goes to this server instead of a direct delivery. Empty: the setting of the domain applies.",
+    "new_password_help": "The new password replaces the stored one at once. The admin signs in with it on the next login."
   },
   "mlist": {
     "msg_updated": "Mailing list updated!",
@@ -831,7 +832,19 @@
     "msg_hosted_domain": "A standalone admin cannot use the hosted domain :domain. Make a mailbox of this domain an admin instead.",
     "msg_cannot_remove_self": "You cannot delete or disable your own admin account",
     "msg_invalid_limit": ":field: enter -1 for unlimited or a whole number of 0 or more.",
-    "global_administrator_help": "On: this mailbox manages every domain and every setting of the panel. Off: it manages only the domains where it is an admin."
+    "global_administrator_help": "On: this mailbox manages every domain and every setting of the panel. Off: it manages only the domains where it is an admin.",
+    "email_address_help": "The login address of the admin. It is also a mail address when the account is a mailbox.",
+    "display_name_help": "The name that the panel shows for this admin in the lists.",
+    "repeat_password_help": "Type the same password again. If the two differ, the panel refuses the save.",
+    "assign_domain_help": "The admin manages the domain that you pick here, and every mailbox, alias and list of that domain.",
+    "max_domains_help": "How many domains this admin creates. -1 means unlimited, 0 refuses every new domain. A global admin is not bound by it.",
+    "max_users_help": "How many mailboxes this admin creates in its managed domains. -1 means unlimited.",
+    "max_aliases_help": "How many mail aliases this admin creates in its managed domains. -1 means unlimited.",
+    "max_lists_help": "How many mailing lists this admin creates in its managed domains. -1 means unlimited.",
+    "max_quota_help": "The sum of the mailbox quotas in the managed domains, in MB. -1 means unlimited. While it is set, a mailbox with unlimited quota is refused.",
+    "allow_domain_creation_help": "On: the admin creates a new domain and becomes its admin. Off: it manages only the assigned domains.",
+    "disable_viewing_mail_log_help": "On: the mail log page stays closed for this admin.",
+    "disable_managing_quarantined_mails_help": "On: the admin sees the quarantine but neither releases nor deletes a message."
   },
   "alias": {
     "msg_updated": "Alias updated successfully!",

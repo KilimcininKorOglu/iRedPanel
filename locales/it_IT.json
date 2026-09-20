@@ -466,7 +466,8 @@
     "service_enableSogo_help": "Spento: l'utente non può accedere alla webmail. La casella continua a funzionare.",
     "forwarding_addresses_help": "La posta di questa casella va anche a questi indirizzi, uno per riga.",
     "keep_copy_help": "Attivo: una copia del messaggio inoltrato resta nella casella. Spento: il messaggio parte soltanto e la casella resta vuota.",
-    "relay_host_help": "La posta in uscita di questa casella passa da questo server invece della consegna diretta. Vuoto: vale l'impostazione del dominio."
+    "relay_host_help": "La posta in uscita di questa casella passa da questo server invece della consegna diretta. Vuoto: vale l'impostazione del dominio.",
+    "new_password_help": "La nuova password sostituisce subito quella memorizzata. L'amministratore la usa al prossimo accesso."
   },
   "mlist": {
     "msg_updated": "Lista di distribuzione aggiornata!",
@@ -831,7 +832,19 @@
     "msg_hosted_domain": "Un amministratore autonomo non può usare il dominio ospitato :domain. Rendi invece amministratore una casella di questo dominio.",
     "msg_cannot_remove_self": "Non puoi eliminare o disattivare il tuo account amministratore",
     "msg_invalid_limit": ":field: inserisci -1 per illimitato o un numero intero maggiore o uguale a 0.",
-    "global_administrator_help": "Attivo: questa casella gestisce ogni dominio e ogni impostazione del pannello. Spento: gestisce solo i domini di cui è amministratore."
+    "global_administrator_help": "Attivo: questa casella gestisce ogni dominio e ogni impostazione del pannello. Spento: gestisce solo i domini di cui è amministratore.",
+    "email_address_help": "L'indirizzo di accesso dell'amministratore. È anche un indirizzo mail quando l'account è una casella.",
+    "display_name_help": "Il nome che il pannello mostra per questo amministratore negli elenchi.",
+    "repeat_password_help": "Scriva di nuovo la stessa password. Se le due differiscono, il pannello rifiuta il salvataggio.",
+    "assign_domain_help": "L'amministratore gestisce il dominio scelto qui e ogni casella, alias ed elenco di quel dominio.",
+    "max_domains_help": "Quanti domini crea questo amministratore. -1 significa senza limite, 0 rifiuta ogni nuovo dominio. Un amministratore globale non è vincolato.",
+    "max_users_help": "Quante caselle crea questo amministratore nei suoi domini. -1 significa senza limite.",
+    "max_aliases_help": "Quanti alias mail crea questo amministratore nei suoi domini. -1 significa senza limite.",
+    "max_lists_help": "Quante mailing list crea questo amministratore nei suoi domini. -1 significa senza limite.",
+    "max_quota_help": "La somma delle quote delle caselle nei domini gestiti, in MB. -1 significa senza limite. Finché il valore è impostato, una casella con quota illimitata viene rifiutata.",
+    "allow_domain_creation_help": "Attivo: l'amministratore crea un nuovo dominio e ne diventa amministratore. Non attivo: gestisce solo i domini assegnati.",
+    "disable_viewing_mail_log_help": "Attivo: la pagina del log mail resta chiusa per questo amministratore.",
+    "disable_managing_quarantined_mails_help": "Attivo: l'amministratore vede la quarantena ma non rilascia né cancella alcun messaggio."
   },
   "alias": {
     "msg_updated": "Alias aggiornato con successo!",

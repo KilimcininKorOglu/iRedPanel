@@ -466,7 +466,8 @@
     "service_enableSogo_help": "Itzalita: erabiltzaileak ezin du webmail-ean saioa hasi. Postontziak berak funtzionatzen jarraitzen du.",
     "forwarding_addresses_help": "Postontzi honen posta helbide hauetara ere doa, lerro bakoitzeko bat.",
     "keep_copy_help": "Piztuta: birbidalitako mezuaren kopia bat postontzian geratzen da. Itzalita: mezua joan baino ez da egiten eta postontzia hutsik geratzen da.",
-    "relay_host_help": "Postontzi honen irteerako posta zuzeneko banaketa ordez zerbitzari honetara doa. Hutsik: domeinuaren ezarpena aplikatzen da."
+    "relay_host_help": "Postontzi honen irteerako posta zuzeneko banaketa ordez zerbitzari honetara doa. Hutsik: domeinuaren ezarpena aplikatzen da.",
+    "new_password_help": "Pasahitz berriak gordetakoa berehala ordezkatzen du. Administratzaileak hurrengo saioan erabiltzen du."
   },
   "mlist": {
     "msg_updated": "Posta-zerrenda eguneratu da!",
@@ -831,7 +832,19 @@
     "msg_hosted_domain": "Administratzaile independente batek ezin du :domain domeinu ostatatua erabili. Horren ordez, egin domeinu honetako postontzi bat administratzaile.",
     "msg_cannot_remove_self": "Ezin duzu zure administratzaile-kontua ezabatu edo desgaitu",
     "msg_invalid_limit": ":field: idatzi -1 mugagabea izateko, edo 0 edo handiagoa den zenbaki oso bat.",
-    "global_administrator_help": "Piztuta: postontzi honek panelaren domeinu eta ezarpen guztiak kudeatzen ditu. Itzalita: administratzaile den domeinuak bakarrik kudeatzen ditu."
+    "global_administrator_help": "Piztuta: postontzi honek panelaren domeinu eta ezarpen guztiak kudeatzen ditu. Itzalita: administratzaile den domeinuak bakarrik kudeatzen ditu.",
+    "email_address_help": "Administratzailearen sarrera helbidea. Kontua postontzi bat denean mail helbidea ere bada.",
+    "display_name_help": "Panelak zerrendetan administratzaile honentzat erakusten duen izena.",
+    "repeat_password_help": "Idatzi pasahitz bera berriro. Biak desberdinak badira, panelak gordetzeari uko egiten dio.",
+    "assign_domain_help": "Administratzaileak hemen hautatzen duzun domeinua eta domeinu horren postontzi, alias eta zerrenda bakoitza kudeatzen du.",
+    "max_domains_help": "Administratzaile honek zenbat domeinu sortzen dituen. -1 mugarik ez esan nahi du, 0 domeinu berri oro ukatzen du. Administratzaile globala ez du lotzen.",
+    "max_users_help": "Administratzaile honek bere domeinuetan zenbat postontzi sortzen dituen. -1 mugarik ez esan nahi du.",
+    "max_aliases_help": "Administratzaile honek bere domeinuetan zenbat mail alias sortzen dituen. -1 mugarik ez esan nahi du.",
+    "max_lists_help": "Administratzaile honek bere domeinuetan zenbat posta zerrenda sortzen dituen. -1 mugarik ez esan nahi du.",
+    "max_quota_help": "Kudeatutako domeinuetako postontzi kuoten batura, MB-tan. -1 mugarik ez esan nahi du. Balioa ezarrita dagoen bitartean, muga gabeko kuota duen postontzia ukatzen da.",
+    "allow_domain_creation_help": "Piztuta: administratzaileak domeinu berri bat sortzen du eta haren administratzaile bihurtzen da. Itzalita: esleitutako domeinuak soilik kudeatzen ditu.",
+    "disable_viewing_mail_log_help": "Piztuta: mail log orria itxita geratzen da administratzaile honentzat.",
+    "disable_managing_quarantined_mails_help": "Piztuta: administratzaileak koarentena ikusten du, baina ez du mezurik askatzen ez ezabatzen."
   },
   "alias": {
     "msg_updated": "Aliasa eguneratu da!",

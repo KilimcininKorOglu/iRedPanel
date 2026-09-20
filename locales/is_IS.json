@@ -466,7 +466,8 @@
     "service_enableSogo_help": "Slökkt: notandinn kemst ekki inn í vefpóstinn. Pósthólfið sjálft heldur áfram að virka.",
     "forwarding_addresses_help": "Póstur þessa pósthólfs fer líka á þessi netföng, eitt í línu.",
     "keep_copy_help": "Kveikt: afrit áframsenda skeytisins verður eftir í pósthólfinu. Slökkt: skeytið fer bara og pósthólfið stendur tómt.",
-    "relay_host_help": "Útfarandi póstur þessa pósthólfs fer á þennan þjón í stað beinnar afhendingar. Autt: stilling lénsins gildir."
+    "relay_host_help": "Útfarandi póstur þessa pósthólfs fer á þennan þjón í stað beinnar afhendingar. Autt: stilling lénsins gildir.",
+    "new_password_help": "Nýja lykilorðið kemur strax í stað þess vistaða. Stjórnandinn notar það við næstu innskráningu."
   },
   "mlist": {
     "msg_updated": "Póstlisti uppfærður!",
@@ -831,7 +832,19 @@
     "msg_hosted_domain": "Sjálfstæður stjórnandi getur ekki notað hýsta lénið :domain. Gerðu í staðinn pósthólf í þessu léni að stjórnanda.",
     "msg_cannot_remove_self": "Þú getur ekki eytt eða gert óvirkan þinn eigin stjórnandaaðgang",
     "msg_invalid_limit": ":field: sláðu inn -1 fyrir ótakmarkað eða heiltölu sem er 0 eða hærri.",
-    "global_administrator_help": "Kveikt: þetta pósthólf stýrir hverju léni og hverri stillingu spjaldsins. Slökkt: það stýrir aðeins þeim lénum þar sem það er stjórnandi."
+    "global_administrator_help": "Kveikt: þetta pósthólf stýrir hverju léni og hverri stillingu spjaldsins. Slökkt: það stýrir aðeins þeim lénum þar sem það er stjórnandi.",
+    "email_address_help": "Innskráningarnetfang stjórnandans. Það er líka póstfang þegar aðgangurinn er pósthólf.",
+    "display_name_help": "Heitið sem spjaldið sýnir fyrir þennan stjórnanda í listunum.",
+    "repeat_password_help": "Sláðu sama lykilorðið inn aftur. Ef þau tvö eru ólík hafnar spjaldið vistuninni.",
+    "assign_domain_help": "Stjórnandinn stýrir léninu sem þú velur hér og hverju pósthólfi, alias og lista þess léns.",
+    "max_domains_help": "Hve mörg lén þessi stjórnandi býr til. -1 þýðir ótakmarkað, 0 hafnar hverju nýju léni. Altækan stjórnanda bindur það ekki.",
+    "max_users_help": "Hve mörg pósthólf þessi stjórnandi býr til í sínum lénum. -1 þýðir ótakmarkað.",
+    "max_aliases_help": "Hve mörg póst-alias þessi stjórnandi býr til í sínum lénum. -1 þýðir ótakmarkað.",
+    "max_lists_help": "Hve marga póstlista þessi stjórnandi býr til í sínum lénum. -1 þýðir ótakmarkað.",
+    "max_quota_help": "Summa pósthólfskvóta í lénunum sem hann stýrir, í MB. -1 þýðir ótakmarkað. Meðan gildið er sett er pósthólfi með ótakmarkaðan kvóta hafnað.",
+    "allow_domain_creation_help": "Kveikt: stjórnandinn býr til nýtt lén og verður stjórnandi þess. Slökkt: hann stýrir aðeins úthlutuðum lénum.",
+    "disable_viewing_mail_log_help": "Kveikt: síða póstannálsins er lokuð þessum stjórnanda.",
+    "disable_managing_quarantined_mails_help": "Kveikt: stjórnandinn sér sóttkvína en hvorki sleppir né eyðir skeyti."
   },
   "alias": {
     "msg_updated": "Samnefni uppfært!",

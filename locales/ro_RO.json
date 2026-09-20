@@ -466,7 +466,8 @@
     "service_enableSogo_help": "Dezactivat: utilizatorul nu poate intra în webmail. Cutia poștală în sine merge mai departe.",
     "forwarding_addresses_help": "Mailul acestei cutii poștale merge și la aceste adrese, câte una pe linie.",
     "keep_copy_help": "Activat: o copie a mesajului redirecționat rămâne în cutia poștală. Dezactivat: mesajul doar pleacă, iar cutia poștală rămâne goală.",
-    "relay_host_help": "Mailul care pleacă din această cutie poștală merge la acest server în locul livrării directe. Gol: se aplică setarea domeniului."
+    "relay_host_help": "Mailul care pleacă din această cutie poștală merge la acest server în locul livrării directe. Gol: se aplică setarea domeniului.",
+    "new_password_help": "Parola nouă o înlocuiește imediat pe cea salvată. Administratorul intră cu ea la următoarea autentificare."
   },
   "mlist": {
     "msg_updated": "Lista de corespondență a fost actualizată!",
@@ -831,7 +832,19 @@
     "msg_hosted_domain": "Un administrator independent nu poate folosi domeniul găzduit :domain. Faceți în schimb administrator o căsuță poștală din acest domeniu.",
     "msg_cannot_remove_self": "Nu vă puteți șterge sau dezactiva propriul cont de administrator",
     "msg_invalid_limit": ":field: introduceți -1 pentru nelimitat sau un număr întreg de 0 sau mai mare.",
-    "global_administrator_help": "Activat: această cutie poștală administrează fiecare domeniu și fiecare setare a panoului. Dezactivat: administrează doar domeniile unde este administrator."
+    "global_administrator_help": "Activat: această cutie poștală administrează fiecare domeniu și fiecare setare a panoului. Dezactivat: administrează doar domeniile unde este administrator.",
+    "email_address_help": "Adresa de autentificare a administratorului. Este și o adresă de mail când contul este o cutie poștală.",
+    "display_name_help": "Numele pe care panoul îl arată pentru acest administrator în liste.",
+    "repeat_password_help": "Scrieți aceeași parolă din nou. Dacă cele două diferă, panoul refuză salvarea.",
+    "assign_domain_help": "Administratorul gestionează domeniul ales aici și fiecare cutie poștală, alias și listă a acelui domeniu.",
+    "max_domains_help": "Câte domenii creează acest administrator. -1 înseamnă fără limită, 0 refuză orice domeniu nou. Pe un administrator global nu îl leagă.",
+    "max_users_help": "Câte cutii poștale creează acest administrator în domeniile sale. -1 înseamnă fără limită.",
+    "max_aliases_help": "Câte alias-uri de mail creează acest administrator în domeniile sale. -1 înseamnă fără limită.",
+    "max_lists_help": "Câte liste de discuții creează acest administrator în domeniile sale. -1 înseamnă fără limită.",
+    "max_quota_help": "Suma cotelor cutiilor poștale din domeniile gestionate, în MB. -1 înseamnă fără limită. Cât timp valoarea este pusă, o cutie poștală cu cotă nelimitată este refuzată.",
+    "allow_domain_creation_help": "Activat: administratorul creează un domeniu nou și devine administratorul lui. Dezactivat: gestionează doar domeniile atribuite.",
+    "disable_viewing_mail_log_help": "Activat: pagina jurnalului de mail rămâne închisă pentru acest administrator.",
+    "disable_managing_quarantined_mails_help": "Activat: administratorul vede carantina, dar nu eliberează și nu șterge niciun mesaj."
   },
   "alias": {
     "msg_updated": "Alias-ul a fost actualizat cu succes!",

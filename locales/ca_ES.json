@@ -466,7 +466,8 @@
     "service_enableSogo_help": "Desactivat: l'usuari no pot entrar al webmail. La bústia continua funcionant.",
     "forwarding_addresses_help": "El correu d'aquesta bústia va també a aquestes adreces, una per línia.",
     "keep_copy_help": "Activat: una còpia del missatge reenviat queda a la bústia. Desactivat: el missatge només marxa i la bústia queda buida.",
-    "relay_host_help": "El correu sortint d'aquesta bústia va a aquest servidor en lloc del lliurament directe. Buit: s'aplica el valor del domini."
+    "relay_host_help": "El correu sortint d'aquesta bústia va a aquest servidor en lloc del lliurament directe. Buit: s'aplica el valor del domini.",
+    "new_password_help": "La contrasenya nova substitueix la desada de seguida. L'administrador hi entra al següent accés."
   },
   "mlist": {
     "msg_updated": "Llista de correu actualitzada!",
@@ -831,7 +832,19 @@
     "msg_hosted_domain": "Un administrador independent no pot utilitzar el domini allotjat :domain. En lloc d'això, feu administradora una bústia d'aquest domini.",
     "msg_cannot_remove_self": "No podeu suprimir ni desactivar el vostre propi compte d'administrador",
     "msg_invalid_limit": ":field: introduïu -1 per a il·limitat o un nombre enter igual o superior a 0.",
-    "global_administrator_help": "Activat: aquesta bústia gestiona tots els dominis i tots els paràmetres del tauler. Desactivat: només gestiona els dominis on és administradora."
+    "global_administrator_help": "Activat: aquesta bústia gestiona tots els dominis i tots els paràmetres del tauler. Desactivat: només gestiona els dominis on és administradora.",
+    "email_address_help": "L'adreça d'accés de l'administrador. També és una adreça de mail quan el compte és una bústia.",
+    "display_name_help": "El nom que el tauler mostra per a aquest administrador a les llistes.",
+    "repeat_password_help": "Escriviu la mateixa contrasenya un altre cop. Si les dues difereixen, el tauler rebutja el desament.",
+    "assign_domain_help": "L'administrador gestiona el domini que trieu aquí i cada bústia, àlies i llista d'aquest domini.",
+    "max_domains_help": "Quants dominis crea aquest administrador. -1 vol dir sense límit, 0 rebutja tot domini nou. Un administrador global no hi queda lligat.",
+    "max_users_help": "Quantes bústies crea aquest administrador als seus dominis. -1 vol dir sense límit.",
+    "max_aliases_help": "Quants àlies de mail crea aquest administrador als seus dominis. -1 vol dir sense límit.",
+    "max_lists_help": "Quantes llistes de correu crea aquest administrador als seus dominis. -1 vol dir sense límit.",
+    "max_quota_help": "La suma de les quotes de bústia als dominis gestionats, en MB. -1 vol dir sense límit. Mentre el valor estigui posat, es rebutja una bústia amb quota il·limitada.",
+    "allow_domain_creation_help": "Activat: l'administrador crea un domini nou i en passa a ser l'administrador. Desactivat: només gestiona els dominis assignats.",
+    "disable_viewing_mail_log_help": "Activat: la pàgina del registre de mail queda tancada per a aquest administrador.",
+    "disable_managing_quarantined_mails_help": "Activat: l'administrador veu la quarantena però no allibera ni esborra cap missatge."
   },
   "alias": {
     "msg_updated": "Àlies actualitzat correctament!",

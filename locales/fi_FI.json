@@ -466,7 +466,8 @@
     "service_enableSogo_help": "Pois: käyttäjä ei voi kirjautua verkkopostiin. Postilaatikko itse toimii edelleen.",
     "forwarding_addresses_help": "Tämän postilaatikon posti menee myös näihin osoitteisiin, yksi riviä kohden.",
     "keep_copy_help": "Päällä: kopio välitetystä viestistä jää postilaatikkoon. Pois: viesti vain lähtee ja postilaatikko jää tyhjäksi.",
-    "relay_host_help": "Tämän postilaatikon lähtevä posti menee tähän palvelimeen suoran toimituksen sijaan. Tyhjä: verkkotunnuksen asetus pätee."
+    "relay_host_help": "Tämän postilaatikon lähtevä posti menee tähän palvelimeen suoran toimituksen sijaan. Tyhjä: verkkotunnuksen asetus pätee.",
+    "new_password_help": "Uusi salasana korvaa tallennetun heti. Ylläpitäjä kirjautuu sillä seuraavalla kerralla."
   },
   "mlist": {
     "msg_updated": "Postituslista päivitetty!",
@@ -831,7 +832,19 @@
     "msg_hosted_domain": "Erillinen ylläpitäjä ei voi käyttää palvelimen verkkotunnusta :domain. Tee sen sijaan tämän verkkotunnuksen postilaatikosta ylläpitäjä.",
     "msg_cannot_remove_self": "Et voi poistaa tai poistaa käytöstä omaa ylläpitäjätiliäsi",
     "msg_invalid_limit": ":field: anna -1 rajoittamattomalle tai kokonaisluku, joka on 0 tai suurempi.",
-    "global_administrator_help": "Päällä: tämä postilaatikko hallitsee jokaista verkkotunnusta ja jokaista paneelin asetusta. Pois: se hallitsee vain niitä verkkotunnuksia, joissa se on ylläpitäjä."
+    "global_administrator_help": "Päällä: tämä postilaatikko hallitsee jokaista verkkotunnusta ja jokaista paneelin asetusta. Pois: se hallitsee vain niitä verkkotunnuksia, joissa se on ylläpitäjä.",
+    "email_address_help": "Ylläpitäjän kirjautumisosoite. Se on myös mailosoite, kun tili on postilaatikko.",
+    "display_name_help": "Nimi, jonka paneeli näyttää tälle ylläpitäjälle luetteloissa.",
+    "repeat_password_help": "Kirjoita sama salasana uudelleen. Jos ne eroavat, paneeli torjuu tallennuksen.",
+    "assign_domain_help": "Ylläpitäjä hallitsee tässä valitsemaasi domainia ja sen jokaista postilaatikkoa, aliasta ja listaa.",
+    "max_domains_help": "Kuinka monta domainia tämä ylläpitäjä luo. -1 tarkoittaa rajatonta, 0 torjuu jokaisen uuden domainin. Globaalia ylläpitäjää se ei sido.",
+    "max_users_help": "Kuinka monta postilaatikkoa tämä ylläpitäjä luo domaineissaan. -1 tarkoittaa rajatonta.",
+    "max_aliases_help": "Kuinka monta mailaliasta tämä ylläpitäjä luo domaineissaan. -1 tarkoittaa rajatonta.",
+    "max_lists_help": "Kuinka monta postituslistaa tämä ylläpitäjä luo domaineissaan. -1 tarkoittaa rajatonta.",
+    "max_quota_help": "Hallittujen domainien postilaatikkokiintiöiden summa megatavuina. -1 tarkoittaa rajatonta. Kun arvo on asetettu, rajattoman kiintiön postilaatikko torjutaan.",
+    "allow_domain_creation_help": "Päällä: ylläpitäjä luo uuden domainin ja tulee sen ylläpitäjäksi. Pois: hän hallitsee vain annettuja domaineja.",
+    "disable_viewing_mail_log_help": "Päällä: maillokin sivu pysyy suljettuna tältä ylläpitäjältä.",
+    "disable_managing_quarantined_mails_help": "Päällä: ylläpitäjä näkee karanteenin mutta ei vapauta eikä poista viestiä."
   },
   "alias": {
     "msg_updated": "Alias päivitetty onnistuneesti!",

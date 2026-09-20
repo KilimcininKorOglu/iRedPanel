@@ -466,7 +466,8 @@
     "service_enableSogo_help": "Kikapcsolva: a felhasználó nem tud belépni a webmailbe. Maga a postafiók tovább működik.",
     "forwarding_addresses_help": "E postafiók levele ezekre a címekre is elmegy, soronként egy.",
     "keep_copy_help": "Bekapcsolva: a továbbított üzenet másolata a postafiókban marad. Kikapcsolva: az üzenet csak elmegy, és a postafiók üres marad.",
-    "relay_host_help": "E postafiók kimenő levele a közvetlen kézbesítés helyett erre a szerverre megy. Üres: a tartomány beállítása érvényes."
+    "relay_host_help": "E postafiók kimenő levele a közvetlen kézbesítés helyett erre a szerverre megy. Üres: a tartomány beállítása érvényes.",
+    "new_password_help": "Az új jelszó azonnal a tárolt helyére lép. Az admin a következő belépésnél ezzel jelentkezik be."
   },
   "mlist": {
     "msg_updated": "Levelezőlista frissítve!",
@@ -831,7 +832,19 @@
     "msg_hosted_domain": "Önálló adminisztrátor nem használhatja a kiszolgált :domain domaint. Ehelyett tegye adminisztrátorrá a domain egyik postafiókját.",
     "msg_cannot_remove_self": "A saját rendszergazdai fiókját nem törölheti és nem tilthatja le",
     "msg_invalid_limit": ":field: adjon meg -1-et a korlátlanhoz, vagy egy 0 vagy nagyobb egész számot.",
-    "global_administrator_help": "Bekapcsolva: ez a postafiók a panel minden tartományát és minden beállítását kezeli. Kikapcsolva: csak azokat a tartományokat kezeli, ahol admin."
+    "global_administrator_help": "Bekapcsolva: ez a postafiók a panel minden tartományát és minden beállítását kezeli. Kikapcsolva: csak azokat a tartományokat kezeli, ahol admin.",
+    "email_address_help": "Az admin bejelentkezési címe. Ez egyben mail cím is, ha a fiók egy postafiók.",
+    "display_name_help": "A név, amelyet a panel ehhez az adminhoz a listákban mutat.",
+    "repeat_password_help": "Írja be ugyanazt a jelszót újra. Ha a kettő eltér, a panel elutasítja a mentést.",
+    "assign_domain_help": "Az admin az itt választott domaint kezeli, és annak minden postafiókját, aliasát és listáját.",
+    "max_domains_help": "Hány domaint hoz létre ez az admin. A -1 korlátlant jelent, a 0 minden új domaint elutasít. A globális admint nem köti.",
+    "max_users_help": "Hány postafiókot hoz létre ez az admin a saját domainjeiben. A -1 korlátlant jelent.",
+    "max_aliases_help": "Hány mail aliast hoz létre ez az admin a saját domainjeiben. A -1 korlátlant jelent.",
+    "max_lists_help": "Hány levelezőlistát hoz létre ez az admin a saját domainjeiben. A -1 korlátlant jelent.",
+    "max_quota_help": "A kezelt domainek postafiók-kvótáinak összege MB-ban. A -1 korlátlant jelent. Amíg az érték be van állítva, a korlátlan kvótájú postafiókot a panel elutasítja.",
+    "allow_domain_creation_help": "Bekapcsolva: az admin új domaint hoz létre, és annak adminja lesz. Kikapcsolva: csak a hozzárendelt domaineket kezeli.",
+    "disable_viewing_mail_log_help": "Bekapcsolva: a mail log oldal zárva marad ennek az adminnak.",
+    "disable_managing_quarantined_mails_help": "Bekapcsolva: az admin látja a karantént, de üzenetet nem enged ki és nem töröl."
   },
   "alias": {
     "msg_updated": "Álnév sikeresen frissítve!",

@@ -466,7 +466,8 @@
     "service_enableSogo_help": "Fra: brugeren kan ikke logge ind på webmailen. Selve postkassen virker videre.",
     "forwarding_addresses_help": "Posten til denne postkasse går også til disse adresser, én pr. linje.",
     "keep_copy_help": "Til: en kopi af den videresendte besked bliver i postkassen. Fra: beskeden går kun videre, og postkassen står tom.",
-    "relay_host_help": "Den udgående post fra denne postkasse går til denne server i stedet for direkte levering. Tom: domænets indstilling gælder."
+    "relay_host_help": "Den udgående post fra denne postkasse går til denne server i stedet for direkte levering. Tom: domænets indstilling gælder.",
+    "new_password_help": "Den nye adgangskode erstatter den gemte med det samme. Administratoren logger ind med den næste gang."
   },
   "mlist": {
     "msg_updated": "Mailingliste opdateret!",
@@ -831,7 +832,19 @@
     "msg_hosted_domain": "En selvstændig administrator kan ikke bruge det hostede domæne :domain. Gør i stedet en postkasse i domænet til administrator.",
     "msg_cannot_remove_self": "Du kan ikke slette eller deaktivere din egen administratorkonto",
     "msg_invalid_limit": ":field: indtast -1 for ubegrænset eller et heltal på 0 eller mere.",
-    "global_administrator_help": "Til: denne postkasse styrer hvert domæne og hver indstilling i panelet. Fra: den styrer kun de domæner, hvor den er administrator."
+    "global_administrator_help": "Til: denne postkasse styrer hvert domæne og hver indstilling i panelet. Fra: den styrer kun de domæner, hvor den er administrator.",
+    "email_address_help": "Administratorens loginadresse. Den er også en mailadresse, når kontoen er en postkasse.",
+    "display_name_help": "Det navn, panelet viser for denne administrator i listerne.",
+    "repeat_password_help": "Skriv den samme adgangskode igen. Hvis de to er forskellige, afviser panelet gemningen.",
+    "assign_domain_help": "Administratoren styrer det domæne, du vælger her, og hver postkasse, alias og liste på det domæne.",
+    "max_domains_help": "Hvor mange domæner denne administrator opretter. -1 betyder ubegrænset, 0 afviser hvert nyt domæne. En global administrator er ikke bundet af det.",
+    "max_users_help": "Hvor mange postkasser denne administrator opretter i sine domæner. -1 betyder ubegrænset.",
+    "max_aliases_help": "Hvor mange mailaliasser denne administrator opretter i sine domæner. -1 betyder ubegrænset.",
+    "max_lists_help": "Hvor mange mailinglister denne administrator opretter i sine domæner. -1 betyder ubegrænset.",
+    "max_quota_help": "Summen af postkassekvoterne i de styrede domæner, i MB. -1 betyder ubegrænset. Så længe værdien er sat, afvises en postkasse med ubegrænset kvote.",
+    "allow_domain_creation_help": "Til: administratoren opretter et nyt domæne og bliver dets administrator. Fra: den styrer kun de tildelte domæner.",
+    "disable_viewing_mail_log_help": "Til: siden med maillogen er lukket for denne administrator.",
+    "disable_managing_quarantined_mails_help": "Til: administratoren ser karantænen, men hverken frigiver eller sletter en besked."
   },
   "alias": {
     "msg_updated": "Alias opdateret!",

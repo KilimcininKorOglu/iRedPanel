@@ -466,7 +466,8 @@
     "service_enableSogo_help": "Desactivado: el usuario no puede entrar en el webmail. El buzón en sí sigue funcionando.",
     "forwarding_addresses_help": "El correo de este buzón va también a estas direcciones, una por línea.",
     "keep_copy_help": "Activado: una copia del mensaje reenviado queda en el buzón. Desactivado: el mensaje solo sale y el buzón queda vacío.",
-    "relay_host_help": "El correo saliente de este buzón va a este servidor en lugar de una entrega directa. Vacío: se aplica el ajuste del dominio."
+    "relay_host_help": "El correo saliente de este buzón va a este servidor en lugar de una entrega directa. Vacío: se aplica el ajuste del dominio.",
+    "new_password_help": "La nueva contraseña sustituye de inmediato a la guardada. El administrador entra con ella en el siguiente acceso."
   },
   "mlist": {
     "msg_updated": "¡Lista de correo actualizada!",
@@ -831,7 +832,19 @@
     "msg_hosted_domain": "Un administrador independiente no puede usar el dominio alojado :domain. Convierta en administrador un buzón de este dominio.",
     "msg_cannot_remove_self": "No puede eliminar ni desactivar su propia cuenta de administrador",
     "msg_invalid_limit": ":field: introduzca -1 para ilimitado o un número entero igual o mayor que 0.",
-    "global_administrator_help": "Activado: este buzón gestiona todos los dominios y todos los ajustes del panel. Desactivado: solo gestiona los dominios donde es administrador."
+    "global_administrator_help": "Activado: este buzón gestiona todos los dominios y todos los ajustes del panel. Desactivado: solo gestiona los dominios donde es administrador.",
+    "email_address_help": "La dirección de acceso del administrador. También es una dirección de mail cuando la cuenta es un buzón.",
+    "display_name_help": "El nombre que el panel muestra para este administrador en las listas.",
+    "repeat_password_help": "Escriba la misma contraseña otra vez. Si las dos difieren, el panel rechaza el guardado.",
+    "assign_domain_help": "El administrador gestiona el dominio que elija aquí y cada buzón, alias y lista de ese dominio.",
+    "max_domains_help": "Cuántos dominios crea este administrador. -1 significa sin límite, 0 rechaza todo dominio nuevo. A un administrador global no le afecta.",
+    "max_users_help": "Cuántos buzones crea este administrador en sus dominios. -1 significa sin límite.",
+    "max_aliases_help": "Cuántos alias de mail crea este administrador en sus dominios. -1 significa sin límite.",
+    "max_lists_help": "Cuántas listas de correo crea este administrador en sus dominios. -1 significa sin límite.",
+    "max_quota_help": "La suma de las cuotas de buzón en los dominios gestionados, en MB. -1 significa sin límite. Mientras el valor esté puesto, se rechaza un buzón con cuota ilimitada.",
+    "allow_domain_creation_help": "Activado: el administrador crea un dominio nuevo y pasa a ser su administrador. Desactivado: solo gestiona los dominios asignados.",
+    "disable_viewing_mail_log_help": "Activado: la página del registro de mail queda cerrada para este administrador.",
+    "disable_managing_quarantined_mails_help": "Activado: el administrador ve la cuarentena pero no libera ni borra ningún mensaje."
   },
   "alias": {
     "msg_updated": "¡Alias actualizado correctamente!",

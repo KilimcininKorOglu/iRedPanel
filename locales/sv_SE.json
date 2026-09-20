@@ -466,7 +466,8 @@
     "service_enableSogo_help": "Av: användaren kan inte logga in på webbmejlen. Själva brevlådan fungerar vidare.",
     "forwarding_addresses_help": "Posten till den här brevlådan går också till de här adresserna, en per rad.",
     "keep_copy_help": "På: en kopia av det vidarebefordrade meddelandet blir kvar i brevlådan. Av: meddelandet går bara vidare och brevlådan står tom.",
-    "relay_host_help": "Utgående post från den här brevlådan går till den här servern i stället för direkt leverans. Tomt: domänens inställning gäller."
+    "relay_host_help": "Utgående post från den här brevlådan går till den här servern i stället för direkt leverans. Tomt: domänens inställning gäller.",
+    "new_password_help": "Det nya lösenordet ersätter det sparade direkt. Administratören loggar in med det nästa gång."
   },
   "mlist": {
     "msg_updated": "Sändlista uppdaterad!",
@@ -831,7 +832,19 @@
     "msg_hosted_domain": "En fristående administratör kan inte använda den hostade domänen :domain. Gör i stället en brevlåda i domänen till administratör.",
     "msg_cannot_remove_self": "Du kan inte ta bort eller inaktivera ditt eget administratörskonto",
     "msg_invalid_limit": ":field: ange -1 för obegränsat eller ett heltal som är 0 eller större.",
-    "global_administrator_help": "På: den här brevlådan styr varje domän och varje inställning i panelen. Av: den styr bara de domäner där den är administratör."
+    "global_administrator_help": "På: den här brevlådan styr varje domän och varje inställning i panelen. Av: den styr bara de domäner där den är administratör.",
+    "email_address_help": "Administratörens inloggningsadress. Den är också en mailadress när kontot är en brevlåda.",
+    "display_name_help": "Namnet som panelen visar för den här administratören i listorna.",
+    "repeat_password_help": "Skriv samma lösenord igen. Om de två skiljer sig avvisar panelen sparandet.",
+    "assign_domain_help": "Administratören styr domänen du väljer här och varje brevlåda, alias och lista i den domänen.",
+    "max_domains_help": "Hur många domäner den här administratören skapar. -1 betyder obegränsat, 0 avvisar varje ny domän. En global administratör binds inte av det.",
+    "max_users_help": "Hur många brevlådor den här administratören skapar i sina domäner. -1 betyder obegränsat.",
+    "max_aliases_help": "Hur många mailalias den här administratören skapar i sina domäner. -1 betyder obegränsat.",
+    "max_lists_help": "Hur många sändlistor den här administratören skapar i sina domäner. -1 betyder obegränsat.",
+    "max_quota_help": "Summan av brevlådekvoterna i de styrda domänerna, i MB. -1 betyder obegränsat. Så länge värdet är satt avvisas en brevlåda med obegränsad kvot.",
+    "allow_domain_creation_help": "På: administratören skapar en ny domän och blir dess administratör. Av: den styr bara de tilldelade domänerna.",
+    "disable_viewing_mail_log_help": "På: sidan med mailloggen är stängd för den här administratören.",
+    "disable_managing_quarantined_mails_help": "På: administratören ser karantänen men varken släpper igenom eller tar bort ett meddelande."
   },
   "alias": {
     "msg_updated": "Alias uppdaterat!",

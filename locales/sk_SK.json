@@ -466,7 +466,8 @@
     "service_enableSogo_help": "Vypnuté: používateľ sa nedokáže prihlásiť do webmailu. Samotná schránka funguje ďalej.",
     "forwarding_addresses_help": "Pošta tejto schránky ide aj na tieto adresy, jedna na riadok.",
     "keep_copy_help": "Zapnuté: kópia preposlanej správy zostane v schránke. Vypnuté: správa len odíde a schránka zostane prázdna.",
-    "relay_host_help": "Odchádzajúca pošta tejto schránky ide na tento server namiesto priameho doručenia. Prázdne: platí nastavenie domény."
+    "relay_host_help": "Odchádzajúca pošta tejto schránky ide na tento server namiesto priameho doručenia. Prázdne: platí nastavenie domény.",
+    "new_password_help": "Nové heslo hneď nahradí uložené. Admin sa s ním prihlási pri ďalšom vstupe."
   },
   "mlist": {
     "msg_updated": "Distribučný zoznam aktualizovaný!",
@@ -831,7 +832,19 @@
     "msg_hosted_domain": "Samostatný správca nemôže používať hostovanú doménu :domain. Namiesto toho urobte správcom schránku tejto domény.",
     "msg_cannot_remove_self": "Nemôžete odstrániť ani zakázať vlastný účet správcu",
     "msg_invalid_limit": ":field: zadajte -1 pre neobmedzené alebo celé číslo 0 alebo väčšie.",
-    "global_administrator_help": "Zapnuté: táto schránka spravuje každú doménu a každé nastavenie panela. Vypnuté: spravuje len domény, kde je správcom."
+    "global_administrator_help": "Zapnuté: táto schránka spravuje každú doménu a každé nastavenie panela. Vypnuté: spravuje len domény, kde je správcom.",
+    "email_address_help": "Prihlasovacia adresa admina. Je to aj mailová adresa, keď je účet schránkou.",
+    "display_name_help": "Meno, ktoré panel pre tohto admina ukazuje v zoznamoch.",
+    "repeat_password_help": "Napíšte rovnaké heslo znova. Ak sa obe líšia, panel uloženie odmietne.",
+    "assign_domain_help": "Admin spravuje doménu, ktorú tu vyberiete, a každú schránku, alias aj zoznam tejto domény.",
+    "max_domains_help": "Koľko domén tento admin vytvorí. -1 znamená bez obmedzenia, 0 odmietne každú novú doménu. Globálneho admina to neviaže.",
+    "max_users_help": "Koľko schránok tento admin vytvorí vo svojich doménach. -1 znamená bez obmedzenia.",
+    "max_aliases_help": "Koľko mailových aliasov tento admin vytvorí vo svojich doménach. -1 znamená bez obmedzenia.",
+    "max_lists_help": "Koľko mailing listov tento admin vytvorí vo svojich doménach. -1 znamená bez obmedzenia.",
+    "max_quota_help": "Súčet kvót schránok v spravovaných doménach, v MB. -1 znamená bez obmedzenia. Kým je hodnota nastavená, schránka s neobmedzenou kvótou sa odmietne.",
+    "allow_domain_creation_help": "Zapnuté: admin vytvorí novú doménu a stane sa jej adminom. Vypnuté: spravuje len pridelené domény.",
+    "disable_viewing_mail_log_help": "Zapnuté: stránka mailového logu zostane pre tohto admina zatvorená.",
+    "disable_managing_quarantined_mails_help": "Zapnuté: admin karanténu vidí, ale správu ani neuvoľní, ani nezmaže."
   },
   "alias": {
     "msg_updated": "Alias úspešne aktualizovaný!",

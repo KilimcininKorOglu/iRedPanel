@@ -466,7 +466,8 @@
     "service_enableSogo_help": "Aus: der Benutzer kann sich nicht am Webmail anmelden. Die Mailbox selbst arbeitet weiter.",
     "forwarding_addresses_help": "Die Mail dieser Mailbox geht auch an diese Adressen, eine pro Zeile.",
     "keep_copy_help": "An: eine Kopie der weitergeleiteten Nachricht bleibt in der Mailbox. Aus: die Nachricht geht nur weg, und die Mailbox bleibt leer.",
-    "relay_host_help": "Die ausgehende Mail dieser Mailbox geht an diesen Server statt in die direkte Zustellung. Leer: die Einstellung der Domain gilt."
+    "relay_host_help": "Die ausgehende Mail dieser Mailbox geht an diesen Server statt in die direkte Zustellung. Leer: die Einstellung der Domain gilt.",
+    "new_password_help": "Das neue Passwort ersetzt das gespeicherte sofort. Der Admin meldet sich bei der nächsten Anmeldung damit an."
   },
   "mlist": {
     "msg_updated": "Mailingliste aktualisiert!",
@@ -831,7 +832,19 @@
     "msg_hosted_domain": "Ein eigenständiger Admin kann die gehostete Domain :domain nicht verwenden. Machen Sie stattdessen ein Postfach dieser Domain zum Admin.",
     "msg_cannot_remove_self": "Sie können Ihr eigenes Administratorkonto nicht löschen oder deaktivieren",
     "msg_invalid_limit": ":field: Geben Sie -1 für unbegrenzt oder eine ganze Zahl von 0 oder mehr ein.",
-    "global_administrator_help": "An: diese Mailbox verwaltet jede Domain und jede Einstellung des Panels. Aus: sie verwaltet nur die Domains, in denen sie Admin ist."
+    "global_administrator_help": "An: diese Mailbox verwaltet jede Domain und jede Einstellung des Panels. Aus: sie verwaltet nur die Domains, in denen sie Admin ist.",
+    "email_address_help": "Die Anmeldeadresse des Admins. Sie ist auch eine Mailadresse, wenn das Konto eine Mailbox ist.",
+    "display_name_help": "Der Name, den das Panel für diesen Admin in den Listen zeigt.",
+    "repeat_password_help": "Geben Sie dasselbe Passwort erneut ein. Wenn die beiden abweichen, lehnt das Panel das Speichern ab.",
+    "assign_domain_help": "Der Admin verwaltet die hier gewählte Domain und jede Mailbox, jeden Alias und jede Liste dieser Domain.",
+    "max_domains_help": "Wie viele Domains dieser Admin anlegt. -1 bedeutet unbegrenzt, 0 lehnt jede neue Domain ab. Einen globalen Admin bindet der Wert nicht.",
+    "max_users_help": "Wie viele Mailboxen dieser Admin in seinen Domains anlegt. -1 bedeutet unbegrenzt.",
+    "max_aliases_help": "Wie viele Mail-Aliase dieser Admin in seinen Domains anlegt. -1 bedeutet unbegrenzt.",
+    "max_lists_help": "Wie viele Mailinglisten dieser Admin in seinen Domains anlegt. -1 bedeutet unbegrenzt.",
+    "max_quota_help": "Die Summe der Mailbox-Quotas in den verwalteten Domains, in MB. -1 bedeutet unbegrenzt. Solange der Wert gesetzt ist, wird eine Mailbox mit unbegrenzter Quota abgelehnt.",
+    "allow_domain_creation_help": "Ein: der Admin legt eine neue Domain an und wird ihr Admin. Aus: er verwaltet nur die zugewiesenen Domains.",
+    "disable_viewing_mail_log_help": "Ein: die Seite mit dem Maillog bleibt für diesen Admin geschlossen.",
+    "disable_managing_quarantined_mails_help": "Ein: der Admin sieht die Quarantäne, gibt aber keine Nachricht frei und löscht keine."
   },
   "alias": {
     "msg_updated": "Alias erfolgreich aktualisiert!",

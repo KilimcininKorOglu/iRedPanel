@@ -466,7 +466,8 @@
     "service_enableSogo_help": "Desactivado: o usuario non pode entrar no webmail. A caixa en si segue a funcionar.",
     "forwarding_addresses_help": "O correo desta caixa vai tamén a estes enderezos, un por liña.",
     "keep_copy_help": "Activado: unha copia da mensaxe reenviada queda na caixa. Desactivado: a mensaxe só sae e a caixa queda baleira.",
-    "relay_host_help": "O correo saínte desta caixa vai a este servidor no canto dunha entrega directa. Baleiro: aplícase o axuste do dominio."
+    "relay_host_help": "O correo saínte desta caixa vai a este servidor no canto dunha entrega directa. Baleiro: aplícase o axuste do dominio.",
+    "new_password_help": "O novo contrasinal substitúe o gardado de contado. O administrador entra con el no seguinte acceso."
   },
   "mlist": {
     "msg_updated": "Lista de correo actualizada!",
@@ -831,7 +832,19 @@
     "msg_hosted_domain": "Un administrador independente non pode usar o dominio aloxado :domain. No seu lugar, faga administradora unha caixa de correo deste dominio.",
     "msg_cannot_remove_self": "Non pode eliminar nin desactivar a súa propia conta de administrador",
     "msg_invalid_limit": ":field: introduza -1 para ilimitado ou un número enteiro igual ou maior que 0.",
-    "global_administrator_help": "Activado: esta caixa xestiona todos os dominios e todos os axustes do panel. Desactivado: só xestiona os dominios onde é administradora."
+    "global_administrator_help": "Activado: esta caixa xestiona todos os dominios e todos os axustes do panel. Desactivado: só xestiona os dominios onde é administradora.",
+    "email_address_help": "O enderezo de acceso do administrador. Tamén é un enderezo de mail cando a conta é unha caixa.",
+    "display_name_help": "O nome que o panel amosa para este administrador nas listas.",
+    "repeat_password_help": "Escriba o mesmo contrasinal outra vez. Se os dous difiren, o panel rexeita o gardado.",
+    "assign_domain_help": "O administrador xestiona o dominio que escolla aquí e cada caixa, alias e lista dese dominio.",
+    "max_domains_help": "Cantos dominios crea este administrador. -1 significa sen límite, 0 rexeita todo dominio novo. A un administrador global non o ata.",
+    "max_users_help": "Cantas caixas crea este administrador nos seus dominios. -1 significa sen límite.",
+    "max_aliases_help": "Cantos alias de mail crea este administrador nos seus dominios. -1 significa sen límite.",
+    "max_lists_help": "Cantas listas de correo crea este administrador nos seus dominios. -1 significa sen límite.",
+    "max_quota_help": "A suma das cotas de caixa nos dominios xestionados, en MB. -1 significa sen límite. Mentres o valor estea posto, rexéitase unha caixa con cota sen límite.",
+    "allow_domain_creation_help": "Activado: o administrador crea un dominio novo e pasa a ser o seu administrador. Desactivado: xestiona só os dominios asignados.",
+    "disable_viewing_mail_log_help": "Activado: a páxina do rexistro de mail queda pechada para este administrador.",
+    "disable_managing_quarantined_mails_help": "Activado: o administrador ve a corentena pero non libera nin borra ningunha mensaxe."
   },
   "alias": {
     "msg_updated": "Alias actualizado!",

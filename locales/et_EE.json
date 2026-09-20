@@ -466,7 +466,8 @@
     "service_enableSogo_help": "Väljas: kasutaja ei saa veebiposti sisse logida. Postkast ise töötab edasi.",
     "forwarding_addresses_help": "Selle postkasti kirjad lähevad ka nendele aadressidele, üks reale.",
     "keep_copy_help": "Sees: edasisaadetud kirja koopia jääb postkasti. Väljas: kiri ainult lahkub ja postkast jääb tühjaks.",
-    "relay_host_help": "Selle postkasti väljuvad kirjad lähevad otsese kohaletoimetamise asemel sellesse serverisse. Tühi: kehtib domeeni seade."
+    "relay_host_help": "Selle postkasti väljuvad kirjad lähevad otsese kohaletoimetamise asemel sellesse serverisse. Tühi: kehtib domeeni seade.",
+    "new_password_help": "Uus parool asendab salvestatu kohe. Admin logib sellega sisse järgmisel korral."
   },
   "mlist": {
     "msg_updated": "Postiloend uuendatud!",
@@ -831,7 +832,19 @@
     "msg_hosted_domain": "Eraldiseisev administraator ei saa kasutada majutatud domeeni :domain. Tehke selle asemel administraatoriks selle domeeni postkast.",
     "msg_cannot_remove_self": "Te ei saa oma administraatorikontot kustutada ega keelata",
     "msg_invalid_limit": ":field: sisestage piiramatu jaoks -1 või täisarv, mis on 0 või suurem.",
-    "global_administrator_help": "Sees: see postkast haldab paneeli iga domeeni ja iga seadet. Väljas: ta haldab ainult neid domeene, kus ta on administraator."
+    "global_administrator_help": "Sees: see postkast haldab paneeli iga domeeni ja iga seadet. Väljas: ta haldab ainult neid domeene, kus ta on administraator.",
+    "email_address_help": "Admini sisselogimise aadress. See on ka meiliaadress, kui konto on postkast.",
+    "display_name_help": "Nimi, mida paneel selle admini kohta loendites näitab.",
+    "repeat_password_help": "Kirjutage sama parool uuesti. Kui need kaks erinevad, keeldub paneel salvestamisest.",
+    "assign_domain_help": "Admin haldab siin valitud domeeni ning selle domeeni iga postkasti, aliase ja loendi.",
+    "max_domains_help": "Mitu domeeni see admin loob. -1 tähendab piiranguta, 0 keeldub igast uuest domeenist. Globaalset adminit see ei seo.",
+    "max_users_help": "Mitu postkasti see admin oma domeenides loob. -1 tähendab piiranguta.",
+    "max_aliases_help": "Mitu meiliaadressi aliast see admin oma domeenides loob. -1 tähendab piiranguta.",
+    "max_lists_help": "Mitu postiloendit see admin oma domeenides loob. -1 tähendab piiranguta.",
+    "max_quota_help": "Hallatavate domeenide postkastide mahupiiride summa MB-des. -1 tähendab piiranguta. Kuni väärtus on seatud, lükatakse piiranguta mahuga postkast tagasi.",
+    "allow_domain_creation_help": "Sees: admin loob uue domeeni ja saab selle adminiks. Väljas: ta haldab ainult määratud domeene.",
+    "disable_viewing_mail_log_help": "Sees: meililogi leht jääb selle admini jaoks suletuks.",
+    "disable_managing_quarantined_mails_help": "Sees: admin näeb karantiini, kuid ei vabasta ega kustuta sõnumit."
   },
   "alias": {
     "msg_updated": "Alias edukalt uuendatud!",

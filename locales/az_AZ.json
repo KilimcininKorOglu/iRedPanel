@@ -466,7 +466,8 @@
     "service_enableSogo_help": "Bağlı: istifadəçi webmail'ə daxil ola bilmir. Mailbox'ın özü işləməyə davam edir.",
     "forwarding_addresses_help": "Bu mailbox'ın maili bu ünvanlara da gedir, hər sətirdə bir ünvan.",
     "keep_copy_help": "Açıq: yönləndirilən mesajın surəti mailbox'da qalır. Bağlı: mesaj yalnız gedir və mailbox boş qalır.",
-    "relay_host_help": "Bu mailbox'ın gedən maili birbaşa çatdırılma yerinə bu serverə gedir. Boş: domen parametri qüvvədədir."
+    "relay_host_help": "Bu mailbox'ın gedən maili birbaşa çatdırılma yerinə bu serverə gedir. Boş: domen parametri qüvvədədir.",
+    "new_password_help": "Yeni parol saxlanmış parolu dərhal əvəz edir. Admin növbəti girişdə onu işlədir."
   },
   "mlist": {
     "msg_updated": "Poçt siyahısı yeniləndi!",
@@ -831,7 +832,19 @@
     "msg_hosted_domain": "Müstəqil admin serverdəki :domain domenindən istifadə edə bilməz. Bunun əvəzinə bu domenin bir poçt qutusunu admin edin.",
     "msg_cannot_remove_self": "Öz admin hesabınızı silə və ya deaktiv edə bilməzsiniz",
     "msg_invalid_limit": ":field: limitsiz üçün -1 və ya 0 və ya daha böyük tam ədəd daxil edin.",
-    "global_administrator_help": "Açıq: bu mailbox panelin hər domenini və hər parametrini idarə edir. Bağlı: yalnız admin olduğu domenləri idarə edir."
+    "global_administrator_help": "Açıq: bu mailbox panelin hər domenini və hər parametrini idarə edir. Bağlı: yalnız admin olduğu domenləri idarə edir.",
+    "email_address_help": "Adminin giriş ünvanı. Hesab mailbox olduqda bu həm də mail ünvanıdır.",
+    "display_name_help": "Panelin siyahılarda bu admin üçün göstərdiyi ad.",
+    "repeat_password_help": "Eyni parolu yenidən yazın. İkisi fərqlidirsə panel yaddaşa yazmağı rədd edir.",
+    "assign_domain_help": "Admin burada seçdiyiniz domeni və o domenin hər mailbox, alias və siyahısını idarə edir.",
+    "max_domains_help": "Bu adminin neçə domen yaradacağı. -1 hədsiz deməkdir, 0 hər yeni domeni rədd edir. Qlobal admini bağlamır.",
+    "max_users_help": "Bu adminin öz domenlərində neçə mailbox yaradacağı. -1 hədsiz deməkdir.",
+    "max_aliases_help": "Bu adminin öz domenlərində neçə mail alias yaradacağı. -1 hədsiz deməkdir.",
+    "max_lists_help": "Bu adminin öz domenlərində neçə mailing list yaradacağı. -1 hədsiz deməkdir.",
+    "max_quota_help": "İdarə olunan domenlərdəki mailbox kvotalarının cəmi, MB ilə. -1 hədsiz deməkdir. Dəyər təyin olunanda hədsiz kvotalı mailbox rədd olunur.",
+    "allow_domain_creation_help": "Açıq: admin yeni domen yaradır və onun admini olur. Bağlı: yalnız təyin edilmiş domenləri idarə edir.",
+    "disable_viewing_mail_log_help": "Açıq: mail log səhifəsi bu admin üçün bağlı qalır.",
+    "disable_managing_quarantined_mails_help": "Açıq: admin karantini görür, lakin mesajı nə buraxır, nə də silir."
   },
   "alias": {
     "msg_updated": "Təxəllüs uğurla yeniləndi!",

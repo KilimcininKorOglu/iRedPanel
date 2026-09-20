@@ -466,7 +466,8 @@
     "service_enableSogo_help": "Isključeno: korisnik se ne može prijaviti na webmail. Sam sandučić i dalje radi.",
     "forwarding_addresses_help": "Pošta ovog sandučića ide i na ove adrese, jedna po retku.",
     "keep_copy_help": "Uključeno: kopija proslijeđene poruke ostaje u sandučiću. Isključeno: poruka samo odlazi i sandučić ostaje prazan.",
-    "relay_host_help": "Odlazna pošta ovog sandučića ide na ovaj poslužitelj umjesto izravne isporuke. Prazno: vrijedi postavka domene."
+    "relay_host_help": "Odlazna pošta ovog sandučića ide na ovaj poslužitelj umjesto izravne isporuke. Prazno: vrijedi postavka domene.",
+    "new_password_help": "Nova lozinka odmah zamjenjuje spremljenu. Administrator se njome prijavljuje sljedeći put."
   },
   "mlist": {
     "msg_updated": "Mailing lista ažurirana!",
@@ -831,7 +832,19 @@
     "msg_hosted_domain": "Samostalni administrator ne može koristiti hostanu domenu :domain. Umjesto toga postavite poštanski sandučić ove domene za administratora.",
     "msg_cannot_remove_self": "Ne možete izbrisati ili onemogućiti vlastiti administratorski račun",
     "msg_invalid_limit": ":field: unesite -1 za neograničeno ili cijeli broj 0 ili veći.",
-    "global_administrator_help": "Uključeno: ovaj sandučić upravlja svakom domenom i svakom postavkom panela. Isključeno: upravlja samo domenama u kojima je administrator."
+    "global_administrator_help": "Uključeno: ovaj sandučić upravlja svakom domenom i svakom postavkom panela. Isključeno: upravlja samo domenama u kojima je administrator.",
+    "email_address_help": "Adresa za prijavu administratora. To je i mail adresa kada je račun sandučić.",
+    "display_name_help": "Ime koje panel prikazuje za ovog administratora u popisima.",
+    "repeat_password_help": "Upišite istu lozinku ponovno. Ako se razlikuju, panel odbija spremanje.",
+    "assign_domain_help": "Administrator upravlja domenom koju ovdje odaberete i svakim sandučićem, aliasom i popisom te domene.",
+    "max_domains_help": "Koliko domena stvara ovaj administrator. -1 znači bez ograničenja, 0 odbija svaku novu domenu. Globalnog administratora ne veže.",
+    "max_users_help": "Koliko sandučića stvara ovaj administrator u svojim domenama. -1 znači bez ograničenja.",
+    "max_aliases_help": "Koliko mail aliasa stvara ovaj administrator u svojim domenama. -1 znači bez ograničenja.",
+    "max_lists_help": "Koliko mailing lista stvara ovaj administrator u svojim domenama. -1 znači bez ograničenja.",
+    "max_quota_help": "Zbroj kvota sandučića u domenama kojima upravlja, u MB. -1 znači bez ograničenja. Dok je vrijednost postavljena, sandučić bez ograničenja kvote se odbija.",
+    "allow_domain_creation_help": "Uključeno: administrator stvara novu domenu i postaje njezin administrator. Isključeno: upravlja samo dodijeljenim domenama.",
+    "disable_viewing_mail_log_help": "Uključeno: stranica mail loga ostaje zatvorena za ovog administratora.",
+    "disable_managing_quarantined_mails_help": "Uključeno: administrator vidi karantenu, ali poruku niti oslobađa niti briše."
   },
   "alias": {
     "msg_updated": "Alias uspješno ažuriran!",

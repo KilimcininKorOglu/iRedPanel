@@ -466,7 +466,8 @@
     "service_enableSogo_help": "Uit: de gebruiker kan niet inloggen op de webmail. De mailbox zelf blijft werken.",
     "forwarding_addresses_help": "De mail van deze mailbox gaat ook naar deze adressen, één per regel.",
     "keep_copy_help": "Aan: een kopie van het doorgestuurde bericht blijft in de mailbox. Uit: het bericht gaat alleen weg en de mailbox blijft leeg.",
-    "relay_host_help": "De uitgaande mail van deze mailbox gaat naar deze server in plaats van een directe bezorging. Leeg: de instelling van het domein geldt."
+    "relay_host_help": "De uitgaande mail van deze mailbox gaat naar deze server in plaats van een directe bezorging. Leeg: de instelling van het domein geldt.",
+    "new_password_help": "Het nieuwe wachtwoord vervangt het opgeslagen wachtwoord meteen. De beheerder meldt zich er de volgende keer mee aan."
   },
   "mlist": {
     "msg_updated": "Mailinglijst bijgewerkt!",
@@ -831,7 +832,19 @@
     "msg_hosted_domain": "Een zelfstandige beheerder kan het gehoste domein :domain niet gebruiken. Maak in plaats daarvan een mailbox van dit domein beheerder.",
     "msg_cannot_remove_self": "U kunt uw eigen beheerdersaccount niet verwijderen of uitschakelen",
     "msg_invalid_limit": ":field: voer -1 in voor onbeperkt of een geheel getal van 0 of meer.",
-    "global_administrator_help": "Aan: deze mailbox beheert elk domein en elke instelling van het paneel. Uit: hij beheert alleen de domeinen waar hij beheerder is."
+    "global_administrator_help": "Aan: deze mailbox beheert elk domein en elke instelling van het paneel. Uit: hij beheert alleen de domeinen waar hij beheerder is.",
+    "email_address_help": "Het aanmeldadres van de beheerder. Het is ook een mailadres als het account een mailbox is.",
+    "display_name_help": "De naam die het paneel voor deze beheerder in de lijsten toont.",
+    "repeat_password_help": "Typ hetzelfde wachtwoord nog eens. Als de twee verschillen, weigert het paneel het opslaan.",
+    "assign_domain_help": "De beheerder beheert het hier gekozen domein en elke mailbox, alias en lijst van dat domein.",
+    "max_domains_help": "Hoeveel domeinen deze beheerder aanmaakt. -1 betekent onbeperkt, 0 weigert elk nieuw domein. Een globale beheerder valt er niet onder.",
+    "max_users_help": "Hoeveel mailboxen deze beheerder in zijn domeinen aanmaakt. -1 betekent onbeperkt.",
+    "max_aliases_help": "Hoeveel mailaliassen deze beheerder in zijn domeinen aanmaakt. -1 betekent onbeperkt.",
+    "max_lists_help": "Hoeveel mailinglijsten deze beheerder in zijn domeinen aanmaakt. -1 betekent onbeperkt.",
+    "max_quota_help": "De som van de mailboxquota in de beheerde domeinen, in MB. -1 betekent onbeperkt. Zolang de waarde is gezet, wordt een mailbox met onbeperkte quota geweigerd.",
+    "allow_domain_creation_help": "Aan: de beheerder maakt een nieuw domein aan en wordt er beheerder van. Uit: hij beheert alleen de toegewezen domeinen.",
+    "disable_viewing_mail_log_help": "Aan: de pagina met het maillog blijft voor deze beheerder gesloten.",
+    "disable_managing_quarantined_mails_help": "Aan: de beheerder ziet de quarantaine maar geeft geen bericht vrij en verwijdert er geen."
   },
   "alias": {
     "msg_updated": "Alias succesvol bijgewerkt!",

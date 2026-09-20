@@ -466,7 +466,8 @@
     "service_enableSogo_help": "Désactivé : l'utilisateur ne peut pas se connecter au webmail. La boîte elle-même continue de fonctionner.",
     "forwarding_addresses_help": "Le courrier de cette boîte part aussi vers ces adresses, une par ligne.",
     "keep_copy_help": "Activé : une copie du message transféré reste dans la boîte. Désactivé : le message ne fait que partir et la boîte reste vide.",
-    "relay_host_help": "Le courrier sortant de cette boîte passe par ce serveur au lieu d'une remise directe. Vide : le réglage du domaine s'applique."
+    "relay_host_help": "Le courrier sortant de cette boîte passe par ce serveur au lieu d'une remise directe. Vide : le réglage du domaine s'applique.",
+    "new_password_help": "Le nouveau mot de passe remplace tout de suite celui qui est stocké. L'administrateur s'en sert à la prochaine connexion."
   },
   "mlist": {
     "msg_updated": "Liste de diffusion mise à jour !",
@@ -831,7 +832,19 @@
     "msg_hosted_domain": "Un administrateur autonome ne peut pas utiliser le domaine hébergé :domain. Faites plutôt d'une boîte aux lettres de ce domaine un administrateur.",
     "msg_cannot_remove_self": "Vous ne pouvez pas supprimer ni désactiver votre propre compte administrateur",
     "msg_invalid_limit": ":field : saisissez -1 pour illimité ou un nombre entier supérieur ou égal à 0.",
-    "global_administrator_help": "Activé : cette boîte gère tous les domaines et tous les réglages du panneau. Désactivé : elle ne gère que les domaines dont elle est admin."
+    "global_administrator_help": "Activé : cette boîte gère tous les domaines et tous les réglages du panneau. Désactivé : elle ne gère que les domaines dont elle est admin.",
+    "email_address_help": "L'adresse de connexion de l'administrateur. C'est aussi une adresse mail quand le compte est une boîte.",
+    "display_name_help": "Le nom que le panneau affiche pour cet administrateur dans les listes.",
+    "repeat_password_help": "Saisissez le même mot de passe à nouveau. Si les deux diffèrent, le panneau refuse l'enregistrement.",
+    "assign_domain_help": "L'administrateur gère le domaine choisi ici, ainsi que chaque boîte, alias et liste de ce domaine.",
+    "max_domains_help": "Combien de domaines cet administrateur crée. -1 signifie sans limite, 0 refuse tout nouveau domaine. Un administrateur global n'est pas lié par cette valeur.",
+    "max_users_help": "Combien de boîtes cet administrateur crée dans ses domaines. -1 signifie sans limite.",
+    "max_aliases_help": "Combien d'alias mail cet administrateur crée dans ses domaines. -1 signifie sans limite.",
+    "max_lists_help": "Combien de listes de diffusion cet administrateur crée dans ses domaines. -1 signifie sans limite.",
+    "max_quota_help": "La somme des quotas des boîtes dans les domaines gérés, en Mo. -1 signifie sans limite. Tant que la valeur est définie, une boîte au quota illimité est refusée.",
+    "allow_domain_creation_help": "Activé : l'administrateur crée un nouveau domaine et en devient l'administrateur. Désactivé : il gère seulement les domaines attribués.",
+    "disable_viewing_mail_log_help": "Activé : la page du journal mail reste fermée pour cet administrateur.",
+    "disable_managing_quarantined_mails_help": "Activé : l'administrateur voit la quarantaine mais ne libère ni ne supprime aucun message."
   },
   "alias": {
     "msg_updated": "Alias mis à jour avec succès !",

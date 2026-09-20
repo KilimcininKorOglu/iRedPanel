@@ -466,7 +466,8 @@
     "service_enableSogo_help": "Av: brukaren kjem ikkje inn i vevposten. Sjølve postkassa verkar vidare.",
     "forwarding_addresses_help": "Posten til denne postkassa går òg til desse adressene, éi per linje.",
     "keep_copy_help": "På: ein kopi av den vidaresende meldinga vert liggjande i postkassa. Av: meldinga går berre vidare, og postkassa står tom.",
-    "relay_host_help": "Den utgåande posten frå denne postkassa går til denne tenaren i staden for direkte levering. Tom: innstillinga til domenet gjeld."
+    "relay_host_help": "Den utgåande posten frå denne postkassa går til denne tenaren i staden for direkte levering. Tom: innstillinga til domenet gjeld.",
+    "new_password_help": "Det nye passordet erstattar det lagra med ein gong. Administratoren loggar inn med det neste gong."
   },
   "mlist": {
     "msg_updated": "E-postliste oppdatert!",
@@ -831,7 +832,19 @@
     "msg_hosted_domain": "Ein frittståande administrator kan ikkje bruke det hosta domenet :domain. Gjer i staden ein postboks i domenet til administrator.",
     "msg_cannot_remove_self": "Du kan ikkje slette eller deaktivere din eigen administratorkonto",
     "msg_invalid_limit": ":field: skriv inn -1 for uavgrensa eller eit heiltal på 0 eller meir.",
-    "global_administrator_help": "På: denne postkassa styrer kvart domene og kvar innstilling i panelet. Av: ho styrer berre domena der ho er administrator."
+    "global_administrator_help": "På: denne postkassa styrer kvart domene og kvar innstilling i panelet. Av: ho styrer berre domena der ho er administrator.",
+    "email_address_help": "Innloggingsadressa til administratoren. Ho er òg ei mailadresse når kontoen er ei postkasse.",
+    "display_name_help": "Namnet panelet viser for denne administratoren i listene.",
+    "repeat_password_help": "Skriv det same passordet på nytt. Om dei to er ulike, avviser panelet lagringa.",
+    "assign_domain_help": "Administratoren styrer domenet du vel her, og kvar postkasse, alias og liste på det domenet.",
+    "max_domains_help": "Kor mange domene denne administratoren opprettar. -1 tyder ubegrensa, 0 avviser kvart nytt domene. Ein global administrator er ikkje bunden av det.",
+    "max_users_help": "Kor mange postkasser denne administratoren opprettar i domena sine. -1 tyder ubegrensa.",
+    "max_aliases_help": "Kor mange mailaliasar denne administratoren opprettar i domena sine. -1 tyder ubegrensa.",
+    "max_lists_help": "Kor mange e-postlister denne administratoren opprettar i domena sine. -1 tyder ubegrensa.",
+    "max_quota_help": "Summen av postkassekvotane i domena han styrer, i MB. -1 tyder ubegrensa. Så lenge verdet er sett, vert ei postkasse med ubegrensa kvote avvist.",
+    "allow_domain_creation_help": "På: administratoren opprettar eit nytt domene og vert administrator for det. Av: han styrer berre dei tildelte domena.",
+    "disable_viewing_mail_log_help": "På: sida med mailloggen er stengd for denne administratoren.",
+    "disable_managing_quarantined_mails_help": "På: administratoren ser karantenen, men korkje slepper gjennom eller slettar ei melding."
   },
   "alias": {
     "msg_updated": "Alias oppdatert!",

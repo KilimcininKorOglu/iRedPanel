@@ -466,7 +466,8 @@
     "service_enableSogo_help": "关闭：用户无法登录 webmail。邮箱本身继续工作。",
     "forwarding_addresses_help": "该邮箱的邮件同时发往这些地址，每行一个。",
     "keep_copy_help": "开启：转发的邮件在邮箱中保留一份副本。关闭：邮件只往外发，邮箱保持为空。",
-    "relay_host_help": "该邮箱的外发邮件发往此服务器，而不是直接投递。留空则采用域的设置。"
+    "relay_host_help": "该邮箱的外发邮件发往此服务器，而不是直接投递。留空则采用域的设置。",
+    "new_password_help": "新密码立即取代已保存的密码。管理员下次登录时使用它。"
   },
   "mlist": {
     "msg_updated": "邮件列表已更新！",
@@ -831,7 +832,19 @@
     "msg_hosted_domain": "独立管理员不能使用本服务器托管的域 :domain。请改为将该域中的邮箱设为管理员。",
     "msg_cannot_remove_self": "不能删除或禁用您自己的管理员账户",
     "msg_invalid_limit": ":field：输入 -1 表示不限制，或输入大于或等于 0 的整数。",
-    "global_administrator_help": "开启：该邮箱管理面板的所有域和所有设置。关闭：只管理自己担任管理员的域。"
+    "global_administrator_help": "开启：该邮箱管理面板的所有域和所有设置。关闭：只管理自己担任管理员的域。",
+    "email_address_help": "管理员的登录地址。当账户是邮箱时，它同时也是邮件地址。",
+    "display_name_help": "面板在列表中为该管理员显示的名称。",
+    "repeat_password_help": "再输入一次同样的密码。两者不同时，面板拒绝保存。",
+    "assign_domain_help": "管理员管理在此选择的域，以及该域的每个邮箱、别名和列表。",
+    "max_domains_help": "该管理员可创建多少个域。-1 表示不限，0 拒绝任何新域。全局管理员不受此限制。",
+    "max_users_help": "该管理员在其所管域中可创建多少个邮箱。-1 表示不限。",
+    "max_aliases_help": "该管理员在其所管域中可创建多少个邮件别名。-1 表示不限。",
+    "max_lists_help": "该管理员在其所管域中可创建多少个邮件列表。-1 表示不限。",
+    "max_quota_help": "所管域中邮箱配额的总和，单位 MB。-1 表示不限。只要设置了该值，就拒绝配额不限的邮箱。",
+    "allow_domain_creation_help": "开启：管理员可创建新域并成为该域的管理员。关闭：只管理已分配的域。",
+    "disable_viewing_mail_log_help": "开启：邮件日志页面对该管理员关闭。",
+    "disable_managing_quarantined_mails_help": "开启：管理员可以查看隔离区，但不能放行也不能删除邮件。"
   },
   "alias": {
     "msg_updated": "别名更新成功！",

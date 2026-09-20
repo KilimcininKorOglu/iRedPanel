@@ -466,7 +466,8 @@
     "service_enableSogo_help": "關閉：使用者無法登入 webmail。信箱本身繼續運作。",
     "forwarding_addresses_help": "此信箱的郵件同時寄往這些位址，每行一個。",
     "keep_copy_help": "開啟：轉寄的郵件在信箱中保留一份副本。關閉：郵件只往外寄，信箱保持為空。",
-    "relay_host_help": "此信箱的外寄郵件寄往此伺服器，而不是直接投遞。留空則採用網域的設定。"
+    "relay_host_help": "此信箱的外寄郵件寄往此伺服器，而不是直接投遞。留空則採用網域的設定。",
+    "new_password_help": "新密碼立即取代已儲存的密碼。管理員下次登入時使用它。"
   },
   "mlist": {
     "msg_updated": "郵件清單已更新！",
@@ -831,7 +832,19 @@
     "msg_hosted_domain": "獨立管理員不能使用本伺服器託管的網域 :domain。請改為將該網域中的信箱設為管理員。",
     "msg_cannot_remove_self": "無法刪除或停用您自己的管理員帳號",
     "msg_invalid_limit": ":field：輸入 -1 表示不限制，或輸入大於或等於 0 的整數。",
-    "global_administrator_help": "開啟：此信箱管理面板的所有網域和所有設定。關閉：只管理自己擔任管理員的網域。"
+    "global_administrator_help": "開啟：此信箱管理面板的所有網域和所有設定。關閉：只管理自己擔任管理員的網域。",
+    "email_address_help": "管理員的登入位址。當帳號是信箱時，它同時也是郵件位址。",
+    "display_name_help": "面板在清單中為該管理員顯示的名稱。",
+    "repeat_password_help": "再輸入一次相同的密碼。兩者不同時，面板拒絕儲存。",
+    "assign_domain_help": "管理員管理在此選擇的網域，以及該網域的每個信箱、別名與清單。",
+    "max_domains_help": "該管理員可建立多少個網域。-1 表示不限，0 拒絕任何新網域。全域管理員不受此限制。",
+    "max_users_help": "該管理員在其所管網域中可建立多少個信箱。-1 表示不限。",
+    "max_aliases_help": "該管理員在其所管網域中可建立多少個郵件別名。-1 表示不限。",
+    "max_lists_help": "該管理員在其所管網域中可建立多少個郵件清單。-1 表示不限。",
+    "max_quota_help": "所管網域中信箱配額的總和，單位 MB。-1 表示不限。只要設定了該值，就拒絕配額不限的信箱。",
+    "allow_domain_creation_help": "開啟：管理員可建立新網域並成為該網域的管理員。關閉：只管理已指派的網域。",
+    "disable_viewing_mail_log_help": "開啟：郵件記錄頁面對該管理員關閉。",
+    "disable_managing_quarantined_mails_help": "開啟：管理員可以檢視隔離區，但不能放行也不能刪除郵件。"
   },
   "alias": {
     "msg_updated": "別名已成功更新！",

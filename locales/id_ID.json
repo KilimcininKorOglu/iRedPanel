@@ -466,7 +466,8 @@
     "service_enableSogo_help": "Nonaktif: pengguna tidak bisa masuk ke webmail. Kotak suratnya sendiri tetap bekerja.",
     "forwarding_addresses_help": "Mail kotak surat ini juga menuju alamat-alamat ini, satu per baris.",
     "keep_copy_help": "Aktif: salinan pesan yang diteruskan tetap ada di kotak surat. Nonaktif: pesan hanya pergi dan kotak surat tetap kosong.",
-    "relay_host_help": "Mail keluar kotak surat ini menuju server ini, bukan pengiriman langsung. Kosong: pengaturan domain yang berlaku."
+    "relay_host_help": "Mail keluar kotak surat ini menuju server ini, bukan pengiriman langsung. Kosong: pengaturan domain yang berlaku.",
+    "new_password_help": "Kata sandi baru langsung menggantikan yang tersimpan. Admin memakainya pada masuk berikutnya."
   },
   "mlist": {
     "msg_updated": "Milis diperbarui!",
@@ -831,7 +832,19 @@
     "msg_hosted_domain": "Admin mandiri tidak dapat memakai domain yang di-host :domain. Jadikan kotak surat dari domain ini sebagai admin.",
     "msg_cannot_remove_self": "Anda tidak dapat menghapus atau menonaktifkan akun admin Anda sendiri",
     "msg_invalid_limit": ":field: masukkan -1 untuk tanpa batas atau bilangan bulat 0 atau lebih.",
-    "global_administrator_help": "Aktif: kotak surat ini mengelola setiap domain dan setiap pengaturan panel. Nonaktif: hanya mengelola domain tempat ia menjadi admin."
+    "global_administrator_help": "Aktif: kotak surat ini mengelola setiap domain dan setiap pengaturan panel. Nonaktif: hanya mengelola domain tempat ia menjadi admin.",
+    "email_address_help": "Alamat masuk admin. Ini juga alamat mail bila akun berupa kotak surat.",
+    "display_name_help": "Nama yang panel tampilkan untuk admin ini di daftar.",
+    "repeat_password_help": "Ketik kata sandi yang sama lagi. Bila keduanya berbeda, panel menolak penyimpanan.",
+    "assign_domain_help": "Admin mengelola domain yang Anda pilih di sini beserta setiap kotak surat, alias, dan list domain itu.",
+    "max_domains_help": "Berapa domain yang dibuat admin ini. -1 berarti tanpa batas, 0 menolak setiap domain baru. Admin global tidak terikat.",
+    "max_users_help": "Berapa kotak surat yang dibuat admin ini di domain-domainnya. -1 berarti tanpa batas.",
+    "max_aliases_help": "Berapa alias mail yang dibuat admin ini di domain-domainnya. -1 berarti tanpa batas.",
+    "max_lists_help": "Berapa mailing list yang dibuat admin ini di domain-domainnya. -1 berarti tanpa batas.",
+    "max_quota_help": "Jumlah kuota kotak surat di domain yang dikelola, dalam MB. -1 berarti tanpa batas. Selama nilai ini disetel, kotak surat berkuota tanpa batas ditolak.",
+    "allow_domain_creation_help": "Aktif: admin membuat domain baru dan menjadi adminnya. Nonaktif: ia hanya mengelola domain yang ditugaskan.",
+    "disable_viewing_mail_log_help": "Aktif: halaman mail log tetap tertutup untuk admin ini.",
+    "disable_managing_quarantined_mails_help": "Aktif: admin melihat karantina tetapi tidak melepas maupun menghapus pesan."
   },
   "alias": {
     "msg_updated": "Alias berhasil diperbarui!",

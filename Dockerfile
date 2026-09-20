@@ -18,7 +18,7 @@ FROM php:${PHP_VERSION}-apache AS base
 # the installer binary out of the image layers.
 RUN --mount=type=bind,from=mlocati/php-extension-installer:2,source=/usr/bin/install-php-extensions,target=/usr/local/bin/install-php-extensions \
     install-php-extensions ldap pdo_mysql pdo_pgsql
-RUN a2enmod rewrite \
+RUN a2enmod rewrite headers \
     && sed -ri 's!/var/www/html!/var/www/html/public!g' /etc/apache2/sites-available/000-default.conf \
     && printf 'ServerTokens Prod\nServerSignature Off\n' > /etc/apache2/conf-available/zz-iredpanel.conf \
     && a2enconf zz-iredpanel

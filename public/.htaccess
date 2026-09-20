@@ -2,3 +2,18 @@ RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php [QSA,L]
+
+# Static asset freshness. Without these headers Apache sends Last-Modified and an
+# ETag only, so a browser revalidates every asset on every page view.
+<IfModule mod_headers.c>
+  # Every CSS and JS include carries ?v=<filemtime> from TemplateEngine::render(),
+  # so the URL changes when the file changes and the cache never serves stale code.
+  <FilesMatch "\.(css|js)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  # Fonts and images are referenced without ?v=, for example the icon font inside
+  # bootstrap-icons.min.css, so they revalidate once a day.
+  <FilesMatch "\.(woff2?|png|svg|ico)$">
+    Header set Cache-Control "public, max-age=86400"
+  </FilesMatch>
+</IfModule>

@@ -20,10 +20,11 @@ class TotpTest extends TestCase
     public static function rfcVectors(): array
     {
         return [
-            '1970' => [59, '287082'],
-            '2005' => [1111111109, '081804'],
-            '2009' => [1234567890, '005924'],
-            '2033' => [2000000000, '279037'],
+            // A plain year would become an integer key, so the name carries a prefix.
+            'year 1970' => [59, '287082'],
+            'year 2005' => [1111111109, '081804'],
+            'year 2009' => [1234567890, '005924'],
+            'year 2033' => [2000000000, '279037'],
         ];
     }
 

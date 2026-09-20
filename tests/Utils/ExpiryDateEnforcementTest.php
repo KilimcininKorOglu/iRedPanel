@@ -19,9 +19,9 @@ class ExpiryDateEnforcementTest extends TestCase
 
     public function testAnAccountWithoutADatePassesTheLoginCheck(): void
     {
-        ExpiryDate::assertNotExpired('user@test.com', '');
+        $this->expectNotToPerformAssertions();
 
-        $this->assertTrue(true);
+        ExpiryDate::assertNotExpired('user@test.com', '');
     }
 
     public function testAnExpiredAccountIsRefused(): void

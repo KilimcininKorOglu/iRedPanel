@@ -371,7 +371,7 @@ class UserApiController
      * @throws InvalidInputException when a field holds no valid value
      * @throws \InvalidArgumentException when the transport is not one Postfix knows
      */
-    private static function routingFields(array $data, string $email): array
+    private static function routingFields(array $data): array
     {
         $routing = [];
         if (array_key_exists('keepCopy', $data)) {
@@ -439,7 +439,7 @@ class UserApiController
     private static function routingFromBody(array $data, string $email): ?array
     {
         try {
-            return self::routingFields($data, $email) + self::listRoutingFields($data, $email);
+            return self::routingFields($data) + self::listRoutingFields($data, $email);
         } catch (InvalidInputException $e) {
             ApiResponse::invalidInput($e);
             return null;

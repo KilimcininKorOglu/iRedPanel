@@ -426,8 +426,9 @@ server {
 - A confirmed request adds or removes the subscriber in mlmmj
 
 ### Panel Settings
-- 30 settings editable at `/panel-settings` (global admin only)
-- Categories: Branding, Password Policy, Session & Security, Display & Behavior, Integrations, REST API
+- 44 settings editable at `/panel-settings` (global admin only)
+- Categories: Branding, Password Policy, Session & Security, Display & Behavior, Integrations, Outgoing Mail, REST API
+- The REST API key, the SMTP password and the mlmmjadmin API token are write-only fields: the page never shows a stored value, an empty field keeps it and a checkbox clears it. The two secrets are stored encrypted with libsodium `secretbox`
 - Stored in the `panel_settings` table of the iRedAdmin database
 - Priority: database value, then `.env` value, then built-in default
 - Falls back to `.env` when the iRedAdmin database is not configured

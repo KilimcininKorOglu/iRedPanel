@@ -81,44 +81,44 @@ $services = \App\Models\User::SERVICE_LABELS;
 
         <div class="form-check form-switch mb-3">
           <input id="accountStatus" name="accountStatus" type="checkbox" class="form-check-input" <?php if ($user->accountStatus): ?>checked<?php endif; ?><?= $locked('accountStatus') !== '' ? ' disabled' : '' ?> />
-          <label class="form-check-label" for="accountStatus"><?= $te('user.record_active') ?></label>
+          <label class="form-check-label" for="accountStatus"><?= $te('user.record_active') ?></label><?= $help('user.record_active') ?>
         </div>
 
         <div class="row g-3">
           <div class="col-md-6">
-            <label for="mailQuota" class="form-label"><?= $te('user.quota_mb_label') ?></label>
+            <label for="mailQuota" class="form-label"><?= $te('user.quota_mb_label') ?></label><?= $help('user.quota_mb_label') ?>
             <input id="mailQuota" name="mailQuota" type="number" class="form-control" value="<?= $e($user->mailQuota) ?>" required />
           </div>
           <div class="col-md-6">
-            <label for="cn" class="form-label"><?= $te('user.full_name') ?></label>
+            <label for="cn" class="form-label"><?= $te('user.full_name') ?></label><?= $help('user.full_name') ?>
             <input id="cn" name="cn" type="text" class="form-control" value="<?= $e($user->cn) ?>"<?= $locked('cn') ?> />
           </div>
           <div class="col-md-6">
-            <label for="givenName" class="form-label"><?= $te('user.first_name') ?></label>
+            <label for="givenName" class="form-label"><?= $te('user.first_name') ?></label><?= $help('user.first_name') ?>
             <input id="givenName" name="givenName" type="text" class="form-control" value="<?= $e($user->givenName) ?>"<?= $locked('givenName') ?> />
           </div>
           <div class="col-md-6">
-            <label for="sn" class="form-label"><?= $te('user.last_name') ?></label>
+            <label for="sn" class="form-label"><?= $te('user.last_name') ?></label><?= $help('user.last_name') ?>
             <input id="sn" name="sn" type="text" class="form-control" value="<?= $e($user->sn) ?>"<?= $locked('sn') ?> />
           </div>
           <div class="col-md-6">
-            <label for="employeeNumber" class="form-label"><?= $te('user.employee_number') ?></label>
+            <label for="employeeNumber" class="form-label"><?= $te('user.employee_number') ?></label><?= $help('user.employee_number') ?>
             <input id="employeeNumber" name="employeeNumber" type="text" class="form-control" value="<?= $e($user->employeeNumber) ?>"<?= $locked('employeeNumber') ?> />
           </div>
           <div class="col-md-6">
-            <label for="title" class="form-label"><?= $te('user.position') ?></label>
+            <label for="title" class="form-label"><?= $te('user.position') ?></label><?= $help('user.position') ?>
             <input id="title" name="title" type="text" class="form-control" value="<?= $e($user->title) ?>"<?= $locked('title') ?> />
           </div>
           <div class="col-md-6">
-            <label for="mobile" class="form-label"><?= $te('user.mobile_phone') ?></label>
+            <label for="mobile" class="form-label"><?= $te('user.mobile_phone') ?></label><?= $help('user.mobile_phone') ?>
             <input id="mobile" name="mobile" type="text" class="form-control" value="<?= $e($user->mobile) ?>"<?= $locked('mobile') ?> />
           </div>
           <div class="col-md-6">
-            <label for="telephoneNumber" class="form-label"><?= $te('user.work_phone') ?></label>
+            <label for="telephoneNumber" class="form-label"><?= $te('user.work_phone') ?></label><?= $help('user.work_phone') ?>
             <input id="telephoneNumber" name="telephoneNumber" type="text" class="form-control" value="<?= $e($user->telephoneNumber) ?>"<?= $locked('telephoneNumber') ?> />
           </div>
           <div class="col-md-6">
-            <label for="language" class="form-label"><?= $te('user.language') ?></label>
+            <label for="language" class="form-label"><?= $te('user.language') ?></label><?= $help('user.language') ?>
             <?php // A stored code that the panel has no translation for stays selectable, so a save keeps it. ?>
             <?php $languages = ['' => $t('user.language_default')] + $availableLocales + [(string) $user->language => (string) $user->language]; ?>
             <select id="language" name="language" class="form-select">
@@ -131,7 +131,7 @@ $services = \App\Models\User::SERVICE_LABELS;
         <?php if (!empty($session['isGlobalAdmin'])): ?>
         <div class="form-check form-switch mt-3">
           <input id="domainGlobalAdmin" name="domainGlobalAdmin" type="checkbox" class="form-check-input" <?php if ($user->domainGlobalAdmin): ?>checked<?php endif; ?> />
-          <label class="form-check-label" for="domainGlobalAdmin"><?= $te('admin.global_administrator') ?></label>
+          <label class="form-check-label" for="domainGlobalAdmin"><?= $te('admin.global_administrator') ?></label><?= $help('admin.global_administrator') ?>
         </div>
         <?php endif; ?>
       </div>
@@ -142,7 +142,7 @@ $services = \App\Models\User::SERVICE_LABELS;
         <?php elseif ($editMode === 'password'): ?>
         <?php if (!empty($requireOldPassword)): ?>
         <div class="mb-3">
-          <label for="old_password" class="form-label"><?= $te('user.current_password') ?></label>
+          <label for="old_password" class="form-label"><?= $te('user.current_password') ?></label><?= $help('user.current_password') ?>
           <input name="old_password" type="password" id="old_password" required class="<?= $fieldClass('old_password') ?>" />
           <?php if (!empty($validationErrors['old_password'])): ?>
           <div class="invalid-feedback"><?= $e($validationErrors['old_password']) ?></div>
@@ -151,14 +151,14 @@ $services = \App\Models\User::SERVICE_LABELS;
         <?php endif; ?>
         <div class="row g-3 mb-3">
           <div class="col-md-6">
-            <label for="password" class="form-label"><?= $te('common.password') ?></label>
+            <label for="password" class="form-label"><?= $te('common.password') ?></label><?= $help('common.password') ?>
             <input name="password" type="password" id="password" required autocomplete="new-password" class="<?= $fieldClass('password') ?>" />
             <?php if (!empty($validationErrors['password'])): ?>
             <div class="invalid-feedback"><?= $e($validationErrors['password']) ?></div>
             <?php endif; ?>
           </div>
           <div class="col-md-6">
-            <label for="password_repeat" class="form-label"><?= $te('user.password_repeat') ?></label>
+            <label for="password_repeat" class="form-label"><?= $te('user.password_repeat') ?></label><?= $help('user.password_repeat') ?>
             <input name="password_repeat" type="password" id="password_repeat" required class="<?= $fieldClass('password_repeat') ?>" />
             <?php if (!empty($validationErrors['password_repeat'])): ?>
             <div class="invalid-feedback"><?= $e($validationErrors['password_repeat']) ?></div>
@@ -178,7 +178,7 @@ $services = \App\Models\User::SERVICE_LABELS;
           <div class="col-md-6">
             <div class="form-check form-switch">
               <input type="checkbox" class="form-check-input" id="<?= $field ?>" name="<?= $field ?>" <?php if ($user->$field): ?>checked<?php endif; ?> />
-              <label class="form-check-label" for="<?= $field ?>"><?= $e($label) ?></label>
+              <label class="form-check-label" for="<?= $field ?>"><?= $e($label) ?></label><?= $help('user.service_' . $field, [], $label) ?>
             </div>
           </div>
           <?php endforeach; ?>
@@ -191,12 +191,12 @@ $services = \App\Models\User::SERVICE_LABELS;
         <?php elseif ($editMode === 'forwarding'): ?>
         <h2 class="h6 mb-3"><?= $te('user.email_forwarding') ?></h2>
         <div class="mb-3">
-          <label for="forwardingAddresses" class="form-label"><?= $te('user.forwarding_addresses') ?></label>
+          <label for="forwardingAddresses" class="form-label"><?= $te('user.forwarding_addresses') ?></label><?= $help('user.forwarding_addresses') ?>
           <textarea id="forwardingAddresses" name="forwardingAddresses" data-account-picker="multi" rows="5" class="form-control" placeholder="user@example.com"><?= $e(implode("\n", $forwardings ?? [])) ?></textarea>
         </div>
         <div class="form-check form-switch">
           <input type="checkbox" class="form-check-input" id="keepCopy" name="keepCopy" <?php if ($keepCopy ?? true): ?>checked<?php endif; ?> />
-          <label class="form-check-label" for="keepCopy"><?= $te('user.keep_copy') ?></label>
+          <label class="form-check-label" for="keepCopy"><?= $te('user.keep_copy') ?></label><?= $help('user.keep_copy') ?>
         </div>
       </div>
       <div class="card-footer">
@@ -257,13 +257,13 @@ $services = \App\Models\User::SERVICE_LABELS;
       <div class="card-body">
         <p class="text-body-secondary"><?= $te('user.bcc_desc') ?></p>
         <div class="mb-3">
-          <label for="senderBcc" class="form-label"><?= $te('domain.sender_bcc') ?></label>
+          <label for="senderBcc" class="form-label"><?= $te('domain.sender_bcc') ?></label><?= $help('domain.sender_bcc') ?>
           <input id="senderBcc" type="email" name="senderBcc" data-account-picker="single" class="form-control"
             value="<?= $e($userSenderBcc ?? '') ?>"
             placeholder="<?= $te('domain.sender_bcc_placeholder') ?>" />
         </div>
         <div>
-          <label for="recipientBcc" class="form-label"><?= $te('domain.recipient_bcc') ?></label>
+          <label for="recipientBcc" class="form-label"><?= $te('domain.recipient_bcc') ?></label><?= $help('domain.recipient_bcc') ?>
           <input id="recipientBcc" type="email" name="recipientBcc" data-account-picker="single" class="form-control"
             value="<?= $e($userRecipientBcc ?? '') ?>"
             placeholder="<?= $te('domain.recipient_bcc_placeholder') ?>" />
@@ -281,17 +281,16 @@ $services = \App\Models\User::SERVICE_LABELS;
       <div class="card-header"><?= $te('domain.relay_legend') ?></div>
       <div class="card-body">
         <p class="text-body-secondary"><?= $te('user.relay_desc') ?></p>
-        <label for="relayhost" class="form-label"><?= $te('domain.relay_host') ?></label>
+        <label for="relayhost" class="form-label"><?= $te('domain.relay_host') ?></label><?= $help('user.relay_host', [], $t('domain.relay_host')) ?>
         <input id="relayhost" type="text" name="relayhost" class="form-control"
           value="<?= $e($userRelayhost ?? '') ?>"
           placeholder="[smtp.relay.com]:587" />
         <div class="form-text"><?= $t('domain.relay_format') ?></div>
         <?php if (!empty($session['isGlobalAdmin'])): ?>
-        <label for="transport" class="form-label mt-3"><?= $te('user.transport') ?></label>
+        <label for="transport" class="form-label mt-3"><?= $te('user.transport') ?></label><?= $help('user.transport') ?>
         <input id="transport" type="text" name="transport" class="form-control font-monospace"
           value="<?= $e($userTransport ?? '') ?>"
           placeholder="dovecot" />
-        <div class="form-text"><?= $te('user.transport_hint') ?></div>
         <?php endif; ?>
       </div>
       <div class="card-footer">

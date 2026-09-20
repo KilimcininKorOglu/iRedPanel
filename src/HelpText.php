@@ -18,8 +18,10 @@ class HelpText
 
     /**
      * @param array<string,string|int> $params placeholders of both texts
+     * @param ?string $title the popover title, for a field whose label is a plain
+     *                       string (a product name) instead of a translation key
      */
-    public static function icon(string $labelKey, array $params = []): string
+    public static function icon(string $labelKey, array $params = [], ?string $title = null): string
     {
         $key = $labelKey . self::SUFFIX;
         if (!Translator::has($key)) {
@@ -28,7 +30,7 @@ class HelpText
 
         return '<button type="button" class="help-icon" data-bs-toggle="popover"'
             . ' data-bs-trigger="focus" data-bs-placement="top"'
-            . ' data-bs-title="' . self::escape(Translator::translate($labelKey, $params)) . '"'
+            . ' data-bs-title="' . self::escape($title ?? Translator::translate($labelKey, $params)) . '"'
             . ' data-bs-content="' . self::escape(Translator::translate($key, $params)) . '"'
             . ' aria-label="' . self::escape(Translator::translate('common.help')) . '">'
             . '<i class="bi bi-question-circle" aria-hidden="true"></i></button>';

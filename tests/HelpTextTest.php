@@ -50,6 +50,14 @@ class HelpTextTest extends TestCase
         $this->assertStringContainsString('bi-question-circle', $icon);
     }
 
+    public function testAGivenTitleReplacesTheLabel(): void
+    {
+        $icon = HelpText::icon('spampolicy.tag_level', [], 'SMTP');
+
+        $this->assertStringContainsString('data-bs-title="SMTP"', $icon);
+        $this->assertStringNotContainsString('data-bs-title="Tag level"', $icon);
+    }
+
     public function testTheExplanationIsEscaped(): void
     {
         $icon = HelpText::icon('spampolicy.tag_level');

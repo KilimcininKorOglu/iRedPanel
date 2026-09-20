@@ -480,7 +480,8 @@
     "allow_nets_help": "IP-адреса и диапазоны CIDR, с которых почтовый ящик может входить, через запятую. Пустое значение разрешает любой адрес. Dovecot проверяет это при каждом входе IMAP, POP3 и SMTP, поэтому неверное значение блокирует пользователя.",
     "msg_invalid_allow_nets": "Неверное ограничение IP. Используйте IP-адреса и диапазоны CIDR через запятую.",
     "password_last_change": "Последняя смена пароля",
-    "password_last_change_help": "Дата последней смены пароля. Панель записывает её при каждой смене (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Нет означает, что в backend ещё нет даты."
+    "password_last_change_help": "Дата последней смены пароля. Панель записывает её при каждой смене (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Нет означает, что в backend ещё нет даты.",
+    "msg_quota_below_used": "Почтовый ящик уже хранит :used МБ. Domain admin не может задать квоту :quota МБ; обратитесь к global admin."
   },
   "mlist": {
     "msg_updated": "Список рассылки обновлён!",

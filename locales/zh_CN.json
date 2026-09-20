@@ -480,7 +480,8 @@
     "allow_nets_help": "邮箱可以登录的 IP 地址和 CIDR 网段，用逗号分隔。留空表示允许所有地址。Dovecot 在每次 IMAP、POP3 和 SMTP 登录时检查该值，填错会把用户挡在外面。",
     "msg_invalid_allow_nets": "登录 IP 限制无效。请使用以逗号分隔的 IP 地址和 CIDR 网段。",
     "password_last_change": "上次密码修改",
-    "password_last_change_help": "上次修改密码的日期。面板在每次修改密码时写入该值（SQL `mailbox.passwordlastchange`，LDAP `shadowLastChange`）。无表示后端还没有日期。"
+    "password_last_change_help": "上次修改密码的日期。面板在每次修改密码时写入该值（SQL `mailbox.passwordlastchange`，LDAP `shadowLastChange`）。无表示后端还没有日期。",
+    "msg_quota_below_used": "邮箱已存储 :used MB。domain admin 不能把配额设为 :quota MB，请联系 global admin。"
   },
   "mlist": {
     "msg_updated": "邮件列表已更新！",

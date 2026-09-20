@@ -480,7 +480,8 @@
     "allow_nets_help": "Adresses IP et plages CIDR depuis lesquelles la boîte peut se connecter, séparées par une virgule. Vide autorise toutes les adresses. Dovecot le vérifie à chaque connexion IMAP, POP3 et SMTP, une valeur erronée bloque donc l'utilisateur.",
     "msg_invalid_allow_nets": "Restriction IP non valide. Utilisez des adresses IP et des plages CIDR séparées par une virgule.",
     "password_last_change": "Dernier changement de mot de passe",
-    "password_last_change_help": "La date du dernier changement de mot de passe. Le panel l'écrit à chaque changement (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Aucune signifie que le backend n'a pas encore de date."
+    "password_last_change_help": "La date du dernier changement de mot de passe. Le panel l'écrit à chaque changement (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Aucune signifie que le backend n'a pas encore de date.",
+    "msg_quota_below_used": "La boîte stocke déjà :used Mo. Un domain admin ne peut pas fixer le quota à :quota Mo ; demandez à un global admin."
   },
   "mlist": {
     "msg_updated": "Liste de diffusion mise à jour !",

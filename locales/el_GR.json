@@ -480,7 +480,8 @@
     "allow_nets_help": "Διευθύνσεις IP και εύρη CIDR από τα οποία επιτρέπεται η σύνδεση, χωρισμένα με κόμμα. Κενό επιτρέπει κάθε διεύθυνση. Το Dovecot το ελέγχει σε κάθε σύνδεση IMAP, POP3 και SMTP, οπότε λάθος τιμή κλειδώνει τον χρήστη έξω.",
     "msg_invalid_allow_nets": "Μη έγκυρος περιορισμός IP. Χρησιμοποιήστε διευθύνσεις IP και εύρη CIDR χωρισμένα με κόμμα.",
     "password_last_change": "Τελευταία αλλαγή κωδικού",
-    "password_last_change_help": "Η ημερομηνία της τελευταίας αλλαγής κωδικού. Το panel τη γράφει σε κάθε αλλαγή (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Καμία σημαίνει ότι το backend δεν έχει ακόμη ημερομηνία."
+    "password_last_change_help": "Η ημερομηνία της τελευταίας αλλαγής κωδικού. Το panel τη γράφει σε κάθε αλλαγή (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Καμία σημαίνει ότι το backend δεν έχει ακόμη ημερομηνία.",
+    "msg_quota_below_used": "Το γραμματοκιβώτιο αποθηκεύει ήδη :used MB. Ένας domain admin δεν μπορεί να ορίσει quota :quota MB· ζητήστε το από global admin."
   },
   "mlist": {
     "msg_updated": "Η λίστα αλληλογραφίας ενημερώθηκε!",

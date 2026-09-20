@@ -480,7 +480,8 @@
     "allow_nets_help": "Adresy IP i zakresy CIDR, z których skrzynka może się logować, oddzielone przecinkiem. Puste zezwala na każdy adres. Dovecot sprawdza to przy każdym logowaniu IMAP, POP3 i SMTP, więc błędna wartość blokuje użytkownika.",
     "msg_invalid_allow_nets": "Nieprawidłowe ograniczenie IP. Użyj adresów IP i zakresów CIDR oddzielonych przecinkiem.",
     "password_last_change": "Ostatnia zmiana hasła",
-    "password_last_change_help": "Data ostatniej zmiany hasła. Panel zapisuje ją przy każdej zmianie (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Brak oznacza, że backend nie ma jeszcze daty."
+    "password_last_change_help": "Data ostatniej zmiany hasła. Panel zapisuje ją przy każdej zmianie (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Brak oznacza, że backend nie ma jeszcze daty.",
+    "msg_quota_below_used": "Skrzynka przechowuje już :used MB. Domain admin nie może ustawić limitu na :quota MB; poproś global admina."
   },
   "mlist": {
     "msg_updated": "Lista mailingowa zaktualizowana!",

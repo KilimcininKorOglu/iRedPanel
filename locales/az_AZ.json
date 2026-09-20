@@ -480,7 +480,8 @@
     "allow_nets_help": "Poçt qutusunun giriş edə biləcəyi IP ünvanları və CIDR aralıqları, vergüllə ayrılır. Boş olduqda bütün ünvanlara icazə verilir. Dovecot bunu hər IMAP, POP3 və SMTP girişində yoxlayır, ona görə səhv dəyər istifadəçini bloklayır.",
     "msg_invalid_allow_nets": "Giriş IP məhdudiyyəti yanlışdır. Vergüllə ayrılmış IP ünvanları və CIDR aralıqları istifadə edin.",
     "password_last_change": "Son parol dəyişikliyi",
-    "password_last_change_help": "Son parol dəyişikliyinin tarixi. Panel hər parol dəyişikliyində yazır (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Yox dəyəri backend-də hələ tarix olmadığını bildirir."
+    "password_last_change_help": "Son parol dəyişikliyinin tarixi. Panel hər parol dəyişikliyində yazır (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Yox dəyəri backend-də hələ tarix olmadığını bildirir.",
+    "msg_quota_below_used": "Poçt qutusu artıq :used MB saxlayır. Domain admini kvotanı :quota MB edə bilməz; qlobal adminə müraciət edin."
   },
   "mlist": {
     "msg_updated": "Poçt siyahısı yeniləndi!",

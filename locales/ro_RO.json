@@ -480,7 +480,8 @@
     "allow_nets_help": "Adrese IP și intervale CIDR de unde căsuța se poate autentifica, separate prin virgulă. Gol permite orice adresă. Dovecot verifică acest lucru la fiecare autentificare IMAP, POP3 și SMTP, deci o valoare greșită blochează utilizatorul.",
     "msg_invalid_allow_nets": "Restricție IP invalidă. Folosiți adrese IP și intervale CIDR separate prin virgulă.",
     "password_last_change": "Ultima schimbare a parolei",
-    "password_last_change_help": "Data ultimei schimbări a parolei. Panoul o scrie la fiecare schimbare (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Niciuna înseamnă că backend-ul nu are încă o dată."
+    "password_last_change_help": "Data ultimei schimbări a parolei. Panoul o scrie la fiecare schimbare (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Niciuna înseamnă că backend-ul nu are încă o dată.",
+    "msg_quota_below_used": "Căsuța stochează deja :used MB. Un domain admin nu poate seta cota la :quota MB; cereți unui global admin."
   },
   "mlist": {
     "msg_updated": "Lista de corespondență a fost actualizată!",

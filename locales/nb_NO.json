@@ -480,7 +480,8 @@
     "allow_nets_help": "IP-adresser og CIDR-områder postkassen kan logge inn fra, adskilt med komma. Tom tillater alle adresser. Dovecot sjekker dette ved hver IMAP-, POP3- og SMTP-innlogging, så en feil verdi låser brukeren ute.",
     "msg_invalid_allow_nets": "Ugyldig IP-begrensning. Bruk IP-adresser og CIDR-områder adskilt med komma.",
     "password_last_change": "Siste passordendring",
-    "password_last_change_help": "Datoen for siste passordendring. Panelet skriver den ved hver endring (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Ingen betyr at backend ennå ikke har en dato."
+    "password_last_change_help": "Datoen for siste passordendring. Panelet skriver den ved hver endring (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Ingen betyr at backend ennå ikke har en dato.",
+    "msg_quota_below_used": "Postkassen lagrer allerede :used MB. En domain admin kan ikke sette kvoten til :quota MB; spør en global admin."
   },
   "mlist": {
     "msg_updated": "E-postliste oppdatert!",

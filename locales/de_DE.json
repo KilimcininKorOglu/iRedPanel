@@ -480,7 +480,8 @@
     "allow_nets_help": "IP-Adressen und CIDR-Bereiche, von denen sich das Postfach anmelden darf, durch Komma getrennt. Leer erlaubt jede Adresse. Dovecot prüft das bei jeder IMAP-, POP3- und SMTP-Anmeldung, ein falscher Wert sperrt den Benutzer aus.",
     "msg_invalid_allow_nets": "Ungültige Login-IP-Beschränkung. Verwenden Sie durch Komma getrennte IP-Adressen und CIDR-Bereiche.",
     "password_last_change": "Letzte Passwortänderung",
-    "password_last_change_help": "Das Datum der letzten Passwortänderung. Das Panel schreibt es bei jeder Änderung (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Keine bedeutet, dass das Backend noch kein Datum hat."
+    "password_last_change_help": "Das Datum der letzten Passwortänderung. Das Panel schreibt es bei jeder Änderung (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Keine bedeutet, dass das Backend noch kein Datum hat.",
+    "msg_quota_below_used": "Das Postfach speichert bereits :used MB. Ein Domain-Admin kann die Quota nicht auf :quota MB setzen; fragen Sie einen globalen Admin."
   },
   "mlist": {
     "msg_updated": "Mailingliste aktualisiert!",

@@ -25,6 +25,16 @@ class LdapQuotaRepository extends MysqlQuotaRepository
         return parent::getDomainUsedQuotas($domain);
     }
 
+    /** Without an iredadmin database the used quota is unknown. */
+    public function getUsedBytes(string $email): ?int
+    {
+        if (IredadminConnection::getInstance()->getPdo() === null) {
+            return null;
+        }
+
+        return parent::getUsedBytes($email);
+    }
+
     protected function pdo(): \PDO
     {
         return IredadminConnection::getInstance()->requirePdo();

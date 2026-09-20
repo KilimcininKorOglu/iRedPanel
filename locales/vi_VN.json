@@ -480,7 +480,8 @@
     "allow_nets_help": "Các địa chỉ IP và dải CIDR mà hộp thư được phép đăng nhập, phân tách bằng dấu phẩy. Để trống cho phép mọi địa chỉ. Dovecot kiểm tra giá trị này ở mỗi lần đăng nhập IMAP, POP3 và SMTP, nên giá trị sai sẽ khoá người dùng bên ngoài.",
     "msg_invalid_allow_nets": "Giới hạn IP không hợp lệ. Hãy dùng địa chỉ IP và dải CIDR phân tách bằng dấu phẩy.",
     "password_last_change": "Lần đổi mật khẩu gần nhất",
-    "password_last_change_help": "Ngày đổi mật khẩu gần nhất. Panel ghi giá trị này mỗi lần đổi mật khẩu (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Không có nghĩa là backend chưa có ngày nào."
+    "password_last_change_help": "Ngày đổi mật khẩu gần nhất. Panel ghi giá trị này mỗi lần đổi mật khẩu (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Không có nghĩa là backend chưa có ngày nào.",
+    "msg_quota_below_used": "Hộp thư đã lưu :used MB. Domain admin không thể đặt quota thành :quota MB; hãy nhờ global admin."
   },
   "mlist": {
     "msg_updated": "Danh sách gửi thư đã được cập nhật!",

@@ -14,6 +14,7 @@ use App\Models\UserPassword;
 use App\Repositories\RepositoryFactory;
 use App\Services\AccountRenameService;
 use App\Services\AccountSettingsService;
+use App\Services\MailboxQuotaFloor;
 use App\Services\Replication\ReplicatedAccountGuard;
 use App\Services\UserAliasService;
 use App\Services\UserBulkUpdate;
@@ -185,6 +186,13 @@ class UserApiController
 
         $limitError = RepositoryFactory::getDomainRepository()->getDomain($domain)
             ?->quotaChangeError($existing->mailQuota, $user->mailQuota);
+        if ($limitError === null && $user->mailQuota < $existing->mailQuota) {
+            $limitError = MailboxQuotaFloor::error(
+                "{$uid}@{$domain}",
+                $user->mailQuota,
+                ApiMiddleware::getCurrentKey()?->isGlobal() === true,
+            );
+        }
         if ($limitError !== null) {
             ApiResponse::error($limitError->getMessage(), 403);
             return;

@@ -29,4 +29,14 @@ class PgsqlQuotaRepository implements QuotaRepositoryInterface
 
         return $quotas;
     }
+
+    public function getUsedBytes(string $email): ?int
+    {
+        $stmt = PgsqlConnection::getInstance()->getPdo()
+            ->prepare("SELECT bytes FROM used_quota WHERE username = :username");
+        $stmt->execute(['username' => $email]);
+        $row = $stmt->fetch();
+
+        return $row === false ? null : (int) $row['bytes'];
+    }
 }

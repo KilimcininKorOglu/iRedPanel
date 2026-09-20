@@ -480,7 +480,8 @@
     "allow_nets_help": "IP-aadressid ja CIDR-vahemikud, millelt postkast võib sisse logida, komaga eraldatud. Tühi lubab iga aadressi. Dovecot kontrollib seda igal IMAP-, POP3- ja SMTP-sisselogimisel, seega vale väärtus lukustab kasutaja välja.",
     "msg_invalid_allow_nets": "Vigane IP piirang. Kasuta komaga eraldatud IP-aadresse ja CIDR-vahemikke.",
     "password_last_change": "Viimane parooli muutmine",
-    "password_last_change_help": "Viimase parooli muutmise kuupäev. Paneel kirjutab selle iga muutmisega (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Puudub tähendab, et backend'il pole veel kuupäeva."
+    "password_last_change_help": "Viimase parooli muutmise kuupäev. Paneel kirjutab selle iga muutmisega (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Puudub tähendab, et backend'il pole veel kuupäeva.",
+    "msg_quota_below_used": "Postkast hoiab juba :used MB. Domain admin ei saa kvooti määrata :quota MB peale; küsi global admini käest."
   },
   "mlist": {
     "msg_updated": "Postiloend uuendatud!",

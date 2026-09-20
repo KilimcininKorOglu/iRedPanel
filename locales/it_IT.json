@@ -480,7 +480,8 @@
     "allow_nets_help": "Indirizzi IP e intervalli CIDR da cui la casella può accedere, separati da una virgola. Vuoto consente qualsiasi indirizzo. Dovecot lo controlla a ogni accesso IMAP, POP3 e SMTP, quindi un valore errato blocca l'utente.",
     "msg_invalid_allow_nets": "Restrizione IP non valida. Usa indirizzi IP e intervalli CIDR separati da una virgola.",
     "password_last_change": "Ultima modifica della password",
-    "password_last_change_help": "La data dell'ultima modifica della password. Il pannello la scrive a ogni modifica (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Nessuna significa che il backend non ha ancora una data."
+    "password_last_change_help": "La data dell'ultima modifica della password. Il pannello la scrive a ogni modifica (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Nessuna significa che il backend non ha ancora una data.",
+    "msg_quota_below_used": "La casella memorizza già :used MB. Un domain admin non può impostare la quota a :quota MB; chiedi a un global admin."
   },
   "mlist": {
     "msg_updated": "Lista di distribuzione aggiornata!",

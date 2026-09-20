@@ -480,7 +480,8 @@
     "allow_nets_help": "IP-adressen en CIDR-bereiken waarvandaan de mailbox zich mag aanmelden, gescheiden door een komma. Leeg staat elk adres toe. Dovecot controleert dit bij elke IMAP-, POP3- en SMTP-aanmelding, dus een verkeerde waarde sluit de gebruiker buiten.",
     "msg_invalid_allow_nets": "Ongeldige IP-beperking. Gebruik IP-adressen en CIDR-bereiken gescheiden door een komma.",
     "password_last_change": "Laatste wachtwoordwijziging",
-    "password_last_change_help": "De datum van de laatste wachtwoordwijziging. Het panel schrijft deze bij elke wijziging (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Geen betekent dat de backend nog geen datum heeft."
+    "password_last_change_help": "De datum van de laatste wachtwoordwijziging. Het panel schrijft deze bij elke wijziging (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Geen betekent dat de backend nog geen datum heeft.",
+    "msg_quota_below_used": "De mailbox bevat al :used MB. Een domain admin kan de quota niet op :quota MB zetten; vraag een global admin."
   },
   "mlist": {
     "msg_updated": "Mailinglijst bijgewerkt!",

@@ -480,7 +480,8 @@
     "allow_nets_help": "IP-osoitteet ja CIDR-alueet, joista postilaatikko saa kirjautua, pilkulla eroteltuna. Tyhjä sallii kaikki osoitteet. Dovecot tarkistaa tämän jokaisessa IMAP-, POP3- ja SMTP-kirjautumisessa, joten väärä arvo lukitsee käyttäjän ulos.",
     "msg_invalid_allow_nets": "Virheellinen IP-rajoitus. Käytä pilkulla eroteltuja IP-osoitteita ja CIDR-alueita.",
     "password_last_change": "Viimeisin salasanan vaihto",
-    "password_last_change_help": "Viimeisimmän salasanan vaihdon päivä. Paneeli kirjoittaa sen jokaisen vaihdon yhteydessä (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Ei mitään tarkoittaa, ettei backendillä ole vielä päivää."
+    "password_last_change_help": "Viimeisimmän salasanan vaihdon päivä. Paneeli kirjoittaa sen jokaisen vaihdon yhteydessä (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Ei mitään tarkoittaa, ettei backendillä ole vielä päivää.",
+    "msg_quota_below_used": "Postilaatikossa on jo :used MB. Domain admin ei voi asettaa kiintiötä arvoon :quota MB; pyydä global adminilta."
   },
   "mlist": {
     "msg_updated": "Postituslista päivitetty!",

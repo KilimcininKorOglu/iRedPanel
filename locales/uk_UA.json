@@ -480,7 +480,8 @@
     "allow_nets_help": "IP-адреси та діапазони CIDR, з яких скринька може входити, через кому. Порожнє значення дозволяє будь-яку адресу. Dovecot перевіряє це під час кожного входу IMAP, POP3 і SMTP, тому хибне значення блокує користувача.",
     "msg_invalid_allow_nets": "Некоректне обмеження IP. Використовуйте IP-адреси та діапазони CIDR через кому.",
     "password_last_change": "Остання зміна пароля",
-    "password_last_change_help": "Дата останньої зміни пароля. Панель записує її під час кожної зміни (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Немає означає, що backend ще не має дати."
+    "password_last_change_help": "Дата останньої зміни пароля. Панель записує її під час кожної зміни (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Немає означає, що backend ще не має дати.",
+    "msg_quota_below_used": "Скринька вже зберігає :used МБ. Domain admin не може задати квоту :quota МБ; зверніться до global admin."
   },
   "mlist": {
     "msg_updated": "Список розсилки оновлено!",

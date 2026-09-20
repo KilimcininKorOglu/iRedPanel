@@ -480,7 +480,8 @@
     "allow_nets_help": "메일박스가 로그인할 수 있는 IP 주소와 CIDR 범위입니다. 쉼표로 구분합니다. 비워 두면 모든 주소를 허용합니다. Dovecot이 모든 IMAP, POP3, SMTP 로그인에서 확인하므로 잘못된 값은 사용자를 차단합니다.",
     "msg_invalid_allow_nets": "로그인 IP 제한이 올바르지 않습니다. 쉼표로 구분한 IP 주소와 CIDR 범위를 사용하세요.",
     "password_last_change": "마지막 비밀번호 변경",
-    "password_last_change_help": "마지막으로 비밀번호를 변경한 날짜입니다. 패널이 변경할 때마다 기록합니다 (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). 없음은 백엔드에 아직 날짜가 없다는 뜻입니다."
+    "password_last_change_help": "마지막으로 비밀번호를 변경한 날짜입니다. 패널이 변경할 때마다 기록합니다 (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). 없음은 백엔드에 아직 날짜가 없다는 뜻입니다.",
+    "msg_quota_below_used": "메일박스가 이미 :used MB를 저장하고 있습니다. domain admin은 할당량을 :quota MB로 설정할 수 없습니다. global admin에게 요청하세요."
   },
   "mlist": {
     "msg_updated": "메일링 리스트가 업데이트되었습니다!",

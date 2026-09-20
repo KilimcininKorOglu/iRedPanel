@@ -480,7 +480,8 @@
     "allow_nets_help": "IP adresy a rozsahy CIDR, z ktorých sa schránka môže prihlásiť, oddelené čiarkou. Prázdne povolí každú adresu. Dovecot to kontroluje pri každom prihlásení IMAP, POP3 a SMTP, takže nesprávna hodnota používateľa zablokuje.",
     "msg_invalid_allow_nets": "Neplatné obmedzenie IP. Použite IP adresy a rozsahy CIDR oddelené čiarkou.",
     "password_last_change": "Posledná zmena hesla",
-    "password_last_change_help": "Dátum poslednej zmeny hesla. Panel ho zapíše pri každej zmene (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Žiadny znamená, že backend zatiaľ dátum nemá."
+    "password_last_change_help": "Dátum poslednej zmeny hesla. Panel ho zapíše pri každej zmene (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Žiadny znamená, že backend zatiaľ dátum nemá.",
+    "msg_quota_below_used": "Schránka už obsahuje :used MB. Domain admin nemôže nastaviť kvótu na :quota MB; požiadajte global admina."
   },
   "mlist": {
     "msg_updated": "Distribučný zoznam aktualizovaný!",

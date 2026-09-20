@@ -19,6 +19,7 @@ use App\Repositories\RepositoryFactory;
 use App\Services\AccountRenameService;
 use App\Services\AccountSettingsService;
 use App\Services\ActivityLogger;
+use App\Services\MailboxQuotaFloor;
 use App\Services\AdminLimits;
 use App\Services\LdifExportService;
 use App\Services\Replication\ReplicatedAccountGuard;
@@ -188,7 +189,12 @@ class UserController
             $user->domainGlobalAdmin = $existingUser && $existingUser->domainGlobalAdmin;
         }
 
-        $error = self::quotaChangeError($domain, $existingUser->mailQuota ?? $user->mailQuota, $user->mailQuota);
+        $error = self::quotaChangeError(
+            $domain,
+            $existingUser->mailQuota ?? $user->mailQuota,
+            $user->mailQuota,
+            "{$userUid}@{$domain}",
+        );
         if ($error !== null) {
             return ['error' => $error];
         }
@@ -496,9 +502,12 @@ class UserController
      * Returns why a mailbox quota must not change, from the domain limits or the limits of
      * the logged-in domain admin, or null.
      */
-    private static function quotaChangeError(string $domain, int $oldMb, int $newMb): ?string
+    private static function quotaChangeError(string $domain, int $oldMb, int $newMb, string $email = ''): ?string
     {
         $limitError = RepositoryFactory::getDomainRepository()->getDomain($domain)?->quotaChangeError($oldMb, $newMb);
+        if ($limitError === null && $newMb < $oldMb && $email !== '') {
+            $limitError = MailboxQuotaFloor::error($email, $newMb, Middleware::isGlobalAdmin());
+        }
         if ($limitError === null && $oldMb !== $newMb) {
             try {
                 AdminLimits::assertQuota($oldMb, $newMb);

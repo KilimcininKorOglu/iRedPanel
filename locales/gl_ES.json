@@ -480,7 +480,8 @@
     "allow_nets_help": "Enderezos IP e rangos CIDR desde os que a caixa pode iniciar sesión, separados por comas. Baleiro permite calquera enderezo. Dovecot compróbao en cada inicio de sesión IMAP, POP3 e SMTP, así que un valor incorrecto bloquea o usuario.",
     "msg_invalid_allow_nets": "Restrición de IP non válida. Use enderezos IP e rangos CIDR separados por comas.",
     "password_last_change": "Último cambio de contrasinal",
-    "password_last_change_help": "A data do último cambio de contrasinal. O panel escríbea en cada cambio (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Ningunha significa que o backend aínda non ten data."
+    "password_last_change_help": "A data do último cambio de contrasinal. O panel escríbea en cada cambio (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Ningunha significa que o backend aínda non ten data.",
+    "msg_quota_below_used": "A caixa xa garda :used MB. Un domain admin non pode poñer a cota en :quota MB; pídello a un global admin."
   },
   "mlist": {
     "msg_updated": "Lista de correo actualizada!",

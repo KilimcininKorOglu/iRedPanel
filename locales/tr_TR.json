@@ -480,7 +480,8 @@
     "allow_nets_help": "Posta kutusunun giriş yapabileceği IP adresleri ve CIDR aralıkları, virgülle ayrılır. Boş bırakılırsa bütün adreslere izin verilir. Dovecot bunu her IMAP, POP3 ve SMTP girişinde denetler, bu yüzden hatalı bir değer kullanıcıyı dışarıda bırakır.",
     "msg_invalid_allow_nets": "Giriş IP kısıtlaması geçersiz. Virgülle ayrılmış IP adresleri ve CIDR aralıkları kullanın.",
     "password_last_change": "Son parola değişikliği",
-    "password_last_change_help": "Son parola değişikliğinin tarihi. Panel her parola değişikliğinde bunu yazar (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Yok değeri backend'de henüz tarih olmadığını gösterir."
+    "password_last_change_help": "Son parola değişikliğinin tarihi. Panel her parola değişikliğinde bunu yazar (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Yok değeri backend'de henüz tarih olmadığını gösterir.",
+    "msg_quota_below_used": "Posta kutusu şu anda :used MB saklıyor. Domain admin kvotayı :quota MB yapamaz; global admin'e başvurun."
   },
   "mlist": {
     "msg_updated": "Posta listesi güncellendi!",

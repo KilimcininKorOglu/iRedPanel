@@ -480,7 +480,8 @@
     "allow_nets_help": "IP-címek és CIDR tartományok, amelyekről a postafiók bejelentkezhet, vesszővel elválasztva. Üresen minden cím engedélyezett. A Dovecot ezt minden IMAP, POP3 és SMTP bejelentkezésnél ellenőrzi, ezért a hibás érték kizárja a felhasználót.",
     "msg_invalid_allow_nets": "Érvénytelen IP korlátozás. Használjon vesszővel elválasztott IP-címeket és CIDR tartományokat.",
     "password_last_change": "Utolsó jelszóváltás",
-    "password_last_change_help": "Az utolsó jelszóváltás dátuma. A panel minden jelszóváltáskor kiírja (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). A Nincs azt jelenti, hogy a backend még nem tárol dátumot."
+    "password_last_change_help": "Az utolsó jelszóváltás dátuma. A panel minden jelszóváltáskor kiírja (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). A Nincs azt jelenti, hogy a backend még nem tárol dátumot.",
+    "msg_quota_below_used": "A postafiók már :used MB-ot tárol. Domain admin nem állíthatja a kvótát :quota MB-ra; kérje global admintól."
   },
   "mlist": {
     "msg_updated": "Levelezőlista frissítve!",

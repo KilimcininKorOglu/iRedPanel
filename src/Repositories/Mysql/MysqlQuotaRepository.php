@@ -28,6 +28,15 @@ class MysqlQuotaRepository implements QuotaRepositoryInterface
         return $quotas;
     }
 
+    public function getUsedBytes(string $email): ?int
+    {
+        $stmt = $this->pdo()->prepare("SELECT bytes FROM used_quota WHERE username = :username");
+        $stmt->execute(['username' => $email]);
+        $row = $stmt->fetch();
+
+        return $row === false ? null : (int) $row['bytes'];
+    }
+
     /**
      * Returns the connection that holds the Dovecot used_quota table (vmail on SQL backends).
      */

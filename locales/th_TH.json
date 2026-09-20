@@ -480,7 +480,8 @@
     "allow_nets_help": "ที่อยู่ IP และช่วง CIDR ที่กล่องจดหมายเข้าสู่ระบบได้ คั่นด้วยเครื่องหมายจุลภาค ว่างไว้จะอนุญาตทุกที่อยู่ Dovecot ตรวจค่านี้ทุกครั้งที่เข้าสู่ระบบ IMAP, POP3 และ SMTP ค่าที่ผิดจึงทำให้ผู้ใช้เข้าระบบไม่ได้",
     "msg_invalid_allow_nets": "การจำกัด IP ไม่ถูกต้อง ใช้ที่อยู่ IP และช่วง CIDR คั่นด้วยเครื่องหมายจุลภาค",
     "password_last_change": "การเปลี่ยนรหัสผ่านครั้งล่าสุด",
-    "password_last_change_help": "วันที่เปลี่ยนรหัสผ่านครั้งล่าสุด แผงควบคุมเขียนค่านี้ทุกครั้งที่เปลี่ยนรหัสผ่าน (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`) ไม่มี หมายถึง backend ยังไม่มีวันที่"
+    "password_last_change_help": "วันที่เปลี่ยนรหัสผ่านครั้งล่าสุด แผงควบคุมเขียนค่านี้ทุกครั้งที่เปลี่ยนรหัสผ่าน (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`) ไม่มี หมายถึง backend ยังไม่มีวันที่",
+    "msg_quota_below_used": "กล่องจดหมายเก็บข้อมูลแล้ว :used MB domain admin ตั้งโควตาเป็น :quota MB ไม่ได้ โปรดขอ global admin"
   },
   "mlist": {
     "msg_updated": "อัปเดตรายชื่อเมลแล้ว!",

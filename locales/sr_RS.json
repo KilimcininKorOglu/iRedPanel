@@ -480,7 +480,8 @@
     "allow_nets_help": "IP адресе и CIDR опсези са којих сандуче може да се пријави, раздвојени зарезом. Празно дозвољава сваку адресу. Dovecot ово проверава при свакој IMAP, POP3 и SMTP пријави, па погрешна вредност закључава корисника.",
     "msg_invalid_allow_nets": "Неисправно ограничење IP адресе. Користите IP адресе и CIDR опсеге раздвојене зарезом.",
     "password_last_change": "Последња промена лозинке",
-    "password_last_change_help": "Датум последње промене лозинке. Панел га уписује при свакој промени (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Нема значи да backend још нема датум."
+    "password_last_change_help": "Датум последње промене лозинке. Панел га уписује при свакој промени (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Нема значи да backend још нема датум.",
+    "msg_quota_below_used": "Сандуче већ чува :used MB. Domain admin не може да постави квоту на :quota MB; затражите од global admina."
   },
   "mlist": {
     "msg_updated": "Мејлинг листа ажурирана!",

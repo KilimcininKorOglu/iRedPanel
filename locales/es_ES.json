@@ -480,7 +480,8 @@
     "allow_nets_help": "Direcciones IP y rangos CIDR desde los que el buzón puede iniciar sesión, separados por comas. Vacío permite cualquier dirección. Dovecot lo comprueba en cada inicio de sesión IMAP, POP3 y SMTP, así que un valor incorrecto bloquea al usuario.",
     "msg_invalid_allow_nets": "Restricción de IP no válida. Use direcciones IP y rangos CIDR separados por comas.",
     "password_last_change": "Último cambio de contraseña",
-    "password_last_change_help": "La fecha del último cambio de contraseña. El panel la escribe en cada cambio (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Ninguna significa que el backend aún no tiene fecha."
+    "password_last_change_help": "La fecha del último cambio de contraseña. El panel la escribe en cada cambio (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Ninguna significa que el backend aún no tiene fecha.",
+    "msg_quota_below_used": "El buzón ya almacena :used MB. Un domain admin no puede poner la cuota en :quota MB; pídalo a un global admin."
   },
   "mlist": {
     "msg_updated": "¡Lista de correo actualizada!",

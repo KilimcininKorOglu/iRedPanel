@@ -480,7 +480,8 @@
     "allow_nets_help": "IP адреси и CIDR диапазони, от които пощенската кутия може да влиза, разделени със запетая. Празно позволява всеки адрес. Dovecot проверява това при всяко IMAP, POP3 и SMTP влизане, затова грешна стойност заключва потребителя.",
     "msg_invalid_allow_nets": "Невалидно ограничение на IP. Използвайте IP адреси и CIDR диапазони, разделени със запетая.",
     "password_last_change": "Последна смяна на паролата",
-    "password_last_change_help": "Датата на последната смяна на паролата. Панелът я записва при всяка смяна (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Няма означава, че backend още няма дата."
+    "password_last_change_help": "Датата на последната смяна на паролата. Панелът я записва при всяка смяна (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Няма означава, че backend още няма дата.",
+    "msg_quota_below_used": "Пощенската кутия вече съхранява :used MB. Domain админ не може да зададе квота :quota MB; обърнете се към глобален админ."
   },
   "mlist": {
     "msg_updated": "Пощенският списък е актуализиран!",

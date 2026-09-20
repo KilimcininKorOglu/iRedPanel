@@ -480,7 +480,8 @@
     "allow_nets_help": "Adreces IP i rangs CIDR des dels quals la bústia pot iniciar sessió, separats per comes. Buit permet qualsevol adreça. Dovecot ho comprova a cada inici de sessió IMAP, POP3 i SMTP, així que un valor incorrecte bloqueja l'usuari.",
     "msg_invalid_allow_nets": "Restricció d'IP no vàlida. Feu servir adreces IP i rangs CIDR separats per comes.",
     "password_last_change": "Últim canvi de contrasenya",
-    "password_last_change_help": "La data de l'últim canvi de contrasenya. El panell l'escriu a cada canvi (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Cap vol dir que el backend encara no té data."
+    "password_last_change_help": "La data de l'últim canvi de contrasenya. El panell l'escriu a cada canvi (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Cap vol dir que el backend encara no té data.",
+    "msg_quota_below_used": "La bústia ja desa :used MB. Un domain admin no pot posar la quota a :quota MB; demaneu-ho a un global admin."
   },
   "mlist": {
     "msg_updated": "Llista de correu actualitzada!",

@@ -480,7 +480,8 @@
     "allow_nets_help": "IP addresses and CIDR ranges the mailbox may log in from, separated by a comma. Empty allows every address. Dovecot checks this on every IMAP, POP3 and SMTP login, so a wrong entry locks the user out.",
     "msg_invalid_allow_nets": "Invalid login IP restriction. Use IP addresses and CIDR ranges separated by a comma.",
     "password_last_change": "Last password change",
-    "password_last_change_help": "The date of the last password change. The panel writes it on every password change (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). None means that the backend holds no date yet."
+    "password_last_change_help": "The date of the last password change. The panel writes it on every password change (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). None means that the backend holds no date yet.",
+    "msg_quota_below_used": "The mailbox already stores :used MB. A domain admin cannot set the quota to :quota MB; ask a global admin."
   },
   "mlist": {
     "msg_updated": "Mailing list updated!",

@@ -184,6 +184,23 @@ class UserApiController
             return;
         }
 
+        $quotaError = self::quotaError($domain, $uid, $user, $existing);
+        if ($quotaError !== null) {
+            ApiResponse::error($quotaError, 403);
+            return;
+        }
+
+        RepositoryFactory::getUserRepository()->updateUser($domain, $user);
+        self::writeRouting("{$uid}@{$domain}", $domain, $routing);
+        ApiResponse::success(['message' => 'User updated']);
+    }
+
+    /**
+     * Why the new quota is refused, or null when it is allowed: the domain limits
+     * bound an increase, and the stored mail bounds a decrease.
+     */
+    private static function quotaError(string $domain, string $uid, User $user, User $existing): ?string
+    {
         $limitError = RepositoryFactory::getDomainRepository()->getDomain($domain)
             ?->quotaChangeError($existing->mailQuota, $user->mailQuota);
         if ($limitError === null && $user->mailQuota < $existing->mailQuota) {
@@ -193,14 +210,8 @@ class UserApiController
                 ApiMiddleware::getCurrentKey()?->isGlobal() === true,
             );
         }
-        if ($limitError !== null) {
-            ApiResponse::error($limitError->getMessage(), 403);
-            return;
-        }
 
-        RepositoryFactory::getUserRepository()->updateUser($domain, $user);
-        self::writeRouting("{$uid}@{$domain}", $domain, $routing);
-        ApiResponse::success(['message' => 'User updated']);
+        return $limitError?->getMessage();
     }
 
     /**

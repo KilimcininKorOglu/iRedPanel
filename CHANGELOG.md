@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## [Unreleased]
+## [1.0.3] - 2026-09-20
 
 ### Added
 - Account pickers (Tom Select) on address fields: alias members and moderators, mailing list owners, moderators and subscribers, forwarding, BCC, catch-all, admin creation, and the Amavisd and iRedAPD account fields

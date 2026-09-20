@@ -1416,5 +1416,13 @@
     "msg_ptr_warn": "Un nome PTR non punta di nuovo al suo indirizzo.",
     "msg_ptr_fail": "Un indirizzo MX non ha un record PTR.",
     "dkim_note": "Il panel interroga :name e riporta solo se lì esiste un record DKIM. Non può confrontare la chiave, perché la chiave privata risiede in /var/lib/dkim/ sul server di posta. Cambia il selector in Impostazioni del panel, scheda Mail."
+  },
+  "srs": {
+    "title": "Domini esclusi da SRS",
+    "intro": "iRedAPD non riscrive l'indirizzo del mittente di questi domini con SRS.",
+    "heading": "Domini",
+    "domains_label": "Un dominio per riga",
+    "domains_label_help": "Un dominio per riga. iRedAPD riscrive l'envelope sender di un messaggio inoltrato con SRS, così il server ricevente lo accetta. Un dominio in questo elenco mantiene il suo indirizzo mittente originale. L'elenco è vuoto per impostazione predefinita.",
+    "msg_updated": "Domini esclusi da SRS salvati."
   }
 }

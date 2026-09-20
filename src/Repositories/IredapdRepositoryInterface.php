@@ -70,6 +70,16 @@ interface IredapdRepositoryInterface extends AccountSettingsStoreInterface
      */
     public function getGreylistSpfSenders(): array;
 
+    /**
+     * The domains whose sender addresses iRedAPD never rewrites with SRS.
+     *
+     * @return list<string>
+     */
+    public function getSrsExcludeDomains(): array;
+
+    /** @param list<string> $domains */
+    public function setSrsExcludeDomains(array $domains): void;
+
     public function getGreylistTrackingPaginated(int $page, int $perPage): \App\Models\PaginatedResult;
 
     /** @return array{whitelists: string[], blacklists: string[]} */

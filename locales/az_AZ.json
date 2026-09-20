@@ -1416,5 +1416,13 @@
     "msg_ptr_warn": "Bir PTR adı öz ünvanına geri qayıtmır.",
     "msg_ptr_fail": "MX ünvanının PTR qeydi yoxdur.",
     "dkim_note": "Panel :name ünvanını soruşur və yalnız orada DKIM qeydinin olub-olmadığını bildirir. Açarı müqayisə edə bilmir, çünki gizli açar poçt serverində /var/lib/dkim/ altında saxlanır. Selector-u Panel Ayarlarının Mail sekmesindən dəyişin."
+  },
+  "srs": {
+    "title": "SRS-dən çıxarılan domenlər",
+    "intro": "iRedAPD bu domenlərin göndərən ünvanını SRS ilə yenidən yazmır.",
+    "heading": "Domenlər",
+    "domains_label": "Hər sətirdə bir domen",
+    "domains_label_help": "Hər sətirdə bir domen. iRedAPD yönləndirilən mesajın envelope sender ünvanını SRS ilə yenidən yazır ki, qəbul edən server onu qəbul etsin. Bu siyahıdakı domen öz ilkin göndərən ünvanını saxlayır. Siyahı standart olaraq boşdur.",
+    "msg_updated": "SRS-dən çıxarılan domenlər yadda saxlanıldı."
   }
 }

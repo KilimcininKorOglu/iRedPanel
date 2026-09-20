@@ -1416,5 +1416,13 @@
     "msg_ptr_warn": "Un nom PTR no apunta de nou a la seva adreça.",
     "msg_ptr_fail": "Una adreça MX no té cap registre PTR.",
     "dkim_note": "El panel consulta :name i només informa de si hi ha un registre DKIM. No pot comparar la clau, perquè la clau privada resideix a /var/lib/dkim/ al servidor de correu. Canvieu el selector a Configuració del panel, pestanya Mail."
+  },
+  "srs": {
+    "title": "Dominis exclosos de SRS",
+    "intro": "iRedAPD no reescriu l'adreça del remitent d'aquests dominis amb SRS.",
+    "heading": "Dominis",
+    "domains_label": "Un domini per línia",
+    "domains_label_help": "Un domini per línia. iRedAPD reescriu l'envelope sender d'un missatge reenviat amb SRS, perquè el servidor receptor l'accepti. Un domini d'aquesta llista conserva la seva adreça de remitent original. La llista és buida per defecte.",
+    "msg_updated": "Dominis exclosos de SRS desats."
   }
 }

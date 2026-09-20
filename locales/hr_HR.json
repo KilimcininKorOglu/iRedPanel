@@ -1416,5 +1416,13 @@
     "msg_ptr_warn": "PTR ime ne pokazuje natrag na svoju adresu.",
     "msg_ptr_fail": "MX adresa nema PTR zapis.",
     "dkim_note": "Panel pita za :name i javlja samo postoji li ondje DKIM zapis. Ključ ne može usporediti jer privatni ključ leži na poslužitelju pošte u /var/lib/dkim/. Selector promijenite u Postavkama panela, kartica Mail."
+  },
+  "srs": {
+    "title": "Domene isključene iz SRS-a",
+    "intro": "iRedAPD ne prepisuje adresu pošiljatelja ovih domena pomoću SRS-a.",
+    "heading": "Domene",
+    "domains_label": "Jedna domena po retku",
+    "domains_label_help": "Jedna domena po retku. iRedAPD prepisuje envelope sender proslijeđene poruke pomoću SRS-a kako bi je poslužitelj primatelja prihvatio. Domena na ovom popisu zadržava svoju izvornu adresu pošiljatelja. Popis je prema zadanome prazan.",
+    "msg_updated": "Domene isključene iz SRS-a spremljene."
   }
 }

@@ -1416,5 +1416,13 @@
     "msg_ptr_warn": "Et PTR-navn peger ikke tilbage til sin adresse.",
     "msg_ptr_fail": "En MX-adresse har ingen PTR-post.",
     "dkim_note": "Panelet spørger efter :name og melder kun, om der står en DKIM-post. Det kan ikke sammenligne nøglen, fordi den private nøgle ligger på postserveren i /var/lib/dkim/. Skift selector i Panelindstillinger, fanen Mail."
+  },
+  "srs": {
+    "title": "Domæner undtaget fra SRS",
+    "intro": "iRedAPD omskriver ikke afsenderadressen for disse domæner med SRS.",
+    "heading": "Domæner",
+    "domains_label": "Ét domæne pr. linje",
+    "domains_label_help": "Ét domæne pr. linje. iRedAPD omskriver envelope sender for en videresendt besked med SRS, så den modtagende server accepterer den. Et domæne på denne liste beholder sin oprindelige afsenderadresse. Listen er tom som standard.",
+    "msg_updated": "Domæner undtaget fra SRS gemt."
   }
 }

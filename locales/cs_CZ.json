@@ -1416,5 +1416,13 @@
     "msg_ptr_warn": "Jméno PTR neukazuje zpět na svou adresu.",
     "msg_ptr_fail": "Adresa MX nemá záznam PTR.",
     "dkim_note": "Panel se ptá na :name a hlásí jen to, zda tam záznam DKIM je. Klíč porovnat nemůže, protože soukromý klíč leží na poštovním serveru v /var/lib/dkim/. Selector změňte v Nastavení panelu, karta Mail."
+  },
+  "srs": {
+    "title": "Domény vyloučené ze SRS",
+    "intro": "iRedAPD nepřepisuje adresu odesílatele těchto domén pomocí SRS.",
+    "heading": "Domény",
+    "domains_label": "Jedna doména na řádek",
+    "domains_label_help": "Jedna doména na řádek. iRedAPD přepisuje envelope sender přeposlané zprávy pomocí SRS, aby ji přijímající server přijal. Doména v tomto seznamu si ponechá svou původní adresu odesílatele. Seznam je ve výchozím stavu prázdný.",
+    "msg_updated": "Domény vyloučené ze SRS uloženy."
   }
 }

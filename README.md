@@ -376,6 +376,7 @@ server {
 - Greylisting toggle, whitelisted senders and tracking data, the accounts that have an own setting, and the removal of one account's setting with its whitelisted senders
 - Whitelisted domains whose SPF records the iRedAPD job resolves into whitelisted senders, with the resolved senders per domain
 - rDNS white/blacklist and SenderScore permanent whitelist
+- The SRS exclude domains (`iredapd.srs_exclude_domains`): iRedAPD keeps the original sender address of a forwarded message of these domains instead of rewriting it with SRS
 - The SMTP sessions that iRedAPD recorded (`iredapd.smtp_sessions`), filtered by action, address or client IP, with a detail page per session. A row adds its sender to the inbound white/blacklist of the recipient, or its rDNS name to the rDNS white/blacklist. iRedAPD writes the table while `LOG_SMTP_SESSIONS` is on and removes the old rows itself
 
 ### Fail2ban

@@ -1416,5 +1416,13 @@
     "msg_ptr_warn": "Een PTR-naam wijst niet terug naar zijn adres.",
     "msg_ptr_fail": "Een MX-adres heeft geen PTR-record.",
     "dkim_note": "Het panel vraagt :name op en meldt alleen of daar een DKIM-record staat. Het kan de sleutel niet vergelijken, omdat de private sleutel op de mailserver in /var/lib/dkim/ staat. Wijzig de selector in Panelinstellingen, tabblad Mail."
+  },
+  "srs": {
+    "title": "Van SRS uitgesloten domeinen",
+    "intro": "iRedAPD herschrijft het afzenderadres van deze domeinen niet met SRS.",
+    "heading": "Domeinen",
+    "domains_label": "Eén domein per regel",
+    "domains_label_help": "Eén domein per regel. iRedAPD herschrijft de envelope sender van een doorgestuurd bericht met SRS, zodat de ontvangende server het accepteert. Een domein in deze lijst behoudt zijn oorspronkelijke afzenderadres. De lijst is standaard leeg.",
+    "msg_updated": "Van SRS uitgesloten domeinen opgeslagen."
   }
 }

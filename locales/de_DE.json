@@ -1416,5 +1416,13 @@
     "msg_ptr_warn": "Ein PTR-Name zeigt nicht auf seine Adresse zurück.",
     "msg_ptr_fail": "Eine MX-Adresse hat keinen PTR-Eintrag.",
     "dkim_note": "Das Panel fragt :name und meldet nur, ob dort ein DKIM-Eintrag steht. Es kann den Schlüssel nicht vergleichen, weil der private Schlüssel auf dem Mailserver unter /var/lib/dkim/ liegt. Den Selector ändern Sie in den Panel-Einstellungen, Reiter Mail."
+  },
+  "srs": {
+    "title": "Von SRS ausgenommene Domains",
+    "intro": "iRedAPD schreibt die Absenderadresse dieser Domains nicht mit SRS um.",
+    "heading": "Domains",
+    "domains_label": "Eine Domain pro Zeile",
+    "domains_label_help": "Eine Domain pro Zeile. iRedAPD schreibt den Envelope Sender einer weitergeleiteten Nachricht mit SRS um, damit der empfangende Server sie annimmt. Eine Domain in dieser Liste behält ihre ursprüngliche Absenderadresse. Die Liste ist standardmäßig leer.",
+    "msg_updated": "Von SRS ausgenommene Domains gespeichert."
   }
 }

@@ -1416,5 +1416,13 @@
     "msg_ptr_warn": "有一個 PTR 名稱沒有解析回自己的位址。",
     "msg_ptr_fail": "有一個 MX 位址沒有 PTR 記錄。",
     "dkim_note": "面板查詢 :name，只回報那裡是否存在 DKIM 記錄。它無法比對金鑰，因為私鑰保存在郵件伺服器的 /var/lib/dkim/ 中。可在面板設定的 Mail 分頁變更 selector。"
+  },
+  "srs": {
+    "title": "SRS 排除網域",
+    "intro": "iRedAPD 不會使用 SRS 重寫這些網域的寄件者位址。",
+    "heading": "網域",
+    "domains_label": "每行一個網域",
+    "domains_label_help": "每行一個網域。iRedAPD 使用 SRS 重寫轉寄郵件的 envelope sender，讓接收伺服器接受該郵件。此清單中的網域會保留原始寄件者位址。此清單預設為空。",
+    "msg_updated": "SRS 排除網域已儲存。"
   }
 }

@@ -1416,5 +1416,13 @@
     "msg_ptr_warn": "A PTR name does not point back to its address.",
     "msg_ptr_fail": "An MX address has no PTR record.",
     "dkim_note": "The panel asks :name and reports only whether a DKIM record exists there. It cannot compare the key, because the private key lives in /var/lib/dkim/ on the mail server. Change the selector in Panel Settings, Mail tab."
+  },
+  "srs": {
+    "title": "SRS exclude domains",
+    "intro": "iRedAPD does not rewrite the sender address of these domains with SRS.",
+    "heading": "Domains",
+    "domains_label": "One domain per line",
+    "domains_label_help": "One domain per line. iRedAPD rewrites the envelope sender of a forwarded message with SRS, so the receiving server accepts it. A domain in this list keeps its original sender address. The list is empty by default.",
+    "msg_updated": "SRS exclude domains saved."
   }
 }

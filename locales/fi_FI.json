@@ -1416,5 +1416,13 @@
     "msg_ptr_warn": "PTR-nimi ei osoita takaisin osoitteeseensa.",
     "msg_ptr_fail": "MX-osoitteella ei ole PTR-tietuetta.",
     "dkim_note": "Paneeli kysyy nimeä :name ja kertoo vain, onko siellä DKIM-tietue. Se ei voi verrata avainta, koska yksityinen avain on postipalvelimella hakemistossa /var/lib/dkim/. Vaihda selector paneelin asetuksista, Mail-välilehti."
+  },
+  "srs": {
+    "title": "SRS:stä poissuljetut verkkotunnukset",
+    "intro": "iRedAPD ei kirjoita näiden verkkotunnusten lähettäjäosoitetta uudelleen SRS:llä.",
+    "heading": "Verkkotunnukset",
+    "domains_label": "Yksi verkkotunnus riviä kohden",
+    "domains_label_help": "Yksi verkkotunnus riviä kohden. iRedAPD kirjoittaa välitetyn viestin envelope sender -osoitteen uudelleen SRS:llä, jotta vastaanottava palvelin hyväksyy sen. Tässä luettelossa oleva verkkotunnus säilyttää alkuperäisen lähettäjäosoitteensa. Luettelo on oletuksena tyhjä.",
+    "msg_updated": "SRS:stä poissuljetut verkkotunnukset tallennettu."
   }
 }

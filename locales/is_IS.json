@@ -1416,5 +1416,13 @@
     "msg_ptr_warn": "PTR-nafn vísar ekki aftur á vistfang sitt.",
     "msg_ptr_fail": "MX-vistfang er ekki með PTR-færslu.",
     "dkim_note": "Spjaldið spyr um :name og tilkynnir aðeins hvort DKIM-færsla sé þar. Það getur ekki borið lykilinn saman, því einkalykillinn liggur á póstþjóninum í /var/lib/dkim/. Breyttu selector í Stillingum spjaldsins, flipinn Mail."
+  },
+  "srs": {
+    "title": "Lén undanskilin SRS",
+    "intro": "iRedAPD endurskrifar ekki sendandafang þessara léna með SRS.",
+    "heading": "Lén",
+    "domains_label": "Eitt lén í hverri línu",
+    "domains_label_help": "Eitt lén í hverri línu. iRedAPD endurskrifar envelope sender áframsends skeytis með SRS svo móttökuþjónninn samþykki það. Lén á þessum lista heldur upprunalegu sendandafangi sínu. Listinn er tómur sjálfgefið.",
+    "msg_updated": "Lén undanskilin SRS vistuð."
   }
 }

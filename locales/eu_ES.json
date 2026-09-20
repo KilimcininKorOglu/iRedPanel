@@ -1416,5 +1416,13 @@
     "msg_ptr_warn": "PTR izen batek ez du bere helbidera itzultzen.",
     "msg_ptr_fail": "MX helbide batek ez du PTR erregistrorik.",
     "dkim_note": "Panelak :name galdetzen du eta han DKIM erregistrorik dagoen baino ez du jakinarazten. Ezin du gakoa alderatu, gako pribatua posta zerbitzarian /var/lib/dkim/ barruan dagoelako. Aldatu selectorra Panelaren ezarpenetan, Mail fitxan."
+  },
+  "srs": {
+    "title": "SRSetik kanpo utzitako domeinuak",
+    "intro": "iRedAPDk ez du domeinu hauen igorlearen helbidea SRS bidez berridazten.",
+    "heading": "Domeinuak",
+    "domains_label": "Domeinu bat lerroko",
+    "domains_label_help": "Domeinu bat lerroko. iRedAPDk birbidalitako mezu baten envelope sender helbidea SRS bidez berridazten du, hartzailearen zerbitzariak onar dezan. Zerrenda honetako domeinu batek bere jatorrizko igorlearen helbidea gordetzen du. Zerrenda hutsik dago lehenetsita.",
+    "msg_updated": "SRSetik kanpo utzitako domeinuak gorde dira."
   }
 }

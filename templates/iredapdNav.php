@@ -6,6 +6,7 @@ $iredapdTabs = [
     'domains' => ['/iredapd/greylist-domains', 'greylist.domains_title'],
     'tracking' => ['/iredapd/greylist-tracking', 'greylist.tracking_title'],
     'sessions' => ['/iredapd/smtp-sessions', 'smtpsession.title'],
+    'srs' => ['/iredapd/srs-exclude-domains', 'srs.title'],
     'rdns' => ['/iredapd/wblist-rdns', 'wblist.rdns_title'],
     'senderscore' => ['/iredapd/wblist-senderscore', 'wblist.senderscore_title'],
 ];

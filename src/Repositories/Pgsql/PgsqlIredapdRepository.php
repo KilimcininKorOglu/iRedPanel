@@ -11,6 +11,7 @@ use App\Repositories\IredapdAccountSettings;
 use App\Repositories\IredapdRepositoryInterface;
 use App\Repositories\SqlGreylisting;
 use App\Repositories\SqlSmtpSessions;
+use App\Repositories\SqlSrsExcludeDomains;
 use App\Repositories\SqlWblistRdns;
 use App\Utils\IredapdAccount;
 
@@ -195,6 +196,16 @@ class PgsqlIredapdRepository implements IredapdRepositoryInterface
     private function greylisting(): SqlGreylisting
     {
         return new SqlGreylisting($this->pdo());
+    }
+
+    public function getSrsExcludeDomains(): array
+    {
+        return (new SqlSrsExcludeDomains($this->pdo()))->domains();
+    }
+
+    public function setSrsExcludeDomains(array $domains): void
+    {
+        (new SqlSrsExcludeDomains($this->pdo()))->setDomains($domains);
     }
 
     public function getGreylistTrackingPaginated(int $page, int $perPage): PaginatedResult

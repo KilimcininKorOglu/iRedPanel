@@ -1416,5 +1416,13 @@
     "msg_ptr_warn": "ある PTR 名が自分のアドレスへ戻りません。",
     "msg_ptr_fail": "ある MX アドレスに PTR レコードがありません。",
     "dkim_note": "パネルは :name を問い合わせ、そこに DKIM レコードがあるかどうかだけを報告します。秘密鍵はメールサーバーの /var/lib/dkim/ にあるため、鍵の照合はできません。selector はパネル設定の Mail タブで変更します。"
+  },
+  "srs": {
+    "title": "SRS 除外ドメイン",
+    "intro": "iRedAPD はこれらのドメインの送信者アドレスを SRS で書き換えません。",
+    "heading": "ドメイン",
+    "domains_label": "1 行に 1 ドメイン",
+    "domains_label_help": "1 行に 1 ドメイン。iRedAPD は転送メッセージの envelope sender を SRS で書き換え、受信サーバーが受け入れるようにします。このリストにあるドメインは元の送信者アドレスを保持します。既定ではリストは空です。",
+    "msg_updated": "SRS 除外ドメインを保存しました。"
   }
 }

@@ -1416,5 +1416,13 @@
     "msg_ptr_warn": "PTR-nimi ei osuta tagasi oma aadressile.",
     "msg_ptr_fail": "MX-aadressil ei ole PTR-kirjet.",
     "dkim_note": "Paneel küsib nime :name ja teatab ainult, kas seal on DKIM-kirje. Võtit võrrelda ei saa, sest privaatvõti asub postiserveris kaustas /var/lib/dkim/. Muuda selectorit paneeli seadetes, vahekaart Mail."
+  },
+  "srs": {
+    "title": "SRS-ist välja jäetud domeenid",
+    "intro": "iRedAPD ei kirjuta nende domeenide saatja aadressi SRS-iga ümber.",
+    "heading": "Domeenid",
+    "domains_label": "Üks domeen rea kohta",
+    "domains_label_help": "Üks domeen rea kohta. iRedAPD kirjutab edastatud sõnumi envelope sender aadressi SRS-iga ümber, et vastuvõttev server selle vastu võtaks. Selles loendis olev domeen säilitab oma algse saatja aadressi. Loend on vaikimisi tühi.",
+    "msg_updated": "SRS-ist välja jäetud domeenid salvestatud."
   }
 }

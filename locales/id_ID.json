@@ -1416,5 +1416,13 @@
     "msg_ptr_warn": "Sebuah nama PTR tidak menunjuk kembali ke alamatnya.",
     "msg_ptr_fail": "Sebuah alamat MX tidak memiliki rekaman PTR.",
     "dkim_note": "Panel menanyakan :name dan hanya melaporkan apakah ada rekaman DKIM di sana. Panel tidak dapat membandingkan kunci, karena kunci privat berada di server surat pada /var/lib/dkim/. Ubah selector di Pengaturan Panel, tab Mail."
+  },
+  "srs": {
+    "title": "Domain yang dikecualikan dari SRS",
+    "intro": "iRedAPD tidak menulis ulang alamat pengirim domain ini dengan SRS.",
+    "heading": "Domain",
+    "domains_label": "Satu domain per baris",
+    "domains_label_help": "Satu domain per baris. iRedAPD menulis ulang envelope sender pesan yang diteruskan dengan SRS agar server penerima menerimanya. Domain dalam daftar ini mempertahankan alamat pengirim aslinya. Daftar ini kosong secara bawaan.",
+    "msg_updated": "Domain yang dikecualikan dari SRS disimpan."
   }
 }

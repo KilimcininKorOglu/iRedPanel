@@ -1416,5 +1416,13 @@
     "msg_ptr_warn": "Bir PTR adı kendi adresine geri dönmüyor.",
     "msg_ptr_fail": "Bir MX adresinin PTR kaydı yok.",
     "dkim_note": "Panel :name adresini sorar ve yalnızca orada bir DKIM kaydı olup olmadığını bildirir. Anahtarı karşılaştıramaz, çünkü private key mail sunucusunda /var/lib/dkim/ altında durur. Selector'ü Panel Ayarları'nın Mail sekmesinden değiştirin."
+  },
+  "srs": {
+    "title": "SRS dışı bırakılan domainler",
+    "intro": "iRedAPD bu domainlerin gönderen adresini SRS ile yeniden yazmaz.",
+    "heading": "Domainler",
+    "domains_label": "Her satıra bir domain",
+    "domains_label_help": "Her satıra bir domain. iRedAPD, yönlendirilen bir mesajın envelope sender adresini SRS ile yeniden yazar, böylece alıcı sunucu mesajı kabul eder. Bu listedeki bir domain kendi gönderen adresini korur. Liste varsayılan olarak boştur.",
+    "msg_updated": "SRS dışı bırakılan domainler kaydedildi."
   }
 }

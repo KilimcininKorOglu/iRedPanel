@@ -168,6 +168,34 @@ class IredapdController
         ]);
     }
 
+    /**
+     * The domains whose sender addresses iRedAPD never rewrites with SRS.
+     */
+    public static function srsExcludeDomains(TemplateEngine $tpl): void
+    {
+        Middleware::globalAdminRequired();
+        self::requireEnabled();
+
+        $repo = RepositoryFactory::getIredapdRepository();
+        [$success, $error] = self::listPost(
+            static function () use ($repo): void {
+                $repo->setSrsExcludeDomains(IredapdList::domains(explode("\n", $_POST['domains'] ?? '')));
+                ActivityLogger::logUpdate('', '@.', 'SRS exclude domains updated');
+            },
+            'srs.msg_updated',
+            static fn (\InvalidArgumentException $e): string => Translator::translate(
+                'common.msg_invalid_domain',
+                ['domain' => $e->getMessage()],
+            ),
+        );
+
+        $tpl->render('srsExcludeDomains.php', [
+            'domains' => $repo->getSrsExcludeDomains(),
+            'success' => $success,
+            'error' => $error,
+        ]);
+    }
+
     public static function greylistTracking(TemplateEngine $tpl): void
     {
         Middleware::globalAdminRequired();

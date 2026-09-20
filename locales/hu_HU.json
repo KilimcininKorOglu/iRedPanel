@@ -1416,5 +1416,13 @@
     "msg_ptr_warn": "Egy PTR-név nem mutat vissza a saját címére.",
     "msg_ptr_fail": "Egy MX-címnek nincs PTR-rekordja.",
     "dkim_note": "A panel a :name nevet kérdezi le, és csak azt jelenti, van-e ott DKIM-rekord. A kulcsot nem tudja összehasonlítani, mert a privát kulcs a levelezőszerveren a /var/lib/dkim/ könyvtárban van. A selectort a Panelbeállítások Mail fülén módosíthatja."
+  },
+  "srs": {
+    "title": "SRS alól kivett domainek",
+    "intro": "Az iRedAPD nem írja át SRS-sel ezeknek a domaineknek a feladó címét.",
+    "heading": "Domainek",
+    "domains_label": "Soronként egy domain",
+    "domains_label_help": "Soronként egy domain. Az iRedAPD SRS-sel írja át a továbbított üzenet envelope sender címét, hogy a fogadó szerver elfogadja. Az ezen a listán szereplő domain megtartja az eredeti feladó címét. A lista alapértelmezetten üres.",
+    "msg_updated": "Az SRS alól kivett domainek mentve."
   }
 }

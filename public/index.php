@@ -515,6 +515,10 @@ $router->addRoute(['GET', 'POST'], '/iredapd/greylist-domains', function () use 
     IredapdController::greylistDomains($tpl);
 });
 
+$router->addRoute(['GET', 'POST'], '/iredapd/srs-exclude-domains', function () use ($tpl) {
+    IredapdController::srsExcludeDomains($tpl);
+});
+
 $router->addRoute('GET', '/iredapd/greylist-tracking', function () use ($tpl) {
     IredapdController::greylistTracking($tpl);
 });

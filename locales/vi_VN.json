@@ -1416,5 +1416,13 @@
     "msg_ptr_warn": "Một tên PTR không trỏ ngược về địa chỉ của nó.",
     "msg_ptr_fail": "Một địa chỉ MX không có bản ghi PTR.",
     "dkim_note": "Panel hỏi :name và chỉ báo ở đó có bản ghi DKIM hay không. Panel không so sánh được khóa, vì khóa riêng nằm trên máy chủ thư tại /var/lib/dkim/. Đổi selector trong Cài đặt Panel, tab Mail."
+  },
+  "srs": {
+    "title": "Miền được loại trừ khỏi SRS",
+    "intro": "iRedAPD không ghi lại địa chỉ người gửi của các miền này bằng SRS.",
+    "heading": "Miền",
+    "domains_label": "Mỗi dòng một miền",
+    "domains_label_help": "Mỗi dòng một miền. iRedAPD ghi lại envelope sender của thư chuyển tiếp bằng SRS để máy chủ nhận chấp nhận thư. Một miền trong danh sách này giữ nguyên địa chỉ người gửi ban đầu. Danh sách trống theo mặc định.",
+    "msg_updated": "Đã lưu các miền được loại trừ khỏi SRS."
   }
 }

@@ -1416,5 +1416,13 @@
     "msg_ptr_warn": "Nazwa PTR nie wskazuje z powrotem na swój adres.",
     "msg_ptr_fail": "Adres MX nie ma rekordu PTR.",
     "dkim_note": "Panel pyta o :name i zgłasza tylko, czy jest tam rekord DKIM. Nie może porównać klucza, ponieważ klucz prywatny leży na serwerze pocztowym w /var/lib/dkim/. Selector zmienisz w Ustawieniach panelu, zakładka Mail."
+  },
+  "srs": {
+    "title": "Domeny wyłączone z SRS",
+    "intro": "iRedAPD nie przepisuje adresu nadawcy tych domen za pomocą SRS.",
+    "heading": "Domeny",
+    "domains_label": "Jedna domena w wierszu",
+    "domains_label_help": "Jedna domena w wierszu. iRedAPD przepisuje envelope sender przekazywanej wiadomości za pomocą SRS, aby serwer odbiorcy ją przyjął. Domena z tej listy zachowuje swój oryginalny adres nadawcy. Lista jest domyślnie pusta.",
+    "msg_updated": "Domeny wyłączone z SRS zapisane."
   }
 }

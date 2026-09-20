@@ -1416,5 +1416,13 @@
     "msg_ptr_warn": "Un nume PTR nu indică înapoi spre adresa sa.",
     "msg_ptr_fail": "O adresă MX nu are înregistrare PTR.",
     "dkim_note": "Panoul interoghează :name și raportează doar dacă există acolo o înregistrare DKIM. Nu poate compara cheia, deoarece cheia privată se află pe serverul de e-mail în /var/lib/dkim/. Schimbați selectorul în Setările panoului, fila Mail."
+  },
+  "srs": {
+    "title": "Domenii excluse din SRS",
+    "intro": "iRedAPD nu rescrie adresa expeditorului acestor domenii cu SRS.",
+    "heading": "Domenii",
+    "domains_label": "Un domeniu pe linie",
+    "domains_label_help": "Un domeniu pe linie. iRedAPD rescrie envelope sender-ul unui mesaj redirecționat cu SRS, astfel încât serverul destinatar să îl accepte. Un domeniu din această listă își păstrează adresa de expeditor originală. Lista este goală în mod implicit.",
+    "msg_updated": "Domeniile excluse din SRS au fost salvate."
   }
 }

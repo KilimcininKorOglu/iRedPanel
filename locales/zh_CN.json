@@ -1416,5 +1416,13 @@
     "msg_ptr_warn": "有一个 PTR 名称没有解析回自己的地址。",
     "msg_ptr_fail": "有一个 MX 地址没有 PTR 记录。",
     "dkim_note": "面板查询 :name，只报告那里是否存在 DKIM 记录。它无法比对密钥，因为私钥保存在邮件服务器的 /var/lib/dkim/ 中。可在面板设置的 Mail 选项卡中更改 selector。"
+  },
+  "srs": {
+    "title": "SRS 排除域名",
+    "intro": "iRedAPD 不会使用 SRS 重写这些域名的发件人地址。",
+    "heading": "域名",
+    "domains_label": "每行一个域名",
+    "domains_label_help": "每行一个域名。iRedAPD 使用 SRS 重写转发邮件的 envelope sender，使接收服务器接受该邮件。此列表中的域名保留原始发件人地址。该列表默认为空。",
+    "msg_updated": "SRS 排除域名已保存。"
   }
 }

@@ -21,6 +21,9 @@ session_set_cookie_params([
     'secure' => !empty($_SERVER['HTTPS']),
     'samesite' => 'Lax',
 ]);
+// The admin pages, the REST API and the downloads must never reach a cache. This
+// does not rely on the php.ini default of session.cache_limiter.
+session_cache_limiter('nocache');
 session_start();
 
 // Validate settings and check required extensions

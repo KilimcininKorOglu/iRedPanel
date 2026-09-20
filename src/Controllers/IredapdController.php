@@ -328,7 +328,10 @@ class IredapdController
         }
     }
 
-    private static function requireEnabled(): void
+    /**
+     * Refuses every iRedAPD page while the integration is off.
+     */
+    public static function requireEnabled(): void
     {
         if (!Settings::getInstance()->iredapdEnabled) {
             http_response_code(403);

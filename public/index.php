@@ -35,6 +35,7 @@ use App\Controllers\Fail2banController;
 use App\Controllers\SpamPolicyController;
 use App\Controllers\WhiteBlacklistController;
 use App\Controllers\IredapdController;
+use App\Controllers\SmtpSessionController;
 use App\Controllers\NewsletterController;
 use App\Controllers\PasswordResetController;
 use App\Controllers\LogController;
@@ -511,6 +512,18 @@ $router->addRoute(['GET', 'POST'], '/iredapd/greylist-domains', function () use 
 
 $router->addRoute('GET', '/iredapd/greylist-tracking', function () use ($tpl) {
     IredapdController::greylistTracking($tpl);
+});
+
+$router->addRoute('GET', '/iredapd/smtp-sessions', function () use ($tpl) {
+    SmtpSessionController::smtpSessions($tpl);
+});
+
+$router->addRoute('GET', '/iredapd/smtp-sessions/{id}', function (string $id) use ($tpl) {
+    SmtpSessionController::smtpSession($tpl, $id);
+});
+
+$router->addRoute('POST', '/iredapd/smtp-sessions/{id}/wblist', function (string $id) use ($tpl) {
+    SmtpSessionController::wblistFromSession($tpl, $id);
 });
 
 $router->addRoute(['GET', 'POST'], '/iredapd/wblist-rdns', function () use ($tpl) {

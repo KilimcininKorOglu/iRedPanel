@@ -10,6 +10,8 @@ use App\Repositories\AccountMatch;
 use App\Repositories\IredapdAccountSettings;
 use App\Repositories\IredapdRepositoryInterface;
 use App\Repositories\SqlGreylisting;
+use App\Repositories\SqlSmtpSessions;
+use App\Repositories\SqlWblistRdns;
 use App\Utils\IredapdAccount;
 
 class PgsqlIredapdRepository implements IredapdRepositoryInterface
@@ -218,36 +220,42 @@ class PgsqlIredapdRepository implements IredapdRepositoryInterface
 
     public function getWblistRdns(): array
     {
-        $whitelists = [];
-        $blacklists = [];
-
-        $stmt = $this->pdo()->query("SELECT rdns, wb FROM wblist_rdns ORDER BY rdns");
-        while ($row = $stmt->fetch()) {
-            if ($row['wb'] === 'W') {
-                $whitelists[] = $row['rdns'];
-            } else {
-                $blacklists[] = $row['rdns'];
-            }
-        }
-
-        return ['whitelists' => $whitelists, 'blacklists' => $blacklists];
+        return (new SqlWblistRdns($this->pdo()))->all();
     }
 
     public function setWblistRdns(array $whitelists, array $blacklists): void
     {
-        $this->replaceAll(function (\PDO $pdo) use ($whitelists, $blacklists): void {
-            $pdo->exec("DELETE FROM wblist_rdns");
+        (new SqlWblistRdns($this->pdo()))->replace($whitelists, $blacklists);
+    }
 
-            $stmt = $pdo->prepare("INSERT INTO wblist_rdns (rdns, wb) VALUES (:rdns, :wb)");
-            foreach (['W' => $whitelists, 'B' => $blacklists] as $wb => $names) {
-                foreach ($names as $rdns) {
-                    $rdns = trim($rdns);
-                    if ($rdns !== '') {
-                        $stmt->execute(['rdns' => strtolower($rdns), 'wb' => $wb]);
-                    }
-                }
-            }
-        });
+    public function addWblistRdns(string $rdns, string $wb): bool
+    {
+        return (new SqlWblistRdns($this->pdo()))->add($rdns, $wb);
+    }
+
+    public function getSmtpSessionsPaginated(
+        int $page,
+        int $perPage,
+        ?string $action = null,
+        ?string $email = null,
+        ?string $clientAddress = null
+    ): PaginatedResult {
+        return (new SqlSmtpSessions($this->pdo()))->paginated($page, $perPage, $action, $email, $clientAddress);
+    }
+
+    public function getSmtpSession(int $id): ?array
+    {
+        return (new SqlSmtpSessions($this->pdo()))->find($id);
+    }
+
+    public function getSmtpSessionActions(): array
+    {
+        return (new SqlSmtpSessions($this->pdo()))->actions();
+    }
+
+    public function smtpSessionsAvailable(): bool
+    {
+        return (new SqlSmtpSessions($this->pdo()))->isAvailable();
     }
 
     public function getSenderScoreWhitelist(): array

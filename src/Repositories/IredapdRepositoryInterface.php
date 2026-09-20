@@ -78,6 +78,38 @@ interface IredapdRepositoryInterface extends AccountSettingsStoreInterface
     /** @param string[] $whitelists @param string[] $blacklists */
     public function setWblistRdns(array $whitelists, array $blacklists): void;
 
+    /**
+     * Adds one reverse DNS name to a list without touching the rest of it.
+     *
+     * @param string $wb W for the whitelist, B for the blacklist
+     * @return bool false when the name is already stored
+     */
+    public function addWblistRdns(string $rdns, string $wb): bool;
+
+    /**
+     * One page of the SMTP sessions that iRedAPD recorded, newest first.
+     *
+     * @param ?string $action an action that getSmtpSessionActions() returned
+     * @param ?string $email matches the sender, the recipient or the SASL user name
+     * @param ?string $clientAddress the IP address of the SMTP client
+     */
+    public function getSmtpSessionsPaginated(
+        int $page,
+        int $perPage,
+        ?string $action = null,
+        ?string $email = null,
+        ?string $clientAddress = null
+    ): \App\Models\PaginatedResult;
+
+    /** @return array<string, mixed>|null */
+    public function getSmtpSession(int $id): ?array;
+
+    /** @return string[] The actions that the stored sessions carry */
+    public function getSmtpSessionActions(): array;
+
+    /** Whether iRedAPD writes the SMTP session table of this database. */
+    public function smtpSessionsAvailable(): bool;
+
     /** @return string[] Whitelisted IP addresses */
     public function getSenderScoreWhitelist(): array;
 

@@ -33,6 +33,15 @@ class BadgeTone
             'pending' => 'orange',
             'disabled' => 'gray',
         ],
+        // The answers that iRedAPD stores in smtp_sessions.action (libs/__init__.py
+        // SMTP_ACTIONS): 451 is the greylisting answer.
+        'smtp_action' => [
+            'ok' => 'green',
+            'dunno' => 'gray',
+            'discard' => 'purple',
+            'reject' => 'red',
+            '451' => 'orange',
+        ],
         'admin_type' => [
             'mailbox' => 'blue',
             'standalone' => 'purple',

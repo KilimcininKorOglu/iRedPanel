@@ -33,6 +33,12 @@ final class ProfileToggles
     public const ADMINS_PAGE = 'admins';
 
     /**
+     * Domain page with the DNS check. It is no toggle either: the page reads DNS only
+     * and writes nothing, so a domain admin always opens it for a managed domain.
+     */
+    public const DNS_PAGE = 'dns';
+
+    /**
      * Returns the domain pages that the admin may open, in tab order.
      *
      * @return list<string>
@@ -40,10 +46,10 @@ final class ProfileToggles
     public static function openDomainPages(DomainSettings $settings, bool $isGlobalAdmin): array
     {
         if ($isGlobalAdmin) {
-            return ['general', ...self::DOMAIN_PROFILES, self::ADMINS_PAGE];
+            return ['general', ...self::DOMAIN_PROFILES, self::ADMINS_PAGE, self::DNS_PAGE];
         }
 
-        return [...array_diff(self::DOMAIN_PROFILES, $settings->disabledDomainProfiles), self::ADMINS_PAGE];
+        return [...array_diff(self::DOMAIN_PROFILES, $settings->disabledDomainProfiles), self::ADMINS_PAGE, self::DNS_PAGE];
     }
 
     public static function userPageOpen(DomainSettings $settings, bool $isGlobalAdmin, string $page): bool

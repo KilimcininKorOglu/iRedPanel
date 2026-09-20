@@ -331,6 +331,7 @@ server {
 - Alias domains that point to a target domain
 - Catch-all address, sender and recipient BCC, and sender-dependent relay host per domain
 - Domain ownership verification with DNS TXT records
+- DNS check per domain (MX, the addresses of the MX hosts, SPF, DKIM, DMARC and PTR), with the DKIM selector as a panel setting. The panel reports whether a DKIM record exists, never whether it matches the key of the server
 - Enable, disable and delete in bulk; paginated list with status filter
 
 ### User Management

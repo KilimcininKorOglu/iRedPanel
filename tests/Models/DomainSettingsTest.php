@@ -60,7 +60,8 @@ class DomainSettingsTest extends TestCase
         $this->assertTrue($stored->selfService());
         $this->assertFalse(ProfileToggles::preferenceOpen($stored, 'wblist'));
         $this->assertTrue(ProfileToggles::preferenceOpen($stored, 'quarantine'));
-        $this->assertSame(['settings', 'catchall', 'admins'], ProfileToggles::openDomainPages($stored, false));
+        // The admins and DNS pages carry no toggle, so a domain admin always opens them.
+        $this->assertSame(['settings', 'catchall', 'admins', 'dns'], ProfileToggles::openDomainPages($stored, false));
         $this->assertFalse(ProfileToggles::userPageOpen($stored, false, 'password'));
         $this->assertTrue(ProfileToggles::userPageOpen($stored, true, 'password'));
     }

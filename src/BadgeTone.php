@@ -42,6 +42,13 @@ class BadgeTone
             'reject' => 'red',
             '451' => 'orange',
         ],
+        // Answers of one DNS check of a domain.
+        'dns_status' => [
+            'ok' => 'green',
+            'warn' => 'yellow',
+            'fail' => 'red',
+            'unknown' => 'gray',
+        ],
         'admin_type' => [
             'mailbox' => 'blue',
             'standalone' => 'purple',

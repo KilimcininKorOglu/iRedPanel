@@ -46,6 +46,7 @@ class PanelSettingsController
         'mail' => [
             'smtpHost', 'smtpPort', 'smtpSecurity', 'smtpTlsVerify',
             'smtpUser', 'smtpPassword', 'smtpFrom', 'publicUrl', 'newsletterExpireHours',
+            'dkimSelector',
         ],
         'api' => [
             'apiEnabled', 'apiKey', 'apiAllowedIps',

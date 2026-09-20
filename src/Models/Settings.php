@@ -136,6 +136,9 @@ class Settings
     public string $publicUrl;
     public int $newsletterExpireHours;
 
+    // DKIM selector that the domain DNS check asks for
+    public string $dkimSelector;
+
     // REST API
     public bool $apiEnabled;
     public string $apiKey;
@@ -195,6 +198,7 @@ class Settings
         'smtpFrom' => 'string',
         'publicUrl' => 'string',
         'newsletterExpireHours' => 'int',
+        'dkimSelector' => 'string',
         'mlmmjadminApiUrl' => 'string',
         'mlmmjadminApiToken' => 'string',
     ];
@@ -447,6 +451,8 @@ class Settings
         $this->smtpFrom = $this->env('IREDPANEL_SMTP_FROM', '');
         $this->publicUrl = $this->validPublicUrl();
         $this->newsletterExpireHours = max(1, $this->envInt('IREDPANEL_NEWSLETTER_EXPIRE_HOURS', 24));
+        // DnsCheck refuses a value that is no DNS label, so no validation belongs here.
+        $this->dkimSelector = $this->env('IREDPANEL_DKIM_SELECTOR', 'dkim');
     }
 
     /**

@@ -1,17 +1,6 @@
 <?php
 $pageTitle = $domain->domainName;
 $mode = $editMode ?? 'general';
-$domainPath = '/domains/' . $e($domain->domainName);
-$tabs = [
-    'general' => [$domainPath . '/edit', $t('admin.tab_general')],
-    'settings' => [$domainPath . '/settings', $t('common.settings')],
-    'catchall' => [$domainPath . '/catchall', $t('domain.tab_catchall')],
-    'bcc' => [$domainPath . '/bcc', $t('domain.tab_bcc')],
-    'relay' => [$domainPath . '/relay', $t('domain.tab_relay')],
-    'admins' => [$domainPath . '/admins', $t('domain.tab_admins')],
-];
-// A domain admin sees only the pages that the global admin left open.
-$tabs = array_intersect_key($tabs, array_flip($openPages));
 $domainProfileLabels = array_combine(\App\Models\ProfileToggles::DOMAIN_PROFILES, [$t('common.settings'), $t('domain.tab_catchall'), $t('domain.tab_bcc'), $t('domain.tab_relay')]);
 $userProfileLabels = array_combine(\App\Models\ProfileToggles::USER_PROFILES, [$t('user.tab_general'), $t('common.password'), $t('user.tab_services'), $t('user.tab_forwarding'), $t('user.tab_aliases'), $t('domain.tab_bcc'), $t('domain.tab_relay')]);
 $preferenceLabels = array_combine(\App\Models\ProfileToggles::USER_PREFERENCES, [$t('domain.pref_personal_info'), $t('common.password'), $t('user.tab_forwarding'), $t('domain.pref_wblist'), $t('domain.pref_spampolicy'), $t('domain.pref_quarantine'), $t('domain.pref_received'), $t('domain.pref_sent')]);
@@ -52,15 +41,7 @@ $toggleList = function (string $name, array $labels, array $checked) use ($e): s
 <div class="alert alert-success"><?= $e($success) ?></div>
 <?php endif; ?>
 
-<ul class="nav nav-tabs">
-  <?php foreach ($tabs as $key => [$href, $label]): ?>
-  <li class="nav-item"><a class="nav-link<?= $mode === $key ? ' active' : '' ?>" href="<?= $href ?>"<?= $mode === $key ? ' aria-current="page"' : '' ?>><?= $e($label) ?></a></li>
-  <?php endforeach; ?>
-  <?php if (!empty($features['iredapd']) && !empty($session['isGlobalAdmin'])): ?>
-  <li class="nav-item"><a class="nav-link" href="/iredapd/throttle/@<?= $e($domain->domainName) ?>"><?= $te('throttle.view_title') ?></a></li>
-  <li class="nav-item"><a class="nav-link" href="/iredapd/greylist/@<?= $e($domain->domainName) ?>"><?= $te('greylist.view_title') ?></a></li>
-  <?php endif; ?>
-</ul>
+<?php include __DIR__ . '/domainTabs.php'; ?>
 
 <div class="row">
   <div class="col-xl-8">

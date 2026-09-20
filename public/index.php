@@ -30,6 +30,7 @@ use App\Api\UserApiController;
 use App\Api\WhiteBlacklistApiController;
 use App\Controllers\DomainAliasController;
 use App\Controllers\DomainController;
+use App\Controllers\DomainDnsController;
 use App\Controllers\ExportController;
 use App\Controllers\Fail2banController;
 use App\Controllers\SpamPolicyController;
@@ -145,6 +146,10 @@ $router->addRoute(['GET', 'POST'], '/domains/{domain}/edit', function (string $d
 
 $router->addRoute(['GET', 'POST'], '/domains/{domain}/settings', function (string $domain) use ($tpl) {
     DomainController::domainView($tpl, $domain, 'settings');
+});
+
+$router->addRoute('GET', '/domains/{domain}/dns', function (string $domain) use ($tpl) {
+    DomainDnsController::dnsCheck($tpl, $domain);
 });
 
 $router->addRoute('POST', '/domains/{domain}/delete', function (string $domain) use ($tpl) {

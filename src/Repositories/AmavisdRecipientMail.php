@@ -87,6 +87,31 @@ final class AmavisdRecipientMail
         return array_map(strval(...), $stmt->fetchAll(\PDO::FETCH_COLUMN));
     }
 
+    /**
+     * The envelope sender and every recipient that still waits for the quarantined
+     * message. Amavisd stores the sender in angle brackets, which are stripped here,
+     * because a white/blacklist entry holds the bare address.
+     *
+     * @return array{sender: string, recipients: list<string>}
+     */
+    public function addresses(string $mailId): array
+    {
+        $stmt = $this->pdo->prepare(
+            'SELECT ' . sprintf($this->text, 'm.from_addr') . ' AS sender, ' . sprintf($this->text, 'a.email') . ' AS recipient
+             FROM msgs m JOIN msgrcpt mr ON m.mail_id = mr.mail_id JOIN maddr a ON a.id = mr.rid
+             WHERE m.mail_id = ' . sprintf($this->bytes, ':mailId') . ' AND ' . self::PENDING . '
+               AND EXISTS (SELECT 1 FROM quarantine q WHERE q.mail_id = m.mail_id)
+             ORDER BY 2'
+        );
+        $stmt->execute(['mailId' => $mailId]);
+        $rows = ($this->rowsAsText)($stmt->fetchAll(\PDO::FETCH_ASSOC));
+
+        return [
+            'sender' => trim((string) ($rows[0]['sender'] ?? ''), '<>'),
+            'recipients' => array_map(static fn (array $row): string => (string) $row['recipient'], $rows),
+        ];
+    }
+
     private function recipient(): string
     {
         return 'a.email = ' . sprintf($this->bytes, ':email');

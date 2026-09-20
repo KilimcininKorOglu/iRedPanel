@@ -746,7 +746,11 @@
     "body": "Isi pesan",
     "body_empty": "Pesan ini tidak memiliki isi.",
     "body_truncated": "Pesan lebih panjang dari yang ditampilkan di sini. Unduh untuk membaca seluruh teks.",
-    "no_subject": "(tanpa subjek)"
+    "no_subject": "(tanpa subjek)",
+    "whitelist_sender": "Daftar putih",
+    "blacklist_sender": "Daftar hitam",
+    "whitelist_confirm": "Tambahkan :sender ke daftar putih penerima?",
+    "blacklist_confirm": "Tambahkan :sender ke daftar hitam penerima?"
   },
   "domain": {
     "msg_name_required": "Nama domain wajib diisi",

@@ -423,6 +423,10 @@ $router->addRoute('POST', '/amavisd/quarantine/bulk', function () use ($tpl) {
     AmavisdController::bulkQuarantine($tpl);
 });
 
+$router->addRoute('POST', '/amavisd/quarantine/{mailId}/wblist', function (string $mailId) use ($tpl) {
+    AmavisdController::wblistFromQuarantine($tpl, $mailId);
+});
+
 $router->addRoute('POST', '/amavisd/quarantine/{mailId}/release', function (string $mailId) use ($tpl) {
     AmavisdController::releaseMessage($tpl, $mailId);
 });

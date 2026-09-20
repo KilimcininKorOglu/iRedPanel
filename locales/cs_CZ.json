@@ -746,7 +746,11 @@
     "body": "Tělo zprávy",
     "body_empty": "Tato zpráva nemá tělo.",
     "body_truncated": "Zpráva je delší než zde zobrazená část. Stáhněte ji a přečtěte si celý text.",
-    "no_subject": "(bez předmětu)"
+    "no_subject": "(bez předmětu)",
+    "whitelist_sender": "Bílá listina",
+    "blacklist_sender": "Černá listina",
+    "whitelist_confirm": "Přidat :sender na bílou listinu příjemců?",
+    "blacklist_confirm": "Přidat :sender na černou listinu příjemců?"
   },
   "domain": {
     "msg_name_required": "Název domény je povinný",

@@ -746,7 +746,11 @@
     "body": "Berichttekst",
     "body_empty": "Dit bericht heeft geen tekst.",
     "body_truncated": "Het bericht is langer dan hier getoond. Download het om de hele tekst te lezen.",
-    "no_subject": "(geen onderwerp)"
+    "no_subject": "(geen onderwerp)",
+    "whitelist_sender": "Witte lijst",
+    "blacklist_sender": "Zwarte lijst",
+    "whitelist_confirm": ":sender aan de witte lijst van de ontvangers toevoegen?",
+    "blacklist_confirm": ":sender aan de zwarte lijst van de ontvangers toevoegen?"
   },
   "domain": {
     "msg_name_required": "De domeinnaam is verplicht",

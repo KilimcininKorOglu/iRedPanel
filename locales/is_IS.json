@@ -746,7 +746,11 @@
     "body": "Meginmál skilaboða",
     "body_empty": "Þessi skilaboð hafa ekkert meginmál.",
     "body_truncated": "Skilaboðin eru lengri en sýnt er hér. Sæktu þau til að lesa allan textann.",
-    "no_subject": "(ekkert efni)"
+    "no_subject": "(ekkert efni)",
+    "whitelist_sender": "Hvítlisti",
+    "blacklist_sender": "Svartlisti",
+    "whitelist_confirm": "Bæta :sender á hvítlista viðtakenda?",
+    "blacklist_confirm": "Bæta :sender á svartlista viðtakenda?"
   },
   "domain": {
     "msg_name_required": "Lénsheiti er nauðsynlegt",

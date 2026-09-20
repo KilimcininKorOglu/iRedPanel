@@ -746,7 +746,11 @@
     "body": "Тело поруке",
     "body_empty": "Ова порука нема тело.",
     "body_truncated": "Порука је дужа од приказаног дела. Преузмите је да прочитате цео текст.",
-    "no_subject": "(без наслова)"
+    "no_subject": "(без наслова)",
+    "whitelist_sender": "Бела листа",
+    "blacklist_sender": "Црна листа",
+    "whitelist_confirm": "Додати :sender на белу листу прималаца?",
+    "blacklist_confirm": "Додати :sender на црну листу прималаца?"
   },
   "domain": {
     "msg_name_required": "Назив домена је обавезан",

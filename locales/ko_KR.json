@@ -746,7 +746,11 @@
     "body": "메일 본문",
     "body_empty": "이 메일에는 본문이 없습니다.",
     "body_truncated": "메일이 여기에 표시된 것보다 깁니다. 전체 내용을 보려면 다운로드하십시오.",
-    "no_subject": "(제목 없음)"
+    "no_subject": "(제목 없음)",
+    "whitelist_sender": "화이트리스트",
+    "blacklist_sender": "블랙리스트",
+    "whitelist_confirm": ":sender 를 수신자의 화이트리스트에 추가하시겠습니까?",
+    "blacklist_confirm": ":sender 를 수신자의 블랙리스트에 추가하시겠습니까?"
   },
   "domain": {
     "msg_name_required": "도메인 이름이 필요합니다",

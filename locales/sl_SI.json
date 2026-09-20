@@ -746,7 +746,11 @@
     "body": "Telo sporočila",
     "body_empty": "To sporočilo nima telesa.",
     "body_truncated": "Sporočilo je daljše od prikazanega dela. Prenesite ga, da preberete celotno besedilo.",
-    "no_subject": "(brez zadeve)"
+    "no_subject": "(brez zadeve)",
+    "whitelist_sender": "Beli seznam",
+    "blacklist_sender": "Črni seznam",
+    "whitelist_confirm": "Dodam :sender na beli seznam prejemnikov?",
+    "blacklist_confirm": "Dodam :sender na črni seznam prejemnikov?"
   },
   "domain": {
     "msg_name_required": "Ime domene je obvezno",

@@ -77,6 +77,30 @@ class AmavisdRecipientMailTest extends TestCase
         $this->mail->release('only-a', 'a@x.test', static function (): void {});
     }
 
+    public function testAddressesOfAQuarantinedMessage(): void
+    {
+        $this->assertSame(
+            ['sender' => 'spam@y.test', 'recipients' => ['a@x.test', 'b@x.test', 'c@other.test']],
+            $this->mail->addresses('shared')
+        );
+    }
+
+    public function testAddressesOfAHandledOrUnknownMessage(): void
+    {
+        $this->assertSame(['sender' => '', 'recipients' => []], $this->mail->addresses('clean'));
+        $this->assertSame(['sender' => '', 'recipients' => []], $this->mail->addresses('no-such-id'));
+
+        $this->mail->delete('only-a', 'a@x.test');
+        $this->assertSame(['sender' => '', 'recipients' => []], $this->mail->addresses('only-a'));
+    }
+
+    public function testAddressesStripTheAngleBracketsOfTheSender(): void
+    {
+        $this->pdo->exec("UPDATE msgs SET from_addr = '<spam@y.test>' WHERE mail_id = 'shared'");
+
+        $this->assertSame('spam@y.test', $this->mail->addresses('shared')['sender']);
+    }
+
     /**
      * A domain admin handles the copies of its own domain only; a handled copy does not wait.
      */

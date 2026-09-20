@@ -62,4 +62,12 @@ interface AmavisdRepositoryInterface extends AccountSettingsStoreInterface
      * @return list<string>
      */
     public function pendingQuarantineRecipients(string $mailId, string $domain): array;
+
+    /**
+     * The envelope sender and every recipient of a quarantined message. A message
+     * that the quarantine does not hold answers with an empty sender and no recipient.
+     *
+     * @return array{sender: string, recipients: list<string>}
+     */
+    public function quarantinedAddresses(string $mailId): array;
 }

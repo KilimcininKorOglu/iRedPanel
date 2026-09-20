@@ -746,7 +746,11 @@
     "body": "Üzenet törzse",
     "body_empty": "Ennek az üzenetnek nincs törzse.",
     "body_truncated": "Az üzenet hosszabb az itt megjelenítettnél. Töltse le a teljes szöveg elolvasásához.",
-    "no_subject": "(nincs tárgy)"
+    "no_subject": "(nincs tárgy)",
+    "whitelist_sender": "Fehérlista",
+    "blacklist_sender": "Feketelista",
+    "whitelist_confirm": "Hozzáadja a(z) :sender címet a címzettek fehérlistájához?",
+    "blacklist_confirm": "Hozzáadja a(z) :sender címet a címzettek feketelistájához?"
   },
   "domain": {
     "msg_name_required": "A domainnév megadása kötelező",

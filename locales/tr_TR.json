@@ -746,7 +746,11 @@
     "body": "Mesaj gövdesi",
     "body_empty": "Bu mesajın gövdesi yok.",
     "body_truncated": "Mesaj burada gösterilenden uzun. Tamamını okumak için indirin.",
-    "no_subject": "(konu yok)"
+    "no_subject": "(konu yok)",
+    "whitelist_sender": "Whitelist'e ekle",
+    "blacklist_sender": "Blacklist'e ekle",
+    "whitelist_confirm": ":sender adresi alıcıların whitelist'ine eklensin mi?",
+    "blacklist_confirm": ":sender adresi alıcıların blacklist'ine eklensin mi?"
   },
   "domain": {
     "msg_name_required": "Alan adı gerekli",

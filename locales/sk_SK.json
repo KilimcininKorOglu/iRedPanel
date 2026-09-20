@@ -746,7 +746,11 @@
     "body": "Telo správy",
     "body_empty": "Táto správa nemá telo.",
     "body_truncated": "Správa je dlhšia než zobrazená časť. Stiahnite ju a prečítajte si celý text.",
-    "no_subject": "(bez predmetu)"
+    "no_subject": "(bez predmetu)",
+    "whitelist_sender": "Biela listina",
+    "blacklist_sender": "Čierna listina",
+    "whitelist_confirm": "Pridať :sender na bielu listinu príjemcov?",
+    "blacklist_confirm": "Pridať :sender na čiernu listinu príjemcov?"
   },
   "domain": {
     "msg_name_required": "Názov domény je povinný",

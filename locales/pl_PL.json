@@ -746,7 +746,11 @@
     "body": "Treść wiadomości",
     "body_empty": "Ta wiadomość nie ma treści.",
     "body_truncated": "Wiadomość jest dłuższa niż pokazano tutaj. Pobierz ją, aby przeczytać cały tekst.",
-    "no_subject": "(bez tematu)"
+    "no_subject": "(bez tematu)",
+    "whitelist_sender": "Biała lista",
+    "blacklist_sender": "Czarna lista",
+    "whitelist_confirm": "Dodać :sender do białej listy odbiorców?",
+    "blacklist_confirm": "Dodać :sender do czarnej listy odbiorców?"
   },
   "domain": {
     "msg_name_required": "Nazwa domeny jest wymagana",

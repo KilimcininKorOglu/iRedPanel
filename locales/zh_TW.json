@@ -746,7 +746,11 @@
     "body": "郵件內文",
     "body_empty": "這封郵件沒有內文。",
     "body_truncated": "郵件內容比此處顯示的更長。請下載以閱讀全文。",
-    "no_subject": "(無主旨)"
+    "no_subject": "(無主旨)",
+    "whitelist_sender": "加入白名單",
+    "blacklist_sender": "加入黑名單",
+    "whitelist_confirm": "將 :sender 加入收件人的白名單？",
+    "blacklist_confirm": "將 :sender 加入收件人的黑名單？"
   },
   "domain": {
     "msg_name_required": "網域名稱為必填",

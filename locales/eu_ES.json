@@ -746,7 +746,11 @@
     "body": "Mezuaren gorputza",
     "body_empty": "Mezu honek ez du gorputzik.",
     "body_truncated": "Mezua hemen erakutsitakoa baino luzeagoa da. Deskargatu testu osoa irakurtzeko.",
-    "no_subject": "(gairik gabe)"
+    "no_subject": "(gairik gabe)",
+    "whitelist_sender": "Zerrenda zuria",
+    "blacklist_sender": "Zerrenda beltza",
+    "whitelist_confirm": ":sender hartzaileen zerrenda zurira gehitu?",
+    "blacklist_confirm": ":sender hartzaileen zerrenda beltzera gehitu?"
   },
   "domain": {
     "msg_name_required": "Domeinuaren izena beharrezkoa da",

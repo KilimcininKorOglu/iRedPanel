@@ -746,7 +746,11 @@
     "body": "Meddelandetext",
     "body_empty": "Detta meddelande har ingen text.",
     "body_truncated": "Meddelandet är längre än det som visas här. Ladda ner det för att läsa hela texten.",
-    "no_subject": "(inget ämne)"
+    "no_subject": "(inget ämne)",
+    "whitelist_sender": "Vitlista",
+    "blacklist_sender": "Svartlista",
+    "whitelist_confirm": "Lägga till :sender i mottagarnas vitlista?",
+    "blacklist_confirm": "Lägga till :sender i mottagarnas svartlista?"
   },
   "domain": {
     "msg_name_required": "Domännamn krävs",

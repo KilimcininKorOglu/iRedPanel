@@ -746,7 +746,11 @@
     "body": "Corps du message",
     "body_empty": "Ce message n'a pas de corps.",
     "body_truncated": "Le message est plus long que ce qui est affiché ici. Téléchargez-le pour lire le texte complet.",
-    "no_subject": "(sans objet)"
+    "no_subject": "(sans objet)",
+    "whitelist_sender": "Liste blanche",
+    "blacklist_sender": "Liste noire",
+    "whitelist_confirm": "Ajouter :sender à la liste blanche des destinataires ?",
+    "blacklist_confirm": "Ajouter :sender à la liste noire des destinataires ?"
   },
   "domain": {
     "msg_name_required": "Le nom de domaine est obligatoire",

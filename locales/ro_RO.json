@@ -746,7 +746,11 @@
     "body": "Corpul mesajului",
     "body_empty": "Acest mesaj nu are corp.",
     "body_truncated": "Mesajul este mai lung decât cel afișat aici. Descarcă-l pentru a citi tot textul.",
-    "no_subject": "(fără subiect)"
+    "no_subject": "(fără subiect)",
+    "whitelist_sender": "Listă albă",
+    "blacklist_sender": "Listă neagră",
+    "whitelist_confirm": "Adăugați :sender în lista albă a destinatarilor?",
+    "blacklist_confirm": "Adăugați :sender în lista neagră a destinatarilor?"
   },
   "domain": {
     "msg_name_required": "Numele domeniului este obligatoriu",

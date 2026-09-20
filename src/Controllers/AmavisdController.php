@@ -12,6 +12,7 @@ use App\Repositories\RepositoryFactory;
 use App\Services\ActivityLogger;
 use App\Services\AdminLimits;
 use App\Services\QuarantinedMail;
+use App\Services\WhiteBlacklistService;
 use App\TemplateEngine;
 
 class AmavisdController
@@ -95,6 +96,50 @@ class AmavisdController
     public static function deleteMessage(TemplateEngine $tpl, string $mailId): void
     {
         self::handleQuarantined($mailId, false);
+    }
+
+    /**
+     * Adds the sender of a quarantined message to the white or black list of every
+     * recipient the admin manages (POST only). The addresses come from the message,
+     * never from the form, so a posted address cannot reach another domain.
+     */
+    public static function wblistFromQuarantine(TemplateEngine $tpl, string $mailId): void
+    {
+        self::openPage('disableManagingQuarantinedMails');
+        CsrfProtection::validateToken();
+
+        $wb = ($_POST['wb'] ?? 'W') === 'B' ? 'B' : 'W';
+        $addresses = RepositoryFactory::getAmavisdRepository()->quarantinedAddresses($mailId);
+        $recipients = array_values(array_filter(
+            $addresses['recipients'],
+            static fn (string $email): bool => Middleware::isGlobalAdmin() || Middleware::isDomainAdmin(substr(strrchr($email, '@') ?: '@', 1)),
+        ));
+
+        self::storeWblist($addresses['sender'], $recipients, $wb);
+
+        header('Location: ' . BaseController::listUrl('/amavisd/quarantine'));
+        exit;
+    }
+
+    /**
+     * @param list<string> $recipients
+     */
+    private static function storeWblist(string $sender, array $recipients, string $wb): void
+    {
+        if ($sender === '' || $recipients === []) {
+            BaseController::flashError(Translator::translate('common.msg_item_not_found'));
+            return;
+        }
+
+        try {
+            foreach ($recipients as $recipient) {
+                WhiteBlacklistService::add($recipient, [$sender], $wb, 'inbound');
+                ActivityLogger::log('update', '', $recipient, "Added {$wb} entry for {$sender} from the quarantine");
+            }
+            BaseController::flashSuccess(Translator::translate('wblist.msg_entry_added'));
+        } catch (\Exception $e) {
+            BaseController::flashItemError($sender, $e);
+        }
     }
 
     /**

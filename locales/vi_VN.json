@@ -746,7 +746,11 @@
     "body": "Nội dung thư",
     "body_empty": "Thư này không có nội dung.",
     "body_truncated": "Thư dài hơn phần hiển thị ở đây. Hãy tải xuống để đọc toàn bộ nội dung.",
-    "no_subject": "(không có chủ đề)"
+    "no_subject": "(không có chủ đề)",
+    "whitelist_sender": "Danh sách trắng",
+    "blacklist_sender": "Danh sách đen",
+    "whitelist_confirm": "Thêm :sender vào danh sách trắng của người nhận?",
+    "blacklist_confirm": "Thêm :sender vào danh sách đen của người nhận?"
   },
   "domain": {
     "msg_name_required": "Tên miền là bắt buộc",

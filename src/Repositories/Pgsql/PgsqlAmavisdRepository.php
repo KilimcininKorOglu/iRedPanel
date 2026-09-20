@@ -326,6 +326,11 @@ class PgsqlAmavisdRepository implements AmavisdRepositoryInterface
         return $this->recipientMail()->pendingRecipients($mailId, $domain);
     }
 
+    public function quarantinedAddresses(string $mailId): array
+    {
+        return $this->recipientMail()->addresses($mailId);
+    }
+
     private function recipientMail(): AmavisdRecipientMail
     {
         return new AmavisdRecipientMail(

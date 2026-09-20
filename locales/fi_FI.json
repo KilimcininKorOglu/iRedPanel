@@ -746,7 +746,11 @@
     "body": "Viestin runko",
     "body_empty": "Tällä viestillä ei ole runkoa.",
     "body_truncated": "Viesti on pidempi kuin tässä näytetty osa. Lataa se lukeaksesi koko tekstin.",
-    "no_subject": "(ei aihetta)"
+    "no_subject": "(ei aihetta)",
+    "whitelist_sender": "Sallittujen lista",
+    "blacklist_sender": "Estettyjen lista",
+    "whitelist_confirm": "Lisätäänkö :sender vastaanottajien sallittujen listalle?",
+    "blacklist_confirm": "Lisätäänkö :sender vastaanottajien estettyjen listalle?"
   },
   "domain": {
     "msg_name_required": "Verkkotunnuksen nimi vaaditaan",

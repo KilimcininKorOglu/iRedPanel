@@ -746,7 +746,11 @@
     "body": "本文",
     "body_empty": "このメッセージに本文はありません。",
     "body_truncated": "メッセージはここに表示されているより長いです。全文を読むにはダウンロードしてください。",
-    "no_subject": "(件名なし)"
+    "no_subject": "(件名なし)",
+    "whitelist_sender": "ホワイトリスト",
+    "blacklist_sender": "ブラックリスト",
+    "whitelist_confirm": ":sender を受信者のホワイトリストに追加しますか？",
+    "blacklist_confirm": ":sender を受信者のブラックリストに追加しますか？"
   },
   "domain": {
     "msg_name_required": "ドメイン名は必須です",

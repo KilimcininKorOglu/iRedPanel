@@ -746,7 +746,11 @@
     "body": "Cos del missatge",
     "body_empty": "Aquest missatge no té cos.",
     "body_truncated": "El missatge és més llarg del que es mostra aquí. Baixa'l per llegir tot el text.",
-    "no_subject": "(sense assumpte)"
+    "no_subject": "(sense assumpte)",
+    "whitelist_sender": "Llista blanca",
+    "blacklist_sender": "Llista negra",
+    "whitelist_confirm": "Voleu afegir :sender a la llista blanca dels destinataris?",
+    "blacklist_confirm": "Voleu afegir :sender a la llista negra dels destinataris?"
   },
   "domain": {
     "msg_name_required": "El nom del domini és obligatori",

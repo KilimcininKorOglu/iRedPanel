@@ -60,6 +60,11 @@ $action = '/self/' . $page . ($paginatedResult->currentPage > 1 ? '?page=' . $pa
               <?php /* The button name carries the action and its value the mail ID, so one form serves every row. */ ?>
               <button type="submit" name="release" value="<?= $e($msg['mail_id']) ?>" class="btn btn-sm btn-outline-primary" data-confirm="<?= $te('self.release_confirm') ?>"><i class="bi bi-send-check me-1"></i><?= $te('quarantine.release') ?></button>
               <button type="submit" name="delete" value="<?= $e($msg['mail_id']) ?>" class="btn btn-sm btn-outline-danger" data-confirm="<?= $te('quarantine.delete_confirm') ?>"><i class="bi bi-trash3 me-1"></i><?= $te('common.delete') ?></button>
+              <?php $sender = trim((string) ($msg['from_addr'] ?? ''), '<>'); ?>
+              <?php if ($sender !== ''): ?>
+              <button type="submit" name="whitelist" value="<?= $e($msg['mail_id']) ?>" class="btn btn-sm btn-outline-success" data-confirm="<?= $te('quarantine.whitelist_confirm', ['sender' => $sender]) ?>"><i class="bi bi-check-circle me-1"></i><?= $te('quarantine.whitelist_sender') ?></button>
+              <button type="submit" name="blacklist" value="<?= $e($msg['mail_id']) ?>" class="btn btn-sm btn-outline-danger" data-confirm="<?= $te('quarantine.blacklist_confirm', ['sender' => $sender]) ?>"><i class="bi bi-slash-circle me-1"></i><?= $te('quarantine.blacklist_sender') ?></button>
+              <?php endif; ?>
               <?php elseif (($msg['from_addr'] ?? '') !== ''): ?>
               <form method="post" action="<?= $e($action) ?>" data-confirm="<?= $te('self.blacklist_confirm', ['sender' => (string) $msg['from_addr']]) ?>">
                 <?= $csrfField ?>

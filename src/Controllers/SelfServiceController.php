@@ -17,6 +17,7 @@ use App\Repositories\RepositoryFactory;
 use App\Services\ActivityLogger;
 use App\Services\QuarantinedMail;
 use App\Services\Replication\ReplicatedAccountGuard;
+use App\Services\WhiteBlacklistService;
 use App\Services\SelfService;
 use App\TemplateEngine;
 use App\Utils\AmavisdAddress;
@@ -344,6 +345,11 @@ class SelfServiceController
      */
     private static function handleQuarantine(array $account): string
     {
+        $wblist = self::postedQuarantineWblist();
+        if ($wblist !== null) {
+            return self::wblistFromQuarantine($account, $wblist[0], $wblist[1]);
+        }
+
         [$mailIds, $action] = self::postedQuarantineRequest();
         if (!BaseController::isValidBulkRequest($mailIds, $action, ['release', 'delete'])) {
             // isValidBulkRequest reported the missing selection or action itself.
@@ -378,6 +384,42 @@ class SelfServiceController
         $selected = is_array($_POST['selected'] ?? null) ? array_values(array_filter($_POST['selected'], is_string(...))) : [];
 
         return [$selected, is_string($_POST['action'] ?? null) ? $_POST['action'] : ''];
+    }
+
+    /**
+     * The mail ID and the kind of a posted white/blacklist button, or null when the
+     * request carries none.
+     *
+     * @return array{0: string, 1: string}|null
+     */
+    private static function postedQuarantineWblist(): ?array
+    {
+        foreach (['whitelist' => 'W', 'blacklist' => 'B'] as $button => $wb) {
+            if (is_string($_POST[$button] ?? null) && $_POST[$button] !== '') {
+                return [$_POST[$button], $wb];
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * Adds the sender of a quarantined message to the list of the user. The sender comes
+     * from the message, and only a message that waits for the user is read.
+     *
+     * @param array{uid: string, domain: string, email: string} $account
+     */
+    private static function wblistFromQuarantine(array $account, string $mailId, string $wb): string
+    {
+        $addresses = RepositoryFactory::getAmavisdRepository()->quarantinedAddresses($mailId);
+        if ($addresses['sender'] === '' || !in_array($account['email'], $addresses['recipients'], true)) {
+            throw new \RuntimeException(Translator::translate('common.msg_item_not_found'));
+        }
+
+        WhiteBlacklistService::add($account['email'], [$addresses['sender']], $wb, 'inbound');
+        ActivityLogger::logUpdate($account['domain'], $account['email'], "Added {$wb} entry for {$addresses['sender']} (self-service)");
+
+        return Translator::translate('wblist.msg_entry_added');
     }
 
     /**

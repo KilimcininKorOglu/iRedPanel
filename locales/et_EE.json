@@ -746,7 +746,11 @@
     "body": "Sõnumi sisu",
     "body_empty": "Sellel sõnumil ei ole sisu.",
     "body_truncated": "Sõnum on pikem kui siin kuvatud osa. Laadi see alla, et lugeda kogu teksti.",
-    "no_subject": "(teemata)"
+    "no_subject": "(teemata)",
+    "whitelist_sender": "Valge nimekiri",
+    "blacklist_sender": "Must nimekiri",
+    "whitelist_confirm": "Kas lisada :sender saajate valgesse nimekirja?",
+    "blacklist_confirm": "Kas lisada :sender saajate musta nimekirja?"
   },
   "domain": {
     "msg_name_required": "Domeeninimi on kohustuslik",

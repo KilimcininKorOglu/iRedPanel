@@ -746,7 +746,11 @@
     "body": "Message body",
     "body_empty": "This message has no body.",
     "body_truncated": "The message is longer than shown here. Download it to read the whole text.",
-    "no_subject": "(no subject)"
+    "no_subject": "(no subject)",
+    "whitelist_sender": "Whitelist",
+    "blacklist_sender": "Blacklist",
+    "whitelist_confirm": "Add :sender to the whitelist of the recipients?",
+    "blacklist_confirm": "Add :sender to the blacklist of the recipients?"
   },
   "domain": {
     "msg_name_required": "Domain name is required",

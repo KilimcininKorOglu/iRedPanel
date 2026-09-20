@@ -746,7 +746,11 @@
     "body": "邮件正文",
     "body_empty": "该邮件没有正文。",
     "body_truncated": "邮件内容长于此处显示的部分。请下载以阅读全文。",
-    "no_subject": "(无主题)"
+    "no_subject": "(无主题)",
+    "whitelist_sender": "加入白名单",
+    "blacklist_sender": "加入黑名单",
+    "whitelist_confirm": "将 :sender 加入收件人的白名单？",
+    "blacklist_confirm": "将 :sender 加入收件人的黑名单？"
   },
   "domain": {
     "msg_name_required": "域名为必填项",

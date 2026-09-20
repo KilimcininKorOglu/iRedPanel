@@ -746,7 +746,11 @@
     "body": "Beskedtekst",
     "body_empty": "Denne besked har ingen tekst.",
     "body_truncated": "Beskeden er længere end det, der vises her. Hent den for at læse hele teksten.",
-    "no_subject": "(intet emne)"
+    "no_subject": "(intet emne)",
+    "whitelist_sender": "Hvidliste",
+    "blacklist_sender": "Sortliste",
+    "whitelist_confirm": "Tilføj :sender til modtagernes hvidliste?",
+    "blacklist_confirm": "Tilføj :sender til modtagernes sortliste?"
   },
   "domain": {
     "msg_name_required": "Domænenavn er påkrævet",

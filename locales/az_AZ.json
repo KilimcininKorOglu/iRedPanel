@@ -746,7 +746,11 @@
     "body": "Mesajın mətni",
     "body_empty": "Bu mesajın mətni yoxdur.",
     "body_truncated": "Mesaj burada göstəriləndən uzundur. Bütün mətni oxumaq üçün onu yükləyin.",
-    "no_subject": "(mövzusuz)"
+    "no_subject": "(mövzusuz)",
+    "whitelist_sender": "Ağ siyahı",
+    "blacklist_sender": "Qara siyahı",
+    "whitelist_confirm": ":sender alıcıların ağ siyahısına əlavə edilsin?",
+    "blacklist_confirm": ":sender alıcıların qara siyahısına əlavə edilsin?"
   },
   "domain": {
     "msg_name_required": "Domen adı tələb olunur",

@@ -746,7 +746,11 @@
     "body": "Meldingstekst",
     "body_empty": "Denne meldinga har ingen tekst.",
     "body_truncated": "Meldinga er lengre enn det som blir vist her. Last henne ned for å lese heile teksten.",
-    "no_subject": "(utan emne)"
+    "no_subject": "(utan emne)",
+    "whitelist_sender": "Kvitliste",
+    "blacklist_sender": "Svarteliste",
+    "whitelist_confirm": "Leggje :sender til kvitlista til mottakarane?",
+    "blacklist_confirm": "Leggje :sender til svartelista til mottakarane?"
   },
   "domain": {
     "msg_name_required": "Domenenamn er påkravd",

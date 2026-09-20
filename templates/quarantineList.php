@@ -55,6 +55,11 @@
               <?php /* A form cannot nest inside the bulk form: the buttons post the bulk form to the row route. */ ?>
               <button type="submit" formaction="/amavisd/quarantine/<?= $e($msg['mail_id'] ?? '') ?>/release" formnovalidate class="btn btn-sm btn-outline-primary" data-confirm="<?= $te('quarantine.release_confirm') ?>"><i class="bi bi-send-check me-1"></i><?= $te('quarantine.release') ?></button>
               <button type="submit" formaction="/amavisd/quarantine/<?= $e($msg['mail_id'] ?? '') ?>/delete" formnovalidate class="btn btn-sm btn-outline-danger" data-confirm="<?= $te('quarantine.delete_confirm') ?>"><i class="bi bi-trash3 me-1"></i><?= $te('common.delete') ?></button>
+              <?php $sender = trim((string) ($msg['from_addr'] ?? ''), '<>'); ?>
+              <?php if ($sender !== ''): ?>
+              <button type="submit" name="wb" value="W" formaction="/amavisd/quarantine/<?= $e($msg['mail_id'] ?? '') ?>/wblist" formnovalidate class="btn btn-sm btn-outline-success" data-confirm="<?= $te('quarantine.whitelist_confirm', ['sender' => $sender]) ?>"><i class="bi bi-check-circle me-1"></i><?= $te('quarantine.whitelist_sender') ?></button>
+              <button type="submit" name="wb" value="B" formaction="/amavisd/quarantine/<?= $e($msg['mail_id'] ?? '') ?>/wblist" formnovalidate class="btn btn-sm btn-outline-danger" data-confirm="<?= $te('quarantine.blacklist_confirm', ['sender' => $sender]) ?>"><i class="bi bi-slash-circle me-1"></i><?= $te('quarantine.blacklist_sender') ?></button>
+              <?php endif; ?>
             </div>
           </td>
         </tr>

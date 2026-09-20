@@ -63,6 +63,7 @@ $sortIcon = function (string $col) use ($sortBy, $sortDir) {
             <th><a href="<?= $e($sortUrl('uid')) ?>"><?= $te('user.identifier') ?><?= $sortIcon('uid') ?></a></th>
             <th><a href="<?= $e($sortUrl('mailQuota')) ?>"><?= $te('user.quota_mb') ?><?= $sortIcon('mailQuota') ?></a></th>
             <th><?= $te('user.used') ?></th>
+            <th><?= $te('user.password_last_change') ?></th>
             <th><?= $te('admin.global_admin') ?></th>
             <th><a href="<?= $e($sortUrl('accountStatus')) ?>"><?= $te('common.status') ?><?= $sortIcon('accountStatus') ?></a></th>
             <th class="text-end"><?= $te('common.actions') ?></th>
@@ -80,6 +81,7 @@ $sortIcon = function (string $col) use ($sortBy, $sortDir) {
             <td><a href="/<?= $e($domain) ?>/users/<?= $e($user->uid) ?>/general" class="fw-medium"><?= $e($user->uid) ?></a></td>
             <td><?= $e($user->mailQuota === 0 ? $t('common.unlimited') : $user->mailQuota) ?></td>
             <td><?= $e($usedMb) ?> MB</td>
+            <td><?= $e($user->passwordLastChange ?? $t('common.none')) ?></td>
             <td><?= $localize($user->domainGlobalAdmin) ?></td>
             <td><?= $localize($user->accountStatus) ?></td>
             <td>

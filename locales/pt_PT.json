@@ -478,7 +478,9 @@
     "msg_invalid_birthday": "Data de nascimento inválida. Use o formato AAAA-MM-DD.",
     "allow_nets": "Restrição de IP de início de sessão",
     "allow_nets_help": "Endereços IP e intervalos CIDR a partir dos quais a caixa pode iniciar sessão, separados por vírgula. Vazio permite qualquer endereço. O Dovecot verifica isto em cada início de sessão IMAP, POP3 e SMTP, por isso um valor errado bloqueia o utilizador.",
-    "msg_invalid_allow_nets": "Restrição de IP inválida. Use endereços IP e intervalos CIDR separados por vírgula."
+    "msg_invalid_allow_nets": "Restrição de IP inválida. Use endereços IP e intervalos CIDR separados por vírgula.",
+    "password_last_change": "Última alteração de palavra-passe",
+    "password_last_change_help": "A data da última alteração de palavra-passe. O painel grava-a em cada alteração (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Nenhuma significa que o backend ainda não tem data."
   },
   "mlist": {
     "msg_updated": "Lista de distribuição atualizada!",

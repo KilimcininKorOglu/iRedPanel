@@ -478,7 +478,9 @@
     "msg_invalid_birthday": "Ógildur afmælisdagur. Notaðu sniðið ÁÁÁÁ-MM-DD.",
     "allow_nets": "IP-takmörkun við innskráningu",
     "allow_nets_help": "IP-tölur og CIDR-svið sem pósthólfið má skrá sig inn frá, aðskilin með kommu. Autt leyfir allar tölur. Dovecot athugar þetta við hverja IMAP-, POP3- og SMTP-innskráningu, svo rangt gildi læsir notandann úti.",
-    "msg_invalid_allow_nets": "Ógild IP-takmörkun. Notaðu IP-tölur og CIDR-svið aðskilin með kommu."
+    "msg_invalid_allow_nets": "Ógild IP-takmörkun. Notaðu IP-tölur og CIDR-svið aðskilin með kommu.",
+    "password_last_change": "Síðasta breyting lykilorðs",
+    "password_last_change_help": "Dagsetning síðustu lykilorðsbreytingar. Stjórnborðið skrifar hana við hverja breytingu (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Ekkert merkir að bakendinn hafi enga dagsetningu enn."
   },
   "mlist": {
     "msg_updated": "Póstlisti uppfærður!",

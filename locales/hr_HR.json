@@ -478,7 +478,9 @@
     "msg_invalid_birthday": "Neispravan rođendan. Koristite format GGGG-MM-DD.",
     "allow_nets": "Ograničenje IP adrese za prijavu",
     "allow_nets_help": "IP adrese i CIDR rasponi s kojih se sandučić može prijaviti, odvojeni zarezom. Prazno dopušta svaku adresu. Dovecot to provjerava pri svakoj IMAP, POP3 i SMTP prijavi, pa pogrešna vrijednost zaključava korisnika.",
-    "msg_invalid_allow_nets": "Neispravno ograničenje IP adrese. Koristite IP adrese i CIDR raspone odvojene zarezom."
+    "msg_invalid_allow_nets": "Neispravno ograničenje IP adrese. Koristite IP adrese i CIDR raspone odvojene zarezom.",
+    "password_last_change": "Zadnja promjena lozinke",
+    "password_last_change_help": "Datum zadnje promjene lozinke. Panel ga zapisuje pri svakoj promjeni (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Nema znači da backend još nema datum."
   },
   "mlist": {
     "msg_updated": "Mailing lista ažurirana!",

@@ -478,7 +478,9 @@
     "msg_invalid_birthday": "Jaiotegun baliogabea. Erabili UUUU-HH-EE formatua.",
     "allow_nets": "Saioa hasteko IP muga",
     "allow_nets_help": "Postontziak saioa has dezakeen IP helbideak eta CIDR barrutiak, komaz bereizita. Hutsik edozein helbide onartzen du. Dovecot-ek IMAP, POP3 eta SMTP saio hasiera bakoitzean egiaztatzen du, beraz balio okerrak erabiltzailea kanpoan uzten du.",
-    "msg_invalid_allow_nets": "IP muga baliogabea. Erabili komaz bereizitako IP helbideak eta CIDR barrutiak."
+    "msg_invalid_allow_nets": "IP muga baliogabea. Erabili komaz bereizitako IP helbideak eta CIDR barrutiak.",
+    "password_last_change": "Azken pasahitz aldaketa",
+    "password_last_change_help": "Azken pasahitz aldaketaren data. Panelak aldaketa bakoitzean idazten du (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Bat ere ez esan nahi du backend-ak oraindik ez duela datarik."
   },
   "mlist": {
     "msg_updated": "Posta-zerrenda eguneratu da!",

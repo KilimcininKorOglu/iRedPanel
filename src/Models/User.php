@@ -96,6 +96,8 @@ class User
         public bool $enableSogo = true,
         /** Preferred UI language (xx_YY); '' uses the default, null means not loaded and keeps the stored value on update. */
         public ?string $language = null,
+        /** Date of the last password change as YYYY-MM-DD; null when the backend holds none. Read only. */
+        public ?string $passwordLastChange = null,
     ) {}
 
     /**
@@ -153,6 +155,34 @@ class User
         }
 
         throw new InvalidInputException('birthday must be a date in YYYY-MM-DD format', 'user.msg_invalid_birthday');
+    }
+
+    /**
+     * Converts a stored SQL `passwordlastchange` value to a date. The MySQL column
+     * default is the epoch, which means that no password change was ever recorded.
+     */
+    public static function passwordChangeFromSql(mixed $stored): ?string
+    {
+        $date = substr((string) ($stored ?? ''), 0, 10);
+
+        return $date === '' || $date === '1970-01-01' ? null : $date;
+    }
+
+    /**
+     * Converts the LDAP `shadowLastChange` value (days since the epoch) to a date.
+     * A missing or zero value means the backend holds no date.
+     */
+    public static function passwordChangeFromShadow(mixed $days): ?string
+    {
+        $value = (int) ($days ?? 0);
+
+        return $value > 0 ? gmdate('Y-m-d', $value * 86400) : null;
+    }
+
+    /** The `shadowLastChange` value of today: the days since the epoch. */
+    public static function shadowToday(): string
+    {
+        return (string) intdiv(time(), 86400);
     }
 
     /** Converts a stored SQL birthday to the model value; the column default means not set. */
@@ -325,6 +355,7 @@ class User
             allowNets: $entry['allowNets'] ?? '',
             domainGlobalAdmin: ($entry['domainGlobalAdmin'] ?? '') === 'yes',
             language: $entry['preferredLanguage'] ?? null,
+            passwordLastChange: self::passwordChangeFromShadow($entry['shadowLastChange'] ?? null),
         );
         $user->applyLdapServices($services);
 

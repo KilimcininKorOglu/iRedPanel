@@ -478,7 +478,9 @@
     "msg_invalid_birthday": "生日無效。請使用 YYYY-MM-DD 格式。",
     "allow_nets": "登入 IP 限制",
     "allow_nets_help": "信箱可以登入的 IP 位址與 CIDR 網段，以逗號分隔。留空表示允許所有位址。Dovecot 在每次 IMAP、POP3 與 SMTP 登入時檢查該值，填錯會把使用者擋在外面。",
-    "msg_invalid_allow_nets": "登入 IP 限制無效。請使用以逗號分隔的 IP 位址與 CIDR 網段。"
+    "msg_invalid_allow_nets": "登入 IP 限制無效。請使用以逗號分隔的 IP 位址與 CIDR 網段。",
+    "password_last_change": "上次密碼變更",
+    "password_last_change_help": "上次變更密碼的日期。面板在每次變更密碼時寫入該值（SQL `mailbox.passwordlastchange`，LDAP `shadowLastChange`）。無表示後端還沒有日期。"
   },
   "mlist": {
     "msg_updated": "郵件清單已更新！",

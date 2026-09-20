@@ -31,7 +31,7 @@ class MysqlUserRepository implements UserRepositoryInterface
         $stmt = $pdo->prepare(
             "SELECT username, name, first_name, last_name,
                     quota, employeeid, mobile, telephone, active,
-                    isglobaladmin, rank, department, birthday, allow_nets, domain,
+                    isglobaladmin, rank, department, birthday, allow_nets, domain, passwordlastchange,
                     enablesmtp, enablesmtpsecured, enablepop3, enablepop3secured,
                     enableimap, enableimapsecured, enablemanagesieve,
                     enablemanagesievesecured, enablesogo,
@@ -60,7 +60,7 @@ class MysqlUserRepository implements UserRepositoryInterface
         $stmt = $pdo->prepare(
             "SELECT username, name, first_name, last_name,
                     quota, employeeid, mobile, telephone, active,
-                    isglobaladmin, rank, department, birthday, allow_nets, domain,
+                    isglobaladmin, rank, department, birthday, allow_nets, domain, passwordlastchange,
                     enablesmtp, enablesmtpsecured, enablepop3, enablepop3secured,
                     enableimap, enableimapsecured, enablemanagesieve,
                     enablemanagesievesecured, enablesogo,
@@ -365,7 +365,7 @@ class MysqlUserRepository implements UserRepositoryInterface
         $stmt = $pdo->prepare(
             "SELECT username, name, first_name, last_name,
                     quota, employeeid, mobile, telephone, active,
-                    isglobaladmin, rank, department, birthday, allow_nets, domain,
+                    isglobaladmin, rank, department, birthday, allow_nets, domain, passwordlastchange,
                     enablesmtp, enablesmtpsecured, enablepop3, enablepop3secured,
                     enableimap, enableimapsecured, enablemanagesieve,
                     enablemanagesievesecured, enablesogo,
@@ -529,6 +529,7 @@ class MysqlUserRepository implements UserRepositoryInterface
             enableSogo: (bool) ($row['enablesogo'] ?? 1),
             // Only getUser() reads the column; a list row leaves the stored value alone on update.
             language: array_key_exists('language', $row) ? (string) $row['language'] : null,
+            passwordLastChange: User::passwordChangeFromSql($row['passwordlastchange'] ?? null),
         );
     }
 }

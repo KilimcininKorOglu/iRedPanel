@@ -153,6 +153,10 @@ $services = \App\Models\User::SERVICE_LABELS;
       </div>
 
         <?php elseif ($editMode === 'password'): ?>
+        <p class="small text-body-secondary">
+          <?= $te('user.password_last_change') ?>:
+          <span class="fw-medium"><?= $e($user->passwordLastChange ?? $t('common.none')) ?></span>
+        </p>
         <?php if (!empty($requireOldPassword)): ?>
         <div class="mb-3">
           <label for="old_password" class="form-label"><?= $te('user.current_password') ?></label><?= $help('user.current_password') ?>

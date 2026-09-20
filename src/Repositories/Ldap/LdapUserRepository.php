@@ -19,7 +19,7 @@ class LdapUserRepository implements UserRepositoryInterface
         'mail', 'accountStatus', 'domainGlobalAdmin', 'mailQuota', 'uid',
         'cn', 'givenName', 'sn', 'title', 'departmentNumber', 'birthday',
         'telephoneNumber', 'mobile', 'employeeNumber', 'allowNets',
-        'enabledService', 'preferredLanguage',
+        'enabledService', 'preferredLanguage', 'shadowLastChange',
     ];
 
     /** iredadmin table and column pairs that hold a mailbox address on the LDAP backend. */
@@ -29,7 +29,7 @@ class LdapUserRepository implements UserRepositoryInterface
     ];
 
     private const USER_LIST_ATTRS = [
-        'mail', 'accountStatus', 'domainGlobalAdmin', 'mailQuota', 'uid', 'cn',
+        'mail', 'accountStatus', 'domainGlobalAdmin', 'mailQuota', 'uid', 'cn', 'shadowLastChange',
     ];
 
     public function getUser(string $domain, string $userId): ?User
@@ -173,7 +173,9 @@ class LdapUserRepository implements UserRepositoryInterface
     {
         $conn = LdapConnection::getInstance()->getConn();
         $dn = LdapUtils::getEmailDn("{$userUid}@{$domain}");
-        if (!ldap_mod_replace($conn, $dn, ['userPassword' => $passwordHash])) {
+        // shadowLastChange records the date, as iRedAdmin does; the panel shows it on the user page.
+        $values = ['userPassword' => $passwordHash, 'shadowLastChange' => User::shadowToday()];
+        if (!ldap_mod_replace($conn, $dn, $values)) {
             throw new \RuntimeException('LDAP password update failed: ' . ldap_error($conn));
         }
     }
@@ -197,6 +199,7 @@ class LdapUserRepository implements UserRepositoryInterface
             'sn' => $user->sn ?: $user->uid,
             'userPassword' => $passwordHash,
             'accountStatus' => $user->accountStatus ? 'active' : 'disabled',
+            'shadowLastChange' => User::shadowToday(),
             'homeDirectory' => "{$storageBase}/{$maildir}",
             'amavisLocal' => 'TRUE',
             // The caller sets the toggles with setNewMailboxServices().

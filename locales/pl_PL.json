@@ -478,7 +478,9 @@
     "msg_invalid_birthday": "Nieprawidłowa data urodzenia. Użyj formatu RRRR-MM-DD.",
     "allow_nets": "Ograniczenie IP logowania",
     "allow_nets_help": "Adresy IP i zakresy CIDR, z których skrzynka może się logować, oddzielone przecinkiem. Puste zezwala na każdy adres. Dovecot sprawdza to przy każdym logowaniu IMAP, POP3 i SMTP, więc błędna wartość blokuje użytkownika.",
-    "msg_invalid_allow_nets": "Nieprawidłowe ograniczenie IP. Użyj adresów IP i zakresów CIDR oddzielonych przecinkiem."
+    "msg_invalid_allow_nets": "Nieprawidłowe ograniczenie IP. Użyj adresów IP i zakresów CIDR oddzielonych przecinkiem.",
+    "password_last_change": "Ostatnia zmiana hasła",
+    "password_last_change_help": "Data ostatniej zmiany hasła. Panel zapisuje ją przy każdej zmianie (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Brak oznacza, że backend nie ma jeszcze daty."
   },
   "mlist": {
     "msg_updated": "Lista mailingowa zaktualizowana!",

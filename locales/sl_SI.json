@@ -478,7 +478,9 @@
     "msg_invalid_birthday": "Neveljaven rojstni dan. Uporabite obliko LLLL-MM-DD.",
     "allow_nets": "Omejitev IP ob prijavi",
     "allow_nets_help": "Naslovi IP in obsegi CIDR, s katerih se poštni predal lahko prijavi, ločeni z vejico. Prazno dovoli vsak naslov. Dovecot to preveri ob vsaki prijavi IMAP, POP3 in SMTP, zato napačna vrednost uporabnika zaklene.",
-    "msg_invalid_allow_nets": "Neveljavna omejitev IP. Uporabite naslove IP in obsege CIDR, ločene z vejico."
+    "msg_invalid_allow_nets": "Neveljavna omejitev IP. Uporabite naslove IP in obsege CIDR, ločene z vejico.",
+    "password_last_change": "Zadnja sprememba gesla",
+    "password_last_change_help": "Datum zadnje spremembe gesla. Nadzorna plošča ga zapiše ob vsaki spremembi (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Brez pomeni, da backend še nima datuma."
   },
   "mlist": {
     "msg_updated": "Poštni seznam posodobljen!",

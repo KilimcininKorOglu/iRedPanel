@@ -478,7 +478,9 @@
     "msg_invalid_birthday": "Ogiltig födelsedag. Använd formatet ÅÅÅÅ-MM-DD.",
     "allow_nets": "IP-begränsning vid inloggning",
     "allow_nets_help": "IP-adresser och CIDR-intervall som brevlådan får logga in från, separerade med komma. Tomt tillåter alla adresser. Dovecot kontrollerar detta vid varje IMAP-, POP3- och SMTP-inloggning, så ett felaktigt värde låser ute användaren.",
-    "msg_invalid_allow_nets": "Ogiltig IP-begränsning. Använd IP-adresser och CIDR-intervall separerade med komma."
+    "msg_invalid_allow_nets": "Ogiltig IP-begränsning. Använd IP-adresser och CIDR-intervall separerade med komma.",
+    "password_last_change": "Senaste lösenordsbyte",
+    "password_last_change_help": "Datumet för det senaste lösenordsbytet. Panelen skriver det vid varje byte (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Ingen betyder att backend ännu inte har ett datum."
   },
   "mlist": {
     "msg_updated": "Sändlista uppdaterad!",

@@ -478,7 +478,9 @@
     "msg_invalid_birthday": "Ugyldig fødselsdag. Bruk formatet ÅÅÅÅ-MM-DD.",
     "allow_nets": "IP-avgrensing ved innlogging",
     "allow_nets_help": "IP-adresser og CIDR-område postkassa kan logge inn frå, skilde med komma. Tom tillet alle adresser. Dovecot sjekkar dette ved kvar IMAP-, POP3- og SMTP-innlogging, så feil verdi stenger brukaren ute.",
-    "msg_invalid_allow_nets": "Ugyldig IP-avgrensing. Bruk IP-adresser og CIDR-område skilde med komma."
+    "msg_invalid_allow_nets": "Ugyldig IP-avgrensing. Bruk IP-adresser og CIDR-område skilde med komma.",
+    "password_last_change": "Siste passordendring",
+    "password_last_change_help": "Datoen for siste passordendring. Panelet skriv han ved kvar endring (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Ingen tyder at backend enno ikkje har ein dato."
   },
   "mlist": {
     "msg_updated": "E-postliste oppdatert!",

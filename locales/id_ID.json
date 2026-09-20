@@ -478,7 +478,9 @@
     "msg_invalid_birthday": "Tanggal lahir tidak valid. Gunakan format TTTT-BB-HH.",
     "allow_nets": "Pembatasan IP masuk",
     "allow_nets_help": "Alamat IP dan rentang CIDR yang boleh dipakai kotak surat untuk masuk, dipisahkan koma. Kosong mengizinkan semua alamat. Dovecot memeriksanya pada setiap login IMAP, POP3 dan SMTP, jadi nilai yang salah mengunci pengguna.",
-    "msg_invalid_allow_nets": "Pembatasan IP tidak valid. Gunakan alamat IP dan rentang CIDR yang dipisahkan koma."
+    "msg_invalid_allow_nets": "Pembatasan IP tidak valid. Gunakan alamat IP dan rentang CIDR yang dipisahkan koma.",
+    "password_last_change": "Perubahan kata sandi terakhir",
+    "password_last_change_help": "Tanggal perubahan kata sandi terakhir. Panel menulisnya pada setiap perubahan (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Tidak ada berarti backend belum menyimpan tanggal."
   },
   "mlist": {
     "msg_updated": "Milis diperbarui!",

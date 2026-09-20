@@ -478,7 +478,9 @@
     "msg_invalid_birthday": "Vigane sünnipäev. Kasuta kuju AAAA-KK-PP.",
     "allow_nets": "Sisselogimise IP piirang",
     "allow_nets_help": "IP-aadressid ja CIDR-vahemikud, millelt postkast võib sisse logida, komaga eraldatud. Tühi lubab iga aadressi. Dovecot kontrollib seda igal IMAP-, POP3- ja SMTP-sisselogimisel, seega vale väärtus lukustab kasutaja välja.",
-    "msg_invalid_allow_nets": "Vigane IP piirang. Kasuta komaga eraldatud IP-aadresse ja CIDR-vahemikke."
+    "msg_invalid_allow_nets": "Vigane IP piirang. Kasuta komaga eraldatud IP-aadresse ja CIDR-vahemikke.",
+    "password_last_change": "Viimane parooli muutmine",
+    "password_last_change_help": "Viimase parooli muutmise kuupäev. Paneel kirjutab selle iga muutmisega (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Puudub tähendab, et backend'il pole veel kuupäeva."
   },
   "mlist": {
     "msg_updated": "Postiloend uuendatud!",

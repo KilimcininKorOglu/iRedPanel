@@ -30,7 +30,6 @@ class Settings
     public readonly string $secretKey;
 
     // iredadmin database settings (for activity logging + panel_settings)
-    public readonly bool $activityLoggingEnabled;
     public readonly string $iredadminDbHost;
     public readonly int $iredadminDbPort;
     public readonly string $iredadminDbName;
@@ -43,9 +42,6 @@ class Settings
     public readonly string $amavisdDbName;
     public readonly string $amavisdDbUser;
     public readonly string $amavisdDbPassword;
-    // Amavisd AM.PDP socket that releases quarantined messages
-    public readonly string $amavisdQuarantineHost;
-    public readonly int $amavisdQuarantinePort;
 
     // iRedAPD DB connection
     public readonly string $iredapdDbHost;
@@ -58,18 +54,7 @@ class Settings
     public readonly string $mlmmjadminApiUrl;
     public readonly string $mlmmjadminApiToken;
 
-    // Outgoing SMTP for newsletter confirmations and quarantine notifications
-    public readonly string $smtpHost;
-    public readonly int $smtpPort;
-    public readonly string $smtpSecurity;
-    public readonly bool $smtpTlsVerify;
-    public readonly string $smtpUser;
     public readonly string $smtpPassword;
-    public readonly string $smtpFrom;
-
-    // Base URL of the panel used in links sent by mail
-    public readonly string $publicUrl;
-    public readonly int $newsletterExpireHours;
 
     // LDAP settings (populated only when backend=ldap)
     public readonly string $ldapUri;
@@ -124,14 +109,30 @@ class Settings
     public string $defaultLanguage;
 
     // Integration toggles & behavior
+    public bool $activityLoggingEnabled;
     public bool $amavisdEnabled;
     public int $amavisdRemoveQuarantinedInDays;
     public int $amavisdRemoveMaillogInDays;
+    // Amavisd AM.PDP socket that releases quarantined messages
+    public string $amavisdQuarantineHost;
+    public int $amavisdQuarantinePort;
     public bool $fail2banEnabled;
     public string $fail2banSocket;
     public string $fail2banJails;
     public bool $iredapdEnabled;
     public string $geoIpDbPath;
+
+    // Outgoing SMTP for newsletter confirmations and quarantine notifications
+    public string $smtpHost;
+    public int $smtpPort;
+    public string $smtpSecurity;
+    public bool $smtpTlsVerify;
+    public string $smtpUser;
+    public string $smtpFrom;
+
+    // Base URL of the panel used in links sent by mail
+    public string $publicUrl;
+    public int $newsletterExpireHours;
 
     // REST API
     public bool $apiEnabled;
@@ -167,9 +168,12 @@ class Settings
         'checkUpdates' => 'bool',
         'requireDomainOwnershipVerification' => 'bool',
         'defaultLanguage' => 'string',
+        'activityLoggingEnabled' => 'bool',
         'amavisdEnabled' => 'bool',
         'amavisdRemoveQuarantinedInDays' => 'int',
         'amavisdRemoveMaillogInDays' => 'int',
+        'amavisdQuarantineHost' => 'string',
+        'amavisdQuarantinePort' => 'int',
         'fail2banEnabled' => 'bool',
         'fail2banSocket' => 'string',
         'fail2banJails' => 'string',
@@ -178,7 +182,24 @@ class Settings
         'apiEnabled' => 'bool',
         'apiKey' => 'string',
         'apiAllowedIps' => 'string',
+        'smtpHost' => 'string',
+        'smtpPort' => 'int',
+        'smtpSecurity' => 'string',
+        'smtpTlsVerify' => 'bool',
+        'smtpUser' => 'string',
+        'smtpFrom' => 'string',
+        'publicUrl' => 'string',
+        'newsletterExpireHours' => 'int',
     ];
+
+    /** The modes that IREDPANEL_SMTP_SECURITY and the settings form accept. */
+    public const SMTP_SECURITY_MODES = ['none', 'starttls', 'tls'];
+
+    /** An http(s) URL without a query or a fragment. */
+    public const PUBLIC_URL_PATTERN = '#^https?://[^/?\#\s]+(/[^?\#\s]*)?$#';
+
+    /** A host name or an IP address, with no scheme, port or path. */
+    public const HOST_PATTERN = '/^[a-zA-Z0-9]([a-zA-Z0-9.-]*[a-zA-Z0-9])?$/';
 
     private function __construct()
     {
@@ -188,13 +209,11 @@ class Settings
         $this->secretKey = $this->envRequired('IREDPANEL_SECRET_KEY');
         // The DB-overridable settings are not readonly, so a method may write them.
         $this->loadPasswordPolicy();
-        $this->loadPanelSettings();
 
         // Integration DB default port based on backend
         $defaultDbPort = $this->backend === 'pgsql' ? 5432 : 3306;
 
         // iredadmin database (optional, for activity logging)
-        $this->activityLoggingEnabled = $this->envBool('IREDPANEL_ACTIVITY_LOGGING_ENABLED', true);
         $this->iredadminDbHost = $this->env('IREDPANEL_IREDADMIN_DB_HOST', '');
         $this->iredadminDbPort = $this->envInt('IREDPANEL_IREDADMIN_DB_PORT', $defaultDbPort);
         $this->iredadminDbName = $this->env('IREDPANEL_IREDADMIN_DB_NAME', 'iredadmin');
@@ -202,45 +221,29 @@ class Settings
         $this->iredadminDbPassword = $this->env('IREDPANEL_IREDADMIN_DB_PASSWORD', '');
 
         // Amavisd integration
-        $this->amavisdEnabled = $this->envBool('IREDPANEL_AMAVISD_ENABLED', false);
-        $this->amavisdRemoveQuarantinedInDays = $this->envInt('IREDPANEL_AMAVISD_REMOVE_QUARANTINED_IN_DAYS', 7);
-        $this->amavisdRemoveMaillogInDays = $this->envInt('IREDPANEL_AMAVISD_REMOVE_MAILLOG_IN_DAYS', 7);
         $this->amavisdDbHost = $this->env('IREDPANEL_AMAVISD_DB_HOST', '');
         $this->amavisdDbPort = $this->envInt('IREDPANEL_AMAVISD_DB_PORT', $defaultDbPort);
         $this->amavisdDbName = $this->env('IREDPANEL_AMAVISD_DB_NAME', 'amavisd');
         $this->amavisdDbUser = $this->env('IREDPANEL_AMAVISD_DB_USER', '');
         $this->amavisdDbPassword = $this->env('IREDPANEL_AMAVISD_DB_PASSWORD', '');
-        $this->amavisdQuarantineHost = $this->env('IREDPANEL_AMAVISD_QUARANTINE_HOST', $this->amavisdDbHost);
-        $this->amavisdQuarantinePort = $this->envInt('IREDPANEL_AMAVISD_QUARANTINE_PORT', 9998);
-
-        // Fail2ban integration
-        $this->fail2banEnabled = $this->envBool('IREDPANEL_FAIL2BAN_ENABLED', false);
-        $this->fail2banSocket = $this->env('IREDPANEL_FAIL2BAN_SOCKET', '');
-        $this->fail2banJails = $this->env('IREDPANEL_FAIL2BAN_JAILS', 'dovecot,postfix,postfix-sasl');
 
         // iRedAPD integration
-        $this->iredapdEnabled = $this->envBool('IREDPANEL_IREDAPD_ENABLED', false);
         $this->iredapdDbHost = $this->env('IREDPANEL_IREDAPD_DB_HOST', '');
         $this->iredapdDbPort = $this->envInt('IREDPANEL_IREDAPD_DB_PORT', $defaultDbPort);
         $this->iredapdDbName = $this->env('IREDPANEL_IREDAPD_DB_NAME', 'iredapd');
         $this->iredapdDbUser = $this->env('IREDPANEL_IREDAPD_DB_USER', '');
         $this->iredapdDbPassword = $this->env('IREDPANEL_IREDAPD_DB_PASSWORD', '');
 
-        // mlmmjadmin API, SMTP and public URL. Readonly properties may only be
-        // assigned here, so these stay in the constructor.
+        // mlmmjadmin API. Readonly properties may only be assigned here.
         $this->mlmmjadminApiUrl = rtrim($this->env('IREDPANEL_MLMMJADMIN_API_URL', ''), '/');
         $this->mlmmjadminApiToken = $this->env('IREDPANEL_MLMMJADMIN_API_TOKEN', '');
-
-        $this->smtpSecurity = $this->validSmtpSecurity();
-        $this->smtpHost = $this->env('IREDPANEL_SMTP_HOST', '');
-        $this->smtpPort = $this->envInt('IREDPANEL_SMTP_PORT', $this->smtpSecurity === 'tls' ? 465 : 587);
-        $this->smtpTlsVerify = $this->envBool('IREDPANEL_SMTP_TLS_VERIFY', true);
-        $this->smtpUser = $this->env('IREDPANEL_SMTP_USER', '');
         $this->smtpPassword = $this->env('IREDPANEL_SMTP_PASSWORD', '');
-        $this->smtpFrom = $this->env('IREDPANEL_SMTP_FROM', '');
 
-        $this->publicUrl = $this->validPublicUrl();
-        $this->newsletterExpireHours = max(1, $this->envInt('IREDPANEL_NEWSLETTER_EXPIRE_HOURS', 24));
+        // The DB-overridable settings run last, because the Amavisd quarantine
+        // host falls back to the Amavisd database host.
+        $this->loadPanelSettings();
+        $this->loadIntegrationSettings();
+        $this->loadMailSettings();
 
         // Conditional backend settings. The properties are readonly, so the
         // values are computed per backend and assigned here.
@@ -398,6 +401,41 @@ class Settings
     }
 
     /**
+     * The integration toggles and their behavior. The connection settings of the
+     * same integrations stay in .env, because a wrong value there is not
+     * repairable from the panel.
+     */
+    private function loadIntegrationSettings(): void
+    {
+        $this->activityLoggingEnabled = $this->envBool('IREDPANEL_ACTIVITY_LOGGING_ENABLED', true);
+        $this->amavisdEnabled = $this->envBool('IREDPANEL_AMAVISD_ENABLED', false);
+        $this->amavisdRemoveQuarantinedInDays = $this->envInt('IREDPANEL_AMAVISD_REMOVE_QUARANTINED_IN_DAYS', 7);
+        $this->amavisdRemoveMaillogInDays = $this->envInt('IREDPANEL_AMAVISD_REMOVE_MAILLOG_IN_DAYS', 7);
+        $this->amavisdQuarantineHost = $this->env('IREDPANEL_AMAVISD_QUARANTINE_HOST', $this->amavisdDbHost);
+        $this->amavisdQuarantinePort = $this->envInt('IREDPANEL_AMAVISD_QUARANTINE_PORT', 9998);
+        $this->fail2banEnabled = $this->envBool('IREDPANEL_FAIL2BAN_ENABLED', false);
+        $this->fail2banSocket = $this->env('IREDPANEL_FAIL2BAN_SOCKET', '');
+        $this->fail2banJails = $this->env('IREDPANEL_FAIL2BAN_JAILS', 'dovecot,postfix,postfix-sasl');
+        $this->iredapdEnabled = $this->envBool('IREDPANEL_IREDAPD_ENABLED', false);
+    }
+
+    /**
+     * The outgoing mail settings and the public URL of the panel. A wrong value
+     * stops a notification mail, it never locks an admin out.
+     */
+    private function loadMailSettings(): void
+    {
+        $this->smtpSecurity = $this->validSmtpSecurity();
+        $this->smtpHost = $this->env('IREDPANEL_SMTP_HOST', '');
+        $this->smtpPort = $this->envInt('IREDPANEL_SMTP_PORT', $this->smtpSecurity === 'tls' ? 465 : 587);
+        $this->smtpTlsVerify = $this->envBool('IREDPANEL_SMTP_TLS_VERIFY', true);
+        $this->smtpUser = $this->env('IREDPANEL_SMTP_USER', '');
+        $this->smtpFrom = $this->env('IREDPANEL_SMTP_FROM', '');
+        $this->publicUrl = $this->validPublicUrl();
+        $this->newsletterExpireHours = max(1, $this->envInt('IREDPANEL_NEWSLETTER_EXPIRE_HOURS', 24));
+    }
+
+    /**
      * @throws \RuntimeException when IREDPANEL_BACKEND names no supported backend
      */
     private function validBackend(): string
@@ -439,7 +477,7 @@ class Settings
     private function validSmtpSecurity(): string
     {
         $security = strtolower($this->env('IREDPANEL_SMTP_SECURITY', 'starttls'));
-        if (!in_array($security, ['none', 'starttls', 'tls'], true)) {
+        if (!in_array($security, self::SMTP_SECURITY_MODES, true)) {
             throw new \RuntimeException("Unsupported SMTP security: {$security}. Must be 'none', 'starttls', or 'tls'");
         }
 
@@ -452,7 +490,7 @@ class Settings
     private function validPublicUrl(): string
     {
         $publicUrl = rtrim($this->env('IREDPANEL_PUBLIC_URL', ''), '/');
-        if ($publicUrl !== '' && !preg_match('#^https?://[^/?\#\s]+(/[^?\#\s]*)?$#', $publicUrl)) {
+        if ($publicUrl !== '' && !preg_match(self::PUBLIC_URL_PATTERN, $publicUrl)) {
             throw new \RuntimeException('IREDPANEL_PUBLIC_URL must be an http(s) URL without query, for example https://panel.example.com');
         }
 

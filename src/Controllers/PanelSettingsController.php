@@ -35,9 +35,15 @@ class PanelSettingsController
             'defaultLanguage', 'paginationPerPage', 'checkUpdates', 'requireDomainOwnershipVerification',
         ],
         'integrations' => [
+            'activityLoggingEnabled',
             'amavisdEnabled', 'amavisdRemoveQuarantinedInDays', 'amavisdRemoveMaillogInDays',
+            'amavisdQuarantineHost', 'amavisdQuarantinePort',
             'fail2banEnabled', 'fail2banSocket', 'fail2banJails',
             'iredapdEnabled', 'geoIpDbPath',
+        ],
+        'mail' => [
+            'smtpHost', 'smtpPort', 'smtpSecurity', 'smtpTlsVerify',
+            'smtpUser', 'smtpFrom', 'publicUrl', 'newsletterExpireHours',
         ],
         'api' => [
             'apiEnabled', 'apiKey', 'apiAllowedIps',
@@ -89,6 +95,7 @@ class PanelSettingsController
             'dbSettings' => $dbSettings,
             'activeTab' => $activeTab,
             'allowedSchemes' => Settings::ALLOWED_SCHEMES,
+            'smtpSecurityModes' => Settings::SMTP_SECURITY_MODES,
             'availableLocales' => \App\I18n\Translator::availableLocales(),
         ]);
     }
@@ -190,7 +197,17 @@ class PanelSettingsController
     }
 
     /** Lowest accepted value of the integer settings; the others accept 0. */
-    private const INT_MINIMUMS = ['sessionTimeout' => 60, 'passwordMinLength' => 1, 'paginationPerPage' => 1];
+    private const INT_MINIMUMS = [
+        'sessionTimeout' => 60,
+        'passwordMinLength' => 1,
+        'paginationPerPage' => 1,
+        'newsletterExpireHours' => 1,
+        'smtpPort' => 1,
+        'amavisdQuarantinePort' => 1,
+    ];
+
+    /** Highest accepted value of the integer settings that name a TCP port. */
+    private const INT_MAXIMUMS = ['smtpPort' => 65535, 'amavisdQuarantinePort' => 65535];
 
     /** Patterns of the string settings that may also stay empty. */
     private const OPTIONAL_PATTERNS = [
@@ -198,6 +215,10 @@ class PanelSettingsController
         'brandPrimaryColor' => Settings::COLOR_PATTERN,
         // An http(s) URL or a local path; "//host" and "/\host" would load from another host.
         'brandLogoUrl' => '#^(https?://[^\s"\'<>]+|/(?![/\\\\])[^\s"\'<>]*)$#',
+        'publicUrl' => Settings::PUBLIC_URL_PATTERN,
+        'smtpHost' => Settings::HOST_PATTERN,
+        'amavisdQuarantineHost' => Settings::HOST_PATTERN,
+        'smtpFrom' => '/^[^@\s]+@[^@\s]+\.[^@\s]+$/',
     ];
 
     /**
@@ -215,7 +236,9 @@ class PanelSettingsController
         $value = trim($submitted ?? '');
         if ($type === 'int') {
             $minimum = self::INT_MINIMUMS[$key] ?? 0;
-            return ctype_digit($value) && (int) $value >= $minimum ? (string) (int) $value : null;
+            $maximum = self::INT_MAXIMUMS[$key] ?? PHP_INT_MAX;
+            $valid = ctype_digit($value) && (int) $value >= $minimum && (int) $value <= $maximum;
+            return $valid ? (string) (int) $value : null;
         }
         return self::normalizeString($key, $value);
     }
@@ -228,6 +251,7 @@ class PanelSettingsController
             'fail2banJails' => self::allMatch(self::splitList($value), '/^[a-zA-Z0-9_-]+$/'),
             'allowedIpRanges', 'apiAllowedIps' => self::allValidIpRanges(self::splitList($value)),
             'geoIpDbPath' => $value === '' || (str_ends_with($value, '.mmdb') && !str_contains($value, '..')),
+            'smtpSecurity' => in_array(strtolower($value), Settings::SMTP_SECURITY_MODES, true),
             default => !isset(self::OPTIONAL_PATTERNS[$key]) || $value === ''
                 || preg_match(self::OPTIONAL_PATTERNS[$key], $value) === 1,
         };
@@ -236,6 +260,8 @@ class PanelSettingsController
         }
         return match ($key) {
             'passwordDefaultScheme' => strtoupper($value),
+            'smtpSecurity' => strtolower($value),
+            'publicUrl' => rtrim($value, '/'),
             'fail2banJails', 'allowedIpRanges', 'apiAllowedIps' => implode(',', self::splitList($value)),
             default => $value,
         };

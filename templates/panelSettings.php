@@ -49,6 +49,12 @@ $currentKeys = $categories[$activeTab] ?? [];
                   <option value="<?= $e($scheme) ?>"<?= $currentValue === $scheme ? ' selected' : '' ?>><?= $e($scheme) ?></option>
                   <?php endforeach; ?>
                 </select>
+                <?php elseif ($key === 'smtpSecurity'): ?>
+                <select name="<?= $e($key) ?>" id="<?= $fieldId ?>" class="form-select form-select-sm" style="max-width: 12rem">
+                  <?php foreach ($smtpSecurityModes as $mode): ?>
+                  <option value="<?= $e($mode) ?>"<?= $currentValue === $mode ? ' selected' : '' ?>><?= $e($mode) ?></option>
+                  <?php endforeach; ?>
+                </select>
                 <?php elseif ($key === 'defaultLanguage'): ?>
                 <select name="<?= $e($key) ?>" id="<?= $fieldId ?>" class="form-select form-select-sm">
                   <?php foreach ($availableLocales as $code => $name): ?>

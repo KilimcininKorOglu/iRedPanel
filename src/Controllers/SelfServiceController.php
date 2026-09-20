@@ -154,7 +154,11 @@ class SelfServiceController
     private static function applyPost(string $page): void
     {
         try {
-            BaseController::flashSuccess([self::class, self::SAVE_HANDLERS[$page]](SelfService::account()));
+            // An empty message means the handler already reported the outcome itself.
+            $message = [self::class, self::SAVE_HANDLERS[$page]](SelfService::account());
+            if ($message !== '') {
+                BaseController::flashSuccess($message);
+            }
         } catch (\InvalidArgumentException $e) {
             BaseController::flashError(SpamPolicyController::levelError($e));
         } catch (\Exception $e) {
@@ -333,24 +337,64 @@ class SelfServiceController
     }
 
     /**
-     * Releases or deletes the copy of a quarantined message that waits for the user.
+     * Releases or deletes the copies of the posted quarantined messages that wait for
+     * the user: one message from a row button, or every selected message.
      *
      * @param array{uid: string, domain: string, email: string} $account
      */
     private static function handleQuarantine(array $account): string
     {
-        $mailId = (string) ($_POST['mail_id'] ?? '');
+        [$mailIds, $action] = self::postedQuarantineRequest();
+        if (!BaseController::isValidBulkRequest($mailIds, $action, ['release', 'delete'])) {
+            // isValidBulkRequest reported the missing selection or action itself.
+            return '';
+        }
+
+        $release = $action === 'release';
+        $done = BaseController::runBulk($mailIds, static fn (string $mailId) => self::applyQuarantine($account, $mailId, $release));
+        if (count($done) !== 1) {
+            // runBulk reported both the count and every failure.
+            return '';
+        }
+
+        return Translator::translate($release ? 'self.msg_released' : 'self.msg_deleted');
+    }
+
+    /**
+     * The posted quarantine request: the mail IDs and the action. A row button posts
+     * `release` or `delete` with the mail ID as its value; the bulk menu posts `action`
+     * with the selected IDs.
+     *
+     * @return array{0: list<string>, 1: string}
+     */
+    private static function postedQuarantineRequest(): array
+    {
+        foreach (['release', 'delete'] as $button) {
+            if (is_string($_POST[$button] ?? null) && $_POST[$button] !== '') {
+                return [[$_POST[$button]], $button];
+            }
+        }
+
+        $selected = is_array($_POST['selected'] ?? null) ? array_values(array_filter($_POST['selected'], is_string(...))) : [];
+
+        return [$selected, is_string($_POST['action'] ?? null) ? $_POST['action'] : ''];
+    }
+
+    /**
+     * @param array{uid: string, domain: string, email: string} $account
+     * @throws \Exception when the message does not wait for the user or Amavisd refuses
+     */
+    private static function applyQuarantine(array $account, string $mailId, bool $release): void
+    {
         $repo = RepositoryFactory::getAmavisdRepository();
-        if (($_POST['action'] ?? '') === 'release') {
+        if ($release) {
             $repo->releaseForRecipient($mailId, $account['email']);
             ActivityLogger::logUpdate($account['domain'], $account['email'], "Released quarantined message {$mailId} (self-service)");
-            return Translator::translate('self.msg_released');
+            return;
         }
 
         $repo->deleteForRecipient($mailId, $account['email']);
         ActivityLogger::logDelete($account['domain'], $account['email'], "Deleted quarantined message {$mailId} (self-service)");
-
-        return Translator::translate('self.msg_deleted');
     }
 
     /**

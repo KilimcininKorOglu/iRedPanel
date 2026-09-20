@@ -419,6 +419,10 @@ $router->addRoute('GET', '/amavisd/quarantine/{mailId}/download', function (stri
     AmavisdController::quarantineDownload($tpl, $mailId);
 });
 
+$router->addRoute('POST', '/amavisd/quarantine/bulk', function () use ($tpl) {
+    AmavisdController::bulkQuarantine($tpl);
+});
+
 $router->addRoute('POST', '/amavisd/quarantine/{mailId}/release', function (string $mailId) use ($tpl) {
     AmavisdController::releaseMessage($tpl, $mailId);
 });

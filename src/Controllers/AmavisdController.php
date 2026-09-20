@@ -98,9 +98,26 @@ class AmavisdController
     }
 
     /**
-     * Releases or deletes a quarantined message (POST only). A global admin handles the
-     * whole message; a domain admin handles the copies of the recipients in the domain of
-     * the list page, so the copies of other domains stay in the quarantine.
+     * Releases or deletes the selected quarantined messages in one request (POST only).
+     */
+    public static function bulkQuarantine(TemplateEngine $tpl): void
+    {
+        self::openPage('disableManagingQuarantinedMails');
+        CsrfProtection::validateToken();
+
+        $action = $_POST['action'] ?? '';
+        $selected = $_POST['selected'] ?? null;
+        if (BaseController::isValidBulkRequest($selected, $action, ['release', 'delete'])) {
+            $release = $action === 'release';
+            BaseController::runBulk((array) $selected, static fn (string $mailId) => self::applyToMessage($mailId, $release));
+        }
+
+        header('Location: ' . BaseController::listUrl('/amavisd/quarantine'));
+        exit;
+    }
+
+    /**
+     * Releases or deletes one quarantined message (POST only).
      */
     private static function handleQuarantined(string $mailId, bool $release): void
     {
@@ -108,21 +125,38 @@ class AmavisdController
         CsrfProtection::validateToken();
 
         try {
+            self::applyToMessage($mailId, $release);
+            BaseController::flashSuccess(Translator::translate($release ? 'quarantine.msg_released' : 'quarantine.msg_deleted', ['id' => $mailId]));
+        } catch (\Exception $e) {
+            BaseController::flashItemError($mailId, $e);
+        }
+
+        header('Location: ' . BaseController::listUrl('/amavisd/quarantine'));
+        exit;
+    }
+
+    /**
+     * A global admin handles the whole message; a domain admin handles the copies of the
+     * recipients in the domain of the list page, so the copies of other domains stay in
+     * the quarantine.
+     *
+     * @throws \Exception when Amavisd or the backend refuses the change
+     */
+    private static function applyToMessage(string $mailId, bool $release): void
+    {
+        try {
             $repo = RepositoryFactory::getAmavisdRepository();
             if (Middleware::isGlobalAdmin()) {
                 $release ? $repo->releaseMessage($mailId, $_SESSION['email'] ?? 'iredpanel') : $repo->deleteQuarantinedMessage($mailId);
             } else {
                 self::handleDomainCopies($mailId, $release);
             }
-            ActivityLogger::log($release ? 'update' : 'delete', '', '', ($release ? 'Released' : 'Deleted') . " quarantined message: {$mailId}");
-            BaseController::flashSuccess(Translator::translate($release ? 'quarantine.msg_released' : 'quarantine.msg_deleted', ['id' => $mailId]));
         } catch (\Exception $e) {
             error_log('Amavisd ' . ($release ? 'release' : 'delete') . ' failed: ' . $e->getMessage());
-            BaseController::flashItemError($mailId, $e);
+            throw $e;
         }
 
-        header('Location: ' . BaseController::listUrl('/amavisd/quarantine'));
-        exit;
+        ActivityLogger::log($release ? 'update' : 'delete', '', '', ($release ? 'Released' : 'Deleted') . " quarantined message: {$mailId}");
     }
 
     /**

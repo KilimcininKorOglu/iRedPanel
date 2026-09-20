@@ -23,11 +23,15 @@
   </select>
 </form>
 
+<form method="post" action="/amavisd/quarantine/bulk">
+  <?= $csrfField ?>
+  <input type="hidden" name="filterDomain" value="<?= $e($filterDomain) ?>" />
 <div class="card">
   <div class="table-responsive">
     <table class="table table-striped table-hover">
       <thead>
         <tr>
+          <th><input type="checkbox" class="form-check-input" data-select-all="selected[]" /></th>
           <th><?= $te('quarantine.date') ?></th>
           <th><?= $te('quarantine.from') ?></th>
           <th><?= $te('quarantine.to') ?></th>
@@ -39,6 +43,7 @@
       <tbody>
         <?php foreach ($messages as $msg): ?>
         <tr>
+          <td><input type="checkbox" class="form-check-input" name="selected[]" value="<?= $e($msg['mail_id'] ?? '') ?>" /></td>
           <td class="text-nowrap text-body-secondary"><?= $e(date('Y-m-d H:i:s', (int) $msg['time_num'])) ?></td>
           <td><?= $e($msg['from_addr'] ?? '') ?></td>
           <td><?= $e($msg['recipient'] ?? '') ?></td>
@@ -47,27 +52,32 @@
           <td><?= $e($msg['spam_level'] ?? '') ?></td>
           <td>
             <div class="table-actions">
-              <form method="post" action="/amavisd/quarantine/<?= $e($msg['mail_id'] ?? '') ?>/release" data-confirm="<?= $te('quarantine.release_confirm') ?>">
-                <?= $csrfField ?>
-                <input type="hidden" name="filterDomain" value="<?= $e($filterDomain) ?>" />
-                <button type="submit" class="btn btn-sm btn-outline-primary"><i class="bi bi-send-check me-1"></i><?= $te('quarantine.release') ?></button>
-              </form>
-              <form method="post" action="/amavisd/quarantine/<?= $e($msg['mail_id'] ?? '') ?>/delete" data-confirm="<?= $te('quarantine.delete_confirm') ?>">
-                <?= $csrfField ?>
-                <input type="hidden" name="filterDomain" value="<?= $e($filterDomain) ?>" />
-                <button type="submit" class="btn btn-sm btn-outline-danger"><i class="bi bi-trash3 me-1"></i><?= $te('common.delete') ?></button>
-              </form>
+              <?php /* A form cannot nest inside the bulk form: the buttons post the bulk form to the row route. */ ?>
+              <button type="submit" formaction="/amavisd/quarantine/<?= $e($msg['mail_id'] ?? '') ?>/release" formnovalidate class="btn btn-sm btn-outline-primary" data-confirm="<?= $te('quarantine.release_confirm') ?>"><i class="bi bi-send-check me-1"></i><?= $te('quarantine.release') ?></button>
+              <button type="submit" formaction="/amavisd/quarantine/<?= $e($msg['mail_id'] ?? '') ?>/delete" formnovalidate class="btn btn-sm btn-outline-danger" data-confirm="<?= $te('quarantine.delete_confirm') ?>"><i class="bi bi-trash3 me-1"></i><?= $te('common.delete') ?></button>
             </div>
           </td>
         </tr>
         <?php endforeach; ?>
         <?php if (empty($messages)): ?>
-        <tr><td colspan="6" class="text-center text-body-secondary py-4"><?= $te('quarantine.empty') ?></td></tr>
+        <tr><td colspan="7" class="text-center text-body-secondary py-4"><?= $te('quarantine.empty') ?></td></tr>
         <?php endif; ?>
       </tbody>
     </table>
   </div>
 </div>
+
+  <?php if (!empty($messages)): ?>
+  <div class="d-flex flex-wrap gap-2 align-items-center mt-3">
+    <select name="action" class="form-select form-select-sm w-auto">
+      <option value=""><?= $te('common.bulk_action') ?></option>
+      <option value="release"><?= $te('quarantine.release') ?></option>
+      <option value="delete"><?= $te('common.delete') ?></option>
+    </select>
+    <button type="submit" class="btn btn-sm btn-outline-secondary" data-bulk-confirm="<?= $e(json_encode(['*' => $t('common.apply_bulk_confirm')])) ?>"><?= $te('common.apply') ?></button>
+  </div>
+  <?php endif; ?>
+</form>
 
 <?php if (isset($paginatedResult)): ?>
   <?php include __DIR__ . '/pagination.php'; ?>

@@ -69,6 +69,6 @@ final class SqlMailboxSharing
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute(['email' => $email]);
 
-        return array_map('strval', $stmt->fetchAll(\PDO::FETCH_COLUMN));
+        return array_map(strval(...), $stmt->fetchAll(\PDO::FETCH_COLUMN));
     }
 }

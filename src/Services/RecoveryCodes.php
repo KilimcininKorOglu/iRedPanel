@@ -36,7 +36,7 @@ final class RecoveryCodes
      */
     public static function encode(array $codes): string
     {
-        return json_encode(array_values(array_map(self::hash(...), $codes)), JSON_THROW_ON_ERROR);
+        return json_encode(array_map(self::hash(...), $codes), JSON_THROW_ON_ERROR);
     }
 
     /**

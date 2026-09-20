@@ -9,6 +9,13 @@ namespace App\Models;
  * Settings are read from the .env or .env.prod file, then overridden
  * by values from the panel_settings database table (if available).
  * Only the active backend's connection settings are validated.
+ *
+ * @phpstan-type ConnectionValues array{
+ *     ldapUri: string, ldapRootDn: string, ldapUser: string, ldapPassword: string, ldapTlsVerify: bool,
+ *     mysqlHost: string, mysqlPort: int, mysqlDatabase: string, mysqlUser: string, mysqlPassword: string,
+ *     pgsqlHost: string, pgsqlPort: int, pgsqlDatabase: string, pgsqlUser: string, pgsqlPassword: string,
+ *     vmailPath: string, storageNode: string
+ * }
  */
 class Settings
 {
@@ -235,69 +242,121 @@ class Settings
         $this->publicUrl = $this->validPublicUrl();
         $this->newsletterExpireHours = max(1, $this->envInt('IREDPANEL_NEWSLETTER_EXPIRE_HOURS', 24));
 
-        // Conditional backend settings
-        if ($this->backend === 'ldap') {
-            $this->ldapUri = $this->envRequired('IREDPANEL_LDAP_URI');
-            $this->ldapRootDn = $this->envRequired('IREDPANEL_LDAP_ROOT_DN');
-            $this->ldapUser = $this->envRequired('IREDPANEL_LDAP_USER');
-            $this->ldapPassword = $this->envRequired('IREDPANEL_LDAP_PASSWORD');
-            $this->ldapTlsVerify = $this->envBool('IREDPANEL_LDAP_TLS_VERIFY', false);
+        // Conditional backend settings. The properties are readonly, so the
+        // values are computed per backend and assigned here.
+        $connection = $this->backendConnection();
+        $this->ldapUri = $connection['ldapUri'];
+        $this->ldapRootDn = $connection['ldapRootDn'];
+        $this->ldapUser = $connection['ldapUser'];
+        $this->ldapPassword = $connection['ldapPassword'];
+        $this->ldapTlsVerify = $connection['ldapTlsVerify'];
+        $this->mysqlHost = $connection['mysqlHost'];
+        $this->mysqlPort = $connection['mysqlPort'];
+        $this->mysqlDatabase = $connection['mysqlDatabase'];
+        $this->mysqlUser = $connection['mysqlUser'];
+        $this->mysqlPassword = $connection['mysqlPassword'];
+        $this->pgsqlHost = $connection['pgsqlHost'];
+        $this->pgsqlPort = $connection['pgsqlPort'];
+        $this->pgsqlDatabase = $connection['pgsqlDatabase'];
+        $this->pgsqlUser = $connection['pgsqlUser'];
+        $this->pgsqlPassword = $connection['pgsqlPassword'];
+        $this->vmailPath = $connection['vmailPath'];
+        $this->storageNode = $connection['storageNode'];
+    }
 
-            if (!str_starts_with($this->ldapUri, 'ldap://') && !str_starts_with($this->ldapUri, 'ldaps://')) {
-                throw new \RuntimeException("LDAP URI must start with ldap:// or ldaps://");
-            }
+    /**
+     * The connection values of the selected backend, over the neutral values of the other two.
+     *
+     * @return ConnectionValues
+     */
+    private function backendConnection(): array
+    {
+        $neutral = [
+            'ldapUri' => '',
+            'ldapRootDn' => '',
+            'ldapUser' => '',
+            'ldapPassword' => '',
+            'ldapTlsVerify' => false,
+            'mysqlHost' => '',
+            'mysqlPort' => 3306,
+            'mysqlDatabase' => '',
+            'mysqlUser' => '',
+            'mysqlPassword' => '',
+            'pgsqlHost' => '',
+            'pgsqlPort' => 5432,
+            'pgsqlDatabase' => '',
+            'pgsqlUser' => '',
+            'pgsqlPassword' => '',
+            'vmailPath' => '/var/vmail',
+            'storageNode' => 'vmail1',
+        ];
 
-            $this->mysqlHost = '';
-            $this->mysqlPort = 3306;
-            $this->mysqlDatabase = '';
-            $this->mysqlUser = '';
-            $this->mysqlPassword = '';
-            $this->pgsqlHost = '';
-            $this->pgsqlPort = 5432;
-            $this->pgsqlDatabase = '';
-            $this->pgsqlUser = '';
-            $this->pgsqlPassword = '';
-            $this->vmailPath = '/var/vmail';
-            $this->storageNode = 'vmail1';
-        } elseif ($this->backend === 'pgsql') {
-            $this->pgsqlHost = $this->envRequired('IREDPANEL_PGSQL_HOST');
-            $this->pgsqlPort = $this->envInt('IREDPANEL_PGSQL_PORT', 5432);
-            $this->pgsqlDatabase = $this->envRequired('IREDPANEL_PGSQL_DATABASE');
-            $this->pgsqlUser = $this->envRequired('IREDPANEL_PGSQL_USER');
-            $this->pgsqlPassword = $this->envRequired('IREDPANEL_PGSQL_PASSWORD');
-            $this->vmailPath = $this->env('IREDPANEL_VMAIL_PATH', '/var/vmail');
-            $this->storageNode = $this->env('IREDPANEL_STORAGE_NODE', 'vmail1');
+        return match ($this->backend) {
+            'ldap' => $this->ldapConnection() + $neutral,
+            'pgsql' => $this->pgsqlConnection() + $neutral,
+            'mysql' => $this->mysqlConnection() + $neutral,
+            default => throw new \LogicException("Unknown backend: {$this->backend}"),
+        };
+    }
 
-            $this->mysqlHost = '';
-            $this->mysqlPort = 3306;
-            $this->mysqlDatabase = '';
-            $this->mysqlUser = '';
-            $this->mysqlPassword = '';
-            $this->ldapUri = '';
-            $this->ldapRootDn = '';
-            $this->ldapUser = '';
-            $this->ldapPassword = '';
-            $this->ldapTlsVerify = false;
-        } else {
-            $this->mysqlHost = $this->envRequired('IREDPANEL_MYSQL_HOST');
-            $this->mysqlPort = $this->envInt('IREDPANEL_MYSQL_PORT', 3306);
-            $this->mysqlDatabase = $this->envRequired('IREDPANEL_MYSQL_DATABASE');
-            $this->mysqlUser = $this->envRequired('IREDPANEL_MYSQL_USER');
-            $this->mysqlPassword = $this->envRequired('IREDPANEL_MYSQL_PASSWORD');
-            $this->vmailPath = $this->env('IREDPANEL_VMAIL_PATH', '/var/vmail');
-            $this->storageNode = $this->env('IREDPANEL_STORAGE_NODE', 'vmail1');
-
-            $this->pgsqlHost = '';
-            $this->pgsqlPort = 5432;
-            $this->pgsqlDatabase = '';
-            $this->pgsqlUser = '';
-            $this->pgsqlPassword = '';
-            $this->ldapUri = '';
-            $this->ldapRootDn = '';
-            $this->ldapUser = '';
-            $this->ldapPassword = '';
-            $this->ldapTlsVerify = false;
+    /**
+     * @return array<string, string|int|bool>
+     */
+    private function ldapConnection(): array
+    {
+        $uri = $this->envRequired('IREDPANEL_LDAP_URI');
+        if (!str_starts_with($uri, 'ldap://') && !str_starts_with($uri, 'ldaps://')) {
+            throw new \RuntimeException("LDAP URI must start with ldap:// or ldaps://");
         }
+
+        return [
+            'ldapUri' => $uri,
+            'ldapRootDn' => $this->envRequired('IREDPANEL_LDAP_ROOT_DN'),
+            'ldapUser' => $this->envRequired('IREDPANEL_LDAP_USER'),
+            'ldapPassword' => $this->envRequired('IREDPANEL_LDAP_PASSWORD'),
+            'ldapTlsVerify' => $this->envBool('IREDPANEL_LDAP_TLS_VERIFY', false),
+        ];
+    }
+
+    /**
+     * @return array<string, string|int|bool>
+     */
+    private function pgsqlConnection(): array
+    {
+        return [
+            'pgsqlHost' => $this->envRequired('IREDPANEL_PGSQL_HOST'),
+            'pgsqlPort' => $this->envInt('IREDPANEL_PGSQL_PORT', 5432),
+            'pgsqlDatabase' => $this->envRequired('IREDPANEL_PGSQL_DATABASE'),
+            'pgsqlUser' => $this->envRequired('IREDPANEL_PGSQL_USER'),
+            'pgsqlPassword' => $this->envRequired('IREDPANEL_PGSQL_PASSWORD'),
+        ] + $this->mailboxStorage();
+    }
+
+    /**
+     * @return array<string, string|int|bool>
+     */
+    private function mysqlConnection(): array
+    {
+        return [
+            'mysqlHost' => $this->envRequired('IREDPANEL_MYSQL_HOST'),
+            'mysqlPort' => $this->envInt('IREDPANEL_MYSQL_PORT', 3306),
+            'mysqlDatabase' => $this->envRequired('IREDPANEL_MYSQL_DATABASE'),
+            'mysqlUser' => $this->envRequired('IREDPANEL_MYSQL_USER'),
+            'mysqlPassword' => $this->envRequired('IREDPANEL_MYSQL_PASSWORD'),
+        ] + $this->mailboxStorage();
+    }
+
+    /**
+     * The maildir location, which only a SQL backend reads from the environment.
+     *
+     * @return array<string, string>
+     */
+    private function mailboxStorage(): array
+    {
+        return [
+            'vmailPath' => $this->env('IREDPANEL_VMAIL_PATH', '/var/vmail'),
+            'storageNode' => $this->env('IREDPANEL_STORAGE_NODE', 'vmail1'),
+        ];
     }
 
     /**

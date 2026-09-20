@@ -475,7 +475,10 @@
     "department_help": "The department of the user. The panel only stores it.",
     "birthday": "Birthday",
     "birthday_help": "The birthday of the user, as YYYY-MM-DD. Empty means not set. The panel only stores it.",
-    "msg_invalid_birthday": "Invalid birthday. Use the YYYY-MM-DD format."
+    "msg_invalid_birthday": "Invalid birthday. Use the YYYY-MM-DD format.",
+    "allow_nets": "Login IP restriction",
+    "allow_nets_help": "IP addresses and CIDR ranges the mailbox may log in from, separated by a comma. Empty allows every address. Dovecot checks this on every IMAP, POP3 and SMTP login, so a wrong entry locks the user out.",
+    "msg_invalid_allow_nets": "Invalid login IP restriction. Use IP addresses and CIDR ranges separated by a comma."
   },
   "mlist": {
     "msg_updated": "Mailing list updated!",

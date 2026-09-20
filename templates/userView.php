@@ -135,6 +135,11 @@ $services = \App\Models\User::SERVICE_LABELS;
               <?php endforeach; ?>
             </select>
           </div>
+          <div class="col-12">
+            <label for="allowNets" class="form-label"><?= $te('user.allow_nets') ?></label><?= $help('user.allow_nets') ?>
+            <input id="allowNets" name="allowNets" type="text" class="<?= $fieldClass('allowNets') ?>" value="<?= $e($user->allowNets) ?>" spellcheck="false" />
+            <div class="form-text">192.0.2.10, 198.51.100.0/24</div>
+          </div>
         </div>
         <?php if (!empty($session['isGlobalAdmin'])): ?>
         <div class="form-check form-switch mt-3">

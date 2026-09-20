@@ -475,7 +475,10 @@
     "department_help": "ユーザーの部署です。パネルは保存するだけです。",
     "birthday": "誕生日",
     "birthday_help": "ユーザーの誕生日です。YYYY-MM-DD 形式で入力します。空の場合は未設定です。パネルは保存するだけです。",
-    "msg_invalid_birthday": "誕生日が正しくありません。YYYY-MM-DD 形式で入力してください。"
+    "msg_invalid_birthday": "誕生日が正しくありません。YYYY-MM-DD 形式で入力してください。",
+    "allow_nets": "ログイン IP 制限",
+    "allow_nets_help": "メールボックスがログインできる IP アドレスと CIDR 範囲です。カンマで区切ります。空の場合はすべてのアドレスを許可します。Dovecot は IMAP、POP3、SMTP のログインごとに確認するため、誤った値はユーザーを締め出します。",
+    "msg_invalid_allow_nets": "ログイン IP 制限が正しくありません。カンマ区切りの IP アドレスと CIDR 範囲を使用してください。"
   },
   "mlist": {
     "msg_updated": "メーリングリストを更新しました！",

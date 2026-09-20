@@ -475,7 +475,10 @@
     "department_help": "A felhasználó részlege. A panel csak tárolja.",
     "birthday": "Születésnap",
     "birthday_help": "A felhasználó születésnapja ÉÉÉÉ-HH-NN formátumban. Üresen nincs beállítva. A panel csak tárolja.",
-    "msg_invalid_birthday": "Érvénytelen születésnap. Használja az ÉÉÉÉ-HH-NN formátumot."
+    "msg_invalid_birthday": "Érvénytelen születésnap. Használja az ÉÉÉÉ-HH-NN formátumot.",
+    "allow_nets": "Bejelentkezési IP korlátozás",
+    "allow_nets_help": "IP-címek és CIDR tartományok, amelyekről a postafiók bejelentkezhet, vesszővel elválasztva. Üresen minden cím engedélyezett. A Dovecot ezt minden IMAP, POP3 és SMTP bejelentkezésnél ellenőrzi, ezért a hibás érték kizárja a felhasználót.",
+    "msg_invalid_allow_nets": "Érvénytelen IP korlátozás. Használjon vesszővel elválasztott IP-címeket és CIDR tartományokat."
   },
   "mlist": {
     "msg_updated": "Levelezőlista frissítve!",

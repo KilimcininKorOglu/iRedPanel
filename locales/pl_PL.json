@@ -475,7 +475,10 @@
     "department_help": "Dział użytkownika. Panel tylko go przechowuje.",
     "birthday": "Data urodzenia",
     "birthday_help": "Data urodzenia użytkownika w formacie RRRR-MM-DD. Puste oznacza brak wartości. Panel tylko ją przechowuje.",
-    "msg_invalid_birthday": "Nieprawidłowa data urodzenia. Użyj formatu RRRR-MM-DD."
+    "msg_invalid_birthday": "Nieprawidłowa data urodzenia. Użyj formatu RRRR-MM-DD.",
+    "allow_nets": "Ograniczenie IP logowania",
+    "allow_nets_help": "Adresy IP i zakresy CIDR, z których skrzynka może się logować, oddzielone przecinkiem. Puste zezwala na każdy adres. Dovecot sprawdza to przy każdym logowaniu IMAP, POP3 i SMTP, więc błędna wartość blokuje użytkownika.",
+    "msg_invalid_allow_nets": "Nieprawidłowe ograniczenie IP. Użyj adresów IP i zakresów CIDR oddzielonych przecinkiem."
   },
   "mlist": {
     "msg_updated": "Lista mailingowa zaktualizowana!",

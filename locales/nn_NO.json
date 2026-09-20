@@ -475,7 +475,10 @@
     "department_help": "Avdelinga til brukaren. Panelet lagrar henne berre.",
     "birthday": "Fødselsdag",
     "birthday_help": "Fødselsdagen til brukaren i formatet ÅÅÅÅ-MM-DD. Tom tyder ikkje sett. Panelet lagrar han berre.",
-    "msg_invalid_birthday": "Ugyldig fødselsdag. Bruk formatet ÅÅÅÅ-MM-DD."
+    "msg_invalid_birthday": "Ugyldig fødselsdag. Bruk formatet ÅÅÅÅ-MM-DD.",
+    "allow_nets": "IP-avgrensing ved innlogging",
+    "allow_nets_help": "IP-adresser og CIDR-område postkassa kan logge inn frå, skilde med komma. Tom tillet alle adresser. Dovecot sjekkar dette ved kvar IMAP-, POP3- og SMTP-innlogging, så feil verdi stenger brukaren ute.",
+    "msg_invalid_allow_nets": "Ugyldig IP-avgrensing. Bruk IP-adresser og CIDR-område skilde med komma."
   },
   "mlist": {
     "msg_updated": "E-postliste oppdatert!",

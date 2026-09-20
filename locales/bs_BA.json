@@ -475,7 +475,10 @@
     "department_help": "Odjel korisnika. Panel ga samo čuva.",
     "birthday": "Rođendan",
     "birthday_help": "Rođendan korisnika u formatu GGGG-MM-DD. Prazno znači nije postavljeno. Panel ga samo čuva.",
-    "msg_invalid_birthday": "Nevažeći rođendan. Koristite format GGGG-MM-DD."
+    "msg_invalid_birthday": "Nevažeći rođendan. Koristite format GGGG-MM-DD.",
+    "allow_nets": "Ograničenje IP adrese za prijavu",
+    "allow_nets_help": "IP adrese i CIDR rasponi s kojih se sandučad može prijaviti, odvojeni zarezom. Prazno dozvoljava svaku adresu. Dovecot ovo provjerava pri svakoj IMAP, POP3 i SMTP prijavi, pa pogrešan unos zaključava korisnika.",
+    "msg_invalid_allow_nets": "Nevažeće ograničenje IP adrese. Koristite IP adrese i CIDR raspone odvojene zarezom."
   },
   "mlist": {
     "msg_updated": "Mailing lista je ažurirana!",

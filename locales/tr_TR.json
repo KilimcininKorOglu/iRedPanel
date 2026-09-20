@@ -475,7 +475,10 @@
     "department_help": "Kullanıcının departmanı. Panel bunu yalnızca saklar.",
     "birthday": "Doğum tarihi",
     "birthday_help": "Kullanıcının doğum tarihi, YYYY-AA-GG biçiminde. Boş bırakılırsa ayarlanmamış sayılır. Panel bunu yalnızca saklar.",
-    "msg_invalid_birthday": "Doğum tarihi geçersiz. YYYY-AA-GG biçimini kullanın."
+    "msg_invalid_birthday": "Doğum tarihi geçersiz. YYYY-AA-GG biçimini kullanın.",
+    "allow_nets": "Giriş IP kısıtlaması",
+    "allow_nets_help": "Posta kutusunun giriş yapabileceği IP adresleri ve CIDR aralıkları, virgülle ayrılır. Boş bırakılırsa bütün adreslere izin verilir. Dovecot bunu her IMAP, POP3 ve SMTP girişinde denetler, bu yüzden hatalı bir değer kullanıcıyı dışarıda bırakır.",
+    "msg_invalid_allow_nets": "Giriş IP kısıtlaması geçersiz. Virgülle ayrılmış IP adresleri ve CIDR aralıkları kullanın."
   },
   "mlist": {
     "msg_updated": "Posta listesi güncellendi!",

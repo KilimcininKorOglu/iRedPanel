@@ -475,7 +475,10 @@
     "department_help": "Deild notandans. Stjórnborðið geymir hana aðeins.",
     "birthday": "Afmælisdagur",
     "birthday_help": "Afmælisdagur notandans á sniðinu ÁÁÁÁ-MM-DD. Autt merkir ekki stillt. Stjórnborðið geymir hann aðeins.",
-    "msg_invalid_birthday": "Ógildur afmælisdagur. Notaðu sniðið ÁÁÁÁ-MM-DD."
+    "msg_invalid_birthday": "Ógildur afmælisdagur. Notaðu sniðið ÁÁÁÁ-MM-DD.",
+    "allow_nets": "IP-takmörkun við innskráningu",
+    "allow_nets_help": "IP-tölur og CIDR-svið sem pósthólfið má skrá sig inn frá, aðskilin með kommu. Autt leyfir allar tölur. Dovecot athugar þetta við hverja IMAP-, POP3- og SMTP-innskráningu, svo rangt gildi læsir notandann úti.",
+    "msg_invalid_allow_nets": "Ógild IP-takmörkun. Notaðu IP-tölur og CIDR-svið aðskilin með kommu."
   },
   "mlist": {
     "msg_updated": "Póstlisti uppfærður!",

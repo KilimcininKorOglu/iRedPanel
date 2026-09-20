@@ -475,7 +475,10 @@
     "department_help": "Användarens avdelning. Panelen lagrar den bara.",
     "birthday": "Födelsedag",
     "birthday_help": "Användarens födelsedag i formatet ÅÅÅÅ-MM-DD. Tomt betyder inte angiven. Panelen lagrar den bara.",
-    "msg_invalid_birthday": "Ogiltig födelsedag. Använd formatet ÅÅÅÅ-MM-DD."
+    "msg_invalid_birthday": "Ogiltig födelsedag. Använd formatet ÅÅÅÅ-MM-DD.",
+    "allow_nets": "IP-begränsning vid inloggning",
+    "allow_nets_help": "IP-adresser och CIDR-intervall som brevlådan får logga in från, separerade med komma. Tomt tillåter alla adresser. Dovecot kontrollerar detta vid varje IMAP-, POP3- och SMTP-inloggning, så ett felaktigt värde låser ute användaren.",
+    "msg_invalid_allow_nets": "Ogiltig IP-begränsning. Använd IP-adresser och CIDR-intervall separerade med komma."
   },
   "mlist": {
     "msg_updated": "Sändlista uppdaterad!",

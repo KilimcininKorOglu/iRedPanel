@@ -475,7 +475,10 @@
     "department_help": "Oddělení uživatele. Panel ho pouze ukládá.",
     "birthday": "Datum narození",
     "birthday_help": "Datum narození uživatele ve formátu RRRR-MM-DD. Prázdné znamená nenastaveno. Panel ho pouze ukládá.",
-    "msg_invalid_birthday": "Neplatné datum narození. Použijte formát RRRR-MM-DD."
+    "msg_invalid_birthday": "Neplatné datum narození. Použijte formát RRRR-MM-DD.",
+    "allow_nets": "Omezení IP pro přihlášení",
+    "allow_nets_help": "IP adresy a rozsahy CIDR, ze kterých se schránka může přihlásit, oddělené čárkou. Prázdné povolí každou adresu. Dovecot to kontroluje při každém přihlášení IMAP, POP3 a SMTP, takže chybná hodnota uživatele uzamkne.",
+    "msg_invalid_allow_nets": "Neplatné omezení IP. Použijte IP adresy a rozsahy CIDR oddělené čárkou."
   },
   "mlist": {
     "msg_updated": "Poštovní konference aktualizována!",

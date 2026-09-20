@@ -475,7 +475,10 @@
     "department_help": "Die Abteilung des Benutzers. Das Panel speichert sie nur.",
     "birthday": "Geburtstag",
     "birthday_help": "Der Geburtstag des Benutzers im Format JJJJ-MM-TT. Leer bedeutet nicht gesetzt. Das Panel speichert ihn nur.",
-    "msg_invalid_birthday": "Ungültiger Geburtstag. Verwenden Sie das Format JJJJ-MM-TT."
+    "msg_invalid_birthday": "Ungültiger Geburtstag. Verwenden Sie das Format JJJJ-MM-TT.",
+    "allow_nets": "Login-IP-Beschränkung",
+    "allow_nets_help": "IP-Adressen und CIDR-Bereiche, von denen sich das Postfach anmelden darf, durch Komma getrennt. Leer erlaubt jede Adresse. Dovecot prüft das bei jeder IMAP-, POP3- und SMTP-Anmeldung, ein falscher Wert sperrt den Benutzer aus.",
+    "msg_invalid_allow_nets": "Ungültige Login-IP-Beschränkung. Verwenden Sie durch Komma getrennte IP-Adressen und CIDR-Bereiche."
   },
   "mlist": {
     "msg_updated": "Mailingliste aktualisiert!",

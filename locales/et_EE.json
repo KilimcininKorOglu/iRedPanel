@@ -475,7 +475,10 @@
     "department_help": "Kasutaja osakond. Paneel ainult salvestab selle.",
     "birthday": "Sünnipäev",
     "birthday_help": "Kasutaja sünnipäev kujul AAAA-KK-PP. Tühi tähendab määramata. Paneel ainult salvestab selle.",
-    "msg_invalid_birthday": "Vigane sünnipäev. Kasuta kuju AAAA-KK-PP."
+    "msg_invalid_birthday": "Vigane sünnipäev. Kasuta kuju AAAA-KK-PP.",
+    "allow_nets": "Sisselogimise IP piirang",
+    "allow_nets_help": "IP-aadressid ja CIDR-vahemikud, millelt postkast võib sisse logida, komaga eraldatud. Tühi lubab iga aadressi. Dovecot kontrollib seda igal IMAP-, POP3- ja SMTP-sisselogimisel, seega vale väärtus lukustab kasutaja välja.",
+    "msg_invalid_allow_nets": "Vigane IP piirang. Kasuta komaga eraldatud IP-aadresse ja CIDR-vahemikke."
   },
   "mlist": {
     "msg_updated": "Postiloend uuendatud!",

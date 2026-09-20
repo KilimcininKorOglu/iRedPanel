@@ -475,7 +475,10 @@
     "department_help": "Brugerens afdeling. Panelet gemmer den kun.",
     "birthday": "Fødselsdag",
     "birthday_help": "Brugerens fødselsdag i formatet ÅÅÅÅ-MM-DD. Tom betyder ikke angivet. Panelet gemmer den kun.",
-    "msg_invalid_birthday": "Ugyldig fødselsdag. Brug formatet ÅÅÅÅ-MM-DD."
+    "msg_invalid_birthday": "Ugyldig fødselsdag. Brug formatet ÅÅÅÅ-MM-DD.",
+    "allow_nets": "IP-begrænsning ved login",
+    "allow_nets_help": "IP-adresser og CIDR-intervaller, som postkassen må logge ind fra, adskilt af komma. Tom tillader alle adresser. Dovecot tjekker dette ved hvert IMAP-, POP3- og SMTP-login, så en forkert værdi låser brugeren ude.",
+    "msg_invalid_allow_nets": "Ugyldig IP-begrænsning. Brug IP-adresser og CIDR-intervaller adskilt af komma."
   },
   "mlist": {
     "msg_updated": "Mailingliste opdateret!",

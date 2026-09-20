@@ -475,7 +475,10 @@
     "department_help": "De afdeling van de gebruiker. Het panel slaat deze alleen op.",
     "birthday": "Geboortedatum",
     "birthday_help": "De geboortedatum van de gebruiker, in het formaat JJJJ-MM-DD. Leeg betekent niet ingesteld. Het panel slaat deze alleen op.",
-    "msg_invalid_birthday": "Ongeldige geboortedatum. Gebruik het formaat JJJJ-MM-DD."
+    "msg_invalid_birthday": "Ongeldige geboortedatum. Gebruik het formaat JJJJ-MM-DD.",
+    "allow_nets": "IP-beperking bij aanmelden",
+    "allow_nets_help": "IP-adressen en CIDR-bereiken waarvandaan de mailbox zich mag aanmelden, gescheiden door een komma. Leeg staat elk adres toe. Dovecot controleert dit bij elke IMAP-, POP3- en SMTP-aanmelding, dus een verkeerde waarde sluit de gebruiker buiten.",
+    "msg_invalid_allow_nets": "Ongeldige IP-beperking. Gebruik IP-adressen en CIDR-bereiken gescheiden door een komma."
   },
   "mlist": {
     "msg_updated": "Mailinglijst bijgewerkt!",

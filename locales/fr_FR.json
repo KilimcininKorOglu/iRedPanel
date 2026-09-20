@@ -475,7 +475,10 @@
     "department_help": "Le service de l'utilisateur. Le panel ne fait que le stocker.",
     "birthday": "Date de naissance",
     "birthday_help": "La date de naissance de l'utilisateur, au format AAAA-MM-JJ. Vide signifie non renseignée. Le panel ne fait que la stocker.",
-    "msg_invalid_birthday": "Date de naissance non valide. Utilisez le format AAAA-MM-JJ."
+    "msg_invalid_birthday": "Date de naissance non valide. Utilisez le format AAAA-MM-JJ.",
+    "allow_nets": "Restriction IP de connexion",
+    "allow_nets_help": "Adresses IP et plages CIDR depuis lesquelles la boîte peut se connecter, séparées par une virgule. Vide autorise toutes les adresses. Dovecot le vérifie à chaque connexion IMAP, POP3 et SMTP, une valeur erronée bloque donc l'utilisateur.",
+    "msg_invalid_allow_nets": "Restriction IP non valide. Utilisez des adresses IP et des plages CIDR séparées par une virgule."
   },
   "mlist": {
     "msg_updated": "Liste de diffusion mise à jour !",

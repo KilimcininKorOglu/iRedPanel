@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Models;
 
 use App\Exceptions\InvalidInputException;
+use App\Middleware;
 use App\Utils\FormValue;
 use App\Utils\NameList;
 use App\Utils\WholeNumber;
@@ -80,6 +81,8 @@ class User
         public string $birthday = '',
         public string $mobile = '',
         public string $telephoneNumber = '',
+        /** Comma-separated IP addresses and CIDR ranges the mailbox may log in from; '' allows every address. */
+        public string $allowNets = '',
         public bool $domainGlobalAdmin = false,
         // Mail service toggles
         public bool $enableSmtp = true,
@@ -94,6 +97,42 @@ class User
         /** Preferred UI language (xx_YY); '' uses the default, null means not loaded and keeps the stored value on update. */
         public ?string $language = null,
     ) {}
+
+    /**
+     * Checks a comma-separated list of IP addresses and CIDR ranges.
+     *
+     * @return string the entries without duplicates, separated by a comma
+     * @throws InvalidInputException naming the first entry that is not an address or a range
+     */
+    public static function validAllowNets(mixed $value): string
+    {
+        if ($value === null || $value === '') {
+            return '';
+        }
+        if (!is_string($value)) {
+            throw new InvalidInputException('allowNets must be text', 'user.msg_invalid_allow_nets');
+        }
+        $entries = array_values(array_unique(array_filter(array_map(trim(...), explode(',', $value)))));
+        foreach ($entries as $entry) {
+            if (!Middleware::isValidIpRange($entry)) {
+                throw new InvalidInputException(
+                    "allowNets entry '{$entry}' is not an IP address or a CIDR range",
+                    'user.msg_invalid_allow_nets',
+                );
+            }
+        }
+
+        return implode(',', $entries);
+    }
+
+    /**
+     * The value of the SQL `allow_nets` column. The column is nullable, and Dovecot
+     * refuses every login of a mailbox whose value is an empty string.
+     */
+    public function allowNetsSql(): ?string
+    {
+        return $this->allowNets === '' ? null : $this->allowNets;
+    }
 
     /** The value that the SQL `birthday` column holds when no birthday is set. */
     public const EMPTY_BIRTHDAY = '0001-01-01';
@@ -283,6 +322,7 @@ class User
             birthday: $entry['birthday'] ?? '',
             mobile: $entry['mobile'] ?? '',
             telephoneNumber: $entry['telephoneNumber'] ?? '',
+            allowNets: $entry['allowNets'] ?? '',
             domainGlobalAdmin: ($entry['domainGlobalAdmin'] ?? '') === 'yes',
             language: $entry['preferredLanguage'] ?? null,
         );
@@ -323,6 +363,7 @@ class User
             birthday: self::validBirthday($post['birthday'] ?? ''),
             mobile: FormValue::text($post, 'mobile'),
             telephoneNumber: FormValue::text($post, 'telephoneNumber'),
+            allowNets: self::validAllowNets($post['allowNets'] ?? ''),
             domainGlobalAdmin: (bool) ($post['domainGlobalAdmin'] ?? false),
             enableSmtp: (bool) ($post['enableSmtp'] ?? false),
             enableSmtpSecured: (bool) ($post['enableSmtpSecured'] ?? false),

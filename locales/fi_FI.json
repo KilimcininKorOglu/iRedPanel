@@ -475,7 +475,10 @@
     "department_help": "Käyttäjän osasto. Paneeli vain tallentaa sen.",
     "birthday": "Syntymäpäivä",
     "birthday_help": "Käyttäjän syntymäpäivä muodossa VVVV-KK-PP. Tyhjä tarkoittaa asettamatonta. Paneeli vain tallentaa sen.",
-    "msg_invalid_birthday": "Virheellinen syntymäpäivä. Käytä muotoa VVVV-KK-PP."
+    "msg_invalid_birthday": "Virheellinen syntymäpäivä. Käytä muotoa VVVV-KK-PP.",
+    "allow_nets": "Kirjautumisen IP-rajoitus",
+    "allow_nets_help": "IP-osoitteet ja CIDR-alueet, joista postilaatikko saa kirjautua, pilkulla eroteltuna. Tyhjä sallii kaikki osoitteet. Dovecot tarkistaa tämän jokaisessa IMAP-, POP3- ja SMTP-kirjautumisessa, joten väärä arvo lukitsee käyttäjän ulos.",
+    "msg_invalid_allow_nets": "Virheellinen IP-rajoitus. Käytä pilkulla eroteltuja IP-osoitteita ja CIDR-alueita."
   },
   "mlist": {
     "msg_updated": "Postituslista päivitetty!",

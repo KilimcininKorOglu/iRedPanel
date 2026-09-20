@@ -475,7 +475,10 @@
     "department_help": "Erabiltzailearen saila. Panelak gorde besterik ez du egiten.",
     "birthday": "Jaioteguna",
     "birthday_help": "Erabiltzailearen jaioteguna, UUUU-HH-EE formatuan. Hutsik esan nahi du ezarri gabe. Panelak gorde besterik ez du egiten.",
-    "msg_invalid_birthday": "Jaiotegun baliogabea. Erabili UUUU-HH-EE formatua."
+    "msg_invalid_birthday": "Jaiotegun baliogabea. Erabili UUUU-HH-EE formatua.",
+    "allow_nets": "Saioa hasteko IP muga",
+    "allow_nets_help": "Postontziak saioa has dezakeen IP helbideak eta CIDR barrutiak, komaz bereizita. Hutsik edozein helbide onartzen du. Dovecot-ek IMAP, POP3 eta SMTP saio hasiera bakoitzean egiaztatzen du, beraz balio okerrak erabiltzailea kanpoan uzten du.",
+    "msg_invalid_allow_nets": "IP muga baliogabea. Erabili komaz bereizitako IP helbideak eta CIDR barrutiak."
   },
   "mlist": {
     "msg_updated": "Posta-zerrenda eguneratu da!",

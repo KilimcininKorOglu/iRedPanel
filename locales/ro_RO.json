@@ -475,7 +475,10 @@
     "department_help": "Departamentul utilizatorului. Panoul doar îl stochează.",
     "birthday": "Data nașterii",
     "birthday_help": "Data nașterii utilizatorului, în formatul AAAA-LL-ZZ. Gol înseamnă nesetată. Panoul doar o stochează.",
-    "msg_invalid_birthday": "Data nașterii este invalidă. Folosiți formatul AAAA-LL-ZZ."
+    "msg_invalid_birthday": "Data nașterii este invalidă. Folosiți formatul AAAA-LL-ZZ.",
+    "allow_nets": "Restricție IP la autentificare",
+    "allow_nets_help": "Adrese IP și intervale CIDR de unde căsuța se poate autentifica, separate prin virgulă. Gol permite orice adresă. Dovecot verifică acest lucru la fiecare autentificare IMAP, POP3 și SMTP, deci o valoare greșită blochează utilizatorul.",
+    "msg_invalid_allow_nets": "Restricție IP invalidă. Folosiți adrese IP și intervale CIDR separate prin virgulă."
   },
   "mlist": {
     "msg_updated": "Lista de corespondență a fost actualizată!",

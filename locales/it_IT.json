@@ -475,7 +475,10 @@
     "department_help": "Il reparto dell'utente. Il pannello lo memorizza soltanto.",
     "birthday": "Data di nascita",
     "birthday_help": "La data di nascita dell'utente, in formato AAAA-MM-GG. Vuoto significa non impostata. Il pannello la memorizza soltanto.",
-    "msg_invalid_birthday": "Data di nascita non valida. Usa il formato AAAA-MM-GG."
+    "msg_invalid_birthday": "Data di nascita non valida. Usa il formato AAAA-MM-GG.",
+    "allow_nets": "Restrizione IP di accesso",
+    "allow_nets_help": "Indirizzi IP e intervalli CIDR da cui la casella può accedere, separati da una virgola. Vuoto consente qualsiasi indirizzo. Dovecot lo controlla a ogni accesso IMAP, POP3 e SMTP, quindi un valore errato blocca l'utente.",
+    "msg_invalid_allow_nets": "Restrizione IP non valida. Usa indirizzi IP e intervalli CIDR separati da una virgola."
   },
   "mlist": {
     "msg_updated": "Lista di distribuzione aggiornata!",

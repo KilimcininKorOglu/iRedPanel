@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 - A user profile carries a department and a birthday, next to the fields the panel already managed. Both columns exist in the iRedMail schema of all three backends (`mailbox.department` and `mailbox.birthday` in SQL, `departmentNumber` and `birthday` in LDAP), so no schema change is needed. The birthday is a date field in the form and an empty value stores the column default
+- A mailbox carries a login IP restriction (`mailbox.allow_nets` in SQL, `allowNets` in LDAP): Dovecot then accepts a login only from the listed IP addresses and CIDR ranges. An empty value allows every address and writes SQL NULL, because Dovecot refuses every login of a mailbox whose value is an empty string
 
 ## [1.0.5] - 2026-09-20
 

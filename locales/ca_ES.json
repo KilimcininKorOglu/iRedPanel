@@ -475,7 +475,10 @@
     "department_help": "El departament de l'usuari. El panell només el desa.",
     "birthday": "Data de naixement",
     "birthday_help": "La data de naixement de l'usuari, en format AAAA-MM-DD. Buit vol dir sense valor. El panell només la desa.",
-    "msg_invalid_birthday": "Data de naixement no vàlida. Feu servir el format AAAA-MM-DD."
+    "msg_invalid_birthday": "Data de naixement no vàlida. Feu servir el format AAAA-MM-DD.",
+    "allow_nets": "Restricció d'IP d'inici de sessió",
+    "allow_nets_help": "Adreces IP i rangs CIDR des dels quals la bústia pot iniciar sessió, separats per comes. Buit permet qualsevol adreça. Dovecot ho comprova a cada inici de sessió IMAP, POP3 i SMTP, així que un valor incorrecte bloqueja l'usuari.",
+    "msg_invalid_allow_nets": "Restricció d'IP no vàlida. Feu servir adreces IP i rangs CIDR separats per comes."
   },
   "mlist": {
     "msg_updated": "Llista de correu actualitzada!",

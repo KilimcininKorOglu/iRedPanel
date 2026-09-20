@@ -475,7 +475,10 @@
     "department_help": "O departamento do utilizador. O painel apenas o guarda.",
     "birthday": "Data de nascimento",
     "birthday_help": "A data de nascimento do utilizador, no formato AAAA-MM-DD. Vazio significa não definida. O painel apenas a guarda.",
-    "msg_invalid_birthday": "Data de nascimento inválida. Use o formato AAAA-MM-DD."
+    "msg_invalid_birthday": "Data de nascimento inválida. Use o formato AAAA-MM-DD.",
+    "allow_nets": "Restrição de IP de início de sessão",
+    "allow_nets_help": "Endereços IP e intervalos CIDR a partir dos quais a caixa pode iniciar sessão, separados por vírgula. Vazio permite qualquer endereço. O Dovecot verifica isto em cada início de sessão IMAP, POP3 e SMTP, por isso um valor errado bloqueia o utilizador.",
+    "msg_invalid_allow_nets": "Restrição de IP inválida. Use endereços IP e intervalos CIDR separados por vírgula."
   },
   "mlist": {
     "msg_updated": "Lista de distribuição atualizada!",

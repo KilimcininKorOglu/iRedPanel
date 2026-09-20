@@ -475,7 +475,10 @@
     "department_help": "Phòng ban của người dùng. Panel chỉ lưu giá trị này.",
     "birthday": "Ngày sinh",
     "birthday_help": "Ngày sinh của người dùng, theo định dạng NNNN-TT-NN. Để trống nghĩa là chưa đặt. Panel chỉ lưu giá trị này.",
-    "msg_invalid_birthday": "Ngày sinh không hợp lệ. Hãy dùng định dạng NNNN-TT-NN."
+    "msg_invalid_birthday": "Ngày sinh không hợp lệ. Hãy dùng định dạng NNNN-TT-NN.",
+    "allow_nets": "Giới hạn IP đăng nhập",
+    "allow_nets_help": "Các địa chỉ IP và dải CIDR mà hộp thư được phép đăng nhập, phân tách bằng dấu phẩy. Để trống cho phép mọi địa chỉ. Dovecot kiểm tra giá trị này ở mỗi lần đăng nhập IMAP, POP3 và SMTP, nên giá trị sai sẽ khoá người dùng bên ngoài.",
+    "msg_invalid_allow_nets": "Giới hạn IP không hợp lệ. Hãy dùng địa chỉ IP và dải CIDR phân tách bằng dấu phẩy."
   },
   "mlist": {
     "msg_updated": "Danh sách gửi thư đã được cập nhật!",

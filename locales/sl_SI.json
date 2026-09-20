@@ -475,7 +475,10 @@
     "department_help": "Oddelek uporabnika. Nadzorna plošča ga samo shrani.",
     "birthday": "Rojstni dan",
     "birthday_help": "Rojstni dan uporabnika v obliki LLLL-MM-DD. Prazno pomeni ni nastavljeno. Nadzorna plošča ga samo shrani.",
-    "msg_invalid_birthday": "Neveljaven rojstni dan. Uporabite obliko LLLL-MM-DD."
+    "msg_invalid_birthday": "Neveljaven rojstni dan. Uporabite obliko LLLL-MM-DD.",
+    "allow_nets": "Omejitev IP ob prijavi",
+    "allow_nets_help": "Naslovi IP in obsegi CIDR, s katerih se poštni predal lahko prijavi, ločeni z vejico. Prazno dovoli vsak naslov. Dovecot to preveri ob vsaki prijavi IMAP, POP3 in SMTP, zato napačna vrednost uporabnika zaklene.",
+    "msg_invalid_allow_nets": "Neveljavna omejitev IP. Uporabite naslove IP in obsege CIDR, ločene z vejico."
   },
   "mlist": {
     "msg_updated": "Poštni seznam posodobljen!",

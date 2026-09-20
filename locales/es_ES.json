@@ -475,7 +475,10 @@
     "department_help": "El departamento del usuario. El panel solo lo guarda.",
     "birthday": "Fecha de nacimiento",
     "birthday_help": "La fecha de nacimiento del usuario, en formato AAAA-MM-DD. Vacío significa sin valor. El panel solo la guarda.",
-    "msg_invalid_birthday": "Fecha de nacimiento no válida. Use el formato AAAA-MM-DD."
+    "msg_invalid_birthday": "Fecha de nacimiento no válida. Use el formato AAAA-MM-DD.",
+    "allow_nets": "Restricción de IP de inicio de sesión",
+    "allow_nets_help": "Direcciones IP y rangos CIDR desde los que el buzón puede iniciar sesión, separados por comas. Vacío permite cualquier dirección. Dovecot lo comprueba en cada inicio de sesión IMAP, POP3 y SMTP, así que un valor incorrecto bloquea al usuario.",
+    "msg_invalid_allow_nets": "Restricción de IP no válida. Use direcciones IP y rangos CIDR separados por comas."
   },
   "mlist": {
     "msg_updated": "¡Lista de correo actualizada!",

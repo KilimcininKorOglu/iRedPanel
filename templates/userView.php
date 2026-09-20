@@ -13,6 +13,7 @@ $tabs = [
     'bcc' => $t('domain.tab_bcc'),
     'relay' => $t('domain.tab_relay'),
     'disclaimer' => $t('user.tab_disclaimer'),
+    'sharing' => $t('user.tab_sharing'),
 ];
 // A domain admin sees only the pages that the global admin left open.
 $tabs = array_intersect_key($tabs, array_flip($openPages));
@@ -334,6 +335,48 @@ $services = \App\Models\User::SERVICE_LABELS;
         <button type="submit" class="btn btn-primary"><?= $te('common.save') ?></button>
       </div>
     </form>
+    <?php endif; ?>
+
+    <?php if ($editMode === 'sharing'): ?>
+    <div class="card mb-4">
+      <div class="card-header"><?= $te('user.shared_with') ?><?= $help('user.shared_with') ?></div>
+      <div class="card-body">
+        <p class="text-body-secondary"><?= $te('user.sharing_desc') ?></p>
+        <?php if ($sharesWithAnyone): ?>
+        <form method="post" class="d-flex align-items-center justify-content-between border rounded p-2 mb-2">
+          <?= $csrfField ?>
+          <span><i class="bi bi-people me-2"></i><?= $te('user.shares_with_anyone') ?></span>
+          <button type="submit" class="btn btn-sm btn-outline-danger" data-confirm="<?= $te('user.revoke_confirm') ?>"><i class="bi bi-x-lg me-1"></i><?= $te('user.revoke_share') ?></button>
+        </form>
+        <?php endif; ?>
+        <?php if ($sharedWith === [] && !$sharesWithAnyone): ?>
+        <p class="text-body-secondary mb-0"><?= $te('user.no_shares') ?></p>
+        <?php endif; ?>
+        <?php foreach ($sharedWith as $target): ?>
+        <form method="post" class="d-flex align-items-center justify-content-between border rounded p-2 mb-2">
+          <?= $csrfField ?>
+          <input type="hidden" name="toUser" value="<?= $e($target) ?>" />
+          <span class="font-monospace"><?= $e($target) ?></span>
+          <button type="submit" class="btn btn-sm btn-outline-danger" data-confirm="<?= $te('user.revoke_confirm') ?>"><i class="bi bi-x-lg me-1"></i><?= $te('user.revoke_share') ?></button>
+        </form>
+        <?php endforeach; ?>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header"><?= $te('user.shared_by') ?><?= $help('user.shared_by') ?></div>
+      <div class="card-body">
+        <?php if ($sharedBy === []): ?>
+        <p class="text-body-secondary mb-0"><?= $te('user.no_shares_received') ?></p>
+        <?php else: ?>
+        <ul class="list-unstyled mb-0">
+          <?php foreach ($sharedBy as $owner): ?>
+          <li class="font-monospace"><a href="/<?= $e(explode('@', $owner)[1] ?? '') ?>/users/<?= $e(explode('@', $owner)[0]) ?>/sharing"><?= $e($owner) ?></a></li>
+          <?php endforeach; ?>
+        </ul>
+        <?php endif; ?>
+      </div>
+    </div>
     <?php endif; ?>
   </div>
 </div>

@@ -309,6 +309,22 @@ class RepositoryFactory
         return self::$accountResourceRepo;
     }
 
+    /**
+     * The shared folder rows of Dovecot, or null when no database holds them. The SQL
+     * backends keep the tables in the vmail database; with LDAP they live in the
+     * iredadmin database, which an installation without that database does not have.
+     */
+    public static function getMailboxSharing(): ?SqlMailboxSharing
+    {
+        $pdo = match (Settings::getInstance()->backend) {
+            'mysql' => Mysql\MysqlConnection::getInstance()->getPdo(),
+            'pgsql' => Pgsql\PgsqlConnection::getInstance()->getPdo(),
+            default => Mysql\IredadminConnection::getInstance()->getPdo(),
+        };
+
+        return $pdo === null ? null : new SqlMailboxSharing($pdo);
+    }
+
     public static function getPanelSettingsRepository(): PanelSettingsRepositoryInterface
     {
         self::$panelSettingsRepo ??= match (Settings::getInstance()->backend) {

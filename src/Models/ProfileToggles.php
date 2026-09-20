@@ -18,7 +18,10 @@ final class ProfileToggles
     public const DOMAIN_PROFILES = ['settings', 'catchall', 'bcc', 'relay'];
 
     /** User pages that a domain admin edits. */
-    public const USER_PROFILES = ['general', 'password', 'services', 'forwarding', 'aliases', 'bcc', 'relay', 'disclaimer'];
+    public const USER_PROFILES = ['general', 'password', 'services', 'forwarding', 'aliases', 'bcc', 'relay', 'disclaimer', 'sharing'];
+
+    /** User page with the shared folders. It needs the database that holds the Dovecot rows. */
+    public const SHARING_PAGE = 'sharing';
 
     /** Self-service pages that a mailbox user edits. */
     public const USER_PREFERENCES = ['personal_info', 'password', 'forwarding', 'wblist', 'spampolicy', 'quarantine', 'received', 'sent'];

@@ -22,6 +22,7 @@ use App\Services\ActivityLogger;
 use App\Services\MailboxQuotaFloor;
 use App\Services\AdminLimits;
 use App\Services\LdifExportService;
+use App\Services\MailboxSharing;
 use App\Services\Replication\ReplicatedAccountGuard;
 use App\Services\UserAliasService;
 use App\Services\UserBulkUpdate;
@@ -32,7 +33,7 @@ use App\Utils\PasswordUtils;
 class UserController
 {
     /** The tabs of the user page, in the order the template shows them. */
-    private const EDIT_MODES = ['general', 'password', 'services', 'forwarding', 'aliases', 'bcc', 'relay', 'disclaimer'];
+    private const EDIT_MODES = ['general', 'password', 'services', 'forwarding', 'aliases', 'bcc', 'relay', 'disclaimer', 'sharing'];
 
     /** Every tab variable the template reads, so a tab only fills its own. */
     private const TAB_DEFAULTS = [
@@ -44,6 +45,9 @@ class UserController
         'userRelayhost' => null,
         'userTransport' => null,
         'userDisclaimer' => '',
+        'sharedWith' => [],
+        'sharedBy' => [],
+        'sharesWithAnyone' => false,
     ];
 
     /**
@@ -87,8 +91,7 @@ class UserController
     {
         Middleware::domainAdminRequired($domain);
 
-        // The global admin can close user pages for the domain admins of the domain.
-        $openPages = ProfileToggles::openUserPages(self::domainSettings($domain), Middleware::isGlobalAdmin());
+        $openPages = self::openPages($domain);
         if (in_array($editMode, ProfileToggles::USER_PROFILES, true) && !in_array($editMode, $openPages, true)) {
             if ($editMode === 'general' && $openPages !== []) {
                 header('Location: /' . rawurlencode($domain) . '/users/' . rawurlencode($userUid) . '/' . $openPages[0]);
@@ -100,6 +103,23 @@ class UserController
         }
 
         self::userPage($tpl, $domain, $userUid, $editMode, $openPages);
+    }
+
+    /**
+     * The user pages of this admin: the global admin can close a page for the domain
+     * admins of the domain, and the sharing page needs the database that holds the
+     * shared folder rows of Dovecot.
+     *
+     * @return list<string>
+     */
+    private static function openPages(string $domain): array
+    {
+        $pages = ProfileToggles::openUserPages(self::domainSettings($domain), Middleware::isGlobalAdmin());
+        if (MailboxSharing::available()) {
+            return $pages;
+        }
+
+        return array_values(array_diff($pages, [ProfileToggles::SHARING_PAGE]));
     }
 
     /**
@@ -168,6 +188,7 @@ class UserController
             'bcc' => self::saveUserBcc($domain, $userUid),
             'relay' => self::saveUserRelay($domain, $userUid),
             'disclaimer' => self::saveUserDisclaimer($domain, $userUid),
+            'sharing' => MailboxSharing::revokePosted($domain, $userUid),
             default => throw new \LogicException("Unknown user edit mode: {$editMode}"),
         };
     }
@@ -368,6 +389,7 @@ class UserController
                 'userTransport' => RepositoryFactory::getUserRepository()->getTransport($domain, $userUid),
             ],
             'disclaimer' => ['userDisclaimer' => RepositoryFactory::getUserRepository()->getDisclaimer($domain, $userUid)],
+            'sharing' => MailboxSharing::tabData($email),
             default => [],
         } + self::TAB_DEFAULTS;
     }

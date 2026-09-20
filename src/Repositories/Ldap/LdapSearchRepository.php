@@ -15,6 +15,8 @@ use App\Utils\LdapUtils;
  * Searches the LDAP entries in the formats the repositories write: `mailUser` mailboxes
  * (catch-all excluded), `mailAlias` aliases, `mailList` entries with the mlmmj service,
  * and the admins of LdapAdminRepository. Each type returns at most 50 results.
+ * A mailbox also matches its per-account alias addresses, which LDAP holds in
+ * `shadowAddress`, so the search finds the mailbox behind such an address.
  */
 class LdapSearchRepository implements SearchRepositoryInterface
 {
@@ -23,7 +25,7 @@ class LdapSearchRepository implements SearchRepositoryInterface
     /** Account type => [result key, object filter, searched attributes]. */
     private const TYPES = [
         'domain' => ['domains', '(objectClass=mailDomain)', ['domainName', 'description']],
-        'user' => ['users', '(&(objectClass=mailUser)(!(mail=@*)))', ['mail', 'cn']],
+        'user' => ['users', '(&(objectClass=mailUser)(!(mail=@*)))', ['mail', 'cn', 'shadowAddress']],
         'alias' => ['aliases', '(objectClass=mailAlias)', ['mail', 'cn']],
         'ml' => ['mailingLists', '(&(objectClass=mailList)(enabledService=mlmmj))', ['mail', 'cn']],
     ];

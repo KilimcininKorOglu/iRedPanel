@@ -8,7 +8,7 @@ Diğer backend'ler: [OpenLDAP](ldap.md), [MariaDB/MySQL](mariadb.md). İngilizce
 
 | iRedPanel | Uyumlu iRedMail sürümleri |
 |-----------|---------------------------|
-| 1.0.3     | 1.7.4, 1.8.0, 1.8.1, 1.8.2, 1.8.3, 1.8.4, 1.8.5, 1.8.6, 1.8.7, 1.8.8 |
+| 1.0.4     | 1.7.4, 1.8.0, 1.8.1, 1.8.2, 1.8.3, 1.8.4, 1.8.5, 1.8.6, 1.8.7, 1.8.8 |
 
 Geçerli liste, repodaki [`compatibility.json`](../../../compatibility.json) dosyasıdır. Dashboard ve **System > iRedMail Compatibility** sayfası bu dosyayı okur. Sunucunuzdaki iRedMail sürümünü kontrol edin:
 
@@ -137,7 +137,7 @@ apt install php-pgsql php-mbstring composer git unzip
 cd /opt/www
 git clone https://github.com/KilimcininKorOglu/iRedPanel.git iredpanel
 cd iredpanel
-git checkout v1.0.3
+git checkout v1.0.4
 composer install --no-dev --optimize-autoloader
 cp .env.example .env
 ```
@@ -200,7 +200,7 @@ Paneli başka bir sunucuda Apache ile çalıştırmak için `apache2`, `libapach
 ```bash
 git clone https://github.com/KilimcininKorOglu/iRedPanel.git
 cd iRedPanel
-git checkout v1.0.3
+git checkout v1.0.4
 cp .env.example .env.prod
 ```
 

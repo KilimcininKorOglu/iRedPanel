@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.4] - 2026-09-20
+
+### Changed
+- `composer.lock` is tracked and `config.platform.php` pins the resolution to the `require` floor of 8.1.0, so every install gets the same PHP 8.1-compatible set and a dependency audit sees the versions that CI and the servers actually get
+- Every method is at or below a cyclomatic complexity of 10: the user and domain page controllers delegate to one method per tab, `Settings` loads its values through single-purpose helpers, the search repositories loop a table map, and the API controllers, `Middleware` and `DirectoryClient` extract their validation blocks
+- `PasswordVerifier::verify()` resolves the prefixed hash schemes through one `match` instead of nine sequential prefix checks, and the two salted schemes share one helper
+- `Settings` builds the connection values of the selected backend outside the constructor, over a neutral set for the other two backends
+- The code uses the PHP 8.1 idioms throughout: first-class callables, readonly properties, `never` return types and enum-style constants
+- Every static analysis error outside the templates is cleared, including the redundant null checks that shadowed a real branch
+
+### Security
+- Every GitHub Actions step is pinned to a commit SHA instead of a moving tag
+
 ## [1.0.3] - 2026-09-20
 
 ### Added

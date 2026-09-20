@@ -8,7 +8,7 @@ Other backends: [OpenLDAP](ldap.md), [MariaDB/MySQL](mariadb.md). Turkish versio
 
 | iRedPanel | Compatible iRedMail versions |
 |-----------|------------------------------|
-| 1.0.3     | 1.7.4, 1.8.0, 1.8.1, 1.8.2, 1.8.3, 1.8.4, 1.8.5, 1.8.6, 1.8.7, 1.8.8 |
+| 1.0.4     | 1.7.4, 1.8.0, 1.8.1, 1.8.2, 1.8.3, 1.8.4, 1.8.5, 1.8.6, 1.8.7, 1.8.8 |
 
 [`compatibility.json`](../../../compatibility.json) in the repository is the authoritative list. The dashboard and the **System > iRedMail Compatibility** page read it. Check the iRedMail version of your server:
 
@@ -137,7 +137,7 @@ apt install php-pgsql php-mbstring composer git unzip
 cd /opt/www
 git clone https://github.com/KilimcininKorOglu/iRedPanel.git iredpanel
 cd iredpanel
-git checkout v1.0.3
+git checkout v1.0.4
 composer install --no-dev --optimize-autoloader
 cp .env.example .env
 ```
@@ -200,7 +200,7 @@ The `Dockerfile` builds a PHP 8.4 and Apache image with the `ldap`, `pdo_mysql` 
 ```bash
 git clone https://github.com/KilimcininKorOglu/iRedPanel.git
 cd iRedPanel
-git checkout v1.0.3
+git checkout v1.0.4
 cp .env.example .env.prod
 ```
 

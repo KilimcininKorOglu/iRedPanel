@@ -738,7 +738,15 @@
     "empty": "Engin skilaboð í sóttkví.",
     "msg_released": "Skeytinu :id var sleppt til viðtakenda.",
     "msg_deleted": "Sóttkvíarskeytinu :id var eytt.",
-    "msg_cleanup_done": "Hreinsun fjarlægði :quarantine sóttkvíarskeyti og :log mail log færslur."
+    "msg_cleanup_done": "Hreinsun fjarlægði :quarantine sóttkvíarskeyti og :log mail log færslur.",
+    "view_title": "Skilaboð í sóttkví",
+    "download": "Sækja (.eml)",
+    "headers": "Hausar",
+    "raw_headers": "Hráir hausar",
+    "body": "Meginmál skilaboða",
+    "body_empty": "Þessi skilaboð hafa ekkert meginmál.",
+    "body_truncated": "Skilaboðin eru lengri en sýnt er hér. Sæktu þau til að lesa allan textann.",
+    "no_subject": "(ekkert efni)"
   },
   "domain": {
     "msg_name_required": "Lénsheiti er nauðsynlegt",

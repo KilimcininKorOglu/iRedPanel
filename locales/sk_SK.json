@@ -738,7 +738,15 @@
     "empty": "Žiadne správy v karanténe.",
     "msg_released": "Správa :id bola uvoľnená príjemcom.",
     "msg_deleted": "Správa v karanténe :id bola odstránená.",
-    "msg_cleanup_done": "Čistenie odstránilo :quarantine správ v karanténe a :log záznamov mail logu."
+    "msg_cleanup_done": "Čistenie odstránilo :quarantine správ v karanténe a :log záznamov mail logu.",
+    "view_title": "Správa v karanténe",
+    "download": "Stiahnuť (.eml)",
+    "headers": "Hlavičky",
+    "raw_headers": "Surové hlavičky",
+    "body": "Telo správy",
+    "body_empty": "Táto správa nemá telo.",
+    "body_truncated": "Správa je dlhšia než zobrazená časť. Stiahnite ju a prečítajte si celý text.",
+    "no_subject": "(bez predmetu)"
   },
   "domain": {
     "msg_name_required": "Názov domény je povinný",

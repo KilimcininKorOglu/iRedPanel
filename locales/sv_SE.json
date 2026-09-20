@@ -738,7 +738,15 @@
     "empty": "Inga meddelanden i karantän.",
     "msg_released": "Meddelandet :id släpptes till mottagarna.",
     "msg_deleted": "Karantänmeddelandet :id raderades.",
-    "msg_cleanup_done": "Rensningen tog bort :quarantine karantänmeddelanden och :log mail log-poster."
+    "msg_cleanup_done": "Rensningen tog bort :quarantine karantänmeddelanden och :log mail log-poster.",
+    "view_title": "Meddelande i karantän",
+    "download": "Ladda ner (.eml)",
+    "headers": "Rubriker",
+    "raw_headers": "Råa rubriker",
+    "body": "Meddelandetext",
+    "body_empty": "Detta meddelande har ingen text.",
+    "body_truncated": "Meddelandet är längre än det som visas här. Ladda ner det för att läsa hela texten.",
+    "no_subject": "(inget ämne)"
   },
   "domain": {
     "msg_name_required": "Domännamn krävs",

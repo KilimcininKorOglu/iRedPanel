@@ -11,6 +11,7 @@ use App\Models\Settings;
 use App\Repositories\RepositoryFactory;
 use App\Services\ActivityLogger;
 use App\Services\AdminLimits;
+use App\Services\QuarantinedMail;
 use App\TemplateEngine;
 
 class AmavisdController
@@ -32,6 +33,58 @@ class AmavisdController
             'filterDomain' => $domain ?? '',
             'domains' => BaseController::managedDomainRows(),
         ]);
+    }
+
+    /**
+     * Shows one quarantined message as plain text: the headers the reader needs,
+     * the raw header block and the start of the body.
+     */
+    public static function quarantineView(TemplateEngine $tpl, string $mailId): void
+    {
+        $raw = self::readableMail($mailId);
+
+        $tpl->render('quarantineView.php', QuarantinedMail::viewData($raw, $mailId, "/amavisd/quarantine/{$mailId}/download") + [
+            'backUrl' => self::listUrlWithFilter(),
+        ]);
+    }
+
+    /**
+     * Sends the whole message as an .eml attachment.
+     */
+    public static function quarantineDownload(TemplateEngine $tpl, string $mailId): void
+    {
+        QuarantinedMail::download($mailId, self::readableMail($mailId));
+    }
+
+    /**
+     * The raw message, after the access check: a global admin reads every message, a
+     * domain admin only a message that still waits for a recipient of its domain.
+     * An unreadable message sends the admin back to the list with a flash error.
+     */
+    private static function readableMail(string $mailId): string
+    {
+        $domain = self::openPage('disableManagingQuarantinedMails');
+        $repo = RepositoryFactory::getAmavisdRepository();
+        $allowed = Middleware::isGlobalAdmin() || $repo->pendingQuarantineRecipients($mailId, (string) $domain) !== [];
+
+        $raw = $allowed ? $repo->getQuarantinedMailText($mailId) : '';
+        if ($raw === '') {
+            BaseController::flashError(Translator::translate('common.msg_item_not_found'));
+            header('Location: ' . self::listUrlWithFilter());
+            exit;
+        }
+
+        return $raw;
+    }
+
+    /**
+     * The quarantine list URL that keeps the domain filter of the current request.
+     */
+    private static function listUrlWithFilter(): string
+    {
+        $domain = is_string($_GET['domain'] ?? null) ? $_GET['domain'] : '';
+
+        return $domain === '' ? '/amavisd/quarantine' : '/amavisd/quarantine?domain=' . rawurlencode($domain);
     }
 
     public static function releaseMessage(TemplateEngine $tpl, string $mailId): void

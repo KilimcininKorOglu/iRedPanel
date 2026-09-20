@@ -738,7 +738,15 @@
     "empty": "Karantiinis pole sõnumeid.",
     "msg_released": "Sõnum :id vabastati saajatele.",
     "msg_deleted": "Karantiinis olev sõnum :id kustutati.",
-    "msg_cleanup_done": "Puhastus eemaldas :quarantine karantiinisõnumit ja :log mail logi kirjet."
+    "msg_cleanup_done": "Puhastus eemaldas :quarantine karantiinisõnumit ja :log mail logi kirjet.",
+    "view_title": "Karantiinis olev sõnum",
+    "download": "Laadi alla (.eml)",
+    "headers": "Päised",
+    "raw_headers": "Töötlemata päised",
+    "body": "Sõnumi sisu",
+    "body_empty": "Sellel sõnumil ei ole sisu.",
+    "body_truncated": "Sõnum on pikem kui siin kuvatud osa. Laadi see alla, et lugeda kogu teksti.",
+    "no_subject": "(teemata)"
   },
   "domain": {
     "msg_name_required": "Domeeninimi on kohustuslik",

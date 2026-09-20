@@ -738,7 +738,15 @@
     "empty": "隔離されたメッセージはありません。",
     "msg_released": "メッセージ :id を受信者に解放しました。",
     "msg_deleted": "隔離メッセージ :id を削除しました。",
-    "msg_cleanup_done": "クリーンアップで隔離メッセージ :quarantine 件と mail log レコード :log 件を削除しました。"
+    "msg_cleanup_done": "クリーンアップで隔離メッセージ :quarantine 件と mail log レコード :log 件を削除しました。",
+    "view_title": "隔離されたメッセージ",
+    "download": "ダウンロード (.eml)",
+    "headers": "ヘッダー",
+    "raw_headers": "生ヘッダー",
+    "body": "本文",
+    "body_empty": "このメッセージに本文はありません。",
+    "body_truncated": "メッセージはここに表示されているより長いです。全文を読むにはダウンロードしてください。",
+    "no_subject": "(件名なし)"
   },
   "domain": {
     "msg_name_required": "ドメイン名は必須です",

@@ -15,6 +15,7 @@ use App\Models\User;
 use App\Models\UserPassword;
 use App\Repositories\RepositoryFactory;
 use App\Services\ActivityLogger;
+use App\Services\QuarantinedMail;
 use App\Services\Replication\ReplicatedAccountGuard;
 use App\Services\SelfService;
 use App\TemplateEngine;
@@ -86,6 +87,50 @@ class SelfServiceController
         }
 
         $tpl->render(self::TEMPLATES[$page], ['page' => $page, 'selfServicePages' => $openPages] + self::viewData($page));
+    }
+
+    /**
+     * Shows one quarantined message of the user, or sends it as an .eml attachment.
+     */
+    public static function quarantineMail(TemplateEngine $tpl, string $mailId, bool $download): void
+    {
+        Middleware::selfServiceRequired();
+        $openPages = self::openPages();
+        if (!in_array('quarantine', $openPages, true)) {
+            http_response_code(403);
+            echo 'Access denied: this page is disabled for your domain';
+            return;
+        }
+
+        $raw = self::readableMail($mailId);
+        if ($download) {
+            QuarantinedMail::download($mailId, $raw);
+        }
+
+        $tpl->render('quarantineView.php', QuarantinedMail::viewData($raw, $mailId, "/self/quarantine/{$mailId}/download") + [
+            'backUrl' => '/self/quarantine',
+            'selfServicePages' => $openPages,
+        ]);
+    }
+
+    /**
+     * The raw message, but only while it waits in the quarantine of the user.
+     * Another message sends the user back to the list with a flash error.
+     */
+    private static function readableMail(string $mailId): string
+    {
+        $account = SelfService::account();
+        $repo = RepositoryFactory::getAmavisdRepository();
+        $waiting = in_array($account['email'], $repo->pendingQuarantineRecipients($mailId, $account['domain']), true);
+
+        $raw = $waiting ? $repo->getQuarantinedMailText($mailId) : '';
+        if ($raw === '') {
+            BaseController::flashError(Translator::translate('common.msg_item_not_found'));
+            header('Location: /self/quarantine');
+            exit;
+        }
+
+        return $raw;
     }
 
     /**

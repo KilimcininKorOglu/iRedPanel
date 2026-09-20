@@ -738,7 +738,15 @@
     "empty": "Ei karanteeniviestejä.",
     "msg_released": "Viesti :id vapautettiin vastaanottajille.",
     "msg_deleted": "Karanteeniviesti :id poistettiin.",
-    "msg_cleanup_done": "Siivous poisti :quarantine karanteeniviestiä ja :log mail log -merkintää."
+    "msg_cleanup_done": "Siivous poisti :quarantine karanteeniviestiä ja :log mail log -merkintää.",
+    "view_title": "Karanteenissa oleva viesti",
+    "download": "Lataa (.eml)",
+    "headers": "Otsakkeet",
+    "raw_headers": "Raa'at otsakkeet",
+    "body": "Viestin runko",
+    "body_empty": "Tällä viestillä ei ole runkoa.",
+    "body_truncated": "Viesti on pidempi kuin tässä näytetty osa. Lataa se lukeaksesi koko tekstin.",
+    "no_subject": "(ei aihetta)"
   },
   "domain": {
     "msg_name_required": "Verkkotunnuksen nimi vaaditaan",

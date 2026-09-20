@@ -738,7 +738,15 @@
     "empty": "Karantinaya alınan ileti yok.",
     "msg_released": ":id mesajı alıcılarına gönderildi.",
     "msg_deleted": "Karantinadaki :id mesajı silindi.",
-    "msg_cleanup_done": "Temizlik :quarantine karantina mesajını ve :log mail log kaydını sildi."
+    "msg_cleanup_done": "Temizlik :quarantine karantina mesajını ve :log mail log kaydını sildi.",
+    "view_title": "Karantinadaki mesaj",
+    "download": "İndir (.eml)",
+    "headers": "Header alanları",
+    "raw_headers": "Ham header bloğu",
+    "body": "Mesaj gövdesi",
+    "body_empty": "Bu mesajın gövdesi yok.",
+    "body_truncated": "Mesaj burada gösterilenden uzun. Tamamını okumak için indirin.",
+    "no_subject": "(konu yok)"
   },
   "domain": {
     "msg_name_required": "Alan adı gerekli",

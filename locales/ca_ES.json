@@ -738,7 +738,15 @@
     "empty": "No hi ha missatges en quarantena.",
     "msg_released": "El missatge :id s'ha alliberat als seus destinataris.",
     "msg_deleted": "S'ha suprimit el missatge en quarantena :id.",
-    "msg_cleanup_done": "La neteja ha eliminat :quarantine missatges en quarantena i :log registres del mail log."
+    "msg_cleanup_done": "La neteja ha eliminat :quarantine missatges en quarantena i :log registres del mail log.",
+    "view_title": "Missatge en quarantena",
+    "download": "Baixa (.eml)",
+    "headers": "Capçaleres",
+    "raw_headers": "Capçaleres en brut",
+    "body": "Cos del missatge",
+    "body_empty": "Aquest missatge no té cos.",
+    "body_truncated": "El missatge és més llarg del que es mostra aquí. Baixa'l per llegir tot el text.",
+    "no_subject": "(sense assumpte)"
   },
   "domain": {
     "msg_name_required": "El nom del domini és obligatori",

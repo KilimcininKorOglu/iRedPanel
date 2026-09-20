@@ -738,7 +738,15 @@
     "empty": "Ez dago mezurik berrogeialdian.",
     "msg_released": ":id mezua hartzaileei askatu zaie.",
     "msg_deleted": "Berrogeialdiko :id mezua ezabatu da.",
-    "msg_cleanup_done": "Garbiketak berrogeialdiko :quarantine mezu eta mail log-eko :log erregistro kendu ditu."
+    "msg_cleanup_done": "Garbiketak berrogeialdiko :quarantine mezu eta mail log-eko :log erregistro kendu ditu.",
+    "view_title": "Koarentenako mezua",
+    "download": "Deskargatu (.eml)",
+    "headers": "Goiburuak",
+    "raw_headers": "Goiburu gordinak",
+    "body": "Mezuaren gorputza",
+    "body_empty": "Mezu honek ez du gorputzik.",
+    "body_truncated": "Mezua hemen erakutsitakoa baino luzeagoa da. Deskargatu testu osoa irakurtzeko.",
+    "no_subject": "(gairik gabe)"
   },
   "domain": {
     "msg_name_required": "Domeinuaren izena beharrezkoa da",

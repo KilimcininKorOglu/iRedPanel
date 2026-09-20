@@ -738,7 +738,15 @@
     "empty": "Ingen meldinger i karantene.",
     "msg_released": "Meldingen :id ble frigitt til mottakerne.",
     "msg_deleted": "Karantenemeldingen :id ble slettet.",
-    "msg_cleanup_done": "Oppryddingen fjernet :quarantine karantenemeldinger og :log mail log-oppføringer."
+    "msg_cleanup_done": "Oppryddingen fjernet :quarantine karantenemeldinger og :log mail log-oppføringer.",
+    "view_title": "Melding i karantene",
+    "download": "Last ned (.eml)",
+    "headers": "Headere",
+    "raw_headers": "Rå headere",
+    "body": "Meldingstekst",
+    "body_empty": "Denne meldingen har ingen tekst.",
+    "body_truncated": "Meldingen er lengre enn det som vises her. Last den ned for å lese hele teksten.",
+    "no_subject": "(uten emne)"
   },
   "domain": {
     "msg_name_required": "Domenenavn er påkrevd",

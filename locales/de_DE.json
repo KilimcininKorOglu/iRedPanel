@@ -738,7 +738,15 @@
     "empty": "Keine Nachrichten in Quarantäne.",
     "msg_released": "Die Nachricht :id wurde an ihre Empfänger freigegeben.",
     "msg_deleted": "Die Quarantäne-Nachricht :id wurde gelöscht.",
-    "msg_cleanup_done": "Die Bereinigung hat :quarantine Quarantäne-Nachrichten und :log Mail-Log-Einträge entfernt."
+    "msg_cleanup_done": "Die Bereinigung hat :quarantine Quarantäne-Nachrichten und :log Mail-Log-Einträge entfernt.",
+    "view_title": "Nachricht in Quarantäne",
+    "download": "Herunterladen (.eml)",
+    "headers": "Header",
+    "raw_headers": "Rohe Header",
+    "body": "Nachrichtentext",
+    "body_empty": "Diese Nachricht hat keinen Text.",
+    "body_truncated": "Die Nachricht ist länger als hier gezeigt. Laden Sie sie herunter, um den ganzen Text zu lesen.",
+    "no_subject": "(kein Betreff)"
   },
   "domain": {
     "msg_name_required": "Domainname ist erforderlich",

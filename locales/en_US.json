@@ -738,7 +738,15 @@
     "empty": "No quarantined messages.",
     "msg_released": "Message :id was released to its recipients.",
     "msg_deleted": "Quarantined message :id was deleted.",
-    "msg_cleanup_done": "Cleanup removed :quarantine quarantined messages and :log mail log records."
+    "msg_cleanup_done": "Cleanup removed :quarantine quarantined messages and :log mail log records.",
+    "view_title": "Quarantined message",
+    "download": "Download (.eml)",
+    "headers": "Headers",
+    "raw_headers": "Raw headers",
+    "body": "Message body",
+    "body_empty": "This message has no body.",
+    "body_truncated": "The message is longer than shown here. Download it to read the whole text.",
+    "no_subject": "(no subject)"
   },
   "domain": {
     "msg_name_required": "Domain name is required",

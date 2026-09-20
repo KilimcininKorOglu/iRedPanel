@@ -738,7 +738,15 @@
     "empty": "Ingen karantæneramte beskeder.",
     "msg_released": "Meddelelsen :id blev frigivet til modtagerne.",
     "msg_deleted": "Karantænemeddelelsen :id blev slettet.",
-    "msg_cleanup_done": "Oprydningen fjernede :quarantine karantænemeddelelser og :log mail log-poster."
+    "msg_cleanup_done": "Oprydningen fjernede :quarantine karantænemeddelelser og :log mail log-poster.",
+    "view_title": "Besked i karantæne",
+    "download": "Hent (.eml)",
+    "headers": "Headere",
+    "raw_headers": "Rå headere",
+    "body": "Beskedtekst",
+    "body_empty": "Denne besked har ingen tekst.",
+    "body_truncated": "Beskeden er længere end det, der vises her. Hent den for at læse hele teksten.",
+    "no_subject": "(intet emne)"
   },
   "domain": {
     "msg_name_required": "Domænenavn er påkrævet",

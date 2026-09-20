@@ -738,7 +738,15 @@
     "empty": "Nincsenek karanténba helyezett üzenetek.",
     "msg_released": "A(z) :id üzenet kiadva a címzetteknek.",
     "msg_deleted": "A(z) :id karanténba helyezett üzenet törölve.",
-    "msg_cleanup_done": "A tisztítás :quarantine karanténüzenetet és :log mail log bejegyzést távolított el."
+    "msg_cleanup_done": "A tisztítás :quarantine karanténüzenetet és :log mail log bejegyzést távolított el.",
+    "view_title": "Karanténban lévő üzenet",
+    "download": "Letöltés (.eml)",
+    "headers": "Fejlécek",
+    "raw_headers": "Nyers fejlécek",
+    "body": "Üzenet törzse",
+    "body_empty": "Ennek az üzenetnek nincs törzse.",
+    "body_truncated": "Az üzenet hosszabb az itt megjelenítettnél. Töltse le a teljes szöveg elolvasásához.",
+    "no_subject": "(nincs tárgy)"
   },
   "domain": {
     "msg_name_required": "A domainnév megadása kötelező",

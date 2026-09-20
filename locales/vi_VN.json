@@ -738,7 +738,15 @@
     "empty": "Không có tin nhắn trong cách ly.",
     "msg_released": "Đã giải phóng thư :id tới người nhận.",
     "msg_deleted": "Đã xóa thư bị cách ly :id.",
-    "msg_cleanup_done": "Dọn dẹp đã xóa :quarantine thư bị cách ly và :log bản ghi mail log."
+    "msg_cleanup_done": "Dọn dẹp đã xóa :quarantine thư bị cách ly và :log bản ghi mail log.",
+    "view_title": "Thư trong khu cách ly",
+    "download": "Tải xuống (.eml)",
+    "headers": "Header",
+    "raw_headers": "Header thô",
+    "body": "Nội dung thư",
+    "body_empty": "Thư này không có nội dung.",
+    "body_truncated": "Thư dài hơn phần hiển thị ở đây. Hãy tải xuống để đọc toàn bộ nội dung.",
+    "no_subject": "(không có chủ đề)"
   },
   "domain": {
     "msg_name_required": "Tên miền là bắt buộc",

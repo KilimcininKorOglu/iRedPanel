@@ -738,7 +738,15 @@
     "empty": "Geen berichten in quarantaine.",
     "msg_released": "Bericht :id is vrijgegeven aan de ontvangers.",
     "msg_deleted": "Quarantainebericht :id is verwijderd.",
-    "msg_cleanup_done": "Het opschonen verwijderde :quarantine quarantaineberichten en :log mail log-records."
+    "msg_cleanup_done": "Het opschonen verwijderde :quarantine quarantaineberichten en :log mail log-records.",
+    "view_title": "Bericht in quarantaine",
+    "download": "Downloaden (.eml)",
+    "headers": "Headers",
+    "raw_headers": "Ruwe headers",
+    "body": "Berichttekst",
+    "body_empty": "Dit bericht heeft geen tekst.",
+    "body_truncated": "Het bericht is langer dan hier getoond. Download het om de hele tekst te lezen.",
+    "no_subject": "(geen onderwerp)"
   },
   "domain": {
     "msg_name_required": "De domeinnaam is verplicht",

@@ -738,7 +738,15 @@
     "empty": "Nema poruka u karanteni.",
     "msg_released": "Poruka :id puštena je primateljima.",
     "msg_deleted": "Poruka u karanteni :id je izbrisana.",
-    "msg_cleanup_done": "Čišćenje je uklonilo :quarantine poruka iz karantene i :log zapisa mail loga."
+    "msg_cleanup_done": "Čišćenje je uklonilo :quarantine poruka iz karantene i :log zapisa mail loga.",
+    "view_title": "Poruka u karanteni",
+    "download": "Preuzmi (.eml)",
+    "headers": "Zaglavlja",
+    "raw_headers": "Sirova zaglavlja",
+    "body": "Tijelo poruke",
+    "body_empty": "Ova poruka nema tijelo.",
+    "body_truncated": "Poruka je dulja od prikazanog dijela. Preuzmite je da pročitate cijeli tekst.",
+    "no_subject": "(bez predmeta)"
   },
   "domain": {
     "msg_name_required": "Naziv domene je obavezan",

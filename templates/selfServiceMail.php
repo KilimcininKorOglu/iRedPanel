@@ -33,7 +33,12 @@ $action = '/self/' . $page . ($paginatedResult->currentPage > 1 ? '?page=' . $pa
         <tr>
           <td class="text-nowrap text-body-secondary"><?= $e(date('Y-m-d H:i:s', (int) $msg['time_num'])) ?></td>
           <td><?= $e($msg['from_addr'] ?? '') ?></td>
+          <?php $subject = ($msg['subject'] ?? '') !== '' ? (string) $msg['subject'] : $t('quarantine.no_subject'); ?>
+          <?php if ($quarantine): ?>
+          <td><a href="/self/quarantine/<?= $e(rawurlencode((string) $msg['mail_id'])) ?>/view"><?= $e($subject) ?></a></td>
+          <?php else: ?>
           <td><?= $e($msg['subject'] ?? '') ?></td>
+          <?php endif; ?>
           <td><?= $e($msg['spam_level'] ?? '') ?></td>
           <?php if (!$quarantine): ?>
           <?php $content = trim((string) ($msg['content'] ?? '')); ?>

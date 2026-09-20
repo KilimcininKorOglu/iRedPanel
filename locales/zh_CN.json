@@ -738,7 +738,15 @@
     "empty": "没有隔离的邮件。",
     "msg_released": "邮件 :id 已放行给收件人。",
     "msg_deleted": "已删除隔离邮件 :id。",
-    "msg_cleanup_done": "清理删除了 :quarantine 封隔离邮件和 :log 条 mail log 记录。"
+    "msg_cleanup_done": "清理删除了 :quarantine 封隔离邮件和 :log 条 mail log 记录。",
+    "view_title": "隔离的邮件",
+    "download": "下载 (.eml)",
+    "headers": "邮件头",
+    "raw_headers": "原始邮件头",
+    "body": "邮件正文",
+    "body_empty": "该邮件没有正文。",
+    "body_truncated": "邮件内容长于此处显示的部分。请下载以阅读全文。",
+    "no_subject": "(无主题)"
   },
   "domain": {
     "msg_name_required": "域名为必填项",

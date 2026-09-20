@@ -738,7 +738,15 @@
     "empty": "Karantində mesaj yoxdur.",
     "msg_released": ":id mesajı alıcılarına buraxıldı.",
     "msg_deleted": "Karantindəki :id mesajı silindi.",
-    "msg_cleanup_done": "Təmizləmə :quarantine karantin mesajını və :log mail log qeydini sildi."
+    "msg_cleanup_done": "Təmizləmə :quarantine karantin mesajını və :log mail log qeydini sildi.",
+    "view_title": "Karantindəki mesaj",
+    "download": "Yüklə (.eml)",
+    "headers": "Başlıqlar",
+    "raw_headers": "Xam başlıqlar",
+    "body": "Mesajın mətni",
+    "body_empty": "Bu mesajın mətni yoxdur.",
+    "body_truncated": "Mesaj burada göstəriləndən uzundur. Bütün mətni oxumaq üçün onu yükləyin.",
+    "no_subject": "(mövzusuz)"
   },
   "domain": {
     "msg_name_required": "Domen adı tələb olunur",

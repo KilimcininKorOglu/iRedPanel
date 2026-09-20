@@ -42,7 +42,8 @@
           <td class="text-nowrap text-body-secondary"><?= $e(date('Y-m-d H:i:s', (int) $msg['time_num'])) ?></td>
           <td><?= $e($msg['from_addr'] ?? '') ?></td>
           <td><?= $e($msg['recipient'] ?? '') ?></td>
-          <td><?= $e($msg['subject'] ?? '') ?></td>
+          <?php $viewUrl = '/amavisd/quarantine/' . rawurlencode((string) ($msg['mail_id'] ?? '')) . '/view' . ($filterDomain !== '' ? '?domain=' . rawurlencode($filterDomain) : ''); ?>
+          <td><a href="<?= $e($viewUrl) ?>"><?= $e(($msg['subject'] ?? '') !== '' ? $msg['subject'] : $t('quarantine.no_subject')) ?></a></td>
           <td><?= $e($msg['spam_level'] ?? '') ?></td>
           <td>
             <div class="table-actions">

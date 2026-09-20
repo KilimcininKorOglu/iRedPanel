@@ -738,7 +738,15 @@
     "empty": "Tidak ada pesan dalam karantina.",
     "msg_released": "Pesan :id telah dilepaskan ke penerimanya.",
     "msg_deleted": "Pesan karantina :id telah dihapus.",
-    "msg_cleanup_done": "Pembersihan menghapus :quarantine pesan karantina dan :log catatan mail log."
+    "msg_cleanup_done": "Pembersihan menghapus :quarantine pesan karantina dan :log catatan mail log.",
+    "view_title": "Pesan dalam karantina",
+    "download": "Unduh (.eml)",
+    "headers": "Header",
+    "raw_headers": "Header mentah",
+    "body": "Isi pesan",
+    "body_empty": "Pesan ini tidak memiliki isi.",
+    "body_truncated": "Pesan lebih panjang dari yang ditampilkan di sini. Unduh untuk membaca seluruh teks.",
+    "no_subject": "(tanpa subjek)"
   },
   "domain": {
     "msg_name_required": "Nama domain wajib diisi",

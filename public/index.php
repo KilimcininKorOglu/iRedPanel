@@ -83,6 +83,14 @@ $router->addRoute('GET', '/self', function () use ($tpl) {
     SelfServiceController::index($tpl);
 });
 
+$router->addRoute('GET', '/self/quarantine/{mailId}/view', function (string $mailId) use ($tpl) {
+    SelfServiceController::quarantineMail($tpl, $mailId, false);
+});
+
+$router->addRoute('GET', '/self/quarantine/{mailId}/download', function (string $mailId) use ($tpl) {
+    SelfServiceController::quarantineMail($tpl, $mailId, true);
+});
+
 $router->addRoute(['GET', 'POST'], '/self/{page}', function (string $page) use ($tpl) {
     SelfServiceController::page($tpl, $page);
 });
@@ -401,6 +409,14 @@ $router->addRoute(['GET', 'POST'], '/{domain}/users/{userUid}/{editMode}', funct
 // Amavisd integration
 $router->addRoute('GET', '/amavisd/quarantine', function () use ($tpl) {
     AmavisdController::quarantineList($tpl);
+});
+
+$router->addRoute('GET', '/amavisd/quarantine/{mailId}/view', function (string $mailId) use ($tpl) {
+    AmavisdController::quarantineView($tpl, $mailId);
+});
+
+$router->addRoute('GET', '/amavisd/quarantine/{mailId}/download', function (string $mailId) use ($tpl) {
+    AmavisdController::quarantineDownload($tpl, $mailId);
 });
 
 $router->addRoute('POST', '/amavisd/quarantine/{mailId}/release', function (string $mailId) use ($tpl) {

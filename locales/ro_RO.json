@@ -738,7 +738,15 @@
     "empty": "Niciun mesaj în carantină.",
     "msg_released": "Mesajul :id a fost eliberat către destinatari.",
     "msg_deleted": "Mesajul din carantină :id a fost șters.",
-    "msg_cleanup_done": "Curățarea a eliminat :quarantine mesaje din carantină și :log înregistrări din mail log."
+    "msg_cleanup_done": "Curățarea a eliminat :quarantine mesaje din carantină și :log înregistrări din mail log.",
+    "view_title": "Mesaj în carantină",
+    "download": "Descarcă (.eml)",
+    "headers": "Anteturi",
+    "raw_headers": "Anteturi brute",
+    "body": "Corpul mesajului",
+    "body_empty": "Acest mesaj nu are corp.",
+    "body_truncated": "Mesajul este mai lung decât cel afișat aici. Descarcă-l pentru a citi tot textul.",
+    "no_subject": "(fără subiect)"
   },
   "domain": {
     "msg_name_required": "Numele domeniului este obligatoriu",

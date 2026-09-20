@@ -738,7 +738,15 @@
     "empty": "Ni sporočil v karanteni.",
     "msg_released": "Sporočilo :id je bilo sproščeno prejemnikom.",
     "msg_deleted": "Sporočilo v karanteni :id je bilo izbrisano.",
-    "msg_cleanup_done": "Čiščenje je odstranilo :quarantine sporočil v karanteni in :log zapisov mail loga."
+    "msg_cleanup_done": "Čiščenje je odstranilo :quarantine sporočil v karanteni in :log zapisov mail loga.",
+    "view_title": "Sporočilo v karanteni",
+    "download": "Prenesi (.eml)",
+    "headers": "Glave",
+    "raw_headers": "Surove glave",
+    "body": "Telo sporočila",
+    "body_empty": "To sporočilo nima telesa.",
+    "body_truncated": "Sporočilo je daljše od prikazanega dela. Prenesite ga, da preberete celotno besedilo.",
+    "no_subject": "(brez zadeve)"
   },
   "domain": {
     "msg_name_required": "Ime domene je obvezno",

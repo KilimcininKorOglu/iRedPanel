@@ -738,7 +738,15 @@
     "empty": "격리된 메시지가 없습니다.",
     "msg_released": "메시지 :id을(를) 수신자에게 해제했습니다.",
     "msg_deleted": "격리된 메시지 :id을(를) 삭제했습니다.",
-    "msg_cleanup_done": "정리 작업으로 격리 메시지 :quarantine개와 mail log 기록 :log개를 삭제했습니다."
+    "msg_cleanup_done": "정리 작업으로 격리 메시지 :quarantine개와 mail log 기록 :log개를 삭제했습니다.",
+    "view_title": "격리된 메일",
+    "download": "다운로드 (.eml)",
+    "headers": "헤더",
+    "raw_headers": "원본 헤더",
+    "body": "메일 본문",
+    "body_empty": "이 메일에는 본문이 없습니다.",
+    "body_truncated": "메일이 여기에 표시된 것보다 깁니다. 전체 내용을 보려면 다운로드하십시오.",
+    "no_subject": "(제목 없음)"
   },
   "domain": {
     "msg_name_required": "도메인 이름이 필요합니다",

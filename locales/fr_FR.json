@@ -738,7 +738,15 @@
     "empty": "Aucun message en quarantaine.",
     "msg_released": "Le message :id a été libéré vers ses destinataires.",
     "msg_deleted": "Le message en quarantaine :id a été supprimé.",
-    "msg_cleanup_done": "Le nettoyage a supprimé :quarantine messages en quarantaine et :log entrées du mail log."
+    "msg_cleanup_done": "Le nettoyage a supprimé :quarantine messages en quarantaine et :log entrées du mail log.",
+    "view_title": "Message en quarantaine",
+    "download": "Télécharger (.eml)",
+    "headers": "En-têtes",
+    "raw_headers": "En-têtes bruts",
+    "body": "Corps du message",
+    "body_empty": "Ce message n'a pas de corps.",
+    "body_truncated": "Le message est plus long que ce qui est affiché ici. Téléchargez-le pour lire le texte complet.",
+    "no_subject": "(sans objet)"
   },
   "domain": {
     "msg_name_required": "Le nom de domaine est obligatoire",

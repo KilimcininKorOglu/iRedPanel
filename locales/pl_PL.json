@@ -738,7 +738,15 @@
     "empty": "Brak wiadomości w kwarantannie.",
     "msg_released": "Wiadomość :id została zwolniona do odbiorców.",
     "msg_deleted": "Wiadomość z kwarantanny :id została usunięta.",
-    "msg_cleanup_done": "Czyszczenie usunęło :quarantine wiadomości z kwarantanny i :log wpisów mail logu."
+    "msg_cleanup_done": "Czyszczenie usunęło :quarantine wiadomości z kwarantanny i :log wpisów mail logu.",
+    "view_title": "Wiadomość w kwarantannie",
+    "download": "Pobierz (.eml)",
+    "headers": "Nagłówki",
+    "raw_headers": "Surowe nagłówki",
+    "body": "Treść wiadomości",
+    "body_empty": "Ta wiadomość nie ma treści.",
+    "body_truncated": "Wiadomość jest dłuższa niż pokazano tutaj. Pobierz ją, aby przeczytać cały tekst.",
+    "no_subject": "(bez tematu)"
   },
   "domain": {
     "msg_name_required": "Nazwa domeny jest wymagana",

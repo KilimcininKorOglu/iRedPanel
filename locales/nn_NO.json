@@ -481,7 +481,10 @@
     "msg_invalid_allow_nets": "Ugyldig IP-avgrensing. Bruk IP-adresser og CIDR-område skilde med komma.",
     "password_last_change": "Siste passordendring",
     "password_last_change_help": "Datoen for siste passordendring. Panelet skriv han ved kvar endring (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Ingen tyder at backend enno ikkje har ein dato.",
-    "msg_quota_below_used": "Postkassa lagrar allereie :used MB. Ein domain admin kan ikkje setje kvoten til :quota MB; spør ein global admin."
+    "msg_quota_below_used": "Postkassa lagrar allereie :used MB. Ein domain admin kan ikkje setje kvoten til :quota MB; spør ein global admin.",
+    "recovery_email": "Gjenopprettingsadresse",
+    "recovery_email_help": "Ei anna mailadresse for brukaren. Lenkja for å tilbakestille passordet blir sendt til denne adressa, så ho må liggje utanfor denne postkassa. Tom tyder at brukaren ikkje kan tilbakestille passordet.",
+    "msg_invalid_recovery_email": "Gjenopprettingsadressa er ikkje ei mailadresse."
   },
   "mlist": {
     "msg_updated": "E-postliste oppdatert!",

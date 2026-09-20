@@ -481,7 +481,10 @@
     "msg_invalid_allow_nets": "การจำกัด IP ไม่ถูกต้อง ใช้ที่อยู่ IP และช่วง CIDR คั่นด้วยเครื่องหมายจุลภาค",
     "password_last_change": "การเปลี่ยนรหัสผ่านครั้งล่าสุด",
     "password_last_change_help": "วันที่เปลี่ยนรหัสผ่านครั้งล่าสุด แผงควบคุมเขียนค่านี้ทุกครั้งที่เปลี่ยนรหัสผ่าน (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`) ไม่มี หมายถึง backend ยังไม่มีวันที่",
-    "msg_quota_below_used": "กล่องจดหมายเก็บข้อมูลแล้ว :used MB domain admin ตั้งโควตาเป็น :quota MB ไม่ได้ โปรดขอ global admin"
+    "msg_quota_below_used": "กล่องจดหมายเก็บข้อมูลแล้ว :used MB domain admin ตั้งโควตาเป็น :quota MB ไม่ได้ โปรดขอ global admin",
+    "recovery_email": "ที่อยู่สำหรับกู้คืน",
+    "recovery_email_help": "ที่อยู่เมลที่สองของผู้ใช้ ลิงก์ตั้งรหัสผ่านใหม่จะถูกส่งไปยังที่อยู่นี้ จึงต้องเป็นที่อยู่นอกกล่องจดหมายนี้ หากเว้นว่าง ผู้ใช้จะตั้งรหัสผ่านใหม่ไม่ได้",
+    "msg_invalid_recovery_email": "ที่อยู่สำหรับกู้คืนไม่ใช่ที่อยู่เมล"
   },
   "mlist": {
     "msg_updated": "อัปเดตรายชื่อเมลแล้ว!",

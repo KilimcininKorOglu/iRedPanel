@@ -31,7 +31,7 @@ class PgsqlUserRepository implements UserRepositoryInterface
         $stmt = $pdo->prepare(
             "SELECT username, name, first_name, last_name,
                     quota, employeeid, mobile, telephone, active,
-                    isglobaladmin, rank, department, birthday, allow_nets, domain, passwordlastchange,
+                    isglobaladmin, rank, department, birthday, allow_nets, recovery_email, domain, passwordlastchange,
                     enablesmtp, enablesmtpsecured, enablepop3, enablepop3secured,
                     enableimap, enableimapsecured, enablemanagesieve,
                     enablemanagesievesecured, enablesogo,
@@ -60,7 +60,7 @@ class PgsqlUserRepository implements UserRepositoryInterface
         $stmt = $pdo->prepare(
             "SELECT username, name, first_name, last_name,
                     quota, employeeid, mobile, telephone, active,
-                    isglobaladmin, rank, department, birthday, allow_nets, domain, passwordlastchange,
+                    isglobaladmin, rank, department, birthday, allow_nets, recovery_email, domain, passwordlastchange,
                     enablesmtp, enablesmtpsecured, enablepop3, enablepop3secured,
                     enableimap, enableimapsecured, enablemanagesieve,
                     enablemanagesievesecured, enablesogo,
@@ -100,6 +100,7 @@ class PgsqlUserRepository implements UserRepositoryInterface
                     mobile = :mobile,
                     telephone = :telephoneNumber,
                     allow_nets = :allowNets,
+                    recovery_email = :recoveryEmail,
                     active = :active,
                     isglobaladmin = :isGlobalAdmin,
                     enablesmtp = :enableSmtp,
@@ -132,6 +133,7 @@ class PgsqlUserRepository implements UserRepositoryInterface
                 'mobile' => $user->mobile,
                 'telephoneNumber' => $user->telephoneNumber,
                 'allowNets' => $user->allowNetsSql(),
+                'recoveryEmail' => $user->recoveryEmail,
                 'active' => $active,
                 'isGlobalAdmin' => (int) $user->domainGlobalAdmin,
                 'enableSmtp' => (int) $user->enableSmtp,
@@ -259,12 +261,12 @@ class PgsqlUserRepository implements UserRepositoryInterface
             $stmt = $pdo->prepare(
                 "INSERT INTO mailbox
                     (username, password, name, first_name, last_name,
-                     quota, employeeid, rank, department, birthday, mobile, telephone, allow_nets,
+                     quota, employeeid, rank, department, birthday, mobile, telephone, allow_nets, recovery_email,
                      domain, active, isglobaladmin, storagebasedirectory,
                      storagenode, maildir, mailboxformat, mailboxfolder, language, {$serviceColumns}, created, passwordlastchange)
                  VALUES
                     (:username, :password, :cn, :givenName, :sn,
-                     :quota, :employeeNumber, :title, :department, :birthday, :mobile, :telephoneNumber, :allowNets,
+                     :quota, :employeeNumber, :title, :department, :birthday, :mobile, :telephoneNumber, :allowNets, :recoveryEmail,
                      :domain, :active, :isGlobalAdmin, :storageBase,
                      :storageNode, :maildir, :mailboxFormat, :mailboxFolder, :language, {$servicePlaceholders}, NOW(), NOW())"
             );
@@ -282,6 +284,7 @@ class PgsqlUserRepository implements UserRepositoryInterface
                 'mobile' => $user->mobile,
                 'telephoneNumber' => $user->telephoneNumber,
                 'allowNets' => $user->allowNetsSql(),
+                'recoveryEmail' => $user->recoveryEmail,
                 'domain' => $domain,
                 'active' => (int) $user->accountStatus,
                 'isGlobalAdmin' => (int) $user->domainGlobalAdmin,
@@ -365,7 +368,7 @@ class PgsqlUserRepository implements UserRepositoryInterface
         $stmt = $pdo->prepare(
             "SELECT username, name, first_name, last_name,
                     quota, employeeid, mobile, telephone, active,
-                    isglobaladmin, rank, department, birthday, allow_nets, domain, passwordlastchange,
+                    isglobaladmin, rank, department, birthday, allow_nets, recovery_email, domain, passwordlastchange,
                     enablesmtp, enablesmtpsecured, enablepop3, enablepop3secured,
                     enableimap, enableimapsecured, enablemanagesieve,
                     enablemanagesievesecured, enablesogo,
@@ -517,6 +520,7 @@ class PgsqlUserRepository implements UserRepositoryInterface
             mobile: $row['mobile'] ?? '',
             telephoneNumber: $row['telephone'] ?? '',
             allowNets: (string) ($row['allow_nets'] ?? ''),
+            recoveryEmail: (string) ($row['recovery_email'] ?? ''),
             domainGlobalAdmin: (bool) ($row['isglobaladmin'] ?? 0),
             enableSmtp: (bool) ($row['enablesmtp'] ?? 1),
             enableSmtpSecured: (bool) ($row['enablesmtpsecured'] ?? 1),

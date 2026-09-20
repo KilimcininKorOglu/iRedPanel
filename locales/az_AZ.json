@@ -481,7 +481,10 @@
     "msg_invalid_allow_nets": "Giriş IP məhdudiyyəti yanlışdır. Vergüllə ayrılmış IP ünvanları və CIDR aralıqları istifadə edin.",
     "password_last_change": "Son parol dəyişikliyi",
     "password_last_change_help": "Son parol dəyişikliyinin tarixi. Panel hər parol dəyişikliyində yazır (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Yox dəyəri backend-də hələ tarix olmadığını bildirir.",
-    "msg_quota_below_used": "Poçt qutusu artıq :used MB saxlayır. Domain admini kvotanı :quota MB edə bilməz; qlobal adminə müraciət edin."
+    "msg_quota_below_used": "Poçt qutusu artıq :used MB saxlayır. Domain admini kvotanı :quota MB edə bilməz; qlobal adminə müraciət edin.",
+    "recovery_email": "Bərpa ünvanı",
+    "recovery_email_help": "İstifadəçinin ikinci mail ünvanı. Parol sıfırlama linki bu ünvana gedir, ona görə bu mailbox-dan kənar bir ünvan olmalıdır. Boş olarsa istifadəçi parolunu sıfırlaya bilməz.",
+    "msg_invalid_recovery_email": "Bərpa ünvanı mail ünvanı deyil."
   },
   "mlist": {
     "msg_updated": "Poçt siyahısı yeniləndi!",

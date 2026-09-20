@@ -481,7 +481,10 @@
     "msg_invalid_allow_nets": "Ogiltig IP-begränsning. Använd IP-adresser och CIDR-intervall separerade med komma.",
     "password_last_change": "Senaste lösenordsbyte",
     "password_last_change_help": "Datumet för det senaste lösenordsbytet. Panelen skriver det vid varje byte (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Ingen betyder att backend ännu inte har ett datum.",
-    "msg_quota_below_used": "Brevlådan lagrar redan :used MB. En domain admin kan inte sätta kvoten till :quota MB; fråga en global admin."
+    "msg_quota_below_used": "Brevlådan lagrar redan :used MB. En domain admin kan inte sätta kvoten till :quota MB; fråga en global admin.",
+    "recovery_email": "Återställningsadress",
+    "recovery_email_help": "En andra mailadress för användaren. Länken för att återställa lösenordet skickas till denna adress, så den måste ligga utanför denna brevlåda. Tomt betyder att användaren inte kan återställa lösenordet.",
+    "msg_invalid_recovery_email": "Återställningsadressen är ingen mailadress."
   },
   "mlist": {
     "msg_updated": "Sändlista uppdaterad!",

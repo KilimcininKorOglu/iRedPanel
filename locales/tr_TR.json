@@ -481,7 +481,10 @@
     "msg_invalid_allow_nets": "Giriş IP kısıtlaması geçersiz. Virgülle ayrılmış IP adresleri ve CIDR aralıkları kullanın.",
     "password_last_change": "Son parola değişikliği",
     "password_last_change_help": "Son parola değişikliğinin tarihi. Panel her parola değişikliğinde bunu yazar (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Yok değeri backend'de henüz tarih olmadığını gösterir.",
-    "msg_quota_below_used": "Posta kutusu şu anda :used MB saklıyor. Domain admin kvotayı :quota MB yapamaz; global admin'e başvurun."
+    "msg_quota_below_used": "Posta kutusu şu anda :used MB saklıyor. Domain admin kvotayı :quota MB yapamaz; global admin'e başvurun.",
+    "recovery_email": "Kurtarma adresi",
+    "recovery_email_help": "Kullanıcının ikinci mail adresi. Parola sıfırlama linki bu adrese gider, bu yüzden bu mailbox'ın dışında bir adres olmalıdır. Boş bırakılırsa kullanıcı parolasını sıfırlayamaz.",
+    "msg_invalid_recovery_email": "Kurtarma adresi bir mail adresi değil."
   },
   "mlist": {
     "msg_updated": "Posta listesi güncellendi!",

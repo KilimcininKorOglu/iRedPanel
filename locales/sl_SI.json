@@ -481,7 +481,10 @@
     "msg_invalid_allow_nets": "Neveljavna omejitev IP. Uporabite naslove IP in obsege CIDR, ločene z vejico.",
     "password_last_change": "Zadnja sprememba gesla",
     "password_last_change_help": "Datum zadnje spremembe gesla. Nadzorna plošča ga zapiše ob vsaki spremembi (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Brez pomeni, da backend še nima datuma.",
-    "msg_quota_below_used": "Poštni predal že hrani :used MB. Domain admin ne more nastaviti kvote na :quota MB; prosite global admina."
+    "msg_quota_below_used": "Poštni predal že hrani :used MB. Domain admin ne more nastaviti kvote na :quota MB; prosite global admina.",
+    "recovery_email": "Naslov za obnovitev",
+    "recovery_email_help": "Drugi poštni naslov uporabnika. Povezava za ponastavitev gesla gre na ta naslov, zato mora biti zunaj tega predala. Prazno pomeni, da uporabnik gesla ne more ponastaviti.",
+    "msg_invalid_recovery_email": "Naslov za obnovitev ni poštni naslov."
   },
   "mlist": {
     "msg_updated": "Poštni seznam posodobljen!",

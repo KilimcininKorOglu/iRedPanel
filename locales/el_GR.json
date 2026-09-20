@@ -481,7 +481,10 @@
     "msg_invalid_allow_nets": "Μη έγκυρος περιορισμός IP. Χρησιμοποιήστε διευθύνσεις IP και εύρη CIDR χωρισμένα με κόμμα.",
     "password_last_change": "Τελευταία αλλαγή κωδικού",
     "password_last_change_help": "Η ημερομηνία της τελευταίας αλλαγής κωδικού. Το panel τη γράφει σε κάθε αλλαγή (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Καμία σημαίνει ότι το backend δεν έχει ακόμη ημερομηνία.",
-    "msg_quota_below_used": "Το γραμματοκιβώτιο αποθηκεύει ήδη :used MB. Ένας domain admin δεν μπορεί να ορίσει quota :quota MB· ζητήστε το από global admin."
+    "msg_quota_below_used": "Το γραμματοκιβώτιο αποθηκεύει ήδη :used MB. Ένας domain admin δεν μπορεί να ορίσει quota :quota MB· ζητήστε το από global admin.",
+    "recovery_email": "Διεύθυνση ανάκτησης",
+    "recovery_email_help": "Μια δεύτερη διεύθυνση mail του χρήστη. Ο σύνδεσμος επαναφοράς κωδικού στέλνεται σε αυτή τη διεύθυνση, άρα πρέπει να είναι εκτός αυτού του γραμματοκιβωτίου. Κενό σημαίνει ότι ο χρήστης δεν μπορεί να επαναφέρει τον κωδικό.",
+    "msg_invalid_recovery_email": "Η διεύθυνση ανάκτησης δεν είναι διεύθυνση mail."
   },
   "mlist": {
     "msg_updated": "Η λίστα αλληλογραφίας ενημερώθηκε!",

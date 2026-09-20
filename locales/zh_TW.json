@@ -481,7 +481,10 @@
     "msg_invalid_allow_nets": "登入 IP 限制無效。請使用以逗號分隔的 IP 位址與 CIDR 網段。",
     "password_last_change": "上次密碼變更",
     "password_last_change_help": "上次變更密碼的日期。面板在每次變更密碼時寫入該值（SQL `mailbox.passwordlastchange`，LDAP `shadowLastChange`）。無表示後端還沒有日期。",
-    "msg_quota_below_used": "信箱已儲存 :used MB。domain admin 不能把配額設為 :quota MB，請聯絡 global admin。"
+    "msg_quota_below_used": "信箱已儲存 :used MB。domain admin 不能把配額設為 :quota MB，請聯絡 global admin。",
+    "recovery_email": "找回地址",
+    "recovery_email_help": "使用者的第二個郵件地址。密碼重設連結會寄到這個地址，因此它必須位於本信箱之外。留空表示使用者無法重設密碼。",
+    "msg_invalid_recovery_email": "找回地址不是一個郵件地址。"
   },
   "mlist": {
     "msg_updated": "郵件清單已更新！",

@@ -481,7 +481,10 @@
     "msg_invalid_allow_nets": "Érvénytelen IP korlátozás. Használjon vesszővel elválasztott IP-címeket és CIDR tartományokat.",
     "password_last_change": "Utolsó jelszóváltás",
     "password_last_change_help": "Az utolsó jelszóváltás dátuma. A panel minden jelszóváltáskor kiírja (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). A Nincs azt jelenti, hogy a backend még nem tárol dátumot.",
-    "msg_quota_below_used": "A postafiók már :used MB-ot tárol. Domain admin nem állíthatja a kvótát :quota MB-ra; kérje global admintól."
+    "msg_quota_below_used": "A postafiók már :used MB-ot tárol. Domain admin nem állíthatja a kvótát :quota MB-ra; kérje global admintól.",
+    "recovery_email": "Helyreállítási cím",
+    "recovery_email_help": "A felhasználó második mailcíme. A jelszó-visszaállítási hivatkozás erre a címre érkezik, ezért a postafiókon kívül kell lennie. Üresen hagyva a felhasználó nem tudja visszaállítani a jelszavát.",
+    "msg_invalid_recovery_email": "A helyreállítási cím nem mailcím."
   },
   "mlist": {
     "msg_updated": "Levelezőlista frissítve!",

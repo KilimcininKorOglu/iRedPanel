@@ -481,7 +481,10 @@
     "msg_invalid_allow_nets": "Invalid login IP restriction. Use IP addresses and CIDR ranges separated by a comma.",
     "password_last_change": "Last password change",
     "password_last_change_help": "The date of the last password change. The panel writes it on every password change (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). None means that the backend holds no date yet.",
-    "msg_quota_below_used": "The mailbox already stores :used MB. A domain admin cannot set the quota to :quota MB; ask a global admin."
+    "msg_quota_below_used": "The mailbox already stores :used MB. A domain admin cannot set the quota to :quota MB; ask a global admin.",
+    "recovery_email": "Recovery address",
+    "recovery_email_help": "A second mail address of the user. The password reset link goes to this address, so it must be an address outside this mailbox. Empty means the user cannot reset the password.",
+    "msg_invalid_recovery_email": "The recovery address is not a mail address."
   },
   "mlist": {
     "msg_updated": "Mailing list updated!",

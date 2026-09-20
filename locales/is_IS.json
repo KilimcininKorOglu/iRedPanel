@@ -481,7 +481,10 @@
     "msg_invalid_allow_nets": "Ógild IP-takmörkun. Notaðu IP-tölur og CIDR-svið aðskilin með kommu.",
     "password_last_change": "Síðasta breyting lykilorðs",
     "password_last_change_help": "Dagsetning síðustu lykilorðsbreytingar. Stjórnborðið skrifar hana við hverja breytingu (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Ekkert merkir að bakendinn hafi enga dagsetningu enn.",
-    "msg_quota_below_used": "Pósthólfið geymir þegar :used MB. Domain admin getur ekki sett kvóta á :quota MB; biddu global admin."
+    "msg_quota_below_used": "Pósthólfið geymir þegar :used MB. Domain admin getur ekki sett kvóta á :quota MB; biddu global admin.",
+    "recovery_email": "Endurheimtunetfang",
+    "recovery_email_help": "Annað netfang notandans. Hlekkurinn til að endurstilla lykilorðið fer á þetta netfang, svo það verður að vera utan þessa pósthólfs. Autt þýðir að notandinn getur ekki endurstillt lykilorðið.",
+    "msg_invalid_recovery_email": "Endurheimtunetfangið er ekki netfang."
   },
   "mlist": {
     "msg_updated": "Póstlisti uppfærður!",

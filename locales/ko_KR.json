@@ -481,7 +481,10 @@
     "msg_invalid_allow_nets": "로그인 IP 제한이 올바르지 않습니다. 쉼표로 구분한 IP 주소와 CIDR 범위를 사용하세요.",
     "password_last_change": "마지막 비밀번호 변경",
     "password_last_change_help": "마지막으로 비밀번호를 변경한 날짜입니다. 패널이 변경할 때마다 기록합니다 (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). 없음은 백엔드에 아직 날짜가 없다는 뜻입니다.",
-    "msg_quota_below_used": "메일박스가 이미 :used MB를 저장하고 있습니다. domain admin은 할당량을 :quota MB로 설정할 수 없습니다. global admin에게 요청하세요."
+    "msg_quota_below_used": "메일박스가 이미 :used MB를 저장하고 있습니다. domain admin은 할당량을 :quota MB로 설정할 수 없습니다. global admin에게 요청하세요.",
+    "recovery_email": "복구 주소",
+    "recovery_email_help": "사용자의 두 번째 메일 주소입니다. 비밀번호 재설정 링크가 이 주소로 전송되므로 이 메일함 밖의 주소여야 합니다. 비워 두면 사용자가 비밀번호를 재설정할 수 없습니다.",
+    "msg_invalid_recovery_email": "복구 주소가 메일 주소가 아닙니다."
   },
   "mlist": {
     "msg_updated": "메일링 리스트가 업데이트되었습니다!",

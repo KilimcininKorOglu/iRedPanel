@@ -481,7 +481,10 @@
     "msg_invalid_allow_nets": "Restricție IP invalidă. Folosiți adrese IP și intervale CIDR separate prin virgulă.",
     "password_last_change": "Ultima schimbare a parolei",
     "password_last_change_help": "Data ultimei schimbări a parolei. Panoul o scrie la fiecare schimbare (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Niciuna înseamnă că backend-ul nu are încă o dată.",
-    "msg_quota_below_used": "Căsuța stochează deja :used MB. Un domain admin nu poate seta cota la :quota MB; cereți unui global admin."
+    "msg_quota_below_used": "Căsuța stochează deja :used MB. Un domain admin nu poate seta cota la :quota MB; cereți unui global admin.",
+    "recovery_email": "Adresă de recuperare",
+    "recovery_email_help": "O a doua adresă de mail a utilizatorului. Linkul de resetare a parolei ajunge la această adresă, deci trebuie să fie în afara acestei cutii. Gol înseamnă că utilizatorul nu își poate reseta parola.",
+    "msg_invalid_recovery_email": "Adresa de recuperare nu este o adresă de mail."
   },
   "mlist": {
     "msg_updated": "Lista de corespondență a fost actualizată!",

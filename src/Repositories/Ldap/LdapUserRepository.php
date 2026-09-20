@@ -18,7 +18,7 @@ class LdapUserRepository implements UserRepositoryInterface
     private const USER_DETAIL_ATTRS = [
         'mail', 'accountStatus', 'domainGlobalAdmin', 'mailQuota', 'uid',
         'cn', 'givenName', 'sn', 'title', 'departmentNumber', 'birthday',
-        'telephoneNumber', 'mobile', 'employeeNumber', 'allowNets',
+        'telephoneNumber', 'mobile', 'employeeNumber', 'allowNets', 'recoveryEmail',
         'enabledService', 'preferredLanguage', 'shadowLastChange',
     ];
 
@@ -119,6 +119,7 @@ class LdapUserRepository implements UserRepositoryInterface
             LdapUtils::modReplace('telephoneNumber', self::orNull($user->telephoneNumber)),
             LdapUtils::modReplace('mobile', self::orNull($user->mobile)),
             LdapUtils::modReplace('allowNets', self::orNull($user->allowNets)),
+            LdapUtils::modReplace('recoveryEmail', self::orNull($user->recoveryEmail)),
             LdapUtils::modReplace('accountStatus', $user->accountStatus ? 'active' : 'disabled'),
         ];
         // null: the caller did not read the language, so the stored value stays.
@@ -222,6 +223,7 @@ class LdapUserRepository implements UserRepositoryInterface
             'mobile' => $user->mobile,
             'telephoneNumber' => $user->telephoneNumber,
             'allowNets' => $user->allowNets,
+            'recoveryEmail' => $user->recoveryEmail,
             'preferredLanguage' => $user->language ?? '',
             // Dovecot reads a missing value as its default (maildir, Maildir).
             'mailboxFormat' => $storage->format ?? '',

@@ -481,7 +481,10 @@
     "msg_invalid_allow_nets": "Restricció d'IP no vàlida. Feu servir adreces IP i rangs CIDR separats per comes.",
     "password_last_change": "Últim canvi de contrasenya",
     "password_last_change_help": "La data de l'últim canvi de contrasenya. El panell l'escriu a cada canvi (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Cap vol dir que el backend encara no té data.",
-    "msg_quota_below_used": "La bústia ja desa :used MB. Un domain admin no pot posar la quota a :quota MB; demaneu-ho a un global admin."
+    "msg_quota_below_used": "La bústia ja desa :used MB. Un domain admin no pot posar la quota a :quota MB; demaneu-ho a un global admin.",
+    "recovery_email": "Adreça de recuperació",
+    "recovery_email_help": "Una segona adreça de correu de l'usuari. L'enllaç per restablir la contrasenya s'envia a aquesta adreça, per tant ha de ser fora d'aquesta bústia. Buit vol dir que l'usuari no pot restablir la contrasenya.",
+    "msg_invalid_recovery_email": "L'adreça de recuperació no és una adreça de correu."
   },
   "mlist": {
     "msg_updated": "Llista de correu actualitzada!",

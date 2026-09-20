@@ -83,6 +83,8 @@ class User
         public string $telephoneNumber = '',
         /** Comma-separated IP addresses and CIDR ranges the mailbox may log in from; '' allows every address. */
         public string $allowNets = '',
+        /** Address that receives the password reset link; '' means the mailbox has none. */
+        public string $recoveryEmail = '',
         public bool $domainGlobalAdmin = false,
         // Mail service toggles
         public bool $enableSmtp = true,
@@ -155,6 +157,24 @@ class User
         }
 
         throw new InvalidInputException('birthday must be a date in YYYY-MM-DD format', 'user.msg_invalid_birthday');
+    }
+
+    /**
+     * Checks the recovery address. An empty value removes the address.
+     *
+     * @throws InvalidInputException when the value is no mail address
+     */
+    public static function validRecoveryEmail(mixed $value): string
+    {
+        if ($value === null || $value === '') {
+            return '';
+        }
+        $address = is_string($value) ? strtolower(trim($value)) : '';
+        if ($address === '' || filter_var($address, FILTER_VALIDATE_EMAIL) === false) {
+            throw new InvalidInputException('recoveryEmail must be a mail address', 'user.msg_invalid_recovery_email');
+        }
+
+        return $address;
     }
 
     /**
@@ -353,6 +373,7 @@ class User
             mobile: $entry['mobile'] ?? '',
             telephoneNumber: $entry['telephoneNumber'] ?? '',
             allowNets: $entry['allowNets'] ?? '',
+            recoveryEmail: $entry['recoveryEmail'] ?? '',
             domainGlobalAdmin: ($entry['domainGlobalAdmin'] ?? '') === 'yes',
             language: $entry['preferredLanguage'] ?? null,
             passwordLastChange: self::passwordChangeFromShadow($entry['shadowLastChange'] ?? null),
@@ -395,6 +416,7 @@ class User
             mobile: FormValue::text($post, 'mobile'),
             telephoneNumber: FormValue::text($post, 'telephoneNumber'),
             allowNets: self::validAllowNets($post['allowNets'] ?? ''),
+            recoveryEmail: self::validRecoveryEmail($post['recoveryEmail'] ?? ''),
             domainGlobalAdmin: (bool) ($post['domainGlobalAdmin'] ?? false),
             enableSmtp: (bool) ($post['enableSmtp'] ?? false),
             enableSmtpSecured: (bool) ($post['enableSmtpSecured'] ?? false),

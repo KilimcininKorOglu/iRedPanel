@@ -32,6 +32,10 @@ $cnLocked = in_array('cn', $lockedFields, true);
               <?php endforeach; ?>
             </select>
           </div>
+          <div class="col-md-6">
+            <label for="recoveryEmail" class="form-label"><?= $te('user.recovery_email') ?></label><?= $help('user.recovery_email') ?>
+            <input id="recoveryEmail" name="recoveryEmail" type="email" class="form-control" value="<?= $e($user->recoveryEmail) ?>" spellcheck="false" />
+          </div>
         </div>
       </div>
       <div class="card-footer">

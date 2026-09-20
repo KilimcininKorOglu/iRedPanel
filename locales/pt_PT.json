@@ -481,7 +481,10 @@
     "msg_invalid_allow_nets": "Restrição de IP inválida. Use endereços IP e intervalos CIDR separados por vírgula.",
     "password_last_change": "Última alteração de palavra-passe",
     "password_last_change_help": "A data da última alteração de palavra-passe. O painel grava-a em cada alteração (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Nenhuma significa que o backend ainda não tem data.",
-    "msg_quota_below_used": "A caixa já guarda :used MB. Um domain admin não pode definir a quota em :quota MB; peça a um global admin."
+    "msg_quota_below_used": "A caixa já guarda :used MB. Um domain admin não pode definir a quota em :quota MB; peça a um global admin.",
+    "recovery_email": "Endereço de recuperação",
+    "recovery_email_help": "Um segundo endereço de mail do utilizador. A ligação de reposição da palavra-passe é enviada para este endereço, por isso tem de estar fora desta caixa. Vazio significa que o utilizador não pode repor a palavra-passe.",
+    "msg_invalid_recovery_email": "O endereço de recuperação não é um endereço de mail."
   },
   "mlist": {
     "msg_updated": "Lista de distribuição atualizada!",

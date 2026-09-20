@@ -481,7 +481,10 @@
     "msg_invalid_allow_nets": "Restrizione IP non valida. Usa indirizzi IP e intervalli CIDR separati da una virgola.",
     "password_last_change": "Ultima modifica della password",
     "password_last_change_help": "La data dell'ultima modifica della password. Il pannello la scrive a ogni modifica (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Nessuna significa che il backend non ha ancora una data.",
-    "msg_quota_below_used": "La casella memorizza già :used MB. Un domain admin non può impostare la quota a :quota MB; chiedi a un global admin."
+    "msg_quota_below_used": "La casella memorizza già :used MB. Un domain admin non può impostare la quota a :quota MB; chiedi a un global admin.",
+    "recovery_email": "Indirizzo di recupero",
+    "recovery_email_help": "Un secondo indirizzo mail dell'utente. Il link per reimpostare la password viene inviato a questo indirizzo, quindi deve essere fuori da questa casella. Vuoto significa che l'utente non può reimpostare la password.",
+    "msg_invalid_recovery_email": "L'indirizzo di recupero non è un indirizzo mail."
   },
   "mlist": {
     "msg_updated": "Lista di distribuzione aggiornata!",

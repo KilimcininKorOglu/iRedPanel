@@ -481,7 +481,10 @@
     "msg_invalid_allow_nets": "IP muga baliogabea. Erabili komaz bereizitako IP helbideak eta CIDR barrutiak.",
     "password_last_change": "Azken pasahitz aldaketa",
     "password_last_change_help": "Azken pasahitz aldaketaren data. Panelak aldaketa bakoitzean idazten du (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Bat ere ez esan nahi du backend-ak oraindik ez duela datarik.",
-    "msg_quota_below_used": "Postontziak :used MB gordetzen ditu jada. Domain admin batek ezin du kuota :quota MB-ra jaitsi; eskatu global admin bati."
+    "msg_quota_below_used": "Postontziak :used MB gordetzen ditu jada. Domain admin batek ezin du kuota :quota MB-ra jaitsi; eskatu global admin bati.",
+    "recovery_email": "Berreskuratze helbidea",
+    "recovery_email_help": "Erabiltzailearen bigarren mail helbidea. Pasahitza berrezartzeko esteka helbide horretara doa, beraz postontzi honetatik kanpo egon behar du. Hutsik utziz gero, erabiltzaileak ezin du pasahitza berrezarri.",
+    "msg_invalid_recovery_email": "Berreskuratze helbidea ez da mail helbide bat."
   },
   "mlist": {
     "msg_updated": "Posta-zerrenda eguneratu da!",

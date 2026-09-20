@@ -481,7 +481,10 @@
     "msg_invalid_allow_nets": "Ungültige Login-IP-Beschränkung. Verwenden Sie durch Komma getrennte IP-Adressen und CIDR-Bereiche.",
     "password_last_change": "Letzte Passwortänderung",
     "password_last_change_help": "Das Datum der letzten Passwortänderung. Das Panel schreibt es bei jeder Änderung (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Keine bedeutet, dass das Backend noch kein Datum hat.",
-    "msg_quota_below_used": "Das Postfach speichert bereits :used MB. Ein Domain-Admin kann die Quota nicht auf :quota MB setzen; fragen Sie einen globalen Admin."
+    "msg_quota_below_used": "Das Postfach speichert bereits :used MB. Ein Domain-Admin kann die Quota nicht auf :quota MB setzen; fragen Sie einen globalen Admin.",
+    "recovery_email": "Wiederherstellungsadresse",
+    "recovery_email_help": "Eine zweite Mailadresse des Benutzers. Der Link zum Zurücksetzen des Passworts geht an diese Adresse, sie muss also außerhalb dieses Postfachs liegen. Leer bedeutet, dass der Benutzer das Passwort nicht zurücksetzen kann.",
+    "msg_invalid_recovery_email": "Die Wiederherstellungsadresse ist keine Mailadresse."
   },
   "mlist": {
     "msg_updated": "Mailingliste aktualisiert!",

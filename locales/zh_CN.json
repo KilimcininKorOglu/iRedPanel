@@ -481,7 +481,10 @@
     "msg_invalid_allow_nets": "登录 IP 限制无效。请使用以逗号分隔的 IP 地址和 CIDR 网段。",
     "password_last_change": "上次密码修改",
     "password_last_change_help": "上次修改密码的日期。面板在每次修改密码时写入该值（SQL `mailbox.passwordlastchange`，LDAP `shadowLastChange`）。无表示后端还没有日期。",
-    "msg_quota_below_used": "邮箱已存储 :used MB。domain admin 不能把配额设为 :quota MB，请联系 global admin。"
+    "msg_quota_below_used": "邮箱已存储 :used MB。domain admin 不能把配额设为 :quota MB，请联系 global admin。",
+    "recovery_email": "找回地址",
+    "recovery_email_help": "用户的第二个邮件地址。密码重置链接会发送到该地址，因此它必须位于本邮箱之外。留空表示用户无法重置密码。",
+    "msg_invalid_recovery_email": "找回地址不是一个邮件地址。"
   },
   "mlist": {
     "msg_updated": "邮件列表已更新！",

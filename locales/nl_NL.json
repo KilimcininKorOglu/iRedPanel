@@ -481,7 +481,10 @@
     "msg_invalid_allow_nets": "Ongeldige IP-beperking. Gebruik IP-adressen en CIDR-bereiken gescheiden door een komma.",
     "password_last_change": "Laatste wachtwoordwijziging",
     "password_last_change_help": "De datum van de laatste wachtwoordwijziging. Het panel schrijft deze bij elke wijziging (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Geen betekent dat de backend nog geen datum heeft.",
-    "msg_quota_below_used": "De mailbox bevat al :used MB. Een domain admin kan de quota niet op :quota MB zetten; vraag een global admin."
+    "msg_quota_below_used": "De mailbox bevat al :used MB. Een domain admin kan de quota niet op :quota MB zetten; vraag een global admin.",
+    "recovery_email": "Herstel-adres",
+    "recovery_email_help": "Een tweede mailadres van de gebruiker. De link om het wachtwoord opnieuw in te stellen gaat naar dit adres, dus het moet buiten deze mailbox liggen. Leeg betekent dat de gebruiker het wachtwoord niet opnieuw kan instellen.",
+    "msg_invalid_recovery_email": "Het herstel-adres is geen mailadres."
   },
   "mlist": {
     "msg_updated": "Mailinglijst bijgewerkt!",

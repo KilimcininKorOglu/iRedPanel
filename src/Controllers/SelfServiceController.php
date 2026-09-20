@@ -222,6 +222,7 @@ class SelfServiceController
         $stored = clone $user;
         $user->cn = trim((string) ($_POST['cn'] ?? ''));
         $user->language = self::postedLanguage();
+        $user->recoveryEmail = User::validRecoveryEmail($_POST['recoveryEmail'] ?? '');
         ReplicatedAccountGuard::keepUserFields($account['email'], $user, $stored);
 
         RepositoryFactory::getUserRepository()->updateUser($account['domain'], $user);

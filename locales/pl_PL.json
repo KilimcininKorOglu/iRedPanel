@@ -481,7 +481,10 @@
     "msg_invalid_allow_nets": "Nieprawidłowe ograniczenie IP. Użyj adresów IP i zakresów CIDR oddzielonych przecinkiem.",
     "password_last_change": "Ostatnia zmiana hasła",
     "password_last_change_help": "Data ostatniej zmiany hasła. Panel zapisuje ją przy każdej zmianie (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Brak oznacza, że backend nie ma jeszcze daty.",
-    "msg_quota_below_used": "Skrzynka przechowuje już :used MB. Domain admin nie może ustawić limitu na :quota MB; poproś global admina."
+    "msg_quota_below_used": "Skrzynka przechowuje już :used MB. Domain admin nie może ustawić limitu na :quota MB; poproś global admina.",
+    "recovery_email": "Adres odzyskiwania",
+    "recovery_email_help": "Drugi adres mail użytkownika. Link do zresetowania hasła trafia na ten adres, więc musi być poza tą skrzynką. Puste pole oznacza, że użytkownik nie może zresetować hasła.",
+    "msg_invalid_recovery_email": "Adres odzyskiwania nie jest adresem mail."
   },
   "mlist": {
     "msg_updated": "Lista mailingowa zaktualizowana!",

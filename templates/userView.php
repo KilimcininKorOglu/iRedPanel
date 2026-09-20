@@ -135,6 +135,10 @@ $services = \App\Models\User::SERVICE_LABELS;
               <?php endforeach; ?>
             </select>
           </div>
+          <div class="col-md-6">
+            <label for="recoveryEmail" class="form-label"><?= $te('user.recovery_email') ?></label><?= $help('user.recovery_email') ?>
+            <input id="recoveryEmail" name="recoveryEmail" type="email" class="<?= $fieldClass('recoveryEmail') ?>" value="<?= $e($user->recoveryEmail) ?>" spellcheck="false" />
+          </div>
           <div class="col-12">
             <label for="allowNets" class="form-label"><?= $te('user.allow_nets') ?></label><?= $help('user.allow_nets') ?>
             <input id="allowNets" name="allowNets" type="text" class="<?= $fieldClass('allowNets') ?>" value="<?= $e($user->allowNets) ?>" spellcheck="false" />

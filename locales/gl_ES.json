@@ -481,7 +481,10 @@
     "msg_invalid_allow_nets": "Restrición de IP non válida. Use enderezos IP e rangos CIDR separados por comas.",
     "password_last_change": "Último cambio de contrasinal",
     "password_last_change_help": "A data do último cambio de contrasinal. O panel escríbea en cada cambio (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Ningunha significa que o backend aínda non ten data.",
-    "msg_quota_below_used": "A caixa xa garda :used MB. Un domain admin non pode poñer a cota en :quota MB; pídello a un global admin."
+    "msg_quota_below_used": "A caixa xa garda :used MB. Un domain admin non pode poñer a cota en :quota MB; pídello a un global admin.",
+    "recovery_email": "Enderezo de recuperación",
+    "recovery_email_help": "Un segundo enderezo de correo do usuario. A ligazón para restablecer o contrasinal envíase a este enderezo, polo que debe estar fóra desta caixa. Baleiro significa que o usuario non pode restablecer o contrasinal.",
+    "msg_invalid_recovery_email": "O enderezo de recuperación non é un enderezo de correo."
   },
   "mlist": {
     "msg_updated": "Lista de correo actualizada!",

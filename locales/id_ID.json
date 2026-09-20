@@ -481,7 +481,10 @@
     "msg_invalid_allow_nets": "Pembatasan IP tidak valid. Gunakan alamat IP dan rentang CIDR yang dipisahkan koma.",
     "password_last_change": "Perubahan kata sandi terakhir",
     "password_last_change_help": "Tanggal perubahan kata sandi terakhir. Panel menulisnya pada setiap perubahan (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Tidak ada berarti backend belum menyimpan tanggal.",
-    "msg_quota_below_used": "Kotak surat sudah menyimpan :used MB. Domain admin tidak dapat menetapkan kuota :quota MB; mintalah global admin."
+    "msg_quota_below_used": "Kotak surat sudah menyimpan :used MB. Domain admin tidak dapat menetapkan kuota :quota MB; mintalah global admin.",
+    "recovery_email": "Alamat pemulihan",
+    "recovery_email_help": "Alamat mail kedua pengguna. Tautan pengaturan ulang kata sandi dikirim ke alamat ini, jadi alamat itu harus di luar kotak surat ini. Kosong berarti pengguna tidak dapat mengatur ulang kata sandi.",
+    "msg_invalid_recovery_email": "Alamat pemulihan bukan alamat mail."
   },
   "mlist": {
     "msg_updated": "Milis diperbarui!",

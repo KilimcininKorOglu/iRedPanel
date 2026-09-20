@@ -481,7 +481,10 @@
     "msg_invalid_allow_nets": "Restriction IP non valide. Utilisez des adresses IP et des plages CIDR séparées par une virgule.",
     "password_last_change": "Dernier changement de mot de passe",
     "password_last_change_help": "La date du dernier changement de mot de passe. Le panel l'écrit à chaque changement (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Aucune signifie que le backend n'a pas encore de date.",
-    "msg_quota_below_used": "La boîte stocke déjà :used Mo. Un domain admin ne peut pas fixer le quota à :quota Mo ; demandez à un global admin."
+    "msg_quota_below_used": "La boîte stocke déjà :used Mo. Un domain admin ne peut pas fixer le quota à :quota Mo ; demandez à un global admin.",
+    "recovery_email": "Adresse de récupération",
+    "recovery_email_help": "Une seconde adresse mail de l'utilisateur. Le lien de réinitialisation du mot de passe est envoyé à cette adresse, elle doit donc être en dehors de cette boîte. Vide signifie que l'utilisateur ne peut pas réinitialiser son mot de passe.",
+    "msg_invalid_recovery_email": "L'adresse de récupération n'est pas une adresse mail."
   },
   "mlist": {
     "msg_updated": "Liste de diffusion mise à jour !",

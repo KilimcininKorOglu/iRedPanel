@@ -481,7 +481,10 @@
     "msg_invalid_allow_nets": "Vigane IP piirang. Kasuta komaga eraldatud IP-aadresse ja CIDR-vahemikke.",
     "password_last_change": "Viimane parooli muutmine",
     "password_last_change_help": "Viimase parooli muutmise kuupäev. Paneel kirjutab selle iga muutmisega (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Puudub tähendab, et backend'il pole veel kuupäeva.",
-    "msg_quota_below_used": "Postkast hoiab juba :used MB. Domain admin ei saa kvooti määrata :quota MB peale; küsi global admini käest."
+    "msg_quota_below_used": "Postkast hoiab juba :used MB. Domain admin ei saa kvooti määrata :quota MB peale; küsi global admini käest.",
+    "recovery_email": "Taasteaadress",
+    "recovery_email_help": "Kasutaja teine e-posti aadress. Parooli lähtestamise link läheb sellele aadressile, seega peab see olema väljaspool seda postkasti. Tühi tähendab, et kasutaja ei saa parooli lähtestada.",
+    "msg_invalid_recovery_email": "Taasteaadress ei ole e-posti aadress."
   },
   "mlist": {
     "msg_updated": "Postiloend uuendatud!",

@@ -481,7 +481,10 @@
     "msg_invalid_allow_nets": "Neispravno ograničenje IP adrese. Koristite IP adrese i CIDR raspone odvojene zarezom.",
     "password_last_change": "Zadnja promjena lozinke",
     "password_last_change_help": "Datum zadnje promjene lozinke. Panel ga zapisuje pri svakoj promjeni (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Nema znači da backend još nema datum.",
-    "msg_quota_below_used": "Sandučić već sadrži :used MB. Domain admin ne može postaviti kvotu na :quota MB; zatražite od global admina."
+    "msg_quota_below_used": "Sandučić već sadrži :used MB. Domain admin ne može postaviti kvotu na :quota MB; zatražite od global admina.",
+    "recovery_email": "Adresa za oporavak",
+    "recovery_email_help": "Druga mail adresa korisnika. Poveznica za promjenu lozinke ide na tu adresu, pa mora biti izvan ovog sandučića. Prazno znači da korisnik ne može promijeniti lozinku.",
+    "msg_invalid_recovery_email": "Adresa za oporavak nije mail adresa."
   },
   "mlist": {
     "msg_updated": "Mailing lista ažurirana!",

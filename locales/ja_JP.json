@@ -481,7 +481,10 @@
     "msg_invalid_allow_nets": "ログイン IP 制限が正しくありません。カンマ区切りの IP アドレスと CIDR 範囲を使用してください。",
     "password_last_change": "最終パスワード変更",
     "password_last_change_help": "最後にパスワードを変更した日付です。パネルは変更のたびに書き込みます (SQL `mailbox.passwordlastchange`、LDAP `shadowLastChange`)。なしはバックエンドにまだ日付がないことを示します。",
-    "msg_quota_below_used": "メールボックスはすでに :used MB を保存しています。domain admin はクォータを :quota MB にできません。global admin に依頼してください。"
+    "msg_quota_below_used": "メールボックスはすでに :used MB を保存しています。domain admin はクォータを :quota MB にできません。global admin に依頼してください。",
+    "recovery_email": "復旧用アドレス",
+    "recovery_email_help": "ユーザーの2つ目のメールアドレスです。パスワード再設定のリンクはこのアドレスに届くため、このメールボックスの外のアドレスにしてください。空の場合、ユーザーはパスワードを再設定できません。",
+    "msg_invalid_recovery_email": "復旧用アドレスがメールアドレスではありません。"
   },
   "mlist": {
     "msg_updated": "メーリングリストを更新しました！",

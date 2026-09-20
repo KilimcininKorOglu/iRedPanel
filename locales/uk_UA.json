@@ -481,7 +481,10 @@
     "msg_invalid_allow_nets": "Некоректне обмеження IP. Використовуйте IP-адреси та діапазони CIDR через кому.",
     "password_last_change": "Остання зміна пароля",
     "password_last_change_help": "Дата останньої зміни пароля. Панель записує її під час кожної зміни (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Немає означає, що backend ще не має дати.",
-    "msg_quota_below_used": "Скринька вже зберігає :used МБ. Domain admin не може задати квоту :quota МБ; зверніться до global admin."
+    "msg_quota_below_used": "Скринька вже зберігає :used МБ. Domain admin не може задати квоту :quota МБ; зверніться до global admin.",
+    "recovery_email": "Адреса відновлення",
+    "recovery_email_help": "Друга поштова адреса користувача. Посилання для скидання пароля надсилається на цю адресу, тож вона має бути поза цією скринькою. Порожнє значення означає, що користувач не може скинути пароль.",
+    "msg_invalid_recovery_email": "Адреса відновлення не є поштовою адресою."
   },
   "mlist": {
     "msg_updated": "Список розсилки оновлено!",

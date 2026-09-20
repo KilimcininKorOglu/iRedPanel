@@ -481,7 +481,10 @@
     "msg_invalid_allow_nets": "Neplatné omezení IP. Použijte IP adresy a rozsahy CIDR oddělené čárkou.",
     "password_last_change": "Poslední změna hesla",
     "password_last_change_help": "Datum poslední změny hesla. Panel ho zapíše při každé změně (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Žádné znamená, že backend zatím datum nemá.",
-    "msg_quota_below_used": "Schránka už obsahuje :used MB. Domain admin nemůže nastavit kvótu na :quota MB; požádejte global admina."
+    "msg_quota_below_used": "Schránka už obsahuje :used MB. Domain admin nemůže nastavit kvótu na :quota MB; požádejte global admina.",
+    "recovery_email": "Adresa pro obnovu",
+    "recovery_email_help": "Druhá mailová adresa uživatele. Odkaz pro obnovu hesla jde na tuto adresu, musí tedy být mimo tuto schránku. Prázdná hodnota znamená, že uživatel heslo obnovit nemůže.",
+    "msg_invalid_recovery_email": "Adresa pro obnovu není mailová adresa."
   },
   "mlist": {
     "msg_updated": "Poštovní konference aktualizována!",

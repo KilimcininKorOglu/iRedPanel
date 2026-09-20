@@ -481,7 +481,10 @@
     "msg_invalid_allow_nets": "Неверное ограничение IP. Используйте IP-адреса и диапазоны CIDR через запятую.",
     "password_last_change": "Последняя смена пароля",
     "password_last_change_help": "Дата последней смены пароля. Панель записывает её при каждой смене (SQL `mailbox.passwordlastchange`, LDAP `shadowLastChange`). Нет означает, что в backend ещё нет даты.",
-    "msg_quota_below_used": "Почтовый ящик уже хранит :used МБ. Domain admin не может задать квоту :quota МБ; обратитесь к global admin."
+    "msg_quota_below_used": "Почтовый ящик уже хранит :used МБ. Domain admin не может задать квоту :quota МБ; обратитесь к global admin.",
+    "recovery_email": "Адрес для восстановления",
+    "recovery_email_help": "Второй почтовый адрес пользователя. Ссылка для сброса пароля отправляется на этот адрес, поэтому он должен находиться вне этого ящика. Пустое значение означает, что пользователь не может сбросить пароль.",
+    "msg_invalid_recovery_email": "Адрес для восстановления не является почтовым адресом."
   },
   "mlist": {
     "msg_updated": "Список рассылки обновлён!",

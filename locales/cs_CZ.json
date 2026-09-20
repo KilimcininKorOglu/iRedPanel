@@ -1136,7 +1136,18 @@
     "managed_by": "Active Directory",
     "managed_help": "Tento účet se replikuje z adresáře. Replikovaná pole lze měnit pouze tam.",
     "msg_managed": "Adresu :address spravuje adresář. Změňte ji v adresáři.",
-    "managed_group_help": "Tato skupina se replikuje z adresáře. Její název a členy lze změnit pouze tam."
+    "managed_group_help": "Tato skupina se replikuje z adresáře. Její název a členy lze změnit pouze tam.",
+    "host_help": "Jméno nebo IP adresa domain controlleru. Panel přes něj čte adresář.",
+    "port_help": "389 pro LDAP se StartTLS, 636 pro LDAP přes SSL. Port musí odpovídat nastavení TLS.",
+    "timeout_help": "Jak dlouho panel čeká na odpověď adresáře. Poté běh skončí chybou.",
+    "base_dn_help": "Podstrom adresáře, od kterého začíná hledání. Záznam mimo něj se nenajde.",
+    "bind_dn_help": "DN účtu, kterým panel provádí bind. Stačí účet jen pro čtení.",
+    "bind_password_help": "Heslo bind účtu. Ukládá se zašifrované a nikdy se nezapisuje zpět do této stránky.",
+    "user_filter_help": "LDAP filtr záznamů, které se stanou schránkami. Záznam mimo filtr zůstane nedotčený.",
+    "group_filter_help": "LDAP filtr záznamů, které se stanou mailovými aliasy. Čte se jen tehdy, když je replikace skupin zapnutá.",
+    "account_status_help": "Atribut nesoucí stav aktivity. userAccountControl se čte jako bitové pole; jiný atribut platí za vypnutý, když se jeho hodnota čte jako vypnuto. Prázdné nechá místní stav beze změny.",
+    "group_mail_attribute_help": "Atribut nesoucí adresu skupiny. Hodnota musí být jedinečná adresa v cílové doméně.",
+    "group_name_attribute_help": "Atribut nesoucí zobrazované jméno skupiny. Prázdné nechá jméno aliasu prázdné."
   },
   "self": {
     "msg_released": "Zpráva byla doručena do vaší schránky.",

@@ -1136,7 +1136,18 @@
     "managed_by": "Active Directory",
     "managed_help": "Ce compte est répliqué depuis l'annuaire. Les champs répliqués ne peuvent être modifiés que là-bas.",
     "msg_managed": "L'annuaire gère :address. Modifiez-le dans l'annuaire.",
-    "managed_group_help": "Ce groupe est répliqué depuis l'annuaire. Son nom et ses membres ne peuvent être modifiés que là-bas."
+    "managed_group_help": "Ce groupe est répliqué depuis l'annuaire. Son nom et ses membres ne peuvent être modifiés que là-bas.",
+    "host_help": "Le nom ou l'adresse IP du contrôleur de domaine. Le panneau lit l'annuaire par là.",
+    "port_help": "389 pour LDAP avec StartTLS, 636 pour LDAP sur SSL. Le port doit correspondre au réglage TLS.",
+    "timeout_help": "Combien de temps le panneau attend la réponse de l'annuaire. Après cela, l'exécution s'arrête sur une erreur.",
+    "base_dn_help": "La sous-arborescence de l'annuaire où commence la recherche. Une entrée en dehors n'est pas trouvée.",
+    "bind_dn_help": "Le DN du compte avec lequel le panneau se connecte. Un compte en lecture seule suffit.",
+    "bind_password_help": "Le mot de passe du compte de connexion. Il est stocké chiffré et n'est jamais réécrit dans cette page.",
+    "user_filter_help": "Le filtre LDAP des entrées qui deviennent des boîtes. Une entrée hors du filtre reste intacte.",
+    "group_filter_help": "Le filtre LDAP des entrées qui deviennent des alias mail. Il n'est lu que si la réplication des groupes est activée.",
+    "account_status_help": "L'attribut qui porte l'état actif. userAccountControl est lu comme un champ de bits ; un autre attribut compte comme désactivé quand sa valeur se lit comme non. Vide laisse l'état local intact.",
+    "group_mail_attribute_help": "L'attribut qui porte l'adresse du groupe. La valeur doit être une adresse unique dans le domaine cible.",
+    "group_name_attribute_help": "L'attribut qui porte le nom affiché du groupe. Vide laisse le nom de l'alias vide."
   },
   "self": {
     "msg_released": "Le message a été remis dans votre boîte aux lettres.",

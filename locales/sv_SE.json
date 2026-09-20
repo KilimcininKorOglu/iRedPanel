@@ -1136,7 +1136,18 @@
     "managed_by": "Active Directory",
     "managed_help": "Det här kontot replikeras från katalogen. De replikerade fälten kan bara ändras där.",
     "msg_managed": "Katalogen hanterar :address. Gör ändringen i katalogen.",
-    "managed_group_help": "Den här gruppen replikeras från katalogen. Namn och medlemmar kan bara ändras där."
+    "managed_group_help": "Den här gruppen replikeras från katalogen. Namn och medlemmar kan bara ändras där.",
+    "host_help": "Namnet eller IP-adressen till domänkontrollanten. Panelen läser katalogen via den.",
+    "port_help": "389 för LDAP med StartTLS, 636 för LDAP över SSL. Porten måste passa TLS-inställningen.",
+    "timeout_help": "Hur länge panelen väntar på svar från katalogen. Därefter stannar körningen med ett fel.",
+    "base_dn_help": "Det delträd i katalogen där sökningen börjar. En post utanför det hittas inte.",
+    "bind_dn_help": "DN för kontot som panelen binder med. Ett konto med bara läsrätt räcker.",
+    "bind_password_help": "Lösenordet för bind-kontot. Det sparas krypterat och skrivs aldrig tillbaka på den här sidan.",
+    "user_filter_help": "LDAP-filtret för de poster som blir brevlådor. En post utanför filtret lämnas orörd.",
+    "group_filter_help": "LDAP-filtret för de poster som blir mailalias. Det läses bara medan gruppreplikeringen är på.",
+    "account_status_help": "Attributet som bär det aktiva tillståndet. userAccountControl läses som ett bitfält; ett annat attribut räknas som avstängt när dess värde läses som av. Tomt lämnar den lokala statusen orörd.",
+    "group_mail_attribute_help": "Attributet som bär gruppens adress. Värdet måste vara en unik adress i måldomänen.",
+    "group_name_attribute_help": "Attributet som bär gruppens visningsnamn. Tomt lämnar aliasets namn tomt."
   },
   "self": {
     "msg_released": "Meddelandet levererades till din brevlåda.",

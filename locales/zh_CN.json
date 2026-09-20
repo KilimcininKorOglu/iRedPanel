@@ -1136,7 +1136,18 @@
     "managed_by": "Active Directory",
     "managed_help": "此账户从目录复制而来。已复制的字段只能在目录中更改。",
     "msg_managed": ":address 由目录管理。请在目录中修改。",
-    "managed_group_help": "此组从目录复制。其名称和成员只能在目录中修改。"
+    "managed_group_help": "此组从目录复制。其名称和成员只能在目录中修改。",
+    "host_help": "域控制器的名称或 IP 地址。面板通过它读取目录。",
+    "port_help": "使用 StartTLS 的 LDAP 用 389，SSL 上的 LDAP 用 636。端口必须与 TLS 设置一致。",
+    "timeout_help": "面板等待目录响应的时间。超过之后本次运行以错误结束。",
+    "base_dn_help": "搜索起始的目录子树。该子树之外的条目找不到。",
+    "bind_dn_help": "面板用于绑定的账户 DN。只读账户即可。",
+    "bind_password_help": "绑定账户的密码。它加密保存，且不会写回本页面。",
+    "user_filter_help": "将成为邮箱的条目的 LDAP 过滤器。过滤器之外的条目保持不动。",
+    "group_filter_help": "将成为邮件别名的条目的 LDAP 过滤器。只有在开启组复制时才读取。",
+    "account_status_help": "承载启用状态的属性。userAccountControl 按位字段读取；其他属性的值读作关闭时视为停用。留空则本地状态保持不变。",
+    "group_mail_attribute_help": "承载组地址的属性。该值必须是目标域中唯一的地址。",
+    "group_name_attribute_help": "承载组显示名称的属性。留空则别名的名称为空。"
   },
   "self": {
     "msg_released": "邮件已投递到您的邮箱。",

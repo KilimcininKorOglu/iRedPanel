@@ -1136,7 +1136,18 @@
     "managed_by": "Active Directory",
     "managed_help": "Bu hesap dizinden replike ediliyor. Replike edilen alanlar yalnızca orada değiştirilebilir.",
     "msg_managed": ":address dizin tarafından yönetiliyor. Değişikliği dizinde yapın.",
-    "managed_group_help": "Bu grup dizinden replike ediliyor. Adı ve üyeleri yalnızca orada değiştirilebilir."
+    "managed_group_help": "Bu grup dizinden replike ediliyor. Adı ve üyeleri yalnızca orada değiştirilebilir.",
+    "host_help": "Domain controller'ın adı ya da IP adresi. Panel directory'yi bunun üzerinden okur.",
+    "port_help": "StartTLS ile LDAP için 389, LDAP over SSL için 636. Port TLS ayarıyla uyumlu olmalıdır.",
+    "timeout_help": "Panelin directory'nin yanıtını ne kadar bekleyeceği. Bu süre dolunca çalışma bir hatayla durur.",
+    "base_dn_help": "Aramanın başladığı directory alt ağacı. Bunun dışındaki bir kayıt bulunmaz.",
+    "bind_dn_help": "Panelin bind olduğu hesabın DN'i. Yalnızca okuma yetkisi olan bir hesap yeterlidir.",
+    "bind_password_help": "Bind hesabının parolası. Şifreli saklanır ve bu sayfaya asla geri yazılmaz.",
+    "user_filter_help": "Mailbox'a dönüşecek kayıtların LDAP filtresi. Filtre dışındaki bir kayda dokunulmaz.",
+    "group_filter_help": "Mail alias'a dönüşecek kayıtların LDAP filtresi. Yalnızca grup replikasyonu açıkken okunur.",
+    "account_status_help": "Etkinlik durumunu taşıyan attribute. userAccountControl bit alanı olarak okunur; başka bir attribute değeri kapalı okunduğunda devre dışı sayılır. Boş bırakılırsa yerel durum değişmez.",
+    "group_mail_attribute_help": "Grubun adresini taşıyan attribute. Değer hedef domainde benzersiz bir adres olmalıdır.",
+    "group_name_attribute_help": "Grubun görünen adını taşıyan attribute. Boş bırakılırsa alias'ın adı boş kalır."
   },
   "self": {
     "msg_released": "Mesaj mailbox'ınıza teslim edildi.",

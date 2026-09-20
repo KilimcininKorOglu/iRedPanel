@@ -1136,7 +1136,18 @@
     "managed_by": "Active Directory",
     "managed_help": "Kontu hau direktoriotik erreplikatzen da. Erreplikatutako eremuak han soilik alda daitezke.",
     "msg_managed": "Direktorioak kudeatzen du :address. Aldatu direktorioan.",
-    "managed_group_help": "Talde hau direktoriotik erreplikatzen da. Izena eta kideak han bakarrik alda daitezke."
+    "managed_group_help": "Talde hau direktoriotik erreplikatzen da. Izena eta kideak han bakarrik alda daitezke.",
+    "host_help": "Domain controller-aren izena edo IP helbidea. Panelak direktorioa handik irakurtzen du.",
+    "port_help": "389 StartTLS-dun LDAP-erako, 636 SSL gaineko LDAP-erako. Portuak TLS ezarpenarekin bat etorri behar du.",
+    "timeout_help": "Panelak direktorioaren erantzuna zenbat denbora itxaroten duen. Ondoren exekuzioa errore batekin gelditzen da.",
+    "base_dn_help": "Bilaketa hasten den direktorioaren azpizuhaitza. Handik kanpoko sarrera bat ez da aurkitzen.",
+    "bind_dn_help": "Panelak bind egiten duen kontuaren DN-a. Irakurtzeko baimena baino ez duen kontua nahikoa da.",
+    "bind_password_help": "Bind kontuaren pasahitza. Zifratuta gordetzen da eta ez da inoiz orri honetara itzultzen.",
+    "user_filter_help": "Postontzi bihurtzen diren sarreren LDAP iragazkia. Iragazkitik kanpoko sarrera ukitu gabe geratzen da.",
+    "group_filter_help": "Mail alias bihurtzen diren sarreren LDAP iragazkia. Taldeen replikazioa piztuta dagoen bitartean soilik irakurtzen da.",
+    "account_status_help": "Egoera aktiboa daraman atributua. userAccountControl bit eremu gisa irakurtzen da; beste atributu bat desaktibatutzat jotzen da bere balioa itzalita irakurtzen denean. Hutsik utzita bertako egoera ez da aldatzen.",
+    "group_mail_attribute_help": "Taldearen helbidea daraman atributua. Balioak helburu domeinuan helbide bakarra izan behar du.",
+    "group_name_attribute_help": "Taldearen izen ikusgarria daraman atributua. Hutsik utzita aliasaren izena hutsik geratzen da."
   },
   "self": {
     "msg_released": "Mezua zure postontzira entregatu da.",

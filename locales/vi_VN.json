@@ -1136,7 +1136,18 @@
     "managed_by": "Active Directory",
     "managed_help": "Tài khoản này được sao chép từ thư mục. Các trường đã sao chép chỉ có thể thay đổi ở đó.",
     "msg_managed": "Thư mục quản lý :address. Hãy thay đổi trong thư mục.",
-    "managed_group_help": "Nhóm này được sao chép từ thư mục. Chỉ có thể thay đổi tên và thành viên tại đó."
+    "managed_group_help": "Nhóm này được sao chép từ thư mục. Chỉ có thể thay đổi tên và thành viên tại đó.",
+    "host_help": "Tên hoặc địa chỉ IP của domain controller. Panel đọc directory qua đó.",
+    "port_help": "389 cho LDAP dùng StartTLS, 636 cho LDAP qua SSL. Cổng phải khớp với thiết lập TLS.",
+    "timeout_help": "Panel chờ directory trả lời trong bao lâu. Quá thời gian này, lượt chạy dừng với lỗi.",
+    "base_dn_help": "Nhánh con của directory nơi bắt đầu tìm kiếm. Mục nằm ngoài nhánh này sẽ không được tìm thấy.",
+    "bind_dn_help": "DN của tài khoản mà panel dùng để bind. Một tài khoản chỉ đọc là đủ.",
+    "bind_password_help": "Mật khẩu của tài khoản bind. Nó được lưu ở dạng mã hóa và không bao giờ ghi lại vào trang này.",
+    "user_filter_help": "Bộ lọc LDAP cho các mục sẽ trở thành hộp thư. Mục ngoài bộ lọc được giữ nguyên.",
+    "group_filter_help": "Bộ lọc LDAP cho các mục sẽ trở thành mail alias. Chỉ được đọc khi nhân bản nhóm đang bật.",
+    "account_status_help": "Thuộc tính mang trạng thái hoạt động. userAccountControl được đọc như một bit field; thuộc tính khác bị coi là tắt khi giá trị đọc ra là tắt. Để trống thì trạng thái cục bộ giữ nguyên.",
+    "group_mail_attribute_help": "Thuộc tính mang địa chỉ của nhóm. Giá trị phải là một địa chỉ duy nhất trong domain đích.",
+    "group_name_attribute_help": "Thuộc tính mang tên hiển thị của nhóm. Để trống thì tên của alias cũng trống."
   },
   "self": {
     "msg_released": "Thư đã được chuyển vào hộp thư của bạn.",

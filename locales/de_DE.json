@@ -1136,7 +1136,18 @@
     "managed_by": "Active Directory",
     "managed_help": "Dieses Konto wird aus dem Verzeichnis repliziert. Die replizierten Felder können nur dort geändert werden.",
     "msg_managed": "Das Verzeichnis verwaltet :address. Ändern Sie es im Verzeichnis.",
-    "managed_group_help": "Diese Gruppe wird aus dem Verzeichnis repliziert. Name und Mitglieder können nur dort geändert werden."
+    "managed_group_help": "Diese Gruppe wird aus dem Verzeichnis repliziert. Name und Mitglieder können nur dort geändert werden.",
+    "host_help": "Der Name oder die IP-Adresse des Domain Controllers. Das Panel liest das Directory darüber.",
+    "port_help": "389 für LDAP mit StartTLS, 636 für LDAP über SSL. Der Port muss zur TLS-Einstellung passen.",
+    "timeout_help": "Wie lange das Panel auf die Antwort des Directorys wartet. Danach bricht der Lauf mit einem Fehler ab.",
+    "base_dn_help": "Der Teilbaum des Directorys, in dem die Suche beginnt. Ein Eintrag außerhalb wird nicht gefunden.",
+    "bind_dn_help": "Der DN des Kontos, mit dem das Panel bindet. Ein Konto mit Leserecht genügt.",
+    "bind_password_help": "Das Passwort des Bind-Kontos. Es wird verschlüsselt gespeichert und nie in diese Seite zurückgeschrieben.",
+    "user_filter_help": "Der LDAP-Filter der Einträge, die zu Mailboxen werden. Ein Eintrag außerhalb des Filters bleibt unberührt.",
+    "group_filter_help": "Der LDAP-Filter der Einträge, die zu Mail-Aliasen werden. Er wird nur gelesen, wenn die Gruppenreplikation ein ist.",
+    "account_status_help": "Das Attribut mit dem Aktivstatus. userAccountControl wird als Bitfeld gelesen; ein anderes Attribut gilt als deaktiviert, wenn sein Wert als aus gelesen wird. Leer lässt den lokalen Status unberührt.",
+    "group_mail_attribute_help": "Das Attribut mit der Adresse der Gruppe. Der Wert muss eine eindeutige Adresse in der Zieldomain sein.",
+    "group_name_attribute_help": "Das Attribut mit dem Anzeigenamen der Gruppe. Leer lässt den Namen des Alias leer."
   },
   "self": {
     "msg_released": "Die Nachricht wurde in Ihr Postfach zugestellt.",

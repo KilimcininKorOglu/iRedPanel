@@ -1136,7 +1136,18 @@
     "managed_by": "Active Directory",
     "managed_help": "This account is replicated from the directory. The replicated fields can be changed only there.",
     "msg_managed": "The directory manages :address. Change it in the directory.",
-    "managed_group_help": "This group is replicated from the directory. Its name and members can be changed only there."
+    "managed_group_help": "This group is replicated from the directory. Its name and members can be changed only there.",
+    "host_help": "The name or the IP address of the domain controller. The panel reads the directory over it.",
+    "port_help": "389 for LDAP with StartTLS, 636 for LDAP over SSL. The port must match the TLS setting.",
+    "timeout_help": "How long the panel waits for the directory to answer. The run stops with an error after this.",
+    "base_dn_help": "The directory subtree that the search starts from. An entry outside it is not found.",
+    "bind_dn_help": "The DN of the account that the panel binds with. A read-only account is enough.",
+    "bind_password_help": "The password of the bind account. It is stored encrypted and is never written back into this page.",
+    "user_filter_help": "The LDAP filter of the entries that become mailboxes. An entry outside the filter is left alone.",
+    "group_filter_help": "The LDAP filter of the entries that become mail aliases. It is read only while group replication is on.",
+    "account_status_help": "The attribute that carries the enabled state. userAccountControl is read as a bit field; another attribute counts as disabled when its value reads as off. Empty leaves the local status alone.",
+    "group_mail_attribute_help": "The attribute that carries the address of the group. The value must be a unique address in the target domain.",
+    "group_name_attribute_help": "The attribute that carries the display name of the group. Empty leaves the name of the alias empty."
   },
   "self": {
     "msg_released": "The message was released to your mailbox.",

@@ -46,77 +46,72 @@ $checked = static fn(string $name, bool $stored): string => ($posted !== null ? 
         <?php if ($activeTab === 'connection'): ?>
         <div class="row g-3">
           <div class="col-md-6">
-            <label for="domain" class="form-label"><?= $te('resource.target_domain') ?></label>
+            <label for="domain" class="form-label"><?= $te('resource.target_domain') ?></label><?= $help('resource.target_domain') ?>
             <select id="domain" name="domain" class="form-select" required>
               <?php foreach ($domains as $d): ?>
               <option value="<?= $e($d['domainName']) ?>"<?= $value('domain', $resource->domain) === $d['domainName'] ? ' selected' : '' ?>><?= $e($d['domainName']) ?></option>
               <?php endforeach; ?>
             </select>
-            <div class="form-text"><?= $te('resource.target_domain_help') ?></div>
           </div>
           <div class="col-md-4">
-            <label for="host" class="form-label"><?= $te('resource.host') ?></label>
+            <label for="host" class="form-label"><?= $te('resource.host') ?></label><?= $help('resource.host') ?>
             <input type="text" id="host" name="host" class="form-control" required value="<?= $e($value('host', $resource->host)) ?>" placeholder="dc1.example.com">
           </div>
           <div class="col-md-2">
-            <label for="port" class="form-label"><?= $te('resource.port') ?></label>
+            <label for="port" class="form-label"><?= $te('resource.port') ?></label><?= $help('resource.port') ?>
             <input type="number" id="port" name="port" class="form-control" required min="1" max="65535" value="<?= $e($value('port', $resource->port)) ?>">
           </div>
           <div class="col-md-6">
             <div class="form-check form-switch">
               <input type="checkbox" class="form-check-input" id="tls" name="tls" value="1"<?= $checked('tls', $resource->tls) ?>>
-              <label class="form-check-label" for="tls"><?= $te('resource.tls') ?></label>
+              <label class="form-check-label" for="tls"><?= $te('resource.tls') ?></label><?= $help('resource.tls') ?>
             </div>
-            <div class="form-text"><?= $te('resource.tls_help') ?></div>
           </div>
           <div class="col-md-6">
             <div class="form-check form-switch">
               <input type="checkbox" class="form-check-input" id="tlsVerify" name="tlsVerify" value="1"<?= $checked('tlsVerify', $resource->tlsVerify) ?>>
-              <label class="form-check-label" for="tlsVerify"><?= $te('resource.tls_verify') ?></label>
+              <label class="form-check-label" for="tlsVerify"><?= $te('resource.tls_verify') ?></label><?= $help('resource.tls_verify') ?>
             </div>
-            <div class="form-text"><?= $te('resource.tls_verify_help') ?></div>
           </div>
           <div class="col-md-4">
-            <label for="timeout" class="form-label"><?= $te('resource.timeout') ?></label>
+            <label for="timeout" class="form-label"><?= $te('resource.timeout') ?></label><?= $help('resource.timeout') ?>
             <input type="number" id="timeout" name="timeout" class="form-control" required min="1" max="60" value="<?= $e($value('timeout', $resource->timeout)) ?>">
           </div>
           <div class="col-md-8">
-            <label for="baseDn" class="form-label"><?= $te('resource.base_dn') ?></label>
+            <label for="baseDn" class="form-label"><?= $te('resource.base_dn') ?></label><?= $help('resource.base_dn') ?>
             <input type="text" id="baseDn" name="baseDn" class="form-control" required value="<?= $e($value('baseDn', $resource->baseDn)) ?>" placeholder="CN=Users,DC=example,DC=com">
           </div>
           <div class="col-md-6">
-            <label for="bindDn" class="form-label"><?= $te('resource.bind_dn') ?></label>
+            <label for="bindDn" class="form-label"><?= $te('resource.bind_dn') ?></label><?= $help('resource.bind_dn') ?>
             <input type="text" id="bindDn" name="bindDn" class="form-control" required value="<?= $e($value('bindDn', $resource->bindDn)) ?>" placeholder="CN=svc-mail,CN=Users,DC=example,DC=com" autocomplete="off">
           </div>
           <div class="col-md-6">
-            <label for="bindPassword" class="form-label"><?= $te('resource.bind_password') ?></label>
+            <label for="bindPassword" class="form-label"><?= $te('resource.bind_password') ?></label><?= $help('resource.bind_password') ?>
             <input type="password" id="bindPassword" name="bindPassword" class="form-control" autocomplete="new-password"<?= $hasPassword ? '' : ' required' ?> placeholder="<?= $hasPassword ? $te('resource.password_keep') : '' ?>">
           </div>
           <div class="col-12">
-            <label for="userFilter" class="form-label"><?= $te('resource.user_filter') ?></label>
+            <label for="userFilter" class="form-label"><?= $te('resource.user_filter') ?></label><?= $help('resource.user_filter') ?>
             <input type="text" id="userFilter" name="userFilter" class="form-control font-monospace" required value="<?= $e($value('userFilter', $resource->userFilter)) ?>">
           </div>
           <div class="col-12">
-            <label for="groupFilter" class="form-label"><?= $te('resource.group_filter') ?></label>
+            <label for="groupFilter" class="form-label"><?= $te('resource.group_filter') ?></label><?= $help('resource.group_filter') ?>
             <input type="text" id="groupFilter" name="groupFilter" class="form-control font-monospace" required value="<?= $e($value('groupFilter', $resource->groupFilter)) ?>">
           </div>
         </div>
         <?php elseif ($activeTab === 'replication'): ?>
         <div class="row g-3">
           <div class="col-md-4">
-            <label for="intervalMinutes" class="form-label"><?= $te('resource.interval') ?></label>
+            <label for="intervalMinutes" class="form-label"><?= $te('resource.interval') ?></label><?= $help('resource.interval') ?>
             <div class="input-group">
               <input type="number" id="intervalMinutes" name="intervalMinutes" class="form-control" required min="1" max="1440" value="<?= $e($value('intervalMinutes', $resource->intervalMinutes)) ?>">
               <span class="input-group-text"><?= $te('resource.minutes') ?></span>
             </div>
-            <div class="form-text"><?= $te('resource.interval_help') ?></div>
           </div>
           <div class="col-12">
             <div class="form-check form-switch">
               <input type="checkbox" class="form-check-input" id="replicateGroups" name="replicateGroups" value="1"<?= $checked('replicateGroups', $resource->replicateGroups) ?>>
-              <label class="form-check-label" for="replicateGroups"><?= $te('resource.replicate_groups') ?></label>
+              <label class="form-check-label" for="replicateGroups"><?= $te('resource.replicate_groups') ?></label><?= $help('resource.replicate_groups') ?>
             </div>
-            <div class="form-text"><?= $te('resource.replicate_groups_help') ?></div>
           </div>
           <div class="col-12">
             <div class="alert alert-info mb-0"><?= $te('resource.removal_note') ?></div>
@@ -125,9 +120,8 @@ $checked = static fn(string $name, bool $stored): string => ($posted !== null ? 
         <?php elseif ($activeTab === 'users'): ?>
         <div class="row g-3">
           <div class="col-md-6">
-            <label for="userMailAttribute" class="form-label"><?= $te('resource.mail_attribute') ?></label>
+            <label for="userMailAttribute" class="form-label"><?= $te('resource.mail_attribute') ?></label><?= $help('resource.mail_attribute', ['domain' => $resource->domain ?: 'example.com']) ?>
             <input type="text" id="userMailAttribute" name="userMailAttribute" class="form-control" list="attribute-suggestions" required value="<?= $e($value('userMailAttribute', $resource->userMailAttribute)) ?>">
-            <div class="form-text"><?= $te('resource.mail_attribute_help', ['domain' => $resource->domain ?: 'example.com']) ?></div>
           </div>
         </div>
         <h2 class="h6 mt-4"><?= $te('resource.profile_mapping') ?></h2>
@@ -135,7 +129,7 @@ $checked = static fn(string $name, bool $stored): string => ($posted !== null ? 
         <div class="row g-3">
           <?php foreach ($profileLabels as $property => $labelKey): ?>
           <div class="col-md-6">
-            <label for="attr_<?= $e($property) ?>" class="form-label"><?= $te($labelKey) ?></label>
+            <label for="attr_<?= $e($property) ?>" class="form-label"><?= $te($labelKey) ?></label><?= $help($labelKey) ?>
             <input type="text" id="attr_<?= $e($property) ?>" name="attr_<?= $e($property) ?>" class="form-control" list="attribute-suggestions" value="<?= $e($value("attr_{$property}", $resource->userAttributes[$property] ?? '')) ?>">
           </div>
           <?php endforeach; ?>
@@ -143,21 +137,20 @@ $checked = static fn(string $name, bool $stored): string => ($posted !== null ? 
         <?php else: ?>
         <div class="row g-3">
           <div class="col-md-6">
-            <label for="groupMailAttribute" class="form-label"><?= $te('resource.mail_attribute') ?></label>
+            <label for="groupMailAttribute" class="form-label"><?= $te('resource.mail_attribute') ?></label><?= $help('resource.group_mail_attribute', [], $t('resource.mail_attribute')) ?>
             <input type="text" id="groupMailAttribute" name="groupMailAttribute" class="form-control" list="attribute-suggestions" required value="<?= $e($value('groupMailAttribute', $resource->groupMailAttribute)) ?>">
           </div>
           <div class="col-md-6">
-            <label for="groupNameAttribute" class="form-label"><?= $te('user.full_name') ?></label>
+            <label for="groupNameAttribute" class="form-label"><?= $te('user.full_name') ?></label><?= $help('resource.group_name_attribute', [], $t('user.full_name')) ?>
             <input type="text" id="groupNameAttribute" name="groupNameAttribute" class="form-control" list="attribute-suggestions" value="<?= $e($value('groupNameAttribute', $resource->groupNameAttribute)) ?>">
           </div>
           <div class="col-md-6">
-            <label for="groupAccessPolicy" class="form-label"><?= $te('resource.default_access_policy') ?></label>
+            <label for="groupAccessPolicy" class="form-label"><?= $te('resource.default_access_policy') ?></label><?= $help('resource.default_access_policy') ?>
             <select id="groupAccessPolicy" name="groupAccessPolicy" class="form-select">
               <?php foreach (['public' => 'alias.policy_public', 'domain' => 'alias.policy_domain', 'membersOnly' => 'alias.policy_members', 'moderatorsOnly' => 'alias.policy_moderators'] as $policy => $labelKey): ?>
               <option value="<?= $policy ?>"<?= $value('groupAccessPolicy', $resource->groupAccessPolicy) === $policy ? ' selected' : '' ?>><?= $te($labelKey) ?></option>
               <?php endforeach; ?>
             </select>
-            <div class="form-text"><?= $te('resource.default_access_policy_help') ?></div>
           </div>
         </div>
         <?php endif; ?>

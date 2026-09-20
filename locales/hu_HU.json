@@ -1136,7 +1136,18 @@
     "managed_by": "Active Directory",
     "managed_help": "Ez a fiók a címtárból replikálódik. A replikált mezők csak ott módosíthatók.",
     "msg_managed": "A(z) :address címet a címtár kezeli. A címtárban módosítsa.",
-    "managed_group_help": "Ez a csoport a címtárból replikálódik. A neve és a tagjai csak ott módosíthatók."
+    "managed_group_help": "Ez a csoport a címtárból replikálódik. A neve és a tagjai csak ott módosíthatók.",
+    "host_help": "A domain controller neve vagy IP-címe. A panel ezen keresztül olvassa a directoryt.",
+    "port_help": "389 a StartTLS-es LDAP-hoz, 636 az SSL feletti LDAP-hoz. A portnak illeszkednie kell a TLS beállításhoz.",
+    "timeout_help": "Meddig várja a panel a directory válaszát. Utána a futás hibával áll le.",
+    "base_dn_help": "A directory részfája, ahonnan a keresés indul. Az azon kívüli bejegyzést nem találja meg.",
+    "bind_dn_help": "Annak a fióknak a DN-je, amellyel a panel bindol. Egy csak olvasó fiók elég.",
+    "bind_password_help": "A bind fiók jelszava. Titkosítva tárolódik, és soha nem kerül vissza erre az oldalra.",
+    "user_filter_help": "Azoknak a bejegyzéseknek az LDAP filtere, amelyekből postafiók lesz. A filteren kívüli bejegyzés érintetlen marad.",
+    "group_filter_help": "Azoknak a bejegyzéseknek az LDAP filtere, amelyekből mail alias lesz. Csak akkor olvassa, amikor a csoport-replikáció be van kapcsolva.",
+    "account_status_help": "Az aktív állapotot hordozó attribútum. A userAccountControl bitmezőként olvasódik; más attribútum akkor számít kikapcsoltnak, ha az értéke kikapcsoltat jelent. Üresen a helyi állapot változatlan marad.",
+    "group_mail_attribute_help": "A csoport címét hordozó attribútum. Az értéknek egyedi címnek kell lennie a cél domainben.",
+    "group_name_attribute_help": "A csoport megjelenített nevét hordozó attribútum. Üresen az alias neve üres marad."
   },
   "self": {
     "msg_released": "Az üzenet a postafiókjába lett kézbesítve.",

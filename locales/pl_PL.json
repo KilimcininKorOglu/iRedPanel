@@ -1136,7 +1136,18 @@
     "managed_by": "Active Directory",
     "managed_help": "To konto jest replikowane z katalogu. Replikowane pola można zmienić tylko tam.",
     "msg_managed": "Katalog zarządza adresem :address. Zmień go w katalogu.",
-    "managed_group_help": "Ta grupa jest replikowana z katalogu. Jej nazwę i członków można zmienić tylko tam."
+    "managed_group_help": "Ta grupa jest replikowana z katalogu. Jej nazwę i członków można zmienić tylko tam.",
+    "host_help": "Nazwa lub adres IP kontrolera domeny. Panel czyta katalog przez niego.",
+    "port_help": "389 dla LDAP ze StartTLS, 636 dla LDAP przez SSL. Port musi zgadzać się z ustawieniem TLS.",
+    "timeout_help": "Jak długo panel czeka na odpowiedź katalogu. Potem przebieg kończy się błędem.",
+    "base_dn_help": "Poddrzewo katalogu, od którego zaczyna się wyszukiwanie. Wpis poza nim nie zostanie znaleziony.",
+    "bind_dn_help": "DN konta, którym panel wykonuje bind. Wystarczy konto tylko do odczytu.",
+    "bind_password_help": "Hasło konta bind. Jest przechowywane zaszyfrowane i nigdy nie wraca na tę stronę.",
+    "user_filter_help": "Filtr LDAP wpisów, które stają się skrzynkami. Wpis poza filtrem pozostaje nietknięty.",
+    "group_filter_help": "Filtr LDAP wpisów, które stają się aliasami mailowymi. Czytany jest tylko wtedy, gdy replikacja grup jest włączona.",
+    "account_status_help": "Atrybut z informacją o aktywności. userAccountControl jest czytany jako pole bitowe; inny atrybut liczy się jako wyłączony, gdy jego wartość czyta się jako wyłączone. Puste pole zostawia lokalny stan bez zmian.",
+    "group_mail_attribute_help": "Atrybut z adresem grupy. Wartość musi być unikalnym adresem w domenie docelowej.",
+    "group_name_attribute_help": "Atrybut z nazwą wyświetlaną grupy. Puste pole zostawia nazwę aliasu pustą."
   },
   "self": {
     "msg_released": "Wiadomość została dostarczona do Twojej skrzynki.",

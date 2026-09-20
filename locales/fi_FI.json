@@ -1136,7 +1136,18 @@
     "managed_by": "Active Directory",
     "managed_help": "Tämä tili replikoidaan hakemistosta. Replikoituja kenttiä voi muuttaa vain siellä.",
     "msg_managed": "Hakemisto hallitsee osoitetta :address. Tee muutos hakemistossa.",
-    "managed_group_help": "Tämä ryhmä replikoidaan hakemistosta. Sen nimeä ja jäseniä voi muuttaa vain siellä."
+    "managed_group_help": "Tämä ryhmä replikoidaan hakemistosta. Sen nimeä ja jäseniä voi muuttaa vain siellä.",
+    "host_help": "Domain controllerin nimi tai IP-osoite. Paneeli lukee hakemiston sen kautta.",
+    "port_help": "389 LDAP:lle StartTLS:llä, 636 LDAP:lle SSL:n yli. Portin on vastattava TLS-asetusta.",
+    "timeout_help": "Kuinka kauan paneeli odottaa hakemiston vastausta. Sen jälkeen ajo pysähtyy virheeseen.",
+    "base_dn_help": "Hakemiston alipuu, josta haku alkaa. Sen ulkopuolista tietuetta ei löydy.",
+    "bind_dn_help": "Sen tilin DN, jolla paneeli tekee bindin. Pelkkä lukuoikeus riittää.",
+    "bind_password_help": "Bind-tilin salasana. Se säilytetään salattuna eikä sitä koskaan kirjoiteta takaisin tälle sivulle.",
+    "user_filter_help": "Niiden tietueiden LDAP-suodatin, joista tulee postilaatikoita. Suodattimen ulkopuolinen tietue jää koskematta.",
+    "group_filter_help": "Niiden tietueiden LDAP-suodatin, joista tulee mailaliaksia. Se luetaan vain, kun ryhmien replikointi on päällä.",
+    "account_status_help": "Attribuutti, joka kantaa aktiivisuustilan. userAccountControl luetaan bittikenttänä; muu attribuutti lasketaan pois päältä olevaksi, kun sen arvo luetaan poissa olevaksi. Tyhjä jättää paikallisen tilan koskematta.",
+    "group_mail_attribute_help": "Attribuutti, joka kantaa ryhmän osoitteen. Arvon on oltava yksilöllinen osoite kohdedomainissa.",
+    "group_name_attribute_help": "Attribuutti, joka kantaa ryhmän näyttönimen. Tyhjä jättää aliaksen nimen tyhjäksi."
   },
   "self": {
     "msg_released": "Viesti toimitettiin postilaatikkoosi.",

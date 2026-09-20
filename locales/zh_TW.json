@@ -1136,7 +1136,18 @@
     "managed_by": "Active Directory",
     "managed_help": "此帳戶從目錄複寫而來。已複寫的欄位只能在目錄中變更。",
     "msg_managed": ":address 由目錄管理。請在目錄中修改。",
-    "managed_group_help": "此群組從目錄複寫。其名稱與成員只能在目錄中修改。"
+    "managed_group_help": "此群組從目錄複寫。其名稱與成員只能在目錄中修改。",
+    "host_help": "網域控制站的名稱或 IP 位址。面板透過它讀取目錄。",
+    "port_help": "使用 StartTLS 的 LDAP 用 389，SSL 上的 LDAP 用 636。連接埠必須與 TLS 設定一致。",
+    "timeout_help": "面板等待目錄回應的時間。超過之後本次執行以錯誤結束。",
+    "base_dn_help": "搜尋起始的目錄子樹。該子樹以外的項目找不到。",
+    "bind_dn_help": "面板用來繫結的帳號 DN。唯讀帳號即可。",
+    "bind_password_help": "繫結帳號的密碼。它加密保存，且不會寫回本頁面。",
+    "user_filter_help": "將成為信箱的項目的 LDAP 篩選器。篩選器以外的項目保持不動。",
+    "group_filter_help": "將成為郵件別名的項目的 LDAP 篩選器。只有在開啟群組複寫時才讀取。",
+    "account_status_help": "承載啟用狀態的屬性。userAccountControl 以位元欄位讀取；其他屬性的值讀作關閉時視為停用。留空則本機狀態保持不變。",
+    "group_mail_attribute_help": "承載群組位址的屬性。該值必須是目標網域中唯一的位址。",
+    "group_name_attribute_help": "承載群組顯示名稱的屬性。留空則別名的名稱為空。"
   },
   "self": {
     "msg_released": "郵件已投遞到您的信箱。",

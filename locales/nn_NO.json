@@ -1136,7 +1136,18 @@
     "managed_by": "Active Directory",
     "managed_help": "Denne kontoen blir replikert frå katalogen. Dei replikerte felta kan berre endrast der.",
     "msg_managed": "Katalogen administrerer :address. Gjer endringa i katalogen.",
-    "managed_group_help": "Denne gruppa blir replikert frå katalogen. Namn og medlemmer kan berre endrast der."
+    "managed_group_help": "Denne gruppa blir replikert frå katalogen. Namn og medlemmer kan berre endrast der.",
+    "host_help": "Namnet eller IP-adressa til domenekontrollaren. Panelet les katalogen via han.",
+    "port_help": "389 for LDAP med StartTLS, 636 for LDAP over SSL. Porten må passe til TLS-innstillinga.",
+    "timeout_help": "Kor lenge panelet ventar på svar frå katalogen. Etterpå stoppar køyringa med ein feil.",
+    "base_dn_help": "Undertreet i katalogen som søket startar frå. Ei oppføring utanfor vert ikkje funne.",
+    "bind_dn_help": "DN-en til kontoen panelet bind med. Ein konto med berre leserett held.",
+    "bind_password_help": "Passordet til bind-kontoen. Det vert lagra kryptert og vert aldri skrive tilbake i denne sida.",
+    "user_filter_help": "LDAP-filteret for oppføringane som vert postkasser. Ei oppføring utanfor filteret vert urørt.",
+    "group_filter_help": "LDAP-filteret for oppføringane som vert mailaliasar. Det vert berre lese medan gruppereplikering er på.",
+    "account_status_help": "Attributtet som ber aktiv-statusen. userAccountControl vert lese som eit bitfelt; eit anna attributt tel som avslått når verdet les som av. Tomt lèt den lokale statusen vere urørt.",
+    "group_mail_attribute_help": "Attributtet som ber adressa til gruppa. Verdet må vere ei unik adresse i måldomenet.",
+    "group_name_attribute_help": "Attributtet som ber visingsnamnet til gruppa. Tomt lèt namnet på aliaset stå tomt."
   },
   "self": {
     "msg_released": "Meldinga vart levert til postkassa di.",

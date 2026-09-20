@@ -1136,7 +1136,18 @@
     "managed_by": "Active Directory",
     "managed_help": "Akun ini direplikasi dari direktori. Kolom yang direplikasi hanya dapat diubah di sana.",
     "msg_managed": "Direktori mengelola :address. Ubah di direktori.",
-    "managed_group_help": "Grup ini direplikasi dari direktori. Nama dan anggotanya hanya dapat diubah di sana."
+    "managed_group_help": "Grup ini direplikasi dari direktori. Nama dan anggotanya hanya dapat diubah di sana.",
+    "host_help": "Nama atau alamat IP domain controller. Panel membaca direktori lewat itu.",
+    "port_help": "389 untuk LDAP dengan StartTLS, 636 untuk LDAP melalui SSL. Port harus cocok dengan pengaturan TLS.",
+    "timeout_help": "Berapa lama panel menunggu jawaban direktori. Setelah itu, jalannya berhenti dengan galat.",
+    "base_dn_help": "Subpohon direktori tempat pencarian dimulai. Entri di luar itu tidak ditemukan.",
+    "bind_dn_help": "DN akun yang dipakai panel untuk bind. Akun hanya-baca sudah cukup.",
+    "bind_password_help": "Kata sandi akun bind. Disimpan terenkripsi dan tidak pernah ditulis kembali ke halaman ini.",
+    "user_filter_help": "Filter LDAP untuk entri yang menjadi kotak surat. Entri di luar filter dibiarkan apa adanya.",
+    "group_filter_help": "Filter LDAP untuk entri yang menjadi alias mail. Filter ini hanya dibaca saat replikasi grup aktif.",
+    "account_status_help": "Atribut yang membawa status aktif. userAccountControl dibaca sebagai bit field; atribut lain dihitung nonaktif bila nilainya terbaca mati. Kosong membiarkan status lokal apa adanya.",
+    "group_mail_attribute_help": "Atribut yang membawa alamat grup. Nilainya harus alamat unik di domain tujuan.",
+    "group_name_attribute_help": "Atribut yang membawa nama tampilan grup. Kosong membuat nama alias tetap kosong."
   },
   "self": {
     "msg_released": "Pesan telah dikirim ke kotak surat Anda.",

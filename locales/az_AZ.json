@@ -1136,7 +1136,18 @@
     "managed_by": "Active Directory",
     "managed_help": "Bu hesab kataloqdan replikasiya edilir. Replikasiya edilən sahələr yalnız orada dəyişdirilə bilər.",
     "msg_managed": ":address kataloq tərəfindən idarə olunur. Dəyişikliyi kataloqda edin.",
-    "managed_group_help": "Bu qrup kataloqdan replikasiya olunur. Adı və üzvləri yalnız orada dəyişdirilə bilər."
+    "managed_group_help": "Bu qrup kataloqdan replikasiya olunur. Adı və üzvləri yalnız orada dəyişdirilə bilər.",
+    "host_help": "Domain controller-in adı və ya IP ünvanı. Panel directory-ni bunun üzərindən oxuyur.",
+    "port_help": "StartTLS ilə LDAP üçün 389, SSL üzərindən LDAP üçün 636. Port TLS parametri ilə uyğun olmalıdır.",
+    "timeout_help": "Panelin directory cavabını nə qədər gözləyəcəyi. Bundan sonra işləmə xəta ilə dayanır.",
+    "base_dn_help": "Axtarışın başladığı directory alt ağacı. Ondan kənar bir qeyd tapılmır.",
+    "bind_dn_help": "Panelin bind etdiyi hesabın DN-i. Yalnız oxuma hüququ olan hesab kifayətdir.",
+    "bind_password_help": "Bind hesabının parolu. Şifrələnmiş saxlanılır və bu səhifəyə heç vaxt geri yazılmır.",
+    "user_filter_help": "Mailbox-a çevriləcək qeydlərin LDAP filtri. Filtrdən kənar qeydə toxunulmur.",
+    "group_filter_help": "Mail alias-a çevriləcək qeydlərin LDAP filtri. Yalnız qrup replikasiyası açıq olanda oxunur.",
+    "account_status_help": "Aktivlik vəziyyətini daşıyan attribute. userAccountControl bit sahəsi kimi oxunur; başqa attribute dəyəri bağlı oxunanda deaktiv sayılır. Boş qalsa yerli vəziyyət dəyişmir.",
+    "group_mail_attribute_help": "Qrupun ünvanını daşıyan attribute. Dəyər hədəf domendə unikal ünvan olmalıdır.",
+    "group_name_attribute_help": "Qrupun görünən adını daşıyan attribute. Boş qalsa alias-ın adı boş qalır."
   },
   "self": {
     "msg_released": "Mesaj poçt qutunuza çatdırıldı.",

@@ -1136,7 +1136,18 @@
     "managed_by": "Active Directory",
     "managed_help": "Esta conta replícase desde o directorio. Os campos replicados só se poden cambiar alí.",
     "msg_managed": "O directorio xestiona :address. Cámbieo no directorio.",
-    "managed_group_help": "Este grupo replícase desde o directorio. O seu nome e os seus membros só se poden cambiar alí."
+    "managed_group_help": "Este grupo replícase desde o directorio. O seu nome e os seus membros só se poden cambiar alí.",
+    "host_help": "O nome ou o enderezo IP do controlador de dominio. O panel le o directorio por aí.",
+    "port_help": "389 para LDAP con StartTLS, 636 para LDAP sobre SSL. O porto debe coincidir co axuste TLS.",
+    "timeout_help": "Canto agarda o panel pola resposta do directorio. Despois, a execución detense cun erro.",
+    "base_dn_help": "A subárbore do directorio onde comeza a busca. Unha entrada fóra dela non se atopa.",
+    "bind_dn_help": "O DN da conta coa que o panel fai bind. Abonda cunha conta só de lectura.",
+    "bind_password_help": "O contrasinal da conta de bind. Gárdase cifrado e nunca se volve escribir nesta páxina.",
+    "user_filter_help": "O filtro LDAP das entradas que pasan a ser caixas. Unha entrada fóra do filtro queda intacta.",
+    "group_filter_help": "O filtro LDAP das entradas que pasan a ser alias de mail. Só se le mentres a replicación de grupos está activada.",
+    "account_status_help": "O atributo que leva o estado activo. userAccountControl lese como campo de bits; outro atributo conta como desactivado cando o seu valor se le como apagado. Baleiro deixa intacto o estado local.",
+    "group_mail_attribute_help": "O atributo que leva o enderezo do grupo. O valor debe ser un enderezo único no dominio de destino.",
+    "group_name_attribute_help": "O atributo que leva o nome visible do grupo. Baleiro deixa baleiro o nome do alias."
   },
   "self": {
     "msg_released": "A mensaxe entregouse na súa caixa de correo.",

@@ -1136,7 +1136,18 @@
     "managed_by": "Active Directory",
     "managed_help": "Dit account wordt gerepliceerd uit de directory. De gerepliceerde velden kunnen alleen daar worden gewijzigd.",
     "msg_managed": "De directory beheert :address. Wijzig het in de directory.",
-    "managed_group_help": "Deze groep wordt gerepliceerd vanuit de directory. Naam en leden kunnen alleen daar worden gewijzigd."
+    "managed_group_help": "Deze groep wordt gerepliceerd vanuit de directory. Naam en leden kunnen alleen daar worden gewijzigd.",
+    "host_help": "De naam of het IP-adres van de domeincontroller. Het paneel leest de directory daarlangs.",
+    "port_help": "389 voor LDAP met StartTLS, 636 voor LDAP over SSL. De poort moet bij de TLS-instelling passen.",
+    "timeout_help": "Hoe lang het paneel op het antwoord van de directory wacht. Daarna stopt de run met een fout.",
+    "base_dn_help": "De subboom van de directory waar het zoeken begint. Een item daarbuiten wordt niet gevonden.",
+    "bind_dn_help": "De DN van het account waarmee het paneel bindt. Een account met alleen leesrecht is genoeg.",
+    "bind_password_help": "Het wachtwoord van het bind-account. Het wordt versleuteld bewaard en nooit terug in deze pagina geschreven.",
+    "user_filter_help": "Het LDAP-filter van de items die mailboxen worden. Een item buiten het filter blijft onaangeroerd.",
+    "group_filter_help": "Het LDAP-filter van de items die mailaliassen worden. Het wordt alleen gelezen zolang de groepsreplicatie aan staat.",
+    "account_status_help": "Het attribuut met de actieve status. userAccountControl wordt als bitveld gelezen; een ander attribuut geldt als uitgeschakeld wanneer de waarde als uit wordt gelezen. Leeg laat de lokale status onaangeroerd.",
+    "group_mail_attribute_help": "Het attribuut met het adres van de groep. De waarde moet een uniek adres in het doeldomein zijn.",
+    "group_name_attribute_help": "Het attribuut met de weergavenaam van de groep. Leeg laat de naam van de alias leeg."
   },
   "self": {
     "msg_released": "Het bericht is in uw mailbox afgeleverd.",

@@ -1136,7 +1136,18 @@
     "managed_by": "Active Directory",
     "managed_help": "Aquest compte es replica des del directori. Els camps replicats només es poden canviar allà.",
     "msg_managed": "El directori gestiona :address. Canvieu-lo al directori.",
-    "managed_group_help": "Aquest grup es replica des del directori. El nom i els membres només es poden canviar allà."
+    "managed_group_help": "Aquest grup es replica des del directori. El nom i els membres només es poden canviar allà.",
+    "host_help": "El nom o l'adreça IP del controlador de domini. El tauler llegeix el directori per aquí.",
+    "port_help": "389 per a LDAP amb StartTLS, 636 per a LDAP sobre SSL. El port ha de concordar amb l'ajust TLS.",
+    "timeout_help": "Quant espera el tauler la resposta del directori. Després, l'execució s'atura amb un error.",
+    "base_dn_help": "El subarbre del directori on comença la cerca. Una entrada de fora no es troba.",
+    "bind_dn_help": "El DN del compte amb què el tauler fa bind. N'hi ha prou amb un compte de només lectura.",
+    "bind_password_help": "La contrasenya del compte de bind. Es desa xifrada i mai no es torna a escriure en aquesta pàgina.",
+    "user_filter_help": "El filtre LDAP de les entrades que passen a ser bústies. Una entrada fora del filtre queda intacta.",
+    "group_filter_help": "El filtre LDAP de les entrades que passen a ser àlies de mail. Només es llegeix mentre la replicació de grups està activada.",
+    "account_status_help": "L'atribut que porta l'estat actiu. userAccountControl es llegeix com un camp de bits; un altre atribut compta com a desactivat quan el seu valor es llegeix com a apagat. Buit deixa l'estat local intacte.",
+    "group_mail_attribute_help": "L'atribut que porta l'adreça del grup. El valor ha de ser una adreça única al domini de destinació.",
+    "group_name_attribute_help": "L'atribut que porta el nom visible del grup. Buit deixa buit el nom de l'àlies."
   },
   "self": {
     "msg_released": "El missatge s'ha lliurat a la vostra bústia.",

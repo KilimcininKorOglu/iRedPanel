@@ -1136,7 +1136,18 @@
     "managed_by": "Active Directory",
     "managed_help": "Ta račun se replicira iz imenika. Replicirana polja je mogoče spremeniti samo tam.",
     "msg_managed": "Imenik upravlja naslov :address. Spremenite ga v imeniku.",
-    "managed_group_help": "Ta skupina se replicira iz imenika. Ime in člane je mogoče spremeniti samo tam."
+    "managed_group_help": "Ta skupina se replicira iz imenika. Ime in člane je mogoče spremeniti samo tam.",
+    "host_help": "Ime ali naslov IP krmilnika domene. Panel prek njega bere imenik.",
+    "port_help": "389 za LDAP s StartTLS, 636 za LDAP prek SSL. Vrata se morajo ujemati z nastavitvijo TLS.",
+    "timeout_help": "Kako dolgo panel čaka odgovor imenika. Nato se zagon ustavi z napako.",
+    "base_dn_help": "Poddrevo imenika, kjer se iskanje začne. Vnosa zunaj njega ne najde.",
+    "bind_dn_help": "DN računa, s katerim panel izvede bind. Zadošča račun samo za branje.",
+    "bind_password_help": "Geslo računa bind. Shrani se šifrirano in se nikoli ne zapiše nazaj na to stran.",
+    "user_filter_help": "Filter LDAP vnosov, ki postanejo poštni predali. Vnos zunaj filtra ostane nedotaknjen.",
+    "group_filter_help": "Filter LDAP vnosov, ki postanejo mailni aliasi. Bere se le, dokler je replikacija skupin vklopljena.",
+    "account_status_help": "Atribut, ki nosi stanje aktivnosti. userAccountControl se bere kot bitno polje; drug atribut velja za izklopljenega, kadar se njegova vrednost bere kot izklop. Prazno pusti lokalno stanje nedotaknjeno.",
+    "group_mail_attribute_help": "Atribut, ki nosi naslov skupine. Vrednost mora biti enolični naslov v ciljni domeni.",
+    "group_name_attribute_help": "Atribut, ki nosi prikazno ime skupine. Prazno pusti ime aliasa prazno."
   },
   "self": {
     "msg_released": "Sporočilo je bilo dostavljeno v vaš poštni predal.",

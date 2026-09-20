@@ -1136,7 +1136,18 @@
     "managed_by": "Active Directory",
     "managed_help": "Acest cont este replicat din director. Câmpurile replicate pot fi modificate doar acolo.",
     "msg_managed": "Directorul gestionează :address. Modificați-l în director.",
-    "managed_group_help": "Acest grup este replicat din director. Numele și membrii pot fi modificați doar acolo."
+    "managed_group_help": "Acest grup este replicat din director. Numele și membrii pot fi modificați doar acolo.",
+    "host_help": "Numele sau adresa IP a controlerului de domeniu. Panoul citește directorul prin el.",
+    "port_help": "389 pentru LDAP cu StartTLS, 636 pentru LDAP peste SSL. Portul trebuie să se potrivească cu setarea TLS.",
+    "timeout_help": "Cât așteaptă panoul răspunsul directorului. După aceea, rularea se oprește cu o eroare.",
+    "base_dn_help": "Subarborele directorului de unde începe căutarea. O intrare din afara lui nu este găsită.",
+    "bind_dn_help": "DN-ul contului cu care panoul face bind. Un cont doar de citire este de ajuns.",
+    "bind_password_help": "Parola contului de bind. Se păstrează criptată și nu este scrisă niciodată înapoi în această pagină.",
+    "user_filter_help": "Filtrul LDAP al intrărilor care devin cutii poștale. O intrare din afara filtrului rămâne neatinsă.",
+    "group_filter_help": "Filtrul LDAP al intrărilor care devin alias-uri de mail. Este citit doar cât timp replicarea grupurilor este activată.",
+    "account_status_help": "Atributul care poartă starea activă. userAccountControl este citit ca un câmp de biți; alt atribut contează ca dezactivat când valoarea lui se citește ca oprit. Gol lasă starea locală neatinsă.",
+    "group_mail_attribute_help": "Atributul care poartă adresa grupului. Valoarea trebuie să fie o adresă unică în domeniul țintă.",
+    "group_name_attribute_help": "Atributul care poartă numele afișat al grupului. Gol lasă gol numele alias-ului."
   },
   "self": {
     "msg_released": "Mesajul a fost livrat în căsuța dvs. poștală.",

@@ -1136,7 +1136,18 @@
     "managed_by": "Active Directory",
     "managed_help": "Questo account è replicato dalla directory. I campi replicati si possono modificare solo lì.",
     "msg_managed": "La directory gestisce :address. Modificalo nella directory.",
-    "managed_group_help": "Questo gruppo è replicato dalla directory. Il nome e i membri si possono modificare solo lì."
+    "managed_group_help": "Questo gruppo è replicato dalla directory. Il nome e i membri si possono modificare solo lì.",
+    "host_help": "Il nome o l'indirizzo IP del domain controller. Il pannello legge la directory da lì.",
+    "port_help": "389 per LDAP con StartTLS, 636 per LDAP su SSL. La porta deve corrispondere all'impostazione TLS.",
+    "timeout_help": "Quanto il pannello attende la risposta della directory. Dopo, l'esecuzione si ferma con un errore.",
+    "base_dn_help": "Il sottoalbero della directory da cui parte la ricerca. Una voce fuori da esso non viene trovata.",
+    "bind_dn_help": "Il DN dell'account con cui il pannello esegue il bind. Basta un account in sola lettura.",
+    "bind_password_help": "La password dell'account di bind. È memorizzata cifrata e non viene mai riscritta in questa pagina.",
+    "user_filter_help": "Il filtro LDAP delle voci che diventano caselle. Una voce fuori dal filtro resta intatta.",
+    "group_filter_help": "Il filtro LDAP delle voci che diventano alias mail. Viene letto solo quando la replica dei gruppi è attiva.",
+    "account_status_help": "L'attributo che porta lo stato attivo. userAccountControl è letto come campo di bit; un altro attributo vale come disattivato quando il suo valore si legge come spento. Vuoto lascia intatto lo stato locale.",
+    "group_mail_attribute_help": "L'attributo che porta l'indirizzo del gruppo. Il valore deve essere un indirizzo unico nel dominio di destinazione.",
+    "group_name_attribute_help": "L'attributo che porta il nome visualizzato del gruppo. Vuoto lascia vuoto il nome dell'alias."
   },
   "self": {
     "msg_released": "Il messaggio è stato consegnato nella tua casella di posta.",

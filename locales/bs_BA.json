@@ -1136,7 +1136,18 @@
     "managed_by": "Active Directory",
     "managed_help": "Ovaj nalog se replicira iz direktorija. Replicirana polja mogu se mijenjati samo tamo.",
     "msg_managed": "Direktorij upravlja adresom :address. Promijenite je u direktoriju.",
-    "managed_group_help": "Ova grupa se replicira iz direktorija. Njen naziv i članovi mogu se mijenjati samo tamo."
+    "managed_group_help": "Ova grupa se replicira iz direktorija. Njen naziv i članovi mogu se mijenjati samo tamo.",
+    "host_help": "Ime ili IP adresa domain controllera. Panel preko njega čita direktorij.",
+    "port_help": "389 za LDAP sa StartTLS, 636 za LDAP preko SSL. Port mora odgovarati TLS postavci.",
+    "timeout_help": "Koliko panel čeka odgovor direktorija. Nakon toga izvođenje staje s greškom.",
+    "base_dn_help": "Podstablo direktorija od kojeg počinje pretraga. Zapis izvan njega se ne nalazi.",
+    "bind_dn_help": "DN naloga kojim panel radi bind. Dovoljan je nalog samo za čitanje.",
+    "bind_password_help": "Lozinka bind naloga. Čuva se šifrovana i nikada se ne upisuje natrag u ovu stranicu.",
+    "user_filter_help": "LDAP filter zapisa koji postaju sandučad. Zapis izvan filtera ostaje netaknut.",
+    "group_filter_help": "LDAP filter zapisa koji postaju mail aliasi. Čita se samo dok je replikacija grupa uključena.",
+    "account_status_help": "Atribut koji nosi status aktivnosti. userAccountControl se čita kao bitno polje; drugi atribut se broji kao isključen kada se njegova vrijednost čita kao isključeno. Prazno ostavlja lokalni status netaknutim.",
+    "group_mail_attribute_help": "Atribut koji nosi adresu grupe. Vrijednost mora biti jedinstvena adresa u ciljnoj domeni.",
+    "group_name_attribute_help": "Atribut koji nosi prikazno ime grupe. Prazno ostavlja ime aliasa praznim."
   },
   "self": {
     "msg_released": "Poruka je isporučena u vaše poštansko sanduče.",

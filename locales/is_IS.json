@@ -1136,7 +1136,18 @@
     "managed_by": "Active Directory",
     "managed_help": "Þessi aðgangur er afritaður úr skráasafninu. Afrituðum reitum er aðeins hægt að breyta þar.",
     "msg_managed": "Skráasafnið stýrir :address. Breyttu því í skráasafninu.",
-    "managed_group_help": "Þessi hópur er afritaður úr skráasafninu. Aðeins er hægt að breyta nafni og meðlimum þar."
+    "managed_group_help": "Þessi hópur er afritaður úr skráasafninu. Aðeins er hægt að breyta nafni og meðlimum þar.",
+    "host_help": "Heiti eða IP-tala lénsstýringarinnar. Spjaldið les skrána um hana.",
+    "port_help": "389 fyrir LDAP með StartTLS, 636 fyrir LDAP yfir SSL. Gáttin verður að passa við TLS stillinguna.",
+    "timeout_help": "Hve lengi spjaldið bíður svars frá skránni. Eftir það stöðvast keyrslan með villu.",
+    "base_dn_help": "Undirtré skrárinnar sem leitin hefst í. Færsla utan þess finnst ekki.",
+    "bind_dn_help": "DN aðgangsins sem spjaldið tengist með. Aðgangur með lesheimild einni dugar.",
+    "bind_password_help": "Lykilorð tengiaðgangsins. Það er geymt dulkóðað og er aldrei skrifað aftur á þessa síðu.",
+    "user_filter_help": "LDAP-sía þeirra færslna sem verða að pósthólfum. Færsla utan síunnar er látin ósnert.",
+    "group_filter_help": "LDAP-sía þeirra færslna sem verða að póst-alias. Hún er aðeins lesin meðan afritun hópa er kveikt.",
+    "account_status_help": "Eigindið sem ber virknistöðuna. userAccountControl er lesið sem bitasvið; annað eigindi telst óvirkt þegar gildi þess les sem slökkt. Autt lætur staðbundnu stöðuna ósnerta.",
+    "group_mail_attribute_help": "Eigindið sem ber netfang hópsins. Gildið verður að vera einkvæmt netfang í marklénum.",
+    "group_name_attribute_help": "Eigindið sem ber birt heiti hópsins. Autt skilur heiti alias eftir tómt."
   },
   "self": {
     "msg_released": "Skilaboðin voru afhent í pósthólfið þitt.",

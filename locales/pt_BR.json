@@ -1136,7 +1136,18 @@
     "managed_by": "Active Directory",
     "managed_help": "Esta conta é replicada do diretório. Os campos replicados só podem ser alterados lá.",
     "msg_managed": "O diretório gerencia :address. Altere-o no diretório.",
-    "managed_group_help": "Este grupo é replicado do diretório. O nome e os membros só podem ser alterados lá."
+    "managed_group_help": "Este grupo é replicado do diretório. O nome e os membros só podem ser alterados lá.",
+    "host_help": "O nome ou o endereço IP do controlador de domínio. O painel lê o diretório por ele.",
+    "port_help": "389 para LDAP com StartTLS, 636 para LDAP sobre SSL. A porta precisa combinar com a configuração TLS.",
+    "timeout_help": "Quanto o painel espera pela resposta do diretório. Depois disso, a execução para com erro.",
+    "base_dn_help": "A subárvore do diretório onde a busca começa. Uma entrada fora dela não é encontrada.",
+    "bind_dn_help": "O DN da conta com a qual o painel faz bind. Uma conta somente de leitura basta.",
+    "bind_password_help": "A senha da conta de bind. Ela é guardada cifrada e nunca é escrita de volta nesta página.",
+    "user_filter_help": "O filtro LDAP das entradas que viram caixas. Uma entrada fora do filtro fica intacta.",
+    "group_filter_help": "O filtro LDAP das entradas que viram alias de mail. Ele só é lido enquanto a replicação de grupos está ligada.",
+    "account_status_help": "O atributo que carrega o estado ativo. userAccountControl é lido como campo de bits; outro atributo conta como desativado quando seu valor é lido como desligado. Vazio deixa o estado local intacto.",
+    "group_mail_attribute_help": "O atributo que carrega o endereço do grupo. O valor precisa ser um endereço único no domínio de destino.",
+    "group_name_attribute_help": "O atributo que carrega o nome exibido do grupo. Vazio deixa o nome do alias vazio."
   },
   "self": {
     "msg_released": "A mensagem foi entregue na sua caixa de correio.",

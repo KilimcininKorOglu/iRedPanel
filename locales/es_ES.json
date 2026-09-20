@@ -1136,7 +1136,18 @@
     "managed_by": "Active Directory",
     "managed_help": "Esta cuenta se replica desde el directorio. Los campos replicados solo se pueden cambiar allí.",
     "msg_managed": "El directorio gestiona :address. Cámbielo en el directorio.",
-    "managed_group_help": "Este grupo se replica desde el directorio. Su nombre y sus miembros solo se pueden cambiar allí."
+    "managed_group_help": "Este grupo se replica desde el directorio. Su nombre y sus miembros solo se pueden cambiar allí.",
+    "host_help": "El nombre o la dirección IP del controlador de dominio. El panel lee el directorio por ahí.",
+    "port_help": "389 para LDAP con StartTLS, 636 para LDAP sobre SSL. El puerto debe coincidir con el ajuste TLS.",
+    "timeout_help": "Cuánto espera el panel la respuesta del directorio. Después, la ejecución se detiene con un error.",
+    "base_dn_help": "El subárbol del directorio donde empieza la búsqueda. Una entrada fuera de él no se encuentra.",
+    "bind_dn_help": "El DN de la cuenta con la que el panel hace bind. Basta una cuenta de solo lectura.",
+    "bind_password_help": "La contraseña de la cuenta de bind. Se guarda cifrada y nunca se vuelve a escribir en esta página.",
+    "user_filter_help": "El filtro LDAP de las entradas que pasan a ser buzones. Una entrada fuera del filtro queda intacta.",
+    "group_filter_help": "El filtro LDAP de las entradas que pasan a ser alias de mail. Solo se lee mientras la replicación de grupos está activada.",
+    "account_status_help": "El atributo que lleva el estado activo. userAccountControl se lee como campo de bits; otro atributo cuenta como desactivado cuando su valor se lee como apagado. Vacío deja intacto el estado local.",
+    "group_mail_attribute_help": "El atributo que lleva la dirección del grupo. El valor debe ser una dirección única en el dominio de destino.",
+    "group_name_attribute_help": "El atributo que lleva el nombre visible del grupo. Vacío deja vacío el nombre del alias."
   },
   "self": {
     "msg_released": "El mensaje se entregó en su buzón.",

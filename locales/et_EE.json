@@ -1136,7 +1136,18 @@
     "managed_by": "Active Directory",
     "managed_help": "See konto on replitseeritud kataloogist. Replitseeritud välju saab muuta ainult seal.",
     "msg_managed": ":address on kataloogi hallata. Muutke seda kataloogis.",
-    "managed_group_help": "See grupp replitseeritakse kataloogist. Selle nime ja liikmeid saab muuta ainult seal."
+    "managed_group_help": "See grupp replitseeritakse kataloogist. Selle nime ja liikmeid saab muuta ainult seal.",
+    "host_help": "Domeenikontrolleri nimi või IP-aadress. Paneel loeb kataloogi selle kaudu.",
+    "port_help": "389 LDAP-i jaoks StartTLS-iga, 636 LDAP-i jaoks üle SSL-i. Port peab TLS-seadega kokku sobima.",
+    "timeout_help": "Kui kaua paneel kataloogi vastust ootab. Pärast seda peatub käivitus veaga.",
+    "base_dn_help": "Kataloogi alampuu, kust otsing algab. Sellest väljaspool olevat kirjet ei leita.",
+    "bind_dn_help": "Konto DN, millega paneel bind-i teeb. Piisab ainult lugemisõigusega kontost.",
+    "bind_password_help": "Bind-konto parool. See salvestatakse krüptitult ja seda ei kirjutata kunagi sellele lehele tagasi.",
+    "user_filter_help": "Nende kirjete LDAP-filter, millest saavad postkastid. Filtrist välja jäävat kirjet ei puudutata.",
+    "group_filter_help": "Nende kirjete LDAP-filter, millest saavad meili aliased. Seda loetakse ainult siis, kui rühmade replikatsioon on sees.",
+    "account_status_help": "Atribuut, mis kannab aktiivsuse olekut. userAccountControl loetakse bitiväljana; muu atribuut loetakse väljalülitatuks, kui selle väärtus loeb välja. Tühi jätab kohaliku oleku puutumata.",
+    "group_mail_attribute_help": "Atribuut, mis kannab rühma aadressi. Väärtus peab olema sihtdomeenis kordumatu aadress.",
+    "group_name_attribute_help": "Atribuut, mis kannab rühma kuvatavat nime. Tühi jätab aliase nime tühjaks."
   },
   "self": {
     "msg_released": "Kiri toimetati sinu postkasti.",

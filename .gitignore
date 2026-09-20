@@ -3,7 +3,6 @@
 
 # Composer
 /composer.phar
-/composer.lock
 
 # Environment files
 .env

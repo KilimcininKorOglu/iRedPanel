@@ -26,6 +26,15 @@ class SpamPolicy
      */
     public const ALWAYS_INSERT_TAG_LEVEL = -999.0;
 
+    /**
+     * The banned rule names that iRedMail defines in `%banned_rules` of amavisd.conf.
+     * An admin may add own rules there, so the form also takes free names.
+     */
+    public const KNOWN_BANNED_RULES = ['ALLOW_MS_OFFICE', 'ALLOW_MS_WORD', 'ALLOW_MS_EXCEL', 'ALLOW_MS_PPT', 'DEFAULT'];
+
+    /** `policy.banned_rulenames` is a varchar(64), so the whole list must fit. */
+    private const BANNED_RULENAMES_MAX = 64;
+
     public function __construct(
         public readonly ?int $id = null,
         public readonly string $policyName = '',
@@ -46,6 +55,7 @@ class SpamPolicy
         public readonly ?bool $virusQuarantine = null,
         public readonly ?bool $bannedQuarantine = null,
         public readonly ?bool $badHeaderQuarantine = null,
+        public readonly string $bannedRulenames = '',
     ) {}
 
     public static function fromRow(array $row): self
@@ -70,6 +80,7 @@ class SpamPolicy
             virusQuarantine: self::quarantineOfRow($row, 'virusQuarantine'),
             bannedQuarantine: self::quarantineOfRow($row, 'bannedQuarantine'),
             badHeaderQuarantine: self::quarantineOfRow($row, 'badHeaderQuarantine'),
+            bannedRulenames: (string) ($row['banned_rulenames'] ?? ''),
         );
     }
 
@@ -99,13 +110,15 @@ class SpamPolicy
             virusQuarantine: self::quarantineChoice($post, 'virusQuarantine'),
             bannedQuarantine: self::quarantineChoice($post, 'bannedQuarantine'),
             badHeaderQuarantine: self::quarantineChoice($post, 'badHeaderQuarantine'),
+            bannedRulenames: self::bannedRules($post),
         );
     }
 
     /**
      * A copy that keeps the fields of the stored policy which only an admin sets:
-     * the banned and header bypass, and the four quarantine choices. The self-service
-     * form has no field for them, and an absent field would otherwise clear them.
+     * the banned and header bypass, the banned rule names and the four quarantine
+     * choices. The self-service form has no field for them, and an absent field
+     * would otherwise clear them.
      */
     public function keepAdminFields(?self $stored): self
     {
@@ -133,6 +146,7 @@ class SpamPolicy
             virusQuarantine: $stored->virusQuarantine,
             bannedQuarantine: $stored->bannedQuarantine,
             badHeaderQuarantine: $stored->badHeaderQuarantine,
+            bannedRulenames: $stored->bannedRulenames,
         );
     }
 
@@ -167,6 +181,7 @@ class SpamPolicy
             'spamLover' => $this->spamLover,
             'bannedFilesLover' => $this->bannedFilesLover,
             'badHeaderLover' => $this->badHeaderLover,
+            'bannedRulenames' => $this->bannedRulenames,
         ];
         foreach (array_keys(self::QUARANTINE_COLUMNS) as $field) {
             $values[$field] = $this->$field;
@@ -196,6 +211,8 @@ class SpamPolicy
             'spam_lover' => self::boolToYn($this->spamLover),
             'banned_files_lover' => self::boolToYn($this->bannedFilesLover),
             'bad_header_lover' => self::boolToYn($this->badHeaderLover),
+            // NULL lets the account inherit the rule names of the next policy.
+            'banned_rulenames' => $this->bannedRulenames === '' ? null : $this->bannedRulenames,
         ];
         foreach (self::QUARANTINE_COLUMNS as $field => [$column, $value]) {
             $columns[$column] = match ($this->$field) {
@@ -206,6 +223,54 @@ class SpamPolicy
         }
 
         return $columns;
+    }
+
+    /**
+     * The banned rule names of the body, as the comma-separated list that Amavisd
+     * reads. The form sends the known names in `bannedRulenames` and the own names
+     * of the server in `bannedRulenamesCustom`; a JSON body may send either as a
+     * list or as one comma-separated string.
+     *
+     * @throws \InvalidArgumentException when a name is no rule name, or the list is too long
+     */
+    private static function bannedRules(array $post): string
+    {
+        $names = array_merge(
+            self::ruleNames($post['bannedRulenames'] ?? []),
+            self::ruleNames($post['bannedRulenamesCustom'] ?? []),
+        );
+        $value = implode(',', array_unique($names));
+        if (strlen($value) > self::BANNED_RULENAMES_MAX) {
+            throw new \InvalidArgumentException('bannedRulenames');
+        }
+
+        return $value;
+    }
+
+    /**
+     * @return list<string>
+     * @throws \InvalidArgumentException when a name is no Amavisd rule name
+     */
+    private static function ruleNames(mixed $value): array
+    {
+        $items = match (true) {
+            is_array($value) => $value,
+            is_string($value) => preg_split('/[\s,]+/', $value, -1, PREG_SPLIT_NO_EMPTY),
+            default => throw new \InvalidArgumentException('bannedRulenames'),
+        };
+        $names = [];
+        foreach ($items as $item) {
+            $name = is_string($item) ? trim($item) : null;
+            if ($name === '') {
+                continue;
+            }
+            if ($name === null || preg_match('/^[A-Za-z0-9_-]+$/', $name) !== 1) {
+                throw new \InvalidArgumentException('bannedRulenames');
+            }
+            $names[] = $name;
+        }
+
+        return $names;
     }
 
     /**

@@ -114,4 +114,73 @@ class SpamPolicyTest extends TestCase
             }
         }
     }
+
+    public function testTheBannedRuleCheckboxesAndTheFreeFieldBecomeOneList(): void
+    {
+        $policy = SpamPolicy::fromFormData([
+            'bannedRulenames' => ['ALLOW_MS_WORD', 'ALLOW_MS_EXCEL'],
+            'bannedRulenamesCustom' => 'MY_RULE',
+        ]);
+
+        $this->assertSame('ALLOW_MS_WORD,ALLOW_MS_EXCEL,MY_RULE', $policy->bannedRulenames);
+    }
+
+    public function testABannedRuleNameThatBothFieldsSendIsStoredOnce(): void
+    {
+        $policy = SpamPolicy::fromFormData([
+            'bannedRulenames' => ['DEFAULT'],
+            'bannedRulenamesCustom' => 'DEFAULT, MY_RULE',
+        ]);
+
+        $this->assertSame('DEFAULT,MY_RULE', $policy->bannedRulenames);
+    }
+
+    public function testACommaStringOfBannedRuleNamesIsReadLikeAList(): void
+    {
+        $policy = SpamPolicy::fromFormData(['bannedRulenames' => 'ALLOW_MS_OFFICE, DEFAULT']);
+
+        $this->assertSame('ALLOW_MS_OFFICE,DEFAULT', $policy->bannedRulenames);
+    }
+
+    public function testAFormWithoutBannedRuleNamesStoresNone(): void
+    {
+        $policy = SpamPolicy::fromFormData([]);
+
+        $this->assertSame('', $policy->bannedRulenames);
+        // NULL lets the account inherit the rule names of the next policy.
+        $this->assertNull($policy->columns()['banned_rulenames']);
+    }
+
+    public function testAnInvalidBannedRuleNameIsRefused(): void
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage('bannedRulenames');
+
+        SpamPolicy::fromFormData(['bannedRulenamesCustom' => 'rule name!']);
+    }
+
+    /** `policy.banned_rulenames` is a varchar(64), so a longer list would be cut. */
+    public function testABannedRuleListLongerThanTheColumnIsRefused(): void
+    {
+        $this->expectException(\InvalidArgumentException::class);
+
+        SpamPolicy::fromFormData(['bannedRulenames' => SpamPolicy::KNOWN_BANNED_RULES]);
+    }
+
+    public function testTheStoredBannedRuleNamesAreReadBack(): void
+    {
+        $policy = SpamPolicy::fromRow(['banned_rulenames' => 'ALLOW_MS_PPT']);
+
+        $this->assertSame('ALLOW_MS_PPT', $policy->bannedRulenames);
+        $this->assertSame('ALLOW_MS_PPT', $policy->toArray()['bannedRulenames']);
+    }
+
+    /** The self-service form has no field for the rule names, so a save must keep them. */
+    public function testASelfServiceSaveKeepsTheStoredBannedRuleNames(): void
+    {
+        $stored = SpamPolicy::fromRow(['banned_rulenames' => 'ALLOW_MS_OFFICE']);
+        $posted = SpamPolicy::fromFormData(['spamTagLevel' => '4.0']);
+
+        $this->assertSame('ALLOW_MS_OFFICE', $posted->keepAdminFields($stored)->bannedRulenames);
+    }
 }

@@ -365,6 +365,7 @@ server {
 ### Spam Policy and White/Blacklist (Amavisd)
 - Global, per-domain and per-user spam thresholds (tag, tag2 and kill levels)
 - Bypass and delivery options for virus, spam, banned files and bad headers
+- Banned rule names per account: the rules that iRedMail defines in `%banned_rules` of `amavisd.conf` as checkboxes, plus a free field for the own rules of the server
 - Inbound (sender) and outbound (recipient) white/blacklists per account
 - Quarantine viewer with release and delete, mail log, and configurable cleanup
 

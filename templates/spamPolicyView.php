@@ -23,6 +23,10 @@ $quarantines = [
 ];
 $quarantineChoices = ['default' => 'spampolicy.quarantine_default', 'yes' => 'spampolicy.quarantine_on', 'no' => 'spampolicy.quarantine_off'];
 $quarantineValue = static fn (?bool $stored): string => $stored === null ? 'default' : ($stored ? 'yes' : 'no');
+$knownRules = \App\Models\SpamPolicy::KNOWN_BANNED_RULES;
+$storedRules = array_filter(array_map('trim', explode(',', $policy->bannedRulenames ?? '')));
+// A rule that the server defines itself stays editable in the free field.
+$customRules = implode(', ', array_diff($storedRules, $knownRules));
 ?>
 <div class="page-header">
   <div>
@@ -111,6 +115,25 @@ $quarantineValue = static fn (?bool $stored): string => $stored === null ? 'defa
             </div>
             <?php endforeach; ?>
           </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header"><?= $te('spampolicy.banned_rules') ?><?= $help('spampolicy.banned_rules') ?></div>
+        <div class="card-body">
+          <label class="form-label"><?= $te('spampolicy.banned_rulenames') ?></label><?= $help('spampolicy.banned_rulenames') ?>
+          <div class="row g-2">
+            <?php foreach ($knownRules as $rule): ?>
+            <div class="col-md-6">
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="rule-<?= $e($rule) ?>" name="bannedRulenames[]" value="<?= $e($rule) ?>"<?= in_array($rule, $storedRules, true) ? ' checked' : '' ?> />
+                <label class="form-check-label font-monospace" for="rule-<?= $e($rule) ?>"><?= $e($rule) ?></label>
+              </div>
+            </div>
+            <?php endforeach; ?>
+          </div>
+          <label for="bannedRulenamesCustom" class="form-label mt-3"><?= $te('spampolicy.banned_rules_custom') ?></label><?= $help('spampolicy.banned_rules_custom') ?>
+          <input id="bannedRulenamesCustom" type="text" name="bannedRulenamesCustom" class="form-control font-monospace" value="<?= $e($customRules) ?>" placeholder="MY_RULE, OTHER_RULE" />
         </div>
       </div>
 

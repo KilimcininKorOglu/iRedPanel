@@ -79,11 +79,13 @@ class SpamPolicyController
         'spamKillLevel' => 'spampolicy.kill_level',
     ];
 
-    private const QUARANTINE_LABELS = [
+    /** The fields whose value the form validates, with the label of the message. */
+    private const VALUE_LABELS = [
         'spamQuarantine' => 'spampolicy.quarantine_spam',
         'virusQuarantine' => 'spampolicy.quarantine_virus',
         'bannedQuarantine' => 'spampolicy.quarantine_banned',
         'badHeaderQuarantine' => 'spampolicy.quarantine_bad_header',
+        'bannedRulenames' => 'spampolicy.banned_rulenames',
     ];
 
     /**
@@ -95,8 +97,8 @@ class SpamPolicyController
         if (isset(self::LEVEL_LABELS[$field])) {
             return Translator::translate('spampolicy.msg_invalid_level', ['field' => Translator::translate(self::LEVEL_LABELS[$field])]);
         }
-        if (isset(self::QUARANTINE_LABELS[$field])) {
-            return Translator::translate('spampolicy.msg_invalid_value', ['field' => Translator::translate(self::QUARANTINE_LABELS[$field])]);
+        if (isset(self::VALUE_LABELS[$field])) {
+            return Translator::translate('spampolicy.msg_invalid_value', ['field' => Translator::translate(self::VALUE_LABELS[$field])]);
         }
 
         return BaseController::errorMessage($e);

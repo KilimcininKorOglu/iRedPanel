@@ -30,7 +30,8 @@
     "compatibility": "iRedMail-kompatibilitet",
     "account_resources": "Kontokjelder",
     "group_self_service": "Kontoen min",
-    "mail_lists": "Postlister"
+    "mail_lists": "Postlister",
+    "update_available": "iRedPanel v:version er tilgjengeleg"
   },
   "common": {
     "msg_password_updated": "Passordet er oppdatert!",

@@ -30,7 +30,8 @@
     "compatibility": "Združljivost z iRedMail",
     "account_resources": "Viri računov",
     "group_self_service": "Moj račun",
-    "mail_lists": "Poštni seznami"
+    "mail_lists": "Poštni seznami",
+    "update_available": "Na voljo je iRedPanel v:version"
   },
   "common": {
     "msg_password_updated": "Geslo uspešno posodobljeno!",

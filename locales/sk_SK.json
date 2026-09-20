@@ -30,7 +30,8 @@
     "compatibility": "Kompatibilita s iRedMail",
     "account_resources": "Zdroje účtov",
     "group_self_service": "Môj účet",
-    "mail_lists": "Mailové zoznamy"
+    "mail_lists": "Mailové zoznamy",
+    "update_available": "K dispozícii je iRedPanel v:version"
   },
   "common": {
     "msg_password_updated": "Heslo bolo úspešne aktualizované!",

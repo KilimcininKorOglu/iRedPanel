@@ -63,6 +63,12 @@ $appData = json_encode([
         <?php endforeach; ?>
       </nav>
       <div class="sidebar-footer">
+        <?php if (!empty($updateVersion)): ?>
+        <a class="sidebar-update" href="/compatibility">
+          <i class="bi bi-arrow-up-circle"></i>
+          <span><?= $te('nav.update_available', ['version' => $updateVersion]) ?></span>
+        </a>
+        <?php endif; ?>
         <?php if (count($availableLocales) > 1): ?>
         <form method="post" action="/language" title="<?= $te('language.switch') ?>">
           <?= $csrfField ?>

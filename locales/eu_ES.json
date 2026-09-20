@@ -30,7 +30,8 @@
     "compatibility": "iRedMail bateragarritasuna",
     "account_resources": "Kontu-iturburuak",
     "group_self_service": "Nire kontua",
-    "mail_lists": "Posta zerrendak"
+    "mail_lists": "Posta zerrendak",
+    "update_available": "iRedPanel v:version eskuragarri dago"
   },
   "common": {
     "msg_password_updated": "Pasahitza eguneratu da!",

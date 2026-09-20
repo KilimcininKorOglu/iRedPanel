@@ -30,7 +30,8 @@
     "compatibility": "Compatibilitate iRedMail",
     "account_resources": "Resurse de conturi",
     "group_self_service": "Contul meu",
-    "mail_lists": "Liste de mail"
+    "mail_lists": "Liste de mail",
+    "update_available": "iRedPanel v:version este disponibil"
   },
   "common": {
     "msg_password_updated": "Parola a fost actualizată cu succes!",

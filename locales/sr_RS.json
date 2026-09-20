@@ -30,7 +30,8 @@
     "compatibility": "Компатибилност са iRedMail",
     "account_resources": "Извори налога",
     "group_self_service": "Мој налог",
-    "mail_lists": "Поштанске листе"
+    "mail_lists": "Поштанске листе",
+    "update_available": "Доступан је iRedPanel v:version"
   },
   "common": {
     "msg_password_updated": "Лозинка је успешно ажурирана!",

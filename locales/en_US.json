@@ -30,7 +30,8 @@
     "compatibility": "iRedMail Compatibility",
     "account_resources": "Account Resources",
     "group_self_service": "My account",
-    "mail_lists": "Mail Lists"
+    "mail_lists": "Mail Lists",
+    "update_available": "iRedPanel v:version is available"
   },
   "common": {
     "msg_password_updated": "Password updated successfully!",

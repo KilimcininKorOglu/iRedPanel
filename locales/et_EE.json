@@ -30,7 +30,8 @@
     "compatibility": "iRedMaili ühilduvus",
     "account_resources": "Kontoallikad",
     "group_self_service": "Minu konto",
-    "mail_lists": "Meililistid"
+    "mail_lists": "Meililistid",
+    "update_available": "Saadaval on iRedPanel v:version"
   },
   "common": {
     "msg_password_updated": "Parool edukalt uuendatud!",

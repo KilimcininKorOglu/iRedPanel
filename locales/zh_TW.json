@@ -30,7 +30,8 @@
     "compatibility": "iRedMail 相容性",
     "account_resources": "帳戶來源",
     "group_self_service": "我的帳戶",
-    "mail_lists": "郵件群組"
+    "mail_lists": "郵件群組",
+    "update_available": "iRedPanel v:version 已推出"
   },
   "common": {
     "msg_password_updated": "密碼已成功更新！",

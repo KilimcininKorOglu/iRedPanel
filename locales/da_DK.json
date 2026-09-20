@@ -30,7 +30,8 @@
     "compatibility": "iRedMail-kompatibilitet",
     "account_resources": "Kontokilder",
     "group_self_service": "Min konto",
-    "mail_lists": "Mailinglister"
+    "mail_lists": "Mailinglister",
+    "update_available": "iRedPanel v:version er tilgængelig"
   },
   "common": {
     "msg_password_updated": "Adgangskoden blev opdateret!",

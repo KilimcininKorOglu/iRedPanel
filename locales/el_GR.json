@@ -30,7 +30,8 @@
     "compatibility": "Συμβατότητα με iRedMail",
     "account_resources": "Πηγές λογαριασμών",
     "group_self_service": "Ο λογαριασμός μου",
-    "mail_lists": "Λίστες αλληλογραφίας"
+    "mail_lists": "Λίστες αλληλογραφίας",
+    "update_available": "Το iRedPanel v:version είναι διαθέσιμο"
   },
   "common": {
     "msg_password_updated": "Ο κωδικός πρόσβασης ενημερώθηκε επιτυχώς!",

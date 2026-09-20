@@ -30,7 +30,8 @@
     "compatibility": "iRedMail 互換性",
     "account_resources": "アカウントリソース",
     "group_self_service": "マイアカウント",
-    "mail_lists": "メールリスト"
+    "mail_lists": "メールリスト",
+    "update_available": "iRedPanel v:version が利用可能です"
   },
   "common": {
     "msg_password_updated": "パスワードが正常に更新されました！",

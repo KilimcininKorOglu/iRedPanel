@@ -30,7 +30,8 @@
     "compatibility": "iRedMail-yhteensopivuus",
     "account_resources": "Tililähteet",
     "group_self_service": "Oma tili",
-    "mail_lists": "Postituslistat"
+    "mail_lists": "Postituslistat",
+    "update_available": "iRedPanel v:version on saatavilla"
   },
   "common": {
     "msg_password_updated": "Salasana päivitetty onnistuneesti!",

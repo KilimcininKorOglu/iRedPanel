@@ -30,7 +30,8 @@
     "compatibility": "Kompatibilnost s iRedMail",
     "account_resources": "Izvori naloga",
     "group_self_service": "Moj račun",
-    "mail_lists": "Mail liste"
+    "mail_lists": "Mail liste",
+    "update_available": "Dostupan je iRedPanel v:version"
   },
   "common": {
     "msg_password_updated": "Lozinka je ažurirana!",

@@ -118,6 +118,22 @@ class CompatibilityService
     }
 
     /**
+     * The newest release that is newer than the installed one, for the sidebar badge.
+     * Returns null when the update check is off, when the list cannot be read, or
+     * when no newer release exists. It never throws, because every page calls it.
+     */
+    public static function newerVersion(string $installedVersion): ?string
+    {
+        if (!Settings::getInstance()->checkUpdates) {
+            return null;
+        }
+
+        $report = self::report($installedVersion);
+
+        return $report['newer'][0]['version'] ?? null;
+    }
+
+    /**
      * @return array{version: string, date: string, iredmail: list<string>, backends: list<string>}
      */
     private static function parseRelease(mixed $release): array

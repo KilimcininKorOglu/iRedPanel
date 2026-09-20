@@ -30,7 +30,8 @@
     "compatibility": "iRedMail 兼容性",
     "account_resources": "账户源",
     "group_self_service": "我的账户",
-    "mail_lists": "邮件组"
+    "mail_lists": "邮件组",
+    "update_available": "iRedPanel v:version 已发布"
   },
   "common": {
     "msg_password_updated": "密码更新成功！",

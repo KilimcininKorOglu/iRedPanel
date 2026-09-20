@@ -30,7 +30,8 @@
     "compatibility": "iRedMail-kompatibilitás",
     "account_resources": "Fiókforrások",
     "group_self_service": "Saját fiók",
-    "mail_lists": "Mail listák"
+    "mail_lists": "Mail listák",
+    "update_available": "Elérhető az iRedPanel v:version"
   },
   "common": {
     "msg_password_updated": "A jelszó sikeresen frissítve!",

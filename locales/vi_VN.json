@@ -30,7 +30,8 @@
     "compatibility": "Tương thích iRedMail",
     "account_resources": "Nguồn tài khoản",
     "group_self_service": "Tài khoản của tôi",
-    "mail_lists": "Danh sách mail"
+    "mail_lists": "Danh sách mail",
+    "update_available": "Đã có iRedPanel v:version"
   },
   "common": {
     "msg_password_updated": "Mật khẩu đã được cập nhật thành công!",

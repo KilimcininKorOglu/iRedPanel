@@ -73,6 +73,11 @@ class TemplateEngine
             ? Navigation::selfServiceGroups($vars['selfServicePages'] ?? [])
             : Navigation::groups(!empty($_SESSION['isGlobalAdmin']), $features);
         $navActive = Navigation::activeHref($navGroups, (string) ($_SERVER['REQUEST_URI'] ?? '/'));
+        // The sidebar tells a global admin about a newer release on every page, not
+        // only on the dashboard. The compatibility list is cached for a day.
+        $updateVersion = !empty($_SESSION['isGlobalAdmin']) && !Middleware::isSelfServiceUser()
+            ? \App\Services\CompatibilityService::newerVersion(\App\Utils\SystemInfo::getIredPanelVersion())
+            : null;
         $passwordPolicy = json_encode([
             'minLength' => $settings->passwordMinLength,
             'uppercase' => $settings->passwordIncludesUppercase,

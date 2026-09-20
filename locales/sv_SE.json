@@ -30,7 +30,8 @@
     "compatibility": "iRedMail-kompatibilitet",
     "account_resources": "Kontokällor",
     "group_self_service": "Mitt konto",
-    "mail_lists": "Postlistor"
+    "mail_lists": "Postlistor",
+    "update_available": "iRedPanel v:version finns tillgänglig"
   },
   "common": {
     "msg_password_updated": "Lösenordet har uppdaterats!",

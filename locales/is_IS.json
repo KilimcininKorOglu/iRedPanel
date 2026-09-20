@@ -30,7 +30,8 @@
     "compatibility": "Samhæfni við iRedMail",
     "account_resources": "Aðgangsuppsprettur",
     "group_self_service": "Aðgangurinn minn",
-    "mail_lists": "Póstlistar"
+    "mail_lists": "Póstlistar",
+    "update_available": "iRedPanel v:version er fáanlegt"
   },
   "common": {
     "msg_password_updated": "Lykilorð uppfært!",

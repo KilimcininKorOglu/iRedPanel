@@ -205,6 +205,25 @@ a:hover {
   margin: 0;
 }
 
+.sidebar-update {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.65rem;
+  border: 1px solid rgba(88, 166, 255, 0.35);
+  border-radius: 0.5rem;
+  background: rgba(88, 166, 255, 0.12);
+  color: #79b8ff;
+  font-size: 0.82rem;
+  text-decoration: none;
+}
+
+.sidebar-update:hover,
+.sidebar-update:focus {
+  background: rgba(88, 166, 255, 0.2);
+  color: #a6d2ff;
+}
+
 .sidebar-user {
   display: flex;
   align-items: center;

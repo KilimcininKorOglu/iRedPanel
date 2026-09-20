@@ -30,7 +30,8 @@
     "compatibility": "iRedMail-compatibiliteit",
     "account_resources": "Accountbronnen",
     "group_self_service": "Mijn account",
-    "mail_lists": "Maillijsten"
+    "mail_lists": "Maillijsten",
+    "update_available": "iRedPanel v:version is beschikbaar"
   },
   "common": {
     "msg_password_updated": "Wachtwoord succesvol bijgewerkt!",

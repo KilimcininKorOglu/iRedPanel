@@ -30,7 +30,8 @@
     "compatibility": "Kompatibilitas iRedMail",
     "account_resources": "Sumber Akun",
     "group_self_service": "Akun saya",
-    "mail_lists": "Daftar mail"
+    "mail_lists": "Daftar mail",
+    "update_available": "iRedPanel v:version tersedia"
   },
   "common": {
     "msg_password_updated": "Kata sandi berhasil diperbarui!",

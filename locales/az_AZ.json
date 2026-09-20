@@ -30,7 +30,8 @@
     "compatibility": "iRedMail uyğunluğu",
     "account_resources": "Hesab mənbələri",
     "group_self_service": "Hesabım",
-    "mail_lists": "Mail siyahıları"
+    "mail_lists": "Mail siyahıları",
+    "update_available": "iRedPanel v:version mövcuddur"
   },
   "common": {
     "msg_password_updated": "Parol uğurla yeniləndi!",

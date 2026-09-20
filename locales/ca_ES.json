@@ -30,7 +30,8 @@
     "compatibility": "Compatibilitat amb iRedMail",
     "account_resources": "Orígens de comptes",
     "group_self_service": "El meu compte",
-    "mail_lists": "Llistes de correu"
+    "mail_lists": "Llistes de correu",
+    "update_available": "iRedPanel v:version està disponible"
   },
   "common": {
     "msg_password_updated": "Contrasenya actualitzada correctament!",

@@ -30,7 +30,8 @@
     "compatibility": "Compatibilidade con iRedMail",
     "account_resources": "Recursos de contas",
     "group_self_service": "A miña conta",
-    "mail_lists": "Listas de correo"
+    "mail_lists": "Listas de correo",
+    "update_available": "iRedPanel v:version está dispoñible"
   },
   "common": {
     "msg_password_updated": "Contrasinal actualizado!",

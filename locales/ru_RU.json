@@ -30,7 +30,8 @@
     "compatibility": "Совместимость с iRedMail",
     "account_resources": "Источники учётных записей",
     "group_self_service": "Моя учётная запись",
-    "mail_lists": "Почтовые списки"
+    "mail_lists": "Почтовые списки",
+    "update_available": "Доступна iRedPanel v:version"
   },
   "common": {
     "msg_password_updated": "Пароль успешно обновлён!",

@@ -21,11 +21,11 @@ $fieldClass = !empty($error) ? 'form-control is-invalid' : 'form-control';
         <?= $csrfField ?>
         <input type="hidden" name="next" value="<?= $e($next) ?>" />
         <div class="mb-3">
-          <label for="input__text" class="form-label"><?= $te('auth.email') ?></label>
+          <label for="input__text" class="form-label"><?= $te('auth.email') ?></label><?= $help('auth.email') ?>
           <input id="input__text" type="text" name="email" class="<?= $fieldClass ?>" value="<?= $e($email ?? '') ?>" placeholder="<?= $te('auth.email_placeholder') ?>" autocomplete="username" autofocus />
         </div>
         <div class="mb-4">
-          <label for="input__password" class="form-label"><?= $te('auth.password') ?></label>
+          <label for="input__password" class="form-label"><?= $te('auth.password') ?></label><?= $help('auth.password') ?>
           <input id="input__password" type="password" name="password" class="<?= $fieldClass ?>" placeholder="<?= $te('auth.password_placeholder') ?>" autocomplete="current-password" />
         </div>
         <button type="submit" class="btn btn-primary w-100"><i class="bi bi-box-arrow-in-right me-1"></i><?= $te('auth.sign_in') ?></button>

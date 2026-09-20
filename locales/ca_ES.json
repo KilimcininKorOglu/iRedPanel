@@ -137,7 +137,9 @@
     "failed_attempts": "Intents d'inici de sessió fallits: :count",
     "invalid_credentials": "Credencials no vàlides!",
     "msg_session_expired": "La sessió ha caducat. Torneu a iniciar la sessió.",
-    "msg_ip_changed": "La sessió s'ha tancat perquè la vostra adreça IP ha canviat. Torneu a iniciar la sessió."
+    "msg_ip_changed": "La sessió s'ha tancat perquè la vostra adreça IP ha canviat. Torneu a iniciar la sessió.",
+    "email_help": "L'adreça del vostre compte d'administrador o de la vostra bústia. El tauler prova primer l'accés d'administrador i després el de la bústia.",
+    "password_help": "La contrasenya d'aquest compte. Una bústia arriba només a les pàgines d'autoservei."
   },
   "misc": {
     "error": "Error",
@@ -171,7 +173,8 @@
     "mail_subject_subscribe": "Confirmeu la subscripció a :list",
     "mail_subject_unsubscribe": "Confirmeu la baixa de :list",
     "mail_body_subscribe": "Algú, probablement vós, ha demanat subscriure :email a la llista de correu :list.\n\nPer confirmar-ho, obriu aquest enllaç i feu clic al botó de confirmació:\n:link\n\nL'enllaç caduca d'aquí a :hours hores. Si no ho heu demanat, ignoreu aquest missatge.",
-    "mail_body_unsubscribe": "Algú, probablement vós, ha demanat donar de baixa :email de la llista de correu :list.\n\nPer confirmar-ho, obriu aquest enllaç i feu clic al botó de confirmació:\n:link\n\nL'enllaç caduca d'aquí a :hours hores. Si no ho heu demanat, ignoreu aquest missatge."
+    "mail_body_unsubscribe": "Algú, probablement vós, ha demanat donar de baixa :email de la llista de correu :list.\n\nPer confirmar-ho, obriu aquest enllaç i feu clic al botó de confirmació:\n:link\n\nL'enllaç caduca d'aquí a :hours hores. Si no ho heu demanat, ignoreu aquest missatge.",
+    "email_address_help": "L'adreça on va el mail de confirmació. No canvia res fins que respongueu aquest mail."
   },
   "pagination": {
     "previous": "Anterior",
@@ -976,7 +979,8 @@
     "delete_selected": "Eliminar seleccionats",
     "delete_selected_confirm": "Eliminar les entrades de registre seleccionades?",
     "delete_all": "Eliminar tot",
-    "delete_all_confirm": "Eliminar TOTES les entrades del registre? Això no es pot desfer."
+    "delete_all_confirm": "Eliminar TOTES les entrades del registre? Això no es pot desfer.",
+    "event_help": "El tipus d'acció que registra la fila. Buit mostra tots els tipus."
   },
   "lastlogin": {
     "title": "Seguiment de l'últim inici de sessió",

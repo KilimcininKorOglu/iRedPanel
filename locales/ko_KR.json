@@ -137,7 +137,9 @@
     "failed_attempts": "로그인 실패 횟수: :count",
     "invalid_credentials": "잘못된 자격 증명입니다!",
     "msg_session_expired": "세션이 만료되었습니다. 다시 로그인하세요.",
-    "msg_ip_changed": "IP 주소가 바뀌어 세션이 종료되었습니다. 다시 로그인하세요."
+    "msg_ip_changed": "IP 주소가 바뀌어 세션이 종료되었습니다. 다시 로그인하세요.",
+    "email_help": "관리자 계정 또는 메일박스의 주소입니다. 패널은 관리자 로그인을 먼저 시도하고, 그다음 메일박스 로그인을 시도합니다.",
+    "password_help": "그 계정의 비밀번호입니다. 메일박스는 셀프서비스 페이지에만 들어갑니다."
   },
   "misc": {
     "error": "오류",
@@ -171,7 +173,8 @@
     "mail_subject_subscribe": ":list 구독을 확인하십시오",
     "mail_subject_unsubscribe": ":list 구독 해지를 확인하십시오",
     "mail_body_subscribe": "누군가(아마도 본인)가 :email을(를) 메일링 리스트 :list에 구독 신청했습니다.\n\n확인하려면 이 링크를 열고 확인 버튼을 클릭하십시오:\n:link\n\n링크는 :hours시간 후에 만료됩니다. 요청하지 않았다면 이 메시지를 무시하십시오.",
-    "mail_body_unsubscribe": "누군가(아마도 본인)가 :email을(를) 메일링 리스트 :list에서 구독 해지하도록 요청했습니다.\n\n확인하려면 이 링크를 열고 확인 버튼을 클릭하십시오:\n:link\n\n링크는 :hours시간 후에 만료됩니다. 요청하지 않았다면 이 메시지를 무시하십시오."
+    "mail_body_unsubscribe": "누군가(아마도 본인)가 :email을(를) 메일링 리스트 :list에서 구독 해지하도록 요청했습니다.\n\n확인하려면 이 링크를 열고 확인 버튼을 클릭하십시오:\n:link\n\n링크는 :hours시간 후에 만료됩니다. 요청하지 않았다면 이 메시지를 무시하십시오.",
+    "email_address_help": "확인 메일이 가는 주소입니다. 그 메일에 답하기 전까지는 아무것도 바뀌지 않습니다."
   },
   "pagination": {
     "previous": "이전",
@@ -976,7 +979,8 @@
     "delete_selected": "선택 항목 삭제",
     "delete_selected_confirm": "선택한 로그 항목을 삭제하시겠습니까?",
     "delete_all": "전체 삭제",
-    "delete_all_confirm": "모든 로그 항목을 삭제하시겠습니까? 이 작업은 취소할 수 없습니다."
+    "delete_all_confirm": "모든 로그 항목을 삭제하시겠습니까? 이 작업은 취소할 수 없습니다.",
+    "event_help": "행이 기록하는 작업의 종류입니다. 비우면 모든 종류를 보여 줍니다."
   },
   "lastlogin": {
     "title": "마지막 로그인 추적",

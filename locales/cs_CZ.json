@@ -137,7 +137,9 @@
     "failed_attempts": "Neúspěšné pokusy o přihlášení: :count",
     "invalid_credentials": "Neplatné přihlašovací údaje!",
     "msg_session_expired": "Vaše relace vypršela. Přihlaste se znovu.",
-    "msg_ip_changed": "Relace byla ukončena, protože se změnila vaše IP adresa. Přihlaste se znovu."
+    "msg_ip_changed": "Relace byla ukončena, protože se změnila vaše IP adresa. Přihlaste se znovu.",
+    "email_help": "Adresa vašeho admin účtu nebo vaší schránky. Panel zkusí nejdřív přihlášení admina, potom přihlášení schránky.",
+    "password_help": "Heslo toho účtu. Schránka se dostane jen na stránky samoobsluhy."
   },
   "misc": {
     "error": "Chyba",
@@ -171,7 +173,8 @@
     "mail_subject_subscribe": "Potvrďte odběr :list",
     "mail_subject_unsubscribe": "Potvrďte zrušení odběru :list",
     "mail_body_subscribe": "Někdo, pravděpodobně vy, požádal o přihlášení :email do e-mailové konference :list.\n\nPro potvrzení otevřete tento odkaz a klikněte na potvrzovací tlačítko:\n:link\n\nOdkaz vyprší za :hours h. Pokud jste o to nežádali, tuto zprávu ignorujte.",
-    "mail_body_unsubscribe": "Někdo, pravděpodobně vy, požádal o odhlášení :email z e-mailové konference :list.\n\nPro potvrzení otevřete tento odkaz a klikněte na potvrzovací tlačítko:\n:link\n\nOdkaz vyprší za :hours h. Pokud jste o to nežádali, tuto zprávu ignorujte."
+    "mail_body_unsubscribe": "Někdo, pravděpodobně vy, požádal o odhlášení :email z e-mailové konference :list.\n\nPro potvrzení otevřete tento odkaz a klikněte na potvrzovací tlačítko:\n:link\n\nOdkaz vyprší za :hours h. Pokud jste o to nežádali, tuto zprávu ignorujte.",
+    "email_address_help": "Adresa, na kterou jde potvrzovací mail. Nic se nezmění, dokud na ten mail neodpovíte."
   },
   "pagination": {
     "previous": "Předchozí",
@@ -976,7 +979,8 @@
     "delete_selected": "Smazat vybrané",
     "delete_selected_confirm": "Smazat vybrané záznamy protokolu?",
     "delete_all": "Smazat vše",
-    "delete_all_confirm": "Smazat VŠECHNY záznamy protokolu? Tuto akci nelze vrátit zpět."
+    "delete_all_confirm": "Smazat VŠECHNY záznamy protokolu? Tuto akci nelze vrátit zpět.",
+    "event_help": "Druh akce, který řádek zaznamenává. Prázdné ukáže každý druh."
   },
   "lastlogin": {
     "title": "Sledování posledního přihlášení",

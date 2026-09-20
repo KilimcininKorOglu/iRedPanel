@@ -137,7 +137,9 @@
     "failed_attempts": "Sikertelen bejelentkezési kísérletek: :count",
     "invalid_credentials": "Érvénytelen hitelesítő adatok!",
     "msg_session_expired": "A munkamenet lejárt. Jelentkezzen be újra.",
-    "msg_ip_changed": "A munkamenet bezárult, mert megváltozott az IP-címe. Jelentkezzen be újra."
+    "msg_ip_changed": "A munkamenet bezárult, mert megváltozott az IP-címe. Jelentkezzen be újra.",
+    "email_help": "Az admin fiókjának vagy a postafiókjának a címe. A panel először az admin bejelentkezést próbálja, utána a postafiókét.",
+    "password_help": "Az adott fiók jelszava. Egy postafiók csak az önkiszolgáló oldalakat éri el."
   },
   "misc": {
     "error": "Hiba",
@@ -171,7 +173,8 @@
     "mail_subject_subscribe": "Erősítse meg a feliratkozást: :list",
     "mail_subject_unsubscribe": "Erősítse meg a leiratkozást: :list",
     "mail_body_subscribe": "Valaki, valószínűleg Ön, kérte a(z) :email cím feliratkoztatását a(z) :list levelezőlistára.\n\nA megerősítéshez nyissa meg ezt a hivatkozást, és kattintson a megerősítő gombra:\n:link\n\nA hivatkozás :hours óra múlva lejár. Ha nem Ön kérte, hagyja figyelmen kívül ezt az üzenetet.",
-    "mail_body_unsubscribe": "Valaki, valószínűleg Ön, kérte a(z) :email cím leiratkoztatását a(z) :list levelezőlistáról.\n\nA megerősítéshez nyissa meg ezt a hivatkozást, és kattintson a megerősítő gombra:\n:link\n\nA hivatkozás :hours óra múlva lejár. Ha nem Ön kérte, hagyja figyelmen kívül ezt az üzenetet."
+    "mail_body_unsubscribe": "Valaki, valószínűleg Ön, kérte a(z) :email cím leiratkoztatását a(z) :list levelezőlistáról.\n\nA megerősítéshez nyissa meg ezt a hivatkozást, és kattintson a megerősítő gombra:\n:link\n\nA hivatkozás :hours óra múlva lejár. Ha nem Ön kérte, hagyja figyelmen kívül ezt az üzenetet.",
+    "email_address_help": "A cím, ahová a megerősítő mail megy. Semmi sem változik, amíg nem válaszol arra a mailre."
   },
   "pagination": {
     "previous": "Előző",
@@ -976,7 +979,8 @@
     "delete_selected": "Kijelöltek törlése",
     "delete_selected_confirm": "Törli a kijelölt naplóbejegyzéseket?",
     "delete_all": "Összes törlése",
-    "delete_all_confirm": "Törli az ÖSSZES naplóbejegyzést? Ez nem vonható vissza."
+    "delete_all_confirm": "Törli az ÖSSZES naplóbejegyzést? Ez nem vonható vissza.",
+    "event_help": "A művelet fajtája, amelyet a sor rögzít. Üresen minden fajtát mutat."
   },
   "lastlogin": {
     "title": "Utolsó bejelentkezés követése",

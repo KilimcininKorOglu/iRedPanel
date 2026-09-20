@@ -137,7 +137,9 @@
     "failed_attempts": "Neuspjeli pokušaji prijave: :count",
     "invalid_credentials": "Nevažeći podaci za prijavu!",
     "msg_session_expired": "Vaša je sesija istekla. Ponovno se prijavite.",
-    "msg_ip_changed": "Sesija je zatvorena jer se vaša IP adresa promijenila. Ponovno se prijavite."
+    "msg_ip_changed": "Sesija je zatvorena jer se vaša IP adresa promijenila. Ponovno se prijavite.",
+    "email_help": "Adresa vašeg administratorskog računa ili vašeg sandučića. Panel prvo pokuša prijavu administratora, zatim prijavu sandučića.",
+    "password_help": "Lozinka tog računa. Sandučić dolazi samo do stranica samoposluge."
   },
   "misc": {
     "error": "Pogreška",
@@ -171,7 +173,8 @@
     "mail_subject_subscribe": "Potvrdite pretplatu na :list",
     "mail_subject_unsubscribe": "Potvrdite otkazivanje pretplate na :list",
     "mail_body_subscribe": "Netko, vjerojatno vi, zatražio je prijavu adrese :email na popis e-pošte :list.\n\nZa potvrdu otvorite ovu poveznicu i kliknite gumb za potvrdu:\n:link\n\nPoveznica istječe za :hours h. Ako to niste zatražili, zanemarite ovu poruku.",
-    "mail_body_unsubscribe": "Netko, vjerojatno vi, zatražio je odjavu adrese :email s popisa e-pošte :list.\n\nZa potvrdu otvorite ovu poveznicu i kliknite gumb za potvrdu:\n:link\n\nPoveznica istječe za :hours h. Ako to niste zatražili, zanemarite ovu poruku."
+    "mail_body_unsubscribe": "Netko, vjerojatno vi, zatražio je odjavu adrese :email s popisa e-pošte :list.\n\nZa potvrdu otvorite ovu poveznicu i kliknite gumb za potvrdu:\n:link\n\nPoveznica istječe za :hours h. Ako to niste zatražili, zanemarite ovu poruku.",
+    "email_address_help": "Adresa na koju ide mail potvrde. Ništa se ne mijenja dok ne odgovorite na taj mail."
   },
   "pagination": {
     "previous": "Prethodno",
@@ -976,7 +979,8 @@
     "delete_selected": "Izbriši odabrano",
     "delete_selected_confirm": "Izbrisati odabrane unose zapisa?",
     "delete_all": "Izbriši sve",
-    "delete_all_confirm": "Izbrisati SVE unose zapisa? Ovo se ne može poništiti."
+    "delete_all_confirm": "Izbrisati SVE unose zapisa? Ovo se ne može poništiti.",
+    "event_help": "Vrsta radnje koju redak bilježi. Prazno prikazuje svaku vrstu."
   },
   "lastlogin": {
     "title": "Praćenje zadnje prijave",

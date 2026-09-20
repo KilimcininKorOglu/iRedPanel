@@ -137,7 +137,9 @@
     "failed_attempts": "Tentativas de login com falha: :count",
     "invalid_credentials": "Credenciais inválidas!",
     "msg_session_expired": "Sua sessão expirou. Entre novamente.",
-    "msg_ip_changed": "A sessão foi encerrada porque seu endereço IP mudou. Entre novamente."
+    "msg_ip_changed": "A sessão foi encerrada porque seu endereço IP mudou. Entre novamente.",
+    "email_help": "O endereço da sua conta de administrador ou da sua caixa. O painel tenta primeiro o acesso de administrador e depois o da caixa.",
+    "password_help": "A senha dessa conta. Uma caixa alcança apenas as páginas de autoatendimento."
   },
   "misc": {
     "error": "Erro",
@@ -171,7 +173,8 @@
     "mail_subject_subscribe": "Confirme sua inscrição em :list",
     "mail_subject_unsubscribe": "Confirme o cancelamento da inscrição em :list",
     "mail_body_subscribe": "Alguém, provavelmente você, pediu para inscrever :email na lista de e-mail :list.\n\nPara confirmar, abra este link e clique no botão de confirmação:\n:link\n\nO link expira em :hours horas. Se você não pediu isso, ignore esta mensagem.",
-    "mail_body_unsubscribe": "Alguém, provavelmente você, pediu para remover :email da lista de e-mail :list.\n\nPara confirmar, abra este link e clique no botão de confirmação:\n:link\n\nO link expira em :hours horas. Se você não pediu isso, ignore esta mensagem."
+    "mail_body_unsubscribe": "Alguém, provavelmente você, pediu para remover :email da lista de e-mail :list.\n\nPara confirmar, abra este link e clique no botão de confirmação:\n:link\n\nO link expira em :hours horas. Se você não pediu isso, ignore esta mensagem.",
+    "email_address_help": "O endereço para onde vai o mail de confirmação. Nada muda até você responder a esse mail."
   },
   "pagination": {
     "previous": "Anterior",
@@ -976,7 +979,8 @@
     "delete_selected": "Excluir selecionados",
     "delete_selected_confirm": "Excluir entradas de registro selecionadas?",
     "delete_all": "Excluir tudo",
-    "delete_all_confirm": "Excluir TODAS as entradas de registro? Isso não pode ser desfeito."
+    "delete_all_confirm": "Excluir TODAS as entradas de registro? Isso não pode ser desfeito.",
+    "event_help": "O tipo de ação que a linha registra. Vazio mostra todos os tipos."
   },
   "lastlogin": {
     "title": "Rastreamento do último login",

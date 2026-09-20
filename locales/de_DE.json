@@ -137,7 +137,9 @@
     "failed_attempts": "Fehlgeschlagene Anmeldeversuche: :count",
     "invalid_credentials": "Ungültige Anmeldedaten!",
     "msg_session_expired": "Ihre Sitzung ist abgelaufen. Bitte melden Sie sich erneut an.",
-    "msg_ip_changed": "Die Sitzung wurde beendet, weil sich Ihre IP-Adresse geändert hat. Bitte melden Sie sich erneut an."
+    "msg_ip_changed": "Die Sitzung wurde beendet, weil sich Ihre IP-Adresse geändert hat. Bitte melden Sie sich erneut an.",
+    "email_help": "Die Adresse Ihres Admin-Kontos oder Ihrer Mailbox. Das Panel versucht zuerst die Admin-Anmeldung, dann die Mailbox-Anmeldung.",
+    "password_help": "Das Passwort dieses Kontos. Eine Mailbox erreicht nur die Self-Service-Seiten."
   },
   "misc": {
     "error": "Fehler",
@@ -171,7 +173,8 @@
     "mail_subject_subscribe": "Bestätigen Sie Ihr Abonnement von :list",
     "mail_subject_unsubscribe": "Bestätigen Sie Ihre Abmeldung von :list",
     "mail_body_subscribe": "Jemand, wahrscheinlich Sie, hat angefordert, :email in die Mailingliste :list einzutragen.\n\nÖffnen Sie zur Bestätigung diesen Link und klicken Sie auf die Bestätigungsschaltfläche:\n:link\n\nDer Link läuft in :hours Stunden ab. Wenn Sie dies nicht angefordert haben, ignorieren Sie diese Nachricht.",
-    "mail_body_unsubscribe": "Jemand, wahrscheinlich Sie, hat angefordert, :email aus der Mailingliste :list auszutragen.\n\nÖffnen Sie zur Bestätigung diesen Link und klicken Sie auf die Bestätigungsschaltfläche:\n:link\n\nDer Link läuft in :hours Stunden ab. Wenn Sie dies nicht angefordert haben, ignorieren Sie diese Nachricht."
+    "mail_body_unsubscribe": "Jemand, wahrscheinlich Sie, hat angefordert, :email aus der Mailingliste :list auszutragen.\n\nÖffnen Sie zur Bestätigung diesen Link und klicken Sie auf die Bestätigungsschaltfläche:\n:link\n\nDer Link läuft in :hours Stunden ab. Wenn Sie dies nicht angefordert haben, ignorieren Sie diese Nachricht.",
+    "email_address_help": "Die Adresse, an die die Bestätigungsmail geht. Es ändert sich nichts, bis Sie diese Mail beantworten."
   },
   "pagination": {
     "previous": "Zurück",
@@ -976,7 +979,8 @@
     "delete_selected": "Auswahl löschen",
     "delete_selected_confirm": "Ausgewählte Protokolleinträge löschen?",
     "delete_all": "Alle löschen",
-    "delete_all_confirm": "ALLE Protokolleinträge löschen? Dies kann nicht rückgängig gemacht werden."
+    "delete_all_confirm": "ALLE Protokolleinträge löschen? Dies kann nicht rückgängig gemacht werden.",
+    "event_help": "Die Art der Aktion, die die Zeile festhält. Leer zeigt jede Art."
   },
   "lastlogin": {
     "title": "Letzte-Anmeldung-Verfolgung",

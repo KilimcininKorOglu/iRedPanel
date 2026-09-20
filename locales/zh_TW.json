@@ -137,7 +137,9 @@
     "failed_attempts": "登入失敗次數：:count",
     "invalid_credentials": "認證憑證無效！",
     "msg_session_expired": "工作階段已過期，請重新登入。",
-    "msg_ip_changed": "您的 IP 位址已變更，工作階段已關閉。請重新登入。"
+    "msg_ip_changed": "您的 IP 位址已變更，工作階段已關閉。請重新登入。",
+    "email_help": "您的管理員帳號或信箱的位址。面板先嘗試管理員登入，接著嘗試信箱登入。",
+    "password_help": "該帳號的密碼。信箱只能進入自助服務頁面。"
   },
   "misc": {
     "error": "錯誤",
@@ -171,7 +173,8 @@
     "mail_subject_subscribe": "請確認訂閱 :list",
     "mail_subject_unsubscribe": "請確認取消訂閱 :list",
     "mail_body_subscribe": "有人（可能是您）要求將 :email 訂閱到郵件清單 :list。\n\n如要確認，請開啟此連結並點擊確認按鈕：\n:link\n\n連結將在 :hours 小時後過期。如果這不是您的要求，請忽略此郵件。",
-    "mail_body_unsubscribe": "有人（可能是您）要求將 :email 從郵件清單 :list 取消訂閱。\n\n如要確認，請開啟此連結並點擊確認按鈕：\n:link\n\n連結將在 :hours 小時後過期。如果這不是您的要求，請忽略此郵件。"
+    "mail_body_unsubscribe": "有人（可能是您）要求將 :email 從郵件清單 :list 取消訂閱。\n\n如要確認，請開啟此連結並點擊確認按鈕：\n:link\n\n連結將在 :hours 小時後過期。如果這不是您的要求，請忽略此郵件。",
+    "email_address_help": "確認郵件寄往的位址。在您回覆那封郵件之前，不會有任何變更。"
   },
   "pagination": {
     "previous": "上一頁",
@@ -976,7 +979,8 @@
     "delete_selected": "刪除所選",
     "delete_selected_confirm": "要刪除所選日誌項目嗎？",
     "delete_all": "全部刪除",
-    "delete_all_confirm": "要刪除所有日誌項目嗎？此操作無法復原。"
+    "delete_all_confirm": "要刪除所有日誌項目嗎？此操作無法復原。",
+    "event_help": "該列記錄的操作類型。留空則顯示所有類型。"
   },
   "lastlogin": {
     "title": "最後登入追蹤",

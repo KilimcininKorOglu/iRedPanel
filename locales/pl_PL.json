@@ -137,7 +137,9 @@
     "failed_attempts": "Nieudane próby logowania: :count",
     "invalid_credentials": "Nieprawidłowe dane logowania!",
     "msg_session_expired": "Twoja sesja wygasła. Zaloguj się ponownie.",
-    "msg_ip_changed": "Sesja została zamknięta, ponieważ zmienił się Twój adres IP. Zaloguj się ponownie."
+    "msg_ip_changed": "Sesja została zamknięta, ponieważ zmienił się Twój adres IP. Zaloguj się ponownie.",
+    "email_help": "Adres Twojego konta administratora lub Twojej skrzynki. Panel najpierw próbuje logowania administratora, potem logowania skrzynki.",
+    "password_help": "Hasło tego konta. Skrzynka dociera tylko do stron samoobsługi."
   },
   "misc": {
     "error": "Błąd",
@@ -171,7 +173,8 @@
     "mail_subject_subscribe": "Potwierdź subskrypcję :list",
     "mail_subject_unsubscribe": "Potwierdź rezygnację z subskrypcji :list",
     "mail_body_subscribe": "Ktoś, prawdopodobnie Ty, poprosił o zapisanie :email na listę mailingową :list.\n\nAby potwierdzić, otwórz ten link i kliknij przycisk potwierdzenia:\n:link\n\nLink wygaśnie za :hours godz. Jeśli to nie Ty, zignoruj tę wiadomość.",
-    "mail_body_unsubscribe": "Ktoś, prawdopodobnie Ty, poprosił o wypisanie :email z listy mailingowej :list.\n\nAby potwierdzić, otwórz ten link i kliknij przycisk potwierdzenia:\n:link\n\nLink wygaśnie za :hours godz. Jeśli to nie Ty, zignoruj tę wiadomość."
+    "mail_body_unsubscribe": "Ktoś, prawdopodobnie Ty, poprosił o wypisanie :email z listy mailingowej :list.\n\nAby potwierdzić, otwórz ten link i kliknij przycisk potwierdzenia:\n:link\n\nLink wygaśnie za :hours godz. Jeśli to nie Ty, zignoruj tę wiadomość.",
+    "email_address_help": "Adres, na który idzie mail z potwierdzeniem. Nic się nie zmienia, dopóki nie odpowiesz na ten mail."
   },
   "pagination": {
     "previous": "Poprzednia",
@@ -976,7 +979,8 @@
     "delete_selected": "Usuń wybrane",
     "delete_selected_confirm": "Usunąć wybrane wpisy dziennika?",
     "delete_all": "Usuń wszystkie",
-    "delete_all_confirm": "Usunąć WSZYSTKIE wpisy dziennika? Tej operacji nie można cofnąć."
+    "delete_all_confirm": "Usunąć WSZYSTKIE wpisy dziennika? Tej operacji nie można cofnąć.",
+    "event_help": "Rodzaj czynności, którą zapisuje wiersz. Puste pole pokazuje każdy rodzaj."
   },
   "lastlogin": {
     "title": "Śledzenie ostatniego logowania",

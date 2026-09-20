@@ -137,7 +137,9 @@
     "failed_attempts": "Tentatives de connexion échouées : :count",
     "invalid_credentials": "Identifiants non valides !",
     "msg_session_expired": "Votre session a expiré. Veuillez vous reconnecter.",
-    "msg_ip_changed": "La session a été fermée, car votre adresse IP a changé. Veuillez vous reconnecter."
+    "msg_ip_changed": "La session a été fermée, car votre adresse IP a changé. Veuillez vous reconnecter.",
+    "email_help": "L'adresse de votre compte administrateur ou de votre boîte. Le panneau tente d'abord la connexion administrateur, puis celle de la boîte.",
+    "password_help": "Le mot de passe de ce compte. Une boîte atteint seulement les pages de self-service."
   },
   "misc": {
     "error": "Erreur",
@@ -171,7 +173,8 @@
     "mail_subject_subscribe": "Confirmez votre abonnement à :list",
     "mail_subject_unsubscribe": "Confirmez votre désabonnement de :list",
     "mail_body_subscribe": "Quelqu'un, probablement vous, a demandé l'abonnement de :email à la liste de diffusion :list.\n\nPour confirmer, ouvrez ce lien et cliquez sur le bouton de confirmation :\n:link\n\nLe lien expire dans :hours heures. Si vous n'avez pas fait cette demande, ignorez ce message.",
-    "mail_body_unsubscribe": "Quelqu'un, probablement vous, a demandé le désabonnement de :email de la liste de diffusion :list.\n\nPour confirmer, ouvrez ce lien et cliquez sur le bouton de confirmation :\n:link\n\nLe lien expire dans :hours heures. Si vous n'avez pas fait cette demande, ignorez ce message."
+    "mail_body_unsubscribe": "Quelqu'un, probablement vous, a demandé le désabonnement de :email de la liste de diffusion :list.\n\nPour confirmer, ouvrez ce lien et cliquez sur le bouton de confirmation :\n:link\n\nLe lien expire dans :hours heures. Si vous n'avez pas fait cette demande, ignorez ce message.",
+    "email_address_help": "L'adresse à laquelle part le mail de confirmation. Rien ne change tant que vous ne répondez pas à ce mail."
   },
   "pagination": {
     "previous": "Précédent",
@@ -976,7 +979,8 @@
     "delete_selected": "Supprimer la sélection",
     "delete_selected_confirm": "Supprimer les entrées de journal sélectionnées ?",
     "delete_all": "Tout supprimer",
-    "delete_all_confirm": "Supprimer TOUTES les entrées de journal ? Cette action est irréversible."
+    "delete_all_confirm": "Supprimer TOUTES les entrées de journal ? Cette action est irréversible.",
+    "event_help": "Le type d'action que la ligne enregistre. Vide affiche tous les types."
   },
   "lastlogin": {
     "title": "Suivi de la dernière connexion",

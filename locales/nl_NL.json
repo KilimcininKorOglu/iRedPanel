@@ -137,7 +137,9 @@
     "failed_attempts": "Mislukte aanmeldpogingen: :count",
     "invalid_credentials": "Ongeldige inloggegevens!",
     "msg_session_expired": "Uw sessie is verlopen. Meld u opnieuw aan.",
-    "msg_ip_changed": "De sessie is gesloten, omdat uw IP-adres is gewijzigd. Meld u opnieuw aan."
+    "msg_ip_changed": "De sessie is gesloten, omdat uw IP-adres is gewijzigd. Meld u opnieuw aan.",
+    "email_help": "Het adres van uw beheerdersaccount of van uw mailbox. Het paneel probeert eerst de beheerdersaanmelding en daarna die van de mailbox.",
+    "password_help": "Het wachtwoord van dat account. Een mailbox bereikt alleen de selfservicepagina's."
   },
   "misc": {
     "error": "Fout",
@@ -171,7 +173,8 @@
     "mail_subject_subscribe": "Bevestig uw aanmelding voor :list",
     "mail_subject_unsubscribe": "Bevestig uw afmelding voor :list",
     "mail_body_subscribe": "Iemand, waarschijnlijk u, heeft gevraagd om :email aan te melden voor de mailinglijst :list.\n\nOpen deze link en klik op de bevestigingsknop om te bevestigen:\n:link\n\nDe link verloopt over :hours uur. Als u dit niet hebt gevraagd, negeer dan dit bericht.",
-    "mail_body_unsubscribe": "Iemand, waarschijnlijk u, heeft gevraagd om :email af te melden voor de mailinglijst :list.\n\nOpen deze link en klik op de bevestigingsknop om te bevestigen:\n:link\n\nDe link verloopt over :hours uur. Als u dit niet hebt gevraagd, negeer dan dit bericht."
+    "mail_body_unsubscribe": "Iemand, waarschijnlijk u, heeft gevraagd om :email af te melden voor de mailinglijst :list.\n\nOpen deze link en klik op de bevestigingsknop om te bevestigen:\n:link\n\nDe link verloopt over :hours uur. Als u dit niet hebt gevraagd, negeer dan dit bericht.",
+    "email_address_help": "Het adres waar de bevestigingsmail heen gaat. Er verandert niets tot u die mail beantwoordt."
   },
   "pagination": {
     "previous": "Vorige",
@@ -976,7 +979,8 @@
     "delete_selected": "Selectie verwijderen",
     "delete_selected_confirm": "Geselecteerde logboekvermeldingen verwijderen?",
     "delete_all": "Alles verwijderen",
-    "delete_all_confirm": "ALLE logboekvermeldingen verwijderen? Deze actie kan niet ongedaan worden gemaakt."
+    "delete_all_confirm": "ALLE logboekvermeldingen verwijderen? Deze actie kan niet ongedaan worden gemaakt.",
+    "event_help": "De soort actie die de regel vastlegt. Leeg toont elke soort."
   },
   "lastlogin": {
     "title": "Laatste-aanmelding volgen",

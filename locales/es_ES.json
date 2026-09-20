@@ -137,7 +137,9 @@
     "failed_attempts": "Intentos de inicio de sesión fallidos: :count",
     "invalid_credentials": "¡Credenciales no válidas!",
     "msg_session_expired": "Su sesión ha caducado. Inicie sesión de nuevo.",
-    "msg_ip_changed": "La sesión se cerró porque su dirección IP cambió. Inicie sesión de nuevo."
+    "msg_ip_changed": "La sesión se cerró porque su dirección IP cambió. Inicie sesión de nuevo.",
+    "email_help": "La dirección de su cuenta de administrador o de su buzón. El panel prueba primero el acceso de administrador y después el del buzón.",
+    "password_help": "La contraseña de esa cuenta. Un buzón llega solo a las páginas de autoservicio."
   },
   "misc": {
     "error": "Error",
@@ -171,7 +173,8 @@
     "mail_subject_subscribe": "Confirme su suscripción a :list",
     "mail_subject_unsubscribe": "Confirme su baja de :list",
     "mail_body_subscribe": "Alguien, probablemente usted, solicitó suscribir :email a la lista de correo :list.\n\nPara confirmar, abra este enlace y haga clic en el botón de confirmación:\n:link\n\nEl enlace caduca en :hours horas. Si no lo solicitó, ignore este mensaje.",
-    "mail_body_unsubscribe": "Alguien, probablemente usted, solicitó dar de baja :email de la lista de correo :list.\n\nPara confirmar, abra este enlace y haga clic en el botón de confirmación:\n:link\n\nEl enlace caduca en :hours horas. Si no lo solicitó, ignore este mensaje."
+    "mail_body_unsubscribe": "Alguien, probablemente usted, solicitó dar de baja :email de la lista de correo :list.\n\nPara confirmar, abra este enlace y haga clic en el botón de confirmación:\n:link\n\nEl enlace caduca en :hours horas. Si no lo solicitó, ignore este mensaje.",
+    "email_address_help": "La dirección a la que va el mail de confirmación. Nada cambia hasta que responda a ese mail."
   },
   "pagination": {
     "previous": "Anterior",
@@ -976,7 +979,8 @@
     "delete_selected": "Eliminar seleccionados",
     "delete_selected_confirm": "¿Eliminar las entradas de registro seleccionadas?",
     "delete_all": "Eliminar todo",
-    "delete_all_confirm": "¿Eliminar TODAS las entradas de registro? Esto no se puede deshacer."
+    "delete_all_confirm": "¿Eliminar TODAS las entradas de registro? Esto no se puede deshacer.",
+    "event_help": "El tipo de acción que registra la fila. Vacío muestra todos los tipos."
   },
   "lastlogin": {
     "title": "Seguimiento del último inicio de sesión",

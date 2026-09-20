@@ -16,7 +16,7 @@
       <form method="post">
         <?= $csrfField ?>
         <div class="mb-3">
-          <label for="email" class="form-label"><?= $te('newsletter.email_address') ?></label>
+          <label for="email" class="form-label"><?= $te('newsletter.email_address') ?></label><?= $help('newsletter.email_address') ?>
           <input type="email" id="email" name="email" class="form-control" required placeholder="your@email.com" value="<?= $e($email) ?>" />
         </div>
         <button type="submit" class="btn btn-primary w-100"><?= $action === 'subscribe' ? $te('newsletter.subscribe') : $te('newsletter.unsubscribe') ?></button>

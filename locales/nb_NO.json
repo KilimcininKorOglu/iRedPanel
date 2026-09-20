@@ -137,7 +137,9 @@
     "failed_attempts": "Mislykkede påloggingsforsøk: :count",
     "invalid_credentials": "Ugyldige påloggingsdetaljer!",
     "msg_session_expired": "Økten din er utløpt. Logg inn på nytt.",
-    "msg_ip_changed": "Økten ble lukket fordi IP-adressen din endret seg. Logg inn på nytt."
+    "msg_ip_changed": "Økten ble lukket fordi IP-adressen din endret seg. Logg inn på nytt.",
+    "email_help": "Adressen til administratorkontoen din eller postkassen din. Panelet prøver først administratorinnloggingen og så postkasseinnloggingen.",
+    "password_help": "Passordet til den kontoen. En postkasse når bare selvbetjeningssidene."
   },
   "misc": {
     "error": "Feil",
@@ -171,7 +173,8 @@
     "mail_subject_subscribe": "Bekreft påmeldingen til :list",
     "mail_subject_unsubscribe": "Bekreft avmeldingen fra :list",
     "mail_body_subscribe": "Noen, sannsynligvis du, ba om å melde :email på e-postlisten :list.\n\nBekreft ved å åpne denne lenken og klikke på bekreftelsesknappen:\n:link\n\nLenken utløper om :hours timer. Hvis du ikke ba om dette, kan du se bort fra meldingen.",
-    "mail_body_unsubscribe": "Noen, sannsynligvis du, ba om å melde :email av e-postlisten :list.\n\nBekreft ved å åpne denne lenken og klikke på bekreftelsesknappen:\n:link\n\nLenken utløper om :hours timer. Hvis du ikke ba om dette, kan du se bort fra meldingen."
+    "mail_body_unsubscribe": "Noen, sannsynligvis du, ba om å melde :email av e-postlisten :list.\n\nBekreft ved å åpne denne lenken og klikke på bekreftelsesknappen:\n:link\n\nLenken utløper om :hours timer. Hvis du ikke ba om dette, kan du se bort fra meldingen.",
+    "email_address_help": "Adressen som bekreftelsesmailen går til. Ingenting endres før du svarer på den mailen."
   },
   "pagination": {
     "previous": "Forrige",
@@ -976,7 +979,8 @@
     "delete_selected": "Slett valgte",
     "delete_selected_confirm": "Slette valgte loggoppføringer?",
     "delete_all": "Slett alle",
-    "delete_all_confirm": "Slette ALLE loggoppføringer? Dette kan ikke angres."
+    "delete_all_confirm": "Slette ALLE loggoppføringer? Dette kan ikke angres.",
+    "event_help": "Typen handling som raden noterer. Tomt viser hver type."
   },
   "lastlogin": {
     "title": "Sporing av siste pålogging",

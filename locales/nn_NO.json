@@ -137,7 +137,9 @@
     "failed_attempts": "Mislukka innloggingsforsøk: :count",
     "invalid_credentials": "Ugyldige påloggingsdetaljar!",
     "msg_session_expired": "Økta di er utgått. Logg inn på nytt.",
-    "msg_ip_changed": "Økta vart lukka fordi IP-adressa di endra seg. Logg inn på nytt."
+    "msg_ip_changed": "Økta vart lukka fordi IP-adressa di endra seg. Logg inn på nytt.",
+    "email_help": "Adressa til administratorkontoen din eller postkassa di. Panelet prøver først administratorinnlogginga og så postkasseinnlogginga.",
+    "password_help": "Passordet til den kontoen. Ei postkasse når berre sjølvbeteningssidene."
   },
   "misc": {
     "error": "Feil",
@@ -171,7 +173,8 @@
     "mail_subject_subscribe": "Stadfest påmeldinga til :list",
     "mail_subject_unsubscribe": "Stadfest avmeldinga frå :list",
     "mail_body_subscribe": "Nokon, truleg du, bad om å melde :email på e-postlista :list.\n\nStadfest ved å opne denne lenkja og klikke på stadfestingsknappen:\n:link\n\nLenkja går ut om :hours timar. Viss du ikkje bad om dette, kan du sjå bort frå meldinga.",
-    "mail_body_unsubscribe": "Nokon, truleg du, bad om å melde :email av e-postlista :list.\n\nStadfest ved å opne denne lenkja og klikke på stadfestingsknappen:\n:link\n\nLenkja går ut om :hours timar. Viss du ikkje bad om dette, kan du sjå bort frå meldinga."
+    "mail_body_unsubscribe": "Nokon, truleg du, bad om å melde :email av e-postlista :list.\n\nStadfest ved å opne denne lenkja og klikke på stadfestingsknappen:\n:link\n\nLenkja går ut om :hours timar. Viss du ikkje bad om dette, kan du sjå bort frå meldinga.",
+    "email_address_help": "Adressa som stadfestingsmailen går til. Ingenting endrar seg før du svarar på den mailen."
   },
   "pagination": {
     "previous": "Førre",
@@ -976,7 +979,8 @@
     "delete_selected": "Slett valde",
     "delete_selected_confirm": "Slette valde loggoppføringar?",
     "delete_all": "Slett alle",
-    "delete_all_confirm": "Slette ALLE loggoppføringar? Dette kan ikkje angrast."
+    "delete_all_confirm": "Slette ALLE loggoppføringar? Dette kan ikkje angrast.",
+    "event_help": "Typen handling som rada noterer. Tomt viser kvar type."
   },
   "lastlogin": {
     "title": "Sporing av siste innlogging",

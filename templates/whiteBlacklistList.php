@@ -40,7 +40,7 @@ $sections = [
 
     <?php foreach ($sections as $direction => [$titleKey, $columnKey, $emptyKey, $entries]): ?>
     <div class="card">
-      <div class="card-header"><?= $te($titleKey) ?></div>
+      <div class="card-header"><?= $te($titleKey) ?></div><?= $help($titleKey) ?>
       <div class="card-body">
         <form method="post">
           <?= $csrfField ?>

@@ -137,7 +137,9 @@
     "failed_attempts": "Mislykkede loginforsøg: :count",
     "invalid_credentials": "Ugyldige loginoplysninger!",
     "msg_session_expired": "Din session er udløbet. Log ind igen.",
-    "msg_ip_changed": "Sessionen blev lukket, fordi din IP-adresse ændrede sig. Log ind igen."
+    "msg_ip_changed": "Sessionen blev lukket, fordi din IP-adresse ændrede sig. Log ind igen.",
+    "email_help": "Adressen på din administratorkonto eller din postkasse. Panelet prøver først administratorloginet og derefter postkasseloginet.",
+    "password_help": "Adgangskoden til den konto. En postkasse når kun selvbetjeningssiderne."
   },
   "misc": {
     "error": "Fejl",
@@ -171,7 +173,8 @@
     "mail_subject_subscribe": "Bekræft din tilmelding til :list",
     "mail_subject_unsubscribe": "Bekræft din afmelding fra :list",
     "mail_body_subscribe": "Nogen, sandsynligvis dig, har bedt om at tilmelde :email til mailinglisten :list.\n\nBekræft ved at åbne dette link og klikke på bekræftelsesknappen:\n:link\n\nLinket udløber om :hours timer. Hvis du ikke har bedt om dette, kan du ignorere beskeden.",
-    "mail_body_unsubscribe": "Nogen, sandsynligvis dig, har bedt om at afmelde :email fra mailinglisten :list.\n\nBekræft ved at åbne dette link og klikke på bekræftelsesknappen:\n:link\n\nLinket udløber om :hours timer. Hvis du ikke har bedt om dette, kan du ignorere beskeden."
+    "mail_body_unsubscribe": "Nogen, sandsynligvis dig, har bedt om at afmelde :email fra mailinglisten :list.\n\nBekræft ved at åbne dette link og klikke på bekræftelsesknappen:\n:link\n\nLinket udløber om :hours timer. Hvis du ikke har bedt om dette, kan du ignorere beskeden.",
+    "email_address_help": "Adressen, som bekræftelsesmailen går til. Intet ændrer sig, før du svarer på den mail."
   },
   "pagination": {
     "previous": "Forrige",
@@ -976,7 +979,8 @@
     "delete_selected": "Slet valgte",
     "delete_selected_confirm": "Slet valgte logposter?",
     "delete_all": "Slet alle",
-    "delete_all_confirm": "Slet ALLE logposter? Dette kan ikke fortrydes."
+    "delete_all_confirm": "Slet ALLE logposter? Dette kan ikke fortrydes.",
+    "event_help": "Den slags handling, rækken noterer. Tom viser hver slags."
   },
   "lastlogin": {
     "title": "Sporing af seneste login",

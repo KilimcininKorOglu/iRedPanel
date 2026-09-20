@@ -137,7 +137,9 @@
     "failed_attempts": "Intentos de inicio de sesión fallidos: :count",
     "invalid_credentials": "Credenciais non válidas!",
     "msg_session_expired": "A súa sesión caducou. Inicie sesión de novo.",
-    "msg_ip_changed": "A sesión pechouse porque o seu enderezo IP cambiou. Inicie sesión de novo."
+    "msg_ip_changed": "A sesión pechouse porque o seu enderezo IP cambiou. Inicie sesión de novo.",
+    "email_help": "O enderezo da súa conta de administrador ou da súa caixa. O panel proba primeiro o acceso de administrador e despois o da caixa.",
+    "password_help": "O contrasinal desa conta. Unha caixa chega só ás páxinas de autoservizo."
   },
   "misc": {
     "error": "Erro",
@@ -171,7 +173,8 @@
     "mail_subject_subscribe": "Confirme a súa subscrición a :list",
     "mail_subject_unsubscribe": "Confirme a súa baixa de :list",
     "mail_body_subscribe": "Alguén, probablemente vostede, pediu subscribir :email á lista de correo :list.\n\nPara confirmar, abra esta ligazón e prema o botón de confirmación:\n:link\n\nA ligazón caduca en :hours horas. Se non o pediu, ignore esta mensaxe.",
-    "mail_body_unsubscribe": "Alguén, probablemente vostede, pediu dar de baixa :email da lista de correo :list.\n\nPara confirmar, abra esta ligazón e prema o botón de confirmación:\n:link\n\nA ligazón caduca en :hours horas. Se non o pediu, ignore esta mensaxe."
+    "mail_body_unsubscribe": "Alguén, probablemente vostede, pediu dar de baixa :email da lista de correo :list.\n\nPara confirmar, abra esta ligazón e prema o botón de confirmación:\n:link\n\nA ligazón caduca en :hours horas. Se non o pediu, ignore esta mensaxe.",
+    "email_address_help": "O enderezo ao que vai o mail de confirmación. Nada cambia ata que responda a ese mail."
   },
   "pagination": {
     "previous": "Anterior",
@@ -976,7 +979,8 @@
     "delete_selected": "Eliminar seleccionados",
     "delete_selected_confirm": "Eliminar as entradas de rexistro seleccionadas?",
     "delete_all": "Eliminar todo",
-    "delete_all_confirm": "Eliminar TODAS as entradas do rexistro? Isto non se pode desfacer."
+    "delete_all_confirm": "Eliminar TODAS as entradas do rexistro? Isto non se pode desfacer.",
+    "event_help": "O tipo de acción que rexistra a fila. Baleiro amosa todos os tipos."
   },
   "lastlogin": {
     "title": "Seguimento do último inicio de sesión",

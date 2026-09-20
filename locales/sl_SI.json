@@ -137,7 +137,9 @@
     "failed_attempts": "Neuspeli poskusi prijave: :count",
     "invalid_credentials": "Neveljavni podatki za prijavo!",
     "msg_session_expired": "Vaša seja je potekla. Znova se prijavite.",
-    "msg_ip_changed": "Seja je bila zaprta, ker se je vaš naslov IP spremenil. Znova se prijavite."
+    "msg_ip_changed": "Seja je bila zaprta, ker se je vaš naslov IP spremenil. Znova se prijavite.",
+    "email_help": "Naslov vašega skrbniškega računa ali vašega poštnega predala. Panel najprej poskusi skrbniško prijavo, nato prijavo predala.",
+    "password_help": "Geslo tega računa. Poštni predal doseže le strani samopostrežbe."
   },
   "misc": {
     "error": "Napaka",
@@ -171,7 +173,8 @@
     "mail_subject_subscribe": "Potrdite naročnino na :list",
     "mail_subject_unsubscribe": "Potrdite preklic naročnine na :list",
     "mail_body_subscribe": "Nekdo, verjetno vi, je zahteval prijavo :email na poštni seznam :list.\n\nZa potrditev odprite to povezavo in kliknite gumb za potrditev:\n:link\n\nPovezava poteče čez :hours ur. Če tega niste zahtevali, prezrite to sporočilo.",
-    "mail_body_unsubscribe": "Nekdo, verjetno vi, je zahteval odjavo :email s poštnega seznama :list.\n\nZa potrditev odprite to povezavo in kliknite gumb za potrditev:\n:link\n\nPovezava poteče čez :hours ur. Če tega niste zahtevali, prezrite to sporočilo."
+    "mail_body_unsubscribe": "Nekdo, verjetno vi, je zahteval odjavo :email s poštnega seznama :list.\n\nZa potrditev odprite to povezavo in kliknite gumb za potrditev:\n:link\n\nPovezava poteče čez :hours ur. Če tega niste zahtevali, prezrite to sporočilo.",
+    "email_address_help": "Naslov, na katerega gre potrditveni mail. Nič se ne spremeni, dokler na ta mail ne odgovorite."
   },
   "pagination": {
     "previous": "Prejšnja",
@@ -976,7 +979,8 @@
     "delete_selected": "Izbriši izbrano",
     "delete_selected_confirm": "Izbrišem izbrane vnose v dnevniku?",
     "delete_all": "Izbriši vse",
-    "delete_all_confirm": "Izbrišem VSE vnose v dnevniku? Tega ni mogoče razveljaviti."
+    "delete_all_confirm": "Izbrišem VSE vnose v dnevniku? Tega ni mogoče razveljaviti.",
+    "event_help": "Vrsta dejanja, ki ga vrstica zabeleži. Prazno pokaže vsako vrsto."
   },
   "lastlogin": {
     "title": "Sledenje zadnji prijavi",

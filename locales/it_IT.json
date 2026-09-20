@@ -137,7 +137,9 @@
     "failed_attempts": "Tentativi di accesso falliti: :count",
     "invalid_credentials": "Credenziali non valide!",
     "msg_session_expired": "La sessione è scaduta. Accedi di nuovo.",
-    "msg_ip_changed": "La sessione è stata chiusa perché il tuo indirizzo IP è cambiato. Accedi di nuovo."
+    "msg_ip_changed": "La sessione è stata chiusa perché il tuo indirizzo IP è cambiato. Accedi di nuovo.",
+    "email_help": "L'indirizzo del suo account amministratore o della sua casella. Il pannello prova prima l'accesso amministratore, poi quello della casella.",
+    "password_help": "La password di quell'account. Una casella raggiunge solo le pagine di self-service."
   },
   "misc": {
     "error": "Errore",
@@ -171,7 +173,8 @@
     "mail_subject_subscribe": "Conferma l'iscrizione a :list",
     "mail_subject_unsubscribe": "Conferma l'annullamento dell'iscrizione a :list",
     "mail_body_subscribe": "Qualcuno, probabilmente tu, ha chiesto di iscrivere :email alla mailing list :list.\n\nPer confermare, apri questo link e fai clic sul pulsante di conferma:\n:link\n\nIl link scade tra :hours ore. Se non l'hai richiesto, ignora questo messaggio.",
-    "mail_body_unsubscribe": "Qualcuno, probabilmente tu, ha chiesto di rimuovere :email dalla mailing list :list.\n\nPer confermare, apri questo link e fai clic sul pulsante di conferma:\n:link\n\nIl link scade tra :hours ore. Se non l'hai richiesto, ignora questo messaggio."
+    "mail_body_unsubscribe": "Qualcuno, probabilmente tu, ha chiesto di rimuovere :email dalla mailing list :list.\n\nPer confermare, apri questo link e fai clic sul pulsante di conferma:\n:link\n\nIl link scade tra :hours ore. Se non l'hai richiesto, ignora questo messaggio.",
+    "email_address_help": "L'indirizzo a cui va la mail di conferma. Nulla cambia finché non risponde a quella mail."
   },
   "pagination": {
     "previous": "Precedente",
@@ -976,7 +979,8 @@
     "delete_selected": "Elimina selezionati",
     "delete_selected_confirm": "Eliminare le voci di registro selezionate?",
     "delete_all": "Elimina tutto",
-    "delete_all_confirm": "Eliminare TUTTE le voci di registro? Questa operazione è irreversibile."
+    "delete_all_confirm": "Eliminare TUTTE le voci di registro? Questa operazione è irreversibile.",
+    "event_help": "Il tipo di azione che la riga registra. Vuoto mostra ogni tipo."
   },
   "lastlogin": {
     "title": "Tracciamento ultimo accesso",

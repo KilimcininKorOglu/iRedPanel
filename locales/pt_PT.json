@@ -137,7 +137,9 @@
     "failed_attempts": "Tentativas de início de sessão falhadas: :count",
     "invalid_credentials": "Credenciais inválidas!",
     "msg_session_expired": "A sua sessão expirou. Inicie sessão novamente.",
-    "msg_ip_changed": "A sessão foi terminada porque o seu endereço IP mudou. Inicie sessão novamente."
+    "msg_ip_changed": "A sessão foi terminada porque o seu endereço IP mudou. Inicie sessão novamente.",
+    "email_help": "O endereço da sua conta de administrador ou da sua caixa. O painel tenta primeiro o acesso de administrador e depois o da caixa.",
+    "password_help": "A palavra-passe dessa conta. Uma caixa chega apenas às páginas de autosserviço."
   },
   "misc": {
     "error": "Erro",
@@ -171,7 +173,8 @@
     "mail_subject_subscribe": "Confirme a subscrição de :list",
     "mail_subject_unsubscribe": "Confirme o cancelamento da subscrição de :list",
     "mail_body_subscribe": "Alguém, provavelmente o próprio, pediu para subscrever :email na lista de correio :list.\n\nPara confirmar, abra esta ligação e clique no botão de confirmação:\n:link\n\nA ligação expira dentro de :hours horas. Se não fez este pedido, ignore esta mensagem.",
-    "mail_body_unsubscribe": "Alguém, provavelmente o próprio, pediu para remover :email da lista de correio :list.\n\nPara confirmar, abra esta ligação e clique no botão de confirmação:\n:link\n\nA ligação expira dentro de :hours horas. Se não fez este pedido, ignore esta mensagem."
+    "mail_body_unsubscribe": "Alguém, provavelmente o próprio, pediu para remover :email da lista de correio :list.\n\nPara confirmar, abra esta ligação e clique no botão de confirmação:\n:link\n\nA ligação expira dentro de :hours horas. Se não fez este pedido, ignore esta mensagem.",
+    "email_address_help": "O endereço para onde vai o mail de confirmação. Nada muda até responder a esse mail."
   },
   "pagination": {
     "previous": "Anterior",
@@ -976,7 +979,8 @@
     "delete_selected": "Eliminar selecionados",
     "delete_selected_confirm": "Eliminar as entradas de registo selecionadas?",
     "delete_all": "Eliminar tudo",
-    "delete_all_confirm": "Eliminar TODAS as entradas de registo? Esta ação não pode ser anulada."
+    "delete_all_confirm": "Eliminar TODAS as entradas de registo? Esta ação não pode ser anulada.",
+    "event_help": "O tipo de ação que a linha regista. Vazio mostra todos os tipos."
   },
   "lastlogin": {
     "title": "Rastreio do último início de sessão",

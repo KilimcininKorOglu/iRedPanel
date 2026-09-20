@@ -137,7 +137,9 @@
     "failed_attempts": "Uğursuz giriş cəhdləri: :count",
     "invalid_credentials": "Yanlış giriş məlumatları!",
     "msg_session_expired": "Sessiyanın vaxtı bitdi. Yenidən daxil olun.",
-    "msg_ip_changed": "IP ünvanınız dəyişdiyi üçün sessiya bağlandı. Yenidən daxil olun."
+    "msg_ip_changed": "IP ünvanınız dəyişdiyi üçün sessiya bağlandı. Yenidən daxil olun.",
+    "email_help": "Admin hesabınızın və ya mailbox-unuzun ünvanı. Panel əvvəlcə admin girişini, sonra mailbox girişini yoxlayır.",
+    "password_help": "Həmin hesabın parolu. Mailbox yalnız self-service səhifələrinə çatır."
   },
   "misc": {
     "error": "Xəta",
@@ -171,7 +173,8 @@
     "mail_subject_subscribe": ":list abunəliyinizi təsdiqləyin",
     "mail_subject_unsubscribe": ":list abunəliyinin ləğvini təsdiqləyin",
     "mail_body_subscribe": "Kimsə, çox güman ki, siz, :email ünvanının :list poçt siyahısına abunə edilməsini istədi.\n\nTəsdiqləmək üçün bu keçidi açın və təsdiq düyməsini basın:\n:link\n\nKeçidin vaxtı :hours saatdan sonra bitir. Bunu siz istəməmisinizsə, bu mesajı nəzərə almayın.",
-    "mail_body_unsubscribe": "Kimsə, çox güman ki, siz, :email ünvanının :list poçt siyahısından çıxarılmasını istədi.\n\nTəsdiqləmək üçün bu keçidi açın və təsdiq düyməsini basın:\n:link\n\nKeçidin vaxtı :hours saatdan sonra bitir. Bunu siz istəməmisinizsə, bu mesajı nəzərə almayın."
+    "mail_body_unsubscribe": "Kimsə, çox güman ki, siz, :email ünvanının :list poçt siyahısından çıxarılmasını istədi.\n\nTəsdiqləmək üçün bu keçidi açın və təsdiq düyməsini basın:\n:link\n\nKeçidin vaxtı :hours saatdan sonra bitir. Bunu siz istəməmisinizsə, bu mesajı nəzərə almayın.",
+    "email_address_help": "Təsdiq mailinin gedəcəyi ünvan. Siz həmin maili cavablandırana qədər heç nə dəyişmir."
   },
   "pagination": {
     "previous": "Əvvəlki",
@@ -976,7 +979,8 @@
     "delete_selected": "Seçilmişləri sil",
     "delete_selected_confirm": "Seçilmiş jurnal qeydlərini silmək?",
     "delete_all": "Hamısını sil",
-    "delete_all_confirm": "BÜTÜN jurnal qeydlərini silmək? Bu geri qaytarıla bilməz."
+    "delete_all_confirm": "BÜTÜN jurnal qeydlərini silmək? Bu geri qaytarıla bilməz.",
+    "event_help": "Sətrin qeyd etdiyi əməliyyat növü. Boş qalsa hər növ göstərilir."
   },
   "lastlogin": {
     "title": "Son giriş izləmə",

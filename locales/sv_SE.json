@@ -137,7 +137,9 @@
     "failed_attempts": "Misslyckade inloggningsförsök: :count",
     "invalid_credentials": "Ogiltiga inloggningsuppgifter!",
     "msg_session_expired": "Din session har gått ut. Logga in igen.",
-    "msg_ip_changed": "Sessionen stängdes eftersom din IP-adress ändrades. Logga in igen."
+    "msg_ip_changed": "Sessionen stängdes eftersom din IP-adress ändrades. Logga in igen.",
+    "email_help": "Adressen till ditt administratörskonto eller din brevlåda. Panelen prövar först administratörsinloggningen och sedan brevlådans inloggning.",
+    "password_help": "Lösenordet för det kontot. En brevlåda når bara självbetjäningssidorna."
   },
   "misc": {
     "error": "Fel",
@@ -171,7 +173,8 @@
     "mail_subject_subscribe": "Bekräfta din prenumeration på :list",
     "mail_subject_unsubscribe": "Bekräfta avslutad prenumeration på :list",
     "mail_body_subscribe": "Någon, troligen du, bad om att :email ska läggas till på e-postlistan :list.\n\nBekräfta genom att öppna den här länken och klicka på bekräftelseknappen:\n:link\n\nLänken slutar gälla om :hours timmar. Om du inte bad om detta kan du ignorera meddelandet.",
-    "mail_body_unsubscribe": "Någon, troligen du, bad om att :email ska tas bort från e-postlistan :list.\n\nBekräfta genom att öppna den här länken och klicka på bekräftelseknappen:\n:link\n\nLänken slutar gälla om :hours timmar. Om du inte bad om detta kan du ignorera meddelandet."
+    "mail_body_unsubscribe": "Någon, troligen du, bad om att :email ska tas bort från e-postlistan :list.\n\nBekräfta genom att öppna den här länken och klicka på bekräftelseknappen:\n:link\n\nLänken slutar gälla om :hours timmar. Om du inte bad om detta kan du ignorera meddelandet.",
+    "email_address_help": "Adressen som bekräftelsemailet går till. Ingenting ändras förrän du svarar på det mailet."
   },
   "pagination": {
     "previous": "Föregående",
@@ -976,7 +979,8 @@
     "delete_selected": "Ta bort valda",
     "delete_selected_confirm": "Ta bort valda loggposter?",
     "delete_all": "Ta bort alla",
-    "delete_all_confirm": "Ta bort ALLA loggposter? Denna åtgärd kan inte ångras."
+    "delete_all_confirm": "Ta bort ALLA loggposter? Denna åtgärd kan inte ångras.",
+    "event_help": "Den sorts åtgärd som raden noterar. Tomt visar varje sort."
   },
   "lastlogin": {
     "title": "Spårning av senaste inloggning",

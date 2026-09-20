@@ -137,7 +137,9 @@
     "failed_attempts": "Số lần đăng nhập thất bại: :count",
     "invalid_credentials": "Thông tin đăng nhập không hợp lệ!",
     "msg_session_expired": "Phiên của bạn đã hết hạn. Vui lòng đăng nhập lại.",
-    "msg_ip_changed": "Phiên đã bị đóng vì địa chỉ IP của bạn đã thay đổi. Vui lòng đăng nhập lại."
+    "msg_ip_changed": "Phiên đã bị đóng vì địa chỉ IP của bạn đã thay đổi. Vui lòng đăng nhập lại.",
+    "email_help": "Địa chỉ tài khoản quản trị hoặc hộp thư của bạn. Panel thử đăng nhập quản trị trước, rồi đến đăng nhập hộp thư.",
+    "password_help": "Mật khẩu của tài khoản đó. Một hộp thư chỉ vào được các trang tự phục vụ."
   },
   "misc": {
     "error": "Lỗi",
@@ -171,7 +173,8 @@
     "mail_subject_subscribe": "Xác nhận đăng ký :list",
     "mail_subject_unsubscribe": "Xác nhận hủy đăng ký :list",
     "mail_body_subscribe": "Ai đó, có thể là bạn, đã yêu cầu đăng ký :email vào danh sách thư :list.\n\nĐể xác nhận, hãy mở liên kết này và nhấn nút xác nhận:\n:link\n\nLiên kết hết hạn sau :hours giờ. Nếu bạn không yêu cầu, hãy bỏ qua thư này.",
-    "mail_body_unsubscribe": "Ai đó, có thể là bạn, đã yêu cầu hủy đăng ký :email khỏi danh sách thư :list.\n\nĐể xác nhận, hãy mở liên kết này và nhấn nút xác nhận:\n:link\n\nLiên kết hết hạn sau :hours giờ. Nếu bạn không yêu cầu, hãy bỏ qua thư này."
+    "mail_body_unsubscribe": "Ai đó, có thể là bạn, đã yêu cầu hủy đăng ký :email khỏi danh sách thư :list.\n\nĐể xác nhận, hãy mở liên kết này và nhấn nút xác nhận:\n:link\n\nLiên kết hết hạn sau :hours giờ. Nếu bạn không yêu cầu, hãy bỏ qua thư này.",
+    "email_address_help": "Địa chỉ nhận mail xác nhận. Chưa có gì thay đổi cho tới khi bạn trả lời mail đó."
   },
   "pagination": {
     "previous": "Trước",
@@ -976,7 +979,8 @@
     "delete_selected": "Xóa mục đã chọn",
     "delete_selected_confirm": "Xóa các mục nhật ký đã chọn?",
     "delete_all": "Xóa tất cả",
-    "delete_all_confirm": "Xóa TẤT CẢ mục nhật ký? Hành động này không thể hoàn tác."
+    "delete_all_confirm": "Xóa TẤT CẢ mục nhật ký? Hành động này không thể hoàn tác.",
+    "event_help": "Loại thao tác mà dòng này ghi lại. Để trống thì hiển thị mọi loại."
   },
   "lastlogin": {
     "title": "Theo dõi đăng nhập gần nhất",

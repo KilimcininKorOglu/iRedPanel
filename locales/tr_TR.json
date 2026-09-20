@@ -137,7 +137,9 @@
     "failed_attempts": "Başarısız giriş denemesi: :count",
     "invalid_credentials": "Geçersiz kimlik bilgileri!",
     "msg_session_expired": "Oturumunuzun süresi doldu. Lütfen yeniden giriş yapın.",
-    "msg_ip_changed": "IP adresiniz değiştiği için oturum kapatıldı. Lütfen yeniden giriş yapın."
+    "msg_ip_changed": "IP adresiniz değiştiği için oturum kapatıldı. Lütfen yeniden giriş yapın.",
+    "email_help": "Admin hesabınızın ya da mailbox'ınızın adresi. Panel önce admin girişini, sonra mailbox girişini dener.",
+    "password_help": "O hesabın parolası. Bir mailbox yalnızca self-service sayfalarına ulaşır."
   },
   "misc": {
     "error": "Hata",
@@ -171,7 +173,8 @@
     "mail_subject_subscribe": ":list aboneliğinizi onaylayın",
     "mail_subject_unsubscribe": ":list abonelik iptalinizi onaylayın",
     "mail_body_subscribe": "Birisi, büyük olasılıkla siz, :email adresinin :list e-posta listesine abone edilmesini istedi.\n\nOnaylamak için bu bağlantıyı açın ve onay butonuna tıklayın:\n:link\n\nBağlantının süresi :hours saat sonra dolar. Bu isteği siz yapmadıysanız bu mesajı dikkate almayın.",
-    "mail_body_unsubscribe": "Birisi, büyük olasılıkla siz, :email adresinin :list e-posta listesinden çıkarılmasını istedi.\n\nOnaylamak için bu bağlantıyı açın ve onay butonuna tıklayın:\n:link\n\nBağlantının süresi :hours saat sonra dolar. Bu isteği siz yapmadıysanız bu mesajı dikkate almayın."
+    "mail_body_unsubscribe": "Birisi, büyük olasılıkla siz, :email adresinin :list e-posta listesinden çıkarılmasını istedi.\n\nOnaylamak için bu bağlantıyı açın ve onay butonuna tıklayın:\n:link\n\nBağlantının süresi :hours saat sonra dolar. Bu isteği siz yapmadıysanız bu mesajı dikkate almayın.",
+    "email_address_help": "Onay mailinin gideceği adres. Siz o maili yanıtlayana kadar hiçbir şey değişmez."
   },
   "pagination": {
     "previous": "Önceki",
@@ -976,7 +979,8 @@
     "delete_selected": "Seçilenleri sil",
     "delete_selected_confirm": "Seçili günlük kayıtları silinsin mi?",
     "delete_all": "Tümünü sil",
-    "delete_all_confirm": "TÜM günlük kayıtları silinsin mi? Bu işlem geri alınamaz."
+    "delete_all_confirm": "TÜM günlük kayıtları silinsin mi? Bu işlem geri alınamaz.",
+    "event_help": "Satırın kaydettiği işlem türü. Boş bırakılırsa her tür gösterilir."
   },
   "lastlogin": {
     "title": "Son Giriş Takibi",

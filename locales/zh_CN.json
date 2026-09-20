@@ -137,7 +137,9 @@
     "failed_attempts": "登录失败次数：:count",
     "invalid_credentials": "凭据无效！",
     "msg_session_expired": "会话已过期，请重新登录。",
-    "msg_ip_changed": "您的 IP 地址已变化，会话已关闭。请重新登录。"
+    "msg_ip_changed": "您的 IP 地址已变化，会话已关闭。请重新登录。",
+    "email_help": "你的管理员账户或邮箱的地址。面板先尝试管理员登录，然后尝试邮箱登录。",
+    "password_help": "该账户的密码。邮箱只能进入自助服务页面。"
   },
   "misc": {
     "error": "错误",
@@ -171,7 +173,8 @@
     "mail_subject_subscribe": "请确认订阅 :list",
     "mail_subject_unsubscribe": "请确认退订 :list",
     "mail_body_subscribe": "有人（可能是您）请求将 :email 订阅到邮件列表 :list。\n\n如需确认，请打开此链接并点击确认按钮：\n:link\n\n链接将在 :hours 小时后过期。如果这不是您的请求，请忽略此邮件。",
-    "mail_body_unsubscribe": "有人（可能是您）请求将 :email 从邮件列表 :list 退订。\n\n如需确认，请打开此链接并点击确认按钮：\n:link\n\n链接将在 :hours 小时后过期。如果这不是您的请求，请忽略此邮件。"
+    "mail_body_unsubscribe": "有人（可能是您）请求将 :email 从邮件列表 :list 退订。\n\n如需确认，请打开此链接并点击确认按钮：\n:link\n\n链接将在 :hours 小时后过期。如果这不是您的请求，请忽略此邮件。",
+    "email_address_help": "确认邮件发往的地址。在你回复那封邮件之前，什么都不会改变。"
   },
   "pagination": {
     "previous": "上一页",
@@ -976,7 +979,8 @@
     "delete_selected": "删除所选",
     "delete_selected_confirm": "删除所选日志条目？",
     "delete_all": "删除全部",
-    "delete_all_confirm": "删除所有日志条目？此操作无法撤销。"
+    "delete_all_confirm": "删除所有日志条目？此操作无法撤销。",
+    "event_help": "该行记录的操作类型。留空则显示所有类型。"
   },
   "lastlogin": {
     "title": "最后登录跟踪",

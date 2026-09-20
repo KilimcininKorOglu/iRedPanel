@@ -137,7 +137,9 @@
     "failed_attempts": "Misheppnaðar innskráningartilraunir: :count",
     "invalid_credentials": "Ógild auðkenni!",
     "msg_session_expired": "Lotan þín er útrunnin. Skráðu þig inn aftur.",
-    "msg_ip_changed": "Lotunni var lokað því IP-talan þín breyttist. Skráðu þig inn aftur."
+    "msg_ip_changed": "Lotunni var lokað því IP-talan þín breyttist. Skráðu þig inn aftur.",
+    "email_help": "Netfang stjórnandaaðgangs þíns eða pósthólfsins þíns. Spjaldið reynir fyrst innskráningu stjórnanda, svo pósthólfsins.",
+    "password_help": "Lykilorð þess aðgangs. Pósthólf kemst aðeins á sjálfsafgreiðslusíðurnar."
   },
   "misc": {
     "error": "Villa",
@@ -171,7 +173,8 @@
     "mail_subject_subscribe": "Staðfestu áskrift að :list",
     "mail_subject_unsubscribe": "Staðfestu uppsögn áskriftar að :list",
     "mail_body_subscribe": "Einhver, líklega þú, bað um að skrá :email á póstlistann :list.\n\nTil að staðfesta skaltu opna þennan tengil og smella á staðfestingarhnappinn:\n:link\n\nTengillinn rennur út eftir :hours klst. Ef þú baðst ekki um þetta skaltu hunsa þessi skilaboð.",
-    "mail_body_unsubscribe": "Einhver, líklega þú, bað um að afskrá :email af póstlistanum :list.\n\nTil að staðfesta skaltu opna þennan tengil og smella á staðfestingarhnappinn:\n:link\n\nTengillinn rennur út eftir :hours klst. Ef þú baðst ekki um þetta skaltu hunsa þessi skilaboð."
+    "mail_body_unsubscribe": "Einhver, líklega þú, bað um að afskrá :email af póstlistanum :list.\n\nTil að staðfesta skaltu opna þennan tengil og smella á staðfestingarhnappinn:\n:link\n\nTengillinn rennur út eftir :hours klst. Ef þú baðst ekki um þetta skaltu hunsa þessi skilaboð.",
+    "email_address_help": "Netfangið sem staðfestingarpósturinn fer á. Ekkert breytist fyrr en þú svarar þeim pósti."
   },
   "pagination": {
     "previous": "Fyrri",
@@ -976,7 +979,8 @@
     "delete_selected": "Eyða völdu",
     "delete_selected_confirm": "Eyða völdum annálafærslum?",
     "delete_all": "Eyða öllu",
-    "delete_all_confirm": "Eyða ÖLLUM annálafærslum? Þetta er ekki hægt að afturkalla."
+    "delete_all_confirm": "Eyða ÖLLUM annálafærslum? Þetta er ekki hægt að afturkalla.",
+    "event_help": "Tegund aðgerðar sem línan skráir. Autt sýnir hverja tegund."
   },
   "lastlogin": {
     "title": "Rakning síðustu innskráningar",

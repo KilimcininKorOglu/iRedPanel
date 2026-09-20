@@ -137,7 +137,9 @@
     "failed_attempts": "Failed login attempts: :count",
     "invalid_credentials": "Invalid credentials!",
     "msg_session_expired": "Your session expired. Please sign in again.",
-    "msg_ip_changed": "Your IP address changed, so the session was closed. Please sign in again."
+    "msg_ip_changed": "Your IP address changed, so the session was closed. Please sign in again.",
+    "email_help": "The address of your admin account or of your mailbox. The panel tries the admin login first, then the mailbox login.",
+    "password_help": "The password of that account. A mailbox reaches only the self-service pages."
   },
   "misc": {
     "error": "Error",
@@ -171,7 +173,8 @@
     "mail_subject_subscribe": "Confirm your subscription to :list",
     "mail_subject_unsubscribe": "Confirm your unsubscription from :list",
     "mail_body_subscribe": "Someone, probably you, asked to subscribe :email to the mailing list :list.\n\nTo confirm, open this link and click the confirm button:\n:link\n\nThe link expires in :hours hours. If you did not ask for this, ignore this message.",
-    "mail_body_unsubscribe": "Someone, probably you, asked to unsubscribe :email from the mailing list :list.\n\nTo confirm, open this link and click the confirm button:\n:link\n\nThe link expires in :hours hours. If you did not ask for this, ignore this message."
+    "mail_body_unsubscribe": "Someone, probably you, asked to unsubscribe :email from the mailing list :list.\n\nTo confirm, open this link and click the confirm button:\n:link\n\nThe link expires in :hours hours. If you did not ask for this, ignore this message.",
+    "email_address_help": "The address that the confirmation mail goes to. Nothing changes until you answer that mail."
   },
   "pagination": {
     "previous": "Previous",
@@ -976,7 +979,8 @@
     "delete_selected": "Delete selected",
     "delete_selected_confirm": "Delete selected log entries?",
     "delete_all": "Delete all",
-    "delete_all_confirm": "Delete ALL log entries? This cannot be undone."
+    "delete_all_confirm": "Delete ALL log entries? This cannot be undone.",
+    "event_help": "The kind of action that the row records. Empty shows every kind."
   },
   "lastlogin": {
     "title": "Last Login Tracking",

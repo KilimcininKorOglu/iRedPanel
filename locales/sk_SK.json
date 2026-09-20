@@ -137,7 +137,9 @@
     "failed_attempts": "Neúspešné pokusy o prihlásenie: :count",
     "invalid_credentials": "Neplatné prihlasovacie údaje!",
     "msg_session_expired": "Vaša relácia vypršala. Prihláste sa znova.",
-    "msg_ip_changed": "Relácia bola ukončená, pretože sa zmenila vaša IP adresa. Prihláste sa znova."
+    "msg_ip_changed": "Relácia bola ukončená, pretože sa zmenila vaša IP adresa. Prihláste sa znova.",
+    "email_help": "Adresa vášho admin účtu alebo vašej schránky. Panel skúsi najprv prihlásenie admina, potom prihlásenie schránky.",
+    "password_help": "Heslo toho účtu. Schránka sa dostane len na stránky samoobsluhy."
   },
   "misc": {
     "error": "Chyba",
@@ -171,7 +173,8 @@
     "mail_subject_subscribe": "Potvrďte odber :list",
     "mail_subject_unsubscribe": "Potvrďte zrušenie odberu :list",
     "mail_body_subscribe": "Niekto, pravdepodobne vy, požiadal o prihlásenie :email do e-mailovej konferencie :list.\n\nNa potvrdenie otvorte tento odkaz a kliknite na potvrdzovacie tlačidlo:\n:link\n\nOdkaz vyprší o :hours h. Ak ste o to nežiadali, túto správu ignorujte.",
-    "mail_body_unsubscribe": "Niekto, pravdepodobne vy, požiadal o odhlásenie :email z e-mailovej konferencie :list.\n\nNa potvrdenie otvorte tento odkaz a kliknite na potvrdzovacie tlačidlo:\n:link\n\nOdkaz vyprší o :hours h. Ak ste o to nežiadali, túto správu ignorujte."
+    "mail_body_unsubscribe": "Niekto, pravdepodobne vy, požiadal o odhlásenie :email z e-mailovej konferencie :list.\n\nNa potvrdenie otvorte tento odkaz a kliknite na potvrdzovacie tlačidlo:\n:link\n\nOdkaz vyprší o :hours h. Ak ste o to nežiadali, túto správu ignorujte.",
+    "email_address_help": "Adresa, na ktorú ide potvrdzovací mail. Nič sa nezmení, kým na ten mail neodpoviete."
   },
   "pagination": {
     "previous": "Predchádzajúce",
@@ -976,7 +979,8 @@
     "delete_selected": "Odstrániť vybrané",
     "delete_selected_confirm": "Odstrániť vybrané položky záznamu?",
     "delete_all": "Odstrániť všetko",
-    "delete_all_confirm": "Odstrániť VŠETKY položky záznamu? Toto nemožno vrátiť späť."
+    "delete_all_confirm": "Odstrániť VŠETKY položky záznamu? Toto nemožno vrátiť späť.",
+    "event_help": "Druh akcie, ktorý riadok zaznamenáva. Prázdne ukáže každý druh."
   },
   "lastlogin": {
     "title": "Sledovanie posledného prihlásenia",

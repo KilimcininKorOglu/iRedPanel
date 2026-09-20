@@ -137,7 +137,9 @@
     "failed_attempts": "Epäonnistuneet kirjautumisyritykset: :count",
     "invalid_credentials": "Virheelliset tunnistetiedot!",
     "msg_session_expired": "Istuntosi vanheni. Kirjaudu uudelleen.",
-    "msg_ip_changed": "Istunto suljettiin, koska IP-osoitteesi muuttui. Kirjaudu uudelleen."
+    "msg_ip_changed": "Istunto suljettiin, koska IP-osoitteesi muuttui. Kirjaudu uudelleen.",
+    "email_help": "Ylläpitäjätilisi tai postilaatikkosi osoite. Paneeli kokeilee ensin ylläpitäjän kirjautumista ja sitten postilaatikon kirjautumista.",
+    "password_help": "Kyseisen tilin salasana. Postilaatikko pääsee vain itsepalvelusivuille."
   },
   "misc": {
     "error": "Virhe",
@@ -171,7 +173,8 @@
     "mail_subject_subscribe": "Vahvista listan :list tilaus",
     "mail_subject_unsubscribe": "Vahvista listan :list tilauksen peruminen",
     "mail_body_subscribe": "Joku, luultavasti sinä, pyysi osoitteen :email liittämistä postituslistalle :list.\n\nVahvista avaamalla tämä linkki ja napsauttamalla vahvistuspainiketta:\n:link\n\nLinkki vanhenee :hours tunnin kuluttua. Jos et pyytänyt tätä, jätä viesti huomiotta.",
-    "mail_body_unsubscribe": "Joku, luultavasti sinä, pyysi osoitteen :email poistamista postituslistalta :list.\n\nVahvista avaamalla tämä linkki ja napsauttamalla vahvistuspainiketta:\n:link\n\nLinkki vanhenee :hours tunnin kuluttua. Jos et pyytänyt tätä, jätä viesti huomiotta."
+    "mail_body_unsubscribe": "Joku, luultavasti sinä, pyysi osoitteen :email poistamista postituslistalta :list.\n\nVahvista avaamalla tämä linkki ja napsauttamalla vahvistuspainiketta:\n:link\n\nLinkki vanhenee :hours tunnin kuluttua. Jos et pyytänyt tätä, jätä viesti huomiotta.",
+    "email_address_help": "Osoite, johon vahvistusmaili menee. Mikään ei muutu, ennen kuin vastaat siihen mailiin."
   },
   "pagination": {
     "previous": "Edellinen",
@@ -976,7 +979,8 @@
     "delete_selected": "Poista valitut",
     "delete_selected_confirm": "Poistetaanko valitut lokimerkinnät?",
     "delete_all": "Poista kaikki",
-    "delete_all_confirm": "Poistetaanko KAIKKI lokimerkinnät? Tätä ei voi kumota."
+    "delete_all_confirm": "Poistetaanko KAIKKI lokimerkinnät? Tätä ei voi kumota.",
+    "event_help": "Toiminnon laji, jonka rivi kirjaa. Tyhjä näyttää jokaisen lajin."
   },
   "lastlogin": {
     "title": "Viimeisen kirjautumisen seuranta",

@@ -14,11 +14,11 @@ $eventBadge = static fn (array $log): string => $tone('log_event', ($log['loglev
 <form method="get" class="card">
   <div class="card-body row g-3 align-items-end">
     <div class="col-md-4">
-      <label for="domain" class="form-label"><?= $te('common.domain') ?></label>
+      <label for="domain" class="form-label"><?= $te('common.domain') ?></label><?= $help('common.domain') ?>
       <input id="domain" type="text" name="domain" class="form-control" placeholder="example.com" value="<?= $e($filterDomain ?? '') ?>" />
     </div>
     <div class="col-md-4">
-      <label for="event" class="form-label"><?= $te('log.event') ?></label>
+      <label for="event" class="form-label"><?= $te('log.event') ?></label><?= $help('log.event') ?>
       <select id="event" name="event" class="form-select">
         <option value=""><?= $te('log.all_events') ?></option>
         <?php foreach (['login', 'create', 'update', 'delete', 'active', 'disable'] as $evt): ?>
